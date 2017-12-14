@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using UnityEngine;
+
 namespace ScottDoxey {
 
     public static class LineRenderer {
