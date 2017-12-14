@@ -4,7 +4,7 @@
 
 ### ParentBounds
 
-``csharp
+```csharp
 Debug.Log(ScottDoxey.Calculation.ParentBounds(parentGameObject).center);
 ```
 
