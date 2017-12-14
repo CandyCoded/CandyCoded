@@ -21,7 +21,7 @@ lineRenderer.positionCount = linePositions.Length;
 lineRenderer.SetPositions(linePositions);
 ```
 
-![](https://media.giphy.com/media/xUOxeRFdNUuntIuxva/giphy.gif)
+![](https://media.giphy.com/media/3ohs7KwdbkkXu5LLe8/giphy.gif)
 
 ## Singleton
 
