@@ -16,12 +16,18 @@ namespace ScottDoxey {
 
                 GameObject child = parentGameObject.transform.GetChild(i).gameObject;
 
-                Bounds childBounds = child.GetComponentInChildren<Renderer>().bounds;
+                Renderer renderer = child.GetComponentInChildren<Renderer>();
 
-                min = Vector3.Min(min, childBounds.min);
-                max = Vector3.Max(max, childBounds.max);
+                if (renderer) {
 
-                center = max - min;
+                    Bounds childBounds = renderer.bounds;
+
+                    min = Vector3.Min(min, childBounds.min);
+                    max = Vector3.Max(max, childBounds.max);
+
+                    center = max - min;
+
+                }
 
             }
 
