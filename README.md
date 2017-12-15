@@ -17,6 +17,8 @@ void OnDrawGizmosSelected() {
 }
 ```
 
+![](https://i.imgur.com/yX5f6rk.png)
+
 ## CameraFollow2D
 
 ## Gizmo
