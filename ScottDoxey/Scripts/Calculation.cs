@@ -7,11 +7,10 @@ namespace ScottDoxey {
         public static Bounds ParentBounds(GameObject parentGameObject) {
 
             Vector3 center = Vector3.zero;
-            Vector3 size = Vector3.zero;
             Vector3 min = Vector3.zero;
             Vector3 max = Vector3.zero;
 
-            Bounds bounds = new Bounds(center, size);
+            Bounds bounds = new Bounds(center, Vector3.zero);
 
             for (int i = 0; i < parentGameObject.transform.childCount; i++) {
 

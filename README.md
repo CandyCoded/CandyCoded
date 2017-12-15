@@ -5,7 +5,16 @@
 ### ParentBounds
 
 ```csharp
-Debug.Log(ScottDoxey.Calculation.ParentBounds(parentGameObject).center);
+void OnDrawGizmosSelected() {
+
+    Bounds bounds = ScottDoxey.Calculation.ParentBounds(gameObject);
+
+    Gizmos.DrawWireSphere(bounds.center, 1f);
+    Gizmos.DrawWireSphere(bounds.min, 1f);
+    Gizmos.DrawWireSphere(bounds.max, 1f);
+    Gizmos.DrawCube(bounds.center, bounds.size);
+
+}
 ```
 
 ## CameraFollow2D
