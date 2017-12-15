@@ -42,7 +42,8 @@ lineRenderer.positionCount = linePositions.Length;
 lineRenderer.SetPositions(linePositions);
 ```
 
-![](https://media.giphy.com/media/3ohs7KwdbkkXu5LLe8/giphy.gif)
+![](https://media.giphy.com/media/l3mZp4n2EdtFggeDS/giphy.gif)
+![](https://media.giphy.com/media/3ohs7MYwAjHtvGkqrK/giphy.gif)
 
 ## ScreenShake
 
