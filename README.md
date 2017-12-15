@@ -12,7 +12,7 @@ void OnDrawGizmosSelected() {
     Gizmos.DrawWireSphere(bounds.center, 1f);
     Gizmos.DrawWireSphere(bounds.min, 1f);
     Gizmos.DrawWireSphere(bounds.max, 1f);
-    Gizmos.DrawCube(bounds.center, bounds.size);
+    Gizmos.DrawWireCube(bounds.center, bounds.size);
 
 }
 ```
