@@ -2,14 +2,13 @@
 
 ## Calculation
 
-
-## CameraFollow2D
-
 ### ParentBounds
 
 ```csharp
 Debug.Log(ScottDoxey.Calculation.ParentBounds(parentGameObject).center);
 ```
+
+## CameraFollow2D
 
 ## Gizmo
 
