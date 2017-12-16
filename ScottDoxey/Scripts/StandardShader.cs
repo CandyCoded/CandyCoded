@@ -13,7 +13,7 @@ namespace ScottDoxey {
             Transparent
         }
 
-        public static void SetupMaterialWithBlendMode(Material material, StandardShader.BlendMode blendMode) {
+        public static void SetupMaterialWithBlendMode(Material material, ScottDoxey.StandardShader.BlendMode blendMode) {
 
             switch (blendMode) {
 
