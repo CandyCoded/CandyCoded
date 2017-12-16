@@ -12,22 +12,16 @@ namespace ScottDoxey {
 
             Bounds bounds = new Bounds(center, Vector3.zero);
 
-            for (int i = 0; i < parentGameObject.transform.childCount; i++) {
+            Renderer[] renderers = parentGameObject.GetComponentsInChildren<Renderer>();
 
-                GameObject child = parentGameObject.transform.GetChild(i).gameObject;
+            foreach (Renderer renderer in renderers) {
 
-                Renderer renderer = child.GetComponentInChildren<Renderer>();
+                Bounds childBounds = renderer.bounds;
 
-                if (renderer) {
+                min = Vector3.Min(min, childBounds.min);
+                max = Vector3.Max(max, childBounds.max);
 
-                    Bounds childBounds = renderer.bounds;
-
-                    min = Vector3.Min(min, childBounds.min);
-                    max = Vector3.Max(max, childBounds.max);
-
-                    center = max - min;
-
-                }
+                center = max - min;
 
             }
 
