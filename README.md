@@ -1,5 +1,29 @@
 # UnityUtilities
 
+## Animate
+
+## FadeIn
+
+```csharp
+ScottDoxey.Animate.FadeIn(gameObject, Time.time);
+```
+
+```csharp
+AnimationCurve animationCurveFadeIn = AnimationCurve.Linear(0, 0, 1, 1);
+ScottDoxey.Animate.FadeIn(gameObject, Time.time, animationCurveFadeIn);
+```
+
+## FadeOut
+
+```csharp
+ScottDoxey.Animate.FadeOut(gameObject, Time.time);
+```
+
+```csharp
+AnimationCurve animationCurveFadeOut = AnimationCurve.Linear(0, 1, 1, 0);
+ScottDoxey.Animate.FadeOut(gameObject, Time.time, animationCurveFadeOut);
+```
+
 ## Calculation
 
 ### ParentBounds
