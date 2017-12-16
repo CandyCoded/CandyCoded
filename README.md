@@ -56,3 +56,9 @@ public class InputController : ScottDoxey.Singleton {
 
 }
 ```
+
+## StandardShader
+
+```csharp
+ScottDoxey.StandardShader.SetupMaterialWithBlendMode(material, ScottDoxey.StandardShader.BlendMode.Fade);
+```
