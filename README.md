@@ -45,6 +45,21 @@ lineRenderer.SetPositions(linePositions);
 ![](https://media.giphy.com/media/l3mZp4n2EdtFggeDS/giphy.gif)
 ![](https://media.giphy.com/media/3ohs7MYwAjHtvGkqrK/giphy.gif)
 
+## Materials
+
+### GetMaterialsInChildren
+
+```csharp
+Material[] materials = ScottDoxey.Materials.GetMaterialsInChildren(gameObject);
+```
+
+### SetMaterialsToFade
+
+```csharp
+ScottDoxey.Materials.SetMaterialsToBlendMode(materials, ScottDoxey.StandardShader.BlendMode.Opaque);
+ScottDoxey.Materials.SetMaterialsToBlendMode(materials, ScottDoxey.StandardShader.BlendMode.Fade);
+```
+
 ## ScreenShake
 
 ## SelfDestructParticleSystem
