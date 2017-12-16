@@ -6,9 +6,9 @@ namespace ScottDoxey {
 
         public Transform target;
 
-        private Camera mainCamera;
+        public float dampRate = 0.3f;
 
-        private readonly float dampRate = 0.3f;
+        private Camera mainCamera;
 
         private Vector3 velocity = Vector3.zero;
 
