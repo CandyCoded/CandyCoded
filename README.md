@@ -53,6 +53,12 @@ lineRenderer.SetPositions(linePositions);
 Material[] materials = ScottDoxey.Materials.GetMaterialsInChildren(gameObject);
 ```
 
+### SetAlphaColor
+
+```csharp
+Debug.Log(ScottDoxey.Materials.SetColorAlpha(material.color, 0.5f));
+```
+
 ### SetMaterialsToFade
 
 ```csharp

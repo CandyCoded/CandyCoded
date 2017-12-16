@@ -35,6 +35,14 @@ namespace ScottDoxey {
 
         }
 
+        public static Color SetColorAlpha(Color color, float alpha = 1) {
+
+            color.a = alpha;
+
+            return color;
+
+        }
+
     }
 
 }
