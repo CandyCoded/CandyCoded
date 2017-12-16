@@ -4,8 +4,6 @@ namespace ScottDoxey {
 
     public class ScreenShake : MonoBehaviour {
 
-        private Vector3 originalPosition;
-
         private float currentIntensity = 0;
         private float currentDuraton = 0;
 
@@ -17,21 +15,19 @@ namespace ScottDoxey {
 
             gameObject.transform.parent = wrapperObject.transform;
 
-            originalPosition = gameObject.transform.position;
-
         }
 
         void Update() {
 
             if (currentDuraton > 0) {
 
-                wrapperObject.transform.position = originalPosition + Random.insideUnitSphere * currentIntensity;
+                wrapperObject.transform.position = Random.insideUnitSphere * currentIntensity;
 
                 currentDuraton = Mathf.Max(currentDuraton - Time.deltaTime, 0);
 
             } else {
 
-                wrapperObject.transform.position = originalPosition;
+                wrapperObject.transform.position = Vector3.zero;
 
             }
 
