@@ -16,9 +16,11 @@ namespace ScottDoxey {
 
             ScottDoxey.Materials.SetMaterialsToBlendMode(materials, ScottDoxey.StandardShader.BlendMode.Fade);
 
+            float globalAlpha = animationCurve.Evaluate(currentTime);
+
             foreach (Material material in materials) {
 
-                material.color = ScottDoxey.Materials.SetColorAlpha(material.color, animationCurve.Evaluate(currentTime));
+                material.color = ScottDoxey.Materials.SetColorAlpha(material.color, globalAlpha);
 
             }
 
@@ -36,9 +38,11 @@ namespace ScottDoxey {
 
             ScottDoxey.Materials.SetMaterialsToBlendMode(materials, ScottDoxey.StandardShader.BlendMode.Fade);
 
+            float globalAlpha = animationCurve.Evaluate(currentTime);
+
             foreach (Material material in materials) {
 
-                material.color = ScottDoxey.Materials.SetColorAlpha(material.color, animationCurve.Evaluate(currentTime));
+                material.color = ScottDoxey.Materials.SetColorAlpha(material.color, globalAlpha);
 
             }
 
