@@ -11,7 +11,7 @@ namespace ScottDoxey {
 
         void Awake() {
 
-            wrapperObject = new GameObject("ScreenShakeCameraWrapper");
+            wrapperObject = new GameObject("ScreenShakeWrapper");
 
             gameObject.transform.parent = wrapperObject.transform;
 
