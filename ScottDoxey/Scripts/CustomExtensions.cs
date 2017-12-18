@@ -14,4 +14,12 @@ public static class CustomExtensions {
 
     }
 
+    public static void LookAt2D(this Transform transform, Transform target) {
+
+        Vector2 angle = target.position - transform.position;
+
+        transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(angle.y, angle.x) * Mathf.Rad2Deg, Vector3.forward);
+
+    }
+
 }
