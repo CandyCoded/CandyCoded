@@ -4,13 +4,7 @@ namespace ScottDoxey {
 
     public static class Animate {
 
-        public static void FadeIn(GameObject gameObject, float currentTime, AnimationCurve animationCurve = null) {
-
-            if (animationCurve == null) {
-
-                animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
-
-            }
+        public static void FadeCustom(GameObject gameObject, float currentTime, AnimationCurve animationCurve) {
 
             Material[] materials = ScottDoxey.Materials.GetMaterialsInChildren(gameObject);
 
@@ -26,25 +20,15 @@ namespace ScottDoxey {
 
         }
 
-        public static void FadeOut(GameObject gameObject, float currentTime, AnimationCurve animationCurve = null) {
+        public static void FadeIn(GameObject gameObject, float currentTime) {
 
-            if (animationCurve == null) {
+            FadeCustom(gameObject, currentTime, AnimationCurve.Linear(0, 0, 1, 1));
 
-                animationCurve = AnimationCurve.Linear(0, 1, 1, 0);
+        }
 
-            }
+        public static void FadeOut(GameObject gameObject, float currentTime) {
 
-            Material[] materials = ScottDoxey.Materials.GetMaterialsInChildren(gameObject);
-
-            ScottDoxey.Materials.SetMaterialsToBlendMode(materials, ScottDoxey.StandardShader.BlendMode.Fade);
-
-            float globalAlpha = animationCurve.Evaluate(currentTime);
-
-            foreach (Material material in materials) {
-
-                material.color = ScottDoxey.Materials.SetColorAlpha(material.color, globalAlpha);
-
-            }
+            FadeCustom(gameObject, currentTime, AnimationCurve.Linear(0, 1, 1, 0));
 
         }
 

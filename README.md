@@ -10,7 +10,7 @@ ScottDoxey.Animate.FadeIn(gameObject, Time.time);
 
 ```csharp
 AnimationCurve animationCurveFadeIn = AnimationCurve.Linear(0, 0, 1, 1);
-ScottDoxey.Animate.FadeIn(gameObject, Time.time, animationCurveFadeIn);
+ScottDoxey.Animate.FadeCustom(gameObject, Time.time, animationCurveFadeIn);
 ```
 
 ## FadeOut
