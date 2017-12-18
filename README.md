@@ -21,7 +21,7 @@ ScottDoxey.Animate.FadeOut(gameObject, Time.time);
 
 ```csharp
 AnimationCurve animationCurveFadeOut = AnimationCurve.Linear(0, 1, 1, 0);
-ScottDoxey.Animate.FadeOut(gameObject, Time.time, animationCurveFadeOut);
+ScottDoxey.Animate.FadeCustom(gameObject, Time.time, animationCurveFadeOut);
 ```
 
 ## Calculation
