@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ScottDoxey {
 
-    public class CameraFollow2D : MonoBehaviour {
+    public class CameraFollow : MonoBehaviour {
 
         public Transform target;
 
