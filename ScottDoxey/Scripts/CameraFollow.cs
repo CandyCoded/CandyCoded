@@ -15,6 +15,8 @@ namespace ScottDoxey {
 
     public class CameraFollow : MonoBehaviour {
 
+        public bool tracking = true;
+
         public Transform mainTarget;
 
         public float dampRate = 0.3f;
@@ -47,7 +49,7 @@ namespace ScottDoxey {
 
         void Update() {
 
-            if (mainTarget) {
+            if (tracking && mainTarget) {
 
                 Vector3 newPosition = mainTarget.transform.position;
 
