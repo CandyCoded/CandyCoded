@@ -53,13 +53,13 @@ namespace ScottDoxey {
 
                 Vector3 newPosition = mainTarget.transform.position;
 
-                if (constraints.FreezePositionX) newPosition.x = cameraTransform.position.x;
-                if (constraints.FreezePositionY) newPosition.y = cameraTransform.position.y;
-                if (constraints.FreezePositionZ) newPosition.z = cameraTransform.position.z;
-
                 if (constraints.MaintainOffsetX) newPosition.x += cameraOffset.x;
                 if (constraints.MaintainOffsetY) newPosition.y += cameraOffset.y;
                 if (constraints.MaintainOffsetZ) newPosition.z += cameraOffset.z;
+
+                if (constraints.FreezePositionX) newPosition.x = cameraTransform.position.x;
+                if (constraints.FreezePositionY) newPosition.y = cameraTransform.position.y;
+                if (constraints.FreezePositionZ) newPosition.z = cameraTransform.position.z;
 
                 cameraTransform.position = Vector3.SmoothDamp(
                     cameraTransform.position,
