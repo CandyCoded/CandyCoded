@@ -47,7 +47,7 @@ namespace ScottDoxey {
 
         }
 
-        void Update() {
+        void LateUpdate() {
 
             if (tracking && mainTarget) {
 
