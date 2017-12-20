@@ -23,7 +23,7 @@ namespace ScottDoxey {
 
         private Transform cameraTransform;
 
-        private Vector3 cameraOffset;
+        private Vector3 cameraOffset = Vector3.zero;
 
         private Vector3 velocity = Vector3.zero;
 
