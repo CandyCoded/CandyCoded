@@ -25,7 +25,7 @@ namespace ScottDoxey {
 
         private Transform cameraTransform;
 
-        private Vector3 cameraOffset = Vector3.zero;
+        private Vector3 cameraPositionOffset = Vector3.zero;
 
         private Vector3 velocity = Vector3.zero;
 
@@ -39,7 +39,7 @@ namespace ScottDoxey {
 
             }
 
-            cameraOffset = new Vector3(
+            cameraPositionOffset = new Vector3(
                 cameraTransform.position.x - mainTarget.transform.position.x,
                 cameraTransform.position.y - mainTarget.transform.position.y,
                 cameraTransform.position.z - mainTarget.transform.position.z
@@ -53,9 +53,9 @@ namespace ScottDoxey {
 
                 Vector3 newPosition = mainTarget.transform.position;
 
-                if (constraints.MaintainOffsetX) newPosition.x += cameraOffset.x;
-                if (constraints.MaintainOffsetY) newPosition.y += cameraOffset.y;
-                if (constraints.MaintainOffsetZ) newPosition.z += cameraOffset.z;
+                if (constraints.MaintainOffsetX) newPosition.x += cameraPositionOffset.x;
+                if (constraints.MaintainOffsetY) newPosition.y += cameraPositionOffset.y;
+                if (constraints.MaintainOffsetZ) newPosition.z += cameraPositionOffset.z;
 
                 if (constraints.FreezePositionX) newPosition.x = cameraTransform.position.x;
                 if (constraints.FreezePositionY) newPosition.y = cameraTransform.position.y;
