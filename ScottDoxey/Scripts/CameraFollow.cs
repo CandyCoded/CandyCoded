@@ -18,18 +18,25 @@ namespace ScottDoxey {
         public bool tracking = true;
 
         public Transform mainTarget;
+        public Transform secondaryTarget;
 
         public float dampRate = 0.3f;
+        public float rotateSpeed = 5f;
 
         public CameraConstraints constraints;
 
         private Transform cameraTransform;
 
         private Vector3 cameraPositionOffset = Vector3.zero;
+        private Quaternion cameraRotationOffset = Quaternion.identity;
 
         private Vector3 velocity = Vector3.zero;
 
+        private Transform tempCamera;
+
         void Awake() {
+
+            tempCamera = new GameObject("tempCamera").transform;
 
             cameraTransform = Camera.main.transform;
 
@@ -44,6 +51,11 @@ namespace ScottDoxey {
                 cameraTransform.position.y - mainTarget.transform.position.y,
                 cameraTransform.position.z - mainTarget.transform.position.z
             );
+
+            cameraRotationOffset = cameraTransform.rotation;
+
+            tempCamera.position = cameraTransform.position;
+            tempCamera.rotation = cameraTransform.rotation;
 
         }
 
@@ -61,11 +73,28 @@ namespace ScottDoxey {
                 if (constraints.FreezePositionY) newPosition.y = cameraTransform.position.y;
                 if (constraints.FreezePositionZ) newPosition.z = cameraTransform.position.z;
 
+                tempCamera.position = newPosition;
+                tempCamera.rotation = cameraRotationOffset;
+
+                if (secondaryTarget) {
+
+                    float degrees = Vector3.Angle(mainTarget.forward, secondaryTarget.transform.position - mainTarget.position) * Mathf.Sign(Vector3.Cross(mainTarget.forward, secondaryTarget.position).normalized.y);
+
+                    tempCamera.RotateAround(mainTarget.forward, Vector3.up, degrees);
+
+                }
+
                 cameraTransform.position = Vector3.SmoothDamp(
                     cameraTransform.position,
-                    newPosition,
+                    tempCamera.position,
                     ref velocity,
                     dampRate
+                );
+
+                cameraTransform.rotation = Quaternion.Lerp(
+                    cameraTransform.rotation,
+                    tempCamera.rotation,
+                    rotateSpeed * Time.deltaTime
                 );
 
             }
