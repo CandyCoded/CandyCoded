@@ -78,9 +78,11 @@ namespace ScottDoxey {
 
                 if (secondaryTarget) {
 
-                    float degrees = Vector3.Angle(mainTarget.forward, secondaryTarget.transform.position - mainTarget.position) * Mathf.Sign(Vector3.Cross(mainTarget.forward, secondaryTarget.position).normalized.y);
+                    float angle = Vector3.Angle(secondaryTarget.position - mainTarget.position, Vector3.forward);
 
-                    tempCamera.RotateAround(mainTarget.forward, Vector3.up, degrees);
+                    float sign = Mathf.Sign(Vector3.Cross(mainTarget.position - secondaryTarget.position, Vector3.forward).normalized.y);
+
+                    tempCamera.RotateAround(mainTarget.position, Vector3.up, angle * sign);
 
                 }
 
