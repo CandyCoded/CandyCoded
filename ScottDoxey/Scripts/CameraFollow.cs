@@ -2,38 +2,66 @@ using UnityEngine;
 
 namespace ScottDoxey {
 
+    [System.Serializable]
+    public class CameraConstraints {
+        public bool FreezePositionX;
+        public bool FreezePositionY;
+        public bool FreezePositionZ;
+        [Space(10)]
+        public bool MaintainOffsetX;
+        public bool MaintainOffsetY;
+        public bool MaintainOffsetZ;
+    }
+
     public class CameraFollow : MonoBehaviour {
 
-        public Transform target;
+        public Transform mainTarget;
 
         public float dampRate = 0.3f;
 
-        private Camera mainCamera;
+        public CameraConstraints constraints;
+
+        private Transform cameraTransform;
+
+        private Vector3 cameraOffset;
 
         private Vector3 velocity = Vector3.zero;
 
         void Awake() {
 
-            mainCamera = Camera.main;
+            cameraTransform = Camera.main.transform;
 
-            if (target == null) {
+            if (mainTarget == null) {
 
-                target = gameObject.transform;
+                mainTarget = gameObject.transform;
 
             }
+
+            cameraOffset = new Vector3(
+                cameraTransform.position.x - mainTarget.transform.position.x,
+                cameraTransform.position.y - mainTarget.transform.position.y,
+                cameraTransform.position.z - mainTarget.transform.position.z
+            );
 
         }
 
         void Update() {
 
-            if (target) {
+            if (mainTarget) {
 
-                mainCamera.transform.position = Vector3.SmoothDamp(
-                    mainCamera.transform.position, new Vector3(
-                        target.transform.position.x,
-                        target.transform.position.y,
-                        mainCamera.transform.position.z
-                    ),
+                Vector3 newPosition = mainTarget.transform.position;
+
+                if (constraints.FreezePositionX) newPosition.x = cameraTransform.position.x;
+                if (constraints.FreezePositionY) newPosition.y = cameraTransform.position.y;
+                if (constraints.FreezePositionZ) newPosition.z = cameraTransform.position.z;
+
+                if (constraints.MaintainOffsetX) newPosition.x += cameraOffset.x;
+                if (constraints.MaintainOffsetY) newPosition.y += cameraOffset.y;
+                if (constraints.MaintainOffsetZ) newPosition.z += cameraOffset.z;
+
+                cameraTransform.position = Vector3.SmoothDamp(
+                    cameraTransform.position,
+                    newPosition,
                     ref velocity,
                     dampRate
                 );
