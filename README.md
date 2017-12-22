@@ -47,6 +47,14 @@ void OnDrawGizmosSelected() {
 
 ## CameraFollow
 
+## Debug
+
+### DrawLines
+
+```csharp
+CandyCoded.Debug.DrawLines(points, Color.red);
+```
+
 ## Gizmo
 
 ## InputManager
