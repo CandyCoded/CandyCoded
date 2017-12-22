@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ScottDoxey {
+namespace CandyCoded {
 
     public static class LineRenderer {
 

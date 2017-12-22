@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ScottDoxey {
+namespace CandyCoded {
 
     public static class Materials {
 
@@ -25,11 +25,11 @@ namespace ScottDoxey {
 
         }
 
-        public static void SetMaterialsToBlendMode(Material[] materials, ScottDoxey.StandardShader.BlendMode blendMode) {
+        public static void SetMaterialsToBlendMode(Material[] materials, CandyCoded.StandardShader.BlendMode blendMode) {
 
             foreach (Material material in materials) {
 
-                ScottDoxey.StandardShader.SetupMaterialWithBlendMode(material, blendMode);
+                CandyCoded.StandardShader.SetupMaterialWithBlendMode(material, blendMode);
 
             }
 
