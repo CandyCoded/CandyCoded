@@ -6,7 +6,7 @@ using UnityEngine.TestTools;
 public class CalculationParentBoundsTest {
 
     [UnityTest]
-    public IEnumerator NewPlayModeTestWithEnumeratorPasses() {
+    public IEnumerator BoundsCalculatedOnMultipleChildrenObjects() {
 
         GameObject parentGameObject = new GameObject("ParentGameObject");
 
