@@ -36,7 +36,7 @@ namespace CandyCoded {
 
         void Awake() {
 
-            tempCamera = new GameObject("tempCamera").transform;
+            tempCamera = new GameObject("Camera (temp)").transform;
 
             cameraTransform = Camera.main.transform;
 
