@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace ScottDoxey {
+namespace CandyCoded {
 
     public class StandardShader : MonoBehaviour {
 
@@ -13,7 +13,7 @@ namespace ScottDoxey {
             Transparent
         }
 
-        public static void SetupMaterialWithBlendMode(Material material, ScottDoxey.StandardShader.BlendMode blendMode) {
+        public static void SetupMaterialWithBlendMode(Material material, CandyCoded.StandardShader.BlendMode blendMode) {
 
             switch (blendMode) {
 

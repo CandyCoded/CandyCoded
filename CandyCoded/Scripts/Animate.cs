@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 
-namespace ScottDoxey {
+namespace CandyCoded {
 
     public static class Animate {
 
         public static void FadeCustom(GameObject gameObject, float currentTime, AnimationCurve animationCurve) {
 
-            Material[] materials = ScottDoxey.Materials.GetMaterialsInChildren(gameObject);
+            Material[] materials = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
 
-            ScottDoxey.Materials.SetMaterialsToBlendMode(materials, ScottDoxey.StandardShader.BlendMode.Fade);
+            CandyCoded.Materials.SetMaterialsToBlendMode(materials, CandyCoded.StandardShader.BlendMode.Fade);
 
             float globalAlpha = animationCurve.Evaluate(currentTime);
 
             foreach (Material material in materials) {
 
-                material.color = ScottDoxey.Materials.SetColorAlpha(material.color, globalAlpha);
+                material.color = CandyCoded.Materials.SetColorAlpha(material.color, globalAlpha);
 
             }
 

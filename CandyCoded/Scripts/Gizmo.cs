@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ScottDoxey {
+namespace CandyCoded {
 
     public class Gizmo : MonoBehaviour {
 

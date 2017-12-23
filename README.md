@@ -1,27 +1,29 @@
-# UnityUtilities
+# CandyCoded
+
+> A collection of useful utilities for building in Unity.
 
 ## Animate
 
 ## FadeIn
 
 ```csharp
-ScottDoxey.Animate.FadeIn(gameObject, Time.time);
+CandyCoded.Animate.FadeIn(gameObject, Time.time);
 ```
 
 ```csharp
 AnimationCurve animationCurveFadeIn = AnimationCurve.Linear(0, 0, 1, 1);
-ScottDoxey.Animate.FadeCustom(gameObject, Time.time, animationCurveFadeIn);
+CandyCoded.Animate.FadeCustom(gameObject, Time.time, animationCurveFadeIn);
 ```
 
 ## FadeOut
 
 ```csharp
-ScottDoxey.Animate.FadeOut(gameObject, Time.time);
+CandyCoded.Animate.FadeOut(gameObject, Time.time);
 ```
 
 ```csharp
 AnimationCurve animationCurveFadeOut = AnimationCurve.Linear(0, 1, 1, 0);
-ScottDoxey.Animate.FadeCustom(gameObject, Time.time, animationCurveFadeOut);
+CandyCoded.Animate.FadeCustom(gameObject, Time.time, animationCurveFadeOut);
 ```
 
 ## Calculation
@@ -31,7 +33,7 @@ ScottDoxey.Animate.FadeCustom(gameObject, Time.time, animationCurveFadeOut);
 ```csharp
 void OnDrawGizmosSelected() {
 
-    Bounds bounds = ScottDoxey.Calculation.ParentBounds(gameObject);
+    Bounds bounds = CandyCoded.Calculation.ParentBounds(gameObject);
 
     Gizmos.DrawWireSphere(bounds.center, 1f);
     Gizmos.DrawWireSphere(bounds.min, 1f);
@@ -45,14 +47,22 @@ void OnDrawGizmosSelected() {
 
 ## CameraFollow
 
+## Debug
+
+### DrawLines
+
+```csharp
+CandyCoded.Debug.DrawLines(points, Color.red);
+```
+
 ## Gizmo
 
 ## InputManager
 
 ```csharp
-Debug.Log(ScottDoxey.InputManager.InputDown);
-Debug.Log(ScottDoxey.InputManager.InputScreenPosition);
-Debug.Log(ScottDoxey.InputManager.InputUp);
+Debug.Log(CandyCoded.InputManager.InputDown);
+Debug.Log(CandyCoded.InputManager.InputScreenPosition);
+Debug.Log(CandyCoded.InputManager.InputUp);
 ```
 
 ## LineRenderer
@@ -60,7 +70,7 @@ Debug.Log(ScottDoxey.InputManager.InputUp);
 ### Reflect
 
 ```csharp
-Vector3[] linePositions = ScottDoxey.LineRenderer.Reflect(gameObject.transform.position, gameObject.transform.forward, distance, layerMask);
+Vector3[] linePositions = CandyCoded.LineRenderer.Reflect(gameObject.transform.position, gameObject.transform.forward, distance, layerMask);
 
 lineRenderer.positionCount = linePositions.Length;
 lineRenderer.SetPositions(linePositions);
@@ -74,20 +84,20 @@ lineRenderer.SetPositions(linePositions);
 ### GetMaterialsInChildren
 
 ```csharp
-Material[] materials = ScottDoxey.Materials.GetMaterialsInChildren(gameObject);
+Material[] materials = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
 ```
 
 ### SetAlphaColor
 
 ```csharp
-Debug.Log(ScottDoxey.Materials.SetColorAlpha(material.color, 0.5f));
+Debug.Log(CandyCoded.Materials.SetColorAlpha(material.color, 0.5f));
 ```
 
 ### SetMaterialsToFade
 
 ```csharp
-ScottDoxey.Materials.SetMaterialsToBlendMode(materials, ScottDoxey.StandardShader.BlendMode.Opaque);
-ScottDoxey.Materials.SetMaterialsToBlendMode(materials, ScottDoxey.StandardShader.BlendMode.Fade);
+CandyCoded.Materials.SetMaterialsToBlendMode(materials, CandyCoded.StandardShader.BlendMode.Opaque);
+CandyCoded.Materials.SetMaterialsToBlendMode(materials, CandyCoded.StandardShader.BlendMode.Fade);
 ```
 
 ## ScreenShake
@@ -97,7 +107,7 @@ ScottDoxey.Materials.SetMaterialsToBlendMode(materials, ScottDoxey.StandardShade
 ## Singleton
 
 ```csharp
-public class InputController : ScottDoxey.Singleton {
+public class InputController : CandyCoded.Singleton {
 
 }
 ```
@@ -105,5 +115,5 @@ public class InputController : ScottDoxey.Singleton {
 ## StandardShader
 
 ```csharp
-ScottDoxey.StandardShader.SetupMaterialWithBlendMode(material, ScottDoxey.StandardShader.BlendMode.Fade);
+CandyCoded.StandardShader.SetupMaterialWithBlendMode(material, CandyCoded.StandardShader.BlendMode.Fade);
 ```
