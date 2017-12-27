@@ -4,19 +4,27 @@ namespace CandyCoded {
 
     public static class Animate {
 
-        public static void FadeCustom(GameObject gameObject, float currentTime, AnimationCurve animationCurve) {
-
-            Material[] materials = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
-
-            CandyCoded.Materials.SetMaterialsToBlendMode(materials, CandyCoded.StandardShader.BlendMode.Fade);
+        public static void FadeCustom(GameObject gameObject, float currentTime, AnimationCurve animationCurve, CandyCoded.AnimationData animationData) {
 
             float globalAlpha = animationCurve.Evaluate(currentTime);
 
-            foreach (Material material in materials) {
+            foreach (CandyCoded.MaterialData materialData in animationData.materials) {
 
-                material.color = CandyCoded.Materials.SetColorAlpha(material.color, globalAlpha);
+                materialData.material.color = CandyCoded.Materials.SetColorAlpha(materialData.material.color, materialData.startColor.a * globalAlpha);
 
             }
+
+        }
+
+        public static void FadeCustom(GameObject gameObject, float currentTime, AnimationCurve animationCurve) {
+
+            CandyCoded.AnimationData animationData = gameObject.GetComponent<CandyCoded.AnimationData>();
+
+            if (animationData == null) {
+                animationData = gameObject.AddComponent<CandyCoded.AnimationData>();
+            }
+
+            FadeCustom(gameObject, currentTime, animationCurve, animationData);
 
         }
 
