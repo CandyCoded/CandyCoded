@@ -4,9 +4,11 @@ namespace CandyCoded {
 
     public static class Animate {
 
-        public static void FadeCustom(GameObject gameObject, float currentTime, AnimationCurve animationCurve, CandyCoded.AnimationData animationData) {
+        public static void FadeCustom(GameObject gameObject, float deltaTime, AnimationCurve animationCurve, CandyCoded.AnimationData animationData) {
 
-            float globalAlpha = animationCurve.Evaluate(currentTime);
+            animationData.activeTime += deltaTime;
+
+            float globalAlpha = animationCurve.Evaluate(animationData.activeTime);
 
             foreach (CandyCoded.MaterialData materialData in animationData.materials) {
 

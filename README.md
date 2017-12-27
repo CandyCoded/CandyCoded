@@ -12,7 +12,7 @@ CandyCoded.Animate.FadeIn(gameObject, Time.time);
 
 ```csharp
 AnimationCurve animationCurveFadeIn = AnimationCurve.Linear(0, 0, 1, 1);
-CandyCoded.Animate.FadeCustom(gameObject, Time.time, animationCurveFadeIn);
+CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurveFadeIn);
 ```
 
 ## FadeOut
@@ -23,7 +23,7 @@ CandyCoded.Animate.FadeOut(gameObject, Time.time);
 
 ```csharp
 AnimationCurve animationCurveFadeOut = AnimationCurve.Linear(0, 1, 1, 0);
-CandyCoded.Animate.FadeCustom(gameObject, Time.time, animationCurveFadeOut);
+CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurveFadeOut);
 ```
 
 ## Calculation

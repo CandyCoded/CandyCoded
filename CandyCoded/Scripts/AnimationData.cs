@@ -10,9 +10,25 @@ namespace CandyCoded {
 
     public class AnimationData : MonoBehaviour {
 
+        public float activeTime = 0;
+
         public List<MaterialData> materials = new List<MaterialData>();
 
         void Awake() {
+
+            RebuildCachedData();
+
+        }
+
+        public void Reset() {
+
+            activeTime = 0;
+
+        }
+
+        public void RebuildCachedData() {
+
+            materials = new List<MaterialData>();
 
             Material[] materialsInChildren = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
 
