@@ -49,6 +49,8 @@ void OnDrawGizmosSelected() {
 
 ## CameraFollow
 
+![](https://media.giphy.com/media/l49JC79lqlSLFUQlG/giphy.gif)
+
 ## Debug
 
 ### DrawLines
