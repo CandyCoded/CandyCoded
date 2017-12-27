@@ -21,7 +21,7 @@ namespace CandyCoded {
         [HideInInspector]
         public Vector3 size = Vector3.one;
         [HideInInspector]
-        public float radius = 0.2f;
+        public float radius = 1.0f;
 
         void OnDrawGizmos() {
 
