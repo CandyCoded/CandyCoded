@@ -7,24 +7,26 @@
 ## FadeIn
 
 ```csharp
-CandyCoded.Animate.FadeIn(gameObject, Time.time);
+CandyCoded.Animate.FadeIn(gameObject, Time.deltaTime);
 ```
 
 ```csharp
 AnimationCurve animationCurveFadeIn = AnimationCurve.Linear(0, 0, 1, 1);
-CandyCoded.Animate.FadeCustom(gameObject, Time.time, animationCurveFadeIn);
+CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurveFadeIn);
 ```
 
 ## FadeOut
 
 ```csharp
-CandyCoded.Animate.FadeOut(gameObject, Time.time);
+CandyCoded.Animate.FadeOut(gameObject, Time.deltaTime);
 ```
 
 ```csharp
 AnimationCurve animationCurveFadeOut = AnimationCurve.Linear(0, 1, 1, 0);
-CandyCoded.Animate.FadeCustom(gameObject, Time.time, animationCurveFadeOut);
+CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurveFadeOut);
 ```
+
+![](https://media.giphy.com/media/3ohc1bNoAxiYuBm7x6/giphy.gif)
 
 ## Calculation
 
