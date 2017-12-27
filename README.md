@@ -26,6 +26,8 @@ AnimationCurve animationCurveFadeOut = AnimationCurve.Linear(0, 1, 1, 0);
 CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurveFadeOut);
 ```
 
+![](https://media.giphy.com/media/3ohc1bNoAxiYuBm7x6/giphy.gif)
+
 ## Calculation
 
 ### ParentBounds
