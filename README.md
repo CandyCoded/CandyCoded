@@ -7,7 +7,7 @@
 ## FadeIn
 
 ```csharp
-CandyCoded.Animate.FadeIn(gameObject, Time.time);
+CandyCoded.Animate.FadeIn(gameObject, Time.deltaTime);
 ```
 
 ```csharp
@@ -18,7 +18,7 @@ CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurveFadeIn);
 ## FadeOut
 
 ```csharp
-CandyCoded.Animate.FadeOut(gameObject, Time.time);
+CandyCoded.Animate.FadeOut(gameObject, Time.deltaTime);
 ```
 
 ```csharp
