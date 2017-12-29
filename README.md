@@ -1,4 +1,4 @@
-# CandyCoded
+# ![CandyCoded](logo.png)
 
 > A collection of useful utilities for building in Unity.
 
