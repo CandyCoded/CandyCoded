@@ -2,9 +2,42 @@
 
 > Custom Unity Components that are delightful
 
-## Animate
+## Contents
 
-## FadeIn
+- Components
+    - [CameraFollow](#camerafollow)
+    - [Gizmo](#gizmo)
+    - [ScreenShake](#screenshake)
+    - [SelfDestructParticleSystem](#selfdestructparticlesystem)
+- Static Methods
+    - [Animate](#animate)
+    - [Calculation](#calculation)
+    - [Debug](#debug)
+    - [InputManager](#inputmanager)
+    - [LineRenderer](#linerenderer)
+    - [Materials](#materials)
+    - [Singleton](#Singleton)
+- Unity Editor Insepctor Methods
+    - [StandardShader](#standardshader)
+
+## Components
+
+### CameraFollow
+
+![](https://media.giphy.com/media/l49JC79lqlSLFUQlG/giphy.gif)
+
+### Gizmo
+
+### ScreenShake
+
+### SelfDestructParticleSystem
+
+
+## Static Methods
+
+### Animate
+
+#### FadeIn
 
 ```csharp
 CandyCoded.Animate.FadeIn(gameObject, Time.deltaTime);
@@ -15,7 +48,7 @@ AnimationCurve animationCurveFadeIn = AnimationCurve.Linear(0, 0, 1, 1);
 CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurveFadeIn);
 ```
 
-## FadeOut
+#### FadeOut
 
 ```csharp
 CandyCoded.Animate.FadeOut(gameObject, Time.deltaTime);
@@ -28,9 +61,9 @@ CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurveFadeOut)
 
 ![](https://media.giphy.com/media/3ohc1bNoAxiYuBm7x6/giphy.gif)
 
-## Calculation
+### Calculation
 
-### ParentBounds
+#### ParentBounds
 
 ```csharp
 void OnDrawGizmosSelected() {
@@ -47,21 +80,15 @@ void OnDrawGizmosSelected() {
 
 ![](https://i.imgur.com/yX5f6rk.png)
 
-## CameraFollow
+### Debug
 
-![](https://media.giphy.com/media/l49JC79lqlSLFUQlG/giphy.gif)
-
-## Debug
-
-### DrawLines
+#### DrawLines
 
 ```csharp
 CandyCoded.Debug.DrawLines(points, Color.red);
 ```
 
-## Gizmo
-
-## InputManager
+### InputManager
 
 ```csharp
 Debug.Log(CandyCoded.InputManager.InputDown);
@@ -69,9 +96,9 @@ Debug.Log(CandyCoded.InputManager.InputScreenPosition);
 Debug.Log(CandyCoded.InputManager.InputUp);
 ```
 
-## LineRenderer
+### LineRenderer
 
-### Reflect
+#### Reflect
 
 ```csharp
 Vector3[] linePositions = CandyCoded.LineRenderer.Reflect(gameObject.transform.position, gameObject.transform.forward, distance, layerMask);
@@ -83,32 +110,28 @@ lineRenderer.SetPositions(linePositions);
 ![](https://media.giphy.com/media/l3mZp4n2EdtFggeDS/giphy.gif)
 ![](https://media.giphy.com/media/3ohs7MYwAjHtvGkqrK/giphy.gif)
 
-## Materials
+### Materials
 
-### GetMaterialsInChildren
+#### GetMaterialsInChildren
 
 ```csharp
 Material[] materials = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
 ```
 
-### SetAlphaColor
+#### SetAlphaColor
 
 ```csharp
 Debug.Log(CandyCoded.Materials.SetColorAlpha(material.color, 0.5f));
 ```
 
-### SetMaterialsToFade
+#### SetMaterialsToFade
 
 ```csharp
 CandyCoded.Materials.SetMaterialsToBlendMode(materials, CandyCoded.StandardShader.BlendMode.Opaque);
 CandyCoded.Materials.SetMaterialsToBlendMode(materials, CandyCoded.StandardShader.BlendMode.Fade);
 ```
 
-## ScreenShake
-
-## SelfDestructParticleSystem
-
-## Singleton
+### Singleton
 
 ```csharp
 public class InputController : CandyCoded.Singleton {
@@ -116,7 +139,9 @@ public class InputController : CandyCoded.Singleton {
 }
 ```
 
-## StandardShader
+## Unity Editor Insepctor Methods
+
+### StandardShader
 
 ```csharp
 CandyCoded.StandardShader.SetupMaterialWithBlendMode(material, CandyCoded.StandardShader.BlendMode.Fade);
