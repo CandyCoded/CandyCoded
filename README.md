@@ -17,7 +17,7 @@
     - [LineRenderer](#linerenderer)
     - [Materials](#materials)
     - [Singleton](#singleton)
-- Unity Editor Insepctor Methods
+- Unity Editor Inspector Methods
     - [StandardShader](#standardshader)
 
 ## Components
@@ -139,7 +139,7 @@ public class InputController : CandyCoded.Singleton {
 }
 ```
 
-## Unity Editor Insepctor Methods
+## Unity Editor Inspector Methods
 
 ### StandardShader
 
