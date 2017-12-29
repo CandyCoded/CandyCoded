@@ -43,8 +43,8 @@ namespace CandyCoded {
 
     }
 
-    [CustomEditor(typeof(Gizmo))]
-    public class GizmoEditor : Editor {
+    [UnityEditor.CustomEditor(typeof(Gizmo))]
+    public class GizmoEditor : UnityEditor.Editor {
 
         public override void OnInspectorGUI() {
 
