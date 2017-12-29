@@ -16,7 +16,7 @@
     - [InputManager](#inputmanager)
     - [LineRenderer](#linerenderer)
     - [Materials](#materials)
-    - [Singleton](#Singleton)
+    - [Singleton](#singleton)
 - Unity Editor Insepctor Methods
     - [StandardShader](#standardshader)
 
