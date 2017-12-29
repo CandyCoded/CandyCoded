@@ -1,5 +1,7 @@
 # ![CandyCoded](logo.png)
 
+> Custom Unity Components that are delightful
+
 ## Animate
 
 ## FadeIn
