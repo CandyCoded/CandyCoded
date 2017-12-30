@@ -26,7 +26,7 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
 
 ### CameraFollow
 
-Attach the CameraFollow component to any gameobject that moves independently of the camera. Utilizing the constraints allows for the camera to either stay a certain distance from the object or lock any of the axis from moving at all.
+Attach the CameraFollow component to any gameobject that moves independently of the camera. Utilizing the constraint options allows for the camera to either stay a certain distance from the object or lock any of the axis from moving at all.
 
 ![](https://media.giphy.com/media/l49JC79lqlSLFUQlG/giphy.gif)
 
