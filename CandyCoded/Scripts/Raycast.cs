@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CandyCoded {
 
-    public static class LineRenderer {
+    public static class Raycast {
 
         public static Vector3[] Reflect(Vector3 startPosition, Vector3 direction, float distance, LayerMask layerMask) {
 

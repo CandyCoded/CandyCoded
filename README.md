@@ -16,8 +16,8 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
     - [Calculation](#calculation)
     - [Debug](#debug)
     - [InputManager](#inputmanager)
-    - [LineRenderer](#linerenderer)
     - [Materials](#materials)
+    - [Raycast](#raycast)
     - [Singleton](#singleton)
 - Unity Editor Inspector Methods
     - [StandardShader](#standardshader)
@@ -103,20 +103,6 @@ Debug.Log(CandyCoded.InputManager.InputScreenPosition);
 Debug.Log(CandyCoded.InputManager.InputUp);
 ```
 
-### LineRenderer
-
-#### Reflect
-
-```csharp
-Vector3[] linePositions = CandyCoded.LineRenderer.Reflect(gameObject.transform.position, gameObject.transform.forward, distance, layerMask);
-
-lineRenderer.positionCount = linePositions.Length;
-lineRenderer.SetPositions(linePositions);
-```
-
-![](https://media.giphy.com/media/l3mZp4n2EdtFggeDS/giphy.gif)
-![](https://media.giphy.com/media/3ohs7MYwAjHtvGkqrK/giphy.gif)
-
 ### Materials
 
 #### GetMaterialsInChildren
@@ -137,6 +123,20 @@ Debug.Log(CandyCoded.Materials.SetColorAlpha(material.color, 0.5f));
 CandyCoded.Materials.SetMaterialsToBlendMode(materials, CandyCoded.StandardShader.BlendMode.Opaque);
 CandyCoded.Materials.SetMaterialsToBlendMode(materials, CandyCoded.StandardShader.BlendMode.Fade);
 ```
+
+### Raycast
+
+#### Reflect
+
+```csharp
+Vector3[] linePositions = CandyCoded.Raycast.Reflect(gameObject.transform.position, gameObject.transform.forward, distance, layerMask);
+
+lineRenderer.positionCount = linePositions.Length;
+lineRenderer.SetPositions(linePositions);
+```
+
+![](https://media.giphy.com/media/l3mZp4n2EdtFggeDS/giphy.gif)
+![](https://media.giphy.com/media/3ohs7MYwAjHtvGkqrK/giphy.gif)
 
 ### Singleton
 
