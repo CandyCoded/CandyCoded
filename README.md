@@ -135,6 +135,12 @@ lineRenderer.positionCount = linePositions.Length;
 lineRenderer.SetPositions(linePositions);
 ```
 
+```csharp
+List<RaycastHit> hits;
+
+Vector3[] linePositions = CandyCoded.Raycast.Reflect(gameObject.transform.position, gameObject.transform.forward, distance, layerMask, out hits);
+```
+
 ![](https://media.giphy.com/media/l3mZp4n2EdtFggeDS/giphy.gif)
 ![](https://media.giphy.com/media/3ohs7MYwAjHtvGkqrK/giphy.gif)
 
