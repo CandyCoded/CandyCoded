@@ -5,7 +5,9 @@ namespace CandyCoded {
 
     public static class Raycast {
 
-        public static Vector3[] Reflect(Vector3 startPosition, Vector3 direction, float distance, LayerMask layerMask) {
+        public static Vector3[] Reflect(Vector3 startPosition, Vector3 direction, float distance, LayerMask layerMask, out List<RaycastHit> hits) {
+
+            hits = new List<RaycastHit>();
 
             List<Vector3> linePositions = new List<Vector3>();
 
@@ -25,6 +27,8 @@ namespace CandyCoded {
 
                     direction = Vector3.Reflect(direction, hitInfo.normal);
 
+                    hits.Add(hitInfo);
+
                 } else {
 
                     linePositions.Add(linePositions[linePositions.Count - 1] + remainingDistance * direction);
@@ -36,6 +40,14 @@ namespace CandyCoded {
             }
 
             return linePositions.ToArray();
+
+        }
+
+        public static Vector3[] Reflect(Vector3 startPosition, Vector3 direction, float distance, LayerMask layerMask) {
+
+            List<RaycastHit> hits;
+
+            return Reflect(startPosition, direction, distance, layerMask, out hits);
 
         }
 
