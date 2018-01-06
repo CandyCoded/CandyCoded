@@ -4,10 +4,11 @@ namespace CandyCoded {
 
     [System.Serializable]
     public class CameraConstraints {
+        [Header("Freeze Original Position")]
         public bool FreezePositionX;
         public bool FreezePositionY;
         public bool FreezePositionZ;
-        [Space(10)]
+        [Header("Maintain Origin Offset")]
         public bool MaintainOffsetX;
         public bool MaintainOffsetY;
         public bool MaintainOffsetZ;
