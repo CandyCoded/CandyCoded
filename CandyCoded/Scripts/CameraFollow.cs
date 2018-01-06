@@ -74,8 +74,12 @@ namespace CandyCoded {
                 float cameraExtentVertical = Camera.main.orthographicSize;
                 float cameraExtentHorizontal = cameraExtentVertical * Screen.width / Screen.height;
 
-                newPosition.x = Mathf.Clamp(newPosition.x, constraints.bounds.min.x + cameraExtentHorizontal, constraints.bounds.max.x - cameraExtentHorizontal);
-                newPosition.y = Mathf.Clamp(newPosition.y, constraints.bounds.min.y + cameraExtentVertical, constraints.bounds.max.y - cameraExtentVertical);
+                if (constraints.bounds.size.magnitude != 0) {
+
+                    newPosition.x = Mathf.Clamp(newPosition.x, constraints.bounds.min.x + cameraExtentHorizontal, constraints.bounds.max.x - cameraExtentHorizontal);
+                    newPosition.y = Mathf.Clamp(newPosition.y, constraints.bounds.min.y + cameraExtentVertical, constraints.bounds.max.y - cameraExtentVertical);
+
+                }
 
                 if (constraints.FreezePositionX) newPosition.x = cameraTransform.position.x;
                 if (constraints.FreezePositionY) newPosition.y = cameraTransform.position.y;
