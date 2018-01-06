@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace CandyCoded {
@@ -12,6 +13,11 @@ namespace CandyCoded {
         public bool MaintainOffsetX;
         public bool MaintainOffsetY;
         public bool MaintainOffsetZ;
+        [Header("Restrict Viewport to Transform")]
+        public Transform boundsTransform;
+        [Header("(or)")]
+        [Header("Restrict Viewport to Manually Defined Bounds")]
+        public Bounds bounds;
     }
 
     public class CameraFollow : MonoBehaviour {
@@ -58,6 +64,18 @@ namespace CandyCoded {
                 if (constraints.MaintainOffsetX) newPosition.x += cameraPositionOffset.x;
                 if (constraints.MaintainOffsetY) newPosition.y += cameraPositionOffset.y;
                 if (constraints.MaintainOffsetZ) newPosition.z += cameraPositionOffset.z;
+
+                if (constraints.boundsTransform) {
+
+                    constraints.bounds = CandyCoded.Calculation.ParentBounds(constraints.boundsTransform);
+
+                }
+
+                float cameraExtentVertical = Camera.main.orthographicSize;
+                float cameraExtentHorizontal = cameraExtentVertical * Screen.width / Screen.height;
+
+                newPosition.x = Mathf.Clamp(newPosition.x, constraints.bounds.min.x + cameraExtentHorizontal, constraints.bounds.max.x - cameraExtentHorizontal);
+                newPosition.y = Mathf.Clamp(newPosition.y, constraints.bounds.min.y + cameraExtentVertical, constraints.bounds.max.y - cameraExtentVertical);
 
                 if (constraints.FreezePositionX) newPosition.x = cameraTransform.position.x;
                 if (constraints.FreezePositionY) newPosition.y = cameraTransform.position.y;
