@@ -31,6 +31,12 @@ namespace CandyCoded {
 
         }
 
+        public static Bounds ParentBounds(Transform parentTransform) {
+
+            return ParentBounds(parentTransform.gameObject);
+
+        }
+
     }
 
 }
