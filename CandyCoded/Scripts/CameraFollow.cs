@@ -6,13 +6,13 @@ namespace CandyCoded {
     [System.Serializable]
     public class CameraConstraints {
         [Header("Freeze Original Position")]
-        public bool FreezePositionX;
-        public bool FreezePositionY;
-        public bool FreezePositionZ;
+        public bool freezePositionX;
+        public bool freezePositionY;
+        public bool freezePositionZ;
         [Header("Maintain Origin Offset")]
-        public bool MaintainOffsetX;
-        public bool MaintainOffsetY;
-        public bool MaintainOffsetZ;
+        public bool maintainOffsetX;
+        public bool maintainOffsetY;
+        public bool maintainOffsetZ;
         [Header("Restrict Viewport to Transform")]
         public Transform boundsTransform;
         [Header("(or)")]
@@ -61,9 +61,9 @@ namespace CandyCoded {
 
                 Vector3 newPosition = mainTarget.transform.position;
 
-                if (constraints.MaintainOffsetX) newPosition.x += cameraPositionOffset.x;
-                if (constraints.MaintainOffsetY) newPosition.y += cameraPositionOffset.y;
-                if (constraints.MaintainOffsetZ) newPosition.z += cameraPositionOffset.z;
+                if (constraints.maintainOffsetX) newPosition.x += cameraPositionOffset.x;
+                if (constraints.maintainOffsetY) newPosition.y += cameraPositionOffset.y;
+                if (constraints.maintainOffsetZ) newPosition.z += cameraPositionOffset.z;
 
                 if (constraints.boundsTransform) {
 
@@ -81,9 +81,9 @@ namespace CandyCoded {
 
                 }
 
-                if (constraints.FreezePositionX) newPosition.x = cameraTransform.position.x;
-                if (constraints.FreezePositionY) newPosition.y = cameraTransform.position.y;
-                if (constraints.FreezePositionZ) newPosition.z = cameraTransform.position.z;
+                if (constraints.freezePositionX) newPosition.x = cameraTransform.position.x;
+                if (constraints.freezePositionY) newPosition.y = cameraTransform.position.y;
+                if (constraints.freezePositionZ) newPosition.z = cameraTransform.position.z;
 
                 cameraTransform.position = Vector3.SmoothDamp(
                     cameraTransform.position,
