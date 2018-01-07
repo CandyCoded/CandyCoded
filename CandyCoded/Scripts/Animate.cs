@@ -50,6 +50,22 @@ namespace CandyCoded {
 
         }
 
+        public static void Position(GameObject gameObject, float currentTime, Vector3 multiplier, AnimationCurve animationCurve) {
+
+            CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
+
+            gameObject.transform.position = animationData.transformData.position + multiplier * animationCurve.Evaluate(Time.time);
+
+        }
+
+        public static void Scale(GameObject gameObject, float currentTime, Vector3 multiplier, AnimationCurve animationCurve) {
+
+            CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
+
+            gameObject.transform.localScale = animationData.transformData.scale + multiplier * animationCurve.Evaluate(Time.time);
+
+        }
+
     }
 
 }
