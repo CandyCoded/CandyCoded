@@ -4,6 +4,18 @@ namespace CandyCoded {
 
     public static class Animate {
 
+        public static CandyCoded.AnimationData GetAnimationData(GameObject gameObject) {
+
+            CandyCoded.AnimationData animationData = gameObject.GetComponent<CandyCoded.AnimationData>();
+
+            if (animationData == null) {
+                animationData = gameObject.AddComponent<CandyCoded.AnimationData>();
+            }
+
+            return animationData;
+
+        }
+
         public static void FadeCustom(GameObject gameObject, float deltaTime, AnimationCurve animationCurve, CandyCoded.AnimationData animationData) {
 
             animationData.activeTime += deltaTime;
@@ -20,11 +32,7 @@ namespace CandyCoded {
 
         public static void FadeCustom(GameObject gameObject, float currentTime, AnimationCurve animationCurve) {
 
-            CandyCoded.AnimationData animationData = gameObject.GetComponent<CandyCoded.AnimationData>();
-
-            if (animationData == null) {
-                animationData = gameObject.AddComponent<CandyCoded.AnimationData>();
-            }
+            CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
 
             FadeCustom(gameObject, currentTime, animationCurve, animationData);
 
