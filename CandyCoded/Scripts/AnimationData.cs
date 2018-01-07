@@ -3,6 +3,12 @@ using UnityEngine;
 
 namespace CandyCoded {
 
+    public struct TransformData {
+        public Vector3 position;
+        public Vector3 scale;
+        public Quaternion rotation;
+    }
+
     public struct MaterialData {
         public Material material;
         public Color startColor;
@@ -11,6 +17,8 @@ namespace CandyCoded {
     public class AnimationData : MonoBehaviour {
 
         public float activeTime = 0;
+
+        public TransformData transformData = new TransformData();
 
         public List<MaterialData> materials = new List<MaterialData>();
 
@@ -27,6 +35,10 @@ namespace CandyCoded {
         }
 
         public void RebuildCachedData() {
+
+            transformData.position = gameObject.transform.localPosition;
+            transformData.scale = gameObject.transform.localScale;
+            transformData.rotation = gameObject.transform.localRotation;
 
             materials = new List<MaterialData>();
 
