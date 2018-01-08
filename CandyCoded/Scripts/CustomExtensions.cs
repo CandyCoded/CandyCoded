@@ -21,6 +21,15 @@ public static class CustomExtensions {
     }
 
     /// <summary>
+    /// Is value in mask? value: value to compare against mask.
+    /// </summary>
+    public static bool Contains(this int mask, int value) {
+
+        return mask == (mask | value);
+
+    }
+
+    /// <summary>
     /// Rotates the transform so the forward vector points at target's position. target: Obkect to point towards. direction: Vector specifying the fotward direction.
     /// </summary>
     public static void LookAt2D(this Transform transform, Transform target, Vector3 direction) {
