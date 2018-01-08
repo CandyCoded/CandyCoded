@@ -66,6 +66,18 @@ AnimationCurve animationCurveFadeOut = AnimationCurve.Linear(0, 1, 1, 0);
 CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurveFadeOut);
 ```
 
+#### Position
+
+```csharp
+CandyCoded.Animate.Position(gameObject, Time.deltaTime, Vector3.right, animationCurve);
+```
+
+#### Scale
+
+```csharp
+CandyCoded.Animate.Scale(gameObject, Time.deltaTime, Vector3.one, animationCurve);
+```
+
 ![](https://media.giphy.com/media/3ohc1bNoAxiYuBm7x6/giphy.gif)
 
 ### Calculation
