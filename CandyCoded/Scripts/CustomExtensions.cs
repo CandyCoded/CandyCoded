@@ -3,7 +3,7 @@ using UnityEngine;
 public static class CustomExtensions {
 
     /// <summary>
-    /// Is laeyrName in layerMask? layerName: Layer name to compare against layerMask.
+    /// Is layerName in layerMask? layerName: Layer name to compare against layerMask.
     /// </summary>
     public static bool Contains(this LayerMask layerMask, string layerName) {
 
