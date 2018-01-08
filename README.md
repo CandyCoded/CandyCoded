@@ -61,12 +61,12 @@ CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurveFadeIn);
 CandyCoded.Animate.FadeOut(gameObject, Time.deltaTime);
 ```
 
-![](https://media.giphy.com/media/3ohc1bNoAxiYuBm7x6/giphy.gif)
-
 ```csharp
 AnimationCurve animationCurveFadeOut = AnimationCurve.Linear(0, 1, 1, 0);
 CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurveFadeOut);
 ```
+
+![](https://media.giphy.com/media/3ohc1bNoAxiYuBm7x6/giphy.gif)
 
 #### Position
 
