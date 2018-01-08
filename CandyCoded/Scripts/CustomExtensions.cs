@@ -16,7 +16,7 @@ public static class CustomExtensions {
     /// </summary>
     public static bool Contains(this LayerMask layerMask, int layerInt) {
 
-        return layerMask == (layerMask | (1 << layerInt));
+        return ((int) layerMask).Contains(1 << layerInt);
 
     }
 
