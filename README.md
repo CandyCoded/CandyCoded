@@ -101,6 +101,14 @@ animationCurve.postWrapMode = WrapMode.PingPong;
 CandyCoded.Animate.Scale(gameObject, Time.deltaTime, Vector3.one, animationCurve);
 ```
 
+#### Rotate
+
+```csharp
+AnimationCurve animationCurve = AnimationCurve.Linear(0, 0, 1, 360);
+animationCurve.postWrapMode = WrapMode.Loop;
+CandyCoded.Animate.Rotate(gameObject, Time.deltaTime, Vector3.up, animationCurve);
+```
+
 ### Calculation
 
 #### ParentBounds

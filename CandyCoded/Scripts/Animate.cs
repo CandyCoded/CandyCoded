@@ -66,6 +66,14 @@ namespace CandyCoded {
 
         }
 
+        public static void Rotate(GameObject gameObject, float currentTime, Vector3 multiplier, AnimationCurve animationCurve) {
+
+            CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
+
+            gameObject.transform.localRotation = Quaternion.Euler(animationData.transformData.rotation * multiplier * animationCurve.Evaluate(Time.time));
+
+        }
+
     }
 
 }
