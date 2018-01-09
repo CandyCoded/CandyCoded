@@ -33,7 +33,7 @@ namespace CandyCoded {
 
         }
 
-        public void Shake(float duration = 1.0f, float intensity = 0.2f) {
+        public void Shake(float duration = 0.5f, float intensity = 0.2f) {
 
             currentIntensity = intensity;
             currentDuraton = duration;
