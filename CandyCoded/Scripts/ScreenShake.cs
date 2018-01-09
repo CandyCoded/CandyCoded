@@ -21,7 +21,7 @@ namespace CandyCoded {
 
             if (currentDuraton > 0) {
 
-                Vector3 shakePosition = Random.insideUnitSphere * currentIntensity;
+                Vector3 shakePosition = Random.insideUnitCircle * currentIntensity;
 
                 wrapperObject.transform.position = shakePosition;
 
