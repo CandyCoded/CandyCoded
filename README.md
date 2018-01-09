@@ -66,8 +66,9 @@ CandyCoded.Animate.FadeIn(gameObject, Time.deltaTime);
 ```
 
 ```csharp
-AnimationCurve animationCurveFadeIn = AnimationCurve.Linear(0, 0, 1, 1);
-CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurveFadeIn);
+AnimationCurve animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
+animationCurve.postWrapMode = WrapMode.PingPong;
+CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurve);
 ```
 
 #### FadeOut
@@ -77,8 +78,9 @@ CandyCoded.Animate.FadeOut(gameObject, Time.deltaTime);
 ```
 
 ```csharp
-AnimationCurve animationCurveFadeOut = AnimationCurve.Linear(0, 1, 1, 0);
-CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurveFadeOut);
+AnimationCurve animationCurve = AnimationCurve.Linear(0, 1, 1, 0);
+animationCurve.postWrapMode = WrapMode.PingPong;
+CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurve);
 ```
 
 ![](https://media.giphy.com/media/3ohc1bNoAxiYuBm7x6/giphy.gif)
@@ -86,12 +88,16 @@ CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurveFadeOut)
 #### Position
 
 ```csharp
+AnimationCurve animationCurve = AnimationCurve.Linear(0, -5, 1, 5);
+animationCurve.postWrapMode = WrapMode.PingPong;
 CandyCoded.Animate.Position(gameObject, Time.deltaTime, Vector3.right, animationCurve);
 ```
 
 #### Scale
 
 ```csharp
+AnimationCurve animationCurve = AnimationCurve.Linear(0, 1, 1, 0);
+animationCurve.postWrapMode = WrapMode.PingPong;
 CandyCoded.Animate.Scale(gameObject, Time.deltaTime, Vector3.one, animationCurve);
 ```
 
