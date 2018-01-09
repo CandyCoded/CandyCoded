@@ -26,9 +26,9 @@ namespace CandyCoded {
 
         void Update() {
 
-            if (currentDuraton > 0) {
+            Vector3 shakePosition = Vector3.zero;
 
-                Vector3 shakePosition = Vector3.zero;
+            if (currentDuraton > 0) {
 
                 if (currentDirection == SCREENSHAKE_DIRECTION.All) {
 
@@ -44,15 +44,11 @@ namespace CandyCoded {
 
                 }
 
-                wrapperObject.transform.position = shakePosition;
-
                 currentDuraton = Mathf.Max(currentDuraton - Time.deltaTime, 0);
 
-            } else {
-
-                wrapperObject.transform.position = Vector3.zero;
-
             }
+
+            wrapperObject.transform.position = shakePosition;
 
         }
 
