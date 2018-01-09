@@ -37,6 +37,11 @@ Attach the CameraFollow component to any gameobject that moves independently of 
 
 ### ScreenShake
 
+```csharp
+CandyCoded.ScreenShake screenShake = Camera.main.GetComponent<CandyCoded.ScreenShake>();
+screenShake.Shake(duration, intensity);
+```
+
 ### SelfDestructParticleSystem
 
 
