@@ -21,7 +21,9 @@ namespace CandyCoded {
 
             if (currentDuraton > 0) {
 
-                wrapperObject.transform.position = Random.insideUnitSphere * currentIntensity;
+                Vector3 shakePosition = Random.insideUnitSphere * currentIntensity;
+
+                wrapperObject.transform.position = shakePosition;
 
                 currentDuraton = Mathf.Max(currentDuraton - Time.deltaTime, 0);
 
