@@ -5,14 +5,14 @@ using UnityEngine;
 namespace CandyCoded {
 
     public enum GIZMO_TYPE {
-        GIZMO_NONE,
-        GIZMO_SPHERE,
-        GIZMO_CUBE
+        None,
+        Sphere,
+        Cube
     }
 
     public class Gizmo : MonoBehaviour {
 
-        public GIZMO_TYPE type = GIZMO_TYPE.GIZMO_NONE;
+        public GIZMO_TYPE type = GIZMO_TYPE.None;
 
         [HideInInspector]
         public Color color = Color.green;
@@ -29,11 +29,11 @@ namespace CandyCoded {
 
             switch (type) {
 
-                case GIZMO_TYPE.GIZMO_SPHERE:
+                case GIZMO_TYPE.Sphere:
                     Gizmos.DrawWireSphere(gameObject.transform.position + position, radius);
                     break;
 
-                case GIZMO_TYPE.GIZMO_CUBE:
+                case GIZMO_TYPE.Cube:
                     Gizmos.DrawWireCube(gameObject.transform.position + position, size);
                     break;
 
@@ -54,13 +54,13 @@ namespace CandyCoded {
 
             switch (script.type) {
 
-                case GIZMO_TYPE.GIZMO_SPHERE:
+                case GIZMO_TYPE.Sphere:
                     script.color = EditorGUILayout.ColorField("Color", script.color);
                     script.position = EditorGUILayout.Vector3Field("Position", script.position);
                     script.radius = EditorGUILayout.FloatField("Radius", script.radius);
                     break;
 
-                case GIZMO_TYPE.GIZMO_CUBE:
+                case GIZMO_TYPE.Cube:
                     script.color = EditorGUILayout.ColorField("Color", script.color);
                     script.position = EditorGUILayout.Vector3Field("Position", script.position);
                     script.size = EditorGUILayout.Vector3Field("Size", script.size);
