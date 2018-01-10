@@ -28,7 +28,7 @@ namespace CandyCoded {
 
         }
 
-        public void Reset() {
+        public void ResetAnimationStartTime() {
 
             activeTime = 0;
 

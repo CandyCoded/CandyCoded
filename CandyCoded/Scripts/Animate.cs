@@ -74,6 +74,13 @@ namespace CandyCoded {
 
         }
 
+        public static void ResetAnimationStartTime(GameObject gameObject) {
+
+            CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
+            animationData.ResetAnimationStartTime();
+
+        }
+
     }
 
 }
