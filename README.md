@@ -19,6 +19,8 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
     - [Materials](#materials)
     - [Raycast](#raycast)
     - [Singleton](#singleton)
+- Unity Editor Extensions
+    - [EnumMask](#enummask)
 - Unity Editor Inspector Methods
     - [StandardShader](#standardshader)
 
