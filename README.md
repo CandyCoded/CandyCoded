@@ -83,7 +83,7 @@ animationCurve.postWrapMode = WrapMode.PingPong;
 CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurve);
 ```
 
-![](https://media.giphy.com/media/3ohc1bNoAxiYuBm7x6/giphy.gif)
+![](https://media.giphy.com/media/xULW8zdlmLdaSSXDeU/giphy.gif)
 
 #### Position
 
@@ -93,6 +93,8 @@ animationCurve.postWrapMode = WrapMode.PingPong;
 CandyCoded.Animate.Position(gameObject, Time.deltaTime, Vector3.right, animationCurve);
 ```
 
+![](https://media.giphy.com/media/26gN0r9WRYvJdWtH2/giphy.gif)
+
 #### Scale
 
 ```csharp
@@ -101,6 +103,8 @@ animationCurve.postWrapMode = WrapMode.PingPong;
 CandyCoded.Animate.Scale(gameObject, Time.deltaTime, Vector3.one, animationCurve);
 ```
 
+![](https://media.giphy.com/media/3oFzmbso61huQUxQ0U/giphy.gif)
+
 #### Rotate
 
 ```csharp
@@ -108,6 +112,8 @@ AnimationCurve animationCurve = AnimationCurve.Linear(0, 0, 1, 360);
 animationCurve.postWrapMode = WrapMode.Loop;
 CandyCoded.Animate.Rotate(gameObject, Time.deltaTime, Vector3.up, animationCurve);
 ```
+
+![](https://media.giphy.com/media/l49JDBAz6Il9HUB5C/giphy.gif)
 
 ### Calculation
 
