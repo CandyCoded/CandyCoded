@@ -12,9 +12,9 @@ namespace CandyCoded {
 
         }
 
-        void Update() {
+        void LateUpdate() {
 
-            if (!ps.IsAlive()) {
+            if (ps && !ps.IsAlive()) {
 
                 Destroy(gameObject);
 
