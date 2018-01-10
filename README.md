@@ -199,6 +199,32 @@ public class InputController : CandyCoded.Singleton {
 }
 ```
 
+## Unity Editor Extensions
+
+### EnumMask
+
+```csharp
+using UnityEngine;
+
+public class EnumMaskDemo : MonoBehaviour {
+
+    public enum STATE {
+        None = 0,
+        Idle = 1 << 0,
+        Running = 1 << 1,
+        Falling = 1 << 2,
+        Jumping = 1 << 3,
+        All = ~0
+    }
+
+    [EnumMask]
+    public STATE currentState = STATE.None;
+
+}
+```
+
+![](https://i.imgur.com/JVrIJ4N.png)
+
 ## Unity Editor Inspector Methods
 
 ### StandardShader
