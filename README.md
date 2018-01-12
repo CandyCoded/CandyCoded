@@ -34,7 +34,7 @@ Attach the CameraFollow component to any gameobject that moves independently of 
 
 ### Gizmo
 
-![](https://i.imgur.com/Fanb2GH.png)
+![](https://i.imgur.com/uPUyFZU.png)
 ![](https://i.imgur.com/aCzOiKV.png)
 
 ### ScreenShake
