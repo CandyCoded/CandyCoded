@@ -2,6 +2,7 @@ Shader "CandyCoded/Tiled Texture" {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _scale ("Scale", Int) = 1
     }
     SubShader {
         Pass
@@ -23,6 +24,7 @@ Shader "CandyCoded/Tiled Texture" {
             };
 
             uniform sampler2D _MainTex;
+            int _scale;
 
             v2f vert (appdata v)
             {
@@ -39,7 +41,7 @@ Shader "CandyCoded/Tiled Texture" {
                 float scaleX = length(mul(unity_ObjectToWorld, float2(1.0, 0.0)));
                 float scaleY = length(mul(unity_ObjectToWorld, float2(0.0, 1.0)));
 
-                half4 c = tex2D(_MainTex, fmod(i.uv * float2(scaleX, scaleY), 1));
+                half4 c = tex2D(_MainTex, fmod(i.uv * float2(scaleX / _scale, scaleY / _scale), 1));
 
                 return c;
             }
