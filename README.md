@@ -28,16 +28,20 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
 
 ### CameraFollow
 
-Attach the CameraFollow component to any gameobject that moves independently of the camera. Utilizing the constraint options allows for the camera to either stay a certain distance from the object or lock any of the axis from moving at all.
+Attach the CameraFollow component to any gameobject that moves independently of the camera. Utilizing the constraint options allows for the camera to either stay a certain distance from the object or lock any of the axis from moving at all. This component works with both 2D and 3D scenes.
 
 ![](https://media.giphy.com/media/3ohc19nAziNNVAQ4I8/giphy.gif)
 
 ### Gizmo
 
+Attach this component to any gameobject to render a custom gizmo. These gizmos will appear even when the gameobject is not selected.
+
 ![](https://i.imgur.com/uPUyFZU.png)
 ![](https://i.imgur.com/aCzOiKV.png)
 
 ### ScreenShake
+
+Attach this component to your scenes camera and call the method below to cause the screen to shake. This component doesn't alter the position of the camera as it wraps the camera in it's own gameobject.
 
 ```csharp
 CandyCoded.ScreenShake screenShake = Camera.main.GetComponent<CandyCoded.ScreenShake>();
@@ -58,6 +62,7 @@ screenShake.Shake(duration, intensity, CandyCoded.SCREENSHAKE_DIRECTION.Vertical
 
 ### SelfDestructParticleSystem
 
+Attach this component to a gameobject with a ParticleSystem that doesn't loop and once the generated particles are no longer alive, the gameobject will destroy itself.
 
 ## Static Methods
 
@@ -123,6 +128,8 @@ CandyCoded.Animate.Rotate(gameObject, Time.deltaTime, Vector3.up, animationCurve
 
 #### ParentBounds
 
+Calculate the bounds of a gameobject with multiple children.
+
 ```csharp
 void OnDrawGizmosSelected() {
 
@@ -158,11 +165,15 @@ Debug.Log(CandyCoded.InputManager.InputUp);
 
 #### GetMaterialsInChildren
 
+Similar in use to GetComponentsInChildren, GetMaterialsInChildren will return all materials attached to renderers that are children of the supplied gameobject.
+
 ```csharp
 Material[] materials = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
 ```
 
 #### SetAlphaColor
+
+Set the alpha of a color to a value.
 
 ```csharp
 Debug.Log(CandyCoded.Materials.SetColorAlpha(material.color, 0.5f));
@@ -178,6 +189,8 @@ CandyCoded.Materials.SetMaterialsToBlendMode(materials, CandyCoded.StandardShade
 ### Raycast
 
 #### Reflect
+
+Creates a raycast that can reflect off certain objects in a layer mask.
 
 ```csharp
 Vector3[] linePositions = CandyCoded.Raycast.Reflect(gameObject.transform.position, gameObject.transform.forward, distance, layerMask);
