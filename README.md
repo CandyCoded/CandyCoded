@@ -54,6 +54,8 @@ CandyCoded.ScreenShake screenShake = Camera.main.GetComponent<CandyCoded.ScreenS
 screenShake.Shake(duration, intensity, CandyCoded.SCREENSHAKE_DIRECTION.Vertical);
 ```
 
+![](https://media.giphy.com/media/xULW8MNwUyL5aqUJ7W/giphy.gif)
+
 ### SelfDestructParticleSystem
 
 
