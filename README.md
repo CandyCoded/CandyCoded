@@ -131,7 +131,8 @@ CandyCoded.Animate.Rotate(gameObject, Time.deltaTime, Vector3.up, animationCurve
 Calculate the bounds of a gameobject with multiple children.
 
 ```csharp
-void OnDrawGizmosSelected() {
+void OnDrawGizmosSelected()
+{
 
     Bounds bounds = CandyCoded.Calculation.ParentBounds(gameObject);
 

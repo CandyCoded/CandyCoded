@@ -4,10 +4,12 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-public class CalculationParentBoundsTest {
+public class CalculationParentBoundsTest
+{
 
     [UnityTest]
-    public IEnumerator BoundsCalculatedOnMultipleChildrenObjects() {
+    public IEnumerator BoundsCalculatedOnMultipleChildrenObjects()
+    {
 
         GameObject parentGameObject = new GameObject("ParentGameObject");
 

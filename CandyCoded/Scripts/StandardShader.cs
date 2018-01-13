@@ -2,20 +2,25 @@
 
 using UnityEngine;
 
-namespace CandyCoded {
+namespace CandyCoded
+{
 
-    public class StandardShader : MonoBehaviour {
+    public class StandardShader : MonoBehaviour
+    {
 
-        public enum BlendMode {
+        public enum BlendMode
+        {
             Opaque,
             Cutout,
             Fade,
             Transparent
         }
 
-        public static void SetupMaterialWithBlendMode(Material material, CandyCoded.StandardShader.BlendMode blendMode) {
+        public static void SetupMaterialWithBlendMode(Material material, CandyCoded.StandardShader.BlendMode blendMode)
+        {
 
-            switch (blendMode) {
+            switch (blendMode)
+            {
 
                 case StandardShader.BlendMode.Opaque:
                     material.SetOverrideTag("RenderType", "");

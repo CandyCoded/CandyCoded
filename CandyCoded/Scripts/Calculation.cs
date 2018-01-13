@@ -1,10 +1,13 @@
 using UnityEngine;
 
-namespace CandyCoded {
+namespace CandyCoded
+{
 
-    public static class Calculation {
+    public static class Calculation
+    {
 
-        public static Bounds ParentBounds(GameObject parentGameObject) {
+        public static Bounds ParentBounds(GameObject parentGameObject)
+        {
 
             Vector3 center = Vector3.zero;
             Vector3 min = Vector3.zero;
@@ -14,7 +17,8 @@ namespace CandyCoded {
 
             Renderer[] renderers = parentGameObject.GetComponentsInChildren<Renderer>();
 
-            foreach (Renderer renderer in renderers) {
+            foreach (Renderer renderer in renderers)
+            {
 
                 Bounds childBounds = renderer.bounds;
 
@@ -31,7 +35,8 @@ namespace CandyCoded {
 
         }
 
-        public static Bounds ParentBounds(Transform parentTransform) {
+        public static Bounds ParentBounds(Transform parentTransform)
+        {
 
             return ParentBounds(parentTransform.gameObject);
 

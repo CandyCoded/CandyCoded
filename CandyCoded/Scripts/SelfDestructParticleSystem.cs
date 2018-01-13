@@ -1,20 +1,25 @@
 using UnityEngine;
 
-namespace CandyCoded {
+namespace CandyCoded
+{
 
-    public class SelfDestructParticleSystem : MonoBehaviour {
+    public class SelfDestructParticleSystem : MonoBehaviour
+    {
 
         private ParticleSystem ps;
 
-        void Awake() {
+        void Awake()
+        {
 
             ps = gameObject.GetComponent<ParticleSystem>();
 
         }
 
-        void LateUpdate() {
+        void LateUpdate()
+        {
 
-            if (ps && !ps.IsAlive()) {
+            if (ps && !ps.IsAlive())
+            {
 
                 Destroy(gameObject);
 

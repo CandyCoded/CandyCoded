@@ -1,10 +1,12 @@
 using System.Collections;
 using UnityEngine;
 
-namespace CandyCoded {
+namespace CandyCoded
+{
 
     [System.Serializable]
-    public class CameraConstraints {
+    public class CameraConstraints
+    {
         [Header("Freeze Original Position")]
         public bool freezePositionX;
         public bool freezePositionY;
@@ -20,7 +22,8 @@ namespace CandyCoded {
         public Bounds bounds;
     }
 
-    public class CameraFollow : MonoBehaviour {
+    public class CameraFollow : MonoBehaviour
+    {
 
         public bool tracking = true;
 
@@ -37,11 +40,13 @@ namespace CandyCoded {
 
         private Vector3 velocity = Vector3.zero;
 
-        void Awake() {
+        void Awake()
+        {
 
             cameraTransform = Camera.main.transform;
 
-            if (mainTarget == null) {
+            if (mainTarget == null)
+            {
 
                 mainTarget = gameObject.transform;
 
@@ -55,9 +60,11 @@ namespace CandyCoded {
 
         }
 
-        void LateUpdate() {
+        void LateUpdate()
+        {
 
-            if (tracking && mainTarget) {
+            if (tracking && mainTarget)
+            {
 
                 Vector3 newPosition = mainTarget.transform.position;
 
@@ -65,7 +72,8 @@ namespace CandyCoded {
                 if (constraints.maintainOffsetY) newPosition.y += cameraPositionOffset.y;
                 if (constraints.maintainOffsetZ) newPosition.z += cameraPositionOffset.z;
 
-                if (constraints.boundsTransform) {
+                if (constraints.boundsTransform)
+                {
 
                     constraints.bounds = CandyCoded.Calculation.ParentBounds(constraints.boundsTransform);
 
@@ -74,7 +82,8 @@ namespace CandyCoded {
                 float cameraExtentVertical = Camera.main.orthographicSize;
                 float cameraExtentHorizontal = cameraExtentVertical * Screen.width / Screen.height;
 
-                if (constraints.bounds.size.magnitude != 0) {
+                if (constraints.bounds.size.magnitude != 0)
+                {
 
                     newPosition.x = Mathf.Clamp(newPosition.x, constraints.bounds.min.x + cameraExtentHorizontal, constraints.bounds.max.x - cameraExtentHorizontal);
                     newPosition.y = Mathf.Clamp(newPosition.y, constraints.bounds.min.y + cameraExtentVertical, constraints.bounds.max.y - cameraExtentVertical);

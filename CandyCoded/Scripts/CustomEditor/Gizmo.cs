@@ -2,15 +2,18 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace CandyCoded {
+namespace CandyCoded
+{
 
-    public enum GIZMO_TYPE {
+    public enum GIZMO_TYPE
+    {
         None,
         Sphere,
         Cube
     }
 
-    public class Gizmo : MonoBehaviour {
+    public class Gizmo : MonoBehaviour
+    {
 
         public GIZMO_TYPE type = GIZMO_TYPE.None;
 
@@ -23,11 +26,13 @@ namespace CandyCoded {
         [HideInInspector]
         public float radius = 1.0f;
 
-        void OnDrawGizmos() {
+        void OnDrawGizmos()
+        {
 
             Gizmos.color = color;
 
-            switch (type) {
+            switch (type)
+            {
 
                 case GIZMO_TYPE.Sphere:
                     Gizmos.DrawWireSphere(gameObject.transform.position + position, radius);
@@ -44,15 +49,18 @@ namespace CandyCoded {
     }
 
     [UnityEditor.CustomEditor(typeof(Gizmo))]
-    public class GizmoEditor : UnityEditor.Editor {
+    public class GizmoEditor : UnityEditor.Editor
+    {
 
-        public override void OnInspectorGUI() {
+        public override void OnInspectorGUI()
+        {
 
             DrawDefaultInspector();
 
             Gizmo script = (Gizmo) target;
 
-            switch (script.type) {
+            switch (script.type)
+            {
 
                 case GIZMO_TYPE.Sphere:
                     script.color = EditorGUILayout.ColorField("Color", script.color);

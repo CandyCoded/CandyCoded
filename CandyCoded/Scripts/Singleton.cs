@@ -1,24 +1,31 @@
 using UnityEngine;
 
-namespace CandyCoded {
+namespace CandyCoded
+{
 
-    public class Singleton : MonoBehaviour {
+    public class Singleton : MonoBehaviour
+    {
 
         private static Singleton _instance;
 
-        public static Singleton instance {
+        public static Singleton instance
+        {
 
             get { return _instance; }
 
         }
 
-        private void Awake() {
+        private void Awake()
+        {
 
-            if (_instance != null && _instance != this) {
+            if (_instance != null && _instance != this)
+            {
 
                 Destroy(gameObject);
 
-            } else {
+            }
+            else
+            {
 
                 _instance = this;
 
@@ -28,9 +35,11 @@ namespace CandyCoded {
 
         }
 
-        private void OnDestroy() {
+        private void OnDestroy()
+        {
 
-            if (_instance == this) {
+            if (_instance == this)
+            {
 
                 _instance = null;
 

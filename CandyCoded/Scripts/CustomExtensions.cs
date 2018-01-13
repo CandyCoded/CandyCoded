@@ -1,11 +1,13 @@
 using UnityEngine;
 
-public static class CustomExtensions {
+public static class CustomExtensions
+{
 
     /// <summary>
     /// Is layerName in layerMask? layerName: Layer name to compare against layerMask.
     /// </summary>
-    public static bool Contains(this LayerMask layerMask, string layerName) {
+    public static bool Contains(this LayerMask layerMask, string layerName)
+    {
 
         return layerMask.Contains(LayerMask.NameToLayer(layerName));
 
@@ -14,7 +16,8 @@ public static class CustomExtensions {
     /// <summary>
     /// Is layerInt in layerMask? layerInt: Layer number to compare against layerMask.
     /// </summary>
-    public static bool Contains(this LayerMask layerMask, int layerInt) {
+    public static bool Contains(this LayerMask layerMask, int layerInt)
+    {
 
         return ((int) layerMask).Contains(1 << layerInt);
 
@@ -23,7 +26,8 @@ public static class CustomExtensions {
     /// <summary>
     /// Is value in mask? value: value to compare against mask.
     /// </summary>
-    public static bool Contains(this int mask, int value) {
+    public static bool Contains(this int mask, int value)
+    {
 
         return mask == (mask | value);
 
@@ -32,7 +36,8 @@ public static class CustomExtensions {
     /// <summary>
     /// Rotates the transform so the forward vector points at target's position. target: Obkect to point towards. direction: Vector specifying the fotward direction.
     /// </summary>
-    public static void LookAt2D(this Transform transform, Transform target, Vector3 direction) {
+    public static void LookAt2D(this Transform transform, Transform target, Vector3 direction)
+    {
 
         Vector2 angle = target.position - transform.position;
 
@@ -45,7 +50,8 @@ public static class CustomExtensions {
     /// <summary>
     /// Rotates the transform so the forward vector points at target's position. target: Obkect to point towards.
     /// </summary>
-    public static void LookAt2D(this Transform transform, Transform target) {
+    public static void LookAt2D(this Transform transform, Transform target)
+    {
 
         Vector2 angle = target.position - transform.position;
 

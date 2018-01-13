@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CandyCoded {
+namespace CandyCoded
+{
 
-    public static class Raycast {
+    public static class Raycast
+    {
 
-        public static Vector3[] Reflect(Vector3 startPosition, Vector3 direction, float distance, LayerMask layerMask, out List<RaycastHit> hits) {
+        public static Vector3[] Reflect(Vector3 startPosition, Vector3 direction, float distance, LayerMask layerMask, out List<RaycastHit> hits)
+        {
 
             hits = new List<RaycastHit>();
 
@@ -17,9 +20,11 @@ namespace CandyCoded {
 
             float remainingDistance = distance;
 
-            while (remainingDistance > 0) {
+            while (remainingDistance > 0)
+            {
 
-                if (Physics.Raycast(linePositions[linePositions.Count - 1], direction, out hitInfo, remainingDistance, layerMask, QueryTriggerInteraction.Ignore)) {
+                if (Physics.Raycast(linePositions[linePositions.Count - 1], direction, out hitInfo, remainingDistance, layerMask, QueryTriggerInteraction.Ignore))
+                {
 
                     remainingDistance -= Vector3.Distance(linePositions[linePositions.Count - 1], hitInfo.point);
 
@@ -29,7 +34,9 @@ namespace CandyCoded {
 
                     hits.Add(hitInfo);
 
-                } else {
+                }
+                else
+                {
 
                     linePositions.Add(linePositions[linePositions.Count - 1] + remainingDistance * direction);
 
@@ -43,7 +50,8 @@ namespace CandyCoded {
 
         }
 
-        public static Vector3[] Reflect(Vector3 startPosition, Vector3 direction, float distance, LayerMask layerMask) {
+        public static Vector3[] Reflect(Vector3 startPosition, Vector3 direction, float distance, LayerMask layerMask)
+        {
 
             List<RaycastHit> hits;
 

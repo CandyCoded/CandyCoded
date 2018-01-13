@@ -1,17 +1,24 @@
 using UnityEngine;
 
-namespace CandyCoded {
+namespace CandyCoded
+{
 
-    public static class InputManager {
+    public static class InputManager
+    {
 
-        public static bool InputDown {
-            get {
+        public static bool InputDown
+        {
+            get
+            {
 
-                if (SystemInfo.deviceType == DeviceType.Desktop) {
+                if (SystemInfo.deviceType == DeviceType.Desktop)
+                {
 
                     return Input.GetMouseButtonDown(0);
 
-                } else if (SystemInfo.deviceType == DeviceType.Handheld) {
+                }
+                else if (SystemInfo.deviceType == DeviceType.Handheld)
+                {
 
                     return Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began;
 
@@ -23,14 +30,19 @@ namespace CandyCoded {
             private set { }
         }
 
-        public static Vector3 InputScreenPosition {
-            get {
+        public static Vector3 InputScreenPosition
+        {
+            get
+            {
 
-                if (SystemInfo.deviceType == DeviceType.Desktop) {
+                if (SystemInfo.deviceType == DeviceType.Desktop)
+                {
 
                     return Input.mousePosition;
 
-                } else if (SystemInfo.deviceType == DeviceType.Handheld) {
+                }
+                else if (SystemInfo.deviceType == DeviceType.Handheld)
+                {
 
                     return Input.GetTouch(0).position;
 
@@ -42,14 +54,19 @@ namespace CandyCoded {
             private set { }
         }
 
-        public static bool InputUp {
-            get {
+        public static bool InputUp
+        {
+            get
+            {
 
-                if (SystemInfo.deviceType == DeviceType.Desktop) {
+                if (SystemInfo.deviceType == DeviceType.Desktop)
+                {
 
                     return Input.GetMouseButtonUp(0);
 
-                } else if (SystemInfo.deviceType == DeviceType.Handheld) {
+                }
+                else if (SystemInfo.deviceType == DeviceType.Handheld)
+                {
 
                     return Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended;
 

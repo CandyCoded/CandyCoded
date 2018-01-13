@@ -1,14 +1,17 @@
 using UnityEngine;
 
-namespace CandyCoded {
+namespace CandyCoded
+{
 
-    public enum SCREENSHAKE_DIRECTION {
+    public enum SCREENSHAKE_DIRECTION
+    {
         All,
         Horizontal,
         Vertical
     }
 
-    public class ScreenShake : MonoBehaviour {
+    public class ScreenShake : MonoBehaviour
+    {
 
         private float currentIntensity = 0;
         private float currentDuraton = 0;
@@ -16,7 +19,8 @@ namespace CandyCoded {
 
         private GameObject wrapperObject;
 
-        void Awake() {
+        void Awake()
+        {
 
             wrapperObject = new GameObject("ScreenShakeWrapper");
 
@@ -24,21 +28,28 @@ namespace CandyCoded {
 
         }
 
-        void Update() {
+        void Update()
+        {
 
             Vector3 shakePosition = Vector3.zero;
 
-            if (currentDuraton > 0) {
+            if (currentDuraton > 0)
+            {
 
-                if (currentDirection == SCREENSHAKE_DIRECTION.All) {
+                if (currentDirection == SCREENSHAKE_DIRECTION.All)
+                {
 
                     shakePosition = Random.insideUnitCircle * currentIntensity;
 
-                } else if (currentDirection == SCREENSHAKE_DIRECTION.Horizontal) {
+                }
+                else if (currentDirection == SCREENSHAKE_DIRECTION.Horizontal)
+                {
 
                     shakePosition = new Vector3(Random.Range(-1, 1), 0, 0) * currentIntensity;
 
-                } else if (currentDirection == SCREENSHAKE_DIRECTION.Vertical) {
+                }
+                else if (currentDirection == SCREENSHAKE_DIRECTION.Vertical)
+                {
 
                     shakePosition = new Vector3(0, Random.Range(-1, 1), 0) * currentIntensity;
 
@@ -52,7 +63,8 @@ namespace CandyCoded {
 
         }
 
-        public void Shake(float duration = 0.5f, float intensity = 0.2f, SCREENSHAKE_DIRECTION direction = SCREENSHAKE_DIRECTION.All) {
+        public void Shake(float duration = 0.5f, float intensity = 0.2f, SCREENSHAKE_DIRECTION direction = SCREENSHAKE_DIRECTION.All)
+        {
 
             currentIntensity = intensity;
             currentDuraton = duration;
