@@ -1,22 +1,11 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "BoolReference", menuName = "CandyCoded/BoolReference")]
-public class BoolReference : ScriptableObject
+namespace CandyCoded
 {
 
-    public bool Value;
-
-    [SerializeField]
-    private bool _defaultValue;
-    public bool DefaultValue
+    [CreateAssetMenu(fileName = "BoolReference", menuName = "CandyCoded/BoolReference")]
+    public class BoolReference : CustomGenericScriptableObject<bool>
     {
-        get { return _defaultValue; }
-    }
-
-    public void Reset()
-    {
-
-        Value = DefaultValue;
 
     }
 

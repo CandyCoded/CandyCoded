@@ -1,22 +1,11 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "FloatReference", menuName = "CandyCoded/FloatReference")]
-public class FloatReference : ScriptableObject
+namespace CandyCoded
 {
 
-    public float Value;
-
-    [SerializeField]
-    private float _defaultValue;
-    public float DefaultValue
+    [CreateAssetMenu(fileName = "FloatReference", menuName = "CandyCoded/FloatReference")]
+    public class FloatReference : CustomGenericScriptableObject<float>
     {
-        get { return _defaultValue; }
-    }
-
-    public void Reset()
-    {
-
-        Value = DefaultValue;
 
     }
 

@@ -1,22 +1,11 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "StringReference", menuName = "CandyCoded/StringReference")]
-public class StringReference : ScriptableObject
+namespace CandyCoded
 {
 
-    public string Value;
-
-    [SerializeField]
-    private string _defaultValue;
-    public string DefaultValue
+    [CreateAssetMenu(fileName = "StringReference", menuName = "CandyCoded/StringReference")]
+    public class StringReference : CustomGenericScriptableObject<string>
     {
-        get { return _defaultValue; }
-    }
-
-    public void Reset()
-    {
-
-        Value = DefaultValue;
 
     }
 
