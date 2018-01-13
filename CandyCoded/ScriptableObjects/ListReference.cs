@@ -1,39 +1,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ListReference<T> : ScriptableObject
+namespace CandyCoded
 {
 
-    public List<T> Items = new List<T>();
-
-    public int Count
-    {
-        get { return Items.Count; }
-    }
-
-    public void Add(T item)
+    public abstract class ListReference<T> : CustomScriptableObject
     {
 
-        if (!Items.Contains(item))
+        public List<T> Items = new List<T>();
+
+        public int Count
+        {
+            get { return Items.Count; }
+        }
+
+        public void Add(T item)
         {
 
-            Items.Add(item);
+            if (!Items.Contains(item))
+            {
+
+                Items.Add(item);
+
+            }
 
         }
 
-    }
+        public bool Remove(T item)
+        {
 
-    public bool Remove(T item)
-    {
+            return Items.Remove(item);
 
-        return Items.Remove(item);
+        }
 
-    }
+        public void Clear()
+        {
 
-    public void Clear()
-    {
+            Items.Clear();
 
-        Items.Clear();
+        }
+
+        public override void Reset()
+        {
+
+            Items.Clear();
+
+        }
 
     }
 
