@@ -43,7 +43,7 @@ namespace CandyCoded
         public override void Reset()
         {
 
-            Items.Clear();
+            Clear();
 
         }
 
