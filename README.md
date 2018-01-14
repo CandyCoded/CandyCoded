@@ -6,12 +6,12 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
 
 ## Contents
 
-- Components
+- [Components](#components)
     - [CameraFollow](#camerafollow)
     - [Gizmo](#gizmo)
     - [ScreenShake](#screenshake)
     - [SelfDestructParticleSystem](#selfdestructparticlesystem)
-- Static Methods
+- [Static Methods](#static-methods)
     - [Animate](#animate)
     - [Calculation](#calculation)
     - [Debug](#debug)
@@ -19,16 +19,16 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
     - [Materials](#materials)
     - [Raycast](#raycast)
     - [Singleton](#singleton)
-- ScriptableObject
+- [ScriptableObject](#scriptableobject)
     - [Bool](#bool)
     - [Float](#float)
     - [GameObjectList](#gameobjectlist)
     - [Int](#int)
     - [String](#string)
     - [Creating Custom Scriptable Objects](#creating-custom-scriptable-objects)
-- Unity Editor Extensions
+- [Unity Editor Extensions](#unity-editor-extensions)
     - [EnumMask](#enummask)
-- Unity Editor Inspector Methods
+- [Unity Editor Inspector Methods](#unity-editor-inspector-methods)
     - [StandardShader](#standardshader)
 
 ## Components
