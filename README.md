@@ -221,7 +221,8 @@ Vector3[] linePositions = CandyCoded.Raycast.Reflect(gameObject.transform.positi
 **Warning: Being considered for depreciation**
 
 ```csharp
-public class InputController : CandyCoded.Singleton {
+public class InputController : CandyCoded.Singleton
+{
 
 }
 ```
@@ -269,9 +270,11 @@ public class Vector3Reference : CandyCoded.CustomGenericScriptableObject<Vector3
 ```csharp
 using UnityEngine;
 
-public class EnumMaskDemo : MonoBehaviour {
+public class EnumMaskDemo : MonoBehaviour
+{
 
-    public enum STATE {
+    public enum STATE
+    {
         None = 0,
         Idle = 1 << 0,
         Running = 1 << 1,
