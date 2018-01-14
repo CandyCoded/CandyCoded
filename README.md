@@ -285,6 +285,16 @@ public class EnumMaskDemo : MonoBehaviour
 
     [EnumMask]
     public STATE currentState = STATE.None;
+    public STATE availableStates = STATE.Idle | STATE.Running | STATE.Falling;
+
+    void Start()
+    {
+
+        // Typecast both availableStates and individual enum values to an int
+        // to run a bitwise comparison using Contains (part of CandyCoded)
+        Debug.Log(((int) availableStates).Contains((int) STATE.Jumping)); // False
+
+    }
 
 }
 ```
