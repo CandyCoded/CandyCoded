@@ -218,6 +218,8 @@ Vector3[] linePositions = CandyCoded.Raycast.Reflect(gameObject.transform.positi
 
 ### Singleton
 
+**Warning: Being considered for depreciation**
+
 ```csharp
 public class InputController : CandyCoded.Singleton {
 
