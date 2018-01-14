@@ -19,6 +19,13 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
     - [Materials](#materials)
     - [Raycast](#raycast)
     - [Singleton](#singleton)
+- ScriptableObject
+    - [Bool](#bool)
+    - [Float](#float)
+    - [GameObjectList](#gameobjectlist)
+    - [Int](#int)
+    - [String](#string)
+    - [Creating Custom Scriptable Objects](#creating-custom-scriptable-objects)
 - Unity Editor Extensions
     - [EnumMask](#enummask)
 - Unity Editor Inspector Methods
@@ -216,6 +223,42 @@ public class InputController : CandyCoded.Singleton {
 
 }
 ```
+
+## ScriptableObject
+
+Each ScriptableObject has a `value` and a `defaultValue`. The `value` can be modified via script, the `defaultValue` can not. A `Reset` method is publicly available to reset the `value` to equal the `defaultValue`. This method is also accessible via the inspector.
+
+## Float
+
+![](https://i.imgur.com/xMX202E.png)
+
+## Bool
+
+![](https://i.imgur.com/BeRRAWO.png)
+
+## GameObjectList
+
+![](https://i.imgur.com/x60IcUO.png)
+
+## Int
+
+![](https://i.imgur.com/899tEuG.png)
+
+## String
+
+![](https://i.imgur.com/cJslkol.png)
+
+## Creating Custom Scriptable Object
+
+```csharp
+[CreateAssetMenu]
+public class Vector3Reference : CandyCoded.CustomGenericScriptableObject<Vector3>
+{
+
+}
+```
+
+![](https://i.imgur.com/9opk8j8.png)
 
 ## Unity Editor Extensions
 
