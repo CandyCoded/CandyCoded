@@ -163,7 +163,7 @@ CandyCoded.Debug.DrawLines(points, Color.red);
 
 ### InputManager
 
-**Warning: Being considered for deprecated in favor of the new Unity InputSystem** <https://github.com/Unity-Technologies/InputSystem>
+**Warning: Being considered for deprecation in favor of the new Unity InputSystem** <https://github.com/Unity-Technologies/InputSystem>
 
 ```csharp
 Debug.Log(CandyCoded.InputManager.InputDown);
