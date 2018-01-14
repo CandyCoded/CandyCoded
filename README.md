@@ -250,7 +250,7 @@ Each ScriptableObject has a `value` and a `defaultValue`. The `value` can be mod
 
 ![](https://i.imgur.com/cJslkol.png)
 
-## Creating Custom Scriptable Object
+## Creating Custom Scriptable Objects
 
 ```csharp
 [CreateAssetMenu]
