@@ -284,7 +284,7 @@ public class EnumMaskDemo : MonoBehaviour
     }
 
     [EnumMask]
-    public STATE currentState = STATE.None;
+    public STATE currentState = STATE.Idle;
     public STATE availableStates = STATE.Idle | STATE.Running | STATE.Falling;
 
     void Start()
