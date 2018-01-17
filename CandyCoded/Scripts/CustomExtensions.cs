@@ -34,7 +34,7 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Rotates the transform so the forward vector points at target's position. target: Obkect to point towards. direction: Vector specifying the fotward direction.
+    /// Rotates the transform so the forward vector points at target's position. target: Object to point towards. direction: Vector specifying the fotward direction.
     /// </summary>
     public static void LookAt2D(this Transform transform, Transform target, Vector3 direction)
     {
@@ -48,7 +48,7 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Rotates the transform so the forward vector points at target's position. target: Obkect to point towards.
+    /// Rotates the transform so the forward vector points at target's position. target: Object to point towards.
     /// </summary>
     public static void LookAt2D(this Transform transform, Transform target)
     {
