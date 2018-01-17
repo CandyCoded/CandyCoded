@@ -302,7 +302,7 @@ public class EnumMaskDemo : MonoBehaviour
 }
 ```
 
-![](https://i.imgur.com/eqiGOji.png)
+![](https://i.imgur.com/s5rlIIF.png)
 
 ## Unity Editor Inspector Methods
 
