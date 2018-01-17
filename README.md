@@ -285,8 +285,9 @@ public class EnumMaskDemo : MonoBehaviour
         All = ~0
     }
 
-    [EnumMask]
     public STATE currentState = STATE.Idle;
+
+    [EnumMask]
     public STATE availableStates = STATE.Idle | STATE.Running | STATE.Falling;
 
     void Start()
@@ -301,7 +302,7 @@ public class EnumMaskDemo : MonoBehaviour
 }
 ```
 
-![](https://i.imgur.com/JVrIJ4N.png)
+![](https://i.imgur.com/gzXgMts.png)
 
 ## Unity Editor Inspector Methods
 
