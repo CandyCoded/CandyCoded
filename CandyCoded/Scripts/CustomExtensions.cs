@@ -24,7 +24,7 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Is value in mask? value: value to compare against mask.
+    /// Is value in mask? value: Value to compare against mask.
     /// </summary>
     public static bool Contains(this int mask, int value)
     {
