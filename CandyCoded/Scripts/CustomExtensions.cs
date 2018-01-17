@@ -34,6 +34,20 @@ public static class CustomExtensions
     }
 
     /// <summary>
+    /// Edits an existing keyframe in an animation curve. index: Index of the keyframe. key: New keyframe object.
+    /// </summary>
+    public static void EditKey(this AnimationCurve animationCurve, int index, Keyframe key)
+    {
+
+        Keyframe[] keys = animationCurve.keys;
+
+        keys[index] = key;
+
+        animationCurve.keys = keys;
+
+    }
+
+    /// <summary>
     /// Rotates the transform so the forward vector points at target's position. target: Object to point towards. direction: Vector specifying the fotward direction.
     /// </summary>
     public static void LookAt2D(this Transform transform, Transform target, Vector3 direction)
