@@ -23,15 +23,4 @@ namespace CandyCoded
 
     }
 
-    [System.Serializable]
-    public struct Vector4AnimationCurve
-    {
-
-        public AnimationCurve x;
-        public AnimationCurve y;
-        public AnimationCurve z;
-        public AnimationCurve w;
-
-    }
-
 }
