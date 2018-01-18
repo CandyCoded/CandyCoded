@@ -2,21 +2,8 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-public class EnumMaskAttribute : PropertyAttribute
-{
-
-    public string name;
-
-    public EnumMaskAttribute() { }
-
-    public EnumMaskAttribute(string name)
-    {
-
-        this.name = name;
-
-    }
-
-}
+[CustomPropertyDrawer(typeof(Enum))]
+public class EnumMaskAttribute : PropertyAttribute { }
 
 [CustomPropertyDrawer(typeof(EnumMaskAttribute))]
 public class EnumMaskDrawer : PropertyDrawer
