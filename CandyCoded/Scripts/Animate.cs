@@ -36,30 +36,30 @@ namespace CandyCoded
 
         }
 
-        public static void FadeCustom(GameObject gameObject, float currentTime, AnimationCurve animationCurve)
+        public static void FadeCustom(GameObject gameObject, float deltaTime, AnimationCurve animationCurve)
         {
 
             CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
 
-            FadeCustom(gameObject, currentTime, animationCurve, animationData);
+            FadeCustom(gameObject, deltaTime, animationCurve, animationData);
 
         }
 
-        public static void FadeIn(GameObject gameObject, float currentTime)
+        public static void FadeIn(GameObject gameObject, float deltaTime)
         {
 
-            FadeCustom(gameObject, currentTime, AnimationCurve.Linear(0, 0, 1, 1));
+            FadeCustom(gameObject, deltaTime, AnimationCurve.Linear(0, 0, 1, 1));
 
         }
 
-        public static void FadeOut(GameObject gameObject, float currentTime)
+        public static void FadeOut(GameObject gameObject, float deltaTime)
         {
 
-            FadeCustom(gameObject, currentTime, AnimationCurve.Linear(0, 1, 1, 0));
+            FadeCustom(gameObject, deltaTime, AnimationCurve.Linear(0, 1, 1, 0));
 
         }
 
-        public static void Position(GameObject gameObject, float currentTime, Vector3 multiplier, AnimationCurve animationCurve)
+        public static void Position(GameObject gameObject, float deltaTime, Vector3 multiplier, AnimationCurve animationCurve)
         {
 
             CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
@@ -68,7 +68,7 @@ namespace CandyCoded
 
         }
 
-        public static void Scale(GameObject gameObject, float currentTime, Vector3 multiplier, AnimationCurve animationCurve)
+        public static void Scale(GameObject gameObject, float deltaTime, Vector3 multiplier, AnimationCurve animationCurve)
         {
 
             CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
@@ -77,7 +77,7 @@ namespace CandyCoded
 
         }
 
-        public static void Rotate(GameObject gameObject, float currentTime, Vector3 multiplier, AnimationCurve animationCurve)
+        public static void Rotate(GameObject gameObject, float deltaTime, Vector3 multiplier, AnimationCurve animationCurve)
         {
 
             CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
