@@ -4,6 +4,14 @@
 
 _**Note:** The APIs in CandyCoded may change as this library is currently in development and hasn't reached a point where semver make sense._
 
+## Installation
+
+### Git Submodule
+
+```bash
+$ git submodule add git@github.com:neogeek/CandyCoded.git Assets/CandyCoded/
+```
+
 ## Contents
 
 - [Components](#components)
