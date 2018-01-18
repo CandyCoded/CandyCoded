@@ -17,8 +17,6 @@ public class DisplayInInsepctorDrawer : Editor
 
         MemberInfo[] methods = target.GetType().GetMembers(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
 
-        GUILayout.Space(10);
-
         foreach (MemberInfo method in methods)
         {
 
