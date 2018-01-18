@@ -64,7 +64,9 @@ namespace CandyCoded
 
             CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
 
-            gameObject.transform.position = animationData.transformData.position + multiplier * animationCurve.Evaluate(Time.time);
+            animationData.activeTime += deltaTime;
+
+            gameObject.transform.position = animationData.transformData.position + multiplier * animationCurve.Evaluate(animationData.activeTime);
 
         }
 
@@ -73,7 +75,9 @@ namespace CandyCoded
 
             CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
 
-            gameObject.transform.localScale = animationData.transformData.scale + multiplier * animationCurve.Evaluate(Time.time);
+            animationData.activeTime += deltaTime;
+
+            gameObject.transform.localScale = animationData.transformData.scale + multiplier * animationCurve.Evaluate(animationData.activeTime);
 
         }
 
@@ -82,7 +86,9 @@ namespace CandyCoded
 
             CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
 
-            gameObject.transform.localRotation = Quaternion.Euler(animationData.transformData.rotation * multiplier * animationCurve.Evaluate(Time.time));
+            animationData.activeTime += deltaTime;
+
+            gameObject.transform.localRotation = Quaternion.Euler(animationData.transformData.rotation * multiplier * animationCurve.Evaluate(animationData.activeTime));
 
         }
 
