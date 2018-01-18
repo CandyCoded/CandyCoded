@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System;
 using UnityEditor;
 using UnityEngine;
@@ -38,3 +39,4 @@ public class EnumMaskDrawer : PropertyDrawer
     }
 
 }
+#endif
