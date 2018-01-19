@@ -13,7 +13,9 @@ namespace CandyCoded
 
             if (animationData == null)
             {
+
                 animationData = gameObject.AddComponent<CandyCoded.AnimationData>();
+
             }
 
             return animationData;
