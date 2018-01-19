@@ -8,8 +8,8 @@ namespace CandyCoded
     public class Vector2AnimationCurve
     {
 
-        public AnimationCurve x = AnimationCurve.Linear(0, 0, 1, 1);
-        public AnimationCurve y = AnimationCurve.Linear(0, 0, 1, 1);
+        public AnimationCurve x = AnimationCurve.Linear(0, 0, 1, 0);
+        public AnimationCurve y = AnimationCurve.Linear(0, 0, 1, 0);
 
         public Vector2 Evaluate(float time)
         {
@@ -27,9 +27,9 @@ namespace CandyCoded
     public class Vector3AnimationCurve
     {
 
-        public AnimationCurve x = AnimationCurve.Linear(0, 0, 1, 1);
-        public AnimationCurve y = AnimationCurve.Linear(0, 0, 1, 1);
-        public AnimationCurve z = AnimationCurve.Linear(0, 0, 1, 1);
+        public AnimationCurve x = AnimationCurve.Linear(0, 0, 1, 0);
+        public AnimationCurve y = AnimationCurve.Linear(0, 0, 1, 0);
+        public AnimationCurve z = AnimationCurve.Linear(0, 0, 1, 0);
 
         public Vector3 Evaluate(float time)
         {
