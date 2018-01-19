@@ -61,36 +61,58 @@ namespace CandyCoded
 
         }
 
-        public static void Position(GameObject gameObject, float deltaTime, Vector3 multiplier, AnimationCurve animationCurve)
+        public static void Position(GameObject gameObject, float deltaTime, Vector3AnimationCurve animationCurve)
         {
 
             CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
 
             animationData.activeTime += deltaTime;
 
-            gameObject.transform.position = animationData.transformData.position + multiplier * animationCurve.Evaluate(animationData.activeTime);
+            gameObject.transform.position = animationCurve.Evaluate(animationData.activeTime);
 
         }
 
-        public static void Scale(GameObject gameObject, float deltaTime, Vector3 multiplier, AnimationCurve animationCurve)
+        public static void PositionRelative(GameObject gameObject, float deltaTime, Vector3AnimationCurve animationCurve)
         {
 
             CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
 
             animationData.activeTime += deltaTime;
 
-            gameObject.transform.localScale = animationData.transformData.scale + multiplier * animationCurve.Evaluate(animationData.activeTime);
+            gameObject.transform.position = animationData.transformData.position + animationCurve.Evaluate(animationData.activeTime);
 
         }
 
-        public static void Rotate(GameObject gameObject, float deltaTime, Vector3 multiplier, AnimationCurve animationCurve)
+        public static void Scale(GameObject gameObject, float deltaTime, Vector3AnimationCurve animationCurve)
         {
 
             CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
 
             animationData.activeTime += deltaTime;
 
-            gameObject.transform.localRotation = Quaternion.Euler(animationData.transformData.rotation * multiplier * animationCurve.Evaluate(animationData.activeTime));
+            gameObject.transform.localScale = animationCurve.Evaluate(animationData.activeTime);
+
+        }
+
+        public static void ScaleRelative(GameObject gameObject, float deltaTime, Vector3AnimationCurve animationCurve)
+        {
+
+            CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
+
+            animationData.activeTime += deltaTime;
+
+            gameObject.transform.localScale = animationData.transformData.scale + animationCurve.Evaluate(animationData.activeTime);
+
+        }
+
+        public static void Rotate(GameObject gameObject, float deltaTime, Vector3AnimationCurve animationCurve)
+        {
+
+            CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
+
+            animationData.activeTime += deltaTime;
+
+            gameObject.transform.localRotation = Quaternion.Euler(animationCurve.Evaluate(animationData.activeTime));
 
         }
 
