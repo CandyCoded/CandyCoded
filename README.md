@@ -39,6 +39,7 @@ $ git submodule update --remote
     - [String](#string)
     - [Creating Custom Scriptable Objects](#creating-custom-scriptable-objects)
 - [Unity Editor Extensions](#unity-editor-extensions)
+    - [DisplayInInspector](#displayininspector)
     - [EnumMask](#enummask)
 - [Unity Editor Inspector Methods](#unity-editor-inspector-methods)
     - [StandardShader](#standardshader)
@@ -278,6 +279,27 @@ public class Vector3Reference : CandyCoded.CustomGenericScriptableObject<Vector3
 ![](https://i.imgur.com/9opk8j8.png)
 
 ## Unity Editor Extensions
+
+### DisplayInInspector
+
+```csharp
+using UnityEngine;
+
+public class DisplayInInsepctorDemo : MonoBehaviour
+{
+
+    [DisplayInInsepctor]
+    void Boop()
+    {
+
+        Debug.Log("boop");
+
+    }
+
+}
+```
+
+![](https://i.imgur.com/WBzfqZJ.png)
 
 ### EnumMask
 
