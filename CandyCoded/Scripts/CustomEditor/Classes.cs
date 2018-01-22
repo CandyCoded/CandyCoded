@@ -21,6 +21,17 @@ namespace CandyCoded
 
         }
 
+        public static explicit operator Vector3AnimationCurve(Vector2AnimationCurve animationCurve)
+        {
+
+            Vector3AnimationCurve newAnimationCurve = new Vector3AnimationCurve();
+
+            newAnimationCurve.x = animationCurve.x;
+            newAnimationCurve.y = animationCurve.y;
+
+            return newAnimationCurve;
+        }
+
     }
 
     [System.Serializable]
@@ -40,6 +51,17 @@ namespace CandyCoded
                 z.Evaluate(time)
             );
 
+        }
+
+        public static explicit operator Vector2AnimationCurve(Vector3AnimationCurve animationCurve)
+        {
+
+            Vector2AnimationCurve newAnimationCurve = new Vector2AnimationCurve();
+
+            newAnimationCurve.x = animationCurve.x;
+            newAnimationCurve.y = animationCurve.y;
+
+            return newAnimationCurve;
         }
 
     }
