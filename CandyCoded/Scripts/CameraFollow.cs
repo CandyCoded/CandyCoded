@@ -40,7 +40,7 @@ namespace CandyCoded
 
         private Vector3 velocity = Vector3.zero;
 
-        void Awake()
+        private void Awake()
         {
 
             cameraTransform = Camera.main.transform;
@@ -60,7 +60,7 @@ namespace CandyCoded
 
         }
 
-        void LateUpdate()
+        private void LateUpdate()
         {
 
             if (tracking && mainTarget)

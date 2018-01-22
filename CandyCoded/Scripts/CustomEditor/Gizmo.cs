@@ -25,7 +25,7 @@ namespace CandyCoded
         [HideInInspector]
         public float radius = 1.0f;
 
-        void OnDrawGizmos()
+        private void OnDrawGizmos()
         {
 
             Gizmos.color = color;

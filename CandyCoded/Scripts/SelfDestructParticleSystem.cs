@@ -8,14 +8,14 @@ namespace CandyCoded
 
         private ParticleSystem ps;
 
-        void Awake()
+        private void Awake()
         {
 
             ps = gameObject.GetComponent<ParticleSystem>();
 
         }
 
-        void LateUpdate()
+        private void LateUpdate()
         {
 
             if (ps && !ps.IsAlive())

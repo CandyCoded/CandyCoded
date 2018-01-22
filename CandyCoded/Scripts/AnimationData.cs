@@ -26,7 +26,7 @@ namespace CandyCoded
 
         public List<MaterialData> materials = new List<MaterialData>();
 
-        void Awake()
+        private void Awake()
         {
 
             RebuildCachedData();

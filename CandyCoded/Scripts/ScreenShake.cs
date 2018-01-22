@@ -19,7 +19,7 @@ namespace CandyCoded
 
         private GameObject wrapperObject;
 
-        void Awake()
+        private void Awake()
         {
 
             wrapperObject = new GameObject("ScreenShakeWrapper");
@@ -28,7 +28,7 @@ namespace CandyCoded
 
         }
 
-        void Update()
+        private void Update()
         {
 
             Vector3 shakePosition = Vector3.zero;
