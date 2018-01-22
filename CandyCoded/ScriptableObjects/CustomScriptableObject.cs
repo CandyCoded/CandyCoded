@@ -1,4 +1,6 @@
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace CandyCoded
@@ -10,6 +12,8 @@ namespace CandyCoded
         public abstract void Reset();
 
     }
+
+#if UNITY_EDITOR
 
     [CustomEditor(typeof(CustomScriptableObject), true)]
     public class CustomScriptableObjectEditor : Editor
@@ -32,5 +36,7 @@ namespace CandyCoded
         }
 
     }
+
+#endif
 
 }

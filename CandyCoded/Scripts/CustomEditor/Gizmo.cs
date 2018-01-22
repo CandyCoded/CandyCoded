@@ -1,4 +1,6 @@
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace CandyCoded
@@ -47,8 +49,10 @@ namespace CandyCoded
 
     }
 
+#if UNITY_EDITOR
+
     [UnityEditor.CustomEditor(typeof(Gizmo))]
-    public class GizmoEditor : UnityEditor.Editor
+    public class GizmoEditor : Editor
     {
 
         public override void OnInspectorGUI()
@@ -78,5 +82,7 @@ namespace CandyCoded
         }
 
     }
+
+#endif
 
 }

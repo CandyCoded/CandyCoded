@@ -1,10 +1,15 @@
 using System;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
+#if UNITY_EDITOR
 [CustomPropertyDrawer(typeof(Enum))]
+#endif
 public class EnumMaskAttribute : PropertyAttribute { }
 
+#if UNITY_EDITOR
 [CustomPropertyDrawer(typeof(EnumMaskAttribute))]
 public class EnumMaskDrawer : PropertyDrawer
 {
@@ -25,3 +30,4 @@ public class EnumMaskDrawer : PropertyDrawer
     }
 
 }
+#endif

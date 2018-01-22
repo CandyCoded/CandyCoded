@@ -1,11 +1,14 @@
 using System;
+#if UNITY_EDITOR
 using System.Reflection;
 using UnityEditor;
+#endif
 using UnityEngine;
 
 [System.AttributeUsage(System.AttributeTargets.Method)]
 public class DisplayInInsepctorAttribute : PropertyAttribute { }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(MonoBehaviour), true)]
 public class DisplayInInsepctorDrawer : Editor
 {
@@ -37,3 +40,4 @@ public class DisplayInInsepctorDrawer : Editor
     }
 
 }
+#endif
