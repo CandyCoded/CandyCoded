@@ -72,6 +72,13 @@ namespace CandyCoded
 
         }
 
+        public static void Position(GameObject gameObject, float deltaTime, Vector2AnimationCurve animationCurve)
+        {
+
+            Position(gameObject, deltaTime, (Vector3AnimationCurve) animationCurve);
+
+        }
+
         public static void PositionRelative(GameObject gameObject, float deltaTime, Vector3AnimationCurve animationCurve)
         {
 
@@ -80,6 +87,13 @@ namespace CandyCoded
             animationData.activeTime += deltaTime;
 
             gameObject.transform.position = animationData.transformData.position + animationCurve.Evaluate(animationData.activeTime);
+
+        }
+
+        public static void PositionRelative(GameObject gameObject, float deltaTime, Vector2AnimationCurve animationCurve)
+        {
+
+            PositionRelative(gameObject, deltaTime, (Vector3AnimationCurve) animationCurve);
 
         }
 
@@ -94,6 +108,13 @@ namespace CandyCoded
 
         }
 
+        public static void Scale(GameObject gameObject, float deltaTime, Vector2AnimationCurve animationCurve)
+        {
+
+            Scale(gameObject, deltaTime, (Vector3AnimationCurve) animationCurve);
+
+        }
+
         public static void ScaleRelative(GameObject gameObject, float deltaTime, Vector3AnimationCurve animationCurve)
         {
 
@@ -105,6 +126,13 @@ namespace CandyCoded
 
         }
 
+        public static void ScaleRelative(GameObject gameObject, float deltaTime, Vector2AnimationCurve animationCurve)
+        {
+
+            ScaleRelative(gameObject, deltaTime, (Vector3AnimationCurve) animationCurve);
+
+        }
+
         public static void Rotate(GameObject gameObject, float deltaTime, Vector3AnimationCurve animationCurve)
         {
 
@@ -113,6 +141,13 @@ namespace CandyCoded
             animationData.activeTime += deltaTime;
 
             gameObject.transform.localRotation = Quaternion.Euler(animationCurve.Evaluate(animationData.activeTime));
+
+        }
+
+        public static void Rotate(GameObject gameObject, float deltaTime, Vector2AnimationCurve animationCurve)
+        {
+
+            Rotate(gameObject, deltaTime, (Vector3AnimationCurve) animationCurve);
 
         }
 
