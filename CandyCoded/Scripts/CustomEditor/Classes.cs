@@ -30,6 +30,7 @@ namespace CandyCoded
             newAnimationCurve.y = animationCurve.y;
 
             return newAnimationCurve;
+
         }
 
     }
@@ -62,6 +63,7 @@ namespace CandyCoded
             newAnimationCurve.y = animationCurve.y;
 
             return newAnimationCurve;
+
         }
 
     }
