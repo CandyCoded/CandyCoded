@@ -43,15 +43,26 @@ namespace CandyCoded
         public void RebuildCachedData()
         {
 
+            CacheTransformData();
+            CacheMaterials();
+
+        }
+
+        public void CacheTransformData()
+        {
+
             transformData.position = gameObject.transform.localPosition;
             transformData.scale = gameObject.transform.localScale;
             transformData.rotation = gameObject.transform.localRotation;
 
+        }
+
+        public void CacheMaterials()
+        {
+
             materials = new List<MaterialData>();
 
             Material[] materialsInChildren = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
-
-            CandyCoded.Materials.SetMaterialsToBlendMode(materialsInChildren, CandyCoded.StandardShader.BlendMode.Fade);
 
             foreach (Material material in materialsInChildren)
             {
