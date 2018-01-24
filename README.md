@@ -88,16 +88,19 @@ Attach this component to a gameobject with a ParticleSystem that doesn't loop an
 
 ### Animate
 
+**Note:** For fade animations to work you need to have materials with a blend mode of fade. If your materials are not set to fade, you can change that at runtime using the following block of code.
+
+```csharp
+Material[] materialsInChildren = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
+CandyCoded.Materials.SetMaterialsToBlendMode(materialsInChildren, CandyCoded.StandardShader.BlendMode.Fade);
+```
+
+![](https://i.imgur.com/J9gS7pc.png)
+
 #### FadeIn
 
 ```csharp
 CandyCoded.Animate.FadeIn(gameObject, Time.deltaTime);
-```
-
-```csharp
-AnimationCurve animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
-animationCurve.postWrapMode = WrapMode.PingPong;
-CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurve);
 ```
 
 #### FadeOut
@@ -105,6 +108,8 @@ CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurve);
 ```csharp
 CandyCoded.Animate.FadeOut(gameObject, Time.deltaTime);
 ```
+
+#### FadeCustom
 
 ```csharp
 AnimationCurve animationCurve = AnimationCurve.Linear(0, 1, 1, 0);
