@@ -3,7 +3,7 @@ Shader "CandyCoded/Tiled Texture" {
     {
         _Color ("Color", Color) = (1,1,1,1)
         _MainTex ("Texture", 2D) = "white" {}
-        _scale ("Scale", Int) = 1
+        [MaterialToggle] _WorldSpace ("Use World Space", Float) = 0
     }
     SubShader {
         Pass
@@ -27,15 +27,31 @@ Shader "CandyCoded/Tiled Texture" {
             fixed4 _Color;
             uniform sampler2D _MainTex;
             float4 _MainTex_ST;
-            int _scale;
+            float _WorldSpace;
 
             v2f vert (appdata v)
             {
+
                 v2f o;
                 o.pos = UnityObjectToClipPos(v.vertex);
-                o.uv = v.texcoord;
+
+                if (_WorldSpace == 1) {
+
+                    float scaleX = length(mul(unity_ObjectToWorld, float2(1.0, 0.0))) + (_MainTex_ST.x - 1);
+                    float scaleY = length(mul(unity_ObjectToWorld, float2(0.0, 1.0))) + (_MainTex_ST.y - 1);
+
+                    float2 worldXY = mul(unity_ObjectToWorld, v.vertex).xy / float2(scaleX, scaleY);
+
+                    o.uv = TRANSFORM_TEX(worldXY, _MainTex);
+
+                } else {
+
+                    o.uv = v.texcoord;
+
+                }
 
                 return o;
+
             }
 
             half4 frag(v2f i) : COLOR
@@ -44,9 +60,10 @@ Shader "CandyCoded/Tiled Texture" {
                 float scaleX = length(mul(unity_ObjectToWorld, float2(1.0, 0.0))) + (_MainTex_ST.x - 1);
                 float scaleY = length(mul(unity_ObjectToWorld, float2(0.0, 1.0))) + (_MainTex_ST.y - 1);
 
-                half4 c = tex2D(_MainTex, fmod(i.uv * float2(scaleX / _scale, scaleY / _scale), 1)) * _Color;
+                half4 c = tex2D(_MainTex, fmod(i.uv * float2(scaleX, scaleY), 1)) * _Color;
 
                 return c;
+
             }
 
             ENDCG
