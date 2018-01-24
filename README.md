@@ -26,7 +26,7 @@ $ git submodule update --remote
 - [Static Methods](#static-methods)
     - [Animate](#animate)
     - [Calculation](#calculation)
-    - [Debug](#debug)
+    - [Debugger](#debugger)
     - [InputManager](#inputmanager)
     - [Materials](#materials)
     - [Raycast](#raycast)
@@ -163,12 +163,12 @@ void OnDrawGizmosSelected()
 
 ![](https://i.imgur.com/yX5f6rk.png)
 
-### Debug
+### Debugger
 
 #### DrawLines
 
 ```csharp
-CandyCoded.Debug.DrawLines(points, Color.red);
+CandyCoded.Debugger.DrawLines(points, Color.red);
 ```
 
 ### InputManager

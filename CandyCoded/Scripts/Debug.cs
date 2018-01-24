@@ -4,7 +4,7 @@ using UnityEngine;
 namespace CandyCoded
 {
 
-    public static class Debug
+    public static class Debugger
     {
 
         public static void DrawLines(Vector3[] points, Color color, float duration = 0.0f, bool depthTest = true)
@@ -22,21 +22,21 @@ namespace CandyCoded
         public static void DrawLines(List<Vector3> points, Color color, float duration = 0.0f, bool depthTest = true)
         {
 
-            CandyCoded.Debug.DrawLines(points.ToArray(), color, duration, depthTest);
+            DrawLines(points.ToArray(), color, duration, depthTest);
 
         }
 
         public static void DrawLines(List<Vector3> points)
         {
 
-            CandyCoded.Debug.DrawLines(points.ToArray(), Color.white);
+            DrawLines(points.ToArray(), Color.white);
 
         }
 
         public static void DrawLines(Vector3[] points)
         {
 
-            CandyCoded.Debug.DrawLines(points, Color.white);
+            DrawLines(points, Color.white);
 
         }
 
