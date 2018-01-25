@@ -5,7 +5,7 @@ namespace CandyCoded
 {
 
     [System.Serializable]
-    public struct CameraConstraints
+    public struct CameraConstraints3D
     {
         [Header("Freeze Original Position")]
         public bool freezePositionX;
@@ -15,14 +15,9 @@ namespace CandyCoded
         public bool maintainOffsetX;
         public bool maintainOffsetY;
         public bool maintainOffsetZ;
-        [Header("Restrict Viewport to Transform")]
-        public Transform boundsTransform;
-        [Header("(or)")]
-        [Header("Restrict Viewport to Manually Defined Bounds")]
-        public Bounds bounds;
     }
 
-    public class CameraFollow : MonoBehaviour
+    public class CameraFollow3D : MonoBehaviour
     {
 
         public bool tracking = true;
@@ -33,7 +28,7 @@ namespace CandyCoded
 
         public float dampRate = 0.3f;
 
-        public CameraConstraints constraints;
+        public CameraConstraints3D constraints;
 
         private Transform cameraTransform;
         private float cameraOrthographicSize;
@@ -57,7 +52,7 @@ namespace CandyCoded
 
             }
 
-            if (secondaryTarget == null && rotating)
+            if (secondaryTarget == null)
             {
 
                 tempSecondaryTarget = new GameObject("SecondayTarget");
@@ -101,23 +96,6 @@ namespace CandyCoded
                 }
 
                 if (constraints.maintainOffsetY) newPosition.y += cameraPositionOffset.y;
-
-                if (constraints.boundsTransform)
-                {
-
-                    constraints.bounds = CandyCoded.Calculation.ParentBounds(constraints.boundsTransform);
-
-                }
-
-                float cameraExtentHorizontal = cameraOrthographicSize * Screen.width / Screen.height;
-
-                if (constraints.bounds.size.magnitude != 0)
-                {
-
-                    newPosition.x = Mathf.Clamp(newPosition.x, constraints.bounds.min.x + cameraExtentHorizontal, constraints.bounds.max.x - cameraExtentHorizontal);
-                    newPosition.y = Mathf.Clamp(newPosition.y, constraints.bounds.min.y + cameraOrthographicSize, constraints.bounds.max.y - cameraOrthographicSize);
-
-                }
 
                 if (constraints.freezePositionX) newPosition.x = cameraTransform.position.x;
                 if (constraints.freezePositionY) newPosition.y = cameraTransform.position.y;
