@@ -35,6 +35,7 @@ namespace CandyCoded
         public CameraConstraints constraints;
 
         private Transform cameraTransform;
+        private float cameraOrthographicSize;
 
         private Vector3 cameraPositionOffset = Vector3.zero;
 
@@ -44,6 +45,7 @@ namespace CandyCoded
         {
 
             cameraTransform = Camera.main.transform;
+            cameraOrthographicSize = Camera.main.orthographicSize;
 
             if (mainTarget == null)
             {
@@ -79,14 +81,13 @@ namespace CandyCoded
 
                 }
 
-                float cameraExtentVertical = Camera.main.orthographicSize;
-                float cameraExtentHorizontal = cameraExtentVertical * Screen.width / Screen.height;
+                float cameraExtentHorizontal = cameraOrthographicSize * Screen.width / Screen.height;
 
                 if (constraints.bounds.size.magnitude != 0)
                 {
 
                     newPosition.x = Mathf.Clamp(newPosition.x, constraints.bounds.min.x + cameraExtentHorizontal, constraints.bounds.max.x - cameraExtentHorizontal);
-                    newPosition.y = Mathf.Clamp(newPosition.y, constraints.bounds.min.y + cameraExtentVertical, constraints.bounds.max.y - cameraExtentVertical);
+                    newPosition.y = Mathf.Clamp(newPosition.y, constraints.bounds.min.y + cameraOrthographicSize, constraints.bounds.max.y - cameraOrthographicSize);
 
                 }
 
