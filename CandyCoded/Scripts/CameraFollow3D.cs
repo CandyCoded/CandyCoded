@@ -21,7 +21,7 @@ namespace CandyCoded
     {
 
         public bool tracking = true;
-        public bool rotating = false;
+        public bool rotating = true;
 
         public Transform mainTarget;
         public Transform secondaryTarget;
