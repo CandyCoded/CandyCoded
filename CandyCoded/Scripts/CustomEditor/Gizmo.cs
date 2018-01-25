@@ -10,6 +10,7 @@ namespace CandyCoded
     {
         None,
         Cube,
+        Line,
         Sphere
     }
 
@@ -25,6 +26,8 @@ namespace CandyCoded
         [HideInInspector]
         public Vector3 size = Vector3.one;
         [HideInInspector]
+        public Vector3 target = Vector3.zero;
+        [HideInInspector]
         public float radius = 1.0f;
 
         private void OnDrawGizmos()
@@ -37,6 +40,10 @@ namespace CandyCoded
 
                 case GIZMO_TYPE.Cube:
                     Gizmos.DrawWireCube(gameObject.transform.position + offset, size);
+                    break;
+
+                case GIZMO_TYPE.Line:
+                    Gizmos.DrawLine(gameObject.transform.position + offset, target);
                     break;
 
                 case GIZMO_TYPE.Sphere:
@@ -69,6 +76,12 @@ namespace CandyCoded
                     script.color = EditorGUILayout.ColorField("Color", script.color);
                     script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
                     script.size = EditorGUILayout.Vector3Field("Size", script.size);
+                    break;
+
+                case GIZMO_TYPE.Line:
+                    script.color = EditorGUILayout.ColorField("Color", script.color);
+                    script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
+                    script.target = EditorGUILayout.Vector3Field("Target", script.target);
                     break;
 
                 case GIZMO_TYPE.Sphere:
