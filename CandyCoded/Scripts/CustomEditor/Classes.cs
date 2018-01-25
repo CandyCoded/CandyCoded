@@ -5,11 +5,11 @@ namespace CandyCoded
 {
 
     [System.Serializable]
-    public class Vector2AnimationCurve
+    public struct Vector2AnimationCurve
     {
 
-        public AnimationCurve x = AnimationCurve.Linear(0, 0, 1, 0);
-        public AnimationCurve y = AnimationCurve.Linear(0, 0, 1, 0);
+        public AnimationCurve x;
+        public AnimationCurve y;
 
         public Vector2 Evaluate(float time)
         {
@@ -36,12 +36,12 @@ namespace CandyCoded
     }
 
     [System.Serializable]
-    public class Vector3AnimationCurve
+    public struct Vector3AnimationCurve
     {
 
-        public AnimationCurve x = AnimationCurve.Linear(0, 0, 1, 0);
-        public AnimationCurve y = AnimationCurve.Linear(0, 0, 1, 0);
-        public AnimationCurve z = AnimationCurve.Linear(0, 0, 1, 0);
+        public AnimationCurve x;
+        public AnimationCurve y;
+        public AnimationCurve z;
 
         public Vector3 Evaluate(float time)
         {
