@@ -52,16 +52,9 @@ namespace CandyCoded
 
             }
 
-            if (secondaryTarget == null)
-            {
-
-                tempSecondaryTarget = new GameObject("SecondayTarget");
-                tempSecondaryTarget.transform.position = gameObject.transform.forward;
-                tempSecondaryTarget.transform.parent = mainTarget;
-
-                secondaryTarget = tempSecondaryTarget.transform;
-
-            }
+            tempSecondaryTarget = new GameObject("SecondayTarget (temp)");
+            tempSecondaryTarget.transform.position = gameObject.transform.forward;
+            tempSecondaryTarget.transform.parent = mainTarget;
 
             cameraPositionOffset = new Vector3(
                 cameraTransform.position.x - mainTarget.transform.position.x,
@@ -79,10 +72,19 @@ namespace CandyCoded
 
                 Vector3 newPosition = mainTarget.transform.position;
 
-                if (rotating && secondaryTarget)
+                Transform secondaryTargetTransform = tempSecondaryTarget.transform;
+
+                if (secondaryTarget)
                 {
 
-                    newPosition = mainTarget.position + (cameraPositionOffset.magnitude * (mainTarget.position - secondaryTarget.position).normalized);
+                    secondaryTargetTransform = secondaryTarget;
+
+                }
+
+                if (rotating)
+                {
+
+                    newPosition = mainTarget.position + (cameraPositionOffset.magnitude * (mainTarget.position - secondaryTargetTransform.position).normalized);
 
                     newPosition.y = mainTarget.position.y;
 
@@ -108,10 +110,10 @@ namespace CandyCoded
                     dampRate
                 );
 
-                if (rotating && secondaryTarget)
+                if (rotating)
                 {
 
-                    cameraTransform.LookAt(secondaryTarget);
+                    cameraTransform.LookAt(secondaryTargetTransform);
 
                 }
 
