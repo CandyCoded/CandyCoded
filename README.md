@@ -56,9 +56,9 @@ Attach the CameraFollow component to any gameobject that moves independently of 
 
 Attach this component to any gameobject to render a custom gizmo. These gizmos will appear even when the gameobject is not selected.
 
-![](https://i.imgur.com/uPUyFZU.png)
+![](https://i.imgur.com/PduNRej.png)
 ![](https://i.imgur.com/4ACDgta.png)
-![](https://i.imgur.com/aCzOiKV.png)
+![](https://i.imgur.com/30roCjx.png)
 
 ### ScreenShake
 
