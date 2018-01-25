@@ -26,8 +26,10 @@ namespace CandyCoded
     {
 
         public bool tracking = true;
+        public bool rotating = false;
 
         public Transform mainTarget;
+        public Transform secondaryTarget;
 
         public float dampRate = 0.3f;
         public float rotateSpeed = 5f;
@@ -68,9 +70,23 @@ namespace CandyCoded
 
                 Vector3 newPosition = mainTarget.transform.position;
 
-                if (constraints.maintainOffsetX) newPosition.x += cameraPositionOffset.x;
+                if (rotating && secondaryTarget)
+                {
+
+                    newPosition = mainTarget.position + (cameraPositionOffset.magnitude * (mainTarget.position - secondaryTarget.position).normalized);
+
+                    newPosition.y = mainTarget.position.y;
+
+                }
+                else
+                {
+
+                    if (constraints.maintainOffsetX) newPosition.x += cameraPositionOffset.x;
+                    if (constraints.maintainOffsetZ) newPosition.z += cameraPositionOffset.z;
+
+                }
+
                 if (constraints.maintainOffsetY) newPosition.y += cameraPositionOffset.y;
-                if (constraints.maintainOffsetZ) newPosition.z += cameraPositionOffset.z;
 
                 if (constraints.boundsTransform)
                 {
@@ -100,6 +116,13 @@ namespace CandyCoded
                     ref velocity,
                     dampRate
                 );
+
+                if (rotating && secondaryTarget)
+                {
+
+                    cameraTransform.LookAt(secondaryTarget);
+
+                }
 
             }
 
