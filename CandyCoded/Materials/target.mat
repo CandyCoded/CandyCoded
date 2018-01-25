@@ -70,6 +70,7 @@ Material:
     - _SpecularHighlights: 0
     - _SrcBlend: 5
     - _UVSec: 0
+    - _WorldSpace: 0
     - _ZWrite: 0
     - _scale: 1
     - scale: 1
