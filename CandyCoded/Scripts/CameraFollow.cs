@@ -42,6 +42,8 @@ namespace CandyCoded
 
         private Vector3 velocity = Vector3.zero;
 
+        private GameObject tempSecondaryTarget;
+
         private void Awake()
         {
 
@@ -51,6 +53,17 @@ namespace CandyCoded
             {
 
                 mainTarget = gameObject.transform;
+
+            }
+
+            if (secondaryTarget == null && rotating)
+            {
+
+                tempSecondaryTarget = new GameObject("SecondayTarget");
+                tempSecondaryTarget.transform.position = gameObject.transform.forward;
+                tempSecondaryTarget.transform.parent = mainTarget;
+
+                secondaryTarget = tempSecondaryTarget.transform;
 
             }
 
