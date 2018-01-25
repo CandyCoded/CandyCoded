@@ -30,7 +30,6 @@ namespace CandyCoded
         public Transform mainTarget;
 
         public float dampRate = 0.3f;
-        public float rotateSpeed = 5f;
 
         public CameraConstraints constraints;
 
