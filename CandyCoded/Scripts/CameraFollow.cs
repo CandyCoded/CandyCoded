@@ -5,7 +5,7 @@ namespace CandyCoded
 {
 
     [System.Serializable]
-    public class CameraConstraints
+    public struct CameraConstraints
     {
         [Header("Freeze Original Position")]
         public bool freezePositionX;
