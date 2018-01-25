@@ -9,8 +9,8 @@ namespace CandyCoded
     public enum GIZMO_TYPE
     {
         None,
-        Sphere,
-        Cube
+        Cube,
+        Sphere
     }
 
     public class Gizmo : MonoBehaviour
@@ -35,12 +35,12 @@ namespace CandyCoded
             switch (type)
             {
 
-                case GIZMO_TYPE.Sphere:
-                    Gizmos.DrawWireSphere(gameObject.transform.position + offset, radius);
-                    break;
-
                 case GIZMO_TYPE.Cube:
                     Gizmos.DrawWireCube(gameObject.transform.position + offset, size);
+                    break;
+
+                case GIZMO_TYPE.Sphere:
+                    Gizmos.DrawWireSphere(gameObject.transform.position + offset, radius);
                     break;
 
             }
@@ -65,16 +65,16 @@ namespace CandyCoded
             switch (script.type)
             {
 
-                case GIZMO_TYPE.Sphere:
-                    script.color = EditorGUILayout.ColorField("Color", script.color);
-                    script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
-                    script.radius = EditorGUILayout.FloatField("Radius", script.radius);
-                    break;
-
                 case GIZMO_TYPE.Cube:
                     script.color = EditorGUILayout.ColorField("Color", script.color);
                     script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
                     script.size = EditorGUILayout.Vector3Field("Size", script.size);
+                    break;
+
+                case GIZMO_TYPE.Sphere:
+                    script.color = EditorGUILayout.ColorField("Color", script.color);
+                    script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
+                    script.radius = EditorGUILayout.FloatField("Radius", script.radius);
                     break;
 
             }
