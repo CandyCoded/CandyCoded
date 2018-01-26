@@ -27,6 +27,7 @@ namespace CandyCoded
         public Transform secondaryTarget;
 
         public float dampRate = 0.3f;
+        public float rotateSpeed = 5f;
 
         public CameraConstraints3D constraints;
 
@@ -37,6 +38,7 @@ namespace CandyCoded
 
         private Vector3 velocity = Vector3.zero;
 
+        private Vector3 lookAtPosition;
         private GameObject tempSecondaryTarget;
 
         private void Awake()
@@ -55,6 +57,8 @@ namespace CandyCoded
             tempSecondaryTarget = new GameObject("SecondayTarget (temp)");
             tempSecondaryTarget.transform.position = gameObject.transform.forward;
             tempSecondaryTarget.transform.parent = mainTarget;
+
+            lookAtPosition = tempSecondaryTarget.transform.position;
 
             cameraPositionOffset = new Vector3(
                 cameraTransform.position.x - mainTarget.transform.position.x,
@@ -113,7 +117,9 @@ namespace CandyCoded
                 if (rotating)
                 {
 
-                    cameraTransform.LookAt(secondaryTargetTransform);
+                    lookAtPosition = Vector3.Lerp(lookAtPosition, secondaryTargetTransform.position, rotateSpeed * Time.deltaTime);
+
+                    cameraTransform.LookAt(lookAtPosition);
 
                 }
 
