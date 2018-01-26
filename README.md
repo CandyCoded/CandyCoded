@@ -30,7 +30,6 @@ $ git submodule update --remote
     - [InputManager](#inputmanager)
     - [Materials](#materials)
     - [Raycast](#raycast)
-    - [Singleton](#singleton)
 - [ScriptableObject](#scriptableobject)
     - [Bool](#bool)
     - [Float](#float)
@@ -233,17 +232,6 @@ Vector3[] linePositions = CandyCoded.Raycast.Reflect(gameObject.transform.positi
 
 ![](https://media.giphy.com/media/l3mZp4n2EdtFggeDS/giphy.gif)
 ![](https://media.giphy.com/media/3ohs7MYwAjHtvGkqrK/giphy.gif)
-
-### Singleton
-
-**Warning: Being considered for depreciation**
-
-```csharp
-public class InputController : CandyCoded.Singleton
-{
-
-}
-```
 
 ## ScriptableObject
 
