@@ -300,7 +300,7 @@ public class DisplayInInspectorDemo : MonoBehaviour
 }
 ```
 
-![](https://i.imgur.com/WBzfqZJ.png)
+![](https://i.imgur.com/u8t3Etf.png)
 
 ### EnumMask
 
