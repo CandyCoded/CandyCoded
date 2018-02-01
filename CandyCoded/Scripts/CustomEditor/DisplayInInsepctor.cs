@@ -6,11 +6,11 @@ using UnityEditor;
 using UnityEngine;
 
 [System.AttributeUsage(System.AttributeTargets.Method)]
-public class DisplayInInsepctorAttribute : PropertyAttribute { }
+public class DisplayInInspectorAttribute : PropertyAttribute { }
 
 #if UNITY_EDITOR
 [CustomEditor(typeof(MonoBehaviour), true)]
-public class DisplayInInsepctorDrawer : Editor
+public class DisplayInInspectorDrawer : Editor
 {
 
     public override void OnInspectorGUI()
@@ -23,7 +23,7 @@ public class DisplayInInsepctorDrawer : Editor
         foreach (MemberInfo method in methods)
         {
 
-            if (Attribute.IsDefined(method, typeof(DisplayInInsepctorAttribute)))
+            if (Attribute.IsDefined(method, typeof(DisplayInInspectorAttribute)))
             {
 
                 if (GUILayout.Button(ObjectNames.NicifyVariableName(method.Name)))

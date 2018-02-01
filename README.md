@@ -286,10 +286,10 @@ public class Vector3Reference : CandyCoded.CustomGenericScriptableObject<Vector3
 ```csharp
 using UnityEngine;
 
-public class DisplayInInsepctorDemo : MonoBehaviour
+public class DisplayInInspectorDemo : MonoBehaviour
 {
 
-    [DisplayInInsepctor]
+    [DisplayInInspector]
     void Boop()
     {
 
