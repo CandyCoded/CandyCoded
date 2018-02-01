@@ -12,8 +12,16 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
 $ git submodule add git@github.com:neogeek/CandyCoded.git Assets/CandyCoded/
 ```
 
+**Update**
+
 ```bash
 $ git submodule update --remote
+```
+
+**Install After Cloning Repo Containing CandyCoded**
+
+```bash
+$ git submodule update --init --recursive
 ```
 
 ## Contents
