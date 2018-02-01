@@ -8,6 +8,8 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
 
 ### Git Submodule
 
+**Install**
+
 ```bash
 $ git submodule add git@github.com:neogeek/CandyCoded.git Assets/CandyCoded/
 ```
