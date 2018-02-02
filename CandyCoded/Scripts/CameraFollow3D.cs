@@ -32,7 +32,6 @@ namespace CandyCoded
         public CameraConstraints3D constraints;
 
         private Transform cameraTransform;
-        private float cameraOrthographicSize;
 
         private Vector3 cameraPositionOffset = Vector3.zero;
 
@@ -45,7 +44,6 @@ namespace CandyCoded
         {
 
             cameraTransform = Camera.main.transform;
-            cameraOrthographicSize = Camera.main.orthographicSize;
 
             if (mainTarget == null)
             {
