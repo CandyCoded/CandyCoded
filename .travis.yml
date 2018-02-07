@@ -1,0 +1,11 @@
+language: objective-c
+osx_image: xcode9.2
+rvm:
+- 2.5.0
+before_install:
+- chmod a+x ./Scripts/install.sh
+- chmod a+x ./Scripts/test.sh
+install:
+- ./Scripts/install.sh
+script:
+- ./Scripts/test.sh
