@@ -7,8 +7,8 @@ using UnityEngine.TestTools;
 public class CalculationParentBoundsTest
 {
 
-    [UnityTest]
-    public IEnumerator BoundsCalculatedOnMultipleChildrenObjects()
+    [Test]
+    public void BoundsCalculatedOnMultipleChildrenObjects()
     {
 
         GameObject parentGameObject = new GameObject("ParentGameObject");
@@ -42,8 +42,6 @@ public class CalculationParentBoundsTest
         Assert.AreEqual(bounds.size.x, 4.0f);
         Assert.AreEqual(bounds.size.y, 1.0f);
         Assert.AreEqual(bounds.size.z, 3.0f);
-
-        yield return null;
 
     }
 }
