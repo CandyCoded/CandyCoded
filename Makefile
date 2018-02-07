@@ -1,5 +1,5 @@
 test:
-	UNITYCI_PROJECT_NAME=CandyCoded Scripts/test.sh
+	Scripts/test.sh
 
 install:
 	Scripts/install.sh

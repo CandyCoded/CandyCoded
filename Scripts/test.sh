@@ -5,7 +5,7 @@
 	-nographics \
 	-silent-crashes \
 	-logFile "$(pwd)/unity.log" \
-	-projectPath "$(pwd)/${UNITYCI_PROJECT_NAME}" \
+	-projectPath "$(pwd)/CandyCoded" \
 	-runEditorTests \
 	-editorTestsResultFile "$(pwd)/test.xml"
 

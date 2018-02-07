@@ -2,17 +2,10 @@ language: objective-c
 osx_image: xcode9.2
 rvm:
 - 2.5.0
-cache:
-  directories:
-    - $HOME/.rvm/
-    - $HOME/cache/
 before_install:
-- chmod a+x ./Scripts/install.sh
-- chmod a+x ./Scripts/test.sh
+- chmod +x ./Scripts/install.sh
+- chmod +x ./Scripts/test.sh
 install:
-- ./Scripts/install.sh
+- make install
 script:
-- ./Scripts/test.sh
-env:
-  global:
-  - UNITYCI_PROJECT_NAME="CandyCoded"
+- make test
