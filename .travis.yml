@@ -9,3 +9,6 @@ install:
 - ./Scripts/install.sh
 script:
 - ./Scripts/test.sh
+env:
+  global:
+  - UNITYCI_PROJECT_NAME="CandyCoded"
