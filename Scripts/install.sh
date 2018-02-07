@@ -10,4 +10,4 @@ if [ ! -d "cache" ] ; then
 fi
 
 echo "Installing Unity"
-sudo installer -dumplog -package Unity.pkg -target /
+sudo installer -dumplog -package cache/Unity.pkg -target /
