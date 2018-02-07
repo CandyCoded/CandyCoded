@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.TestTools;
 
 public class CalculationParentBoundsTest
 {
@@ -43,4 +44,5 @@ public class CalculationParentBoundsTest
         Assert.AreEqual(bounds.size.z, 3.0f);
 
     }
+
 }
