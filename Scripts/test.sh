@@ -1,6 +1,5 @@
 #!/bin/bash
 
-echo "Running editor unit tests for ${UNITYCI_PROJECT_NAME}"
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
 	-batchmode \
 	-nographics \
@@ -8,11 +7,8 @@ echo "Running editor unit tests for ${UNITYCI_PROJECT_NAME}"
 	-logFile $(pwd)/unity.log \
 	-projectPath "$(pwd)/${UNITYCI_PROJECT_NAME}" \
 	-runEditorTests \
-	-editorTestsResultFile $(pwd)/test.xml \
-	-quit
+	-editorTestsResultFile $(pwd)/test.xml
 
-rc0=$?
-echo "Unit test logs"
-cat $(pwd)/test.xml
+CODE=$?
 
-if [ $rc0 -ne 0 ]; then { echo "Failed unit tests"; exit $rc0; } fi
+cat $(pwd)/test.xml && exit $CODE
