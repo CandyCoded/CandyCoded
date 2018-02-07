@@ -4,7 +4,8 @@ rvm:
 - 2.5.0
 cache:
   directories:
-    - $HOME/cache
+    - $HOME/.rvm/
+    - $HOME/cache/
 before_install:
 - chmod a+x ./Scripts/install.sh
 - chmod a+x ./Scripts/test.sh
