@@ -5,7 +5,7 @@
     -nographics \
     -silent-crashes \
     -logFile "$(pwd)/unity.log" \
-    -projectPath "$(pwd)/CandyCoded" \
+    -projectPath "$(pwd)/" \
     -exportPackage "Assets/CandyCoded" \
     "$(pwd)/CandyCoded.unitypackage" \
     -quit
