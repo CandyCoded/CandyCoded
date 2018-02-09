@@ -34,5 +34,8 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+ProjectSettings/
+UnityPackageManager/
+
 /*.log
 /*.xml
