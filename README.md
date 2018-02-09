@@ -2,6 +2,8 @@
 
 > Custom Unity Components that are delightful
 
+[![Build Status](https://travis-ci.org/neogeek/CandyCoded.svg?branch=master)](https://travis-ci.org/neogeek/CandyCoded)
+
 _**Note:** The APIs in CandyCoded may change as this library is currently in development and hasn't reached a point where semver make sense._
 
 ## Contents
