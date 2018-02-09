@@ -1,14 +1,14 @@
-﻿#if UNITY_EDITOR
+﻿using NUnit.Framework;
 using System.Collections;
-using NUnit.Framework;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.TestTools;
 
 public class CalculationParentBoundsTest
 {
 
-    [UnityTest]
-    public IEnumerator BoundsCalculatedOnMultipleChildrenObjects()
+    [Test]
+    public void BoundsCalculatedOnMultipleChildrenObjects()
     {
 
         GameObject parentGameObject = new GameObject("ParentGameObject");
@@ -43,8 +43,6 @@ public class CalculationParentBoundsTest
         Assert.AreEqual(bounds.size.y, 1.0f);
         Assert.AreEqual(bounds.size.z, 3.0f);
 
-        yield return null;
-
     }
+
 }
-#endif

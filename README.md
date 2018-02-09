@@ -2,29 +2,9 @@
 
 > Custom Unity Components that are delightful
 
+[![Build Status](https://travis-ci.org/neogeek/CandyCoded.svg?branch=master)](https://travis-ci.org/neogeek/CandyCoded)
+
 _**Note:** The APIs in CandyCoded may change as this library is currently in development and hasn't reached a point where semver make sense._
-
-## Installation
-
-### Git Submodule
-
-**Install**
-
-```bash
-$ git submodule add git@github.com:neogeek/CandyCoded.git Assets/CandyCoded/
-```
-
-**Update**
-
-```bash
-$ git submodule update --remote
-```
-
-**Install After Cloning Repo Containing CandyCoded**
-
-```bash
-$ git submodule update --init --recursive
-```
 
 ## Contents
 
