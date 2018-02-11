@@ -1,11 +1,20 @@
 ﻿using NUnit.Framework;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.TestTools;
 
 public class CalculationParentBoundsTest
 {
+
+    [SetUp]
+    public void ResetScene()
+    {
+
+        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
+
+    }
 
     [Test]
     public void BoundsCalculatedOnMultipleChildrenObjects()
