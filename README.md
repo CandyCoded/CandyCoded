@@ -17,7 +17,6 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
     - [Animate](#animate)
     - [Calculation](#calculation)
     - [Debugger](#debugger)
-    - [InputManager](#inputmanager)
     - [Materials](#materials)
     - [Raycast](#raycast)
 - [ScriptableObject](#scriptableobject)
@@ -164,16 +163,6 @@ void OnDrawGizmosSelected()
 
 ```csharp
 CandyCoded.Debugger.DrawLines(points, Color.red);
-```
-
-### InputManager
-
-**Warning: Being considered for deprecation in favor of the new Unity InputSystem** <https://github.com/Unity-Technologies/InputSystem>
-
-```csharp
-Debug.Log(CandyCoded.InputManager.InputDown);
-Debug.Log(CandyCoded.InputManager.InputScreenPosition);
-Debug.Log(CandyCoded.InputManager.InputUp);
 ```
 
 ### Materials
