@@ -34,8 +34,10 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-ProjectSettings/
-UnityPackageManager/
+/.vscode/
+
+/ProjectSettings/
+/UnityPackageManager/
 
 /*.log
 /*.xml
