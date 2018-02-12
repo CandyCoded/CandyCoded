@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir build
+
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
     -batchmode \
     -nographics \
@@ -7,5 +9,5 @@
     -logFile "$(pwd)/unity.log" \
     -projectPath "$(pwd)/" \
     -exportPackage "Assets/CandyCoded" \
-    "$(pwd)/CandyCoded.unitypackage" \
+    "$(pwd)/build/CandyCoded.unitypackage" \
     -quit
