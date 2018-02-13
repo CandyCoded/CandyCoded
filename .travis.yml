@@ -9,6 +9,8 @@ install:
 - make install
 script:
 - make test
+after_success:
+- make build
 deploy:
   provider: s3
   access_key_id: $ACCESS_KEY_ID
