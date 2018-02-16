@@ -1,6 +1,5 @@
-﻿using NUnit.Framework;
-using System.Collections;
-using UnityEditor;
+﻿using System.Collections;
+using NUnit.Framework;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.TestTools;
