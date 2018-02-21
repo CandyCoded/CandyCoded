@@ -48,7 +48,7 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
 
 ![](https://i.imgur.com/OUL02NQ.png)
 
-Similar to Unity's `AnimationCurve`, but instead contains 3 `AnimationCurve` properties (`x`, `y`, and `z`) and can be evaluated in the same way as `AnimationCurve` to return a new `Vector3`. A `Vector2AnimationCurve` class is also available for generating `Vector2` values.
+Similar to Unity's `AnimationCurve`, but instead contains 3 `AnimationCurve` properties (`x`, `y`, and `z`) and can be evaluated in the same way as `AnimationCurve` to return a new `Vector3`. A `Vector2AnimationCurve` struct is also available for generating `Vector2` values.
 
 ```csharp
 using UnityEngine;
