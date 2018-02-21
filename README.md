@@ -12,7 +12,7 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
 
 ## Contents
 
-- [Structs](#struct)
+- [Structs](#structs)
     - [Vector3AnimationCurve](#vector3animationcurve)
 - [Components](#components)
     - [CameraFollow](#camerafollow)
