@@ -187,13 +187,6 @@ Set the alpha of a color to a value.
 Debug.Log(CandyCoded.Materials.SetColorAlpha(material.color, 0.5f));
 ```
 
-#### SetMaterialsToFade
-
-```csharp
-CandyCoded.Materials.SetMaterialsToBlendMode(materials, CandyCoded.StandardShader.BlendMode.Opaque);
-CandyCoded.Materials.SetMaterialsToBlendMode(materials, CandyCoded.StandardShader.BlendMode.Fade);
-```
-
 ### Raycast
 
 #### Reflect
