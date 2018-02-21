@@ -53,7 +53,7 @@ Similar to Unity's `AnimationCurve`, but instead contains 3 `AnimationCurve` pro
 ```csharp
 using UnityEngine;
 
-public class AnimateScale : MonoBehaviour
+public class AnimatePosition : MonoBehaviour
 {
 
     public CandyCoded.Vector3AnimationCurve animationCurve;
