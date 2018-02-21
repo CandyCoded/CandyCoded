@@ -12,6 +12,8 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
 
 ## Contents
 
+- [Structs](#struct)
+    - [Vector3AnimationCurve](#vector3animationcurve)
 - [Components](#components)
     - [CameraFollow](#camerafollow)
     - [Gizmo](#gizmo)
@@ -39,6 +41,34 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
 - [Unity Editor Extensions](#unity-editor-extensions)
     - [DisplayInInspector](#displayininspector)
     - [EnumMask](#enummask)
+
+## Structs
+
+### Vector3AnimationCurve
+
+![](https://i.imgur.com/OUL02NQ.png)
+
+Similar to Unity's `AnimationCurve`, but instead contains 3 `AnimationCurve` properties (`x`, `y`, and `z`) and can be evaluated in the same way as `AnimationCurve` to return a new `Vector3`. A `Vector2AnimationCurve` class is also available for generating `Vector2` values.
+
+```
+using UnityEngine;
+
+public class AnimateScale : MonoBehaviour
+{
+
+    public CandyCoded.Vector3AnimationCurve animationCurve;
+
+    void Update()
+    {
+
+        gameObject.transform.position = animationCurve.Evaluate(Time.time);
+
+    }
+
+}
+```
+
+**Note:** This struct is compatible with CandyCoded's [Animate](#animate) methods [Position](#position), [Scale](#scale), and [Rotate](#rotate).
 
 ## Components
 
