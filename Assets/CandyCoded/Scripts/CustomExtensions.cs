@@ -34,9 +34,9 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Edits an existing keyframe in an animation curve. index: Index of the keyframe. key: New keyframe object.
+    /// Replaces an existing keyframe in an animation curve. index: Index of the keyframe. key: New keyframe object.
     /// </summary>
-    public static void EditKey(this AnimationCurve animationCurve, int index, Keyframe key)
+    public static void ReplaceKey(this AnimationCurve animationCurve, int index, Keyframe key)
     {
 
         Keyframe[] keys = animationCurve.keys;

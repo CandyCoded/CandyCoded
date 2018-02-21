@@ -25,7 +25,7 @@ public class CustomExtensionsTest
     }
 
     [Test]
-    public void AnimationCurveEditKey()
+    public void AnimationCurveReplaceKey()
     {
 
         AnimationCurve animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
@@ -38,7 +38,7 @@ public class CustomExtensionsTest
         Assert.AreEqual(keys[1].time, 1);
         Assert.AreEqual(keys[1].value, 1);
 
-        animationCurve.EditKey(1, new Keyframe(5, 10));
+        animationCurve.ReplaceKey(1, new Keyframe(5, 10));
 
         keys = animationCurve.keys;
 
