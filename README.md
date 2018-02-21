@@ -33,8 +33,6 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
 - [Unity Editor Extensions](#unity-editor-extensions)
     - [DisplayInInspector](#displayininspector)
     - [EnumMask](#enummask)
-- [Unity Editor Inspector Methods](#unity-editor-inspector-methods)
-    - [StandardShader](#standardshader)
 
 ## Components
 
@@ -81,12 +79,7 @@ Attach this component to a gameobject with a ParticleSystem that doesn't loop an
 
 ### Animate
 
-**Note:** For fade animations to work you need to have materials with a blend mode of fade. If your materials are not set to fade, you can change that at runtime using the following block of code.
-
-```csharp
-Material[] materialsInChildren = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
-CandyCoded.Materials.SetMaterialsToBlendMode(materialsInChildren, CandyCoded.StandardShader.BlendMode.Fade);
-```
+**Note:** For fade animations to work you need to have materials with a blend mode of fade.
 
 ![](https://i.imgur.com/J9gS7pc.png)
 
@@ -304,11 +297,3 @@ public class EnumMaskDemo : MonoBehaviour
 ```
 
 ![](https://i.imgur.com/s5rlIIF.png)
-
-## Unity Editor Inspector Methods
-
-### StandardShader
-
-```csharp
-CandyCoded.StandardShader.SetupMaterialWithBlendMode(material, CandyCoded.StandardShader.BlendMode.Fade);
-```

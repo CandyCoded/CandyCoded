@@ -30,18 +30,6 @@ namespace CandyCoded
 
         }
 
-        public static void SetMaterialsToBlendMode(Material[] materials, CandyCoded.StandardShader.BlendMode blendMode)
-        {
-
-            foreach (Material material in materials)
-            {
-
-                CandyCoded.StandardShader.SetupMaterialWithBlendMode(material, blendMode);
-
-            }
-
-        }
-
         public static Color SetColorAlpha(Color color, float alpha = 1)
         {
 
