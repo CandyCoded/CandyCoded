@@ -58,7 +58,7 @@ public class AnimatePosition : MonoBehaviour
 
     public CandyCoded.Vector3AnimationCurve animationCurve;
 
-    void Update()
+    private void Update()
     {
 
         gameObject.transform.position = animationCurve.Evaluate(Time.time);
