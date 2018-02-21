@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -44,6 +45,41 @@ public class CustomExtensionsTest
 
         Assert.AreEqual(keys[1].time, 5);
         Assert.AreEqual(keys[1].value, 10);
+
+    }
+
+    [Test]
+    public void ListShuffle()
+    {
+
+        List<int> numberRange = new List<int>();
+
+        for (int i = 0; i < 10; i += 1)
+        {
+            numberRange.Add(i);
+        }
+
+        Assert.AreNotEqual(numberRange.Shuffle(), numberRange);
+
+    }
+
+    [Test]
+    public void ListShuffleWithoutChangingReference()
+    {
+
+        List<int> numberRange = new List<int>();
+
+        for (int i = 0; i < 10; i += 1)
+        {
+            numberRange.Add(i);
+        }
+
+        numberRange.Shuffle();
+
+        for (int i = 0; i < 10; i += 1)
+        {
+            Assert.AreEqual(numberRange[i], i);
+        }
 
     }
 

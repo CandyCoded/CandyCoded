@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class CustomExtensions
@@ -70,6 +71,33 @@ public static class CustomExtensions
         Vector2 angle = target.position - transform.position;
 
         transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(angle.y, angle.x) * Mathf.Rad2Deg, Vector3.forward);
+
+    }
+
+    /// <summary>
+    /// Creates a new copy of a list and shuffles the values.
+    /// </summary>
+    public static List<T> Shuffle<T>(this List<T> list)
+    {
+
+        List<T> shuffledList = new List<T>(list);
+
+        int count = shuffledList.Count;
+
+        for (int i = 0; i < count; i += 1)
+        {
+
+            int randomIndex = UnityEngine.Random.Range(i, count);
+
+            var tempValue = shuffledList[i];
+
+            shuffledList[i] = shuffledList[randomIndex];
+
+            shuffledList[randomIndex] = tempValue;
+
+        }
+
+        return shuffledList;
 
     }
 
