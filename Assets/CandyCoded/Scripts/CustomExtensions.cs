@@ -5,7 +5,7 @@ public static class CustomExtensions
 {
 
     /// <summary>
-    /// Is layerName in layerMask? layerName: Layer name to compare against layerMask.
+    /// Tests LayerMask for the supplied Layer name? layerName: Layer name to compare against layerMask.
     /// </summary>
     public static bool Contains(this LayerMask layerMask, string layerName)
     {
@@ -15,7 +15,7 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Is layerInt in layerMask? layerInt: Layer number to compare against layerMask.
+    /// Tests LayerMask for the supplied Layer int? layerInt: Layer number to compare against layerMask.
     /// </summary>
     public static bool Contains(this LayerMask layerMask, int layerInt)
     {
@@ -35,7 +35,7 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Rotates the transform so the forward vector points at target's position. target: Object to point towards. direction: Vector specifying the fotward direction.
+    /// Rotates transform so the forward vector points at target's position. target: Object to point towards. direction: Vector specifying the fotward direction.
     /// </summary>
     public static void LookAt2D(this Transform transform, Transform target, Vector3 direction)
     {
@@ -49,7 +49,7 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Rotates the transform so the forward vector points at target's position. target: Object to point towards.
+    /// Rotates transform so the forward vector points at target's position. target: Object to point towards.
     /// </summary>
     public static void LookAt2D(this Transform transform, Transform target)
     {
@@ -61,7 +61,7 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Replaces an existing keyframe in an animation curve. index: Index of the keyframe. key: New keyframe object.
+    /// Replaced keyframe at index in an AnimationCurve object. index: Index of the keyframe. key: New keyframe object.
     /// </summary>
     public static void ReplaceKey(this AnimationCurve animationCurve, int index, Keyframe key)
     {

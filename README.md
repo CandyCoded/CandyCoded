@@ -19,6 +19,11 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
     - [Gizmo](#gizmo)
     - [ScreenShake](#screenshake)
     - [SelfDestructParticleSystem](#selfdestructparticlesystem)
+- [Custom Extensions](#customextensions)
+    - [AnimationCurve.ReplaceKey](#animationcurvereplacekey)
+    - [LayerMask.Contains](#layermaskcontains)
+    - [List.Shuffle](#listshuffle)
+    - [Transform.LookAt2D](#transformlookat2d)
 - [Static Methods](#static-methods)
     - [Animate](#animate)
         - [FadeIn](#fadein)
@@ -110,6 +115,56 @@ screenShake.Shake(duration, intensity, CandyCoded.SCREENSHAKE_DIRECTION.Vertical
 ### SelfDestructParticleSystem
 
 Attach this component to a gameobject with a ParticleSystem that doesn't loop and once the generated particles are no longer alive, the gameobject will destroy itself.
+
+## Static Methods
+
+## Custom Extension
+
+### AnimationCurve.ReplaceKey
+
+Replaced keyframe at index in an AnimationCurve object.
+
+```csharp
+AnimationCurve animationCurve = AnimationCurve.Linear(0, 1, 1, 0);
+animationCurve.ReplaceKey(0, Keyframe(10, 1));
+```
+
+**Reference:** <https://docs.unity3d.com/ScriptReference/Keyframe-ctor.html>
+
+### LayerMask.Contains
+
+Tests LayerMask for the supplied Layer name or int.
+
+```csharp
+LayerMask layerMask;
+layerMask.Contains("Water");
+```
+
+```csharp
+LayerMask layerMask;
+layerMask.Contains(4);
+```
+
+### List.Shuffle
+
+Creates a new copy of a list and shuffles the values.
+
+```csharp
+List<float> randomValues = new List<float>();
+shuffledRandomValues = randomValues.Shuffle();
+```
+
+### Transform.LookAt2D
+
+Rotates transform so the forward vector (or supplied Vector3) points at target's position.
+
+```csharp
+gameObject.transform.LookAt2D(currentMousePosition);
+```
+
+```csharp
+gameObject.transform.LookAt2D(currentMousePosition, Vector3.right);
+```
 
 ## Static Methods
 
