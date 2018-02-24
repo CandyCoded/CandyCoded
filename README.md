@@ -175,7 +175,7 @@ CandyCoded.Animate.Rotate(gameObject, Time.deltaTime, animationCurve);
 Calculate the bounds of a gameobject with multiple children.
 
 ```csharp
-void OnDrawGizmosSelected()
+private void OnDrawGizmosSelected()
 {
 
     Bounds bounds = CandyCoded.Calculation.ParentBounds(gameObject);
@@ -285,7 +285,7 @@ public class DisplayInInspectorDemo : MonoBehaviour
 {
 
     [DisplayInInspector]
-    void Boop()
+    private void Boop()
     {
 
         Debug.Log("boop");
@@ -320,7 +320,7 @@ public class EnumMaskDemo : MonoBehaviour
     [EnumMask]
     public STATE availableStates = STATE.Idle | STATE.Running | STATE.Falling;
 
-    void Start()
+    private void Start()
     {
 
         // Typecast both availableStates and individual enum values to an int
