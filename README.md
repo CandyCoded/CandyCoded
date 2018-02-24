@@ -333,3 +333,7 @@ public class EnumMaskDemo : MonoBehaviour
 ```
 
 ![](https://i.imgur.com/s5rlIIF.png)
+
+## Credits
+
+Font used in logo is **Escafina** from **Lost Type** <http://www.losttype.com/font/?name=escafina>
