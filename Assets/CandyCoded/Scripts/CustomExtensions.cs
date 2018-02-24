@@ -35,20 +35,6 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Replaces an existing keyframe in an animation curve. index: Index of the keyframe. key: New keyframe object.
-    /// </summary>
-    public static void ReplaceKey(this AnimationCurve animationCurve, int index, Keyframe key)
-    {
-
-        Keyframe[] keys = animationCurve.keys;
-
-        keys[index] = key;
-
-        animationCurve.keys = keys;
-
-    }
-
-    /// <summary>
     /// Rotates the transform so the forward vector points at target's position. target: Object to point towards. direction: Vector specifying the fotward direction.
     /// </summary>
     public static void LookAt2D(this Transform transform, Transform target, Vector3 direction)
@@ -71,6 +57,20 @@ public static class CustomExtensions
         Vector2 angle = target.position - transform.position;
 
         transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(angle.y, angle.x) * Mathf.Rad2Deg, Vector3.forward);
+
+    }
+
+    /// <summary>
+    /// Replaces an existing keyframe in an animation curve. index: Index of the keyframe. key: New keyframe object.
+    /// </summary>
+    public static void ReplaceKey(this AnimationCurve animationCurve, int index, Keyframe key)
+    {
+
+        Keyframe[] keys = animationCurve.keys;
+
+        keys[index] = key;
+
+        animationCurve.keys = keys;
 
     }
 
