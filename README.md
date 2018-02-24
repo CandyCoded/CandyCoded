@@ -33,9 +33,13 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
         - [Scale](#scale)
         - [Rotate](#rotate)
     - [Calculation](#calculation)
+        - [ParentBounds](#parentbounds)
     - [Debugger](#debugger)
+        - [DrawLines](#drawlines)
     - [Materials](#materials)
+        - [GetMaterialsInChildren](#getmaterialsinchildren)
     - [Raycast](#raycast)
+        - [Reflect](#reflect)
 - [ScriptableObject](#scriptableobject)
     - [Bool](#bool)
     - [Float](#float)
@@ -249,8 +253,24 @@ private void OnDrawGizmosSelected()
 
 #### DrawLines
 
+Takes either an array or list of `Vector3`s and draws them using [`UnityEngine.Debug.DrawLine`](https://docs.unity3d.com/ScriptReference/Debug.DrawLine.html). DrawLines contains the same parameters as the Unity's DrawLine method: color, duration and depthTest.
+
+**Color** Color of lines.
+
 ```csharp
 CandyCoded.Debugger.DrawLines(points, Color.red);
+```
+
+**Duration** Duration lines remains visible.
+
+```csharp
+CandyCoded.Debugger.DrawLines(points, Color.red, 1f);
+```
+
+**DepthTest** Obscure lines with objects closer to camera?
+
+```csharp
+CandyCoded.Debugger.DrawLines(points, Color.red, 1f, false);
 ```
 
 ### Materials
@@ -283,6 +303,8 @@ Vector3[] linePositions = CandyCoded.Raycast.Reflect(gameObject.transform.positi
 lineRenderer.positionCount = linePositions.Length;
 lineRenderer.SetPositions(linePositions);
 ```
+
+Objects that are hit can also be returned to an array by reference.
 
 ```csharp
 List<RaycastHit> hits;
@@ -333,6 +355,8 @@ public class Vector3Reference : CandyCoded.CustomGenericScriptableObject<Vector3
 
 ### DisplayInInspector
 
+Adds a button, with the name of the method, to the bottom of the inspector that when pressed will run the attached method once.
+
 ```csharp
 using UnityEngine;
 
@@ -353,6 +377,8 @@ public class DisplayInInspectorDemo : MonoBehaviour
 ![](https://i.imgur.com/u8t3Etf.png)
 
 ### EnumMask
+
+Creates a dropdown in the inspector which allows for selecting of one or more enum values.
 
 ```csharp
 using UnityEngine;
