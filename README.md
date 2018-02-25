@@ -193,17 +193,25 @@ gameObject.transform.LookAt2D(currentMousePosition, Vector3.right);
 
 #### FadeIn
 
+Fade a gameobject from 0% to 100% with a duration of 1s.
+
 ```csharp
 CandyCoded.Animate.FadeIn(gameObject, Time.deltaTime);
 ```
 
 #### FadeOut
 
+Fade a gameobject from 100% to 0% with a duration of 1s.
+
 ```csharp
 CandyCoded.Animate.FadeOut(gameObject, Time.deltaTime);
 ```
 
 #### FadeCustom
+
+Fade a gameobject using the values defined in the supplied `AnimationCurve`.
+
+**Note:** 100% alpha is relative to each gameobject's initial alpha value. This is to prevent objects with custom alpha values from being reset.
 
 ```csharp
 AnimationCurve animationCurve = AnimationCurve.Linear(0, 1, 1, 0);
@@ -215,6 +223,8 @@ CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurve);
 
 #### Position
 
+Move a gameobject using the values defined in the supplied [`Vector3AnimationCurve`](#vector3animationcurve).
+
 ```csharp
 CandyCoded.Vector3AnimationCurve animationCurve;
 CandyCoded.Animate.PositionRelative(gameObject, Time.deltaTime, animationCurve);
@@ -224,6 +234,8 @@ CandyCoded.Animate.PositionRelative(gameObject, Time.deltaTime, animationCurve);
 
 #### Scale
 
+Scale a gameobject using the values defined in the supplied [`Vector3AnimationCurve`](#vector3animationcurve).
+
 ```csharp
 CandyCoded.Vector3AnimationCurve animationCurve;
 CandyCoded.Animate.ScaleRelative(gameObject, Time.deltaTime, animationCurve);
@@ -232,6 +244,8 @@ CandyCoded.Animate.ScaleRelative(gameObject, Time.deltaTime, animationCurve);
 ![](https://media.giphy.com/media/l0HUfPOnvdomnsz0A/giphy.gif)
 
 #### Rotate
+
+Rotate a gameobject using the values defined in the supplied [`Vector3AnimationCurve`](#vector3animationcurve).
 
 ```csharp
 CandyCoded.Vector3AnimationCurve animationCurve;
