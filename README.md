@@ -137,9 +137,7 @@ screenShake.Shake(duration, intensity, CandyCoded.SCREENSHAKE_DIRECTION.Vertical
 
 Attach this component to a gameobject with a ParticleSystem that doesn't loop and once the generated particles are no longer alive, the gameobject will destroy itself.
 
-## Static Methods
-
-## Custom Extension
+## Custom Extensions
 
 ### AnimationCurve
 
