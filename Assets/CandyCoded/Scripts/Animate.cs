@@ -151,7 +151,7 @@ namespace CandyCoded
 
         }
 
-        public static void ResetAnimationStartTime(GameObject gameObject)
+        public static void ResetAnimation(GameObject gameObject)
         {
 
             CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
