@@ -140,13 +140,13 @@ animationCurve.ReplaceKey(0, Keyframe(10, 1));
 Tests LayerMask for the supplied Layer name or int.
 
 ```csharp
-LayerMask layerMask;
-layerMask.Contains("Water");
+LayerMask layerMask = ~0;
+Debug.Log(layerMask.Contains("Water")); // true
 ```
 
 ```csharp
-LayerMask layerMask;
-layerMask.Contains(4);
+LayerMask layerMask = ~0;
+Debug.Log(layerMask.Contains(4)); // true
 ```
 
 ### List.Shuffle
