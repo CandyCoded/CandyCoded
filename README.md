@@ -38,6 +38,7 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
         - [DrawLines](#drawlines)
     - [Materials](#materials)
         - [GetMaterialsInChildren](#getmaterialsinchildren)
+        - [SetAlphaColor](#setalphacolor)
     - [Raycast](#raycast)
         - [Reflect](#reflect)
 - [ScriptableObject](#scriptableobject)
