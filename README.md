@@ -126,7 +126,7 @@ Attach this component to a gameobject with a ParticleSystem that doesn't loop an
 
 ### AnimationCurve.ReplaceKey
 
-Replaced keyframe at index in an AnimationCurve object.
+Replaces keyframe at index in an AnimationCurve object.
 
 ```csharp
 AnimationCurve animationCurve = AnimationCurve.Linear(0, 1, 1, 0);

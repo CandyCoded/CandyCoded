@@ -61,7 +61,7 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Replaced keyframe at index in an AnimationCurve object. index: Index of the keyframe. key: New keyframe object.
+    /// Replaces keyframe at index in an AnimationCurve object. index: Index of the keyframe. key: New keyframe object.
     /// </summary>
     public static void ReplaceKey(this AnimationCurve animationCurve, int index, Keyframe key)
     {
