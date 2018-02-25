@@ -20,7 +20,7 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
     - [Gizmo](#gizmo)
     - [ScreenShake](#screenshake)
     - [SelfDestructParticleSystem](#selfdestructparticlesystem)
-- [Custom Extensions](#customextensions)
+- [Custom Extensions](#custom-extensions)
     - [AnimationCurve](#animationcurve)
         - [ReplaceKey](#replacekey)
     - [LayerMask](#contains)
