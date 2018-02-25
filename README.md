@@ -253,7 +253,7 @@ private void OnDrawGizmosSelected()
 
 #### DrawLines
 
-Takes either an array or list of `Vector3`s and draws them using [`UnityEngine.Debug.DrawLine`](https://docs.unity3d.com/ScriptReference/Debug.DrawLine.html). DrawLines contains the same parameters as the Unity's DrawLine method: color, duration and depthTest.
+Takes either an array or list of `Vector3`s and draws them using [`UnityEngine.Debug.DrawLine`](https://docs.unity3d.com/ScriptReference/Debug.DrawLine.html). DrawLines contains the same display parameters as Unity's DrawLine method: color, duration and depthTest.
 
 **Color** Color of lines.
 
@@ -267,7 +267,7 @@ CandyCoded.Debugger.DrawLines(points, Color.red);
 CandyCoded.Debugger.DrawLines(points, Color.red, 1f);
 ```
 
-**DepthTest** Obscure lines with objects closer to camera?
+**DepthTest** Should lines be obscured with objects closer to camera?
 
 ```csharp
 CandyCoded.Debugger.DrawLines(points, Color.red, 1f, false);
@@ -354,7 +354,7 @@ public class Vector3Reference : CandyCoded.CustomGenericScriptableObject<Vector3
 
 ### DisplayInInspector
 
-Adds a button, with the name of the method, to the bottom of the inspector that when pressed will run the attached method once.
+Adds a button, with the name of the method, to the bottom of the inspector that when pressed will run the attached method.
 
 ```csharp
 using UnityEngine;
