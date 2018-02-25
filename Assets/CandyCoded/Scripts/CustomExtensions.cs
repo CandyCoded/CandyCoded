@@ -5,7 +5,7 @@ public static class CustomExtensions
 {
 
     /// <summary>
-    /// Tests LayerMask for the supplied Layer name? layerName: Layer name to compare against layerMask.
+    /// Tests LayerMask for the supplied Layer name. layerName: Layer name to compare against layerMask.
     /// </summary>
     public static bool Contains(this LayerMask layerMask, string layerName)
     {
@@ -15,7 +15,7 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Tests LayerMask for the supplied Layer int? layerInt: Layer number to compare against layerMask.
+    /// Tests LayerMask for the supplied Layer int. layerInt: Layer number to compare against layerMask.
     /// </summary>
     public static bool Contains(this LayerMask layerMask, int layerInt)
     {
