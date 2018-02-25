@@ -15,7 +15,8 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
 - [Structs](#structs)
     - [Vector3AnimationCurve](#vector3animationcurve)
 - [Components](#components)
-    - [CameraFollow](#camerafollow)
+    - [CameraFollow2D](#camerafollow2d)
+    - [CameraFollow3D](#camerafollow3d)
     - [Gizmo](#gizmo)
     - [ScreenShake](#screenshake)
     - [SelfDestructParticleSystem](#selfdestructparticlesystem)
@@ -86,11 +87,21 @@ public class AnimatePosition : MonoBehaviour
 
 ## Components
 
-### CameraFollow
+### CameraFollow2D
 
-Attach the CameraFollow component to any gameobject that moves independently of the camera. Utilizing the constraint options allows for the camera to either stay a certain distance from the object or lock any of the axis from moving at all. This component works with both 2D and 3D scenes.
+Attach the CameraFollow2D component to any gameobject that moves independently of the camera. Utilizing the constraint options allows for the camera to be bound to a certain gameobject or custom bounds settings, or locking any of the axis from moving at all.
 
 ![](https://media.giphy.com/media/3ohc19nAziNNVAQ4I8/giphy.gif)
+
+### CameraFollow3D
+
+Attach the CameraFollow3D component to any gameobject that moves independently of the camera. Utilizing the constraint options allows for the camera to either stay a certain distance from the object or lock any of the axis from moving at all.
+
+![](https://media.giphy.com/media/29nDCxpEGxOcfRpezo/giphy.gif)
+
+This camera also supports a seconday target where in the camera will follow behind the main target, but look towards the seconday target.
+
+![](https://media.giphy.com/media/wZrmr7mSPNmh8u7iLl/giphy.gif)
 
 ### Gizmo
 
