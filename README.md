@@ -20,10 +20,14 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
     - [ScreenShake](#screenshake)
     - [SelfDestructParticleSystem](#selfdestructparticlesystem)
 - [Custom Extensions](#customextensions)
-    - [AnimationCurve.ReplaceKey](#animationcurvereplacekey)
-    - [LayerMask.Contains](#layermaskcontains)
-    - [List.Shuffle](#listshuffle)
-    - [Transform.LookAt2D](#transformlookat2d)
+    - [AnimationCurve](#animationcurve)
+        - [ReplaceKey](#replacekey)
+    - [LayerMask](#contains)
+        - [Contains](#contains)
+    - [List](#list)
+        - [Shuffle](#shuffle)
+    - [Transform](#transform)
+        - [LookAt2D](#lookat2d)
 - [Static Methods](#static-methods)
     - [Animate](#animate)
         - [FadeIn](#fadein)
@@ -125,7 +129,9 @@ Attach this component to a gameobject with a ParticleSystem that doesn't loop an
 
 ## Custom Extension
 
-### AnimationCurve.ReplaceKey
+### AnimationCurve
+
+#### ReplaceKey
 
 Replaces keyframe at index in an AnimationCurve object.
 
@@ -136,7 +142,9 @@ animationCurve.ReplaceKey(0, Keyframe(10, 1));
 
 **Reference:** <https://docs.unity3d.com/ScriptReference/Keyframe-ctor.html>
 
-### LayerMask.Contains
+### LayerMask
+
+#### Contains
 
 Tests LayerMask for the supplied Layer name or int.
 
@@ -150,7 +158,9 @@ LayerMask layerMask = ~0;
 Debug.Log(layerMask.Contains(4)); // true
 ```
 
-### List.Shuffle
+### List
+
+#### Shuffle
 
 Creates a new copy of a list and shuffles the values.
 
@@ -159,7 +169,9 @@ List<float> randomValues = new List<float>();
 shuffledRandomValues = randomValues.Shuffle();
 ```
 
-### Transform.LookAt2D
+### Transform
+
+#### LookAt2D
 
 Rotates transform so the forward vector (or supplied Vector3) points at target's position.
 
