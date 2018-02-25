@@ -56,6 +56,7 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
 - [Unity Editor Extensions](#unity-editor-extensions)
     - [DisplayInInspector](#displayininspector)
     - [EnumMask](#enummask)
+- [Custom Materials](#custommaterials)
 
 ## Structs
 
@@ -451,6 +452,22 @@ public class EnumMaskDemo : MonoBehaviour
 ```
 
 ![](https://i.imgur.com/s5rlIIF.png)
+
+## Custom Materials
+
+Each of the debug materials utilize a custom shader that tiles without scaling. These are used best on flat surfaces.
+
+**Target**
+
+![](https://i.imgur.com/w3KNjCx.png)
+
+**Axis Grid**
+
+![](https://i.imgur.com/yOgzPBm.png)
+
+**Laser**
+
+![](https://i.imgur.com/lYP9PFi.png)
 
 ## Credits
 
