@@ -14,7 +14,7 @@ namespace CandyCoded
     {
 
         private float currentIntensity = 0;
-        private float currentDuraton = 0;
+        private float currentDuration = 0;
         private SCREENSHAKE_DIRECTION currentDirection = SCREENSHAKE_DIRECTION.All;
 
         private GameObject wrapperObject;
@@ -33,7 +33,7 @@ namespace CandyCoded
 
             Vector3 shakePosition = Vector3.zero;
 
-            if (currentDuraton > 0)
+            if (currentDuration > 0)
             {
 
                 if (currentDirection == SCREENSHAKE_DIRECTION.All)
@@ -55,7 +55,7 @@ namespace CandyCoded
 
                 }
 
-                currentDuraton = Mathf.Max(currentDuraton - Time.deltaTime, 0);
+                currentDuration = Mathf.Max(currentDuration - Time.deltaTime, 0);
 
             }
 
@@ -67,7 +67,7 @@ namespace CandyCoded
         {
 
             currentIntensity = intensity;
-            currentDuraton = duration;
+            currentDuration = duration;
             currentDirection = direction;
 
         }
