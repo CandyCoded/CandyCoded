@@ -98,7 +98,7 @@ Attach the CameraFollow2D component to any gameobject that moves independently o
 
 Attach the CameraFollow3D component to any gameobject that moves independently of the camera. Utilizing the constraint options allows for the camera to either stay a certain distance from the object or lock any of the axis from moving at all.
 
-![](https://media.giphy.com/media/29nDCxpEGxOcfRpezo/giphy.gif)
+![](https://media.giphy.com/media/e7QN9KYhCIpqV9c1X4/giphy.gif)
 
 This camera also supports a seconday target where in the camera will follow behind the main target, but look towards the seconday target.
 
@@ -292,19 +292,19 @@ private void OnDrawGizmosSelected()
 
 Takes either an array or list of `Vector3`s and draws them using [`UnityEngine.Debug.DrawLine`](https://docs.unity3d.com/ScriptReference/Debug.DrawLine.html). DrawLines contains the same display parameters as Unity's DrawLine method: color, duration and depthTest.
 
-**Color** Color of lines.
+**Color:** Color of lines.
 
 ```csharp
 CandyCoded.Debugger.DrawLines(points, Color.red);
 ```
 
-**Duration** Duration lines remains visible.
+**Duration:** Duration lines remains visible.
 
 ```csharp
 CandyCoded.Debugger.DrawLines(points, Color.red, 1f);
 ```
 
-**DepthTest** Should lines be obscured with objects closer to camera?
+**DepthTest:** Should lines be obscured with objects closer to camera?
 
 ```csharp
 CandyCoded.Debugger.DrawLines(points, Color.red, 1f, false);
