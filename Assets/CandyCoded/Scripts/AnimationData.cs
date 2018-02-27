@@ -20,8 +20,6 @@ namespace CandyCoded
     public class AnimationData : MonoBehaviour
     {
 
-        public float activeTime = 0;
-
         public TransformData transformData = new TransformData();
 
         public List<MaterialData> materials = new List<MaterialData>();
@@ -30,13 +28,6 @@ namespace CandyCoded
         {
 
             RebuildCachedData();
-
-        }
-
-        public void ResetAnimationStartTime()
-        {
-
-            activeTime = 0;
 
         }
 
