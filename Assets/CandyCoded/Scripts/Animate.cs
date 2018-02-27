@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace CandyCoded
 {
@@ -19,6 +20,41 @@ namespace CandyCoded
             }
 
             return animationData;
+
+        }
+
+        public static IEnumerator Position(GameObject gameObject, Vector3AnimationCurve animationCurve)
+        {
+
+            CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
+
+            float elapsedTime = 0;
+            float maxTime = 1; // FIXME
+
+            while (elapsedTime < maxTime)
+            {
+
+                CandyCoded.Animate.Position(gameObject, animationCurve, elapsedTime, animationData);
+
+                elapsedTime += Time.deltaTime;
+
+                yield return null;
+
+            }
+
+        }
+
+        public static void Position(GameObject gameObject, Vector3AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null)
+        {
+
+            if (animationData == null)
+            {
+
+                animationData = GetAnimationData(gameObject);
+
+            }
+
+            gameObject.transform.localPosition = animationCurve.Evaluate(deltaTime);
 
         }
 
