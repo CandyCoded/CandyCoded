@@ -7,6 +7,8 @@ namespace CandyCoded
     public static class Animate
     {
 
+        public delegate void AnimationFunc(GameObject gameObject, Vector3AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null);
+
         public static CandyCoded.AnimationData GetAnimationData(GameObject gameObject)
         {
 
@@ -23,7 +25,7 @@ namespace CandyCoded
 
         }
 
-        public static IEnumerator Position(GameObject gameObject, Vector3AnimationCurve animationCurve)
+        public static IEnumerator Loop(GameObject gameObject, Vector3AnimationCurve animationCurve, AnimationFunc animationFunc)
         {
 
             CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
@@ -34,7 +36,7 @@ namespace CandyCoded
             while (elapsedTime < maxTime)
             {
 
-                CandyCoded.Animate.Position(gameObject, animationCurve, elapsedTime, animationData);
+                animationFunc(gameObject, animationCurve, elapsedTime);
 
                 elapsedTime += Time.deltaTime;
 
@@ -50,6 +52,42 @@ namespace CandyCoded
             if (animationData == null) animationData = GetAnimationData(gameObject);
 
             gameObject.transform.localPosition = animationCurve.Evaluate(deltaTime);
+
+        }
+
+        public static void PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null)
+        {
+
+            if (animationData == null) animationData = GetAnimationData(gameObject);
+
+            gameObject.transform.localPosition = animationData.transformData.position + animationCurve.Evaluate(deltaTime);
+
+        }
+
+        public static void Rotate(GameObject gameObject, Vector3AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null)
+        {
+
+            if (animationData == null) animationData = GetAnimationData(gameObject);
+
+            gameObject.transform.localRotation = Quaternion.Euler(animationCurve.Evaluate(deltaTime));
+
+        }
+
+        public static void Scale(GameObject gameObject, Vector3AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null)
+        {
+
+            if (animationData == null) animationData = GetAnimationData(gameObject);
+
+            gameObject.transform.localScale = animationCurve.Evaluate(deltaTime);
+
+        }
+
+        public static void ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null)
+        {
+
+            if (animationData == null) animationData = GetAnimationData(gameObject);
+
+            gameObject.transform.localScale = animationData.transformData.scale + animationCurve.Evaluate(deltaTime);
 
         }
 
