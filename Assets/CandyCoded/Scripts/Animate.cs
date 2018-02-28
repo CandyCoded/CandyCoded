@@ -98,16 +98,16 @@ namespace CandyCoded
 
         }
 
-        public static Coroutine Rotate(GameObject gameObject, Vector3AnimationCurve animationCurve)
+        public static Coroutine Rotation(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
-            IEnumerator routine = CandyCoded.Animate.Loop(gameObject, animationCurve, CandyCoded.Animate.Rotate);
+            IEnumerator routine = CandyCoded.Animate.Loop(gameObject, animationCurve, CandyCoded.Animate.Rotation);
 
             return CandyCoded.Animate.GetAnimationRunner(gameObject).StartCoroutine(routine);
 
         }
 
-        public static void Rotate(GameObject gameObject, Vector3AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null)
+        public static void Rotation(GameObject gameObject, Vector3AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null)
         {
 
             if (animationData == null) animationData = GetAnimationData(gameObject);
