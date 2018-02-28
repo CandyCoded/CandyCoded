@@ -11,6 +11,21 @@ namespace CandyCoded
         public AnimationCurve x;
         public AnimationCurve y;
 
+        public float maxTime
+        {
+
+            get
+            {
+
+                return Mathf.Max(
+                    x.keys[x.keys.Length - 1].time,
+                    y.keys[y.keys.Length - 1].time
+                );
+
+            }
+
+        }
+
         public Vector2 Evaluate(float time)
         {
 
@@ -42,6 +57,22 @@ namespace CandyCoded
         public AnimationCurve x;
         public AnimationCurve y;
         public AnimationCurve z;
+
+        public float maxTime
+        {
+
+            get
+            {
+
+                return Mathf.Max(
+                    x.keys[x.keys.Length - 1].time,
+                    y.keys[y.keys.Length - 1].time,
+                    z.keys[z.keys.Length - 1].time
+                );
+
+            }
+
+        }
 
         public Vector3 Evaluate(float time)
         {

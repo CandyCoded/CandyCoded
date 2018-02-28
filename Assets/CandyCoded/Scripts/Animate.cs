@@ -29,7 +29,7 @@ namespace CandyCoded
             CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
 
             float elapsedTime = 0;
-            float maxTime = 1; // FIXME
+            float maxTime = animationCurve.maxTime;
 
             while (elapsedTime < maxTime)
             {
