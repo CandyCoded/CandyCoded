@@ -74,8 +74,6 @@ namespace CandyCoded
         public static void Position(GameObject gameObject, Vector3AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null)
         {
 
-            if (animationData == null) animationData = GetAnimationData(gameObject);
-
             gameObject.transform.localPosition = animationCurve.Evaluate(deltaTime);
 
         }
@@ -110,8 +108,6 @@ namespace CandyCoded
         public static void Rotation(GameObject gameObject, Vector3AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null)
         {
 
-            if (animationData == null) animationData = GetAnimationData(gameObject);
-
             gameObject.transform.localRotation = Quaternion.Euler(animationCurve.Evaluate(deltaTime));
 
         }
@@ -127,8 +123,6 @@ namespace CandyCoded
 
         public static void Scale(GameObject gameObject, Vector3AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null)
         {
-
-            if (animationData == null) animationData = GetAnimationData(gameObject);
 
             gameObject.transform.localScale = animationCurve.Evaluate(deltaTime);
 
