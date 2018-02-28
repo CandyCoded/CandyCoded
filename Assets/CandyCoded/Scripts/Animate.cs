@@ -47,12 +47,7 @@ namespace CandyCoded
         public static void Position(GameObject gameObject, Vector3AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null)
         {
 
-            if (animationData == null)
-            {
-
-                animationData = GetAnimationData(gameObject);
-
-            }
+            if (animationData == null) animationData = GetAnimationData(gameObject);
 
             gameObject.transform.localPosition = animationCurve.Evaluate(deltaTime);
 
