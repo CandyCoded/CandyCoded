@@ -62,12 +62,21 @@ namespace CandyCoded
 
         }
 
+        public static Coroutine StartCoroutine(GameObject gameObject, Vector3AnimationCurve animationCurve, AnimationFunc animationFunc)
+        {
+
+            AnimationRunner runner = GetAnimationRunner(gameObject);
+
+            IEnumerator routine = Loop(gameObject, animationCurve, animationFunc);
+
+            return runner.StartCoroutine(routine);
+
+        }
+
         public static Coroutine Position(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
-            IEnumerator routine = CandyCoded.Animate.Loop(gameObject, animationCurve, CandyCoded.Animate.Position);
-
-            return CandyCoded.Animate.GetAnimationRunner(gameObject).StartCoroutine(routine);
+            return StartCoroutine(gameObject, animationCurve, CandyCoded.Animate.Position);
 
         }
 
@@ -81,9 +90,7 @@ namespace CandyCoded
         public static Coroutine PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
-            IEnumerator routine = CandyCoded.Animate.Loop(gameObject, animationCurve, CandyCoded.Animate.PositionRelative);
-
-            return CandyCoded.Animate.GetAnimationRunner(gameObject).StartCoroutine(routine);
+            return StartCoroutine(gameObject, animationCurve, CandyCoded.Animate.PositionRelative);
 
         }
 
@@ -99,9 +106,7 @@ namespace CandyCoded
         public static Coroutine Rotation(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
-            IEnumerator routine = CandyCoded.Animate.Loop(gameObject, animationCurve, CandyCoded.Animate.Rotation);
-
-            return CandyCoded.Animate.GetAnimationRunner(gameObject).StartCoroutine(routine);
+            return StartCoroutine(gameObject, animationCurve, CandyCoded.Animate.Rotation);
 
         }
 
@@ -115,9 +120,7 @@ namespace CandyCoded
         public static Coroutine Scale(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
-            IEnumerator routine = CandyCoded.Animate.Loop(gameObject, animationCurve, CandyCoded.Animate.Scale);
-
-            return CandyCoded.Animate.GetAnimationRunner(gameObject).StartCoroutine(routine);
+            return StartCoroutine(gameObject, animationCurve, CandyCoded.Animate.Scale);
 
         }
 
@@ -131,9 +134,7 @@ namespace CandyCoded
         public static Coroutine ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
-            IEnumerator routine = CandyCoded.Animate.Loop(gameObject, animationCurve, CandyCoded.Animate.ScaleRelative);
-
-            return CandyCoded.Animate.GetAnimationRunner(gameObject).StartCoroutine(routine);
+            return StartCoroutine(gameObject, animationCurve, CandyCoded.Animate.ScaleRelative);
 
         }
 
