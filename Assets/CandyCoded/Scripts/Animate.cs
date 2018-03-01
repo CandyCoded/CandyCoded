@@ -151,6 +151,21 @@ namespace CandyCoded
 
         }
 
+        public static void RotateTo(GameObject gameObject, Vector3 newRotation, float duration)
+        {
+
+            Vector3AnimationCurve animationCurve = new Vector3AnimationCurve();
+
+            Vector3 currentRotation = gameObject.transform.localRotation.eulerAngles;
+
+            animationCurve.x = AnimationCurve.Linear(0, currentRotation.x, duration, newRotation.x);
+            animationCurve.y = AnimationCurve.Linear(0, currentRotation.y, duration, newRotation.y);
+            animationCurve.z = AnimationCurve.Linear(0, currentRotation.z, duration, newRotation.z);
+
+            Rotation(gameObject, animationCurve);
+
+        }
+
         public static Coroutine Scale(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
@@ -178,6 +193,21 @@ namespace CandyCoded
             if (animationData == null) animationData = GetAnimationData(gameObject);
 
             gameObject.transform.localScale = animationData.transformData.scale + animationCurve.Evaluate(deltaTime);
+
+        }
+
+        public static void ScaleTo(GameObject gameObject, Vector3 newScale, float duration)
+        {
+
+            Vector3AnimationCurve animationCurve = new Vector3AnimationCurve();
+
+            Vector3 currentScale = gameObject.transform.localScale;
+
+            animationCurve.x = AnimationCurve.Linear(0, currentScale.x, duration, newScale.x);
+            animationCurve.y = AnimationCurve.Linear(0, currentScale.y, duration, newScale.y);
+            animationCurve.z = AnimationCurve.Linear(0, currentScale.z, duration, newScale.z);
+
+            Scale(gameObject, animationCurve);
 
         }
 
