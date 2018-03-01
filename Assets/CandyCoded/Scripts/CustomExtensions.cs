@@ -40,7 +40,7 @@ public static class CustomExtensions
     public static bool IsLooping(this AnimationCurve animationCurve)
     {
 
-        return animationCurve.postWrapMode == WrapMode.Loop || animationCurve.postWrapMode == WrapMode.PingPong;
+        return animationCurve != null && (animationCurve.postWrapMode == WrapMode.Loop || animationCurve.postWrapMode == WrapMode.PingPong);
 
     }
 
