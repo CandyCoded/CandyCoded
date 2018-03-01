@@ -129,9 +129,9 @@ namespace CandyCoded
 
             Vector3 currentPosition = gameObject.transform.position;
 
-            animationCurve.x = AnimationCurve.Linear(0, currentPosition.x, duration, newPosition.x);
-            animationCurve.y = AnimationCurve.Linear(0, currentPosition.y, duration, newPosition.y);
-            animationCurve.z = AnimationCurve.Linear(0, currentPosition.z, duration, newPosition.z);
+            animationCurve.x = AnimationCurve.EaseInOut(0, currentPosition.x, duration, newPosition.x);
+            animationCurve.y = AnimationCurve.EaseInOut(0, currentPosition.y, duration, newPosition.y);
+            animationCurve.z = AnimationCurve.EaseInOut(0, currentPosition.z, duration, newPosition.z);
 
             Position(gameObject, animationCurve);
 
@@ -158,9 +158,9 @@ namespace CandyCoded
 
             Vector3 currentRotation = gameObject.transform.localRotation.eulerAngles;
 
-            animationCurve.x = AnimationCurve.Linear(0, currentRotation.x, duration, newRotation.x);
-            animationCurve.y = AnimationCurve.Linear(0, currentRotation.y, duration, newRotation.y);
-            animationCurve.z = AnimationCurve.Linear(0, currentRotation.z, duration, newRotation.z);
+            animationCurve.x = AnimationCurve.EaseInOut(0, currentRotation.x, duration, newRotation.x);
+            animationCurve.y = AnimationCurve.EaseInOut(0, currentRotation.y, duration, newRotation.y);
+            animationCurve.z = AnimationCurve.EaseInOut(0, currentRotation.z, duration, newRotation.z);
 
             Rotation(gameObject, animationCurve);
 
@@ -203,9 +203,9 @@ namespace CandyCoded
 
             Vector3 currentScale = gameObject.transform.localScale;
 
-            animationCurve.x = AnimationCurve.Linear(0, currentScale.x, duration, newScale.x);
-            animationCurve.y = AnimationCurve.Linear(0, currentScale.y, duration, newScale.y);
-            animationCurve.z = AnimationCurve.Linear(0, currentScale.z, duration, newScale.z);
+            animationCurve.x = AnimationCurve.EaseInOut(0, currentScale.x, duration, newScale.x);
+            animationCurve.y = AnimationCurve.EaseInOut(0, currentScale.y, duration, newScale.y);
+            animationCurve.z = AnimationCurve.EaseInOut(0, currentScale.z, duration, newScale.z);
 
             Scale(gameObject, animationCurve);
 
