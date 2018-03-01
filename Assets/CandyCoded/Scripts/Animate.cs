@@ -46,6 +46,10 @@ namespace CandyCoded
 
             CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
 
+            AnimationRunner runner = GetAnimationRunner(gameObject);
+
+            string animationFuncName = animationFunc.Method.Name;
+
             float elapsedTime = 0;
             float maxTime = animationCurve.maxTime;
 
@@ -60,6 +64,8 @@ namespace CandyCoded
 
             }
 
+            runner.coroutines.Remove(animationFuncName);
+
         }
 
         public static Coroutine StartCoroutine(GameObject gameObject, Vector3AnimationCurve animationCurve, AnimationFunc animationFunc)
@@ -69,7 +75,20 @@ namespace CandyCoded
 
             IEnumerator routine = Loop(gameObject, animationCurve, animationFunc);
 
-            return runner.StartCoroutine(routine);
+            string animationFuncName = animationFunc.Method.Name;
+
+            if (runner.coroutines.ContainsKey(animationFuncName))
+            {
+
+                runner.StopCoroutine(runner.coroutines[animationFuncName]);
+
+                runner.coroutines.Remove(animationFuncName);
+
+            }
+
+            runner.coroutines.Add(animationFuncName, runner.StartCoroutine(routine));
+
+            return runner.coroutines[animationFuncName];
 
         }
 
