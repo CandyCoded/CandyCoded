@@ -122,6 +122,21 @@ namespace CandyCoded
 
         }
 
+        public static void MoveTo(GameObject gameObject, Vector3 newPosition, float duration)
+        {
+
+            Vector3AnimationCurve animationCurve = new Vector3AnimationCurve();
+
+            Vector3 currentPosition = gameObject.transform.position;
+
+            animationCurve.x = AnimationCurve.Linear(0, currentPosition.x, duration, newPosition.x);
+            animationCurve.y = AnimationCurve.Linear(0, currentPosition.y, duration, newPosition.y);
+            animationCurve.z = AnimationCurve.Linear(0, currentPosition.z, duration, newPosition.z);
+
+            Position(gameObject, animationCurve);
+
+        }
+
         public static Coroutine Rotation(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
