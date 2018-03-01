@@ -35,6 +35,16 @@ public static class CustomExtensions
     }
 
     /// <summary>
+    /// Tests to see if AnimationCurve loops.
+    /// </summary>
+    public static bool IsLooping(this AnimationCurve animationCurve)
+    {
+
+        return animationCurve.postWrapMode == WrapMode.Loop || animationCurve.postWrapMode == WrapMode.PingPong;
+
+    }
+
+    /// <summary>
     /// Rotates transform so the forward vector points at target's position. target: Object to point towards. direction: Vector specifying the fotward direction.
     /// </summary>
     public static void LookAt2D(this Transform transform, Transform target, Vector3 direction)

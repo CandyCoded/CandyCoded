@@ -26,6 +26,18 @@ namespace CandyCoded
 
         }
 
+        public bool isLooping
+        {
+
+            get
+            {
+
+                return x.IsLooping() || y.IsLooping();
+
+            }
+
+        }
+
         public Vector2 Evaluate(float time)
         {
 
@@ -69,6 +81,18 @@ namespace CandyCoded
                     y.keys.Length > 0 ? y.keys[y.keys.Length - 1].time : 0,
                     z.keys.Length > 0 ? z.keys[z.keys.Length - 1].time : 0
                 );
+
+            }
+
+        }
+
+        public bool isLooping
+        {
+
+            get
+            {
+
+                return x.IsLooping() || y.IsLooping() || z.IsLooping();
 
             }
 
