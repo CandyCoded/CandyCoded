@@ -49,7 +49,7 @@ namespace CandyCoded
             float elapsedTime = 0;
             float maxTime = animationCurve.maxTime;
 
-            while (elapsedTime < maxTime)
+            while (animationCurve.isLooping || elapsedTime < maxTime)
             {
 
                 animationFunc(gameObject, animationCurve, elapsedTime, animationData);
