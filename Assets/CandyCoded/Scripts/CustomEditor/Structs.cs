@@ -11,30 +11,20 @@ namespace CandyCoded
         public AnimationCurve x;
         public AnimationCurve y;
 
-        public float maxTime
+        public float MaxTime()
         {
 
-            get
-            {
-
-                return Mathf.Max(
-                    x.MaxTime(),
-                    y.MaxTime()
-                );
-
-            }
+            return Mathf.Max(
+                x.MaxTime(),
+                y.MaxTime()
+            );
 
         }
 
-        public bool isLooping
+        public bool IsLooping()
         {
 
-            get
-            {
-
-                return x.IsLooping() || y.IsLooping();
-
-            }
+            return x.IsLooping() || y.IsLooping();
 
         }
 
@@ -70,31 +60,21 @@ namespace CandyCoded
         public AnimationCurve y;
         public AnimationCurve z;
 
-        public float maxTime
+        public float MaxTime()
         {
 
-            get
-            {
-
-                return Mathf.Max(
-                    x.MaxTime(),
-                    y.MaxTime(),
-                    z.MaxTime()
-                );
-
-            }
+            return Mathf.Max(
+                x.MaxTime(),
+                y.MaxTime(),
+                z.MaxTime()
+            );
 
         }
 
-        public bool isLooping
+        public bool IsLooping()
         {
 
-            get
-            {
-
-                return x.IsLooping() || y.IsLooping() || z.IsLooping();
-
-            }
+            return x.IsLooping() || y.IsLooping() || z.IsLooping();
 
         }
 

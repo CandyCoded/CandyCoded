@@ -51,9 +51,9 @@ namespace CandyCoded
             string animationFuncName = animationFunc.Method.Name;
 
             float elapsedTime = 0;
-            float maxTime = animationCurve.maxTime;
+            float maxTime = animationCurve.MaxTime();
 
-            while (animationCurve.isLooping || elapsedTime < maxTime)
+            while (animationCurve.IsLooping() || elapsedTime < maxTime)
             {
 
                 animationFunc(gameObject, animationCurve, elapsedTime, animationData);
