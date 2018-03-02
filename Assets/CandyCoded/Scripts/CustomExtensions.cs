@@ -71,6 +71,16 @@ public static class CustomExtensions
     }
 
     /// <summary>
+    /// Returns the duration of the AnimationCurve lasts.
+    /// </summary>
+    public static float MaxTime(this AnimationCurve animationCurve)
+    {
+
+        return (animationCurve != null && animationCurve.keys.Length > 0) ? animationCurve.keys[animationCurve.keys.Length - 1].time : 0;
+
+    }
+
+    /// <summary>
     /// Replaces keyframe at index in an AnimationCurve object. index: Index of the keyframe. key: New keyframe object.
     /// </summary>
     public static void ReplaceKey(this AnimationCurve animationCurve, int index, Keyframe key)

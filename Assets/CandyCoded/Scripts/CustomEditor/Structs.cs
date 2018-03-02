@@ -18,8 +18,8 @@ namespace CandyCoded
             {
 
                 return Mathf.Max(
-                    (x != null && x.keys.Length > 0) ? x.keys[x.keys.Length - 1].time : 0,
-                    (y != null && y.keys.Length > 0) ? y.keys[y.keys.Length - 1].time : 0
+                    x.MaxTime(),
+                    y.MaxTime()
                 );
 
             }
@@ -77,9 +77,9 @@ namespace CandyCoded
             {
 
                 return Mathf.Max(
-                    (x != null && x.keys.Length > 0) ? x.keys[x.keys.Length - 1].time : 0,
-                    (y != null && y.keys.Length > 0) ? y.keys[y.keys.Length - 1].time : 0,
-                    (z != null && z.keys.Length > 0) ? z.keys[z.keys.Length - 1].time : 0
+                    x.MaxTime(),
+                    y.MaxTime(),
+                    z.MaxTime()
                 );
 
             }
