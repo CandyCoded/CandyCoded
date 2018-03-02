@@ -43,7 +43,7 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
         - [DrawLines](#drawlines)
     - [Materials](#materials)
         - [GetMaterialsInChildren](#getmaterialsinchildren)
-        - [SetAlphaColor](#setalphacolor)
+        - [SetColorAlpha](#setcoloralpha)
     - [Raycast](#raycast)
         - [Reflect](#reflect)
 - [ScriptableObject](#scriptableobject)
@@ -320,7 +320,7 @@ Similar in use to GetComponentsInChildren, GetMaterialsInChildren will return al
 Material[] materials = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
 ```
 
-#### SetAlphaColor
+#### SetColorAlpha
 
 Set the alpha of a color to a value.
 
