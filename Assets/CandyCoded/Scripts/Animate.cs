@@ -7,7 +7,7 @@ namespace CandyCoded
     public static class Animate
     {
 
-        public delegate void AnimationFunc(GameObject gameObject, Vector3AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null);
+        public delegate void Vector3AnimationFunc(GameObject gameObject, Vector3AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null);
 
         public static CandyCoded.AnimationRunner GetAnimationRunner(GameObject gameObject)
         {
@@ -41,7 +41,7 @@ namespace CandyCoded
 
         }
 
-        public static IEnumerator Loop(GameObject gameObject, Vector3AnimationCurve animationCurve, AnimationFunc animationFunc)
+        public static IEnumerator Loop(GameObject gameObject, Vector3AnimationCurve animationCurve, Vector3AnimationFunc animationFunc)
         {
 
             CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
@@ -68,7 +68,7 @@ namespace CandyCoded
 
         }
 
-        public static Coroutine StartCoroutine(GameObject gameObject, Vector3AnimationCurve animationCurve, AnimationFunc animationFunc)
+        public static Coroutine StartCoroutine(GameObject gameObject, Vector3AnimationCurve animationCurve, Vector3AnimationFunc animationFunc)
         {
 
             AnimationRunner runner = GetAnimationRunner(gameObject);
