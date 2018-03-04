@@ -96,38 +96,9 @@ namespace CandyCoded
 
         }
 
-        public static Coroutine StartCoroutine(GameObject gameObject, Vector3AnimationCurve animationCurve, Vector3AnimationFunc animationFunc)
+        public static Coroutine StartCoroutine(GameObject gameObject, string animationFuncName, IEnumerator routine)
         {
-
             AnimationRunner runner = GetAnimationRunner(gameObject);
-
-            IEnumerator routine = Loop(gameObject, animationCurve, animationFunc);
-
-            string animationFuncName = animationFunc.Method.Name;
-
-            if (runner.coroutines.ContainsKey(animationFuncName))
-            {
-
-                runner.StopCoroutine(runner.coroutines[animationFuncName]);
-
-                runner.coroutines.Remove(animationFuncName);
-
-            }
-
-            runner.coroutines.Add(animationFuncName, runner.StartCoroutine(routine));
-
-            return runner.coroutines[animationFuncName];
-
-        }
-
-        public static Coroutine StartCoroutine(GameObject gameObject, AnimationCurve animationCurve, AnimationFunc animationFunc)
-        {
-
-            AnimationRunner runner = GetAnimationRunner(gameObject);
-
-            IEnumerator routine = Loop(gameObject, animationCurve, animationFunc);
-
-            string animationFuncName = animationFunc.Method.Name;
 
             if (runner.coroutines.ContainsKey(animationFuncName))
             {
@@ -147,7 +118,7 @@ namespace CandyCoded
         public static Coroutine Fade(GameObject gameObject, AnimationCurve animationCurve)
         {
 
-            return StartCoroutine(gameObject, animationCurve, CandyCoded.Animate.Fade);
+            return StartCoroutine(gameObject, "Fade", Loop(gameObject, animationCurve, CandyCoded.Animate.Fade));
 
         }
 
@@ -177,7 +148,7 @@ namespace CandyCoded
         public static Coroutine Position(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
-            return StartCoroutine(gameObject, animationCurve, CandyCoded.Animate.Position);
+            return StartCoroutine(gameObject, "Position", Loop(gameObject, animationCurve, CandyCoded.Animate.Position));
 
         }
 
@@ -191,7 +162,7 @@ namespace CandyCoded
         public static Coroutine PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
-            return StartCoroutine(gameObject, animationCurve, CandyCoded.Animate.PositionRelative);
+            return StartCoroutine(gameObject, "PositionRelative", Loop(gameObject, animationCurve, CandyCoded.Animate.PositionRelative));
 
         }
 
@@ -222,7 +193,7 @@ namespace CandyCoded
         public static Coroutine Rotation(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
-            return StartCoroutine(gameObject, animationCurve, CandyCoded.Animate.Rotation);
+            return StartCoroutine(gameObject, "Rotation", Loop(gameObject, animationCurve, CandyCoded.Animate.Rotation));
 
         }
 
@@ -251,7 +222,7 @@ namespace CandyCoded
         public static Coroutine Scale(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
-            return StartCoroutine(gameObject, animationCurve, CandyCoded.Animate.Scale);
+            return StartCoroutine(gameObject, "Scale", Loop(gameObject, animationCurve, CandyCoded.Animate.Scale));
 
         }
 
@@ -265,7 +236,7 @@ namespace CandyCoded
         public static Coroutine ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
-            return StartCoroutine(gameObject, animationCurve, CandyCoded.Animate.ScaleRelative);
+            return StartCoroutine(gameObject, "ScaleRelative", Loop(gameObject, animationCurve, CandyCoded.Animate.ScaleRelative));
 
         }
 
