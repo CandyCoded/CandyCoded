@@ -8,6 +8,7 @@ namespace CandyCoded
     {
 
         public delegate void Vector3AnimationFunc(GameObject gameObject, Vector3AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null);
+        public delegate void AnimationFunc(GameObject gameObject, AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null);
 
         public static CandyCoded.AnimationRunner GetAnimationRunner(GameObject gameObject)
         {
@@ -68,6 +69,33 @@ namespace CandyCoded
 
         }
 
+        public static IEnumerator Loop(GameObject gameObject, AnimationCurve animationCurve, AnimationFunc animationFunc)
+        {
+
+            CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
+
+            AnimationRunner runner = GetAnimationRunner(gameObject);
+
+            string animationFuncName = animationFunc.Method.Name;
+
+            float elapsedTime = 0;
+            float maxTime = animationCurve.MaxTime();
+
+            while (animationCurve.IsLooping() || elapsedTime < maxTime)
+            {
+
+                animationFunc(gameObject, animationCurve, elapsedTime, animationData);
+
+                elapsedTime += Time.deltaTime;
+
+                yield return null;
+
+            }
+
+            runner.coroutines.Remove(animationFuncName);
+
+        }
+
         public static Coroutine StartCoroutine(GameObject gameObject, Vector3AnimationCurve animationCurve, Vector3AnimationFunc animationFunc)
         {
 
@@ -89,6 +117,60 @@ namespace CandyCoded
             runner.coroutines.Add(animationFuncName, runner.StartCoroutine(routine));
 
             return runner.coroutines[animationFuncName];
+
+        }
+
+        public static Coroutine StartCoroutine(GameObject gameObject, AnimationCurve animationCurve, AnimationFunc animationFunc)
+        {
+
+            AnimationRunner runner = GetAnimationRunner(gameObject);
+
+            IEnumerator routine = Loop(gameObject, animationCurve, animationFunc);
+
+            string animationFuncName = animationFunc.Method.Name;
+
+            if (runner.coroutines.ContainsKey(animationFuncName))
+            {
+
+                runner.StopCoroutine(runner.coroutines[animationFuncName]);
+
+                runner.coroutines.Remove(animationFuncName);
+
+            }
+
+            runner.coroutines.Add(animationFuncName, runner.StartCoroutine(routine));
+
+            return runner.coroutines[animationFuncName];
+
+        }
+
+        public static Coroutine Fade(GameObject gameObject, AnimationCurve animationCurve)
+        {
+
+            return StartCoroutine(gameObject, animationCurve, CandyCoded.Animate.Fade);
+
+        }
+
+        public static void Fade(GameObject gameObject, AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null)
+        {
+
+            float globalAlpha = animationCurve.Evaluate(deltaTime);
+
+            foreach (CandyCoded.MaterialData materialData in animationData.materials)
+            {
+
+                materialData.material.color = CandyCoded.Materials.SetColorAlpha(materialData.material.color, materialData.startColor.a * globalAlpha);
+
+            }
+
+        }
+
+        public static void Fade(GameObject gameObject, float from, float to, float duration)
+        {
+
+            AnimationCurve animationCurve = AnimationCurve.EaseInOut(0, from, duration, to);
+
+            Fade(gameObject, animationCurve);
 
         }
 
