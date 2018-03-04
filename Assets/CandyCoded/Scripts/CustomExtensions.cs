@@ -5,6 +5,25 @@ public static class CustomExtensions
 {
 
     /// <summary>
+    /// Returns a reference to an existing component or a new component if it didn't already exist.
+    /// </summary>
+    public static T AddOrGetComponent<T>(this GameObject gameObject) where T : Component
+    {
+
+        T component = gameObject.GetComponent<T>();
+
+        if (component == null)
+        {
+
+            component = gameObject.AddComponent<T>();
+
+        }
+
+        return component;
+
+    }
+
+    /// <summary>
     /// Tests LayerMask for the supplied Layer name. layerName: Layer name to compare against layerMask.
     /// </summary>
     public static bool Contains(this LayerMask layerMask, string layerName)
