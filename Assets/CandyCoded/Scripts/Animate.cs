@@ -10,44 +10,12 @@ namespace CandyCoded
         public delegate void Vector3AnimationFunc(GameObject gameObject, Vector3AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null);
         public delegate void AnimationFunc(GameObject gameObject, AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null);
 
-        public static CandyCoded.AnimationRunner GetAnimationRunner(GameObject gameObject)
-        {
-
-            CandyCoded.AnimationRunner animationRunner = gameObject.GetComponent<CandyCoded.AnimationRunner>();
-
-            if (animationRunner == null)
-            {
-
-                animationRunner = gameObject.AddComponent<CandyCoded.AnimationRunner>();
-
-            }
-
-            return animationRunner;
-
-        }
-
-        public static CandyCoded.AnimationData GetAnimationData(GameObject gameObject)
-        {
-
-            CandyCoded.AnimationData animationData = gameObject.GetComponent<CandyCoded.AnimationData>();
-
-            if (animationData == null)
-            {
-
-                animationData = gameObject.AddComponent<CandyCoded.AnimationData>();
-
-            }
-
-            return animationData;
-
-        }
-
         public static IEnumerator Loop(GameObject gameObject, Vector3AnimationCurve animationCurve, Vector3AnimationFunc animationFunc)
         {
 
-            CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
+            AnimationData animationData = gameObject.AddOrGetComponent<AnimationData>();
 
-            AnimationRunner runner = GetAnimationRunner(gameObject);
+            AnimationRunner runner = gameObject.AddOrGetComponent<AnimationRunner>();
 
             string animationFuncName = animationFunc.Method.Name;
 
@@ -72,9 +40,9 @@ namespace CandyCoded
         public static IEnumerator Loop(GameObject gameObject, AnimationCurve animationCurve, AnimationFunc animationFunc)
         {
 
-            CandyCoded.AnimationData animationData = GetAnimationData(gameObject);
+            AnimationData animationData = gameObject.AddOrGetComponent<AnimationData>();
 
-            AnimationRunner runner = GetAnimationRunner(gameObject);
+            AnimationRunner runner = gameObject.AddOrGetComponent<AnimationRunner>();
 
             string animationFuncName = animationFunc.Method.Name;
 
@@ -98,7 +66,7 @@ namespace CandyCoded
 
         public static Coroutine StartCoroutine(GameObject gameObject, string coroutineKey, IEnumerator routine)
         {
-            AnimationRunner runner = GetAnimationRunner(gameObject);
+            AnimationRunner runner = gameObject.AddOrGetComponent<AnimationRunner>();
 
             if (runner.coroutines.ContainsKey(coroutineKey))
             {
@@ -169,7 +137,7 @@ namespace CandyCoded
         public static void PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null)
         {
 
-            if (animationData == null) animationData = GetAnimationData(gameObject);
+            if (animationData == null) animationData = gameObject.AddOrGetComponent<AnimationData>();
 
             gameObject.transform.localPosition = animationData.transformData.position + animationCurve.Evaluate(deltaTime);
 
@@ -243,7 +211,7 @@ namespace CandyCoded
         public static void ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float deltaTime, AnimationData animationData = null)
         {
 
-            if (animationData == null) animationData = GetAnimationData(gameObject);
+            if (animationData == null) animationData = gameObject.AddOrGetComponent<AnimationData>();
 
             gameObject.transform.localScale = animationData.transformData.scale + animationCurve.Evaluate(deltaTime);
 
