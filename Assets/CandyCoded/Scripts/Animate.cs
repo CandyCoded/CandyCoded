@@ -96,22 +96,22 @@ namespace CandyCoded
 
         }
 
-        public static Coroutine StartCoroutine(GameObject gameObject, string animationFuncName, IEnumerator routine)
+        public static Coroutine StartCoroutine(GameObject gameObject, string coroutineKey, IEnumerator routine)
         {
             AnimationRunner runner = GetAnimationRunner(gameObject);
 
-            if (runner.coroutines.ContainsKey(animationFuncName))
+            if (runner.coroutines.ContainsKey(coroutineKey))
             {
 
-                runner.StopCoroutine(runner.coroutines[animationFuncName]);
+                runner.StopCoroutine(runner.coroutines[coroutineKey]);
 
-                runner.coroutines.Remove(animationFuncName);
+                runner.coroutines.Remove(coroutineKey);
 
             }
 
-            runner.coroutines.Add(animationFuncName, runner.StartCoroutine(routine));
+            runner.coroutines.Add(coroutineKey, runner.StartCoroutine(routine));
 
-            return runner.coroutines[animationFuncName];
+            return runner.coroutines[coroutineKey];
 
         }
 
