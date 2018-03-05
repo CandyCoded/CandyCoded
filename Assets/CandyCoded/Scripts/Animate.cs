@@ -17,7 +17,7 @@ namespace CandyCoded
 
             AnimationRunner runner = gameObject.AddOrGetComponent<AnimationRunner>();
 
-            string animationFuncName = animationFunc.Method.Name;
+            string coroutineKey = animationFunc.Method.Name;
 
             float elapsedTime = 0;
             float maxTime = animationCurve.MaxTime();
@@ -33,7 +33,7 @@ namespace CandyCoded
 
             }
 
-            runner.coroutines.Remove(animationFuncName);
+            runner.RemoveCoroutine(coroutineKey);
 
         }
 
@@ -44,7 +44,7 @@ namespace CandyCoded
 
             AnimationRunner runner = gameObject.AddOrGetComponent<AnimationRunner>();
 
-            string animationFuncName = animationFunc.Method.Name;
+            string coroutineKey = animationFunc.Method.Name;
 
             float elapsedTime = 0;
             float maxTime = animationCurve.MaxTime();
@@ -60,26 +60,18 @@ namespace CandyCoded
 
             }
 
-            runner.coroutines.Remove(animationFuncName);
+            runner.RemoveCoroutine(coroutineKey);
 
         }
 
         public static Coroutine StartCoroutine(GameObject gameObject, string coroutineKey, IEnumerator routine)
         {
+
             AnimationRunner runner = gameObject.AddOrGetComponent<AnimationRunner>();
 
-            if (runner.coroutines.ContainsKey(coroutineKey))
-            {
+            runner.RemoveCoroutine(coroutineKey);
 
-                runner.StopCoroutine(runner.coroutines[coroutineKey]);
-
-                runner.coroutines.Remove(coroutineKey);
-
-            }
-
-            runner.coroutines.Add(coroutineKey, runner.StartCoroutine(routine));
-
-            return runner.coroutines[coroutineKey];
+            return runner.AddCoroutine(coroutineKey, routine);
 
         }
 
