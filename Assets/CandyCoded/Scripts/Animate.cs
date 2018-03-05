@@ -15,7 +15,7 @@ namespace CandyCoded
 
             AnimationData animationData = gameObject.AddOrGetComponent<AnimationData>();
 
-            AnimationRunner runner = gameObject.AddOrGetComponent<AnimationRunner>();
+            Runner runner = gameObject.AddOrGetComponent<Runner>();
 
             string coroutineKey = animationFunc.Method.Name;
 
@@ -42,7 +42,7 @@ namespace CandyCoded
 
             AnimationData animationData = gameObject.AddOrGetComponent<AnimationData>();
 
-            AnimationRunner runner = gameObject.AddOrGetComponent<AnimationRunner>();
+            Runner runner = gameObject.AddOrGetComponent<Runner>();
 
             string coroutineKey = animationFunc.Method.Name;
 
@@ -67,7 +67,7 @@ namespace CandyCoded
         public static Coroutine StartCoroutine(GameObject gameObject, string coroutineKey, IEnumerator routine)
         {
 
-            AnimationRunner runner = gameObject.AddOrGetComponent<AnimationRunner>();
+            Runner runner = gameObject.AddOrGetComponent<Runner>();
 
             runner.RemoveCoroutine(coroutineKey);
 

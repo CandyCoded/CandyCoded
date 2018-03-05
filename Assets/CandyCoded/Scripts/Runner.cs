@@ -5,7 +5,7 @@ using UnityEngine;
 namespace CandyCoded
 {
 
-    public class AnimationRunner : MonoBehaviour
+    public class Runner : MonoBehaviour
     {
 
         public Dictionary<string, Coroutine> coroutines = new Dictionary<string, Coroutine>();
