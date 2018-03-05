@@ -1,11 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.TestTools;
 
 public class CustomExtensionsTest
 {
+
+    [SetUp]
+    public void ResetScene()
+    {
+
+        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
+
+    }
 
     [Test]
     public void LayerMaskContains()
