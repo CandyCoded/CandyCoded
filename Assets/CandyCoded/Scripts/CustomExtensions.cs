@@ -100,20 +100,6 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Replaces keyframe at index in an AnimationCurve object. index: Index of the keyframe. key: New keyframe object.
-    /// </summary>
-    public static void ReplaceKey(this AnimationCurve animationCurve, int index, Keyframe key)
-    {
-
-        Keyframe[] keys = animationCurve.keys;
-
-        keys[index] = key;
-
-        animationCurve.keys = keys;
-
-    }
-
-    /// <summary>
     /// Creates a new copy of a list and shuffles the values.
     /// </summary>
     public static List<T> Shuffle<T>(this List<T> list)

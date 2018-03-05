@@ -21,8 +21,6 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
     - [ScreenShake](#screenshake)
     - [SelfDestructParticleSystem](#selfdestructparticlesystem)
 - [Custom Extensions](#custom-extensions)
-    - [AnimationCurve](#animationcurve)
-        - [ReplaceKey](#replacekey)
     - [LayerMask](#contains)
         - [Contains](#contains)
     - [List](#list)
@@ -138,19 +136,6 @@ screenShake.Shake(duration, intensity, CandyCoded.SCREENSHAKE_DIRECTION.Vertical
 Attach this component to a gameobject with a ParticleSystem that doesn't loop and once the generated particles are no longer alive, the gameobject will destroy itself.
 
 ## Custom Extensions
-
-### AnimationCurve
-
-#### ReplaceKey
-
-Replaces keyframe at index in an AnimationCurve object.
-
-```csharp
-AnimationCurve animationCurve = AnimationCurve.Linear(0, 1, 1, 0);
-animationCurve.ReplaceKey(0, Keyframe(10, 1));
-```
-
-**Reference:** <https://docs.unity3d.com/ScriptReference/Keyframe-ctor.html>
 
 ### LayerMask
 

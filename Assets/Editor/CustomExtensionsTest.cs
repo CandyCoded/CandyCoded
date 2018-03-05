@@ -26,29 +26,6 @@ public class CustomExtensionsTest
     }
 
     [Test]
-    public void AnimationCurveReplaceKey()
-    {
-
-        AnimationCurve animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
-
-        Keyframe[] keys = animationCurve.keys;
-
-        Assert.AreEqual(keys[0].time, 0);
-        Assert.AreEqual(keys[0].value, 0);
-
-        Assert.AreEqual(keys[1].time, 1);
-        Assert.AreEqual(keys[1].value, 1);
-
-        animationCurve.ReplaceKey(1, new Keyframe(5, 10));
-
-        keys = animationCurve.keys;
-
-        Assert.AreEqual(keys[1].time, 5);
-        Assert.AreEqual(keys[1].value, 10);
-
-    }
-
-    [Test]
     public void ListShuffle()
     {
 
