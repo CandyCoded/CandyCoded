@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using NUnit.Framework;
 using UnityEditor.SceneManagement;
@@ -26,6 +27,20 @@ public class RunnerTest
         runner.AddCoroutine("TestCoroutine", TestCoroutine());
 
         Assert.AreEqual(runner.coroutines.Count, 1);
+
+    }
+
+    [Test]
+    public void RunnerFailsToAddDuplicateCoroutine()
+    {
+
+        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+
+        CandyCoded.Runner runner = cube.AddComponent<CandyCoded.Runner>();
+
+        runner.AddCoroutine("TestCoroutine", TestCoroutine());
+
+        Assert.Throws<ArgumentException>(() => runner.AddCoroutine("TestCoroutine", TestCoroutine()));
 
     }
 
