@@ -22,12 +22,12 @@ namespace CandyCoded
             float elapsedTime = 0;
             float maxTime = animationCurve.MaxTime();
 
-            while (animationCurve.IsLooping() || elapsedTime < maxTime)
+            while (animationCurve.IsLooping() || elapsedTime <= maxTime)
             {
 
                 animationFunc(gameObject, animationCurve, elapsedTime, animationData);
 
-                elapsedTime += Time.deltaTime;
+                elapsedTime = Mathf.Min(elapsedTime + Time.deltaTime, maxTime);
 
                 yield return null;
 
@@ -49,12 +49,12 @@ namespace CandyCoded
             float elapsedTime = 0;
             float maxTime = animationCurve.MaxTime();
 
-            while (animationCurve.IsLooping() || elapsedTime < maxTime)
+            while (animationCurve.IsLooping() || elapsedTime <= maxTime)
             {
 
                 animationFunc(gameObject, animationCurve, elapsedTime, animationData);
 
-                elapsedTime += Time.deltaTime;
+                elapsedTime = Mathf.Min(elapsedTime + Time.deltaTime, maxTime);
 
                 yield return null;
 
