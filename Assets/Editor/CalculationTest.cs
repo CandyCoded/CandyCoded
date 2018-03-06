@@ -4,7 +4,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-public class CalculationParentBoundsTest
+public class CalculationTest
 {
 
     [SetUp]
