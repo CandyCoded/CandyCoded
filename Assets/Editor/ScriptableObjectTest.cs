@@ -48,6 +48,25 @@ public class ScriptableObjectTest
     }
 
     [Test]
+    public void GameObjectReference()
+    {
+
+        CandyCoded.GameObjectListReference gameObjectListReference = ScriptableObject.CreateInstance<CandyCoded.GameObjectListReference>();
+
+        Assert.AreEqual(gameObjectListReference.Items.Count, 0);
+
+        gameObjectListReference.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
+        gameObjectListReference.Add(GameObject.CreatePrimitive(PrimitiveType.Sphere));
+
+        Assert.AreEqual(gameObjectListReference.Items.Count, 2);
+
+        gameObjectListReference.Reset();
+
+        Assert.AreEqual(gameObjectListReference.Items.Count, 0);
+
+    }
+
+    [Test]
     public void IntReference()
     {
 
@@ -76,25 +95,6 @@ public class ScriptableObjectTest
         stringReference.Reset();
 
         Assert.AreEqual(stringReference.Value, null);
-
-    }
-
-    [Test]
-    public void GameObjectReference()
-    {
-
-        CandyCoded.GameObjectListReference gameObjectListReference = ScriptableObject.CreateInstance<CandyCoded.GameObjectListReference>();
-
-        Assert.AreEqual(gameObjectListReference.Items.Count, 0);
-
-        gameObjectListReference.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
-        gameObjectListReference.Add(GameObject.CreatePrimitive(PrimitiveType.Sphere));
-
-        Assert.AreEqual(gameObjectListReference.Items.Count, 2);
-
-        gameObjectListReference.Reset();
-
-        Assert.AreEqual(gameObjectListReference.Items.Count, 0);
 
     }
 
