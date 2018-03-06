@@ -33,6 +33,8 @@ public class CustomExtensionsTest
 
         Assert.IsNotNull(cube.GetComponent<SampleController>());
 
+        Assert.AreEqual(sampleController, cube.GetComponent<SampleController>());
+
     }
 
     [Test]
