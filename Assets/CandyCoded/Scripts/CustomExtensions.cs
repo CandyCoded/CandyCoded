@@ -7,6 +7,7 @@ public static class CustomExtensions
     /// <summary>
     /// Returns a reference to an existing component or a new component if it didn't already exist.
     /// </summary>
+    /// <returns><typeparamref name="T"/>></returns>
     public static T AddOrGetComponent<T>(this GameObject gameObject) where T : Component
     {
 
@@ -24,8 +25,10 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Tests LayerMask for the supplied Layer name. layerName: Layer name to compare against layerMask.
+    /// Tests LayerMask for the supplied Layer name.
     /// </summary>
+    /// <param name="layerName">Layer name to compare against layerMask.</param>
+    /// <returns>bool</returns>
     public static bool Contains(this LayerMask layerMask, string layerName)
     {
 
@@ -34,8 +37,10 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Tests LayerMask for the supplied Layer int. layerInt: Layer number to compare against layerMask.
+    /// Tests LayerMask for the supplied Layer int.
     /// </summary>
+    /// <param name="layerInt">Layer number to compare against layerMask.</param>
+    /// <returns>bool</returns>
     public static bool Contains(this LayerMask layerMask, int layerInt)
     {
 
@@ -44,8 +49,10 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Is value in mask? value: Value to compare against mask.
+    /// Is value in mask?
     /// </summary>
+    /// <param name="value">Value to compare against mask.</param>
+    /// <returns>bool</returns>
     public static bool Contains(this int mask, int value)
     {
 
@@ -56,6 +63,7 @@ public static class CustomExtensions
     /// <summary>
     /// Tests to see if AnimationCurve loops.
     /// </summary>
+    /// <returns>bool</returns>
     public static bool IsLooping(this AnimationCurve animationCurve)
     {
 
@@ -64,8 +72,11 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Rotates transform so the forward vector points at target's position. target: Object to point towards. direction: Vector specifying the fotward direction.
+    /// Rotates transform so the forward vector points at target's position.
     /// </summary>
+    /// <param name="target">Object to point towards.</param>
+    /// <param name="direction">Vector specifying the fotward direction.</param>
+    /// <returns>void</returns>
     public static void LookAt2D(this Transform transform, Transform target, Vector3 direction)
     {
 
@@ -78,8 +89,10 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Rotates transform so the forward vector points at target's position. target: Object to point towards.
+    /// Rotates transform so the forward vector points at target's position.
     /// </summary>
+    /// <param name="target">Object to point towards.</param>
+    /// <returns>void</returns>
     public static void LookAt2D(this Transform transform, Transform target)
     {
 
@@ -92,6 +105,7 @@ public static class CustomExtensions
     /// <summary>
     /// Returns the duration of the AnimationCurve lasts.
     /// </summary>
+    /// <returns>float</returns>
     public static float MaxTime(this AnimationCurve animationCurve)
     {
 
@@ -102,6 +116,7 @@ public static class CustomExtensions
     /// <summary>
     /// Creates a new copy of a list and shuffles the values.
     /// </summary>
+    /// <returns>List<typeparamref name="T"/>></returns>
     public static List<T> Shuffle<T>(this List<T> list)
     {
 
