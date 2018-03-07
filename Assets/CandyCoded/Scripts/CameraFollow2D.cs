@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -78,7 +79,7 @@ namespace CandyCoded
 
                 float cameraExtentHorizontal = cameraOrthographicSize * Screen.width / Screen.height;
 
-                if (constraints.bounds.size.magnitude != 0)
+                if (Mathf.Abs(constraints.bounds.size.magnitude) >= Single.Epsilon)
                 {
 
                     newPosition.x = Mathf.Clamp(newPosition.x, constraints.bounds.min.x + cameraExtentHorizontal, constraints.bounds.max.x - cameraExtentHorizontal);
