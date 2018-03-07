@@ -8,6 +8,6 @@ mkdir build
     -silent-crashes \
     -logFile "$(pwd)/unity.log" \
     -projectPath "$(pwd)/" \
-    -exportPackage "Assets/CandyCoded" \
+    -exportPackage "Assets/Plugins" \
     "$(pwd)/build/CandyCoded.unitypackage" \
     -quit
