@@ -39,7 +39,7 @@ public static class CustomExtensions
     public static bool Contains(this LayerMask layerMask, int layerInt)
     {
 
-        return ((int) layerMask).Contains(1 << layerInt);
+        return ((int)layerMask).Contains(1 << layerInt);
 
     }
 
