@@ -33,6 +33,22 @@ namespace CandyCoded
 
         }
 
+        public void RemoveAllCoroutines()
+        {
+
+            List<string> coroutineKeys = new List<string>(coroutines.Keys);
+
+            foreach (string coroutineKey in coroutineKeys)
+            {
+
+                StopCoroutine(coroutines[coroutineKey]);
+
+                coroutines.Remove(coroutineKey);
+
+            }
+
+        }
+
     }
 
 }
