@@ -13,8 +13,8 @@ namespace CandyCoded
     public class ScreenShake : MonoBehaviour
     {
 
-        private float currentIntensity = 0;
-        private float currentDuration = 0;
+        private float currentIntensity;
+        private float currentDuration;
         private SCREENSHAKE_DIRECTION currentDirection = SCREENSHAKE_DIRECTION.All;
 
         private GameObject wrapperObject;
