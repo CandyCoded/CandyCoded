@@ -15,6 +15,7 @@ namespace CandyCoded
 
         private float currentIntensity;
         private float currentDuration;
+
         private SCREENSHAKE_DIRECTION currentDirection = SCREENSHAKE_DIRECTION.All;
 
         private GameObject wrapperObject;
