@@ -291,7 +291,7 @@ private void OnDrawGizmosSelected()
 
 #### DrawLines
 
-Takes either an array or list of `Vector3`s and draws them using [`UnityEngine.Debug.DrawLine`](https://docs.unity3d.com/ScriptReference/Debug.DrawLine.html). DrawLines contains the same display parameters as Unity's DrawLine method: color, duration and depthTest.
+Draws an array (or list) of vectors with Unity's [`Debug.DrawLine`](https://docs.unity3d.com/ScriptReference/Debug.DrawLine.html) method. DrawLines contains the same display parameters as Unity's DrawLine method: color, duration and depthTest.
 
 **Color:** Color of lines.
 
