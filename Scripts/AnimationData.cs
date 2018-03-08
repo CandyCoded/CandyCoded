@@ -58,10 +58,11 @@ namespace CandyCoded
             foreach (Material material in materialsInChildren)
             {
 
-                MaterialData materialData = new MaterialData();
-
-                materialData.material = material;
-                materialData.startColor = material.color;
+                MaterialData materialData = new MaterialData
+                {
+                    material = material,
+                    startColor = material.color
+                };
 
                 materials.Add(materialData);
 
