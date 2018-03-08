@@ -70,7 +70,7 @@ namespace CandyCoded
 
         }
 
-        public static void Fade(GameObject gameObject, float from, float to, float duration)
+        public static void Fade(GameObject gameObject, float from, float to, float duration = 1.0f)
         {
 
             AnimationCurve animationCurve = AnimationCurve.EaseInOut(0, from, duration, to);
@@ -115,7 +115,7 @@ namespace CandyCoded
 
         }
 
-        public static void MoveTo(GameObject gameObject, Vector3 newPosition, float duration)
+        public static void MoveTo(GameObject gameObject, Vector3 newPosition, float duration = 1.0f)
         {
 
             Vector3AnimationCurve animationCurve = new Vector3AnimationCurve();
@@ -147,7 +147,7 @@ namespace CandyCoded
 
         }
 
-        public static void RotateTo(GameObject gameObject, Vector3 newRotation, float duration)
+        public static void RotateTo(GameObject gameObject, Vector3 newRotation, float duration = 1.0f)
         {
 
             Vector3AnimationCurve animationCurve = new Vector3AnimationCurve();
@@ -198,7 +198,7 @@ namespace CandyCoded
 
         }
 
-        public static void ScaleTo(GameObject gameObject, Vector3 newScale, float duration)
+        public static void ScaleTo(GameObject gameObject, Vector3 newScale, float duration = 1.0f)
         {
 
             Vector3AnimationCurve animationCurve = new Vector3AnimationCurve();
