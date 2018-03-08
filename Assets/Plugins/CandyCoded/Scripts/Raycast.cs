@@ -7,6 +7,15 @@ namespace CandyCoded
     public static class Raycast
     {
 
+        /// <summary>
+        /// Creates a raycast that can reflect off certain objects in a layer mask.
+        /// </summary>
+        /// <param name="startPosition">Vector3 origin of raycast.</param>
+        /// <param name="direction">Direction of raycast.</param>
+        /// <param name="distance">Distance of raycast.</param>
+        /// <param name="layerMask">LayerMask used to determine what the raycast can collide with.</param>
+        /// <param name="hits">List of objects raycast collided with.</param>
+        /// <returns>Vector3[]</returns>
         public static Vector3[] Reflect(Vector3 startPosition, Vector3 direction, float distance, LayerMask layerMask, out List<RaycastHit> hits)
         {
 
@@ -50,6 +59,14 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Creates a raycast that can reflect off certain objects in a layer mask.
+        /// </summary>
+        /// <param name="startPosition">Vector3 origin of raycast.</param>
+        /// <param name="direction">Direction of raycast.</param>
+        /// <param name="distance">Distance of raycast.</param>
+        /// <param name="layerMask">LayerMask used to determine what the raycast can collide with.</param>
+        /// <returns>Vector3[]</returns>
         public static Vector3[] Reflect(Vector3 startPosition, Vector3 direction, float distance, LayerMask layerMask)
         {
 
