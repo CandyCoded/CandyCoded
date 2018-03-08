@@ -315,7 +315,7 @@ CandyCoded.Debugger.DrawLines(points, Color.red, 1f, false);
 
 #### GetMaterialsInChildren
 
-Similar in use to GetComponentsInChildren, GetMaterialsInChildren will return all materials attached to renderers that are children of the supplied gameobject.
+Returns an array of materials attached to renderers that are children of the supplied game object.
 
 ```csharp
 Material[] materials = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
@@ -323,7 +323,7 @@ Material[] materials = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
 
 #### SetColorAlpha
 
-Set the alpha of a color to a value.
+Set the alpha value of a color object.
 
 ```csharp
 Debug.Log(CandyCoded.Materials.SetColorAlpha(material.color, 0.5f));
