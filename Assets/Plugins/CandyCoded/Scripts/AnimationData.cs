@@ -31,6 +31,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Rebuilds all cache data related to basic animations: initial transform and material color data.
+        /// </summary>
+        /// <returns>void</returns>
         public void RebuildCachedData()
         {
 
@@ -39,6 +43,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Rebuilds all cache transform data.
+        /// </summary>
+        /// <returns>void</returns>
         public void CacheTransformData()
         {
 
@@ -48,6 +56,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Rebuilds all cache material color data.
+        /// </summary>
+        /// <returns>void</returns>
         public void CacheMaterials()
         {
 
