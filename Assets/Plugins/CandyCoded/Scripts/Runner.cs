@@ -10,6 +10,12 @@ namespace CandyCoded
 
         public Dictionary<string, Coroutine> coroutines = new Dictionary<string, Coroutine>();
 
+        /// <summary>
+        /// Starts and adds a coroutine to a list.
+        /// </summary>
+        /// <param name="coroutineKey">Unique key to store coroutine with.</param>
+        /// <param name="routine">IEnumerator to start coroutine with.</param>
+        /// <returns>void</returns>
         public Coroutine AddCoroutine(string coroutineKey, IEnumerator routine)
         {
 
@@ -19,6 +25,11 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Stops coroutine and removes it from the list.
+        /// </summary>
+        /// <param name="coroutineKey">Key coroutine is stored with.</param>
+        /// <returns>void</returns>
         public void RemoveCoroutine(string coroutineKey)
         {
 
@@ -33,6 +44,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Stops all coroutines and removes them from the list.
+        /// </summary>
+        /// <returns>void</returns>
         public void RemoveAllCoroutines()
         {
 
