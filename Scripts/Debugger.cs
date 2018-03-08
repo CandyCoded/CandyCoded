@@ -26,17 +26,17 @@ namespace CandyCoded
 
         }
 
-        public static void DrawLines(List<Vector3> points)
-        {
-
-            DrawLines(points.ToArray(), Color.white);
-
-        }
-
         public static void DrawLines(Vector3[] points)
         {
 
             DrawLines(points, Color.white);
+
+        }
+
+        public static void DrawLines(List<Vector3> points)
+        {
+
+            DrawLines(points.ToArray(), Color.white);
 
         }
 
