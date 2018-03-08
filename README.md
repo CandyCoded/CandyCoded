@@ -21,7 +21,9 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
     - [ScreenShake](#screenshake)
     - [SelfDestructParticleSystem](#selfdestructparticlesystem)
 - [Custom Extensions](#custom-extensions)
-    - [LayerMask](#contains)
+    - [Int](#int)
+        - [Contains](#contains)
+    - [LayerMask](#layermask)
         - [Contains](#contains)
     - [List](#list)
         - [Shuffle](#shuffle)
@@ -55,6 +57,8 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
     - [DisplayInInspector](#displayininspector)
     - [EnumMask](#enummask)
 - [Custom Materials](#custommaterials)
+- [Shaders](#shaders)
+    - [TiledTexture](#tiledtexture)
 
 ## Structs
 
@@ -136,6 +140,18 @@ screenShake.Shake(duration, intensity, CandyCoded.SCREENSHAKE_DIRECTION.Vertical
 Attach this component to a gameobject with a ParticleSystem that doesn't loop and once the generated particles are no longer alive, the gameobject will destroy itself.
 
 ## Custom Extensions
+
+### Int
+
+#### Contains
+
+Tests bitmask int for the supplied int.
+
+```csharp
+int mask = 0 | 1;
+Debug.Log(mask.Contains(1)); // true
+Debug.Log(mask.Contains(2)); // false
+```
 
 ### LayerMask
 
@@ -440,17 +456,21 @@ public class EnumMaskDemo : MonoBehaviour
 
 Each of the debug materials utilize a custom shader that tiles without scaling. These are used best on flat surfaces.
 
-**Target**
+![](https://i.imgur.com/tIL3HOQ.png)
 
-![](https://i.imgur.com/w3KNjCx.png)
+## Shaders
 
-**Axis Grid**
+### TiledTexture
 
-![](https://i.imgur.com/yOgzPBm.png)
+This shader is used to tile materials on cuboids or plane.
 
-**Laser**
+**Tiling:** Used to determine how many times the material should be tiled.
 
-![](https://i.imgur.com/lYP9PFi.png)
+**Offset:** Used to offset the material.
+
+**Use World Space:** Used to position the tile relative to world space, rather an to the object.
+
+![](https://i.imgur.com/b7XbN5d.png)
 
 ## Credits
 
