@@ -85,11 +85,11 @@ namespace CandyCoded
             return StartCoroutine(gameObject, "Position",
                 Loop(gameObject, "Position", animationCurve.IsLooping(), animationCurve.MaxTime(),
                     (float elapsedTime, AnimationData animationData) =>
-                    Position(gameObject, animationCurve, elapsedTime, animationData)));
+                    Position(gameObject, animationCurve, elapsedTime)));
 
         }
 
-        public static void Position(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime, AnimationData animationData = null)
+        public static void Position(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime)
         {
 
             gameObject.transform.localPosition = animationCurve.Evaluate(elapsedTime);
@@ -136,11 +136,11 @@ namespace CandyCoded
             return StartCoroutine(gameObject, "Rotation",
                 Loop(gameObject, "Rotation", animationCurve.IsLooping(), animationCurve.MaxTime(),
                     (float elapsedTime, AnimationData animationData) =>
-                    Rotation(gameObject, animationCurve, elapsedTime, animationData)));
+                    Rotation(gameObject, animationCurve, elapsedTime)));
 
         }
 
-        public static void Rotation(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime, AnimationData animationData = null)
+        public static void Rotation(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime)
         {
 
             gameObject.transform.localRotation = Quaternion.Euler(animationCurve.Evaluate(elapsedTime));
@@ -168,11 +168,11 @@ namespace CandyCoded
             return StartCoroutine(gameObject, "Scale",
                 Loop(gameObject, "Scale", animationCurve.IsLooping(), animationCurve.MaxTime(),
                     (float elapsedTime, AnimationData animationData) =>
-                    Scale(gameObject, animationCurve, elapsedTime, animationData)));
+                    Scale(gameObject, animationCurve, elapsedTime)));
 
         }
 
-        public static void Scale(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime, AnimationData animationData = null)
+        public static void Scale(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime)
         {
 
             gameObject.transform.localScale = animationCurve.Evaluate(elapsedTime);
