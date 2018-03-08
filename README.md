@@ -454,15 +454,13 @@ public class EnumMaskDemo : MonoBehaviour
 
 ## Custom Materials
 
-Each of the debug materials utilize a custom shader that tiles without scaling. These are used best on flat surfaces.
-
 ![](https://i.imgur.com/tIL3HOQ.png)
 
 ## Shaders
 
 ### TiledTexture
 
-This shader is used to tile materials on cuboids or plane.
+This shader is used to tile materials without scaling on either a cuboid or plane.
 
 **Tiling:** Used to determine how many times the material should be tiled.
 
