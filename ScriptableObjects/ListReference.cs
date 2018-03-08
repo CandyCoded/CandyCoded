@@ -14,6 +14,11 @@ namespace CandyCoded
             get { return Items.Count; }
         }
 
+        /// <summary>
+        /// Adds an item to the list attached to the scriptable object.
+        /// </summary>
+        /// <param name="item">Object to add to the list.</param>
+        /// <returns>void</returns>
         public void Add(T item)
         {
 
@@ -26,6 +31,11 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Removes an item from the list attached to the scriptable object.
+        /// </summary>
+        /// <param name="item">Object to remove from the list.</param>
+        /// <returns>bool</returns>
         public bool Remove(T item)
         {
 
@@ -33,6 +43,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Clears the list attached to the scriptable object.
+        /// </summary>
+        /// <returns>void</returns>
         public void Clear()
         {
 
@@ -40,6 +54,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Clears the list attached to the scriptable object.
+        /// </summary>
+        /// <returns>void</returns>
         public override void Reset()
         {
 
