@@ -11,6 +11,10 @@ namespace CandyCoded
         public AnimationCurve x;
         public AnimationCurve y;
 
+        /// <summary>
+        /// Checks the x and y animation curves to see if either of them loop.
+        /// </summary>
+        /// <returns>bool</returns>
         public bool IsLooping()
         {
 
@@ -18,6 +22,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns the highest duration time of either the x or y animation curves.
+        /// </summary>
+        /// <returns>float</returns>
         public float MaxTime()
         {
 
@@ -28,6 +36,11 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Evalues both animation curves and generates a Vector2 with the results.
+        /// </summary>
+        /// <param name="time">The time to evaluate each animation curve with.</param>
+        /// <returns>Vector2</returns>
         public Vector2 Evaluate(float time)
         {
 
@@ -61,6 +74,10 @@ namespace CandyCoded
         public AnimationCurve y;
         public AnimationCurve z;
 
+        /// <summary>
+        /// Checks the x, y and z animation curves to see if any of them loop.
+        /// </summary>
+        /// <returns>bool</returns>
         public bool IsLooping()
         {
 
@@ -68,6 +85,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns the highest duration time of either the x, y or z animation curves.
+        /// </summary>
+        /// <returns>float</returns>
         public float MaxTime()
         {
 
@@ -79,6 +100,11 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Evalues all animation curves and generates a Vector3 with the results.
+        /// </summary>
+        /// <param name="time">The time to evaluate each animation curve with.</param>
+        /// <returns>Vector3</returns>
         public Vector3 Evaluate(float time)
         {
 
