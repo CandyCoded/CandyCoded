@@ -7,12 +7,10 @@ namespace CandyCoded
     public static class Animate
     {
 
-        public delegate void AnimationFunc(float elapsedTime, AnimationData animationData);
+        public delegate void AnimationFunc(float elapsedTime);
 
         public static IEnumerator Loop(GameObject gameObject, string coroutineKey, bool isLooping, float maxTime, AnimationFunc animationFunc)
         {
-
-            AnimationData animationData = gameObject.AddOrGetComponent<AnimationData>();
 
             Runner runner = gameObject.AddOrGetComponent<Runner>();
 
@@ -21,7 +19,7 @@ namespace CandyCoded
             while (isLooping || elapsedTime < maxTime)
             {
 
-                animationFunc(elapsedTime, animationData);
+                animationFunc(elapsedTime);
 
                 elapsedTime = Mathf.Min(elapsedTime + Time.deltaTime, maxTime);
 
@@ -29,7 +27,7 @@ namespace CandyCoded
 
             }
 
-            animationFunc(elapsedTime, animationData);
+            animationFunc(elapsedTime);
 
             runner.RemoveCoroutine(coroutineKey);
 
@@ -49,14 +47,16 @@ namespace CandyCoded
         public static Coroutine Fade(GameObject gameObject, AnimationCurve animationCurve)
         {
 
+            AnimationData animationData = gameObject.AddOrGetComponent<AnimationData>();
+
             return StartCoroutine(gameObject, "Fade",
                 Loop(gameObject, "Fade", animationCurve.IsLooping(), animationCurve.MaxTime(),
-                    (float elapsedTime, AnimationData animationData) =>
-                    Fade(gameObject, animationCurve, elapsedTime, animationData)));
+                    (float elapsedTime) =>
+                    Fade(animationCurve, elapsedTime, animationData)));
 
         }
 
-        public static void Fade(GameObject gameObject, AnimationCurve animationCurve, float elapsedTime, AnimationData animationData = null)
+        public static void Fade(AnimationCurve animationCurve, float elapsedTime, AnimationData animationData = null)
         {
 
             float globalAlpha = animationCurve.Evaluate(elapsedTime);
@@ -84,7 +84,7 @@ namespace CandyCoded
 
             return StartCoroutine(gameObject, "Position",
                 Loop(gameObject, "Position", animationCurve.IsLooping(), animationCurve.MaxTime(),
-                    (float elapsedTime, AnimationData animationData) =>
+                    (float elapsedTime) =>
                     Position(gameObject, animationCurve, elapsedTime)));
 
         }
@@ -99,9 +99,11 @@ namespace CandyCoded
         public static Coroutine PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
+            AnimationData animationData = gameObject.AddOrGetComponent<AnimationData>();
+
             return StartCoroutine(gameObject, "PositionRelative",
                 Loop(gameObject, "PositionRelative", animationCurve.IsLooping(), animationCurve.MaxTime(),
-                    (float elapsedTime, AnimationData animationData) =>
+                    (float elapsedTime) =>
                     PositionRelative(gameObject, animationCurve, elapsedTime, animationData)));
 
         }
@@ -135,7 +137,7 @@ namespace CandyCoded
 
             return StartCoroutine(gameObject, "Rotation",
                 Loop(gameObject, "Rotation", animationCurve.IsLooping(), animationCurve.MaxTime(),
-                    (float elapsedTime, AnimationData animationData) =>
+                    (float elapsedTime) =>
                     Rotation(gameObject, animationCurve, elapsedTime)));
 
         }
@@ -167,7 +169,7 @@ namespace CandyCoded
 
             return StartCoroutine(gameObject, "Scale",
                 Loop(gameObject, "Scale", animationCurve.IsLooping(), animationCurve.MaxTime(),
-                    (float elapsedTime, AnimationData animationData) =>
+                    (float elapsedTime) =>
                     Scale(gameObject, animationCurve, elapsedTime)));
 
         }
@@ -182,9 +184,11 @@ namespace CandyCoded
         public static Coroutine ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
+            AnimationData animationData = gameObject.AddOrGetComponent<AnimationData>();
+
             return StartCoroutine(gameObject, "ScaleRelative",
                 Loop(gameObject, "ScaleRelative", animationCurve.IsLooping(), animationCurve.MaxTime(),
-                    (float elapsedTime, AnimationData animationData) =>
+                    (float elapsedTime) =>
                     ScaleRelative(gameObject, animationCurve, elapsedTime, animationData)));
 
         }
