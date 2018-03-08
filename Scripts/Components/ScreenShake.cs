@@ -62,6 +62,13 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Initiates a screen shake animation.
+        /// </summary>
+        /// <param name="duration">Duration of the screen shake animation.</param>
+        /// <param name="intensity">Intensity of the screen shake animation.</param>
+        /// <param name="direction">Direction of the screen shake animation. See <see cref="SCREENSHAKE_DIRECTION"/></param>
+        /// <returns>void</returns>
         public void Shake(float duration = 0.5f, float intensity = 0.2f, SCREENSHAKE_DIRECTION direction = SCREENSHAKE_DIRECTION.All)
         {
 
