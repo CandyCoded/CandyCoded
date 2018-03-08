@@ -466,7 +466,7 @@ This shader is used to tile materials without scaling on either a cuboid or plan
 
 **Offset:** Used to offset the material.
 
-**Use World Space:** Used to position the tile relative to world space, rather an to the object.
+**Use World Space:** Used to position the tile relative to world space, instead of the game object.
 
 ![](https://i.imgur.com/b7XbN5d.png)
 
