@@ -21,7 +21,18 @@ namespace CandyCoded
 
                 animationFunc(elapsedTime);
 
-                elapsedTime = Mathf.Min(elapsedTime + Time.deltaTime, maxTime);
+                if (isLooping)
+                {
+
+                    elapsedTime = elapsedTime + Time.deltaTime;
+
+                }
+                else
+                {
+
+                    elapsedTime = Mathf.Min(elapsedTime + Time.deltaTime, maxTime);
+
+                }
 
                 yield return null;
 
