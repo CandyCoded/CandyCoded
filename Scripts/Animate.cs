@@ -187,6 +187,21 @@ namespace CandyCoded
 
         }
 
+        public static void ScaleTo(GameObject gameObject, Vector3 newScale, float duration = 1.0f)
+        {
+
+            Vector3AnimationCurve animationCurve = new Vector3AnimationCurve();
+
+            Vector3 currentScale = gameObject.transform.localScale;
+
+            animationCurve.x = AnimationCurve.EaseInOut(0, currentScale.x, duration, newScale.x);
+            animationCurve.y = AnimationCurve.EaseInOut(0, currentScale.y, duration, newScale.y);
+            animationCurve.z = AnimationCurve.EaseInOut(0, currentScale.z, duration, newScale.z);
+
+            Scale(gameObject, animationCurve);
+
+        }
+
         public static Coroutine ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
@@ -204,21 +219,6 @@ namespace CandyCoded
             if (animationData == null) animationData = gameObject.AddOrGetComponent<AnimationData>();
 
             gameObject.transform.localScale = animationData.transformData.scale + animationCurve.Evaluate(elapsedTime);
-
-        }
-
-        public static void ScaleTo(GameObject gameObject, Vector3 newScale, float duration = 1.0f)
-        {
-
-            Vector3AnimationCurve animationCurve = new Vector3AnimationCurve();
-
-            Vector3 currentScale = gameObject.transform.localScale;
-
-            animationCurve.x = AnimationCurve.EaseInOut(0, currentScale.x, duration, newScale.x);
-            animationCurve.y = AnimationCurve.EaseInOut(0, currentScale.y, duration, newScale.y);
-            animationCurve.z = AnimationCurve.EaseInOut(0, currentScale.z, duration, newScale.z);
-
-            Scale(gameObject, animationCurve);
 
         }
 
