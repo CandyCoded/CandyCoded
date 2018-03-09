@@ -66,6 +66,14 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Changes the alpha of all materials in a GameObject to the evaluated float calulcated from a AnimationCurve object.
+        /// </summary>
+        /// <param name="animationCurve">AnimationCurve to evaluate.</param>
+        /// <param name="elapsedTime">The time elapsed since the animation started.</param>
+        /// <param name="animationData">AnimationData object containing cached references to all materials in the GameObject.</param>
+        /// <returns>void</returns>
+
         public static void Fade(AnimationCurve animationCurve, float elapsedTime, AnimationData animationData)
         {
 
@@ -97,6 +105,14 @@ namespace CandyCoded
                     (float elapsedTime) => Position(gameObject, animationCurve, elapsedTime)));
 
         }
+
+        /// <summary>
+        /// Changes the position of a GameObject to the evaluated Vector3 calulcated from a Vector3AnimationCurve object.
+        /// </summary>
+        /// <param name="gameObject">GameObject to move.</param>
+        /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
+        /// <param name="elapsedTime">The time elapsed since the animation started.</param>
+        /// <returns>void</returns>
 
         public static void Position(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime)
         {
@@ -131,6 +147,15 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Changes the position of a GameObject, relative to it's original position, to the evaluated Vector3 calulcated from a Vector3AnimationCurve object.
+        /// </summary>
+        /// <param name="gameObject">GameObject to move.</param>
+        /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
+        /// <param name="elapsedTime">The time elapsed since the animation started.</param>
+        /// <param name="animationData">AnimationData object containing cached transform data.</param>
+        /// <returns>void</returns>
+
         public static void PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime, AnimationData animationData = null)
         {
 
@@ -149,6 +174,14 @@ namespace CandyCoded
                     (float elapsedTime) => Rotation(gameObject, animationCurve, elapsedTime)));
 
         }
+
+        /// <summary>
+        /// Changes the rotation of a GameObject to the evaluated Vector3 calulcated from a Vector3AnimationCurve object.
+        /// </summary>
+        /// <param name="gameObject">GameObject to rotate.</param>
+        /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
+        /// <param name="elapsedTime">The time elapsed since the animation started.</param>
+        /// <returns>void</returns>
 
         public static void Rotation(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime)
         {
@@ -180,6 +213,14 @@ namespace CandyCoded
                     (float elapsedTime) => Scale(gameObject, animationCurve, elapsedTime)));
 
         }
+
+        /// <summary>
+        /// Changes the scale of a GameObject to the evaluated Vector3 calulcated from a Vector3AnimationCurve object.
+        /// </summary>
+        /// <param name="gameObject">GameObject to scale.</param>
+        /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
+        /// <param name="elapsedTime">The time elapsed since the animation started.</param>
+        /// <returns>void</returns>
 
         public static void Scale(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime)
         {
@@ -213,6 +254,15 @@ namespace CandyCoded
                     (float elapsedTime) => ScaleRelative(gameObject, animationCurve, elapsedTime, animationData)));
 
         }
+
+        /// <summary>
+        /// Changes the scale of a GameObject, relative to it's original scale, to the evaluated Vector3 calulcated from a Vector3AnimationCurve object.
+        /// </summary>
+        /// <param name="gameObject">GameObject to scale.</param>
+        /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
+        /// <param name="elapsedTime">The time elapsed since the animation started.</param>
+        /// <param name="animationData">AnimationData object containing cached transform data.</param>
+        /// <returns>void</returns>
 
         public static void ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime, AnimationData animationData = null)
         {
