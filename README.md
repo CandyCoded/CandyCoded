@@ -31,12 +31,10 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
         - [LookAt2D](#lookat2d)
 - [Static Methods](#static-methods)
     - [Animate](#animate)
-        - [FadeIn](#fadein)
-        - [FadeOut](#fadeout)
-        - [FadeCustom](#fadecustom)
-        - [Position](#position)
-        - [Scale](#scale)
-        - [Rotate](#rotate)
+        - [Fade](#fade)
+        - [MoveTo](#moveto)
+        - [ScaleTo](#scaleto)
+        - [RotateTo](#rotateto)
     - [Calculation](#calculation)
         - [ParentBounds](#parentbounds)
     - [Debugger](#debugger)
@@ -202,65 +200,50 @@ gameObject.transform.LookAt2D(currentMousePosition, Vector3.right);
 
 ![](https://i.imgur.com/J9gS7pc.png)
 
-#### FadeIn
+#### Fade
+
+**Note:** 100% alpha is relative to each GameObject's initial alpha value. This is to prevent materials with custom alpha values from being reset.
 
 Fade a GameObject from 0% to 100% with a duration of 1s.
 
 ```csharp
-CandyCoded.Animate.FadeIn(gameObject, Time.deltaTime);
+CandyCoded.Animate.Fade(gameObject, 0, 1, 1);
 ```
-
-#### FadeOut
 
 Fade a GameObject from 100% to 0% with a duration of 1s.
 
 ```csharp
-CandyCoded.Animate.FadeOut(gameObject, Time.deltaTime);
-```
-
-#### FadeCustom
-
-Fade a GameObject using the values defined in the supplied `AnimationCurve`.
-
-**Note:** 100% alpha is relative to each GameObject's initial alpha value. This is to prevent objects with custom alpha values from being reset.
-
-```csharp
-AnimationCurve animationCurve = AnimationCurve.Linear(0, 1, 1, 0);
-animationCurve.postWrapMode = WrapMode.PingPong;
-CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurve);
+CandyCoded.Animate.Fade(gameObject, 1, 0, 1);
 ```
 
 ![](https://media.giphy.com/media/xULW8zdlmLdaSSXDeU/giphy.gif)
 
-#### Position
+#### MoveTo
 
-Move a GameObject using the values defined in the supplied [`Vector3AnimationCurve`](#vector3animationcurve).
+Move a GameObject to a new Vector3 with a duration of 1s.
 
 ```csharp
-CandyCoded.Vector3AnimationCurve animationCurve;
-CandyCoded.Animate.PositionRelative(gameObject, Time.deltaTime, animationCurve);
+CandyCoded.Animate.MoveTo(target, new Vector3(10, 10, 10), 1);
 ```
 
 ![](https://media.giphy.com/media/3ohc0Wy60RfUYSERW0/giphy.gif)
 
-#### Scale
+#### ScaleTo
 
-Scale a GameObject using the values defined in the supplied [`Vector3AnimationCurve`](#vector3animationcurve).
+Scale a GameObject to a new Vector3 with a duration of 1s.
 
 ```csharp
-CandyCoded.Vector3AnimationCurve animationCurve;
-CandyCoded.Animate.ScaleRelative(gameObject, Time.deltaTime, animationCurve);
+CandyCoded.Animate.ScaleTo(target, new Vector3(2, 2, 2), 1);
 ```
 
 ![](https://media.giphy.com/media/l0HUfPOnvdomnsz0A/giphy.gif)
 
-#### Rotate
+#### RotateTo
 
-Rotate a GameObject using the values defined in the supplied [`Vector3AnimationCurve`](#vector3animationcurve).
+Rotate a GameObject to a new Vector3 with a duration of 1s.
 
 ```csharp
-CandyCoded.Vector3AnimationCurve animationCurve;
-CandyCoded.Animate.Rotate(gameObject, Time.deltaTime, animationCurve);
+CandyCoded.Animate.RotateTo(target, new Vector3(360, 0, 0), 1);
 ```
 
 ![](https://media.giphy.com/media/d3OGaCsXxQSUtLgc/giphy.gif)
