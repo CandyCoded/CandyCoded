@@ -92,13 +92,13 @@ public class AnimatePosition : MonoBehaviour
 
 ### CameraFollow2D
 
-Attach the CameraFollow2D component to any gameobject that moves independently of the camera. Utilizing the constraint options allows for the camera to be bound to a certain gameobject or custom bounds settings, or locking any of the axis from moving at all.
+Attach the CameraFollow2D component to any GameObject that moves independently of the camera. Utilizing the constraint options allows for the camera to be bound to a certain GameObject or custom bounds settings, or locking any of the axis from moving at all.
 
 ![](https://media.giphy.com/media/3ohc19nAziNNVAQ4I8/giphy.gif)
 
 ### CameraFollow3D
 
-Attach the CameraFollow3D component to any gameobject that moves independently of the camera. Utilizing the constraint options allows for the camera to either stay a certain distance from the object or lock any of the axis from moving at all.
+Attach the CameraFollow3D component to any GameObject that moves independently of the camera. Utilizing the constraint options allows for the camera to either stay a certain distance from the object or lock any of the axis from moving at all.
 
 ![](https://media.giphy.com/media/e7QN9KYhCIpqV9c1X4/giphy.gif)
 
@@ -108,7 +108,7 @@ This camera also supports a seconday target where in the camera will follow behi
 
 ### Gizmo
 
-Attach this component to any gameobject to render a custom gizmo. These gizmos will appear even when the gameobject is not selected.
+Attach this component to any GameObject to render a custom gizmo. These gizmos will appear even when the GameObject is not selected.
 
 ![](https://i.imgur.com/PduNRej.png)
 ![](https://i.imgur.com/4ACDgta.png)
@@ -116,7 +116,7 @@ Attach this component to any gameobject to render a custom gizmo. These gizmos w
 
 ### ScreenShake
 
-Attach this component to your scenes camera and call the method below to cause the screen to shake. This component doesn't alter the position of the camera as it wraps the camera in it's own gameobject.
+Attach this component to your scenes camera and call the method below to cause the screen to shake. This component doesn't alter the position of the camera as it wraps the camera in it's own GameObject.
 
 ```csharp
 CandyCoded.ScreenShake screenShake = Camera.main.GetComponent<CandyCoded.ScreenShake>();
@@ -137,7 +137,7 @@ screenShake.Shake(duration, intensity, CandyCoded.SCREENSHAKE_DIRECTION.Vertical
 
 ### SelfDestructParticleSystem
 
-Attach this component to a gameobject with a ParticleSystem that doesn't loop and once the generated particles are no longer alive, the gameobject will destroy itself.
+Attach this component to a GameObject with a ParticleSystem that doesn't loop and once the generated particles are no longer alive, the GameObject will destroy itself.
 
 ## Custom Extensions
 
@@ -204,7 +204,7 @@ gameObject.transform.LookAt2D(currentMousePosition, Vector3.right);
 
 #### FadeIn
 
-Fade a gameobject from 0% to 100% with a duration of 1s.
+Fade a GameObject from 0% to 100% with a duration of 1s.
 
 ```csharp
 CandyCoded.Animate.FadeIn(gameObject, Time.deltaTime);
@@ -212,7 +212,7 @@ CandyCoded.Animate.FadeIn(gameObject, Time.deltaTime);
 
 #### FadeOut
 
-Fade a gameobject from 100% to 0% with a duration of 1s.
+Fade a GameObject from 100% to 0% with a duration of 1s.
 
 ```csharp
 CandyCoded.Animate.FadeOut(gameObject, Time.deltaTime);
@@ -220,9 +220,9 @@ CandyCoded.Animate.FadeOut(gameObject, Time.deltaTime);
 
 #### FadeCustom
 
-Fade a gameobject using the values defined in the supplied `AnimationCurve`.
+Fade a GameObject using the values defined in the supplied `AnimationCurve`.
 
-**Note:** 100% alpha is relative to each gameobject's initial alpha value. This is to prevent objects with custom alpha values from being reset.
+**Note:** 100% alpha is relative to each GameObject's initial alpha value. This is to prevent objects with custom alpha values from being reset.
 
 ```csharp
 AnimationCurve animationCurve = AnimationCurve.Linear(0, 1, 1, 0);
@@ -234,7 +234,7 @@ CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurve);
 
 #### Position
 
-Move a gameobject using the values defined in the supplied [`Vector3AnimationCurve`](#vector3animationcurve).
+Move a GameObject using the values defined in the supplied [`Vector3AnimationCurve`](#vector3animationcurve).
 
 ```csharp
 CandyCoded.Vector3AnimationCurve animationCurve;
@@ -245,7 +245,7 @@ CandyCoded.Animate.PositionRelative(gameObject, Time.deltaTime, animationCurve);
 
 #### Scale
 
-Scale a gameobject using the values defined in the supplied [`Vector3AnimationCurve`](#vector3animationcurve).
+Scale a GameObject using the values defined in the supplied [`Vector3AnimationCurve`](#vector3animationcurve).
 
 ```csharp
 CandyCoded.Vector3AnimationCurve animationCurve;
@@ -256,7 +256,7 @@ CandyCoded.Animate.ScaleRelative(gameObject, Time.deltaTime, animationCurve);
 
 #### Rotate
 
-Rotate a gameobject using the values defined in the supplied [`Vector3AnimationCurve`](#vector3animationcurve).
+Rotate a GameObject using the values defined in the supplied [`Vector3AnimationCurve`](#vector3animationcurve).
 
 ```csharp
 CandyCoded.Vector3AnimationCurve animationCurve;
@@ -269,7 +269,7 @@ CandyCoded.Animate.Rotate(gameObject, Time.deltaTime, animationCurve);
 
 #### ParentBounds
 
-Calculate the bounds of a gameobject with multiple children.
+Calculate the bounds of a GameObject with multiple children.
 
 ```csharp
 private void OnDrawGizmosSelected()
@@ -315,7 +315,7 @@ CandyCoded.Debugger.DrawLines(points, Color.red, 1f, false);
 
 #### GetMaterialsInChildren
 
-Returns an array of materials attached to renderers that are children of the supplied game object.
+Returns an array of materials attached to renderers that are children of the supplied GameObject.
 
 ```csharp
 Material[] materials = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
@@ -466,7 +466,7 @@ This shader is used to tile materials without scaling on either a cuboid or plan
 
 **Offset:** Used to offset the material.
 
-**Use World Space:** Used to position the tile relative to world space, instead of the game object.
+**Use World Space:** Used to position the tile relative to world space, instead of the GameObject.
 
 ![](https://i.imgur.com/b7XbN5d.png)
 
