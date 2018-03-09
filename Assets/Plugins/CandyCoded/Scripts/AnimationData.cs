@@ -20,8 +20,6 @@ namespace CandyCoded
     public class AnimationData : MonoBehaviour
     {
 
-        public float activeTime = 0;
-
         public TransformData transformData = new TransformData();
 
         public List<MaterialData> materials = new List<MaterialData>();
@@ -33,13 +31,10 @@ namespace CandyCoded
 
         }
 
-        public void ResetAnimationStartTime()
-        {
-
-            activeTime = 0;
-
-        }
-
+        /// <summary>
+        /// Rebuilds all cache data related to basic animations: initial transform and material color data.
+        /// </summary>
+        /// <returns>void</returns>
         public void RebuildCachedData()
         {
 
@@ -48,6 +43,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Rebuilds all cache transform data.
+        /// </summary>
+        /// <returns>void</returns>
         public void CacheTransformData()
         {
 
@@ -57,6 +56,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Rebuilds all cache material color data.
+        /// </summary>
+        /// <returns>void</returns>
         public void CacheMaterials()
         {
 
@@ -67,10 +70,11 @@ namespace CandyCoded
             foreach (Material material in materialsInChildren)
             {
 
-                MaterialData materialData = new MaterialData();
-
-                materialData.material = material;
-                materialData.startColor = material.color;
+                MaterialData materialData = new MaterialData
+                {
+                    material = material,
+                    startColor = material.color
+                };
 
                 materials.Add(materialData);
 

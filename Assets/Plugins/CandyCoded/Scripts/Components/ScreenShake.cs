@@ -13,8 +13,9 @@ namespace CandyCoded
     public class ScreenShake : MonoBehaviour
     {
 
-        private float currentIntensity = 0;
-        private float currentDuration = 0;
+        private float currentIntensity;
+        private float currentDuration;
+
         private SCREENSHAKE_DIRECTION currentDirection = SCREENSHAKE_DIRECTION.All;
 
         private GameObject wrapperObject;
@@ -36,22 +37,20 @@ namespace CandyCoded
             if (currentDuration > 0)
             {
 
-                if (currentDirection == SCREENSHAKE_DIRECTION.All)
+                switch (currentDirection)
                 {
 
-                    shakePosition = Random.insideUnitCircle * currentIntensity;
+                    case SCREENSHAKE_DIRECTION.All:
+                        shakePosition = Random.insideUnitCircle * currentIntensity;
+                        break;
 
-                }
-                else if (currentDirection == SCREENSHAKE_DIRECTION.Horizontal)
-                {
+                    case SCREENSHAKE_DIRECTION.Horizontal:
+                        shakePosition = new Vector3(Random.Range(-1, 1), 0, 0) * currentIntensity;
+                        break;
 
-                    shakePosition = new Vector3(Random.Range(-1, 1), 0, 0) * currentIntensity;
-
-                }
-                else if (currentDirection == SCREENSHAKE_DIRECTION.Vertical)
-                {
-
-                    shakePosition = new Vector3(0, Random.Range(-1, 1), 0) * currentIntensity;
+                    case SCREENSHAKE_DIRECTION.Vertical:
+                        shakePosition = new Vector3(0, Random.Range(-1, 1), 0) * currentIntensity;
+                        break;
 
                 }
 
@@ -63,6 +62,13 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Initiates a screen shake animation.
+        /// </summary>
+        /// <param name="duration">Duration of the screen shake animation.</param>
+        /// <param name="intensity">Intensity of the screen shake animation.</param>
+        /// <param name="direction">Direction of the screen shake animation. See <see cref="SCREENSHAKE_DIRECTION"/></param>
+        /// <returns>void</returns>
         public void Shake(float duration = 0.5f, float intensity = 0.2f, SCREENSHAKE_DIRECTION direction = SCREENSHAKE_DIRECTION.All)
         {
 

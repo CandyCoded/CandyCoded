@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-public class CalculationParentBoundsTest
+public class CalculationTest
 {
 
     [SetUp]

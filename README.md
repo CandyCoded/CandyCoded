@@ -21,21 +21,24 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
     - [ScreenShake](#screenshake)
     - [SelfDestructParticleSystem](#selfdestructparticlesystem)
 - [Custom Extensions](#custom-extensions)
-    - [AnimationCurve](#animationcurve)
-        - [ReplaceKey](#replacekey)
-    - [LayerMask](#contains)
+    - [Int](#int)
         - [Contains](#contains)
+    - [LayerMask](#layermask)
+        - [Contains](#contains-1)
     - [List](#list)
         - [Shuffle](#shuffle)
     - [Transform](#transform)
         - [LookAt2D](#lookat2d)
 - [Static Methods](#static-methods)
     - [Animate](#animate)
-        - [FadeIn](#fadein)
-        - [FadeOut](#fadeout)
-        - [FadeCustom](#fadecustom)
+        - [Fade](#fade)
+        - [MoveTo](#moveto)
         - [Position](#position)
+        - [PositionRelative](#positionrelative)
+        - [ScaleTo](#scaleto)
         - [Scale](#scale)
+        - [ScaleRelative](#scalerelative)
+        - [RotateTo](#rotateto)
         - [Rotate](#rotate)
     - [Calculation](#calculation)
         - [ParentBounds](#parentbounds)
@@ -50,13 +53,15 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
     - [Bool](#bool)
     - [Float](#float)
     - [GameObjectList](#gameobjectlist)
-    - [Int](#int)
+    - [Int](#int-1)
     - [String](#string)
     - [Creating Custom Scriptable Objects](#creating-custom-scriptable-objects)
 - [Unity Editor Extensions](#unity-editor-extensions)
     - [DisplayInInspector](#displayininspector)
     - [EnumMask](#enummask)
 - [Custom Materials](#custommaterials)
+- [Shaders](#shaders)
+    - [TiledTexture](#tiledtexture)
 
 ## Structs
 
@@ -90,13 +95,13 @@ public class AnimatePosition : MonoBehaviour
 
 ### CameraFollow2D
 
-Attach the CameraFollow2D component to any gameobject that moves independently of the camera. Utilizing the constraint options allows for the camera to be bound to a certain gameobject or custom bounds settings, or locking any of the axis from moving at all.
+Attach the CameraFollow2D component to any GameObject that moves independently of the camera. Utilizing the constraint options allows for the camera to be bound to a certain GameObject or custom bounds settings, or locking any of the axis from moving at all.
 
 ![](https://media.giphy.com/media/3ohc19nAziNNVAQ4I8/giphy.gif)
 
 ### CameraFollow3D
 
-Attach the CameraFollow3D component to any gameobject that moves independently of the camera. Utilizing the constraint options allows for the camera to either stay a certain distance from the object or lock any of the axis from moving at all.
+Attach the CameraFollow3D component to any GameObject that moves independently of the camera. Utilizing the constraint options allows for the camera to either stay a certain distance from the object or lock any of the axis from moving at all.
 
 ![](https://media.giphy.com/media/e7QN9KYhCIpqV9c1X4/giphy.gif)
 
@@ -106,7 +111,7 @@ This camera also supports a seconday target where in the camera will follow behi
 
 ### Gizmo
 
-Attach this component to any gameobject to render a custom gizmo. These gizmos will appear even when the gameobject is not selected.
+Attach this component to any GameObject to render a custom gizmo. These gizmos will appear even when the GameObject is not selected.
 
 ![](https://i.imgur.com/PduNRej.png)
 ![](https://i.imgur.com/4ACDgta.png)
@@ -114,7 +119,7 @@ Attach this component to any gameobject to render a custom gizmo. These gizmos w
 
 ### ScreenShake
 
-Attach this component to your scenes camera and call the method below to cause the screen to shake. This component doesn't alter the position of the camera as it wraps the camera in it's own gameobject.
+Attach this component to your scenes camera and call the method below to cause the screen to shake. This component doesn't alter the position of the camera as it wraps the camera in it's own GameObject.
 
 ```csharp
 CandyCoded.ScreenShake screenShake = Camera.main.GetComponent<CandyCoded.ScreenShake>();
@@ -135,22 +140,21 @@ screenShake.Shake(duration, intensity, CandyCoded.SCREENSHAKE_DIRECTION.Vertical
 
 ### SelfDestructParticleSystem
 
-Attach this component to a gameobject with a ParticleSystem that doesn't loop and once the generated particles are no longer alive, the gameobject will destroy itself.
+Attach this component to a GameObject with a ParticleSystem that doesn't loop and once the generated particles are no longer alive, the GameObject will destroy itself.
 
 ## Custom Extensions
 
-### AnimationCurve
+### Int
 
-#### ReplaceKey
+#### Contains
 
-Replaces keyframe at index in an AnimationCurve object.
+Tests bitmask int for the supplied int.
 
 ```csharp
-AnimationCurve animationCurve = AnimationCurve.Linear(0, 1, 1, 0);
-animationCurve.ReplaceKey(0, Keyframe(10, 1));
+int mask = 0 | 1;
+Debug.Log(mask.Contains(1)); // true
+Debug.Log(mask.Contains(2)); // false
 ```
-
-**Reference:** <https://docs.unity3d.com/ScriptReference/Keyframe-ctor.html>
 
 ### LayerMask
 
@@ -201,74 +205,149 @@ gameObject.transform.LookAt2D(currentMousePosition, Vector3.right);
 
 ![](https://i.imgur.com/J9gS7pc.png)
 
-#### FadeIn
+#### Fade
 
-Fade a gameobject from 0% to 100% with a duration of 1s.
+**Note:** 100% alpha is relative to each GameObject's initial alpha value. This is to prevent materials with custom alpha values from being reset.
+
+Fade a GameObject from 0% to 100% with a duration of 1s.
 
 ```csharp
-CandyCoded.Animate.FadeIn(gameObject, Time.deltaTime);
+CandyCoded.Animate.Fade(gameObject, 0, 1, 1);
 ```
 
-#### FadeOut
-
-Fade a gameobject from 100% to 0% with a duration of 1s.
+Fade a GameObject from 100% to 0% with a duration of 1s.
 
 ```csharp
-CandyCoded.Animate.FadeOut(gameObject, Time.deltaTime);
-```
-
-#### FadeCustom
-
-Fade a gameobject using the values defined in the supplied `AnimationCurve`.
-
-**Note:** 100% alpha is relative to each gameobject's initial alpha value. This is to prevent objects with custom alpha values from being reset.
-
-```csharp
-AnimationCurve animationCurve = AnimationCurve.Linear(0, 1, 1, 0);
-animationCurve.postWrapMode = WrapMode.PingPong;
-CandyCoded.Animate.FadeCustom(gameObject, Time.deltaTime, animationCurve);
+CandyCoded.Animate.Fade(gameObject, 1, 0, 1);
 ```
 
 ![](https://media.giphy.com/media/xULW8zdlmLdaSSXDeU/giphy.gif)
 
-#### Position
+#### MoveTo
 
-Move a gameobject using the values defined in the supplied [`Vector3AnimationCurve`](#vector3animationcurve).
+Move a GameObject to a new Vector3 with a duration of 1s.
 
 ```csharp
-CandyCoded.Vector3AnimationCurve animationCurve;
-CandyCoded.Animate.PositionRelative(gameObject, Time.deltaTime, animationCurve);
+CandyCoded.Animate.MoveTo(target, new Vector3(10, 10, 10), 1);
 ```
 
 ![](https://media.giphy.com/media/3ohc0Wy60RfUYSERW0/giphy.gif)
 
-#### Scale
+#### Position
 
-Scale a gameobject using the values defined in the supplied [`Vector3AnimationCurve`](#vector3animationcurve).
+Move GameObject with a custom Vector3AnimationCurve.
 
 ```csharp
-CandyCoded.Vector3AnimationCurve animationCurve;
-CandyCoded.Animate.ScaleRelative(gameObject, Time.deltaTime, animationCurve);
+public class SampleController : MonoBehaviour {
+
+    public CandyCoded.Vector3AnimationCurve animationCurve;
+
+    private void Start() {
+
+        CandyCoded.Animate.Position(gameObject, animationCurve);
+
+    }
+
+}
+```
+
+#### PositionRelative
+
+Move GameObject, relative to it's original position, with a custom Vector3AnimationCurve.
+
+```csharp
+public class SampleController : MonoBehaviour {
+
+    public CandyCoded.Vector3AnimationCurve animationCurve;
+
+    private void Start() {
+
+        CandyCoded.Animate.PositionRelative(gameObject, animationCurve);
+
+    }
+
+}
+```
+
+#### ScaleTo
+
+Scale a GameObject to a new Vector3 with a duration of 1s.
+
+```csharp
+CandyCoded.Animate.ScaleTo(target, new Vector3(2, 2, 2), 1);
 ```
 
 ![](https://media.giphy.com/media/l0HUfPOnvdomnsz0A/giphy.gif)
 
-#### Rotate
+#### Scale
 
-Rotate a gameobject using the values defined in the supplied [`Vector3AnimationCurve`](#vector3animationcurve).
+Scale GameObject with a custom Vector3AnimationCurve.
 
 ```csharp
-CandyCoded.Vector3AnimationCurve animationCurve;
-CandyCoded.Animate.Rotate(gameObject, Time.deltaTime, animationCurve);
+public class SampleController : MonoBehaviour {
+
+    public CandyCoded.Vector3AnimationCurve animationCurve;
+
+    private void Start() {
+
+        CandyCoded.Animate.Scale(gameObject, animationCurve);
+
+    }
+
+}
+```
+
+#### ScaleRelative
+
+Scale GameObject, relative to it's original scale, with a custom Vector3AnimationCurve.
+
+```csharp
+public class SampleController : MonoBehaviour {
+
+    public CandyCoded.Vector3AnimationCurve animationCurve;
+
+    private void Start() {
+
+        CandyCoded.Animate.ScaleRelative(gameObject, animationCurve);
+
+    }
+
+}
+```
+
+#### RotateTo
+
+Rotate a GameObject to a new Vector3 with a duration of 1s.
+
+```csharp
+CandyCoded.Animate.RotateTo(target, new Vector3(360, 0, 0), 1);
 ```
 
 ![](https://media.giphy.com/media/d3OGaCsXxQSUtLgc/giphy.gif)
+
+#### Rotate
+
+Rotate GameObject with a custom Vector3AnimationCurve.
+
+```csharp
+public class SampleController : MonoBehaviour {
+
+    public CandyCoded.Vector3AnimationCurve animationCurve;
+
+    private void Start() {
+
+        CandyCoded.Animate.Rotate(gameObject, animationCurve);
+
+    }
+
+}
+```
 
 ### Calculation
 
 #### ParentBounds
 
-Calculate the bounds of a gameobject with multiple children.
+Calculate the bounds of a GameObject with multiple children.
 
 ```csharp
 private void OnDrawGizmosSelected()
@@ -290,7 +369,7 @@ private void OnDrawGizmosSelected()
 
 #### DrawLines
 
-Takes either an array or list of `Vector3`s and draws them using [`UnityEngine.Debug.DrawLine`](https://docs.unity3d.com/ScriptReference/Debug.DrawLine.html). DrawLines contains the same display parameters as Unity's DrawLine method: color, duration and depthTest.
+Draws an array (or list) of vectors with Unity's [`Debug.DrawLine`](https://docs.unity3d.com/ScriptReference/Debug.DrawLine.html) method. DrawLines contains the same display parameters as Unity's DrawLine method: color, duration and depthTest.
 
 **Color:** Color of lines.
 
@@ -314,7 +393,7 @@ CandyCoded.Debugger.DrawLines(points, Color.red, 1f, false);
 
 #### GetMaterialsInChildren
 
-Similar in use to GetComponentsInChildren, GetMaterialsInChildren will return all materials attached to renderers that are children of the supplied gameobject.
+Returns an array of materials attached to renderers that are children of the supplied GameObject.
 
 ```csharp
 Material[] materials = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
@@ -322,7 +401,7 @@ Material[] materials = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
 
 #### SetColorAlpha
 
-Set the alpha of a color to a value.
+Set the alpha value of a color object.
 
 ```csharp
 Debug.Log(CandyCoded.Materials.SetColorAlpha(material.color, 0.5f));
@@ -453,19 +532,21 @@ public class EnumMaskDemo : MonoBehaviour
 
 ## Custom Materials
 
-Each of the debug materials utilize a custom shader that tiles without scaling. These are used best on flat surfaces.
+![](https://i.imgur.com/tIL3HOQ.png)
 
-**Target**
+## Shaders
 
-![](https://i.imgur.com/w3KNjCx.png)
+### TiledTexture
 
-**Axis Grid**
+This shader is used to tile materials without scaling on either a cuboid or plane.
 
-![](https://i.imgur.com/yOgzPBm.png)
+**Tiling:** Used to determine how many times the material should be tiled.
 
-**Laser**
+**Offset:** Used to offset the material.
 
-![](https://i.imgur.com/lYP9PFi.png)
+**Use World Space:** Used to position the tile relative to world space, instead of the GameObject.
+
+![](https://i.imgur.com/b7XbN5d.png)
 
 ## Credits
 

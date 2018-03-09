@@ -1,11 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using NUnit.Framework;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.TestTools;
 
+public class SampleController : MonoBehaviour
+{
+
+}
+
 public class CustomExtensionsTest
 {
+
+    [SetUp]
+    public void ResetScene()
+    {
+
+        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
+
+    }
+
+    [Test]
+    public void AddOrGetComponent()
+    {
+
+        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+
+        Assert.IsNull(cube.GetComponent<SampleController>());
+
+        SampleController sampleController = cube.AddOrGetComponent<SampleController>();
+
+        Assert.IsNotNull(cube.GetComponent<SampleController>());
+
+        Assert.AreEqual(sampleController, cube.GetComponent<SampleController>());
+
+    }
 
     [Test]
     public void LayerMaskContains()
@@ -26,25 +55,27 @@ public class CustomExtensionsTest
     }
 
     [Test]
-    public void AnimationCurveReplaceKey()
+    public void BitwiseContains()
+    {
+
+        int bitwiseMask = 0 | 1;
+
+        Assert.IsTrue(bitwiseMask.Contains(1));
+        Assert.IsFalse(bitwiseMask.Contains(2));
+
+    }
+
+    [Test]
+    public void IsLoopingAnimationCurve()
     {
 
         AnimationCurve animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
 
-        Keyframe[] keys = animationCurve.keys;
+        Assert.IsFalse(animationCurve.IsLooping());
 
-        Assert.AreEqual(keys[0].time, 0);
-        Assert.AreEqual(keys[0].value, 0);
+        animationCurve.postWrapMode = WrapMode.Loop;
 
-        Assert.AreEqual(keys[1].time, 1);
-        Assert.AreEqual(keys[1].value, 1);
-
-        animationCurve.ReplaceKey(1, new Keyframe(5, 10));
-
-        keys = animationCurve.keys;
-
-        Assert.AreEqual(keys[1].time, 5);
-        Assert.AreEqual(keys[1].value, 10);
+        Assert.IsTrue(animationCurve.IsLooping());
 
     }
 
@@ -80,6 +111,20 @@ public class CustomExtensionsTest
         {
             Assert.AreEqual(numberRange[i], i);
         }
+
+    }
+
+    [Test]
+    public void MaxTimeAnimationCurve()
+    {
+
+        AnimationCurve animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
+
+        Assert.AreEqual(animationCurve.MaxTime(), 1);
+
+        animationCurve = AnimationCurve.Linear(0, 0, 5, 1);
+
+        Assert.AreEqual(animationCurve.MaxTime(), 5);
 
     }
 

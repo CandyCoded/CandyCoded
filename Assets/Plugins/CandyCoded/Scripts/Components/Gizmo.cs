@@ -50,6 +50,9 @@ namespace CandyCoded
                     Gizmos.DrawWireSphere(gameObject.transform.position + offset, radius);
                     break;
 
+                case GIZMO_TYPE.None:
+                    break;
+
             }
 
         }
@@ -67,7 +70,7 @@ namespace CandyCoded
 
             DrawDefaultInspector();
 
-            Gizmo script = (Gizmo) target;
+            Gizmo script = (Gizmo)target;
 
             switch (script.type)
             {
@@ -88,6 +91,9 @@ namespace CandyCoded
                     script.color = EditorGUILayout.ColorField("Color", script.color);
                     script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
                     script.radius = EditorGUILayout.FloatField("Radius", script.radius);
+                    break;
+
+                case GIZMO_TYPE.None:
                     break;
 
             }
