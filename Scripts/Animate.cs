@@ -66,7 +66,7 @@ namespace CandyCoded
 
         }
 
-        public static void Fade(AnimationCurve animationCurve, float elapsedTime, AnimationData animationData = null)
+        public static void Fade(AnimationCurve animationCurve, float elapsedTime, AnimationData animationData)
         {
 
             float globalAlpha = animationCurve.Evaluate(elapsedTime);
