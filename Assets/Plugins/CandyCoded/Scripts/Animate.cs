@@ -7,9 +7,9 @@ namespace CandyCoded
     public static class Animate
     {
 
-        public delegate void AnimationFunc(float elapsedTime);
+        private delegate void AnimationFunc(float elapsedTime);
 
-        public static IEnumerator Loop(GameObject gameObject, string coroutineKey, bool isLooping, float maxTime, AnimationFunc animationFunc)
+        private static IEnumerator Loop(GameObject gameObject, string coroutineKey, bool isLooping, float maxTime, AnimationFunc animationFunc)
         {
 
             Runner runner = gameObject.AddOrGetComponent<Runner>();
@@ -44,7 +44,7 @@ namespace CandyCoded
 
         }
 
-        public static Coroutine StartCoroutine(GameObject gameObject, string coroutineKey, IEnumerator routine)
+        private static Coroutine StartCoroutine(GameObject gameObject, string coroutineKey, IEnumerator routine)
         {
 
             Runner runner = gameObject.AddOrGetComponent<Runner>();
