@@ -95,6 +95,15 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Fades a GameObject from a specified alpha to another.
+        /// </summary>
+        /// <param name="gameObject">GameObject to fade.</param>
+        /// <param name="from">Starting alpha.</param>
+        /// <param name="to">Ending alpha.</param>
+        /// <param name="duration">Length of the animation in seconds.</param>
+        /// <returns>void</returns>
+
         public static void Fade(GameObject gameObject, float from, float to, float duration = 1.0f)
         {
 
@@ -134,6 +143,14 @@ namespace CandyCoded
             gameObject.transform.localPosition = animationCurve.Evaluate(elapsedTime);
 
         }
+
+        /// <summary>
+        /// Animates the position of a GameObject to the specified Vector3 over time.
+        /// </summary>
+        /// <param name="gameObject">GameObject to move.</param>
+        /// <param name="newPosition">New Vector3 position.</param>
+        /// <param name="duration">Length of the animation in seconds.</param>
+        /// <returns>void</returns>
 
         public static void MoveTo(GameObject gameObject, Vector3 newPosition, float duration = 1.0f)
         {
@@ -217,6 +234,14 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Animates the rotation of a GameObject to the specified Vector3 over time.
+        /// </summary>
+        /// <param name="gameObject">GameObject to rotate.</param>
+        /// <param name="newRotation">New Vector3 rotation.</param>
+        /// <param name="duration">Length of the animation in seconds.</param>
+        /// <returns>void</returns>
+
         public static void RotateTo(GameObject gameObject, Vector3 newRotation, float duration = 1.0f)
         {
 
@@ -262,6 +287,14 @@ namespace CandyCoded
             gameObject.transform.localScale = animationCurve.Evaluate(elapsedTime);
 
         }
+
+        /// <summary>
+        /// Animates the scale of a GameObject to the specified Vector3 over time.
+        /// </summary>
+        /// <param name="gameObject">GameObject to scale.</param>
+        /// <param name="newScale">New Vector3 scale.</param>
+        /// <param name="duration">Length of the animation in seconds.</param>
+        /// <returns>void</returns>
 
         public static void ScaleTo(GameObject gameObject, Vector3 newScale, float duration = 1.0f)
         {
