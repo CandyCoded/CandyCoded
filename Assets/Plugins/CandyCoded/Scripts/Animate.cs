@@ -55,6 +55,13 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Fades all of the materials in a GameObject with an AnimationCurve.
+        /// </summary>
+        /// <param name="gameObject">GameObject to fade.</param>
+        /// <param name="animationCurve">AnimationCurve to evaluate.</param>
+        /// <returns>Coroutine</returns>
+
         public static Coroutine Fade(GameObject gameObject, AnimationCurve animationCurve)
         {
 
@@ -97,6 +104,13 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Animates the position of a GameObject with a Vector3AnimationCurve.
+        /// </summary>
+        /// <param name="gameObject">GameObject to move.</param>
+        /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
+        /// <returns>Coroutine</returns>
+
         public static Coroutine Position(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
@@ -136,6 +150,13 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Animates the position of a GameObject, relative to it's original position, with a Vector3AnimationCurve.
+        /// </summary>
+        /// <param name="gameObject">GameObject to move.</param>
+        /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
+        /// <returns>Coroutine</returns>
+
         public static Coroutine PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
@@ -165,6 +186,12 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Animates the rotation of a GameObject with a Vector3AnimationCurve.
+        /// </summary>
+        /// <param name="gameObject">GameObject to rotate.</param>
+        /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
+        /// <returns>Coroutine</returns>
 
         public static Coroutine Rotation(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
@@ -205,6 +232,13 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Animates the scale of a GameObject with a Vector3AnimationCurve.
+        /// </summary>
+        /// <param name="gameObject">GameObject to scale.</param>
+        /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
+        /// <returns>Coroutine</returns>
+
         public static Coroutine Scale(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
@@ -243,6 +277,13 @@ namespace CandyCoded
             Scale(gameObject, animationCurve);
 
         }
+
+        /// <summary>
+        /// Animates the scale of a GameObject, relative to it's original scale, with a Vector3AnimationCurve.
+        /// </summary>
+        /// <param name="gameObject">GameObject to scale.</param>
+        /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
+        /// <returns>Coroutine</returns>
 
         public static Coroutine ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
