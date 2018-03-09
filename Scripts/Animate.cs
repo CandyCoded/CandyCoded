@@ -71,10 +71,10 @@ namespace CandyCoded
 
             float globalAlpha = animationCurve.Evaluate(elapsedTime);
 
-            foreach (CandyCoded.MaterialData materialData in animationData.materials)
+            foreach (MaterialData materialData in animationData.materials)
             {
 
-                materialData.material.color = CandyCoded.Materials.SetColorAlpha(materialData.material.color, materialData.startColor.a * globalAlpha);
+                materialData.material.color = Materials.SetColorAlpha(materialData.material.color, materialData.startColor.a * globalAlpha);
 
             }
 
