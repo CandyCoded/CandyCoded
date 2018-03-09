@@ -8,9 +8,9 @@ namespace CandyCoded
     {
 
         /// <summary>
-        /// Returns an array of materials attached to renderers that are children of the supplied game object.
+        /// Returns an array of materials attached to renderers that are children of the supplied GameObject.
         /// </summary>
-        /// <param name="gameObject">Parent game object.</param>
+        /// <param name="gameObject">Parent GameObject.</param>
         /// <returns>Material[]</returns>
         public static Material[] GetMaterialsInChildren(GameObject gameObject)
         {
