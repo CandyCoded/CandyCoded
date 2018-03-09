@@ -33,8 +33,13 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
     - [Animate](#animate)
         - [Fade](#fade)
         - [MoveTo](#moveto)
+        - [Position](#position)
+        - [PositionRelative](#positionrelative)
         - [ScaleTo](#scaleto)
+        - [Scale](#scale)
+        - [ScaleRelative](#scalerelative)
         - [RotateTo](#rotateto)
+        - [Rotate](#rotate)
     - [Calculation](#calculation)
         - [ParentBounds](#parentbounds)
     - [Debugger](#debugger)
@@ -228,6 +233,42 @@ CandyCoded.Animate.MoveTo(target, new Vector3(10, 10, 10), 1);
 
 ![](https://media.giphy.com/media/3ohc0Wy60RfUYSERW0/giphy.gif)
 
+#### Position
+
+Move GameObject with a custom Vector3AnimationCurve.
+
+```csharp
+public class SampleController : MonoBehaviour {
+
+    public CandyCoded.Vector3AnimationCurve animationCurve;
+
+    private void Start() {
+
+        CandyCoded.Animate.Position(gameObject, animationCurve);
+
+    }
+
+}
+```
+
+#### PositionRelative
+
+Move GameObject, relative to it's original position, with a custom Vector3AnimationCurve.
+
+```csharp
+public class SampleController : MonoBehaviour {
+
+    public CandyCoded.Vector3AnimationCurve animationCurve;
+
+    private void Start() {
+
+        CandyCoded.Animate.PositionRelative(gameObject, animationCurve);
+
+    }
+
+}
+```
+
 #### ScaleTo
 
 Scale a GameObject to a new Vector3 with a duration of 1s.
@@ -238,6 +279,42 @@ CandyCoded.Animate.ScaleTo(target, new Vector3(2, 2, 2), 1);
 
 ![](https://media.giphy.com/media/l0HUfPOnvdomnsz0A/giphy.gif)
 
+#### Scale
+
+Scale GameObject with a custom Vector3AnimationCurve.
+
+```csharp
+public class SampleController : MonoBehaviour {
+
+    public CandyCoded.Vector3AnimationCurve animationCurve;
+
+    private void Start() {
+
+        CandyCoded.Animate.Scale(gameObject, animationCurve);
+
+    }
+
+}
+```
+
+#### ScaleRelative
+
+Scale GameObject, relative to it's original scale, with a custom Vector3AnimationCurve.
+
+```csharp
+public class SampleController : MonoBehaviour {
+
+    public CandyCoded.Vector3AnimationCurve animationCurve;
+
+    private void Start() {
+
+        CandyCoded.Animate.ScaleRelative(gameObject, animationCurve);
+
+    }
+
+}
+```
+
 #### RotateTo
 
 Rotate a GameObject to a new Vector3 with a duration of 1s.
@@ -247,6 +324,24 @@ CandyCoded.Animate.RotateTo(target, new Vector3(360, 0, 0), 1);
 ```
 
 ![](https://media.giphy.com/media/d3OGaCsXxQSUtLgc/giphy.gif)
+
+#### Rotate
+
+Rotate GameObject with a custom Vector3AnimationCurve.
+
+```csharp
+public class SampleController : MonoBehaviour {
+
+    public CandyCoded.Vector3AnimationCurve animationCurve;
+
+    private void Start() {
+
+        CandyCoded.Animate.Rotate(gameObject, animationCurve);
+
+    }
+
+}
+```
 
 ### Calculation
 
