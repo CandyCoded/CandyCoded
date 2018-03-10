@@ -41,6 +41,8 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
         - [ScaleRelative](#scalerelative)
         - [RotateTo](#rotateto)
         - [Rotate](#rotate)
+        - [Stop](#stop)
+        - [StopAll](#stopall)
     - [Calculation](#calculation)
         - [ParentBounds](#parentbounds)
     - [Debugger](#debugger)
@@ -313,6 +315,30 @@ public CandyCoded.Vector3AnimationCurve animationCurve;
 private void Start() {
 
     CandyCoded.Animate.Rotate(gameObject, animationCurve);
+
+}
+```
+
+#### Stop
+
+Stop animation attached to a GameObject by name.
+
+```csharp
+private void Start() {
+
+    CandyCoded.Animate.Stop(gameObject, "Fade");
+
+}
+```
+
+#### StopAll
+
+Stops all animations attached to a GameObject.
+
+```csharp
+private void Start() {
+
+    CandyCoded.Animate.StopAll(gameObject);
 
 }
 ```
