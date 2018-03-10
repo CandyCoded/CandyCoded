@@ -56,6 +56,37 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Stop animation attached to a GameObject by name.
+        /// </summary>
+        /// <param name="gameObject">GameObject to stop animation on.</param>
+        /// <param name="animationName">Name of animation to stop. Equivalent to the static method called to start animation.</param>
+        /// <returns>void</returns>
+
+        public static void Stop(GameObject gameObject, string animationName)
+        {
+
+            Runner runner = gameObject.AddOrGetComponent<Runner>();
+
+            runner.RemoveCoroutine(animationName);
+
+        }
+
+        /// <summary>
+        /// Stops all animations attached to a GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to stop all animations on.</param>
+        /// <returns>void</returns>
+
+        public static void StopAll(GameObject gameObject)
+        {
+
+            Runner runner = gameObject.AddOrGetComponent<Runner>();
+
+            runner.RemoveAllCoroutines();
+
+        }
+
+        /// <summary>
         /// Fades all of the materials in a GameObject with an AnimationCurve.
         /// </summary>
         /// <param name="gameObject">GameObject to fade.</param>
