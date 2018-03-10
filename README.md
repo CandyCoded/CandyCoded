@@ -550,4 +550,5 @@ This shader is used to tile materials without scaling on either a cuboid or plan
 
 ## Credits
 
-Font used in logo is **Escafina** from **Lost Type** <http://www.losttype.com/font/?name=escafina>
+Fonts used in logo are [**Escafina**](http://www.losttype.com/font/?name=escafina) and [**Klinic Slab**](http://www.losttype.com/font/?name=klinic), both from [**Lost Type**](http://www.losttype.com/).
+
