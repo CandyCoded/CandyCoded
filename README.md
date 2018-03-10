@@ -73,19 +73,12 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
 Similar to Unity's `AnimationCurve`, but instead contains 3 `AnimationCurve` properties (`x`, `y`, and `z`) and can be evaluated in the same way as `AnimationCurve` to return a new `Vector3`. A `Vector2AnimationCurve` struct is also available for generating `Vector2` values.
 
 ```csharp
-using UnityEngine;
+public CandyCoded.Vector3AnimationCurve animationCurve;
 
-public class AnimatePosition : MonoBehaviour
+private void Update()
 {
 
-    public CandyCoded.Vector3AnimationCurve animationCurve;
-
-    private void Update()
-    {
-
-        gameObject.transform.position = animationCurve.Evaluate(Time.time);
-
-    }
+    gameObject.transform.position = animationCurve.Evaluate(Time.time);
 
 }
 ```
@@ -239,15 +232,11 @@ CandyCoded.Animate.MoveTo(target, new Vector3(10, 10, 10), 1);
 Move GameObject with a custom Vector3AnimationCurve.
 
 ```csharp
-public class SampleController : MonoBehaviour {
+public CandyCoded.Vector3AnimationCurve animationCurve;
 
-    public CandyCoded.Vector3AnimationCurve animationCurve;
+private void Start() {
 
-    private void Start() {
-
-        CandyCoded.Animate.Position(gameObject, animationCurve);
-
-    }
+    CandyCoded.Animate.Position(gameObject, animationCurve);
 
 }
 ```
@@ -257,15 +246,11 @@ public class SampleController : MonoBehaviour {
 Move GameObject, relative to it's original position, with a custom Vector3AnimationCurve.
 
 ```csharp
-public class SampleController : MonoBehaviour {
+public CandyCoded.Vector3AnimationCurve animationCurve;
 
-    public CandyCoded.Vector3AnimationCurve animationCurve;
+private void Start() {
 
-    private void Start() {
-
-        CandyCoded.Animate.PositionRelative(gameObject, animationCurve);
-
-    }
+    CandyCoded.Animate.PositionRelative(gameObject, animationCurve);
 
 }
 ```
@@ -285,15 +270,11 @@ CandyCoded.Animate.ScaleTo(target, new Vector3(2, 2, 2), 1);
 Scale GameObject with a custom Vector3AnimationCurve.
 
 ```csharp
-public class SampleController : MonoBehaviour {
+public CandyCoded.Vector3AnimationCurve animationCurve;
 
-    public CandyCoded.Vector3AnimationCurve animationCurve;
+private void Start() {
 
-    private void Start() {
-
-        CandyCoded.Animate.Scale(gameObject, animationCurve);
-
-    }
+    CandyCoded.Animate.Scale(gameObject, animationCurve);
 
 }
 ```
@@ -303,15 +284,11 @@ public class SampleController : MonoBehaviour {
 Scale GameObject, relative to it's original scale, with a custom Vector3AnimationCurve.
 
 ```csharp
-public class SampleController : MonoBehaviour {
+public CandyCoded.Vector3AnimationCurve animationCurve;
 
-    public CandyCoded.Vector3AnimationCurve animationCurve;
+private void Start() {
 
-    private void Start() {
-
-        CandyCoded.Animate.ScaleRelative(gameObject, animationCurve);
-
-    }
+    CandyCoded.Animate.ScaleRelative(gameObject, animationCurve);
 
 }
 ```
@@ -331,15 +308,11 @@ CandyCoded.Animate.RotateTo(target, new Vector3(360, 0, 0), 1);
 Rotate GameObject with a custom Vector3AnimationCurve.
 
 ```csharp
-public class SampleController : MonoBehaviour {
+public CandyCoded.Vector3AnimationCurve animationCurve;
 
-    public CandyCoded.Vector3AnimationCurve animationCurve;
+private void Start() {
 
-    private void Start() {
-
-        CandyCoded.Animate.Rotate(gameObject, animationCurve);
-
-    }
+    CandyCoded.Animate.Rotate(gameObject, animationCurve);
 
 }
 ```
