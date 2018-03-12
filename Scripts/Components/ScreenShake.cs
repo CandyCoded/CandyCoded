@@ -54,7 +54,7 @@ namespace CandyCoded
 
                 }
 
-                currentDuration = Mathf.Max(currentDuration - Time.deltaTime, 0);
+                currentDuration = Mathf.Max(currentDuration - Time.unscaledDeltaTime, 0);
 
             }
 
