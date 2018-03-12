@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.TestTools;
 
 public class ScriptableObjectTest
 {
