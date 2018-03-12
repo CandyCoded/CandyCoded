@@ -15,7 +15,7 @@ namespace CandyCoded
         /// </summary>
         /// <param name="coroutineKey">Unique key to store coroutine with.</param>
         /// <param name="routine">IEnumerator to start coroutine with.</param>
-        /// <returns>void</returns>
+        /// <returns>Coroutine</returns>
         public Coroutine AddCoroutine(string coroutineKey, IEnumerator routine)
         {
 
@@ -28,7 +28,7 @@ namespace CandyCoded
         /// <summary>
         /// Stops coroutine and removes it from the list.
         /// </summary>
-        /// <param name="coroutineKey">Key coroutine is stored with.</param>
+        /// <param name="coroutineKey">Key coroutine was originally stored with.</param>
         /// <returns>void</returns>
         public void RemoveCoroutine(string coroutineKey)
         {
