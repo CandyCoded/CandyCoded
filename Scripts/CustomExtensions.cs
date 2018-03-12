@@ -75,7 +75,7 @@ public static class CustomExtensions
     /// Rotates transform so the forward vector points at target's position.
     /// </summary>
     /// <param name="target">Object to point towards.</param>
-    /// <param name="direction">Vector specifying the fotward direction.</param>
+    /// <param name="direction">Vector specifying the forward direction.</param>
     /// <returns>void</returns>
     public static void LookAt2D(this Transform transform, Transform target, Vector3 direction)
     {
@@ -103,7 +103,7 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Returns the duration of the AnimationCurve lasts.
+    /// Returns duration of the AnimationCurve.
     /// </summary>
     /// <returns>float</returns>
     public static float MaxTime(this AnimationCurve animationCurve)
