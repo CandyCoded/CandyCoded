@@ -9,7 +9,7 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
 
 ## Installation
 
-[Download Latest CandyCoded.unitypackage](https://s3.amazonaws.com/candycoded/build/CandyCoded.unitypackage)
+[Download Latest `CandyCoded.unitypackage`](releases/)
 
 ## Contents
 
@@ -22,6 +22,11 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
     - [ScreenShake](#screenshake)
     - [SelfDestructParticleSystem](#selfdestructparticlesystem)
 - [Custom Extensions](#custom-extensions)
+    - [AnimationCurve](#animationcurve)
+        - [IsLooping](#islooping)
+        - [MaxTime](#maxtime)
+    - [GameObject](#gameobject)
+        - [AddOrGetComponent](#addorgetcomponent)
     - [Int](#int)
         - [Contains](#contains)
     - [LayerMask](#layermask)
@@ -139,6 +144,52 @@ screenShake.Shake(duration, intensity, CandyCoded.SCREENSHAKE_DIRECTION.Vertical
 Attach this component to a GameObject with a ParticleSystem that doesn't loop and once the generated particles are no longer alive, the GameObject will destroy itself.
 
 ## Custom Extensions
+
+### AnimationCurve
+
+#### IsLooping
+
+Tests to see if AnimationCurve loops.
+
+```csharp
+public AnimationCurve animationCurve;
+
+private void Start() {
+
+    Debug.Log(animationCurve.IsLooping());
+
+}
+```
+
+#### MaxTime
+
+Returns duration of the AnimationCurve.
+
+```csharp
+public AnimationCurve animationCurve;
+
+private void Start() {
+
+    Debug.Log(animationCurve.MaxTime());
+
+}
+```
+
+### GameObject
+
+#### AddOrGetComponent
+
+Returns a reference to an existing component or a new component if it didn't already exist.
+
+```csharp
+private Rigidbody rb;
+
+private void Awake() {
+
+    rb = gameObject.AddOrGetComponent<Rigidbody>();
+
+}
+```
 
 ### Int
 
