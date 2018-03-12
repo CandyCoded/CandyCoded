@@ -9,9 +9,9 @@ namespace CandyCoded
         /// <summary>
         /// Generates a bounds object based on the position and size of the child GameObjects.
         /// </summary>
-        /// <param name="parentGameObject">Parent GameObject to run calculation on.</param>
+        /// <param name="gameObject">Parent GameObject to run calculation on.</param>
         /// <returns>Bounds</returns>
-        public static Bounds ParentBounds(GameObject parentGameObject)
+        public static Bounds ParentBounds(GameObject gameObject)
         {
 
             Vector3 center = Vector3.zero;
@@ -20,7 +20,7 @@ namespace CandyCoded
 
             Bounds bounds = new Bounds(center, Vector3.zero);
 
-            Renderer[] renderers = parentGameObject.GetComponentsInChildren<Renderer>();
+            Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
 
             foreach (Renderer renderer in renderers)
             {
@@ -43,12 +43,12 @@ namespace CandyCoded
         /// <summary>
         /// Generates a bounds object based on the position and size of the child GameObjects.
         /// </summary>
-        /// <param name="parentTransform">Parent transform to run calculation on.</param>
+        /// <param name="transform">Parent transform to run calculation on.</param>
         /// <returns>Bounds</returns>
-        public static Bounds ParentBounds(Transform parentTransform)
+        public static Bounds ParentBounds(Transform transform)
         {
 
-            return ParentBounds(parentTransform.gameObject);
+            return ParentBounds(transform.gameObject);
 
         }
 
