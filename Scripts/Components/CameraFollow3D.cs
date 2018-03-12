@@ -32,7 +32,7 @@ namespace CandyCoded
 
         private Transform cameraTransform;
 
-        private Vector3 cameraPositionOffset = Vector3.zero;
+        private Vector3 cameraPositionOffset;
 
         private Vector3 velocity = Vector3.zero;
 
