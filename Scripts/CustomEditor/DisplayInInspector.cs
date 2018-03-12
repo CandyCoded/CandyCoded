@@ -9,7 +9,7 @@ using UnityEngine;
 public class DisplayInInspectorAttribute : PropertyAttribute { }
 
 #if UNITY_EDITOR
-[CustomEditor(typeof(MonoBehaviour))]
+[CustomEditor(typeof(MonoBehaviour), true)]
 public class DisplayInInspectorDrawer : Editor
 {
 
