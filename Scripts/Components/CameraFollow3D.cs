@@ -10,7 +10,7 @@ namespace CandyCoded
         public bool freezePositionX;
         public bool freezePositionY;
         public bool freezePositionZ;
-        [Header("Maintain Origin Offset")]
+        [Header("Maintain Original Offset")]
         public bool maintainOffsetX;
         public bool maintainOffsetY;
         public bool maintainOffsetZ;
