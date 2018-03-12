@@ -58,9 +58,9 @@ namespace CandyCoded
 
                 StopCoroutine(coroutines[coroutineKey]);
 
-                coroutines.Remove(coroutineKey);
-
             }
+
+            coroutines.Clear();
 
         }
 
