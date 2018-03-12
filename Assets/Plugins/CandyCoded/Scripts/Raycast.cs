@@ -21,9 +21,10 @@ namespace CandyCoded
 
             hits = new List<RaycastHit>();
 
-            List<Vector3> linePositions = new List<Vector3>();
-
-            linePositions.Add(startPosition);
+            List<Vector3> linePositions = new List<Vector3>
+            {
+                startPosition
+            };
 
             RaycastHit hitInfo;
 
