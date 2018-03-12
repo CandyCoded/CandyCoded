@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.TestTools;
 
 public class CalculationTest
 {
@@ -34,21 +33,10 @@ public class CalculationTest
 
         Bounds bounds = CandyCoded.Calculation.ParentBounds(parentGameObject);
 
-        Assert.AreEqual(bounds.center.x, -0.5f);
-        Assert.AreEqual(bounds.center.y, 0);
-        Assert.AreEqual(bounds.center.z, -1.0f);
-
-        Assert.AreEqual(bounds.min.x, -2.5f);
-        Assert.AreEqual(bounds.min.y, -0.5f);
-        Assert.AreEqual(bounds.min.z, -2.5f);
-
-        Assert.AreEqual(bounds.max.x, 1.5f);
-        Assert.AreEqual(bounds.max.y, 0.5f);
-        Assert.AreEqual(bounds.max.z, 0.5f);
-
-        Assert.AreEqual(bounds.size.x, 4.0f);
-        Assert.AreEqual(bounds.size.y, 1.0f);
-        Assert.AreEqual(bounds.size.z, 3.0f);
+        Assert.AreEqual(bounds.center, new Vector3(-0.5f, 0, -1.0f));
+        Assert.AreEqual(bounds.min, new Vector3(-2.5f, -0.5f, -2.5f));
+        Assert.AreEqual(bounds.max, new Vector3(1.5f, 0.5f, 0.5f));
+        Assert.AreEqual(bounds.size, new Vector3(4.0f, 1.0f, 3.0f));
 
     }
 
