@@ -29,7 +29,7 @@ public class DisplayInInspectorDrawer : Editor
                 if (GUILayout.Button(ObjectNames.NicifyVariableName(method.Name)))
                 {
 
-                    ((MethodInfo) method).Invoke(target, null);
+                    ((MethodInfo)method).Invoke(target, null);
 
                 }
 
