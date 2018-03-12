@@ -9,7 +9,7 @@ _**Note:** The APIs in CandyCoded may change as this library is currently in dev
 
 ## Installation
 
-[Download Latest `CandyCoded.unitypackage`](releases/)
+[Download Latest `CandyCoded.unitypackage`](https://github.com/neogeek/CandyCoded/releases)
 
 ## Contents
 
