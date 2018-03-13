@@ -5,8 +5,6 @@
 [![Build Status](https://travis-ci.org/neogeek/CandyCoded.svg?branch=master)](https://travis-ci.org/neogeek/CandyCoded)
 [![Join the chat at https://discord.gg/nNtFsfd](https://img.shields.io/badge/discord-join%20chat-7289DA.svg)](https://discord.gg/nNtFsfd)
 
-_**Note:** The APIs in CandyCoded may change as this library is currently in development and hasn't reached a point where semver make sense._
-
 ## Installation
 
 [Download Latest `CandyCoded.unitypackage`](https://github.com/neogeek/CandyCoded/releases)
