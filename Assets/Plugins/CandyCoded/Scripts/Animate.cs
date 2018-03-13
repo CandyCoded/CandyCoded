@@ -133,14 +133,14 @@ namespace CandyCoded
         /// <param name="from">Starting alpha.</param>
         /// <param name="to">Ending alpha.</param>
         /// <param name="duration">Length of the animation in seconds.</param>
-        /// <returns>void</returns>
+        /// <returns>Coroutine</returns>
 
-        public static void Fade(GameObject gameObject, float from, float to, float duration = 1.0f)
+        public static Coroutine Fade(GameObject gameObject, float from, float to, float duration = 1.0f)
         {
 
             AnimationCurve animationCurve = AnimationCurve.EaseInOut(0, from, duration, to);
 
-            Fade(gameObject, animationCurve);
+            return Fade(gameObject, animationCurve);
 
         }
 
@@ -181,9 +181,9 @@ namespace CandyCoded
         /// <param name="gameObject">GameObject to move.</param>
         /// <param name="newPosition">New Vector3 position.</param>
         /// <param name="duration">Length of the animation in seconds.</param>
-        /// <returns>void</returns>
+        /// <returns>Coroutine</returns>
 
-        public static void MoveTo(GameObject gameObject, Vector3 newPosition, float duration = 1.0f)
+        public static Coroutine MoveTo(GameObject gameObject, Vector3 newPosition, float duration = 1.0f)
         {
 
             Vector3AnimationCurve animationCurve = new Vector3AnimationCurve();
@@ -194,7 +194,7 @@ namespace CandyCoded
             animationCurve.y = AnimationCurve.EaseInOut(0, currentPosition.y, duration, newPosition.y);
             animationCurve.z = AnimationCurve.EaseInOut(0, currentPosition.z, duration, newPosition.z);
 
-            Position(gameObject, animationCurve);
+            return Position(gameObject, animationCurve);
 
         }
 
@@ -271,9 +271,9 @@ namespace CandyCoded
         /// <param name="gameObject">GameObject to rotate.</param>
         /// <param name="newRotation">New Vector3 rotation.</param>
         /// <param name="duration">Length of the animation in seconds.</param>
-        /// <returns>void</returns>
+        /// <returns>Coroutine</returns>
 
-        public static void RotateTo(GameObject gameObject, Vector3 newRotation, float duration = 1.0f)
+        public static Coroutine RotateTo(GameObject gameObject, Vector3 newRotation, float duration = 1.0f)
         {
 
             Vector3AnimationCurve animationCurve = new Vector3AnimationCurve();
@@ -284,7 +284,7 @@ namespace CandyCoded
             animationCurve.y = AnimationCurve.EaseInOut(0, currentRotation.y, duration, newRotation.y);
             animationCurve.z = AnimationCurve.EaseInOut(0, currentRotation.z, duration, newRotation.z);
 
-            Rotation(gameObject, animationCurve);
+            return Rotation(gameObject, animationCurve);
 
         }
 
@@ -325,9 +325,9 @@ namespace CandyCoded
         /// <param name="gameObject">GameObject to scale.</param>
         /// <param name="newScale">New Vector3 scale.</param>
         /// <param name="duration">Length of the animation in seconds.</param>
-        /// <returns>void</returns>
+        /// <returns>Coroutine</returns>
 
-        public static void ScaleTo(GameObject gameObject, Vector3 newScale, float duration = 1.0f)
+        public static Coroutine ScaleTo(GameObject gameObject, Vector3 newScale, float duration = 1.0f)
         {
 
             Vector3AnimationCurve animationCurve = new Vector3AnimationCurve();
@@ -338,7 +338,7 @@ namespace CandyCoded
             animationCurve.y = AnimationCurve.EaseInOut(0, currentScale.y, duration, newScale.y);
             animationCurve.z = AnimationCurve.EaseInOut(0, currentScale.z, duration, newScale.z);
 
-            Scale(gameObject, animationCurve);
+            return Scale(gameObject, animationCurve);
 
         }
 
