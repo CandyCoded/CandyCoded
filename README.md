@@ -266,6 +266,18 @@ Fade a GameObject from 100% to 0% with a duration of 1s.
 CandyCoded.Animate.Fade(gameObject, 1, 0, 1);
 ```
 
+Fade a GameObject with a custom AnimationCurve.
+
+```csharp
+public AnimationCurve animationCurve;
+
+private void Start() {
+
+    CandyCoded.Animate.Fade(gameObject, animationCurve);
+
+}
+```
+
 ![](https://media.giphy.com/media/xULW8zdlmLdaSSXDeU/giphy.gif)
 
 #### MoveTo
