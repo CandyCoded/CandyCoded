@@ -479,7 +479,7 @@ List<RaycastHit> hits;
 Vector3[] linePositions = CandyCoded.Raycast.Reflect(gameObject.transform.position, gameObject.transform.forward, distance, layerMask, out hits);
 ```
 
-![](https://media.giphy.com/media/4YYe7SSCJr8bjlXLtc/giphy.gif)
+![](https://media.giphy.com/media/55tArjOMKt3uUQp9KQ/giphy.gif)
 
 ## ScriptableObject
 
