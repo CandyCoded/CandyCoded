@@ -14,9 +14,8 @@ namespace CandyCoded
         public static Bounds ParentBounds(GameObject gameObject)
         {
 
-            Vector3 center = Vector3.zero;
-            Vector3 min = Vector3.zero;
-            Vector3 max = Vector3.zero;
+            Vector3? min = null;
+            Vector3? max = null;
 
             Bounds bounds = new Bounds();
 
@@ -27,14 +26,35 @@ namespace CandyCoded
 
                 Bounds childBounds = renderer.bounds;
 
-                min = Vector3.Min(min, childBounds.min);
-                max = Vector3.Max(max, childBounds.max);
+                if (!min.HasValue)
+                {
 
-                center = max - min;
+                    min = childBounds.min;
+
+                }
+                else
+                {
+
+                    min = Vector3.Min(min.Value, childBounds.min);
+
+                }
+
+                if (!max.HasValue)
+                {
+
+                    max = childBounds.max;
+
+                }
+                else
+                {
+
+                    max = Vector3.Max(max.Value, childBounds.max);
+
+                }
 
             }
 
-            bounds.SetMinMax(min, max);
+            bounds.SetMinMax(min.Value, max.Value);
 
             return bounds;
 
