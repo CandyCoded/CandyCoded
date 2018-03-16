@@ -18,6 +18,7 @@ public class CalculationTest
     {
 
         GameObject parentGameObject = new GameObject("ParentGameObject");
+        parentGameObject.transform.position = new Vector3(5f, 5f, 5f);
 
         GameObject cube1 = GameObject.CreatePrimitive(PrimitiveType.Cube);
         cube1.transform.position = Vector3.back * 2;
