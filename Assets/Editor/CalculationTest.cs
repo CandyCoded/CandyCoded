@@ -34,10 +34,10 @@ public class CalculationTest
 
         Bounds bounds = CandyCoded.Calculation.ParentBounds(parentGameObject);
 
-        Assert.AreEqual(bounds.center, new Vector3(-0.5f, 0, -1.0f));
-        Assert.AreEqual(bounds.min, new Vector3(-2.5f, -0.5f, -2.5f));
-        Assert.AreEqual(bounds.max, new Vector3(1.5f, 0.5f, 0.5f));
-        Assert.AreEqual(bounds.size, new Vector3(4.0f, 1.0f, 3.0f));
+        Assert.AreEqual(new Vector3(-0.5f, 0, -1.0f), bounds.center);
+        Assert.AreEqual(new Vector3(-2.5f, -0.5f, -2.5f), bounds.min);
+        Assert.AreEqual(new Vector3(1.5f, 0.5f, 0.5f), bounds.max);
+        Assert.AreEqual(new Vector3(4.0f, 1.0f, 3.0f), bounds.size);
 
     }
 

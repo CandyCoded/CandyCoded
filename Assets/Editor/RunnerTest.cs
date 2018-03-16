@@ -25,7 +25,7 @@ public class RunnerTest
 
         runner.AddCoroutine("TestCoroutine", TestCoroutine());
 
-        Assert.AreEqual(runner.coroutines.Count, 1);
+        Assert.AreEqual(1, runner.coroutines.Count);
 
     }
 
@@ -53,11 +53,11 @@ public class RunnerTest
 
         runner.AddCoroutine("TestCoroutine", TestCoroutine());
 
-        Assert.AreEqual(runner.coroutines.Count, 1);
+        Assert.AreEqual(1, runner.coroutines.Count);
 
         runner.RemoveCoroutine("TestCoroutine");
 
-        Assert.AreEqual(runner.coroutines.Count, 0);
+        Assert.AreEqual(0, runner.coroutines.Count);
 
     }
 
@@ -73,11 +73,11 @@ public class RunnerTest
         runner.AddCoroutine("TestCoroutine2", TestCoroutine());
         runner.AddCoroutine("TestCoroutine3", TestCoroutine());
 
-        Assert.AreEqual(runner.coroutines.Count, 3);
+        Assert.AreEqual(3, runner.coroutines.Count);
 
         runner.RemoveAllCoroutines();
 
-        Assert.AreEqual(runner.coroutines.Count, 0);
+        Assert.AreEqual(0, runner.coroutines.Count);
 
     }
 

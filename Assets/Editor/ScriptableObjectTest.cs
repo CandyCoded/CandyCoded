@@ -21,11 +21,11 @@ public class ScriptableObjectTest
 
         boolReference.Value = true;
 
-        Assert.AreEqual(boolReference.Value, true);
+        Assert.AreEqual(true, boolReference.Value);
 
         boolReference.Reset();
 
-        Assert.AreEqual(boolReference.Value, false);
+        Assert.AreEqual(false, boolReference.Value);
 
     }
 
@@ -37,11 +37,11 @@ public class ScriptableObjectTest
 
         floatReference.Value = 1.5f;
 
-        Assert.AreEqual(floatReference.Value, 1.5f);
+        Assert.AreEqual(1.5f, floatReference.Value);
 
         floatReference.Reset();
 
-        Assert.AreEqual(floatReference.Value, 0.0f);
+        Assert.AreEqual(0.0f, floatReference.Value);
 
     }
 
@@ -51,16 +51,16 @@ public class ScriptableObjectTest
 
         CandyCoded.GameObjectListReference gameObjectListReference = ScriptableObject.CreateInstance<CandyCoded.GameObjectListReference>();
 
-        Assert.AreEqual(gameObjectListReference.Items.Count, 0);
+        Assert.AreEqual(0, gameObjectListReference.Items.Count);
 
         gameObjectListReference.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
         gameObjectListReference.Add(GameObject.CreatePrimitive(PrimitiveType.Sphere));
 
-        Assert.AreEqual(gameObjectListReference.Items.Count, 2);
+        Assert.AreEqual(2, gameObjectListReference.Items.Count);
 
         gameObjectListReference.Reset();
 
-        Assert.AreEqual(gameObjectListReference.Items.Count, 0);
+        Assert.AreEqual(0, gameObjectListReference.Items.Count);
 
     }
 
@@ -72,11 +72,11 @@ public class ScriptableObjectTest
 
         intReference.Value = 1;
 
-        Assert.AreEqual(intReference.Value, 1);
+        Assert.AreEqual(1, intReference.Value);
 
         intReference.Reset();
 
-        Assert.AreEqual(intReference.Value, 0);
+        Assert.AreEqual(0, intReference.Value);
 
     }
 
@@ -88,11 +88,11 @@ public class ScriptableObjectTest
 
         stringReference.Value = "Hello, World";
 
-        Assert.AreEqual(stringReference.Value, "Hello, World");
+        Assert.AreEqual("Hello, World", stringReference.Value);
 
         stringReference.Reset();
 
-        Assert.AreEqual(stringReference.Value, null);
+        Assert.AreEqual(null, stringReference.Value);
 
     }
 

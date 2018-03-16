@@ -89,7 +89,7 @@ public class CustomExtensionsTest
             numberRange.Add(i);
         }
 
-        Assert.AreNotEqual(numberRange.Shuffle(), numberRange);
+        Assert.AreNotEqual(numberRange, numberRange.Shuffle());
 
     }
 
@@ -108,7 +108,7 @@ public class CustomExtensionsTest
 
         for (int i = 0; i < 10; i += 1)
         {
-            Assert.AreEqual(numberRange[i], i);
+            Assert.AreEqual(i, numberRange[i]);
         }
 
     }
@@ -119,11 +119,11 @@ public class CustomExtensionsTest
 
         AnimationCurve animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
 
-        Assert.AreEqual(animationCurve.MaxTime(), 1);
+        Assert.AreEqual(1, animationCurve.MaxTime());
 
         animationCurve = AnimationCurve.Linear(0, 0, 5, 1);
 
-        Assert.AreEqual(animationCurve.MaxTime(), 5);
+        Assert.AreEqual(5, animationCurve.MaxTime());
 
     }
 
