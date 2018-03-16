@@ -11,6 +11,21 @@ namespace CandyCoded
         public AnimationCurve y;
 
         /// <summary>
+        /// Creates a clone of the Vector2AnimationCurve object.
+        /// </summary>
+        /// <returns>Vector2AnimationCurve</returns>
+        public Vector2AnimationCurve Clone()
+        {
+
+            return new Vector2AnimationCurve
+            {
+                x = new AnimationCurve(x.keys),
+                y = new AnimationCurve(y.keys)
+            };
+
+        }
+
+        /// <summary>
         /// Checks the x and y animation curves to see if either of them loop.
         /// </summary>
         /// <returns>bool</returns>
@@ -72,6 +87,22 @@ namespace CandyCoded
         public AnimationCurve x;
         public AnimationCurve y;
         public AnimationCurve z;
+
+        /// <summary>
+        /// Creates a clone of the Vector3AnimationCurve object.
+        /// </summary>
+        /// <returns>Vector3AnimationCurve</returns>
+        public Vector3AnimationCurve Clone()
+        {
+
+            return new Vector3AnimationCurve
+            {
+                x = new AnimationCurve(x.keys),
+                y = new AnimationCurve(y.keys),
+                z = new AnimationCurve(z.keys)
+            };
+
+        }
 
         /// <summary>
         /// Checks the x, y and z animation curves to see if any of them loop.
