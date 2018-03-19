@@ -88,6 +88,20 @@ private void Update()
 }
 ```
 
+#### EditKeyframeValue
+
+Edit the values of the corresponding keyframes in a Vector3AnimationCurve leaving the time and curve of each keyframe untouched.
+
+```csharp
+public CandyCoded.Vector3AnimationCurve animationCurve;
+
+private void Start() {
+
+    animationCurve.EditKeyframeValue(0, new Vector3(10, 10, 10));
+
+}
+```
+
 **Note:** This struct is compatible with CandyCoded's [Animate](#animate) methods [Position](#position), [Scale](#scale), and [Rotate](#rotate).
 
 ## Components
@@ -144,6 +158,20 @@ Attach this component to a GameObject with a ParticleSystem that doesn't loop an
 ## Custom Extensions
 
 ### AnimationCurve
+
+#### EditKeyframeValue
+
+Edit the value of a keyframe in an AnimationCurve leaving the time and curve untouched.
+
+```csharp
+public AnimationCurve animationCurve;
+
+private void Start() {
+
+    animationCurve.EditKeyframeValue(0, 10);
+
+}
+```
 
 #### IsLooping
 
