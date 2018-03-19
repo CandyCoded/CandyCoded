@@ -65,6 +65,36 @@ public class CustomExtensionsTest
     }
 
     [Test]
+    public void EditKeyframeValueAnimationCurve()
+    {
+
+        AnimationCurve animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
+
+        animationCurve.EditKeyframeValue(0, 10);
+
+        Assert.AreEqual(10, animationCurve.keys[0].value);
+
+    }
+
+    [Test]
+    public void EditKeyframeValueVector3AnimationCurve()
+    {
+
+        CandyCoded.Vector3AnimationCurve animationCurve = new CandyCoded.Vector3AnimationCurve();
+
+        animationCurve.x = AnimationCurve.Linear(0, 0, 1, 1);
+        animationCurve.y = AnimationCurve.Linear(0, 0, 1, 1);
+        animationCurve.z = AnimationCurve.Linear(0, 0, 1, 1);
+
+        animationCurve.EditKeyframeValue(0, new Vector3(10, 15, 20));
+
+        Assert.AreEqual(10, animationCurve.x.keys[0].value);
+        Assert.AreEqual(15, animationCurve.y.keys[0].value);
+        Assert.AreEqual(20, animationCurve.z.keys[0].value);
+
+    }
+
+    [Test]
     public void IsLoopingAnimationCurve()
     {
 

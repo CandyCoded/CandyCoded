@@ -61,6 +61,38 @@ public static class CustomExtensions
     }
 
     /// <summary>
+    /// Edit the value of a keyframe in an AnimationCurve leaving the time and curve untouched.
+    /// </summary>
+    /// <param name="key">Key of keyframe to modify.</param>
+    /// <param name="value">Value to update keyframe with.</param>
+    /// <returns>void</returns>
+    public static void EditKeyframeValue(this AnimationCurve animationCurve, int key, float value)
+    {
+
+        Keyframe[] keys = animationCurve.keys;
+
+        keys[key].value = value;
+
+        animationCurve.keys = keys;
+
+    }
+
+    /// <summary>
+    /// Edit the values of the corresponding keyframes in a Vector3AnimationCurve leaving the time and curve of each keyframe untouched.
+    /// </summary>
+    /// <param name="key">Key of each keyframe to modify.</param>
+    /// <param name="vector">Vector to update each corresponding keyframe with.</param>
+    /// <returns>void</returns>
+    public static void EditKeyframeValue(this CandyCoded.Vector3AnimationCurve animationCurve, int key, Vector3 vector)
+    {
+
+        animationCurve.x.EditKeyframeValue(key, vector.x);
+        animationCurve.y.EditKeyframeValue(key, vector.y);
+        animationCurve.z.EditKeyframeValue(key, vector.z);
+
+    }
+
+    /// <summary>
     /// Tests to see if AnimationCurve loops.
     /// </summary>
     /// <returns>bool</returns>
