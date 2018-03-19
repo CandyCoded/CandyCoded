@@ -13,6 +13,9 @@
 
 - [Structs](#structs)
     - [Vector3AnimationCurve](#vector3animationcurve)
+        - [EditKeyframeValue](#editkeyframevalue)
+        - [IsLooping](#islooping)
+        - [MaxTime](#maxtime)
 - [Components](#components)
     - [CameraFollow2D](#camerafollow2d)
     - [CameraFollow3D](#camerafollow3d)
@@ -21,8 +24,9 @@
     - [SelfDestructParticleSystem](#selfdestructparticlesystem)
 - [Custom Extensions](#custom-extensions)
     - [AnimationCurve](#animationcurve)
-        - [IsLooping](#islooping)
-        - [MaxTime](#maxtime)
+        - [EditKeyframeValue](#editkeyframevalue-1)
+        - [IsLooping](#islooping-1)
+        - [MaxTime](#maxtime-1)
     - [GameObject](#gameobject)
         - [AddOrGetComponent](#addorgetcomponent)
     - [Int](#int)
@@ -98,6 +102,34 @@ public CandyCoded.Vector3AnimationCurve animationCurve;
 private void Start() {
 
     animationCurve.EditKeyframeValue(0, new Vector3(10, 10, 10));
+
+}
+```
+
+#### IsLooping
+
+Tests to see if AnimationCurve loops.
+
+```csharp
+public CandyCoded.Vector3AnimationCurve animationCurve;
+
+private void Start() {
+
+    Debug.Log(animationCurve.IsLooping());
+
+}
+```
+
+#### MaxTime
+
+Returns duration of the AnimationCurve.
+
+```csharp
+public CandyCoded.Vector3AnimationCurve animationCurve;
+
+private void Start() {
+
+    Debug.Log(animationCurve.MaxTime());
 
 }
 ```
