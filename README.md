@@ -108,7 +108,7 @@ private void Start() {
 
 #### IsLooping
 
-Tests to see if AnimationCurve loops.
+Tests to see if Vector3AnimationCurve loops.
 
 ```csharp
 public CandyCoded.Vector3AnimationCurve animationCurve;
@@ -122,7 +122,7 @@ private void Start() {
 
 #### MaxTime
 
-Returns duration of the AnimationCurve.
+Returns duration of the Vector3AnimationCurve.
 
 ```csharp
 public CandyCoded.Vector3AnimationCurve animationCurve;
