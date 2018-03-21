@@ -94,10 +94,9 @@ namespace CandyCoded
             {
 
                 activeGameObjects.Remove(gameObject);
+                inactiveGameObjects.Add(gameObject);
 
             }
-
-            inactiveGameObjects.Add(gameObject);
 
             gameObject.SetActive(false);
 
