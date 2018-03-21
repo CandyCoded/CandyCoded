@@ -6,7 +6,7 @@ if [ ! -d "$HOME/cache" ]; then
 
 fi
 
-URL="https://netstorage.unity3d.com/unity/fc1d3344e6ea/MacEditorInstaller/Unity-2017.3.1f1.pkg"
+URL="https://download.unity3d.com/download_unity/b5bd171ee9ba/MacEditorInstaller/Unity-2017.4.0f1.pkg"
 FILENAME=`basename "$URL"`
 
 if [ ! -f "$HOME/cache/$FILENAME" ]; then
