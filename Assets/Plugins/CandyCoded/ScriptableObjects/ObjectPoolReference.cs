@@ -111,7 +111,32 @@ namespace CandyCoded
         public override void Reset()
         {
 
+            for (int i = 0; i < activeGameObjects.Count; i += 1)
+            {
+
+                if (activeGameObjects[i])
+                {
+
+                    Object.Destroy(activeGameObjects[i]);
+
+                }
+
+            }
+
             activeGameObjects.Clear();
+
+            for (int i = 0; i < inactiveGameObjects.Count; i += 1)
+            {
+
+                if (inactiveGameObjects[i])
+                {
+
+                    Object.Destroy(inactiveGameObjects[i]);
+
+                }
+
+            }
+
             inactiveGameObjects.Clear();
 
         }
