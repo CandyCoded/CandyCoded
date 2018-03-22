@@ -6,15 +6,15 @@ namespace CandyCoded
     public class SelfDestructParticleSystem : MonoBehaviour
     {
 
-        public ParticleSystem ps;
+        public new ParticleSystem particleSystem;
 
         private void Awake()
         {
 
-            if (ps == null)
+            if (particleSystem == null)
             {
 
-                ps = gameObject.GetComponent<ParticleSystem>();
+                particleSystem = gameObject.GetComponent<ParticleSystem>();
 
             }
 
@@ -23,7 +23,7 @@ namespace CandyCoded
         private void LateUpdate()
         {
 
-            if (ps && !ps.IsAlive())
+            if (particleSystem && !particleSystem.IsAlive())
             {
 
                 Destroy(gameObject);
