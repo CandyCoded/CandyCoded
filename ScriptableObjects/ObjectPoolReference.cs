@@ -13,11 +13,8 @@ namespace CandyCoded
         public float minObjects = 10;
         public float maxObjects = 1000;
 
-        [SerializeField]
         private List<GameObject> activeGameObjects = new List<GameObject>();
-
-        [SerializeField]
-        private List<GameObject> inactiveGameObjects = new List<GameObject>();
+        private Queue<GameObject> inactiveGameObjects = new Queue<GameObject>();
 
         public void PopulatePool()
         {
@@ -31,7 +28,7 @@ namespace CandyCoded
 
                 gameObject.SetActive(false);
 
-                inactiveGameObjects.Add(gameObject);
+                inactiveGameObjects.Enqueue(gameObject);
 
             }
 
@@ -47,12 +44,10 @@ namespace CandyCoded
             if (inactiveGameObjects.Count > 0)
             {
 
-                gameObject = inactiveGameObjects[0];
+                gameObject = inactiveGameObjects.Dequeue();
                 gameObject.transform.position = position;
                 gameObject.transform.rotation = rotation;
                 gameObject.SetActive(true);
-
-                inactiveGameObjects.RemoveAt(0);
 
             }
             else if (inactiveGameObjects.Count + activeGameObjects.Count < maxObjects)
@@ -100,7 +95,7 @@ namespace CandyCoded
             if (!inactiveGameObjects.Contains(gameObject))
             {
 
-                inactiveGameObjects.Add(gameObject);
+                inactiveGameObjects.Enqueue(gameObject);
 
             }
 
@@ -125,19 +120,19 @@ namespace CandyCoded
 
             activeGameObjects.Clear();
 
-            for (int i = 0; i < inactiveGameObjects.Count; i += 1)
+            while (inactiveGameObjects.Count > 0)
             {
 
-                if (inactiveGameObjects[i])
+                GameObject gameObject = inactiveGameObjects.Dequeue();
+
+                if (gameObject)
                 {
 
-                    Object.Destroy(inactiveGameObjects[i]);
+                    Object.Destroy(gameObject);
 
                 }
 
             }
-
-            inactiveGameObjects.Clear();
 
         }
 
