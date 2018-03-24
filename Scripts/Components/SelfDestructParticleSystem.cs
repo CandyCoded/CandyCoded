@@ -6,7 +6,8 @@ namespace CandyCoded
     public class SelfDestructParticleSystem : MonoBehaviour
     {
 
-        public new ParticleSystem particleSystem;
+        [SerializeField]
+        private new ParticleSystem particleSystem;
 
         private void Awake()
         {
