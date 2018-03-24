@@ -29,7 +29,8 @@ namespace CandyCoded
 
         public float dampRate = 0.3f;
 
-        public CameraConstraints2D constraints;
+        [SerializeField]
+        private CameraConstraints2D constraints;
 
         private Transform cameraTransform;
         private float cameraOrthographicSize;
