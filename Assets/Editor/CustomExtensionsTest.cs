@@ -95,6 +95,22 @@ public class CustomExtensionsTest
     }
 
     [Test]
+    public void EditKeyframeValueVector2AnimationCurve()
+    {
+
+        CandyCoded.Vector2AnimationCurve animationCurve = new CandyCoded.Vector2AnimationCurve();
+
+        animationCurve.x = AnimationCurve.Linear(0, 0, 1, 1);
+        animationCurve.y = AnimationCurve.Linear(0, 0, 1, 1);
+
+        animationCurve.EditKeyframeValue(0, new Vector2(10, 15));
+
+        Assert.AreEqual(10, animationCurve.x.keys[0].value);
+        Assert.AreEqual(15, animationCurve.y.keys[0].value);
+
+    }
+
+    [Test]
     public void IsLoopingAnimationCurve()
     {
 
