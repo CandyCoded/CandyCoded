@@ -173,4 +173,60 @@ public static class CustomExtensions
 
     }
 
+    /// <summary>
+    /// Returns a shallow copy of a portion of a list.
+    /// </summary>
+    /// <param name="index">Index of list to start at.</param>
+    /// <param name="count">Number of items to return.</param>
+    /// <returns>List<typeparamref name="T"/>></returns>
+    public static List<T> Slice<T>(this List<T> list, int index = 0, int count = 1)
+    {
+
+        List<T> items = list.GetRange(index, count);
+
+        return items;
+
+    }
+
+    /// <summary>
+    /// Returns a shallow copy of a portion of a list.
+    /// </summary>
+    /// <param name="count">Number of items to return.</param>
+    /// <returns>List<typeparamref name="T"/>></returns>
+    public static List<T> Slice<T>(this List<T> list, int count = 1)
+    {
+
+        return list.Slice(0, count);
+
+    }
+
+    /// <summary>
+    /// Removes and returns a shallow copy of a portion of a list.
+    /// </summary>
+    /// <param name="index">Index of list to start at.</param>
+    /// <param name="count">Number of items to return and remove.</param>
+    /// <returns>List<typeparamref name="T"/>></returns>
+    public static List<T> Splice<T>(this List<T> list, int index = 0, int count = 1)
+    {
+
+        List<T> items = list.GetRange(index, count);
+
+        list.RemoveRange(index, count);
+
+        return items;
+
+    }
+
+    /// <summary>
+    /// Removes and returns a shallow copy of a portion of a list.
+    /// </summary>
+    /// <param name="count">Number of items to return and remove.</param>
+    /// <returns>List<typeparamref name="T"/>></returns>
+    public static List<T> Splice<T>(this List<T> list, int count = 1)
+    {
+
+        return list.Splice(0, count);
+
+    }
+
 }
