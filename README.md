@@ -35,6 +35,8 @@
         - [Contains](#contains-1)
     - [List](#list)
         - [Shuffle](#shuffle)
+        - [Slice](#slice)
+        - [Splice](#splice)
     - [Transform](#transform)
         - [LookAt2D](#lookat2d)
 - [Static Methods](#static-methods)
@@ -286,6 +288,24 @@ Creates a new copy of a list and shuffles the values.
 ```csharp
 List<float> randomValues = new List<float>();
 shuffledRandomValues = randomValues.Shuffle();
+```
+
+#### Slice
+
+Returns a shallow copy of a portion of a list.
+
+```csharp
+List<float> randomValues = new List<float>();
+shuffledRandomValues = randomValues.Slice(0, 1);
+```
+
+#### Splice
+
+Removes and returns a shallow copy of a portion of a list.
+
+```csharp
+List<float> randomValues = new List<float>();
+shuffledRandomValues = randomValues.Splice(0, 1);
 ```
 
 ### Transform
