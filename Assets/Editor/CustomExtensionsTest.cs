@@ -144,6 +144,70 @@ public class CustomExtensionsTest
     }
 
     [Test]
+    public void ListSlice()
+    {
+
+        List<int> numberRange = new List<int>();
+
+        for (int i = 0; i < 10; i += 1)
+        {
+            numberRange.Add(i);
+        }
+
+        Assert.AreEqual(2, numberRange.Slice(1, 2).Count);
+        Assert.AreEqual(10, numberRange.Count);
+
+    }
+
+    [Test]
+    public void ListSliceWithoutIndex()
+    {
+
+        List<int> numberRange = new List<int>();
+
+        for (int i = 0; i < 10; i += 1)
+        {
+            numberRange.Add(i);
+        }
+
+        Assert.AreEqual(2, numberRange.Slice(2).Count);
+        Assert.AreEqual(10, numberRange.Count);
+
+    }
+
+    [Test]
+    public void ListSplice()
+    {
+
+        List<int> numberRange = new List<int>();
+
+        for (int i = 0; i < 10; i += 1)
+        {
+            numberRange.Add(i);
+        }
+
+        Assert.AreEqual(2, numberRange.Splice(1, 2).Count);
+        Assert.AreEqual(8, numberRange.Count);
+
+    }
+
+    [Test]
+    public void ListSpliceWithoutIndex()
+    {
+
+        List<int> numberRange = new List<int>();
+
+        for (int i = 0; i < 10; i += 1)
+        {
+            numberRange.Add(i);
+        }
+
+        Assert.AreEqual(2, numberRange.Splice(2).Count);
+        Assert.AreEqual(8, numberRange.Count);
+
+    }
+
+    [Test]
     public void MaxTimeAnimationCurve()
     {
 
