@@ -81,7 +81,7 @@ public static class CustomExtensions
     /// Edit the values of the corresponding keyframes in a Vector3AnimationCurve leaving the time and curve of each keyframe untouched.
     /// </summary>
     /// <param name="key">Key of each keyframe to modify.</param>
-    /// <param name="vector">Vector to update each corresponding keyframe with.</param>
+    /// <param name="vector">Vector3 to update each corresponding keyframe with.</param>
     /// <returns>void</returns>
     public static void EditKeyframeValue(this CandyCoded.Vector3AnimationCurve animationCurve, int key, Vector3 vector)
     {
@@ -89,6 +89,20 @@ public static class CustomExtensions
         animationCurve.x.EditKeyframeValue(key, vector.x);
         animationCurve.y.EditKeyframeValue(key, vector.y);
         animationCurve.z.EditKeyframeValue(key, vector.z);
+
+    }
+
+    /// <summary>
+    /// Edit the values of the corresponding keyframes in a Vector2AnimationCurve leaving the time and curve of each keyframe untouched.
+    /// </summary>
+    /// <param name="key">Key of each keyframe to modify.</param>
+    /// <param name="vector">Vector2 to update each corresponding keyframe with.</param>
+    /// <returns>void</returns>
+    public static void EditKeyframeValue(this CandyCoded.Vector2AnimationCurve animationCurve, int key, Vector2 vector)
+    {
+
+        animationCurve.x.EditKeyframeValue(key, vector.x);
+        animationCurve.y.EditKeyframeValue(key, vector.y);
 
     }
 
