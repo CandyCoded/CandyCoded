@@ -155,6 +155,7 @@ public class CustomExtensionsTest
         }
 
         Assert.AreEqual(2, numberRange.Slice(1, 2).Count);
+        Assert.AreEqual(10, numberRange.Count);
 
     }
 
@@ -170,6 +171,7 @@ public class CustomExtensionsTest
         }
 
         Assert.AreEqual(2, numberRange.Slice(2).Count);
+        Assert.AreEqual(10, numberRange.Count);
 
     }
 
