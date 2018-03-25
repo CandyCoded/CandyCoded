@@ -161,7 +161,7 @@ public static class CustomExtensions
 
             int randomIndex = UnityEngine.Random.Range(i, count);
 
-            var tempValue = shuffledList[i];
+            T tempValue = shuffledList[i];
 
             shuffledList[i] = shuffledList[randomIndex];
 
