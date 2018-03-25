@@ -81,7 +81,7 @@ public static class CustomExtensions
     /// Edit the values of the corresponding keyframes in a Vector3AnimationCurve leaving the time and curve of each keyframe untouched.
     /// </summary>
     /// <param name="key">Key of each keyframe to modify.</param>
-    /// <param name="vector">Vector to update each corresponding keyframe with.</param>
+    /// <param name="vector">Vector3 to update each corresponding keyframe with.</param>
     /// <returns>void</returns>
     public static void EditKeyframeValue(this CandyCoded.Vector3AnimationCurve animationCurve, int key, Vector3 vector)
     {
@@ -89,6 +89,20 @@ public static class CustomExtensions
         animationCurve.x.EditKeyframeValue(key, vector.x);
         animationCurve.y.EditKeyframeValue(key, vector.y);
         animationCurve.z.EditKeyframeValue(key, vector.z);
+
+    }
+
+    /// <summary>
+    /// Edit the values of the corresponding keyframes in a Vector2AnimationCurve leaving the time and curve of each keyframe untouched.
+    /// </summary>
+    /// <param name="key">Key of each keyframe to modify.</param>
+    /// <param name="vector">Vector2 to update each corresponding keyframe with.</param>
+    /// <returns>void</returns>
+    public static void EditKeyframeValue(this CandyCoded.Vector2AnimationCurve animationCurve, int key, Vector2 vector)
+    {
+
+        animationCurve.x.EditKeyframeValue(key, vector.x);
+        animationCurve.y.EditKeyframeValue(key, vector.y);
 
     }
 
@@ -161,7 +175,7 @@ public static class CustomExtensions
 
             int randomIndex = UnityEngine.Random.Range(i, count);
 
-            var tempValue = shuffledList[i];
+            T tempValue = shuffledList[i];
 
             shuffledList[i] = shuffledList[randomIndex];
 
@@ -170,6 +184,62 @@ public static class CustomExtensions
         }
 
         return shuffledList;
+
+    }
+
+    /// <summary>
+    /// Returns a shallow copy of a portion of a list.
+    /// </summary>
+    /// <param name="index">Index of list to start at.</param>
+    /// <param name="count">Number of items to return.</param>
+    /// <returns>List<typeparamref name="T"/>></returns>
+    public static List<T> Slice<T>(this List<T> list, int index, int count)
+    {
+
+        List<T> items = list.GetRange(index, count);
+
+        return items;
+
+    }
+
+    /// <summary>
+    /// Returns a shallow copy of a portion of a list.
+    /// </summary>
+    /// <param name="count">Number of items to return.</param>
+    /// <returns>List<typeparamref name="T"/>></returns>
+    public static List<T> Slice<T>(this List<T> list, int count = 1)
+    {
+
+        return list.Slice(0, count);
+
+    }
+
+    /// <summary>
+    /// Removes and returns a shallow copy of a portion of a list.
+    /// </summary>
+    /// <param name="index">Index of list to start at.</param>
+    /// <param name="count">Number of items to return and remove.</param>
+    /// <returns>List<typeparamref name="T"/>></returns>
+    public static List<T> Splice<T>(this List<T> list, int index, int count)
+    {
+
+        List<T> items = list.GetRange(index, count);
+
+        list.RemoveRange(index, count);
+
+        return items;
+
+    }
+
+    /// <summary>
+    /// Removes and returns a shallow copy of a portion of a list.
+    /// </summary>
+    /// <param name="count">Number of items to return and remove.</param>
+    /// <returns>List<typeparamref name="T"/>></returns>
+    public static List<T> Splice<T>(this List<T> list, int count = 1)
+    {
+
+        return list.Splice(0, count);
 
     }
 
