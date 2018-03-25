@@ -92,6 +92,29 @@ public class CustomExtensionsTest
         Assert.AreEqual(15, animationCurve.y.keys[0].value);
         Assert.AreEqual(20, animationCurve.z.keys[0].value);
 
+        Assert.AreEqual(1, animationCurve.x.keys[1].value);
+        Assert.AreEqual(1, animationCurve.y.keys[1].value);
+        Assert.AreEqual(1, animationCurve.z.keys[1].value);
+
+    }
+
+    [Test]
+    public void EditKeyframeValueVector2AnimationCurve()
+    {
+
+        CandyCoded.Vector2AnimationCurve animationCurve = new CandyCoded.Vector2AnimationCurve();
+
+        animationCurve.x = AnimationCurve.Linear(0, 0, 1, 1);
+        animationCurve.y = AnimationCurve.Linear(0, 0, 1, 1);
+
+        animationCurve.EditKeyframeValue(0, new Vector2(10, 15));
+
+        Assert.AreEqual(10, animationCurve.x.keys[0].value);
+        Assert.AreEqual(15, animationCurve.y.keys[0].value);
+
+        Assert.AreEqual(1, animationCurve.x.keys[1].value);
+        Assert.AreEqual(1, animationCurve.y.keys[1].value);
+
     }
 
     [Test]
@@ -140,6 +163,70 @@ public class CustomExtensionsTest
         {
             Assert.AreEqual(i, numberRange[i]);
         }
+
+    }
+
+    [Test]
+    public void ListSlice()
+    {
+
+        List<int> numberRange = new List<int>();
+
+        for (int i = 0; i < 10; i += 1)
+        {
+            numberRange.Add(i);
+        }
+
+        Assert.AreEqual(2, numberRange.Slice(1, 2).Count);
+        Assert.AreEqual(10, numberRange.Count);
+
+    }
+
+    [Test]
+    public void ListSliceWithoutIndex()
+    {
+
+        List<int> numberRange = new List<int>();
+
+        for (int i = 0; i < 10; i += 1)
+        {
+            numberRange.Add(i);
+        }
+
+        Assert.AreEqual(2, numberRange.Slice(2).Count);
+        Assert.AreEqual(10, numberRange.Count);
+
+    }
+
+    [Test]
+    public void ListSplice()
+    {
+
+        List<int> numberRange = new List<int>();
+
+        for (int i = 0; i < 10; i += 1)
+        {
+            numberRange.Add(i);
+        }
+
+        Assert.AreEqual(2, numberRange.Splice(1, 2).Count);
+        Assert.AreEqual(8, numberRange.Count);
+
+    }
+
+    [Test]
+    public void ListSpliceWithoutIndex()
+    {
+
+        List<int> numberRange = new List<int>();
+
+        for (int i = 0; i < 10; i += 1)
+        {
+            numberRange.Add(i);
+        }
+
+        Assert.AreEqual(2, numberRange.Splice(2).Count);
+        Assert.AreEqual(8, numberRange.Count);
 
     }
 

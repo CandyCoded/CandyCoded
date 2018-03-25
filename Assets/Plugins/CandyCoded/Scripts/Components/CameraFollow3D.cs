@@ -28,7 +28,8 @@ namespace CandyCoded
         public float dampRate = 0.3f;
         public float rotateSpeed = 5f;
 
-        public CameraConstraints3D constraints;
+        [SerializeField]
+        private CameraConstraints3D constraints;
 
         private Transform cameraTransform;
 
