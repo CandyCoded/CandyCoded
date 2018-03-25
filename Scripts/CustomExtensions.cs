@@ -179,7 +179,7 @@ public static class CustomExtensions
     /// <param name="index">Index of list to start at.</param>
     /// <param name="count">Number of items to return.</param>
     /// <returns>List<typeparamref name="T"/>></returns>
-    public static List<T> Slice<T>(this List<T> list, int index = 0, int count = 1)
+    public static List<T> Slice<T>(this List<T> list, int index, int count)
     {
 
         List<T> items = list.GetRange(index, count);
@@ -206,7 +206,7 @@ public static class CustomExtensions
     /// <param name="index">Index of list to start at.</param>
     /// <param name="count">Number of items to return and remove.</param>
     /// <returns>List<typeparamref name="T"/>></returns>
-    public static List<T> Splice<T>(this List<T> list, int index = 0, int count = 1)
+    public static List<T> Splice<T>(this List<T> list, int index, int count)
     {
 
         List<T> items = list.GetRange(index, count);
