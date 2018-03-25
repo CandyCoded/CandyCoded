@@ -92,6 +92,10 @@ public class CustomExtensionsTest
         Assert.AreEqual(15, animationCurve.y.keys[0].value);
         Assert.AreEqual(20, animationCurve.z.keys[0].value);
 
+        Assert.AreEqual(1, animationCurve.x.keys[1].value);
+        Assert.AreEqual(1, animationCurve.y.keys[1].value);
+        Assert.AreEqual(1, animationCurve.z.keys[1].value);
+
     }
 
     [Test]
@@ -107,6 +111,9 @@ public class CustomExtensionsTest
 
         Assert.AreEqual(10, animationCurve.x.keys[0].value);
         Assert.AreEqual(15, animationCurve.y.keys[0].value);
+
+        Assert.AreEqual(1, animationCurve.x.keys[1].value);
+        Assert.AreEqual(1, animationCurve.y.keys[1].value);
 
     }
 
