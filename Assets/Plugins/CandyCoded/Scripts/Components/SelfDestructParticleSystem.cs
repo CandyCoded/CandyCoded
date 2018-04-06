@@ -7,15 +7,15 @@ namespace CandyCoded
     {
 
         [SerializeField]
-        private new ParticleSystem particleSystem;
+        private ParticleSystem ps;
 
         private void Awake()
         {
 
-            if (particleSystem == null)
+            if (ps == null)
             {
 
-                particleSystem = gameObject.GetComponent<ParticleSystem>();
+                ps = gameObject.GetComponent<ParticleSystem>();
 
             }
 
@@ -24,7 +24,7 @@ namespace CandyCoded
         private void LateUpdate()
         {
 
-            if (particleSystem && !particleSystem.IsAlive())
+            if (ps && !ps.IsAlive())
             {
 
                 Destroy(gameObject);
