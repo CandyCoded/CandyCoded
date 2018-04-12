@@ -67,7 +67,7 @@
     - [GameObjectList](#gameobjectlist)
     - [Int](#int-1)
     - [String](#string)
-    - [Creating Custom Scriptable Objects](#creating-custom-scriptable-objects)
+    - [CustomGenericScriptableObject](#customgenericscriptableobject)
 - [Unity Editor Extensions](#unity-editor-extensions)
     - [DisplayInInspector](#displayininspector)
     - [EnumMask](#enummask)
@@ -595,7 +595,7 @@ Each ScriptableObject has a `value` and a `defaultValue`. The `value` can be mod
 
 ![](https://i.imgur.com/cJslkol.png)
 
-## Creating Custom Scriptable Objects
+## CustomGenericScriptableObject
 
 ```csharp
 [CreateAssetMenu]
