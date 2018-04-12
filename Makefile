@@ -10,8 +10,8 @@ build:
 
 docs-tools:
 	brew update
-	brew install pandoc
 	brew cask install basictex
+	brew install pandoc
 
 docs:
 	rm -rf Assets/Plugins/CandyCoded/Documentation/
