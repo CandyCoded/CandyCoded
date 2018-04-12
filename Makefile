@@ -5,6 +5,7 @@ install:
 	Scripts/install.sh
 
 build:
+	Scripts/build_docs.sh
 	Scripts/build.sh
 
 docs-tools:

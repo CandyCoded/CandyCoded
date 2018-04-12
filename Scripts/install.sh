@@ -16,5 +16,8 @@ if [ ! -f "$HOME/cache/$FILENAME" ]; then
 
 fi
 
+echo "Installing pandoc"
+make docs-tools
+
 echo "Installing Unity"
 sudo installer -dumplog -package "$HOME/cache/$FILENAME" -target /
