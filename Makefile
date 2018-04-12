@@ -9,6 +9,7 @@ build:
 	Scripts/build.sh
 
 docs-tools:
+	brew update
 	brew install pandoc
 	brew cask install basictex
 
