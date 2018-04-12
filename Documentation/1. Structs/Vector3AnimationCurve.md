@@ -1,0 +1,60 @@
+### Vector3AnimationCurve
+
+![](https://i.imgur.com/OUL02NQ.png)
+
+Similar to Unity's `AnimationCurve`, but instead contains 3 `AnimationCurve` properties (`x`, `y`, and `z`) and can be evaluated in the same way as `AnimationCurve` to return a new `Vector3`. A `Vector2AnimationCurve` struct is also available for generating `Vector2` values.
+
+```csharp
+public CandyCoded.Vector3AnimationCurve animationCurve;
+
+private void Update()
+{
+
+    gameObject.transform.position = animationCurve.Evaluate(Time.time);
+
+}
+```
+
+#### EditKeyframeValue
+
+Edit the values of the corresponding keyframes in a Vector3AnimationCurve leaving the time and curve of each keyframe untouched.
+
+```csharp
+public CandyCoded.Vector3AnimationCurve animationCurve;
+
+private void Start() {
+
+    animationCurve.EditKeyframeValue(0, new Vector3(10, 10, 10));
+
+}
+```
+
+#### IsLooping
+
+Tests to see if Vector3AnimationCurve loops.
+
+```csharp
+public CandyCoded.Vector3AnimationCurve animationCurve;
+
+private void Start() {
+
+    Debug.Log(animationCurve.IsLooping());
+
+}
+```
+
+#### MaxTime
+
+Returns duration of the Vector3AnimationCurve.
+
+```csharp
+public CandyCoded.Vector3AnimationCurve animationCurve;
+
+private void Start() {
+
+    Debug.Log(animationCurve.MaxTime());
+
+}
+```
+
+**Note:** This struct is compatible with CandyCoded's [Animate](#animate) methods [Position](#position), [Scale](#scale), and [Rotate](#rotate).
