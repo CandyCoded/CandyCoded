@@ -5,7 +5,7 @@ install:
 	Scripts/install.sh
 
 build:
-	Scripts/build_docs.sh
+	export PATH="/Library/TeX/texbin":$$PATH && Scripts/build_docs.sh
 	Scripts/build.sh
 
 docs-tools:
