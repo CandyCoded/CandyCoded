@@ -1,10 +1,10 @@
 ### Animate
 
+#### Fade
+
 **Note:** For fade animations to work you need to have materials with a blend mode of fade.
 
 ![](https://i.imgur.com/J9gS7pc.png)
-
-#### Fade
 
 **Note:** 100% alpha is relative to each GameObject's initial alpha value. This is to prevent materials with custom alpha values from being reset.
 
