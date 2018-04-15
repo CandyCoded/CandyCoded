@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.0.0-beta.3 (April 15, 2018)
+
+### Features
+
+- Plugin documentaion <https://github.com/neogeek/CandyCoded/pull/17>
+
+### Bug Fixes
+
+- Changed variable name to prevent inherited member warning. <https://github.com/neogeek/CandyCoded/pull/16>
+
 ## v1.0.0-beta.2 (March 25, 2018)
 
 ### Features
