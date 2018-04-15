@@ -11,6 +11,8 @@
 
 ## Contents
 
+- [Introduction](Documentation/Introduction.md)
+- [Getting Started](Documentation/Getting%20Started.md)
 - [Structs](Documentation/1.%20Structs/)
     - [Vector3AnimationCurve](Documentation/1.%20Structs/Vector3AnimationCurve.md)
         - [EditKeyframeValue](Documentation/1.%20Structs/Vector3AnimationCurve.md#editkeyframevalue)
