@@ -9,7 +9,7 @@
 
 ### Unity Asset Store
 
-_Coming Soon_
+<https://assetstore.unity.com/packages/tools/animation/candycoded-115239>
 
 ### Direct Install
 
