@@ -9,7 +9,7 @@ fi
 echo "Installing pandoc"
 make docs-tools
 
-URL="https://download.unity3d.com/download_unity/9231f953d9d3/MacEditorInstaller/Unity-2017.4.1f1.pkg"
+URL="https://download.unity3d.com/download_unity/d4d99f31acba/MacEditorInstaller/Unity-2018.1.0f2.pkg"
 FILENAME=`basename "$URL"`
 
 if [ ! -f "$HOME/cache/$FILENAME" ]; then
