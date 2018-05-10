@@ -34,7 +34,7 @@ namespace CandyCoded
 
         }
 
-        public GameObject Instantiate(Vector3 position, Quaternion rotation)
+        public GameObject Spawn(Vector3 position, Quaternion rotation)
         {
 
             if (!prefab) return null;
@@ -68,17 +68,17 @@ namespace CandyCoded
 
         }
 
-        public GameObject Instantiate(Vector3 position)
+        public GameObject Spawn(Vector3 position)
         {
 
-            return Instantiate(position, Quaternion.identity);
+            return Spawn(position, Quaternion.identity);
 
         }
 
-        public GameObject Instantiate()
+        public GameObject Spawn()
         {
 
-            return Instantiate(Vector3.zero, Quaternion.identity);
+            return Spawn(Vector3.zero, Quaternion.identity);
 
         }
 
