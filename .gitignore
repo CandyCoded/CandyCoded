@@ -39,7 +39,7 @@ sysinfo.txt
 /.vscode/
 
 /ProjectSettings/
-/UnityPackageManager/
+/Packages/
 
 /*.log
 /*.xml
