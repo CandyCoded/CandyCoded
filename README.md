@@ -7,7 +7,29 @@
 
 ## Installation
 
+### Unity Asset Store
+
+<https://assetstore.unity.com/packages/tools/animation/candycoded-115239>
+
+### Direct Install
+
 [Download Latest `CandyCoded.unitypackage`](https://github.com/neogeek/CandyCoded/releases)
+
+### Unity Package Manager _(Unity 2018)_
+
+<https://docs.unity3d.com/Packages/com.unity.package-manager-ui@1.8/manual/index.html>
+
+#### Install
+
+```bash
+$ git submodule add git@github.com:neogeek/CandyCoded.git Packages/CandyCoded/
+```
+
+#### Update
+
+```bash
+$ git submodule update --remote
+```
 
 ## Contents
 
