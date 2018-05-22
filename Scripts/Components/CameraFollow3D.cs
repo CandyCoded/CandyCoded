@@ -53,7 +53,7 @@ namespace CandyCoded
             }
 
             tempSecondaryTarget = new GameObject("SecondayTarget (temp)");
-            tempSecondaryTarget.transform.position = gameObject.transform.forward;
+            tempSecondaryTarget.transform.position = gameObject.transform.position + gameObject.transform.forward;
             tempSecondaryTarget.transform.parent = mainTarget;
 
             lookAtPosition = tempSecondaryTarget.transform.position;
