@@ -38,8 +38,8 @@ sysinfo.txt
 
 /.vscode/
 
+/Packages/
 /ProjectSettings/
-/UnityPackageManager/
 
 /*.log
 /*.xml
