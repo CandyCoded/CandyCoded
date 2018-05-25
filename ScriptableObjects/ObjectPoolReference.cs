@@ -11,7 +11,6 @@ namespace CandyCoded
         public GameObject prefab;
 
         public float minObjects = 10;
-        public float maxObjects = 1000;
 
         private List<GameObject> activeGameObjects = new List<GameObject>();
         private Queue<GameObject> inactiveGameObjects = new Queue<GameObject>();
@@ -50,19 +49,14 @@ namespace CandyCoded
                 gameObject.SetActive(true);
 
             }
-            else if (inactiveGameObjects.Count + activeGameObjects.Count < maxObjects)
+            else
             {
 
                 gameObject = Instantiate(prefab, position, rotation);
 
             }
 
-            if (gameObject)
-            {
-
-                activeGameObjects.Add(gameObject);
-
-            }
+            activeGameObjects.Add(gameObject);
 
             return gameObject;
 
