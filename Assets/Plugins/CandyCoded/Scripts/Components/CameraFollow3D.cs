@@ -22,6 +22,7 @@ namespace CandyCoded
         public bool tracking = true;
         public bool rotating = true;
 
+        public Transform cameraTransform;
         public Transform mainTarget;
         public Transform secondaryTarget;
 
@@ -30,8 +31,6 @@ namespace CandyCoded
 
         [SerializeField]
         private CameraConstraints3D constraints;
-
-        private Transform cameraTransform;
 
         private Vector3 cameraPositionOffset;
 
@@ -43,7 +42,12 @@ namespace CandyCoded
         private void Awake()
         {
 
-            cameraTransform = Camera.main.transform;
+            if (cameraTransform == null)
+            {
+
+                cameraTransform = Camera.main.transform;
+
+            }
 
             if (mainTarget == null)
             {
@@ -53,7 +57,7 @@ namespace CandyCoded
             }
 
             tempSecondaryTarget = new GameObject("SecondayTarget (temp)");
-            tempSecondaryTarget.transform.position = gameObject.transform.forward;
+            tempSecondaryTarget.transform.position = gameObject.transform.position + gameObject.transform.forward;
             tempSecondaryTarget.transform.parent = mainTarget;
 
             lookAtPosition = tempSecondaryTarget.transform.position;

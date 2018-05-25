@@ -38,8 +38,8 @@ sysinfo.txt
 
 /.vscode/
 
-/ProjectSettings/
 /Packages/
+/ProjectSettings/
 
 /*.log
 /*.xml

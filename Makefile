@@ -19,7 +19,7 @@ docs:
 
 clean:
 	rm -rf Library/
+	rm -rf Packages/
 	rm -rf ProjectSettings/
-	rm -rf UnityPackageManager/
 	rm test.xml
 	rm unity.log
