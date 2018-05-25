@@ -89,11 +89,11 @@ namespace CandyCoded
             if (!inactiveGameObjects.Contains(gameObject))
             {
 
+                gameObject.SetActive(false);
+
                 inactiveGameObjects.Enqueue(gameObject);
 
             }
-
-            gameObject.SetActive(false);
 
         }
 
