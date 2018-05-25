@@ -10,7 +10,7 @@ namespace CandyCoded
 
         public GameObject prefab;
 
-        public float minObjects = 10;
+        public int minObjects = 10;
 
         private List<GameObject> activeGameObjects = new List<GameObject>();
         private Queue<GameObject> inactiveGameObjects = new Queue<GameObject>();
