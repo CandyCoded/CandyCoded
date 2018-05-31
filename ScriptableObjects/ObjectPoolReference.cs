@@ -97,15 +97,16 @@ namespace CandyCoded
 
         }
 
-        public void DestoryAllActiveObjects() {
+        public void DestoryAllActiveObjects()
+        {
 
-            for (int i = 0; i < activeGameObjects.Count; i += 1)
+            while (activeGameObjects.Count > 0)
             {
 
-                if (activeGameObjects[i])
+                if (activeGameObjects[0])
                 {
 
-                    Destroy(activeGameObjects[i]);
+                    Destroy(activeGameObjects[0]);
 
                 }
 
