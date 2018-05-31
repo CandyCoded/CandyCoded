@@ -2,7 +2,7 @@
 
 if [ ! -d "$HOME/cache" ]; then
 
-    mkdir -p -m 777 "$HOME/cache"
+    mkdir -m 777 "$HOME/cache"
 
 fi
 
@@ -10,7 +10,7 @@ echo "Installing pandoc"
 make docs-tools
 
 URL="https://download.unity3d.com/download_unity/9231f953d9d3/MacEditorInstaller/Unity-2017.4.1f1.pkg"
-FILENAME=`basename "$URL"`
+FILENAME=$(basename "$URL")
 
 if [ ! -f "$HOME/cache/$FILENAME" ]; then
 
