@@ -147,13 +147,6 @@ namespace CandyCoded
 
         }
 
-        private void OnDisable()
-        {
-
-            Reset();
-
-        }
-
     }
 
 }
