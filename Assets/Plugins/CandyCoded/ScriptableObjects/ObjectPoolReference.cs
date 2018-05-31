@@ -23,7 +23,7 @@ namespace CandyCoded
             for (int i = 0; i < minObjects; i += 1)
             {
 
-                GameObject gameObject = Instantiate(prefab, Vector3.zero, Quaternion.identity);
+                GameObject gameObject = Instantiate(prefab);
 
                 gameObject.SetActive(false);
 
