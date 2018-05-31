@@ -98,16 +98,16 @@ namespace CandyCoded
                 else
                 {
 
-                    if (constraints.maintainOffsetX) newPosition.x += cameraPositionOffset.x;
-                    if (constraints.maintainOffsetZ) newPosition.z += cameraPositionOffset.z;
+                    if (constraints.maintainOffsetX) { newPosition.x += cameraPositionOffset.x; }
+                    if (constraints.maintainOffsetZ) { newPosition.z += cameraPositionOffset.z; }
 
                 }
 
-                if (constraints.maintainOffsetY) newPosition.y += cameraPositionOffset.y;
+                if (constraints.maintainOffsetY) { newPosition.y += cameraPositionOffset.y; }
 
-                if (constraints.freezePositionX) newPosition.x = cameraTransform.position.x;
-                if (constraints.freezePositionY) newPosition.y = cameraTransform.position.y;
-                if (constraints.freezePositionZ) newPosition.z = cameraTransform.position.z;
+                if (constraints.freezePositionX) { newPosition.x = cameraTransform.position.x; }
+                if (constraints.freezePositionY) { newPosition.y = cameraTransform.position.y; }
+                if (constraints.freezePositionZ) { newPosition.z = cameraTransform.position.z; }
 
                 cameraTransform.position = Vector3.SmoothDamp(
                     cameraTransform.position,

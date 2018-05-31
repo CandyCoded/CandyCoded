@@ -18,7 +18,7 @@ namespace CandyCoded
         public void PopulatePool()
         {
 
-            if (!prefab) return;
+            if (!prefab) { return; }
 
             for (int i = 0; i < minObjects; i += 1)
             {
@@ -36,7 +36,7 @@ namespace CandyCoded
         public GameObject Spawn(Vector3 position, Quaternion rotation)
         {
 
-            if (!prefab) return null;
+            if (!prefab) { return null; }
 
             GameObject gameObject = null;
 
