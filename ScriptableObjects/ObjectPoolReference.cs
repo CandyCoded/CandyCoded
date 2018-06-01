@@ -76,7 +76,7 @@ namespace CandyCoded
 
         }
 
-        public void Destroy(GameObject gameObject)
+        public void Release(GameObject gameObject)
         {
 
             if (activeGameObjects.Contains(gameObject))
@@ -97,7 +97,7 @@ namespace CandyCoded
 
         }
 
-        public void DestoryAllActiveObjects()
+        public void ReleaseAllActiveObjects()
         {
 
             while (activeGameObjects.Count > 0)
@@ -106,7 +106,7 @@ namespace CandyCoded
                 if (activeGameObjects[0])
                 {
 
-                    Destroy(activeGameObjects[0]);
+                    Release(activeGameObjects[0]);
 
                 }
 
@@ -123,7 +123,7 @@ namespace CandyCoded
                 if (activeGameObjects[i])
                 {
 
-                    Object.Destroy(activeGameObjects[i]);
+                    Destroy(activeGameObjects[i]);
 
                 }
 
@@ -139,7 +139,7 @@ namespace CandyCoded
                 if (gameObject)
                 {
 
-                    Object.Destroy(gameObject);
+                    Destroy(gameObject);
 
                 }
 
