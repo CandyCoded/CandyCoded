@@ -1,5 +1,7 @@
 ### GameObjectList
 
-Each ScriptableObject has a `value` and a `defaultValue`. The `value` can be modified via script, the `defaultValue` can not. A `Reset` method is publicly available to reset the `value` to equal the `defaultValue`. This method is also accessible via the inspector.
+This ScriptableObject is extended from [List](List.md).
+
+A `Reset` method is publicly available to clear the `Items` list. This method is also accessible via the inspector.
 
 ![](https://i.imgur.com/x60IcUO.png)

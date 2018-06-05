@@ -91,6 +91,7 @@ $ git submodule update --remote
     - [Float](Documentation/5.%20ScriptableObject/Float.md)
     - [GameObjectList](Documentation/5.%20ScriptableObject/GameObjectList.md)
     - [Int](Documentation/5.%20ScriptableObject/Int.md)
+    - [List](Documentation/5.%20ScriptableObject/List.md)
     - [String](Documentation/5.%20ScriptableObject/String.md)
     - [CustomGenericScriptableObject](Documentation/5.%20ScriptableObject/CustomGenericScriptableObject.md)
 - [Unity Editor Extensions](Documentation/6.%20Unity%20Editor%20Extensions/)
