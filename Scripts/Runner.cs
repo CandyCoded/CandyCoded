@@ -8,6 +8,8 @@ namespace CandyCoded
     public class Runner : MonoBehaviour
     {
 
+        public delegate void OneShotFunc();
+
         public Dictionary<string, Coroutine> coroutines = new Dictionary<string, Coroutine>();
 
         /// <summary>
@@ -61,6 +63,35 @@ namespace CandyCoded
             }
 
             coroutines.Clear();
+
+        }
+
+        /// <summary>
+        /// Wraps an anonymous method in an IEnumerator. Continues after the defined number of seconds.
+        /// </summary>
+        /// <param name="oneShotFunc">An anonymous method with no parameters.</param>
+        /// <param name="delayInSeconds">Seconds to wait after calling the anonymous method.</param>
+        /// <returns>IEnumerator</returns>
+        public static IEnumerator OneShot(OneShotFunc oneShotFunc, float delayInSeconds)
+        {
+
+            oneShotFunc();
+
+            yield return new WaitForSeconds(delayInSeconds);
+
+        }
+
+        /// <summary>
+        /// Wraps an anonymous method in an IEnumerator. Continues on the next frame.
+        /// </summary>
+        /// <param name="oneShotFunc">An anonymous method with no parameters.</param>
+        /// <returns>IEnumerator</returns>
+        public static IEnumerator OneShot(OneShotFunc oneShotFunc)
+        {
+
+            oneShotFunc();
+
+            yield return null;
 
         }
 
