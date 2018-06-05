@@ -66,12 +66,12 @@ namespace CandyCoded
 
         }
 
-        public static IEnumerator OneShot(OneShotFunc oneShotFunc, float seconds)
+        public static IEnumerator OneShot(OneShotFunc oneShotFunc, float delayInSeconds)
         {
 
             oneShotFunc();
 
-            yield return new WaitForSeconds(seconds);
+            yield return new WaitForSeconds(delayInSeconds);
 
         }
 
