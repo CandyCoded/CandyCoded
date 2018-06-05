@@ -86,6 +86,7 @@ $ git submodule update --remote
         - [SetColorAlpha](Documentation/4.%20Static%20Methods/Materials.md#setcoloralpha)
     - [Raycast](Documentation/4.%20Static%20Methods/Raycast.md)
         - [Reflect](Documentation/4.%20Static%20Methods/Raycast.md#reflect)
+    - [Runner](Documentation/4.%20Static%20Methods/Runner.md)
 - [ScriptableObject](Documentation/5.%20ScriptableObject/)
     - [Bool](Documentation/5.%20ScriptableObject/Bool.md)
     - [Float](Documentation/5.%20ScriptableObject/Float.md)
