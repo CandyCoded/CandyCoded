@@ -8,6 +8,8 @@ namespace CandyCoded
     public class Runner : MonoBehaviour
     {
 
+        public delegate void OneShotFunc();
+
         public Dictionary<string, Coroutine> coroutines = new Dictionary<string, Coroutine>();
 
         /// <summary>
@@ -61,6 +63,60 @@ namespace CandyCoded
             }
 
             coroutines.Clear();
+
+        }
+
+        public static IEnumerator OneShot(OneShotFunc oneShotFunc, float seconds)
+        {
+
+            oneShotFunc();
+
+            yield return new WaitForSeconds(seconds);
+
+        }
+
+        public static IEnumerator OneShot(OneShotFunc oneShotFunc)
+        {
+
+            oneShotFunc();
+
+            yield return null;
+
+        }
+
+        public static IEnumerator OneShot(Coroutine oneShotFunc, float seconds)
+        {
+
+            yield return oneShotFunc;
+
+            yield return new WaitForSeconds(seconds);
+
+        }
+
+        public static IEnumerator OneShot(Coroutine oneShotFunc)
+        {
+
+            yield return oneShotFunc;
+
+            yield return null;
+
+        }
+
+        public static IEnumerator OneShot(IEnumerator oneShotFunc, float seconds)
+        {
+
+            yield return oneShotFunc;
+
+            yield return new WaitForSeconds(seconds);
+
+        }
+
+        public static IEnumerator OneShot(IEnumerator oneShotFunc)
+        {
+
+            yield return oneShotFunc;
+
+            yield return null;
 
         }
 
