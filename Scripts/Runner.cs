@@ -84,42 +84,6 @@ namespace CandyCoded
 
         }
 
-        public static IEnumerator OneShot(Coroutine oneShotFunc, float seconds)
-        {
-
-            yield return oneShotFunc;
-
-            yield return new WaitForSeconds(seconds);
-
-        }
-
-        public static IEnumerator OneShot(Coroutine oneShotFunc)
-        {
-
-            yield return oneShotFunc;
-
-            yield return null;
-
-        }
-
-        public static IEnumerator OneShot(IEnumerator oneShotFunc, float seconds)
-        {
-
-            yield return oneShotFunc;
-
-            yield return new WaitForSeconds(seconds);
-
-        }
-
-        public static IEnumerator OneShot(IEnumerator oneShotFunc)
-        {
-
-            yield return oneShotFunc;
-
-            yield return null;
-
-        }
-
     }
 
 }
