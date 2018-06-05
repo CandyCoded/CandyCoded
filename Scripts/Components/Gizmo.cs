@@ -26,7 +26,9 @@ namespace CandyCoded
         [HideInInspector]
         public Vector3 size = Vector3.one;
         [HideInInspector]
-        public Vector3 target = Vector3.zero;
+        public Vector3 endPosition = Vector3.zero;
+        [HideInInspector]
+        public bool relativeEndPosition = false;
         [HideInInspector]
         public float radius = 1.0f;
 
@@ -43,7 +45,18 @@ namespace CandyCoded
                     break;
 
                 case GIZMO_TYPE.Line:
-                    Gizmos.DrawLine(gameObject.transform.position + offset, target);
+                    if (relativeEndPosition)
+                    {
+
+                        Gizmos.DrawLine(gameObject.transform.position + offset, gameObject.transform.position + offset + endPosition);
+
+                    }
+                    else
+                    {
+
+                        Gizmos.DrawLine(gameObject.transform.position + offset, endPosition);
+
+                    }
                     break;
 
                 case GIZMO_TYPE.Sphere:
@@ -84,7 +97,8 @@ namespace CandyCoded
                 case GIZMO_TYPE.Line:
                     script.color = EditorGUILayout.ColorField("Color", script.color);
                     script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
-                    script.target = EditorGUILayout.Vector3Field("Target", script.target);
+                    script.endPosition = EditorGUILayout.Vector3Field("End Position", script.endPosition);
+                    script.relativeEndPosition = EditorGUILayout.Toggle("Relative End Position", script.relativeEndPosition);
                     break;
 
                 case GIZMO_TYPE.Sphere:
