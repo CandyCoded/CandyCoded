@@ -2,7 +2,7 @@
 
 The ObjectPool ScriptableObject is used to quickly Instantiate and Destroy hundreds of GameObjects without running into performance issues due to garbage collection.
 
-Start by creating a new ObjectPoolReference ScriptableObject from Assets > Create > CandyCoded > ObjectPoolReference.
+Start by creating a new ObjectPoolReference ScriptableObject from **Assets** > **Create** > **CandyCoded** > **ObjectPoolReference**.
 
 Drag the prefab you are going to Instantiate into the newly created ObjectPoolReference and specify the number of GameObjects to Instantiate on start.
 
