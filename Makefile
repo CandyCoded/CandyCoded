@@ -16,6 +16,7 @@ docs-tools:
 docs:
 	rm -rf Assets/Plugins/CandyCoded/Documentation/
 	export PATH="/Library/TeX/texbin":$$PATH && Scripts/build_docs.sh
+	cp Documentation/Version.txt Assets/Plugins/CandyCoded/Documentation/
 
 clean:
 	rm -rf Library/
