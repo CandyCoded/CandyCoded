@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.0.0-beta.4 (June 8, 2018)
+
+### Features
+
+- Added Runner OneShot method <https://github.com/neogeek/CandyCoded/pull/21>
+- Added relative end position toggle to line Gizmo component <https://github.com/neogeek/CandyCoded/pull/20>
+- Object pool reference <https://github.com/neogeek/CandyCoded/pull/19>
+
+### Bug Fixes
+
+- Fix camera follow 3d position <https://github.com/neogeek/CandyCoded/pull/18>
+
 ## v1.0.0-beta.3 (April 15, 2018)
 
 ### Features
