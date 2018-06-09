@@ -6,7 +6,7 @@ namespace CandyCoded
     public abstract class CustomGenericScriptableObject<T> : CustomScriptableObject
     {
 
-        public delegate void EventHandler();
+        public delegate void EventHandler(T updatedValue);
         public event EventHandler UpdateEvent;
         public event EventHandler ResetEvent;
 
@@ -21,7 +21,7 @@ namespace CandyCoded
 
                 if (UpdateEvent != null)
                 {
-                    UpdateEvent();
+                    UpdateEvent(_value);
                 }
 
             }
@@ -46,7 +46,7 @@ namespace CandyCoded
 
             if (ResetEvent != null)
             {
-                ResetEvent();
+                ResetEvent(_value);
             }
 
         }
