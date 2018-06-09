@@ -1,27 +1,32 @@
 ﻿using UnityEngine;
 
-public class BillboardTowardsCamera : MonoBehaviour
+namespace CandyCoded
 {
 
-    [SerializeField]
-    private Transform mainCamera;
-
-    private void Awake()
+    public class BillboardTowardsCamera : MonoBehaviour
     {
 
-        if (mainCamera == null)
+        [SerializeField]
+        private Transform mainCamera;
+
+        private void Awake()
         {
 
-            mainCamera = Camera.main.transform;
+            if (mainCamera == null)
+            {
+
+                mainCamera = Camera.main.transform;
+
+            }
 
         }
 
-    }
+        private void Update()
+        {
 
-    private void Update()
-    {
+            gameObject.transform.LookAt(gameObject.transform.position + mainCamera.rotation * Vector3.forward);
 
-        gameObject.transform.LookAt(gameObject.transform.position + mainCamera.rotation * Vector3.forward);
+        }
 
     }
 
