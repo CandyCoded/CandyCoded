@@ -5,3 +5,27 @@ Each ScriptableObject has a `value` and a `defaultValue`. The `value` can be mod
 A `Reset` method is publicly available to reset the `value` to equal the `defaultValue`. This method is also accessible via the inspector.
 
 ![](https://i.imgur.com/xMX202E.png)
+
+Event handlers for update and reset events are available to each ScriptableObject with `value` and `defaultValue` properties.
+
+```csharp
+private void Awake()
+{
+
+    floatReference.UpdateEvent += OnScriptableObjectUpdate;
+    floatReference.ResetEvent += OnScriptableObjectReset;
+
+}
+```
+
+Make sure that when adding a handler to either event to make sure and remove it when the script it is associated with is disabled.
+
+```csharp
+private void OnDisable()
+{
+
+    floatReference.UpdateEvent -= OnScriptableObjectUpdate;
+    floatReference.ResetEvent -= OnScriptableObjectReset;
+
+}
+```
