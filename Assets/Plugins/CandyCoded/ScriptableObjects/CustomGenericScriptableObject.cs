@@ -6,7 +6,27 @@ namespace CandyCoded
     public abstract class CustomGenericScriptableObject<T> : CustomScriptableObject
     {
 
-        public T Value;
+        public delegate void EventHandler(T updatedValue);
+        public event EventHandler UpdateEvent;
+        public event EventHandler ResetEvent;
+
+        [SerializeField]
+        private T _value;
+        public T Value
+        {
+            set
+            {
+
+                _value = value;
+
+                if (UpdateEvent != null)
+                {
+                    UpdateEvent(_value);
+                }
+
+            }
+            get { return _value; }
+        }
 
         [SerializeField]
         private T _defaultValue;
@@ -22,7 +42,12 @@ namespace CandyCoded
         public override void Reset()
         {
 
-            Value = DefaultValue;
+            _value = DefaultValue;
+
+            if (ResetEvent != null)
+            {
+                ResetEvent(_value);
+            }
 
         }
 
