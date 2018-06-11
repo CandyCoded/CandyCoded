@@ -9,7 +9,7 @@ A `Reset` method is publicly available to reset the `value` to equal the `defaul
 Event handlers for update and reset events are available to each ScriptableObject with `value` and `defaultValue` properties.
 
 ```csharp
-private void Awake()
+private void OnEnable()
 {
 
     floatReference.UpdateEvent += OnScriptableObjectUpdate;

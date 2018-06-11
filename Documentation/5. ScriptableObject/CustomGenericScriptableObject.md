@@ -17,7 +17,7 @@ public class Vector3Reference : CandyCoded.CustomGenericScriptableObject<Vector3
 Event handlers for update and reset events are available to each ScriptableObject with `value` and `defaultValue` properties.
 
 ```csharp
-private void Awake()
+private void OnEnable()
 {
 
     scriptableObjectReference.UpdateEvent += OnScriptableObjectUpdate;
