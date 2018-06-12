@@ -8,7 +8,7 @@ namespace CandyCoded
     {
 
         [Serializable]
-        private struct CameraConstraints : IEquatable<CameraConstraints>
+        private struct CameraConstraints2D : IEquatable<CameraConstraints2D>
         {
             [Header("Freeze Original Position")]
             public bool freezePositionX;
@@ -21,7 +21,7 @@ namespace CandyCoded
             [Header("(or)")]
             [Header("Restrict Viewport to Manually Defined Bounds")]
             public Bounds bounds;
-            public bool Equals(CameraConstraints other)
+            public bool Equals(CameraConstraints2D other)
             {
 
                 return other.freezePositionX == freezePositionX &&
@@ -41,7 +41,7 @@ namespace CandyCoded
         public float dampRate = 0.3f;
 
         [SerializeField]
-        private CameraConstraints constraints;
+        private CameraConstraints2D constraints;
 
         private Transform cameraTransform;
         private float cameraOrthographicSize;
