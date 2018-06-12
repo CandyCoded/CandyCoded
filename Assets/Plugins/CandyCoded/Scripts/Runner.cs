@@ -10,7 +10,15 @@ namespace CandyCoded
 
         public delegate void OneShotFunc();
 
-        public Dictionary<string, Coroutine> coroutines = new Dictionary<string, Coroutine>();
+        private Dictionary<string, Coroutine> _coroutines = new Dictionary<string, Coroutine>();
+
+        public Dictionary<string, Coroutine> Coroutines
+        {
+            get
+            {
+                return _coroutines;
+            }
+        }
 
         /// <summary>
         /// Starts and adds a coroutine to a list.
@@ -21,9 +29,9 @@ namespace CandyCoded
         public Coroutine AddCoroutine(string coroutineKey, IEnumerator routine)
         {
 
-            coroutines.Add(coroutineKey, StartCoroutine(routine));
+            _coroutines.Add(coroutineKey, StartCoroutine(routine));
 
-            return coroutines[coroutineKey];
+            return _coroutines[coroutineKey];
 
         }
 
@@ -35,12 +43,12 @@ namespace CandyCoded
         public void RemoveCoroutine(string coroutineKey)
         {
 
-            if (coroutines.ContainsKey(coroutineKey))
+            if (_coroutines.ContainsKey(coroutineKey))
             {
 
-                StopCoroutine(coroutines[coroutineKey]);
+                StopCoroutine(_coroutines[coroutineKey]);
 
-                coroutines.Remove(coroutineKey);
+                _coroutines.Remove(coroutineKey);
 
             }
 
@@ -53,16 +61,16 @@ namespace CandyCoded
         public void RemoveAllCoroutines()
         {
 
-            List<string> coroutineKeys = new List<string>(coroutines.Keys);
+            List<string> coroutineKeys = new List<string>(_coroutines.Keys);
 
             foreach (string coroutineKey in coroutineKeys)
             {
 
-                StopCoroutine(coroutines[coroutineKey]);
+                StopCoroutine(_coroutines[coroutineKey]);
 
             }
 
-            coroutines.Clear();
+            _coroutines.Clear();
 
         }
 
