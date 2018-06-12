@@ -30,17 +30,19 @@ namespace CandyCoded
 
             float remainingDistance = distance;
 
+            Vector3 currentDirection = direction;
+
             while (remainingDistance > 0)
             {
 
-                if (Physics.Raycast(linePositions[linePositions.Count - 1], direction, out hitInfo, remainingDistance, layerMask, QueryTriggerInteraction.Ignore))
+                if (Physics.Raycast(linePositions[linePositions.Count - 1], currentDirection, out hitInfo, remainingDistance, layerMask, QueryTriggerInteraction.Ignore))
                 {
 
                     remainingDistance -= Vector3.Distance(linePositions[linePositions.Count - 1], hitInfo.point);
 
                     linePositions.Add(hitInfo.point);
 
-                    direction = Vector3.Reflect(direction, hitInfo.normal);
+                    currentDirection = Vector3.Reflect(currentDirection, hitInfo.normal);
 
                     hits.Add(hitInfo);
 
@@ -48,7 +50,7 @@ namespace CandyCoded
                 else
                 {
 
-                    linePositions.Add(linePositions[linePositions.Count - 1] + remainingDistance * direction);
+                    linePositions.Add(linePositions[linePositions.Count - 1] + remainingDistance * currentDirection);
 
                     remainingDistance = 0;
 
