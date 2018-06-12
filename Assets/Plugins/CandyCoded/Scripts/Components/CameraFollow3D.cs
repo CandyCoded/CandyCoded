@@ -3,21 +3,21 @@ using UnityEngine;
 namespace CandyCoded
 {
 
-    [System.Serializable]
-    public struct CameraConstraints3D
-    {
-        [Header("Freeze Original Position")]
-        public bool freezePositionX;
-        public bool freezePositionY;
-        public bool freezePositionZ;
-        [Header("Maintain Original Offset")]
-        public bool maintainOffsetX;
-        public bool maintainOffsetY;
-        public bool maintainOffsetZ;
-    }
-
     public class CameraFollow3D : MonoBehaviour
     {
+
+        [System.Serializable]
+        private struct CameraConstraints
+        {
+            [Header("Freeze Original Position")]
+            public bool freezePositionX;
+            public bool freezePositionY;
+            public bool freezePositionZ;
+            [Header("Maintain Original Offset")]
+            public bool maintainOffsetX;
+            public bool maintainOffsetY;
+            public bool maintainOffsetZ;
+        }
 
         public bool tracking = true;
         public bool rotating = true;
@@ -30,7 +30,7 @@ namespace CandyCoded
         public float rotateSpeed = 5f;
 
         [SerializeField]
-        private CameraConstraints3D constraints;
+        private CameraConstraints constraints;
 
         private Vector3 cameraPositionOffset;
 

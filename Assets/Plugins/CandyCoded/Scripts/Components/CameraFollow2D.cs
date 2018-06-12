@@ -4,24 +4,24 @@ using UnityEngine;
 namespace CandyCoded
 {
 
-    [System.Serializable]
-    public struct CameraConstraints2D
-    {
-        [Header("Freeze Original Position")]
-        public bool freezePositionX;
-        public bool freezePositionY;
-        [Header("Maintain Original Offset")]
-        public bool maintainOffsetX;
-        public bool maintainOffsetY;
-        [Header("Restrict Viewport to Transform")]
-        public Transform boundsTransform;
-        [Header("(or)")]
-        [Header("Restrict Viewport to Manually Defined Bounds")]
-        public Bounds bounds;
-    }
-
     public class CameraFollow2D : MonoBehaviour
     {
+
+        [Serializable]
+        private struct CameraConstraints
+        {
+            [Header("Freeze Original Position")]
+            public bool freezePositionX;
+            public bool freezePositionY;
+            [Header("Maintain Original Offset")]
+            public bool maintainOffsetX;
+            public bool maintainOffsetY;
+            [Header("Restrict Viewport to Transform")]
+            public Transform boundsTransform;
+            [Header("(or)")]
+            [Header("Restrict Viewport to Manually Defined Bounds")]
+            public Bounds bounds;
+        }
 
         public bool tracking = true;
 
@@ -30,7 +30,7 @@ namespace CandyCoded
         public float dampRate = 0.3f;
 
         [SerializeField]
-        private CameraConstraints2D constraints;
+        private CameraConstraints constraints;
 
         private Transform cameraTransform;
         private float cameraOrthographicSize;
