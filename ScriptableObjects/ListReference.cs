@@ -6,11 +6,15 @@ namespace CandyCoded
     public abstract class ListReference<T> : CustomScriptableObject
     {
 
-        public List<T> Items = new List<T>();
+        private List<T> _items = new List<T>();
+        public List<T> Items
+        {
+            get { return _items; }
+        }
 
         public int Count
         {
-            get { return Items.Count; }
+            get { return _items.Count; }
         }
 
         /// <summary>
@@ -21,10 +25,10 @@ namespace CandyCoded
         public void Add(T item)
         {
 
-            if (!Items.Contains(item))
+            if (!_items.Contains(item))
             {
 
-                Items.Add(item);
+                _items.Add(item);
 
             }
 
@@ -38,7 +42,7 @@ namespace CandyCoded
         public bool Remove(T item)
         {
 
-            return Items.Remove(item);
+            return _items.Remove(item);
 
         }
 
@@ -49,7 +53,7 @@ namespace CandyCoded
         public void Clear()
         {
 
-            Items.Clear();
+            _items.Clear();
 
         }
 
