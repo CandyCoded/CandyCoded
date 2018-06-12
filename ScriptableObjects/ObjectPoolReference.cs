@@ -8,9 +8,11 @@ namespace CandyCoded
     public class ObjectPoolReference : CustomScriptableObject
     {
 
-        public GameObject prefab;
+        [SerializeField]
+        private GameObject prefab;
 
-        public int minObjects = 10;
+        [SerializeField]
+        private int minObjects = 10;
 
         private List<GameObject> activeGameObjects = new List<GameObject>();
         private Queue<GameObject> inactiveGameObjects = new Queue<GameObject>();
