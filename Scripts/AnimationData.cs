@@ -1,20 +1,33 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CandyCoded
 {
 
-    public struct TransformData
+    public struct TransformData : IEquatable<TransformData>
     {
         public Vector3 position;
         public Vector3 scale;
         public Quaternion rotation;
+        public bool Equals(TransformData transformData)
+        {
+
+            return transformData.position == position && transformData.scale == scale && transformData.rotation == rotation;
+
+        }
     }
 
-    public struct MaterialData
+    public struct MaterialData : IEquatable<MaterialData>
     {
         public Material material;
         public Color startColor;
+        public bool Equals(MaterialData materialData)
+        {
+
+            return materialData.material == material && materialData.startColor == startColor;
+
+        }
     }
 
     public class AnimationData : MonoBehaviour
