@@ -10,10 +10,10 @@ namespace CandyCoded
         public Vector3 position;
         public Vector3 scale;
         public Quaternion rotation;
-        public bool Equals(TransformData transformData)
+        public bool Equals(TransformData other)
         {
 
-            return transformData.position == position && transformData.scale == scale && transformData.rotation == rotation;
+            return other.position == position && other.scale == scale && other.rotation == rotation;
 
         }
     }
@@ -22,10 +22,10 @@ namespace CandyCoded
     {
         public Material material;
         public Color startColor;
-        public bool Equals(MaterialData materialData)
+        public bool Equals(MaterialData other)
         {
 
-            return materialData.material == material && materialData.startColor == startColor;
+            return other.material == material && other.startColor == startColor;
 
         }
     }
