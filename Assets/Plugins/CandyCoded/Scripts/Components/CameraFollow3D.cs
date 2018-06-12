@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace CandyCoded
@@ -6,8 +7,8 @@ namespace CandyCoded
     public class CameraFollow3D : MonoBehaviour
     {
 
-        [System.Serializable]
-        private struct CameraConstraints
+        [Serializable]
+        private struct CameraConstraints : IEquatable<CameraConstraints>
         {
             [Header("Freeze Original Position")]
             public bool freezePositionX;
@@ -17,6 +18,17 @@ namespace CandyCoded
             public bool maintainOffsetX;
             public bool maintainOffsetY;
             public bool maintainOffsetZ;
+            public bool Equals(CameraConstraints other)
+            {
+
+                return other.freezePositionX == freezePositionX &&
+                            other.freezePositionY == freezePositionY &&
+                            other.freezePositionZ == freezePositionZ &&
+                            other.maintainOffsetX == maintainOffsetX &&
+                            other.maintainOffsetY == maintainOffsetY &&
+                            other.maintainOffsetZ == maintainOffsetZ;
+
+            }
         }
 
         public bool tracking = true;
