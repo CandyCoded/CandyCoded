@@ -8,7 +8,7 @@ namespace CandyCoded
     {
 
         [Serializable]
-        private struct CameraConstraints : IEquatable<CameraConstraints>
+        private struct CameraConstraints3D : IEquatable<CameraConstraints3D>
         {
             [Header("Freeze Original Position")]
             public bool freezePositionX;
@@ -18,7 +18,7 @@ namespace CandyCoded
             public bool maintainOffsetX;
             public bool maintainOffsetY;
             public bool maintainOffsetZ;
-            public bool Equals(CameraConstraints other)
+            public bool Equals(CameraConstraints3D other)
             {
 
                 return other.freezePositionX == freezePositionX &&
@@ -42,7 +42,7 @@ namespace CandyCoded
         public float rotateSpeed = 5f;
 
         [SerializeField]
-        private CameraConstraints constraints;
+        private CameraConstraints3D constraints;
 
         private Vector3 cameraPositionOffset;
 
