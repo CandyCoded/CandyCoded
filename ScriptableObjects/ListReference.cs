@@ -10,6 +10,7 @@ namespace CandyCoded
         public List<T> Items
         {
             get { return _items; }
+            set { _items = value; }
         }
 
         public int Count
