@@ -225,13 +225,25 @@ namespace CandyCoded
         /// <param name="animationData">AnimationData object containing cached transform data.</param>
         /// <returns>void</returns>
 
-        public static void PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime, AnimationData animationData = null)
+        public static void PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime, AnimationData animationData)
         {
 
-            if (animationData == null)
-            {
-                animationData = gameObject.AddOrGetComponent<AnimationData>();
-            }
+            gameObject.transform.localPosition = animationData.TransformData.position + animationCurve.Evaluate(elapsedTime);
+
+        }
+
+        /// <summary>
+        /// Changes the position of a GameObject, relative to it's original position, to the evaluated Vector3 calulcated from a Vector3AnimationCurve object.
+        /// </summary>
+        /// <param name="gameObject">GameObject to move.</param>
+        /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
+        /// <param name="elapsedTime">The time elapsed since the animation started.</param>
+        /// <returns>void</returns>
+
+        public static void PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime)
+        {
+
+            AnimationData animationData = gameObject.AddOrGetComponent<AnimationData>();
 
             gameObject.transform.localPosition = animationData.TransformData.position + animationCurve.Evaluate(elapsedTime);
 
@@ -387,13 +399,25 @@ namespace CandyCoded
         /// <param name="animationData">AnimationData object containing cached transform data.</param>
         /// <returns>void</returns>
 
-        public static void ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime, AnimationData animationData = null)
+        public static void ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime, AnimationData animationData)
         {
 
-            if (animationData == null)
-            {
-                animationData = gameObject.AddOrGetComponent<AnimationData>();
-            }
+            gameObject.transform.localScale = animationData.TransformData.scale + animationCurve.Evaluate(elapsedTime);
+
+        }
+
+        /// <summary>
+        /// Changes the scale of a GameObject, relative to it's original scale, to the evaluated Vector3 calulcated from a Vector3AnimationCurve object.
+        /// </summary>
+        /// <param name="gameObject">GameObject to scale.</param>
+        /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
+        /// <param name="elapsedTime">The time elapsed since the animation started.</param>
+        /// <returns>void</returns>
+
+        public static void ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime)
+        {
+
+            AnimationData animationData = gameObject.AddOrGetComponent<AnimationData>();
 
             gameObject.transform.localScale = animationData.TransformData.scale + animationCurve.Evaluate(elapsedTime);
 
