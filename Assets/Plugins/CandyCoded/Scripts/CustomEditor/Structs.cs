@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
 namespace CandyCoded
 {
 
     [System.Serializable]
-    public struct Vector2AnimationCurve
+    public struct Vector2AnimationCurve : IEquatable<Vector2AnimationCurve>
     {
 
         public AnimationCurve x;
@@ -65,6 +66,13 @@ namespace CandyCoded
 
         }
 
+        public bool Equals(Vector2AnimationCurve vector2AnimationCurve)
+        {
+
+            return vector2AnimationCurve.x == x && vector2AnimationCurve.y == y;
+
+        }
+
         public static explicit operator Vector3AnimationCurve(Vector2AnimationCurve animationCurve)
         {
 
@@ -81,7 +89,7 @@ namespace CandyCoded
     }
 
     [System.Serializable]
-    public struct Vector3AnimationCurve
+    public struct Vector3AnimationCurve : IEquatable<Vector3AnimationCurve>
     {
 
         public AnimationCurve x;
@@ -143,6 +151,13 @@ namespace CandyCoded
                 y.Evaluate(time),
                 z.Evaluate(time)
             );
+
+        }
+
+        public bool Equals(Vector3AnimationCurve vector3AnimationCurve)
+        {
+
+            return vector3AnimationCurve.x == x && vector3AnimationCurve.y == y && vector3AnimationCurve.z == z;
 
         }
 
