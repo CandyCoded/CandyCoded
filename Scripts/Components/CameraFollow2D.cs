@@ -8,7 +8,7 @@ namespace CandyCoded
     {
 
         [Serializable]
-        private struct CameraConstraints
+        private struct CameraConstraints : IEquatable<CameraConstraints>
         {
             [Header("Freeze Original Position")]
             public bool freezePositionX;
@@ -21,6 +21,17 @@ namespace CandyCoded
             [Header("(or)")]
             [Header("Restrict Viewport to Manually Defined Bounds")]
             public Bounds bounds;
+            public bool Equals(CameraConstraints other)
+            {
+
+                return other.freezePositionX == freezePositionX &&
+                            other.freezePositionY == freezePositionY &&
+                            other.maintainOffsetX == maintainOffsetX &&
+                            other.maintainOffsetY == maintainOffsetY &&
+                            other.boundsTransform == boundsTransform &&
+                            other.bounds == bounds;
+
+            }
         }
 
         public bool tracking = true;
