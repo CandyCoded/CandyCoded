@@ -20,9 +20,25 @@ namespace CandyCoded
     public class AnimationData : MonoBehaviour
     {
 
-        public TransformData transformData = new TransformData();
+        public TransformData TransformData
+        {
+            get
+            {
+                return _transformData;
+            }
+        }
 
-        public List<MaterialData> materials = new List<MaterialData>();
+        private TransformData _transformData = new TransformData();
+
+        public List<MaterialData> Materials
+        {
+            get
+            {
+                return _materials;
+            }
+        }
+
+        private List<MaterialData> _materials = new List<MaterialData>();
 
         private void Awake()
         {
@@ -50,9 +66,9 @@ namespace CandyCoded
         public void CacheTransformData()
         {
 
-            transformData.position = gameObject.transform.localPosition;
-            transformData.scale = gameObject.transform.localScale;
-            transformData.rotation = gameObject.transform.localRotation;
+            _transformData.position = gameObject.transform.localPosition;
+            _transformData.scale = gameObject.transform.localScale;
+            _transformData.rotation = gameObject.transform.localRotation;
 
         }
 
@@ -63,7 +79,7 @@ namespace CandyCoded
         public void CacheMaterials()
         {
 
-            materials = new List<MaterialData>();
+            _materials = new List<MaterialData>();
 
             Material[] materialsInChildren = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
 
@@ -76,7 +92,7 @@ namespace CandyCoded
                     startColor = material.color
                 };
 
-                materials.Add(materialData);
+                _materials.Add(materialData);
 
             }
 

@@ -117,7 +117,7 @@ namespace CandyCoded
 
             float globalAlpha = animationCurve.Evaluate(elapsedTime);
 
-            foreach (MaterialData materialData in animationData.materials)
+            foreach (MaterialData materialData in animationData.Materials)
             {
 
                 materialData.material.color = Materials.SetColorAlpha(materialData.material.color, materialData.startColor.a * globalAlpha);
@@ -230,7 +230,7 @@ namespace CandyCoded
 
             if (animationData == null) animationData = gameObject.AddOrGetComponent<AnimationData>();
 
-            gameObject.transform.localPosition = animationData.transformData.position + animationCurve.Evaluate(elapsedTime);
+            gameObject.transform.localPosition = animationData.TransformData.position + animationCurve.Evaluate(elapsedTime);
 
         }
 
@@ -389,7 +389,7 @@ namespace CandyCoded
 
             if (animationData == null) animationData = gameObject.AddOrGetComponent<AnimationData>();
 
-            gameObject.transform.localScale = animationData.transformData.scale + animationCurve.Evaluate(elapsedTime);
+            gameObject.transform.localScale = animationData.TransformData.scale + animationCurve.Evaluate(elapsedTime);
 
         }
 
