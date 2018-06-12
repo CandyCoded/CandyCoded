@@ -66,10 +66,10 @@ namespace CandyCoded
 
         }
 
-        public bool Equals(Vector2AnimationCurve vector2AnimationCurve)
+        public bool Equals(Vector2AnimationCurve other)
         {
 
-            return vector2AnimationCurve.x == x && vector2AnimationCurve.y == y;
+            return other.x == x && other.y == y;
 
         }
 
@@ -154,10 +154,10 @@ namespace CandyCoded
 
         }
 
-        public bool Equals(Vector3AnimationCurve vector3AnimationCurve)
+        public bool Equals(Vector3AnimationCurve other)
         {
 
-            return vector3AnimationCurve.x == x && vector3AnimationCurve.y == y && vector3AnimationCurve.z == z;
+            return other.x == x && other.y == y && other.z == z;
 
         }
 
