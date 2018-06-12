@@ -54,7 +54,12 @@ namespace CandyCoded
 
             }
 
-            bounds.SetMinMax(min.Value, max.Value);
+            if (min.HasValue && max.HasValue)
+            {
+
+                bounds.SetMinMax(min.Value, max.Value);
+
+            }
 
             return bounds;
 
