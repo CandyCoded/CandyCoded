@@ -6,31 +6,26 @@ using UnityEngine;
 namespace CandyCoded
 {
 
-    public enum GIZMO_TYPE
-    {
-        None,
-        Cube,
-        Line,
-        Sphere
-    }
-
     public class Gizmo : MonoBehaviour
     {
 
-        public GIZMO_TYPE type = GIZMO_TYPE.None;
+        private enum GIZMO_TYPE
+        {
+            None,
+            Cube,
+            Line,
+            Sphere
+        }
 
-        [HideInInspector]
-        public Color color = Color.green;
-        [HideInInspector]
-        public Vector3 offset = Vector3.zero;
-        [HideInInspector]
-        public Vector3 size = Vector3.one;
-        [HideInInspector]
-        public Vector3 endPosition = Vector3.zero;
-        [HideInInspector]
-        public bool relativeEndPosition = false;
-        [HideInInspector]
-        public float radius = 1.0f;
+        [SerializeField]
+        private GIZMO_TYPE type = GIZMO_TYPE.None;
+
+        private Color color = Color.green;
+        private Vector3 offset = Vector3.zero;
+        private Vector3 size = Vector3.one;
+        private Vector3 endPosition = Vector3.zero;
+        private bool relativeEndPosition = true;
+        private float radius = 1.0f;
 
         private void OnDrawGizmos()
         {
@@ -70,52 +65,52 @@ namespace CandyCoded
 
         }
 
-    }
-
 #if UNITY_EDITOR
 
-    [UnityEditor.CustomEditor(typeof(Gizmo))]
-    public class GizmoEditor : Editor
-    {
-
-        public override void OnInspectorGUI()
+        [UnityEditor.CustomEditor(typeof(Gizmo))]
+        public class GizmoEditor : Editor
         {
 
-            DrawDefaultInspector();
-
-            Gizmo script = (Gizmo)target;
-
-            switch (script.type)
+            public override void OnInspectorGUI()
             {
 
-                case GIZMO_TYPE.Cube:
-                    script.color = EditorGUILayout.ColorField("Color", script.color);
-                    script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
-                    script.size = EditorGUILayout.Vector3Field("Size", script.size);
-                    break;
+                DrawDefaultInspector();
 
-                case GIZMO_TYPE.Line:
-                    script.color = EditorGUILayout.ColorField("Color", script.color);
-                    script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
-                    script.endPosition = EditorGUILayout.Vector3Field("End Position", script.endPosition);
-                    script.relativeEndPosition = EditorGUILayout.Toggle("Relative End Position", script.relativeEndPosition);
-                    break;
+                Gizmo script = (Gizmo)target;
 
-                case GIZMO_TYPE.Sphere:
-                    script.color = EditorGUILayout.ColorField("Color", script.color);
-                    script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
-                    script.radius = EditorGUILayout.FloatField("Radius", script.radius);
-                    break;
+                switch (script.type)
+                {
 
-                case GIZMO_TYPE.None:
-                    break;
+                    case GIZMO_TYPE.Cube:
+                        script.color = EditorGUILayout.ColorField("Color", script.color);
+                        script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
+                        script.size = EditorGUILayout.Vector3Field("Size", script.size);
+                        break;
+
+                    case GIZMO_TYPE.Line:
+                        script.color = EditorGUILayout.ColorField("Color", script.color);
+                        script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
+                        script.endPosition = EditorGUILayout.Vector3Field("End Position", script.endPosition);
+                        script.relativeEndPosition = EditorGUILayout.Toggle("Relative End Position", script.relativeEndPosition);
+                        break;
+
+                    case GIZMO_TYPE.Sphere:
+                        script.color = EditorGUILayout.ColorField("Color", script.color);
+                        script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
+                        script.radius = EditorGUILayout.FloatField("Radius", script.radius);
+                        break;
+
+                    case GIZMO_TYPE.None:
+                        break;
+
+                }
 
             }
 
         }
 
-    }
-
 #endif
+
+    }
 
 }
