@@ -67,12 +67,16 @@ namespace CandyCoded
         public GameObject Spawn(Vector3 position)
         {
 
+            if (!prefab) { return null; }
+
             return Spawn(position, Quaternion.identity);
 
         }
 
         public GameObject Spawn()
         {
+
+            if (!prefab) { return null; }
 
             return Spawn(Vector3.zero, Quaternion.identity);
 
