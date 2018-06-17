@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.0.0-beta.5 (June 17, 2018)
+
+### Features
+
+- Added billboard component <https://github.com/neogeek/CandyCoded/pull/23>
+- Added Update and Reset events to CustomGenericScriptableObject. <https://github.com/neogeek/CandyCoded/pull/22>
+- Added `Version.txt` to documentation folder.
+
+### Maintenance
+
+- Improved code quality per recommendations via [Codacy](https://www.codacy.com/) and [Sonar C#](https://github.com/SonarSource/sonar-csharp)
+
 ## v1.0.0-beta.4 (June 8, 2018)
 
 ### Features
