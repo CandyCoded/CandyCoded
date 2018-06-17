@@ -42,6 +42,7 @@ $ git submodule update --remote
         - [IsLooping](Documentation/1.%20Structs/Vector3AnimationCurve.md#islooping)
         - [MaxTime](Documentation/1.%20Structs/Vector3AnimationCurve.md#maxtime)
 - [Components](Documentation/2.%20Components/)
+    - [BillboardTowardsCamera](Documentation/2.%20Components/BillboardTowardsCamera.md)
     - [CameraFollow2D](Documentation/2.%20Components/CameraFollow2D.md)
     - [CameraFollow3D](Documentation/2.%20Components/CameraFollow3D.md)
     - [Gizmo](Documentation/2.%20Components/Gizmo.md)
