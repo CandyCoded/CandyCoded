@@ -33,6 +33,7 @@ namespace CandyCoded
     public class AnimationData : MonoBehaviour
     {
 
+        private TransformData _transformData = new TransformData();
         public TransformData TransformData
         {
             get
@@ -41,8 +42,7 @@ namespace CandyCoded
             }
         }
 
-        private TransformData _transformData = new TransformData();
-
+        private List<MaterialData> _materials = new List<MaterialData>();
         public List<MaterialData> Materials
         {
             get
@@ -50,8 +50,6 @@ namespace CandyCoded
                 return _materials;
             }
         }
-
-        private List<MaterialData> _materials = new List<MaterialData>();
 
         private void Awake()
         {
