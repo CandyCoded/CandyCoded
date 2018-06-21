@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace CandyCoded
 {
@@ -6,6 +7,7 @@ namespace CandyCoded
     public abstract class ListReference<T> : CustomScriptableObject
     {
 
+        [SerializeField]
         private List<T> _items = new List<T>();
         public List<T> Items
         {
