@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir build
+mkdir -p build
 
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
     -batchmode \
