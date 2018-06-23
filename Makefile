@@ -24,3 +24,5 @@ clean:
 	rm -rf ProjectSettings/
 	rm test.xml
 	rm unity.log
+
+.PHONY: build
