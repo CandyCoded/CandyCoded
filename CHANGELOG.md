@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.0-beta.6 (June 24, 2018)
+
+### Bug Fixes
+
+- Fixed issue where a field was missing from the inspector in a ScriptableObject.
+
 ## v1.0.0-beta.5 (June 17, 2018)
 
 ### Features
