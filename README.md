@@ -5,6 +5,7 @@
 [![Build Status](https://travis-ci.org/neogeek/CandyCoded.svg?branch=master)](https://travis-ci.org/neogeek/CandyCoded)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b0c24c2b49e2430b9ce42e2ba07e83ee)](https://www.codacy.com/app/neogeek/CandyCoded?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=neogeek/CandyCoded&amp;utm_campaign=Badge_Grade)
 [![Join the chat at https://discord.gg/nNtFsfd](https://img.shields.io/badge/discord-join%20chat-7289DA.svg)](https://discord.gg/nNtFsfd)
+[![](https://img.shields.io/badge/Trello-Board-blue.svg)](https://trello.com/b/LH4DWRKk/candycoded)
 
 ## Installation
 
