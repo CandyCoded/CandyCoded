@@ -2,9 +2,9 @@
 
 mkdir -p build
 
-CURRENT_TAG=`git describe --tags --abbrev=0`
-CURRENT_TAG_HASH=`git show-ref --hash=7 "${CURRENT_TAG}"`
-CURRENT_HASH=`git rev-parse --short HEAD`
+CURRENT_TAG=$(git describe --tags --abbrev=0)
+CURRENT_TAG_HASH=$(git show-ref --hash=7 "${CURRENT_TAG}")
+CURRENT_HASH=$(git rev-parse --short HEAD)
 
 if [ "${CURRENT_TAG_HASH}" = "${CURRENT_HASH}" ]; then
 
