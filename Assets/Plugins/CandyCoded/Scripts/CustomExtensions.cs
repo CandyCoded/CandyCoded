@@ -107,6 +107,34 @@ public static class CustomExtensions
     }
 
     /// <summary>
+    /// Get children transforms of parent transform by GameObject name.
+    /// </summary>
+    /// <param name="name">Name of GameObject</param>
+    /// <returns>Transform[]</returns>
+    public static Transform[] GetChildrenByName(this Transform parentTransform, string name)
+    {
+
+        List<Transform> childTransforms = new List<Transform>();
+
+        for (int i = 0; i < parentTransform.childCount; i += 1)
+        {
+
+            Transform childTransform = parentTransform.GetChild(i);
+
+            if (childTransform.gameObject.name.Equals(name))
+            {
+
+                childTransforms.Add(childTransform);
+
+            }
+
+        }
+
+        return childTransforms.ToArray();
+
+    }
+
+    /// <summary>
     /// Tests to see if AnimationCurve loops.
     /// </summary>
     /// <returns>bool</returns>
