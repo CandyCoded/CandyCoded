@@ -3,11 +3,13 @@ osx_image: xcode9.2
 rvm:
 - 2.5.0
 before_install:
-- chmod +x ./Scripts/build.sh
-- chmod +x ./Scripts/install.sh
+- chmod +x ./Scripts/build_docs.sh
+- chmod +x ./Scripts/build_package.sh
+- chmod +x ./Scripts/install_pandoc.sh
+- chmod +x ./Scripts/install_unity.sh
 - chmod +x ./Scripts/test.sh
 install:
-- make install
+- ./Scripts/install_unity.sh
 script:
 - make test
 after_success:
