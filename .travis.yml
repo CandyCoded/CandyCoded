@@ -11,7 +11,7 @@ install:
 script:
 - make test
 after_success:
-- make build
+- if [ "$TRAVIS_BRANCH" == "master" ]; then make build; fi
 deploy:
   provider: s3
   access_key_id: $ACCESS_KEY_ID
