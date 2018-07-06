@@ -7,9 +7,27 @@ namespace CandyCoded
 
     public struct TransformData : IEquatable<TransformData>
     {
-        public Vector3 position;
-        public Vector3 scale;
-        public Quaternion rotation;
+        private Vector3 _position;
+        public Vector3 position
+        {
+            get { return _position; }
+            set { _position = value; }
+        }
+
+        private Vector3 _scale;
+        public Vector3 scale
+        {
+            get { return _scale; }
+            set { _scale = value; }
+        }
+
+        private Quaternion _rotation;
+        public Quaternion rotation
+        {
+            get { return _rotation; }
+            set { _rotation = value; }
+        }
+
         public bool Equals(TransformData other)
         {
 
