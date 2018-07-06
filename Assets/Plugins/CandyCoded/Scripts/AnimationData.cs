@@ -38,8 +38,20 @@ namespace CandyCoded
 
     public struct MaterialData : IEquatable<MaterialData>
     {
-        public Material material;
-        public Color startColor;
+        private Material _material;
+        public Material material
+        {
+            get { return _material; }
+            set { _material = value; }
+        }
+
+        private Color _startColor;
+        public Color startColor
+        {
+            get { return _startColor; }
+            set { _startColor = value; }
+        }
+
         public bool Equals(MaterialData other)
         {
 
