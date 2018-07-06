@@ -65,6 +65,7 @@ $ git submodule update --remote
         - [Slice](Documentation/3.%20Custom%20Extensions/List.md#slice)
         - [Splice](Documentation/3.%20Custom%20Extensions/List.md#splice)
     - [Transform](Documentation/3.%20Custom%20Extensions/Transform.md)
+        - [GetChildrenByName](Documentation/3.%20Custom%20Extensions/Transform.md#getchildrenbyname)
         - [LookAt2D](Documentation/3.%20Custom%20Extensions/Transform.md#lookat2d)
 - [Static Methods](Documentation/4.%20Static%20Methods/)
     - [Animate](Documentation/4.%20Static%20Methods/Animate.md)

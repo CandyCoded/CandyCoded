@@ -7,9 +7,27 @@ namespace CandyCoded
 
     public struct TransformData : IEquatable<TransformData>
     {
-        public Vector3 position;
-        public Vector3 scale;
-        public Quaternion rotation;
+        private Vector3 _position;
+        public Vector3 position
+        {
+            get { return _position; }
+            set { _position = value; }
+        }
+
+        private Vector3 _scale;
+        public Vector3 scale
+        {
+            get { return _scale; }
+            set { _scale = value; }
+        }
+
+        private Quaternion _rotation;
+        public Quaternion rotation
+        {
+            get { return _rotation; }
+            set { _rotation = value; }
+        }
+
         public bool Equals(TransformData other)
         {
 
@@ -20,8 +38,20 @@ namespace CandyCoded
 
     public struct MaterialData : IEquatable<MaterialData>
     {
-        public Material material;
-        public Color startColor;
+        private Material _material;
+        public Material material
+        {
+            get { return _material; }
+            set { _material = value; }
+        }
+
+        private Color _startColor;
+        public Color startColor
+        {
+            get { return _startColor; }
+            set { _startColor = value; }
+        }
+
         public bool Equals(MaterialData other)
         {
 
