@@ -38,8 +38,11 @@ namespace CandyCoded
         public Transform mainTarget;
         public Transform secondaryTarget;
 
-        public float dampRate = 0.3f;
-        public float rotateSpeed = 5f;
+        [SerializeField]
+        private float dampRate = 0.3f;
+
+        [SerializeField]
+        private float rotateSpeed = 5f;
 
         [SerializeField]
         private CameraConstraints3D constraints;

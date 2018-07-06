@@ -38,7 +38,8 @@ namespace CandyCoded
 
         public Transform mainTarget;
 
-        public float dampRate = 0.3f;
+        [SerializeField]
+        private float dampRate = 0.3f;
 
         [SerializeField]
         private CameraConstraints2D constraints;
