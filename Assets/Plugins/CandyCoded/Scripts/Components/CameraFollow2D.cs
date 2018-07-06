@@ -54,10 +54,11 @@ namespace CandyCoded
         [SerializeField]
         private CameraConstraints2D constraints;
 
+        [SerializeField]
         private Transform cameraTransform;
-        private float cameraOrthographicSize;
-
         private Vector3 cameraPositionOffset;
+
+        private float cameraOrthographicSize;
 
         private Vector3 velocity = Vector3.zero;
 
