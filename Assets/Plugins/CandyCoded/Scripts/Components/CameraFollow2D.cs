@@ -34,6 +34,7 @@ namespace CandyCoded
             }
         }
 
+        [SerializeField]
         private bool _tracking = true;
         public bool tracking
         {
@@ -41,6 +42,7 @@ namespace CandyCoded
             set { _tracking = value; }
         }
 
+        [SerializeField]
         public Transform _mainTarget;
         public Transform mainTarget
         {

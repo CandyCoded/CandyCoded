@@ -4,10 +4,11 @@ using UnityEngine;
 namespace CandyCoded
 {
 
-    [System.Serializable]
+    [Serializable]
     public struct Vector2AnimationCurve : IEquatable<Vector2AnimationCurve>
     {
 
+        [SerializeField]
         private AnimationCurve _x;
         public AnimationCurve x
         {
@@ -15,6 +16,7 @@ namespace CandyCoded
             set { _x = value; }
         }
 
+        [SerializeField]
         private AnimationCurve _y;
         public AnimationCurve y
         {
@@ -99,10 +101,11 @@ namespace CandyCoded
 
     }
 
-    [System.Serializable]
+    [Serializable]
     public struct Vector3AnimationCurve : IEquatable<Vector3AnimationCurve>
     {
 
+        [SerializeField]
         private AnimationCurve _x;
         public AnimationCurve x
         {
@@ -110,6 +113,7 @@ namespace CandyCoded
             set { _x = value; }
         }
 
+        [SerializeField]
         private AnimationCurve _y;
         public AnimationCurve y
         {
@@ -117,6 +121,7 @@ namespace CandyCoded
             set { _y = value; }
         }
 
+        [SerializeField]
         private AnimationCurve _z;
         public AnimationCurve z
         {
