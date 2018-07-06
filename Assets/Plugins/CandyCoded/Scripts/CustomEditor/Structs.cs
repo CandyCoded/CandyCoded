@@ -4,12 +4,25 @@ using UnityEngine;
 namespace CandyCoded
 {
 
-    [System.Serializable]
+    [Serializable]
     public struct Vector2AnimationCurve : IEquatable<Vector2AnimationCurve>
     {
 
-        public AnimationCurve x;
-        public AnimationCurve y;
+        [SerializeField]
+        private AnimationCurve _x;
+        public AnimationCurve x
+        {
+            get { return _x; }
+            set { _x = value; }
+        }
+
+        [SerializeField]
+        private AnimationCurve _y;
+        public AnimationCurve y
+        {
+            get { return _y; }
+            set { _y = value; }
+        }
 
         /// <summary>
         /// Creates a clone of the Vector2AnimationCurve object.
@@ -88,13 +101,33 @@ namespace CandyCoded
 
     }
 
-    [System.Serializable]
+    [Serializable]
     public struct Vector3AnimationCurve : IEquatable<Vector3AnimationCurve>
     {
 
-        public AnimationCurve x;
-        public AnimationCurve y;
-        public AnimationCurve z;
+        [SerializeField]
+        private AnimationCurve _x;
+        public AnimationCurve x
+        {
+            get { return _x; }
+            set { _x = value; }
+        }
+
+        [SerializeField]
+        private AnimationCurve _y;
+        public AnimationCurve y
+        {
+            get { return _y; }
+            set { _y = value; }
+        }
+
+        [SerializeField]
+        private AnimationCurve _z;
+        public AnimationCurve z
+        {
+            get { return _z; }
+            set { _z = value; }
+        }
 
         /// <summary>
         /// Creates a clone of the Vector3AnimationCurve object.
