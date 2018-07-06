@@ -31,19 +31,49 @@ namespace CandyCoded
             }
         }
 
-        public bool tracking = true;
-        public bool rotating = true;
+        [SerializeField]
+        private bool _tracking = true;
+        public bool tracking
+        {
+            get { return _tracking; }
+            set { _tracking = value; }
+        }
 
-        public Transform cameraTransform;
-        public Transform mainTarget;
-        public Transform secondaryTarget;
+        [SerializeField]
+        private bool _rotating = true;
+        public bool rotating
+        {
+            get { return _rotating; }
+            set { _rotating = value; }
+        }
 
-        public float dampRate = 0.3f;
-        public float rotateSpeed = 5f;
+        [SerializeField]
+        private Transform _mainTarget;
+        public Transform mainTarget
+        {
+            get { return _mainTarget; }
+            set { _mainTarget = value; }
+        }
+
+        [SerializeField]
+        private Transform _secondaryTarget;
+        public Transform secondaryTarget
+        {
+            get { return _secondaryTarget; }
+            set { _secondaryTarget = value; }
+        }
+
+        [SerializeField]
+        private float dampRate = 0.3f;
+
+        [SerializeField]
+        private float rotateSpeed = 5f;
 
         [SerializeField]
         private CameraConstraints3D constraints;
 
+        [SerializeField]
+        private Transform cameraTransform;
         private Vector3 cameraPositionOffset;
 
         private Vector3 velocity = Vector3.zero;
