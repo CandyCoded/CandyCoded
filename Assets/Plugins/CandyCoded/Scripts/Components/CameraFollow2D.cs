@@ -43,7 +43,7 @@ namespace CandyCoded
         }
 
         [SerializeField]
-        public Transform _mainTarget;
+        private Transform _mainTarget;
         public Transform mainTarget
         {
             get { return _mainTarget; }
