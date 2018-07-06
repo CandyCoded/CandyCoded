@@ -31,12 +31,33 @@ namespace CandyCoded
             }
         }
 
-        public bool tracking = true;
-        public bool rotating = true;
+        private bool _tracking = true;
+        public bool tracking
+        {
+            get { return _tracking; }
+            set { _tracking = value; }
+        }
 
-        public Transform cameraTransform;
-        public Transform mainTarget;
-        public Transform secondaryTarget;
+        private bool _rotating = true;
+        public bool rotating
+        {
+            get { return _rotating; }
+            set { _rotating = value; }
+        }
+
+        public Transform _mainTarget;
+        public Transform mainTarget
+        {
+            get { return _mainTarget; }
+            set { _mainTarget = value; }
+        }
+
+        public Transform _secondaryTarget;
+        public Transform secondaryTarget
+        {
+            get { return _secondaryTarget; }
+            set { _secondaryTarget = value; }
+        }
 
         [SerializeField]
         private float dampRate = 0.3f;

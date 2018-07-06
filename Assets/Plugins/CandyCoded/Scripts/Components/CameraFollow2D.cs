@@ -34,9 +34,19 @@ namespace CandyCoded
             }
         }
 
-        public bool tracking = true;
+        private bool _tracking = true;
+        public bool tracking
+        {
+            get { return _tracking; }
+            set { _tracking = value; }
+        }
 
-        public Transform mainTarget;
+        public Transform _mainTarget;
+        public Transform mainTarget
+        {
+            get { return _mainTarget; }
+            set { _mainTarget = value; }
+        }
 
         [SerializeField]
         private float dampRate = 0.3f;
