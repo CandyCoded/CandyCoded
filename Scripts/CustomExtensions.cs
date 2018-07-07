@@ -224,9 +224,9 @@ public static class CustomExtensions
     public static List<T> Slice<T>(this List<T> list, int index, int count)
     {
 
-        List<T> items = list.GetRange(index, count);
+        List<T> partialList = list.GetRange(index, count);
 
-        return items;
+        return partialList;
 
     }
 
@@ -251,11 +251,11 @@ public static class CustomExtensions
     public static List<T> Splice<T>(this List<T> list, int index, int count)
     {
 
-        List<T> items = list.GetRange(index, count);
+        List<T> partialList = list.GetRange(index, count);
 
         list.RemoveRange(index, count);
 
-        return items;
+        return partialList;
 
     }
 
