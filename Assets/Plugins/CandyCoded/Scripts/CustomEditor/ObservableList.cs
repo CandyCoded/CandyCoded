@@ -146,4 +146,116 @@ public class ObservableList<T> : IList<T>
 
     }
 
+    public ObservableList<T> GetRange(int index, int count)
+    {
+
+        ObservableList<T> items = new ObservableList<T>();
+
+        for (int i = index; i < index + count; i += 1)
+        {
+
+            items.Add(_items[i]);
+
+        }
+
+        return items;
+
+    }
+
+    public void RemoveRange(int index, int count)
+    {
+
+        for (int i = index; i < index + count; i += 1)
+        {
+
+            _items.RemoveAt(i);
+
+        }
+
+    }
+
+    /// <summary>
+    /// Creates a new copy of an Observablelist and shuffles the values.
+    /// </summary>
+    /// <returns>ObservableList<typeparamref name="T"/>></returns>
+    public ObservableList<T> Shuffle()
+    {
+
+        ObservableList<T> shuffledList = new ObservableList<T>(_items);
+
+        int count = shuffledList.Count;
+
+        for (int i = 0; i < count; i += 1)
+        {
+
+            int randomIndex = UnityEngine.Random.Range(i, count);
+
+            T tempValue = shuffledList[i];
+
+            shuffledList[i] = shuffledList[randomIndex];
+
+            shuffledList[randomIndex] = tempValue;
+
+        }
+
+        return shuffledList;
+
+    }
+
+    /// <summary>
+    /// Returns a shallow copy of a portion of an Observablelist.
+    /// </summary>
+    /// <param name="index">Index of list to start at.</param>
+    /// <param name="count">Number of items to return.</param>
+    /// <returns>ObservableList<typeparamref name="T"/>></returns>
+    public ObservableList<T> Slice(int index, int count)
+    {
+
+        ObservableList<T> partialList = GetRange(index, count);
+
+        return partialList;
+
+    }
+
+    /// <summary>
+    /// Returns a shallow copy of a portion of an Observablelist.
+    /// </summary>
+    /// <param name="count">Number of items to return.</param>
+    /// <returns>ObservableList<typeparamref name="T"/>></returns>
+    public ObservableList<T> Slice(int count = 1)
+    {
+
+        return Slice(0, count);
+
+    }
+
+    /// <summary>
+    /// Removes and returns a shallow copy of a portion of an Observablelist.
+    /// </summary>
+    /// <param name="index">Index of list to start at.</param>
+    /// <param name="count">Number of items to return and remove.</param>
+    /// <returns>ObservableList<typeparamref name="T"/>></returns>
+    public ObservableList<T> Splice(int index, int count)
+    {
+
+        ObservableList<T> partialList = GetRange(index, count);
+
+        RemoveRange(index, count);
+
+        return partialList;
+
+    }
+
+    /// <summary>
+    /// Removes and returns a shallow copy of a portion of an Observablelist.
+    /// </summary>
+    /// <param name="count">Number of items to return and remove.</param>
+    /// <returns>ObservableList<typeparamref name="T"/>></returns>
+    public ObservableList<T> Splice(int count = 1)
+    {
+
+        return Splice(0, count);
+
+    }
+
 }
