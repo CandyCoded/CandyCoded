@@ -162,6 +162,30 @@ public class ObservableList<T> : IList<T>
 
     }
 
+    public void AddRange(List<T> items)
+    {
+
+        for (int i = 0; i < items.Count; i += 1)
+        {
+
+            _items.Add(items[i]);
+
+        }
+
+    }
+
+    public void AddRange(ObservableList<T> items)
+    {
+
+        for (int i = 0; i < items.Count; i += 1)
+        {
+
+            _items.Add(items[i]);
+
+        }
+
+    }
+
     public void RemoveRange(int index, int count)
     {
 
@@ -255,6 +279,15 @@ public class ObservableList<T> : IList<T>
     {
 
         return Splice(0, count);
+
+    }
+
+    public static explicit operator List<T>(ObservableList<T> observableList)
+    {
+
+        List<T> newList = new List<T>(observableList);
+
+        return newList;
 
     }
 
