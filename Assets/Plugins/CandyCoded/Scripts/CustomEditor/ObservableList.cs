@@ -96,7 +96,7 @@ public class ObservableList<T> : IList<T>
 
     }
 
-    public void CopyTo(T[] array, int arrayIndex)
+    public void CopyTo(T[] array, int arrayIndex = 0)
     {
 
         _items.CopyTo(array, arrayIndex);
