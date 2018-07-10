@@ -168,7 +168,7 @@ public class ObservableList<T> : IList<T>
         for (int i = 0; i < items.Count; i += 1)
         {
 
-            _items.Add(items[i]);
+            Add(items[i]);
 
         }
 
@@ -180,7 +180,7 @@ public class ObservableList<T> : IList<T>
         for (int i = 0; i < items.Count; i += 1)
         {
 
-            _items.Add(items[i]);
+            Add(items[i]);
 
         }
 
@@ -192,7 +192,7 @@ public class ObservableList<T> : IList<T>
         for (int i = index; i < index + count; i += 1)
         {
 
-            _items.RemoveAt(i);
+            RemoveAt(i);
 
         }
 
