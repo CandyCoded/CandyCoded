@@ -14,11 +14,19 @@ public class ObservableList<T> : IList<T>
 
     private IList<T> _items;
 
+    /// <summary>
+    /// Gets the number of elements contained in the ObservableList.
+    /// </summary>
+    /// <returns>int</returns>
     public int Count
     {
         get { return _items.Count; }
     }
 
+    /// <summary>
+    /// Gets a value indicating whether the ObservableList is read-only.
+    /// </summary>
+    /// <returns>bool</returns>
     public bool IsReadOnly
     {
         get { return _items.IsReadOnly; }
