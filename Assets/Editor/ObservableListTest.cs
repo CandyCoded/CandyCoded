@@ -100,24 +100,6 @@ public class ObservableListTest
     }
 
     [Test]
-    public void CopyToArray()
-    {
-
-        ObservableList<int> list = new ObservableList<int>(sampleList);
-
-        int[] array = new int[15];
-
-        list.CopyTo(array);
-
-        Assert.AreEqual(1, array[0]);
-        Assert.AreEqual(2, array[1]);
-        Assert.AreEqual(3, array[2]);
-        Assert.AreEqual(4, array[3]);
-        Assert.AreEqual(5, array[4]);
-
-    }
-
-    [Test]
     public void CopyToArrayWithIndex()
     {
 
