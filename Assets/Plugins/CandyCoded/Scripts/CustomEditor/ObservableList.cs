@@ -65,6 +65,11 @@ public class ObservableList<T> : IList<T>
 
     }
 
+    /// <summary>
+    /// Adds an object to the end of the ObservableList.
+    /// </summary>
+    /// <param name="item">The object to be added to the end of the ObservableList.</param>
+    /// <returns>void</returns>
     public void Add(T item)
     {
 
@@ -77,6 +82,10 @@ public class ObservableList<T> : IList<T>
 
     }
 
+    /// <summary>
+    /// Removes all objects from the ObservableList.
+    /// </summary>
+    /// <returns>void</returns>
     public void Clear()
     {
 
@@ -89,6 +98,11 @@ public class ObservableList<T> : IList<T>
 
     }
 
+    /// <summary>
+    /// Determines whether an element is in the ObservableList.
+    /// </summary>
+    /// <param name="item">The object to locate in the ObservableList.</param>
+    /// <returns>bool</returns>
     public bool Contains(T item)
     {
 
@@ -96,6 +110,12 @@ public class ObservableList<T> : IList<T>
 
     }
 
+    /// <summary>
+    /// Copies all items in the ObservableList to the array starting at the <paramref name="arrayIndex"/>.
+    /// </summary>
+    /// <param name="array">The one-dimensional Array that is the destination of the elements copied from the ObservableList.</param>
+    /// <param name="arrayIndex">The zero-based index in array at which copying begins.</param>
+    /// <returns>void</returns>
     public void CopyTo(T[] array, int arrayIndex)
     {
 
@@ -103,6 +123,11 @@ public class ObservableList<T> : IList<T>
 
     }
 
+    /// <summary>
+    /// Searches for the specified object and returns the zero-based index of the first occurrence within the entire ObservableList.
+    /// </summary>
+    /// <param name="item">The object to locate in the ObservableList.</param>
+    /// <returns>int</returns>
     public int IndexOf(T item)
     {
 
@@ -110,6 +135,12 @@ public class ObservableList<T> : IList<T>
 
     }
 
+    /// <summary>
+    /// Inserts an element into the ObservableList at the specified index.
+    /// </summary>
+    /// <param name="index">The zero-based index at which item should be inserted.</param>
+    /// <param name="item">The object to insert.</param>
+    /// <returns>void</returns>
     public void Insert(int index, T item)
     {
 
@@ -122,6 +153,11 @@ public class ObservableList<T> : IList<T>
 
     }
 
+    /// <summary>
+    /// Removes the first occurrence of a specific object from the ObservableList.
+    /// </summary>
+    /// <param name="item">The object to remove from the ObservableList.</param>
+    /// <returns>bool</returns>
     public bool Remove(T item)
     {
 
@@ -134,6 +170,11 @@ public class ObservableList<T> : IList<T>
 
     }
 
+    /// <summary>
+    /// Removes the element at the specified index of the ObservableList.
+    /// </summary>
+    /// <param name="index">The zero-based index of the element to remove.</param>
+    /// <returns>void</returns>
     public void RemoveAt(int index)
     {
 
@@ -146,6 +187,12 @@ public class ObservableList<T> : IList<T>
 
     }
 
+    /// <summary>
+    /// Creates a shallow copy of a range of elements in the source ObservableList.
+    /// </summary>
+    /// <param name="index">The zero-based index at which the range starts.</param>
+    /// <param name="count">The number of elements in the range.</param>
+    /// <returns>ObservableList<typeparamref name="T"/>></returns>
     public ObservableList<T> GetRange(int index, int count)
     {
 
@@ -162,6 +209,11 @@ public class ObservableList<T> : IList<T>
 
     }
 
+    /// <summary>
+    /// Adds the elements of the specified collection to the end of the ObservableList.
+    /// </summary>
+    /// <param name="items">The collection whose elements should be added to the end of the ObservableList.</param>
+    /// <returns>void</returns>
     public void AddRange(List<T> items)
     {
 
@@ -174,6 +226,11 @@ public class ObservableList<T> : IList<T>
 
     }
 
+    /// <summary>
+    /// Adds the elements of the specified collection to the end of the ObservableList.
+    /// </summary>
+    /// <param name="items">The collection whose elements should be added to the end of the ObservableList.</param>
+    /// <returns>void</returns>
     public void AddRange(ObservableList<T> items)
     {
 
@@ -186,6 +243,12 @@ public class ObservableList<T> : IList<T>
 
     }
 
+    /// <summary>
+    /// Removes a range of elements from the ObservableList.
+    /// </summary>
+    /// <param name="index">The zero-based starting index of the range of elements to remove.</param>
+    /// <param name="count">The number of elements to remove.</param>
+    /// <returns>void</returns>
     public void RemoveRange(int index, int count)
     {
 
