@@ -19,7 +19,7 @@
 
 ### Unity Package Manager _(Unity 2018)_
 
-<https://docs.unity3d.com/Packages/com.unity.package-manager-ui@1.8/manual/index.html>
+<https://docs.unity3d.com/Packages/com.unity.package-manager-ui@1.9/manual/index.html>
 
 #### Install
 
