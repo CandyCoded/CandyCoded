@@ -27,12 +27,7 @@ namespace CandyCoded
         public void Add(T item)
         {
 
-            if (!_items.Contains(item))
-            {
-
-                _items.Add(item);
-
-            }
+            _items.Add(item);
 
         }
 
