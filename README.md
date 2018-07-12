@@ -29,7 +29,7 @@ $ git submodule add git@github.com:neogeek/CandyCoded.git Packages/CandyCoded/
 
 After cloning repo with submodule already installed
 
-```
+```bash
 $ git submodule init && git submodule update --remote
 ```
 
