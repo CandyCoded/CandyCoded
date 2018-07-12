@@ -1,5 +1,33 @@
 ### ObservableList
 
+#### Events
+
+Event handlers for add, remove and clear events are available on ObservableList objects.
+
+```csharp
+private void OnEnable()
+{
+
+    list.AddEvent += OnAddEvent;
+    list.ClearEvent += OnClearEvent;
+    list.RemoveEvent += OnRemoveEvent;
+
+}
+```
+
+Make sure that when adding a handler to any event to make sure and remove it when the script it is associated with is disabled.
+
+```csharp
+private void OnDisable()
+{
+
+    list.AddEvent -= OnAddEvent;
+    list.ClearEvent -= OnClearEvent;
+    list.RemoveEvent -= OnRemoveEvent;
+
+}
+```
+
 #### Count
 
 Gets the number of elements contained in the ObservableList.
