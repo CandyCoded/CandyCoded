@@ -98,7 +98,7 @@ namespace CandyCoded
                 if (constraints.boundsTransform)
                 {
 
-                    constraints.bounds = CandyCoded.Calculation.ParentBounds(constraints.boundsTransform);
+                    constraints.bounds = Calculation.ParentBounds(constraints.boundsTransform);
 
                 }
 

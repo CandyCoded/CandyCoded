@@ -6,7 +6,7 @@ using UnityEditor;
 #endif
 using UnityEngine;
 
-[System.AttributeUsage(System.AttributeTargets.Method)]
+[AttributeUsage(AttributeTargets.Method)]
 public class DisplayInInspectorAttribute : PropertyAttribute { }
 
 #if UNITY_EDITOR
