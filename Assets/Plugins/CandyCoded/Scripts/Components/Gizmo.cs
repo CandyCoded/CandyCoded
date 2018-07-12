@@ -67,7 +67,7 @@ namespace CandyCoded
 
 #if UNITY_EDITOR
 
-        [UnityEditor.CustomEditor(typeof(Gizmo))]
+        [CustomEditor(typeof(Gizmo))]
         public class GizmoEditor : Editor
         {
 

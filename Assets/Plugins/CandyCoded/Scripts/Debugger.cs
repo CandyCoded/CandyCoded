@@ -21,7 +21,7 @@ namespace CandyCoded
             for (int i = 0; i < points.Length - 1; i += 1)
             {
 
-                UnityEngine.Debug.DrawLine(points[i], points[i + 1], color, duration, depthTest);
+                Debug.DrawLine(points[i], points[i + 1], color, duration, depthTest);
 
             }
 
