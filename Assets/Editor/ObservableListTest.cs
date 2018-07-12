@@ -105,7 +105,7 @@ public class ObservableListTest
 
         ObservableList<int> list = new ObservableList<int>(sampleList);
 
-        int[] array = new int[15];
+        int[] array = new int[10];
 
         list.CopyTo(array, 2);
 
