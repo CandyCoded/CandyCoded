@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class ObservableListTest
 {
-    private readonly List<int> sampleList = new List<int>{ 1, 2, 3, 4, 5 };
+
+    private readonly List<int> sampleList = new List<int> { 1, 2, 3, 4, 5 };
 
     [SetUp]
     public void ResetScene()
