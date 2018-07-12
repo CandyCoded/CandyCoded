@@ -15,7 +15,7 @@ private void OnEnable()
 }
 ```
 
-Make sure that when adding a handler to any event to make sure and remove it when the script it is associated with is disabled.
+When adding a handler to any event to make sure and remove it when the script it is associated with is disabled.
 
 ```csharp
 private void OnDisable()
