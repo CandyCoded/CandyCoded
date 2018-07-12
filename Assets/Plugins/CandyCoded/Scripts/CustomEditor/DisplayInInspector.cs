@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 #if UNITY_EDITOR
 using System.Reflection;
 using UnityEditor;
@@ -29,7 +30,20 @@ public class DisplayInInspectorDrawer : Editor
                 if (GUILayout.Button(ObjectNames.NicifyVariableName(method.Name)))
                 {
 
-                    ((MethodInfo)method).Invoke(target, null);
+                    MethodInfo info = (MethodInfo)method;
+
+                    if (info.ReturnType == typeof(IEnumerator))
+                    {
+
+                        ((MonoBehaviour)target).StartCoroutine(method.Name);
+
+                    }
+                    else
+                    {
+
+                        info.Invoke(target, null);
+
+                    }
 
                 }
 
