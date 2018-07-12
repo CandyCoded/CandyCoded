@@ -1,11 +1,15 @@
 {
     "name": "com.scottdoxey.candycoded",
     "displayName": "CandyCoded",
-    "version": "1.0.0-beta.6",
-    "unity": "2018.1",
+    "version": "1.0.0-beta.7",
+    "unity": "2018.2",
     "description": "Custom Unity Components that are delightful",
-    "keywords": ["components", "extensions", "shaders", "animation"],
+    "keywords": [
+        "components",
+        "extensions",
+        "shaders",
+        "animation"
+    ],
     "category": "Scripting/Animation",
-    "dependencies": {
-    }
+    "dependencies": {}
 }

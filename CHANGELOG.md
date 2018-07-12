@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.0-beta.7 (July 12, 2018)
+
+- Added Transform.GetChildrenByName method.
+- Added ObservableList object.
+- Improved code quality per recommendations via [Codacy](https://www.codacy.com/) and [Sonar C#](https://github.com/SonarSource/sonar-csharp)
+
 ## v1.0.0-beta.6 (June 24, 2018)
 
 ### Bug Fixes
