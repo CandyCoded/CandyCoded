@@ -3,7 +3,7 @@
 namespace CandyCoded
 {
 
-    public class Math
+    public static class Math
     {
 
         /// <summary>
