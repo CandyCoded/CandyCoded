@@ -6,6 +6,13 @@ namespace CandyCoded
     public class Math
     {
 
+        /// <summary>
+        /// Interpolates circularly between either two numbers by a given value.
+        /// </summary>
+        /// <param name="start">The start value.</param>
+        /// <param name="end">The end value.</param>
+        /// <param name="value">The interpolation value between the two floats.</param>
+        /// <returns>float</returns>
         public static float Clerp(float start, float end, float value)
         {
             float max = 360;
@@ -25,6 +32,13 @@ namespace CandyCoded
             return start + (end - start) * value;
         }
 
+        /// <summary>
+        /// Interpolates circularly between either two Vector3 objects by a given value.
+        /// </summary>
+        /// <param name="start">The start value.</param>
+        /// <param name="end">The end value.</param>
+        /// <param name="value">The interpolation value between the two Vector3 objects.</param>
+        /// <returns>Vector3</returns>
         public static Vector3 Clerp(Vector3 start, Vector3 end, float value)
         {
 
