@@ -15,6 +15,7 @@ namespace CandyCoded
         /// <returns>float</returns>
         public static float Clerp(float start, float end, float value)
         {
+
             float max = 360;
             float half = max / 2;
             float diff = end - start;
@@ -30,6 +31,7 @@ namespace CandyCoded
             }
 
             return start + (end - start) * value;
+
         }
 
         /// <summary>
