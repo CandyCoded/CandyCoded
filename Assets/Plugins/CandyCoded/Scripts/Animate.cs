@@ -295,9 +295,11 @@ namespace CandyCoded
 
             Vector3 currentRotation = gameObject.transform.localRotation.eulerAngles;
 
-            animationCurve.x = AnimationCurve.EaseInOut(0, currentRotation.x, duration, newRotation.x);
-            animationCurve.y = AnimationCurve.EaseInOut(0, currentRotation.y, duration, newRotation.y);
-            animationCurve.z = AnimationCurve.EaseInOut(0, currentRotation.z, duration, newRotation.z);
+            Vector3 newRotationCopy = Math.Clerp(currentRotation, newRotation, 1);
+
+            animationCurve.x = AnimationCurve.EaseInOut(0, currentRotation.x, duration, newRotationCopy.x);
+            animationCurve.y = AnimationCurve.EaseInOut(0, currentRotation.y, duration, newRotationCopy.y);
+            animationCurve.z = AnimationCurve.EaseInOut(0, currentRotation.z, duration, newRotationCopy.z);
 
             return Rotation(gameObject, animationCurve);
 
