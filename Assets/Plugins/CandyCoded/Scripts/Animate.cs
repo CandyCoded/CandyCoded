@@ -256,7 +256,7 @@ namespace CandyCoded
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
         /// <returns>Coroutine</returns>
 
-        public static Coroutine Rotation(GameObject gameObject, Vector3AnimationCurve animationCurve)
+        public static Coroutine Rotation(GameObject gameObject, Vector4AnimationCurve animationCurve)
         {
 
             return StartCoroutine(gameObject, "Rotation",
@@ -273,7 +273,7 @@ namespace CandyCoded
         /// <param name="elapsedTime">The time elapsed since the animation started.</param>
         /// <returns>void</returns>
 
-        public static void Rotation(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime)
+        public static void Rotation(GameObject gameObject, Vector4AnimationCurve animationCurve, float elapsedTime)
         {
 
             gameObject.transform.localRotation = Quaternion.Euler(animationCurve.Evaluate(elapsedTime));
@@ -291,15 +291,16 @@ namespace CandyCoded
         public static Coroutine RotateTo(GameObject gameObject, Vector3 newRotation, float duration = 1.0f)
         {
 
-            Vector3AnimationCurve animationCurve = new Vector3AnimationCurve();
+            Vector4AnimationCurve animationCurve = new Vector4AnimationCurve();
 
-            Vector3 currentRotation = gameObject.transform.localRotation.eulerAngles;
+            Quaternion currentRotation = gameObject.transform.localRotation;
 
-            Vector3 newRotationCopy = Math.Clerp(currentRotation, newRotation, 1);
+            Quaternion newRotationCopy = Quaternion.Euler(newRotation);
 
             animationCurve.x = AnimationCurve.EaseInOut(0, currentRotation.x, duration, newRotationCopy.x);
             animationCurve.y = AnimationCurve.EaseInOut(0, currentRotation.y, duration, newRotationCopy.y);
             animationCurve.z = AnimationCurve.EaseInOut(0, currentRotation.z, duration, newRotationCopy.z);
+            animationCurve.w = AnimationCurve.EaseInOut(0, currentRotation.w, duration, newRotationCopy.w);
 
             return Rotation(gameObject, animationCurve);
 
