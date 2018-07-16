@@ -276,7 +276,9 @@ namespace CandyCoded
         public static void Rotation(GameObject gameObject, Vector4AnimationCurve animationCurve, float elapsedTime)
         {
 
-            gameObject.transform.localRotation = Quaternion.Euler(animationCurve.Evaluate(elapsedTime));
+            Vector4 rotation = animationCurve.Evaluate(elapsedTime);
+
+            gameObject.transform.rotation = new Quaternion(rotation.x, rotation.y, rotation.z, rotation.w);
 
         }
 
