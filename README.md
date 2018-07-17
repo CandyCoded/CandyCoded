@@ -110,6 +110,8 @@ $ git submodule update --remote
     - [Materials](Documentation/4.%20Static%20Methods/Materials.md)
         - [GetMaterialsInChildren](Documentation/4.%20Static%20Methods/Materials.md#getmaterialsinchildren)
         - [SetColorAlpha](Documentation/4.%20Static%20Methods/Materials.md#setcoloralpha)
+    - [Math](Documentation/4.%20Static%20Methods/Math.md)
+        - [Clerp](Documentation/4.%20Static%20Methods/Math.md#clerp)
     - [Raycast](Documentation/4.%20Static%20Methods/Raycast.md)
         - [Reflect](Documentation/4.%20Static%20Methods/Raycast.md#reflect)
     - [Runner](Documentation/4.%20Static%20Methods/Runner.md)
