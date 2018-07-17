@@ -309,7 +309,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Animates the rotation of a GameObject to the specified Vector3 over time.
+        /// Animates the rotation of a GameObject to the specified Quaternion over time.
         /// </summary>
         /// <param name="gameObject">GameObject to rotate.</param>
         /// <param name="newRotation">New Quaternion rotation.</param>
