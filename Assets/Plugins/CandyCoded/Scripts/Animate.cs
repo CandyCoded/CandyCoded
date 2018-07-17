@@ -309,6 +309,30 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Animates the rotation of a GameObject to the specified Vector3 over time.
+        /// </summary>
+        /// <param name="gameObject">GameObject to rotate.</param>
+        /// <param name="newRotation">New Quaternion rotation.</param>
+        /// <param name="duration">Length of the animation in seconds.</param>
+        /// <returns>Coroutine</returns>
+
+        public static Coroutine RotateTo(GameObject gameObject, Quaternion newRotation, float duration = 1.0f)
+        {
+
+            Vector4AnimationCurve animationCurve = new Vector4AnimationCurve();
+
+            Quaternion currentRotation = gameObject.transform.localRotation;
+
+            animationCurve.x = AnimationCurve.EaseInOut(0, currentRotation.x, duration, newRotation.x);
+            animationCurve.y = AnimationCurve.EaseInOut(0, currentRotation.y, duration, newRotation.y);
+            animationCurve.z = AnimationCurve.EaseInOut(0, currentRotation.z, duration, newRotation.z);
+            animationCurve.w = AnimationCurve.EaseInOut(0, currentRotation.w, duration, newRotation.w);
+
+            return Rotation(gameObject, animationCurve);
+
+        }
+
+        /// <summary>
         /// Animates the rotation of a GameObject to the specified Quaternion over time.
         /// </summary>
         /// <param name="gameObject">GameObject to rotate.</param>
