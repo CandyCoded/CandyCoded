@@ -278,7 +278,7 @@ namespace CandyCoded
 
             Vector4 rotation = animationCurve.Evaluate(elapsedTime);
 
-            gameObject.transform.rotation = new Quaternion(rotation.x, rotation.y, rotation.z, rotation.w);
+            gameObject.transform.localRotation = new Quaternion(rotation.x, rotation.y, rotation.z, rotation.w);
 
         }
 
