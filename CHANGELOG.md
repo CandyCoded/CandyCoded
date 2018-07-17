@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.0.0-beta.8 (July 16, 2018)
+
+### Features
+
+- Added DisplayInInspector IEnumerator support <https://github.com/neogeek/CandyCoded/pull/28>
+
+### Bug Fixes
+
+- Fixed issue with animation rotation <https://github.com/neogeek/CandyCoded/pull/30>
+
 ## v1.0.0-beta.7 (July 12, 2018)
 
 ### Features
