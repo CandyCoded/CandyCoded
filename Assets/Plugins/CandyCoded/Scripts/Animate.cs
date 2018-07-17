@@ -312,10 +312,12 @@ namespace CandyCoded
 
             Quaternion currentRotation = gameObject.transform.localRotation;
 
-            animationCurve.x = AnimationCurve.EaseInOut(0, currentRotation.x, duration, newRotation.x);
-            animationCurve.y = AnimationCurve.EaseInOut(0, currentRotation.y, duration, newRotation.y);
-            animationCurve.z = AnimationCurve.EaseInOut(0, currentRotation.z, duration, newRotation.z);
-            animationCurve.w = AnimationCurve.EaseInOut(0, currentRotation.w, duration, newRotation.w);
+            Quaternion newRotationCopy = Quaternion.SlerpUnclamped(currentRotation, newRotation, 1);
+
+            animationCurve.x = AnimationCurve.EaseInOut(0, currentRotation.x, duration, newRotationCopy.x);
+            animationCurve.y = AnimationCurve.EaseInOut(0, currentRotation.y, duration, newRotationCopy.y);
+            animationCurve.z = AnimationCurve.EaseInOut(0, currentRotation.z, duration, newRotationCopy.z);
+            animationCurve.w = AnimationCurve.EaseInOut(0, currentRotation.w, duration, newRotationCopy.w);
 
             return Rotation(gameObject, animationCurve);
 
