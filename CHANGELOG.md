@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.0-beta.9 (July 16, 2018)
+
+### Bug Fixes
+
+- Fixed invalid rotation reference. <https://github.com/neogeek/CandyCoded/pull/31>
+
 ## v1.0.0-beta.8 (July 16, 2018)
 
 ### Features
