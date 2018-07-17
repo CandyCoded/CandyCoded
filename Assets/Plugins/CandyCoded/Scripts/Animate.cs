@@ -333,21 +333,6 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Animates the rotation of a GameObject to the specified Quaternion over time.
-        /// </summary>
-        /// <param name="gameObject">GameObject to rotate.</param>
-        /// <param name="newRotation">New Quaternion rotation.</param>
-        /// <param name="duration">Length of the animation in seconds.</param>
-        /// <returns>Coroutine</returns>
-
-        public static Coroutine RotateTo(GameObject gameObject, Quaternion newRotation, float duration = 1.0f)
-        {
-
-            return RotateTo(gameObject, newRotation.eulerAngles, duration);
-
-        }
-
-        /// <summary>
         /// Animates the scale of a GameObject with a Vector3AnimationCurve.
         /// </summary>
         /// <param name="gameObject">GameObject to scale.</param>
