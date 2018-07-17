@@ -209,4 +209,110 @@ namespace CandyCoded
 
     }
 
+    [Serializable]
+    public struct Vector4AnimationCurve : IEquatable<Vector4AnimationCurve>
+    {
+
+        [SerializeField]
+        private AnimationCurve _x;
+        public AnimationCurve x
+        {
+            get { return _x; }
+            set { _x = value; }
+        }
+
+        [SerializeField]
+        private AnimationCurve _y;
+        public AnimationCurve y
+        {
+            get { return _y; }
+            set { _y = value; }
+        }
+
+        [SerializeField]
+        private AnimationCurve _z;
+        public AnimationCurve z
+        {
+            get { return _z; }
+            set { _z = value; }
+        }
+
+        [SerializeField]
+        private AnimationCurve _w;
+        public AnimationCurve w
+        {
+            get { return _w; }
+            set { _w = value; }
+        }
+
+        /// <summary>
+        /// Creates a clone of the Vector4AnimationCurve object.
+        /// </summary>
+        /// <returns>Vector4AnimationCurve</returns>
+        public Vector4AnimationCurve Clone()
+        {
+
+            return new Vector4AnimationCurve
+            {
+                x = new AnimationCurve(x.keys),
+                y = new AnimationCurve(y.keys),
+                z = new AnimationCurve(z.keys),
+                w = new AnimationCurve(w.keys)
+            };
+
+        }
+
+        /// <summary>
+        /// Checks the x, y, z and w animation curves to see if any of them loop.
+        /// </summary>
+        /// <returns>bool</returns>
+        public bool IsLooping()
+        {
+
+            return x.IsLooping() || y.IsLooping() || z.IsLooping() || w.IsLooping();
+
+        }
+
+        /// <summary>
+        /// Returns the highest duration time of either the x, y, z or w animation curves.
+        /// </summary>
+        /// <returns>float</returns>
+        public float MaxTime()
+        {
+
+            return Mathf.Max(
+                x.MaxTime(),
+                y.MaxTime(),
+                z.MaxTime(),
+                w.MaxTime()
+            );
+
+        }
+
+        /// <summary>
+        /// Evalues all animation curves and generates a Vector4 with the results.
+        /// </summary>
+        /// <param name="time">The time to evaluate each animation curve with.</param>
+        /// <returns>Vector4</returns>
+        public Vector4 Evaluate(float time)
+        {
+
+            return new Vector4(
+                x.Evaluate(time),
+                y.Evaluate(time),
+                z.Evaluate(time),
+                w.Evaluate(time)
+            );
+
+        }
+
+        public bool Equals(Vector4AnimationCurve other)
+        {
+
+            return other.x == x && other.y == y && other.z == z && other.w == w;
+
+        }
+
+    }
+
 }
