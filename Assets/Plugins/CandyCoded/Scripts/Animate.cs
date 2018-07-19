@@ -293,18 +293,7 @@ namespace CandyCoded
         public static Coroutine RotateTo(GameObject gameObject, Vector3 newRotation, float duration = 1.0f)
         {
 
-            Vector4AnimationCurve animationCurve = new Vector4AnimationCurve();
-
-            Quaternion currentRotation = gameObject.transform.localRotation;
-
-            Quaternion newRotationCopy = Quaternion.Euler(newRotation);
-
-            animationCurve.x = AnimationCurve.EaseInOut(0, currentRotation.x, duration, newRotationCopy.x);
-            animationCurve.y = AnimationCurve.EaseInOut(0, currentRotation.y, duration, newRotationCopy.y);
-            animationCurve.z = AnimationCurve.EaseInOut(0, currentRotation.z, duration, newRotationCopy.z);
-            animationCurve.w = AnimationCurve.EaseInOut(0, currentRotation.w, duration, newRotationCopy.w);
-
-            return Rotation(gameObject, animationCurve);
+            return RotateTo(gameObject, Quaternion.Euler(newRotation), duration);
 
         }
 
@@ -319,7 +308,18 @@ namespace CandyCoded
         public static Coroutine RotateTo(GameObject gameObject, Quaternion newRotation, float duration = 1.0f)
         {
 
-            return RotateTo(gameObject, newRotation.eulerAngles, duration);
+            Vector4AnimationCurve animationCurve = new Vector4AnimationCurve();
+
+            Quaternion currentRotation = gameObject.transform.localRotation;
+
+            Quaternion newRotationCopy = Quaternion.SlerpUnclamped(currentRotation, newRotation, 1);
+
+            animationCurve.x = AnimationCurve.EaseInOut(0, currentRotation.x, duration, newRotationCopy.x);
+            animationCurve.y = AnimationCurve.EaseInOut(0, currentRotation.y, duration, newRotationCopy.y);
+            animationCurve.z = AnimationCurve.EaseInOut(0, currentRotation.z, duration, newRotationCopy.z);
+            animationCurve.w = AnimationCurve.EaseInOut(0, currentRotation.w, duration, newRotationCopy.w);
+
+            return Rotation(gameObject, animationCurve);
 
         }
 
