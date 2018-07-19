@@ -31,11 +31,13 @@ public class DisplayInInspectorDrawer : Editor
                 {
 
                     MethodInfo info = (MethodInfo)method;
+                    MonoBehaviour script = ((MonoBehaviour)target);
 
                     if (info.ReturnType == typeof(IEnumerator))
                     {
 
-                        ((MonoBehaviour)target).StartCoroutine(method.Name);
+                        script.StopCoroutine(method.Name);
+                        script.StartCoroutine(method.Name);
 
                     }
                     else
