@@ -81,12 +81,12 @@ public class ObservableList<T> : IList<T>
     public void Add(T item)
     {
 
+        _items.Add(item);
+
         if (AddEvent != null)
         {
             AddEvent(item);
         }
-
-        _items.Add(item);
 
     }
 
@@ -97,12 +97,12 @@ public class ObservableList<T> : IList<T>
     public void Clear()
     {
 
+        _items.Clear();
+
         if (ClearEvent != null)
         {
             ClearEvent();
         }
-
-        _items.Clear();
 
     }
 
@@ -152,12 +152,12 @@ public class ObservableList<T> : IList<T>
     public void Insert(int index, T item)
     {
 
+        _items.Insert(index, item);
+
         if (AddEvent != null)
         {
             AddEvent(item);
         }
-
-        _items.Insert(index, item);
 
     }
 
@@ -169,12 +169,14 @@ public class ObservableList<T> : IList<T>
     public bool Remove(T item)
     {
 
+        bool result = _items.Remove(item);
+
         if (RemoveEvent != null)
         {
             RemoveEvent();
         }
 
-        return _items.Remove(item);
+        return result;
 
     }
 
@@ -186,12 +188,12 @@ public class ObservableList<T> : IList<T>
     public void RemoveAt(int index)
     {
 
+        _items.RemoveAt(index);
+
         if (RemoveEvent != null)
         {
             RemoveEvent();
         }
-
-        _items.RemoveAt(index);
 
     }
 
