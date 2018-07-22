@@ -355,6 +355,19 @@ public class ObservableList<T> : IList<T>
 
     }
 
+    /// <summary>
+    /// Creates a List with the values from an Observablelist.
+    /// </summary>
+    /// <returns>List<typeparamref name="T"/>></returns>
+    public List<T> ToList()
+    {
+
+        List<T> newList = new List<T>(_items);
+
+        return newList;
+
+    }
+
     public static explicit operator List<T>(ObservableList<T> observableList)
     {
 
