@@ -24,7 +24,7 @@ namespace CandyCoded
 
             DrawDefaultInspector();
 
-            CustomScriptableObject script = (CustomScriptableObject) target;
+            var script = (CustomScriptableObject)target;
 
             if (GUILayout.Button("Reset"))
             {

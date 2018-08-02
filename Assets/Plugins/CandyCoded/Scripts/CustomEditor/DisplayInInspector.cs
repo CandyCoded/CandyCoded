@@ -19,7 +19,7 @@ public class DisplayInInspectorDrawer : Editor
 
         DrawDefaultInspector();
 
-        MemberInfo[] methods = target.GetType().GetMembers(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+        var methods = target.GetType().GetMembers(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
 
         foreach (MemberInfo method in methods)
         {
@@ -30,7 +30,7 @@ public class DisplayInInspectorDrawer : Editor
                 if (GUILayout.Button(ObjectNames.NicifyVariableName(method.Name)))
                 {
 
-                    MethodInfo info = (MethodInfo)method;
+                    var info = (MethodInfo)method;
 
                     if (info.ReturnType == typeof(IEnumerator))
                     {

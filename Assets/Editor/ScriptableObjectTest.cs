@@ -17,7 +17,7 @@ public class ScriptableObjectTest
     public void BoolReference()
     {
 
-        CandyCoded.BoolReference boolReference = ScriptableObject.CreateInstance<CandyCoded.BoolReference>();
+        var boolReference = ScriptableObject.CreateInstance<CandyCoded.BoolReference>();
 
         boolReference.Value = true;
 
@@ -33,7 +33,7 @@ public class ScriptableObjectTest
     public void FloatReference()
     {
 
-        CandyCoded.FloatReference floatReference = ScriptableObject.CreateInstance<CandyCoded.FloatReference>();
+        var floatReference = ScriptableObject.CreateInstance<CandyCoded.FloatReference>();
 
         floatReference.Value = 1.5f;
 
@@ -49,7 +49,7 @@ public class ScriptableObjectTest
     public void GameObjectReference()
     {
 
-        CandyCoded.GameObjectListReference gameObjectListReference = ScriptableObject.CreateInstance<CandyCoded.GameObjectListReference>();
+        var gameObjectListReference = ScriptableObject.CreateInstance<CandyCoded.GameObjectListReference>();
 
         Assert.AreEqual(0, gameObjectListReference.Items.Count);
 
@@ -68,7 +68,7 @@ public class ScriptableObjectTest
     public void IntReference()
     {
 
-        CandyCoded.IntReference intReference = ScriptableObject.CreateInstance<CandyCoded.IntReference>();
+        var intReference = ScriptableObject.CreateInstance<CandyCoded.IntReference>();
 
         intReference.Value = 1;
 
@@ -84,7 +84,7 @@ public class ScriptableObjectTest
     public void StringReference()
     {
 
-        CandyCoded.StringReference stringReference = ScriptableObject.CreateInstance<CandyCoded.StringReference>();
+        var stringReference = ScriptableObject.CreateInstance<CandyCoded.StringReference>();
 
         stringReference.Value = "Hello, World";
 

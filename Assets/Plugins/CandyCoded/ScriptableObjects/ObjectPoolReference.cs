@@ -25,7 +25,7 @@ namespace CandyCoded
             for (int i = 0; i < minObjects; i += 1)
             {
 
-                GameObject gameObject = Instantiate(prefab);
+                var gameObject = Instantiate(prefab);
 
                 gameObject.SetActive(false);
 
@@ -140,7 +140,7 @@ namespace CandyCoded
             while (inactiveGameObjects.Count > 0)
             {
 
-                GameObject gameObject = inactiveGameObjects.Dequeue();
+                var gameObject = inactiveGameObjects.Dequeue();
 
                 if (gameObject)
                 {

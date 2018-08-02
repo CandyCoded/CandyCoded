@@ -76,7 +76,7 @@ namespace CandyCoded
 
                 DrawDefaultInspector();
 
-                Gizmo script = (Gizmo)target;
+                var script = (Gizmo)target;
 
                 switch (script.type)
                 {

@@ -17,9 +17,9 @@ namespace CandyCoded
             Vector3? min = null;
             Vector3? max = null;
 
-            Bounds bounds = new Bounds();
+            var bounds = new Bounds();
 
-            Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
+            var renderers = gameObject.GetComponentsInChildren<Renderer>();
 
             foreach (Renderer renderer in renderers)
             {

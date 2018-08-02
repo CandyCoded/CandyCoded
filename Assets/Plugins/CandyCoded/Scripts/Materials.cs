@@ -15,9 +15,9 @@ namespace CandyCoded
         public static Material[] GetMaterialsInChildren(GameObject gameObject)
         {
 
-            List<Material> materials = new List<Material>();
+            var materials = new List<Material>();
 
-            Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
+            var renderers = gameObject.GetComponentsInChildren<Renderer>();
 
             foreach (Renderer renderer in renderers)
             {

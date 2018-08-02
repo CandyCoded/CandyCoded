@@ -169,7 +169,7 @@ public class ObservableList<T> : IList<T>
     public bool Remove(T item)
     {
 
-        bool result = _items.Remove(item);
+        var result = _items.Remove(item);
 
         if (RemoveEvent != null)
         {
@@ -206,7 +206,7 @@ public class ObservableList<T> : IList<T>
     public ObservableList<T> GetRange(int index, int count)
     {
 
-        ObservableList<T> items = new ObservableList<T>();
+        var items = new ObservableList<T>();
 
         for (int i = index; i < index + count; i += 1)
         {
@@ -278,14 +278,14 @@ public class ObservableList<T> : IList<T>
     public ObservableList<T> Shuffle()
     {
 
-        ObservableList<T> shuffledList = new ObservableList<T>(_items);
+        var shuffledList = new ObservableList<T>(_items);
 
         int count = shuffledList.Count;
 
         for (int i = 0; i < count; i += 1)
         {
 
-            int randomIndex = UnityEngine.Random.Range(i, count);
+            var randomIndex = UnityEngine.Random.Range(i, count);
 
             T tempValue = shuffledList[i];
 
@@ -308,7 +308,7 @@ public class ObservableList<T> : IList<T>
     public ObservableList<T> Slice(int index, int count)
     {
 
-        ObservableList<T> partialList = GetRange(index, count);
+        var partialList = GetRange(index, count);
 
         return partialList;
 
@@ -335,7 +335,7 @@ public class ObservableList<T> : IList<T>
     public ObservableList<T> Splice(int index, int count)
     {
 
-        ObservableList<T> partialList = GetRange(index, count);
+        var partialList = GetRange(index, count);
 
         RemoveRange(index, count);
 
@@ -362,7 +362,7 @@ public class ObservableList<T> : IList<T>
     public List<T> ToList()
     {
 
-        List<T> newList = new List<T>(_items);
+        var newList = new List<T>(_items);
 
         return newList;
 
@@ -371,7 +371,7 @@ public class ObservableList<T> : IList<T>
     public static explicit operator List<T>(ObservableList<T> observableList)
     {
 
-        List<T> newList = new List<T>(observableList);
+        var newList = new List<T>(observableList);
 
         return newList;
 

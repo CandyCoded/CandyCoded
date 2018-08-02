@@ -89,7 +89,7 @@ namespace CandyCoded
         public static explicit operator Vector3AnimationCurve(Vector2AnimationCurve animationCurve)
         {
 
-            Vector3AnimationCurve newAnimationCurve = new Vector3AnimationCurve
+            var newAnimationCurve = new Vector3AnimationCurve
             {
                 x = animationCurve.x,
                 y = animationCurve.y
@@ -197,7 +197,7 @@ namespace CandyCoded
         public static explicit operator Vector2AnimationCurve(Vector3AnimationCurve animationCurve)
         {
 
-            Vector2AnimationCurve newAnimationCurve = new Vector2AnimationCurve
+            var newAnimationCurve = new Vector2AnimationCurve
             {
                 x = animationCurve.x,
                 y = animationCurve.y

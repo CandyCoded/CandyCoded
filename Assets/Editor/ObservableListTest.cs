@@ -21,7 +21,7 @@ public class ObservableListTest
     public void CreateObservableList()
     {
 
-        ObservableList<int> list = new ObservableList<int>();
+        var list = new ObservableList<int>();
 
         Assert.AreEqual(0, list.Count);
 
@@ -31,7 +31,7 @@ public class ObservableListTest
     public void CreateObservableListWithValues()
     {
 
-        ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
+        var list = new ObservableList<int> { 1, 2, 3, 4, 5 };
 
         Assert.AreEqual(5, list.Count);
 
@@ -41,7 +41,7 @@ public class ObservableListTest
     public void CreateObservableListWithList()
     {
 
-        ObservableList<int> list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(sampleList);
 
         Assert.AreEqual(5, list.Count);
 
@@ -51,7 +51,7 @@ public class ObservableListTest
     public void GetObservableListItemValues()
     {
 
-        ObservableList<int> list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(sampleList);
 
         Assert.AreEqual(1, list[0]);
         Assert.AreEqual(2, list[1]);
@@ -65,7 +65,7 @@ public class ObservableListTest
     public void AddItemToObservableList()
     {
 
-        ObservableList<int> list = new ObservableList<int>();
+        var list = new ObservableList<int>();
 
         list.Add(1);
 
@@ -77,7 +77,7 @@ public class ObservableListTest
     public void ClearObservableList()
     {
 
-        ObservableList<int> list = new ObservableList<int>();
+        var list = new ObservableList<int>();
 
         list.Add(1);
 
@@ -93,7 +93,7 @@ public class ObservableListTest
     public void ContainsItemInObservableList()
     {
 
-        ObservableList<int> list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(sampleList);
 
         Assert.AreEqual(true, list.Contains(2));
         Assert.AreEqual(false, list.Contains(10));
@@ -104,7 +104,7 @@ public class ObservableListTest
     public void CopyToArrayWithIndex()
     {
 
-        ObservableList<int> list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(sampleList);
 
         int[] array = new int[10];
 
@@ -122,7 +122,7 @@ public class ObservableListTest
     public void IndexOfItemInObservableList()
     {
 
-        ObservableList<int> list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(sampleList);
 
         Assert.AreEqual(0, list.IndexOf(1));
         Assert.AreEqual(1, list.IndexOf(2));
@@ -133,7 +133,7 @@ public class ObservableListTest
     public void InsertItemIntoObservableList()
     {
 
-        ObservableList<int> list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(sampleList);
 
         Assert.AreEqual(1, list[0]);
         Assert.AreEqual(2, list[1]);
@@ -150,7 +150,7 @@ public class ObservableListTest
     public void RemoveItemFromObservableList()
     {
 
-        ObservableList<int> list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(sampleList);
 
         Assert.AreEqual(1, list[0]);
         Assert.AreEqual(2, list[1]);
@@ -165,7 +165,7 @@ public class ObservableListTest
     public void RemoveAtFromObservableList()
     {
 
-        ObservableList<int> list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(sampleList);
 
         Assert.AreEqual(1, list[0]);
         Assert.AreEqual(2, list[1]);
@@ -180,9 +180,9 @@ public class ObservableListTest
     public void GetRangeFromObservableList()
     {
 
-        ObservableList<int> list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(sampleList);
 
-        ObservableList<int> newList = list.GetRange(1, 2);
+        var newList = list.GetRange(1, 2);
 
         Assert.AreEqual(2, newList.Count);
 
@@ -195,7 +195,7 @@ public class ObservableListTest
     public void AddRangeToObservableListWithList()
     {
 
-        ObservableList<int> list = new ObservableList<int>();
+        var list = new ObservableList<int>();
 
         Assert.AreEqual(0, list.Count);
 
@@ -209,7 +209,7 @@ public class ObservableListTest
     public void AddRangeToObservableListWithObservableList()
     {
 
-        ObservableList<int> list = new ObservableList<int>();
+        var list = new ObservableList<int>();
 
         Assert.AreEqual(0, list.Count);
 
@@ -223,7 +223,7 @@ public class ObservableListTest
     public void RemoveRangeFromObservableList()
     {
 
-        ObservableList<int> list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(sampleList);
 
         list.RemoveRange(1, 2);
 
@@ -235,7 +235,7 @@ public class ObservableListTest
     public void ObservableListShuffle()
     {
 
-        ObservableList<int> numberRange = new ObservableList<int>();
+        var numberRange = new ObservableList<int>();
 
         for (int i = 0; i < 10; i += 1)
         {
@@ -250,7 +250,7 @@ public class ObservableListTest
     public void ObservableListShuffleWithoutChangingReference()
     {
 
-        ObservableList<int> numberRange = new ObservableList<int>();
+        var numberRange = new ObservableList<int>();
 
         for (int i = 0; i < 10; i += 1)
         {
@@ -270,7 +270,7 @@ public class ObservableListTest
     public void ObservableListSlice()
     {
 
-        ObservableList<int> numberRange = new ObservableList<int>();
+        var numberRange = new ObservableList<int>();
 
         for (int i = 0; i < 10; i += 1)
         {
@@ -286,7 +286,7 @@ public class ObservableListTest
     public void ObservableListSliceWithoutIndex()
     {
 
-        ObservableList<int> numberRange = new ObservableList<int>();
+        var numberRange = new ObservableList<int>();
 
         for (int i = 0; i < 10; i += 1)
         {
@@ -302,7 +302,7 @@ public class ObservableListTest
     public void ObservableListSplice()
     {
 
-        ObservableList<int> numberRange = new ObservableList<int>();
+        var numberRange = new ObservableList<int>();
 
         for (int i = 0; i < 10; i += 1)
         {
@@ -318,7 +318,7 @@ public class ObservableListTest
     public void ObservableListSpliceWithoutIndex()
     {
 
-        ObservableList<int> numberRange = new ObservableList<int>();
+        var numberRange = new ObservableList<int>();
 
         for (int i = 0; i < 10; i += 1)
         {

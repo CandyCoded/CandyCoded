@@ -11,7 +11,7 @@ public static class CustomExtensions
     public static T AddOrGetComponent<T>(this GameObject gameObject) where T : Component
     {
 
-        T component = gameObject.GetComponent<T>();
+        var component = gameObject.GetComponent<T>();
 
         if (component == null)
         {
@@ -114,12 +114,12 @@ public static class CustomExtensions
     public static Transform[] GetChildrenByName(this Transform parentTransform, string name)
     {
 
-        List<Transform> childTransforms = new List<Transform>();
+        var childTransforms = new List<Transform>();
 
         for (int i = 0; i < parentTransform.childCount; i += 1)
         {
 
-            Transform childTransform = parentTransform.GetChild(i);
+            var childTransform = parentTransform.GetChild(i);
 
             if (childTransform.gameObject.name.Equals(name))
             {
@@ -194,14 +194,14 @@ public static class CustomExtensions
     public static List<T> Shuffle<T>(this List<T> list)
     {
 
-        List<T> shuffledList = new List<T>(list);
+        var shuffledList = new List<T>(list);
 
         int count = shuffledList.Count;
 
         for (int i = 0; i < count; i += 1)
         {
 
-            int randomIndex = UnityEngine.Random.Range(i, count);
+            var randomIndex = UnityEngine.Random.Range(i, count);
 
             T tempValue = shuffledList[i];
 
@@ -224,7 +224,7 @@ public static class CustomExtensions
     public static List<T> Slice<T>(this List<T> list, int index, int count)
     {
 
-        List<T> partialList = list.GetRange(index, count);
+        var partialList = list.GetRange(index, count);
 
         return partialList;
 
@@ -251,7 +251,7 @@ public static class CustomExtensions
     public static List<T> Splice<T>(this List<T> list, int index, int count)
     {
 
-        List<T> partialList = list.GetRange(index, count);
+        var partialList = list.GetRange(index, count);
 
         list.RemoveRange(index, count);
 

@@ -19,9 +19,9 @@ public class RunnerTest
     public void RunnerAddCoroutine()
     {
 
-        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-        CandyCoded.Runner runner = cube.AddComponent<CandyCoded.Runner>();
+        var runner = cube.AddComponent<CandyCoded.Runner>();
 
         runner.AddCoroutine("TestCoroutine", TestCoroutine());
 
@@ -33,9 +33,9 @@ public class RunnerTest
     public void RunnerFailsToAddDuplicateCoroutine()
     {
 
-        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-        CandyCoded.Runner runner = cube.AddComponent<CandyCoded.Runner>();
+        var runner = cube.AddComponent<CandyCoded.Runner>();
 
         runner.AddCoroutine("TestCoroutine", TestCoroutine());
 
@@ -47,9 +47,9 @@ public class RunnerTest
     public void RunnerRemoveCoroutine()
     {
 
-        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-        CandyCoded.Runner runner = cube.AddComponent<CandyCoded.Runner>();
+        var runner = cube.AddComponent<CandyCoded.Runner>();
 
         runner.AddCoroutine("TestCoroutine", TestCoroutine());
 
@@ -65,9 +65,9 @@ public class RunnerTest
     public void RunnerRemoveAllCoroutines()
     {
 
-        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-        CandyCoded.Runner runner = cube.AddComponent<CandyCoded.Runner>();
+        var runner = cube.AddComponent<CandyCoded.Runner>();
 
         runner.AddCoroutine("TestCoroutine1", TestCoroutine());
         runner.AddCoroutine("TestCoroutine2", TestCoroutine());

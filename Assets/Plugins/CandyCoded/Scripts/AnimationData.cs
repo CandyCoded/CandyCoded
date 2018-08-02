@@ -122,12 +122,12 @@ namespace CandyCoded
 
             _materials = new List<MaterialData>();
 
-            Material[] materialsInChildren = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
+            var materialsInChildren = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
 
             foreach (Material material in materialsInChildren)
             {
 
-                MaterialData materialData = new MaterialData
+                var materialData = new MaterialData
                 {
                     material = material,
                     startColor = material.color

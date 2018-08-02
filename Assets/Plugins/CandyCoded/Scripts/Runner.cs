@@ -60,7 +60,7 @@ namespace CandyCoded
         public void RemoveAllCoroutines()
         {
 
-            List<string> coroutineKeys = new List<string>(_coroutines.Keys);
+            var coroutineKeys = new List<string>(_coroutines.Keys);
 
             foreach (string coroutineKey in coroutineKeys)
             {
