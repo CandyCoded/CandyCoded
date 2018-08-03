@@ -42,6 +42,8 @@ namespace CandyCoded
             if (currentDuration > 0)
             {
 
+#pragma warning disable
+                // Disables "Add missing case" warning as value can only be one of three enum values.
                 switch (currentDirection)
                 {
 
@@ -58,6 +60,7 @@ namespace CandyCoded
                         break;
 
                 }
+#pragma warning restore
 
                 currentDuration = Mathf.Max(currentDuration - Time.unscaledDeltaTime, 0);
 

@@ -33,6 +33,8 @@ namespace CandyCoded
 
             Gizmos.color = color;
 
+#pragma warning disable
+            // Disables "Add missing case" warning as value can only be one of three enum values.
             switch (type)
             {
 
@@ -60,6 +62,7 @@ namespace CandyCoded
                     break;
 
             }
+#pragma warning restore
 
         }
 
@@ -76,6 +79,8 @@ namespace CandyCoded
 
                 var script = (Gizmo)target;
 
+#pragma warning disable
+                // Disables "Add missing case" warning as value can only be one of three enum values.
                 switch (script.type)
                 {
 
@@ -99,6 +104,7 @@ namespace CandyCoded
                         break;
 
                 }
+#pragma warning restore
 
             }
 
