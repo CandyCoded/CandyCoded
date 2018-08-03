@@ -3,7 +3,7 @@ using UnityEngine;
 namespace CandyCoded
 {
 
-    public enum SCREENSHAKE_DIRECTION
+    public enum ScreenshakeDirections
     {
         All,
         Horizontal,
@@ -16,7 +16,7 @@ namespace CandyCoded
         private float currentIntensity;
         private float currentDuration;
 
-        private SCREENSHAKE_DIRECTION currentDirection = SCREENSHAKE_DIRECTION.All;
+        private ScreenshakeDirections currentDirection = ScreenshakeDirections.All;
 
         private GameObject wrapperObject;
 
@@ -40,15 +40,15 @@ namespace CandyCoded
                 switch (currentDirection)
                 {
 
-                    case SCREENSHAKE_DIRECTION.All:
+                    case ScreenshakeDirections.All:
                         shakePosition = Random.insideUnitCircle * currentIntensity;
                         break;
 
-                    case SCREENSHAKE_DIRECTION.Horizontal:
+                    case ScreenshakeDirections.Horizontal:
                         shakePosition = new Vector3(Random.Range(-1, 1), 0, 0) * currentIntensity;
                         break;
 
-                    case SCREENSHAKE_DIRECTION.Vertical:
+                    case ScreenshakeDirections.Vertical:
                         shakePosition = new Vector3(0, Random.Range(-1, 1), 0) * currentIntensity;
                         break;
 
@@ -67,9 +67,9 @@ namespace CandyCoded
         /// </summary>
         /// <param name="duration">Duration of the screen shake animation.</param>
         /// <param name="intensity">Intensity of the screen shake animation.</param>
-        /// <param name="direction">Direction of the screen shake animation. See <see cref="SCREENSHAKE_DIRECTION"/></param>
+        /// <param name="direction">Direction of the screen shake animation. See <see cref="ScreenshakeDirections"/></param>
         /// <returns>void</returns>
-        public void Shake(float duration = 0.5f, float intensity = 0.2f, SCREENSHAKE_DIRECTION direction = SCREENSHAKE_DIRECTION.All)
+        public void Shake(float duration = 0.5f, float intensity = 0.2f, ScreenshakeDirections direction = ScreenshakeDirections.All)
         {
 
             currentIntensity = intensity;

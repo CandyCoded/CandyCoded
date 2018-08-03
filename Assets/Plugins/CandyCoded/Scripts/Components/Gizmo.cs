@@ -9,7 +9,7 @@ namespace CandyCoded
     public class Gizmo : MonoBehaviour
     {
 
-        private enum GIZMO_TYPE
+        private enum GizmoTypes
         {
             Cube,
             Line,
@@ -17,7 +17,7 @@ namespace CandyCoded
         }
 
         [SerializeField]
-        private GIZMO_TYPE type = GIZMO_TYPE.Cube;
+        private GizmoTypes type = GizmoTypes.Cube;
 
         private Color color = Color.green;
         private Vector3 offset = Vector3.zero;
@@ -34,11 +34,11 @@ namespace CandyCoded
             switch (type)
             {
 
-                case GIZMO_TYPE.Cube:
+                case GizmoTypes.Cube:
                     Gizmos.DrawWireCube(gameObject.transform.position + offset, size);
                     break;
 
-                case GIZMO_TYPE.Line:
+                case GizmoTypes.Line:
                     if (relativeEndPosition)
                     {
 
@@ -53,7 +53,7 @@ namespace CandyCoded
                     }
                     break;
 
-                case GIZMO_TYPE.Sphere:
+                case GizmoTypes.Sphere:
                     Gizmos.DrawWireSphere(gameObject.transform.position + offset, radius);
                     break;
 
@@ -77,20 +77,20 @@ namespace CandyCoded
                 switch (script.type)
                 {
 
-                    case GIZMO_TYPE.Cube:
+                    case GizmoTypes.Cube:
                         script.color = EditorGUILayout.ColorField("Color", script.color);
                         script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
                         script.size = EditorGUILayout.Vector3Field("Size", script.size);
                         break;
 
-                    case GIZMO_TYPE.Line:
+                    case GizmoTypes.Line:
                         script.color = EditorGUILayout.ColorField("Color", script.color);
                         script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
                         script.endPosition = EditorGUILayout.Vector3Field("End Position", script.endPosition);
                         script.relativeEndPosition = EditorGUILayout.Toggle("Relative End Position", script.relativeEndPosition);
                         break;
 
-                    case GIZMO_TYPE.Sphere:
+                    case GizmoTypes.Sphere:
                         script.color = EditorGUILayout.ColorField("Color", script.color);
                         script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
                         script.radius = EditorGUILayout.FloatField("Radius", script.radius);
