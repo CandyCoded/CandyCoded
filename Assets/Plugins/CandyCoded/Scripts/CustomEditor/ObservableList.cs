@@ -14,7 +14,7 @@ public class ObservableList<T> : IList<T>
     public event EventHandler ClearEvent;
     public event EventHandler RemoveEvent;
 
-    private IList<T> _items;
+    private readonly IList<T> _items;
 
     /// <summary>
     /// Gets the number of elements contained in the ObservableList.
