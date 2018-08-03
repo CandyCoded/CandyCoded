@@ -20,7 +20,12 @@ namespace CandyCoded
         public void PopulatePool()
         {
 
-            if (!prefab) { return; }
+            if (!prefab)
+            {
+
+                return;
+
+            }
 
             for (int i = 0; i < minObjects; i += 1)
             {
@@ -38,7 +43,12 @@ namespace CandyCoded
         public GameObject Spawn(Vector3 position, Quaternion rotation)
         {
 
-            if (!prefab) { return null; }
+            if (!prefab)
+            {
+
+                return null;
+
+            }
 
             GameObject gameObject = null;
 
@@ -67,7 +77,12 @@ namespace CandyCoded
         public GameObject Spawn(Vector3 position)
         {
 
-            if (!prefab) { return null; }
+            if (!prefab)
+            {
+
+                return null;
+
+            }
 
             return Spawn(position, Quaternion.identity);
 
@@ -76,7 +91,12 @@ namespace CandyCoded
         public GameObject Spawn()
         {
 
-            if (!prefab) { return null; }
+            if (!prefab)
+            {
+
+                return null;
+
+            }
 
             return Spawn(Vector3.zero, Quaternion.identity);
 

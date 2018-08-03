@@ -92,8 +92,19 @@ namespace CandyCoded
 
                 Vector3 newPosition = mainTarget.transform.position;
 
-                if (constraints.maintainOffsetX) { newPosition.x += cameraPositionOffset.x; }
-                if (constraints.maintainOffsetY) { newPosition.y += cameraPositionOffset.y; }
+                if (constraints.maintainOffsetX)
+                {
+
+                    newPosition.x += cameraPositionOffset.x;
+
+                }
+
+                if (constraints.maintainOffsetY)
+                {
+
+                    newPosition.y += cameraPositionOffset.y;
+
+                }
 
                 if (constraints.boundsTransform)
                 {
@@ -112,8 +123,19 @@ namespace CandyCoded
 
                 }
 
-                if (constraints.freezePositionX) { newPosition.x = cameraTransform.position.x; }
-                if (constraints.freezePositionY) { newPosition.y = cameraTransform.position.y; }
+                if (constraints.freezePositionX)
+                {
+
+                    newPosition.x = cameraTransform.position.x;
+
+                }
+
+                if (constraints.freezePositionY)
+                {
+
+                    newPosition.y = cameraTransform.position.y;
+
+                }
 
                 newPosition.z = cameraTransform.position.z;
 
