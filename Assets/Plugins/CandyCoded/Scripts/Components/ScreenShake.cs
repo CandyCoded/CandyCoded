@@ -13,6 +13,9 @@ namespace CandyCoded
     public class ScreenShake : MonoBehaviour
     {
 
+        const float DEFAULT_SCREENSHAKE_DURATION = 0.5f;
+        const float DEFAULT_SCREENSHAKE_INTENSITY = 0.2f;
+
         private float currentIntensity;
         private float currentDuration;
 
@@ -69,12 +72,48 @@ namespace CandyCoded
         /// <param name="intensity">Intensity of the screen shake animation.</param>
         /// <param name="direction">Direction of the screen shake animation. See <see cref="ScreenshakeDirections"/></param>
         /// <returns>void</returns>
-        public void Shake(float duration = 0.5f, float intensity = 0.2f, ScreenshakeDirections direction = ScreenshakeDirections.All)
+        public void Shake(float duration, float intensity, ScreenshakeDirections direction)
         {
 
             currentIntensity = intensity;
             currentDuration = duration;
             currentDirection = direction;
+
+        }
+
+        /// <summary>
+        /// Initiates a screen shake animation.
+        /// </summary>
+        /// <param name="duration">Duration of the screen shake animation.</param>
+        /// <param name="intensity">Intensity of the screen shake animation.</param>
+        /// <returns>void</returns>
+        public void Shake(float duration, float intensity)
+        {
+
+            Shake(duration, intensity, ScreenshakeDirections.All);
+
+        }
+
+        /// <summary>
+        /// Initiates a screen shake animation.
+        /// </summary>
+        /// <param name="duration">Duration of the screen shake animation.</param>
+        /// <returns>void</returns>
+        public void Shake(float duration)
+        {
+
+            Shake(duration, DEFAULT_SCREENSHAKE_INTENSITY, ScreenshakeDirections.All);
+
+        }
+
+        /// <summary>
+        /// Initiates a screen shake animation.
+        /// </summary>
+        /// <returns>void</returns>
+        public void Shake()
+        {
+
+            Shake(DEFAULT_SCREENSHAKE_DURATION, DEFAULT_SCREENSHAKE_INTENSITY, ScreenshakeDirections.All);
 
         }
 
