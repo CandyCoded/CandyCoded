@@ -11,14 +11,13 @@ namespace CandyCoded
 
         private enum GIZMO_TYPE
         {
-            None,
             Cube,
             Line,
             Sphere
         }
 
         [SerializeField]
-        private GIZMO_TYPE type = GIZMO_TYPE.None;
+        private GIZMO_TYPE type = GIZMO_TYPE.Cube;
 
         private Color color = Color.green;
         private Vector3 offset = Vector3.zero;
@@ -58,9 +57,6 @@ namespace CandyCoded
                     Gizmos.DrawWireSphere(gameObject.transform.position + offset, radius);
                     break;
 
-                case GIZMO_TYPE.None:
-                    break;
-
             }
 
         }
@@ -98,9 +94,6 @@ namespace CandyCoded
                         script.color = EditorGUILayout.ColorField("Color", script.color);
                         script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
                         script.radius = EditorGUILayout.FloatField("Radius", script.radius);
-                        break;
-
-                    case GIZMO_TYPE.None:
                         break;
 
                 }
