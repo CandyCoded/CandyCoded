@@ -12,7 +12,7 @@ namespace CandyCoded
 
         public delegate void OneShotFunc();
 
-        private Dictionary<string, Coroutine> _coroutines = new Dictionary<string, Coroutine>();
+        private readonly Dictionary<string, Coroutine> _coroutines = new Dictionary<string, Coroutine>();
         public Dictionary<string, Coroutine> Coroutines
         {
             get
