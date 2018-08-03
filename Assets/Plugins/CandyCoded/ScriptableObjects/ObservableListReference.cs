@@ -5,6 +5,8 @@ using UnityEngine;
 namespace CandyCoded
 {
 
+#pragma warning disable S1694
+    // Disables "An abstract class should have both abstract and concrete methods" warning as class must extend CustomScriptableObject.
     public abstract class ObservableListReference<T> : CustomScriptableObject
     {
 
@@ -68,5 +70,6 @@ namespace CandyCoded
         }
 
     }
+#pragma warning restore S1694
 
 }
