@@ -16,8 +16,8 @@ namespace CandyCoded
         [SerializeField]
         private int minObjects = 10;
 
-        private List<GameObject> activeGameObjects = new List<GameObject>();
-        private Queue<GameObject> inactiveGameObjects = new Queue<GameObject>();
+        private readonly List<GameObject> activeGameObjects = new List<GameObject>();
+        private readonly Queue<GameObject> inactiveGameObjects = new Queue<GameObject>();
 
         public void PopulatePool()
         {
