@@ -18,6 +18,7 @@ namespace CandyCoded
             return other.position == position && other.scale == scale && other.rotation == rotation;
 
         }
+
     }
 
     public struct MaterialData : IEquatable<MaterialData>
@@ -32,6 +33,7 @@ namespace CandyCoded
             return other.material == material && other.startColor == startColor;
 
         }
+
     }
 
     public class AnimationData : MonoBehaviour
