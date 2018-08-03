@@ -235,10 +235,21 @@ public static class CustomExtensions
     /// </summary>
     /// <param name="count">Number of items to return.</param>
     /// <returns>List<typeparamref name="T"/>></returns>
-    public static List<T> Slice<T>(this List<T> list, int count = 1)
+    public static List<T> Slice<T>(this List<T> list, int count)
     {
 
         return list.Slice(0, count);
+
+    }
+
+    /// <summary>
+    /// Returns a shallow copy of a portion of a list.
+    /// </summary>
+    /// <returns>List<typeparamref name="T"/>></returns>
+    public static List<T> Slice<T>(this List<T> list)
+    {
+
+        return list.Slice(0, 1);
 
     }
 
@@ -264,10 +275,21 @@ public static class CustomExtensions
     /// </summary>
     /// <param name="count">Number of items to return and remove.</param>
     /// <returns>List<typeparamref name="T"/>></returns>
-    public static List<T> Splice<T>(this List<T> list, int count = 1)
+    public static List<T> Splice<T>(this List<T> list, int count)
     {
 
         return list.Splice(0, count);
+
+    }
+
+    /// <summary>
+    /// Removes and returns a shallow copy of a portion of a list.
+    /// </summary>
+    /// <returns>List<typeparamref name="T"/>></returns>
+    public static List<T> Splice<T>(this List<T> list)
+    {
+
+        return list.Splice(0, 1);
 
     }
 

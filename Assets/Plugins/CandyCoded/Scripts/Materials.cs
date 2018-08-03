@@ -41,12 +41,24 @@ namespace CandyCoded
         /// <param name="color">Color object to modify.</param>
         /// <param name="alpha">New alpha value.</param>
         /// <returns>Color</returns>
-        public static Color SetColorAlpha(Color color, float alpha = 1)
+        public static Color SetColorAlpha(Color color, float alpha)
         {
 
             color.a = alpha;
 
             return color;
+
+        }
+
+        /// <summary>
+        /// Set the alpha value of a color object.
+        /// </summary>
+        /// <param name="color">Color object to modify.</param>
+        /// <returns>Color</returns>
+        public static Color SetColorAlpha(Color color)
+        {
+
+            return SetColorAlpha(color, 1);
 
         }
 
