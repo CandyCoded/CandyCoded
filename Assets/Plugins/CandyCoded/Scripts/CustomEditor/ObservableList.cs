@@ -321,10 +321,21 @@ public class ObservableList<T> : IList<T>
     /// </summary>
     /// <param name="count">Number of items to return.</param>
     /// <returns>ObservableList<typeparamref name="T"/>></returns>
-    public ObservableList<T> Slice(int count = 1)
+    public ObservableList<T> Slice(int count)
     {
 
         return Slice(0, count);
+
+    }
+
+    /// <summary>
+    /// Returns a shallow copy of a portion of an Observablelist.
+    /// </summary>
+    /// <returns>ObservableList<typeparamref name="T"/>></returns>
+    public ObservableList<T> Slice()
+    {
+
+        return Slice(0, 1);
 
     }
 
@@ -350,10 +361,21 @@ public class ObservableList<T> : IList<T>
     /// </summary>
     /// <param name="count">Number of items to return and remove.</param>
     /// <returns>ObservableList<typeparamref name="T"/>></returns>
-    public ObservableList<T> Splice(int count = 1)
+    public ObservableList<T> Splice(int count)
     {
 
         return Splice(0, count);
+
+    }
+
+    /// <summary>
+    /// Removes and returns a shallow copy of a portion of an Observablelist.
+    /// </summary>
+    /// <returns>ObservableList<typeparamref name="T"/>></returns>
+    public ObservableList<T> Splice()
+    {
+
+        return Splice(0, 1);
 
     }
 
