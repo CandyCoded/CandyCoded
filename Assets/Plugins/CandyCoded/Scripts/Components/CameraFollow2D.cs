@@ -66,7 +66,7 @@ namespace CandyCoded
 
         private Vector3 velocity = Vector3.zero;
 
-#pragma warning disable S4392
+#pragma warning disable S1144
         // Disables "Unused private types or members should be removed" warning method is part of MonoBehaviour.
         private void Awake()
         {
@@ -153,7 +153,7 @@ namespace CandyCoded
             }
 
         }
-#pragma warning restore S4392
+#pragma warning restore S1144
 
     }
 
