@@ -28,6 +28,8 @@ namespace CandyCoded
         private bool relativeEndPosition = true;
         private float radius = 1.0f;
 
+#pragma warning disable S4392
+        // Disables "Unused private types or members should be removed" warning method is part of MonoBehaviour.
         private void OnDrawGizmos()
         {
 
@@ -65,6 +67,7 @@ namespace CandyCoded
 #pragma warning restore S131, IDE0010
 
         }
+#pragma warning restore S4392
 
 #if UNITY_EDITOR
 

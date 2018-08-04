@@ -11,6 +11,8 @@ namespace CandyCoded
         [SerializeField]
         private Transform mainCamera;
 
+#pragma warning disable S4392
+        // Disables "Unused private types or members should be removed" warning method is part of MonoBehaviour.
         private void Awake()
         {
 
@@ -29,6 +31,7 @@ namespace CandyCoded
             gameObject.transform.LookAt(gameObject.transform.position + mainCamera.rotation * Vector3.forward);
 
         }
+#pragma warning restore S4392
 
     }
 

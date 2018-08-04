@@ -59,12 +59,15 @@ namespace CandyCoded
             }
         }
 
+#pragma warning disable S4392
+        // Disables "Unused private types or members should be removed" warning method is part of MonoBehaviour.
         private void Awake()
         {
 
             RebuildCachedData();
 
         }
+#pragma warning restore S4392
 
         /// <summary>
         /// Rebuilds all cache data related to basic animations: initial transform and material color data.

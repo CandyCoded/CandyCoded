@@ -83,6 +83,8 @@ namespace CandyCoded
         private Vector3 lookAtPosition;
         private GameObject tempSecondaryTarget;
 
+#pragma warning disable S4392
+        // Disables "Unused private types or members should be removed" warning method is part of MonoBehaviour.
         private void Awake()
         {
 
@@ -205,6 +207,7 @@ namespace CandyCoded
             }
 
         }
+#pragma warning restore S4392
 
     }
 
