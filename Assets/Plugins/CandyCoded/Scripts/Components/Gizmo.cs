@@ -21,12 +21,16 @@ namespace CandyCoded
         [SerializeField]
         private GizmoTypes type = GizmoTypes.Cube;
 
+
+#pragma warning disable S2933
+        // Disables "Fields that are only assigned in the constructor should be "readonly"" warning as properties are modified via separate script.
         private Color color = Color.green;
         private Vector3 offset = Vector3.zero;
         private Vector3 size = Vector3.one;
         private Vector3 endPosition = Vector3.zero;
         private bool relativeEndPosition = true;
         private float radius = 1.0f;
+#pragma warning restore S2933
 
 #pragma warning disable S1144
         // Disables "Unused private types or members should be removed" warning method is part of MonoBehaviour.
