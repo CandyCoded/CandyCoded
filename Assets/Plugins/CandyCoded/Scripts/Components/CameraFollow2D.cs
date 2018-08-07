@@ -26,12 +26,16 @@ namespace CandyCoded
             public bool Equals(CameraConstraints2D other)
             {
 
-                return other.freezePositionX == freezePositionX &&
-                    other.freezePositionY == freezePositionY &&
-                    other.maintainOffsetX == maintainOffsetX &&
-                    other.maintainOffsetY == maintainOffsetY &&
-                    other.boundsTransform == boundsTransform &&
+                bool freezePosition = other.freezePositionX == freezePositionX &&
+                    other.freezePositionY == freezePositionY;
+
+                bool maintainOffset = other.maintainOffsetX == maintainOffsetX &&
+                    other.maintainOffsetY == maintainOffsetY;
+
+                bool restrictBounds = other.boundsTransform == boundsTransform &&
                     other.bounds == bounds;
+
+                return freezePosition && maintainOffset && restrictBounds;
 
             }
         }
