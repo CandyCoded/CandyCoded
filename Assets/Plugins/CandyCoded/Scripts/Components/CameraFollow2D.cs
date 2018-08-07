@@ -67,6 +67,17 @@ namespace CandyCoded
         private Vector3 cameraPositionOffset;
 
         private float cameraOrthographicSize;
+        private float cameraExtentHorizontal
+        {
+
+            get
+            {
+
+                return cameraOrthographicSize * Screen.width / Screen.height;
+
+            }
+
+        }
 
         private Vector3 velocity = Vector3.zero;
 
@@ -100,52 +111,11 @@ namespace CandyCoded
 
                 Vector3 newPosition = MainTarget.transform.position;
 
-                if (constraints.maintainOffsetX)
-                {
+                newPosition += CalculateOffset();
 
-                    newPosition.x += cameraPositionOffset.x;
+                newPosition = CalculateBounds(newPosition);
 
-                }
-
-                if (constraints.maintainOffsetY)
-                {
-
-                    newPosition.y += cameraPositionOffset.y;
-
-                }
-
-                if (constraints.boundsTransform)
-                {
-
-                    constraints.bounds = Calculation.ParentBounds(constraints.boundsTransform);
-
-                }
-
-                float cameraExtentHorizontal = cameraOrthographicSize * Screen.width / Screen.height;
-
-                if (Mathf.Abs(constraints.bounds.size.magnitude) >= Single.Epsilon)
-                {
-
-                    newPosition.x = Mathf.Clamp(newPosition.x, constraints.bounds.min.x + cameraExtentHorizontal, constraints.bounds.max.x - cameraExtentHorizontal);
-                    newPosition.y = Mathf.Clamp(newPosition.y, constraints.bounds.min.y + cameraOrthographicSize, constraints.bounds.max.y - cameraOrthographicSize);
-
-                }
-
-                if (constraints.freezePositionX)
-                {
-
-                    newPosition.x = cameraTransform.position.x;
-
-                }
-
-                if (constraints.freezePositionY)
-                {
-
-                    newPosition.y = cameraTransform.position.y;
-
-                }
-
-                newPosition.z = cameraTransform.position.z;
+                newPosition = FreezePositions(newPosition);
 
                 cameraTransform.position = Vector3.SmoothDamp(
                     cameraTransform.position,
@@ -158,6 +128,76 @@ namespace CandyCoded
 
         }
 #pragma warning restore S1144
+
+        public Vector3 CalculateOffset()
+        {
+
+            Vector3 offset = Vector3.zero;
+
+            if (constraints.maintainOffsetX)
+            {
+
+                offset.x = cameraPositionOffset.x;
+
+            }
+
+            if (constraints.maintainOffsetY)
+            {
+
+                offset.y = cameraPositionOffset.y;
+
+            }
+
+            return offset;
+
+        }
+
+        public Vector3 CalculateBounds(Vector3 newPosition)
+        {
+
+            Bounds bounds = constraints.bounds;
+
+            if (constraints.boundsTransform)
+            {
+
+                bounds = Calculation.ParentBounds(constraints.boundsTransform);
+
+            }
+
+            if (Mathf.Abs(bounds.size.magnitude) >= Single.Epsilon)
+            {
+
+                newPosition.x = Mathf.Clamp(newPosition.x, bounds.min.x + cameraExtentHorizontal, bounds.max.x - cameraExtentHorizontal);
+                newPosition.y = Mathf.Clamp(newPosition.y, bounds.min.y + cameraOrthographicSize, bounds.max.y - cameraOrthographicSize);
+
+            }
+
+            return newPosition;
+
+        }
+
+        public Vector3 FreezePositions(Vector3 newPosition)
+        {
+
+            if (constraints.freezePositionX)
+            {
+
+                newPosition.x = cameraTransform.position.x;
+
+            }
+
+            if (constraints.freezePositionY)
+            {
+
+                newPosition.y = cameraTransform.position.y;
+
+            }
+
+            newPosition.z = cameraTransform.position.z;
+
+            return newPosition;
+
+        }
 
     }
 
