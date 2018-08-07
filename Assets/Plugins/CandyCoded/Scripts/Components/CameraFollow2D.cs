@@ -42,7 +42,7 @@ namespace CandyCoded
 
         [SerializeField]
         private bool _tracking = true;
-        public bool tracking
+        public bool Tracking
         {
             get { return _tracking; }
             set { _tracking = value; }
@@ -50,7 +50,7 @@ namespace CandyCoded
 
         [SerializeField]
         private Transform _mainTarget;
-        public Transform mainTarget
+        public Transform MainTarget
         {
             get { return _mainTarget; }
             set { _mainTarget = value; }
@@ -78,16 +78,16 @@ namespace CandyCoded
             cameraTransform = Camera.main.transform;
             cameraOrthographicSize = Camera.main.orthographicSize;
 
-            if (mainTarget == null)
+            if (MainTarget == null)
             {
 
-                mainTarget = gameObject.transform;
+                MainTarget = gameObject.transform;
 
             }
 
             cameraPositionOffset = new Vector2(
-                cameraTransform.position.x - mainTarget.transform.position.x,
-                cameraTransform.position.y - mainTarget.transform.position.y
+                cameraTransform.position.x - MainTarget.transform.position.x,
+                cameraTransform.position.y - MainTarget.transform.position.y
             );
 
         }
@@ -95,10 +95,10 @@ namespace CandyCoded
         private void LateUpdate()
         {
 
-            if (tracking && mainTarget)
+            if (Tracking && MainTarget)
             {
 
-                Vector3 newPosition = mainTarget.transform.position;
+                Vector3 newPosition = MainTarget.transform.position;
 
                 if (constraints.maintainOffsetX)
                 {

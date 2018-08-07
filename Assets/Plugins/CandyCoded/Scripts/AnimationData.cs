@@ -10,14 +10,14 @@ namespace CandyCoded
     public struct TransformData : IEquatable<TransformData>
     {
 
-        public Vector3 position { get; set; }
-        public Vector3 scale { get; set; }
-        public Quaternion rotation { get; set; }
+        public Vector3 Position { get; set; }
+        public Vector3 Scale { get; set; }
+        public Quaternion Rotation { get; set; }
 
         public bool Equals(TransformData other)
         {
 
-            return other.position == position && other.scale == scale && other.rotation == rotation;
+            return other.Position == Position && other.Scale == Scale && other.Rotation == Rotation;
 
         }
 
@@ -88,9 +88,9 @@ namespace CandyCoded
         public void CacheTransformData()
         {
 
-            _transformData.position = gameObject.transform.localPosition;
-            _transformData.scale = gameObject.transform.localScale;
-            _transformData.rotation = gameObject.transform.localRotation;
+            _transformData.Position = gameObject.transform.localPosition;
+            _transformData.Scale = gameObject.transform.localScale;
+            _transformData.Rotation = gameObject.transform.localRotation;
 
         }
 

@@ -38,7 +38,7 @@ namespace CandyCoded
 
         [SerializeField]
         private bool _tracking = true;
-        public bool tracking
+        public bool Tracking
         {
             get { return _tracking; }
             set { _tracking = value; }
@@ -46,7 +46,7 @@ namespace CandyCoded
 
         [SerializeField]
         private bool _rotating = true;
-        public bool rotating
+        public bool Rotating
         {
             get { return _rotating; }
             set { _rotating = value; }
@@ -54,7 +54,7 @@ namespace CandyCoded
 
         [SerializeField]
         private Transform _mainTarget;
-        public Transform mainTarget
+        public Transform MainTarget
         {
             get { return _mainTarget; }
             set { _mainTarget = value; }
@@ -62,7 +62,7 @@ namespace CandyCoded
 
         [SerializeField]
         private Transform _secondaryTarget;
-        public Transform secondaryTarget
+        public Transform SecondaryTarget
         {
             get { return _secondaryTarget; }
             set { _secondaryTarget = value; }
@@ -98,23 +98,23 @@ namespace CandyCoded
 
             }
 
-            if (mainTarget == null)
+            if (MainTarget == null)
             {
 
-                mainTarget = gameObject.transform;
+                MainTarget = gameObject.transform;
 
             }
 
             tempSecondaryTarget = new GameObject("SecondayTarget (temp)");
             tempSecondaryTarget.transform.position = gameObject.transform.position + gameObject.transform.forward;
-            tempSecondaryTarget.transform.parent = mainTarget;
+            tempSecondaryTarget.transform.parent = MainTarget;
 
             lookAtPosition = tempSecondaryTarget.transform.position;
 
             cameraPositionOffset = new Vector3(
-                cameraTransform.position.x - mainTarget.transform.position.x,
-                cameraTransform.position.y - mainTarget.transform.position.y,
-                cameraTransform.position.z - mainTarget.transform.position.z
+                cameraTransform.position.x - MainTarget.transform.position.x,
+                cameraTransform.position.y - MainTarget.transform.position.y,
+                cameraTransform.position.z - MainTarget.transform.position.z
             );
 
         }
@@ -122,26 +122,26 @@ namespace CandyCoded
         private void LateUpdate()
         {
 
-            if (tracking && mainTarget)
+            if (Tracking && MainTarget)
             {
 
-                Vector3 newPosition = mainTarget.transform.position;
+                Vector3 newPosition = MainTarget.transform.position;
 
                 Transform secondaryTargetTransform = tempSecondaryTarget.transform;
 
-                if (secondaryTarget)
+                if (SecondaryTarget)
                 {
 
-                    secondaryTargetTransform = secondaryTarget;
+                    secondaryTargetTransform = SecondaryTarget;
 
                 }
 
-                if (rotating)
+                if (Rotating)
                 {
 
-                    newPosition = mainTarget.position + (cameraPositionOffset.magnitude * (mainTarget.position - secondaryTargetTransform.position).normalized);
+                    newPosition = MainTarget.position + (cameraPositionOffset.magnitude * (MainTarget.position - secondaryTargetTransform.position).normalized);
 
-                    newPosition.y = mainTarget.position.y;
+                    newPosition.y = MainTarget.position.y;
 
                 }
                 else
@@ -198,7 +198,7 @@ namespace CandyCoded
                     dampRate
                 );
 
-                if (rotating)
+                if (Rotating)
                 {
 
                     lookAtPosition = Vector3.Lerp(lookAtPosition, secondaryTargetTransform.position, rotateSpeed * Time.deltaTime);

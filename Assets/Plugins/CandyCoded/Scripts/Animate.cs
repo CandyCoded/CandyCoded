@@ -259,7 +259,7 @@ namespace CandyCoded
         public static void PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime, AnimationData animationData)
         {
 
-            gameObject.transform.localPosition = animationData.TransformData.position + animationCurve.Evaluate(elapsedTime);
+            gameObject.transform.localPosition = animationData.TransformData.Position + animationCurve.Evaluate(elapsedTime);
 
         }
 
@@ -276,7 +276,7 @@ namespace CandyCoded
 
             var animationData = gameObject.AddOrGetComponent<AnimationData>();
 
-            gameObject.transform.localPosition = animationData.TransformData.position + animationCurve.Evaluate(elapsedTime);
+            gameObject.transform.localPosition = animationData.TransformData.Position + animationCurve.Evaluate(elapsedTime);
 
         }
 
@@ -480,7 +480,7 @@ namespace CandyCoded
         public static void ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime, AnimationData animationData)
         {
 
-            gameObject.transform.localScale = animationData.TransformData.scale + animationCurve.Evaluate(elapsedTime);
+            gameObject.transform.localScale = animationData.TransformData.Scale + animationCurve.Evaluate(elapsedTime);
 
         }
 
@@ -497,7 +497,7 @@ namespace CandyCoded
 
             var animationData = gameObject.AddOrGetComponent<AnimationData>();
 
-            gameObject.transform.localScale = animationData.TransformData.scale + animationCurve.Evaluate(elapsedTime);
+            gameObject.transform.localScale = animationData.TransformData.Scale + animationCurve.Evaluate(elapsedTime);
 
         }
 
