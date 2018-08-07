@@ -26,13 +26,13 @@ namespace CandyCoded
     public struct MaterialData : IEquatable<MaterialData>
     {
 
-        public Material material { get; set; }
-        public Color startColor { get; set; }
+        public Material Material { get; set; }
+        public Color StartColor { get; set; }
 
         public bool Equals(MaterialData other)
         {
 
-            return other.material == material && other.startColor == startColor;
+            return other.Material == Material && other.StartColor == StartColor;
 
         }
 
@@ -110,8 +110,8 @@ namespace CandyCoded
 
                 var materialData = new MaterialData
                 {
-                    material = material,
-                    startColor = material.color
+                    Material = material,
+                    StartColor = material.color
                 };
 
                 _materials.Add(materialData);

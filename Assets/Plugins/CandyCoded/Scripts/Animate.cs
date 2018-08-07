@@ -122,7 +122,7 @@ namespace CandyCoded
             foreach (MaterialData materialData in animationData.Materials)
             {
 
-                materialData.material.color = Materials.SetColorAlpha(materialData.material.color, materialData.startColor.a * globalAlpha);
+                materialData.Material.color = Materials.SetColorAlpha(materialData.Material.color, materialData.StartColor.a * globalAlpha);
 
             }
 
