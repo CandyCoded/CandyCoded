@@ -21,7 +21,6 @@ namespace CandyCoded
         [SerializeField]
         private GizmoTypes type = GizmoTypes.Cube;
 
-
 #pragma warning disable S2933
         // Disables "Fields that are only assigned in the constructor should be "readonly"" warning as properties are modified via separate script.
         private Color color = Color.green;
