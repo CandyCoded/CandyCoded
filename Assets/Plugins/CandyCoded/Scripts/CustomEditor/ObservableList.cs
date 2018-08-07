@@ -3,6 +3,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
+#pragma warning disable S3903
+// Disables "Types should be defined in named namespaces" warning as component should be available at all times.
+
 public class ObservableList<T> : IList<T>
 {
 
@@ -402,3 +405,5 @@ public class ObservableList<T> : IList<T>
     }
 
 }
+
+#pragma warning restore S3903

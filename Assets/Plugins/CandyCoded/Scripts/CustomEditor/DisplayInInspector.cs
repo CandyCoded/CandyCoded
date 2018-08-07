@@ -8,6 +8,9 @@ using UnityEditor;
 #endif
 using UnityEngine;
 
+#pragma warning disable S3903
+// Disables "Types should be defined in named namespaces" warning as component should be available at all times.
+
 [AttributeUsage(AttributeTargets.Method)]
 public class DisplayInInspectorAttribute : PropertyAttribute { }
 
@@ -57,3 +60,5 @@ public class DisplayInInspectorDrawer : Editor
 
 }
 #endif
+
+#pragma warning restore S3903
