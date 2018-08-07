@@ -3,6 +3,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#pragma warning disable S3903
+// Disables "Types should be defined in named namespaces" warning as component should be available at all times.
+
 public static class CustomExtensions
 {
 
@@ -296,3 +299,5 @@ public static class CustomExtensions
     }
 
 }
+
+#pragma warning restore S3903
