@@ -158,7 +158,7 @@ namespace CandyCoded
             if (Rotating)
             {
 
-                newPosition += (cameraPositionOffset.magnitude * (MainTarget.position - tempSecondaryTarget.transform.position).normalized);
+                newPosition += (cameraPositionOffset.magnitude * (newPosition - tempSecondaryTarget.transform.position).normalized);
 
                 newPosition.y = MainTarget.position.y;
 
