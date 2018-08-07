@@ -127,69 +127,9 @@ namespace CandyCoded
 
                 Vector3 newPosition = MainTarget.transform.position;
 
-                Transform secondaryTargetTransform = tempSecondaryTarget.transform;
+                newPosition = CalculateOffset(newPosition);
 
-                if (SecondaryTarget)
-                {
-
-                    secondaryTargetTransform = SecondaryTarget;
-
-                }
-
-                if (Rotating)
-                {
-
-                    newPosition = MainTarget.position + (cameraPositionOffset.magnitude * (MainTarget.position - secondaryTargetTransform.position).normalized);
-
-                    newPosition.y = MainTarget.position.y;
-
-                }
-                else
-                {
-
-                    if (constraints.maintainOffsetX)
-                    {
-
-                        newPosition.x += cameraPositionOffset.x;
-
-                    }
-
-                    if (constraints.maintainOffsetZ)
-                    {
-
-                        newPosition.z += cameraPositionOffset.z;
-
-                    }
-
-                }
-
-                if (constraints.maintainOffsetY)
-                {
-
-                    newPosition.y += cameraPositionOffset.y;
-
-                }
-
-                if (constraints.freezePositionX)
-                {
-
-                    newPosition.x = cameraTransform.position.x;
-
-                }
-
-                if (constraints.freezePositionY)
-                {
-
-                    newPosition.y = cameraTransform.position.y;
-
-                }
-
-                if (constraints.freezePositionZ)
-                {
-
-                    newPosition.z = cameraTransform.position.z;
-
-                }
+                newPosition = FreezePositions(newPosition);
 
                 cameraTransform.position = Vector3.SmoothDamp(
                     cameraTransform.position,
@@ -201,7 +141,7 @@ namespace CandyCoded
                 if (Rotating)
                 {
 
-                    lookAtPosition = Vector3.Lerp(lookAtPosition, secondaryTargetTransform.position, rotateSpeed * Time.deltaTime);
+                    lookAtPosition = Vector3.Lerp(lookAtPosition, tempSecondaryTarget.transform.position, rotateSpeed * Time.deltaTime);
 
                     cameraTransform.LookAt(lookAtPosition);
 
@@ -211,6 +151,75 @@ namespace CandyCoded
 
         }
 #pragma warning restore S1144
+
+        public Vector3 CalculateOffset(Vector3 newPosition)
+        {
+
+            if (Rotating)
+            {
+
+                newPosition = MainTarget.position + (cameraPositionOffset.magnitude * (MainTarget.position - tempSecondaryTarget.transform.position).normalized);
+
+                newPosition.y = MainTarget.position.y;
+
+            }
+            else
+            {
+
+                if (constraints.maintainOffsetX)
+                {
+
+                    newPosition.x += cameraPositionOffset.x;
+
+                }
+
+                if (constraints.maintainOffsetZ)
+                {
+
+                    newPosition.z += cameraPositionOffset.z;
+
+                }
+
+            }
+
+            if (constraints.maintainOffsetY)
+            {
+
+                newPosition.y += cameraPositionOffset.y;
+
+            }
+
+            return newPosition;
+
+        }
+
+        public Vector3 FreezePositions(Vector3 newPosition)
+        {
+
+            if (constraints.freezePositionX)
+            {
+
+                newPosition.x = cameraTransform.position.x;
+
+            }
+
+            if (constraints.freezePositionY)
+            {
+
+                newPosition.y = cameraTransform.position.y;
+
+            }
+
+            if (constraints.freezePositionZ)
+            {
+
+                newPosition.z = cameraTransform.position.z;
+
+            }
+
+            return newPosition;
+
+        }
 
     }
 
