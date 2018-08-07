@@ -1,3 +1,5 @@
+﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -24,7 +26,7 @@ namespace CandyCoded
 
             DrawDefaultInspector();
 
-            CustomScriptableObject script = (CustomScriptableObject) target;
+            var script = (CustomScriptableObject)target;
 
             if (GUILayout.Button("Reset"))
             {

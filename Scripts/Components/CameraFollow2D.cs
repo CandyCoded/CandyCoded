@@ -1,3 +1,5 @@
+﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using System;
 using UnityEngine;
 
@@ -24,19 +26,23 @@ namespace CandyCoded
             public bool Equals(CameraConstraints2D other)
             {
 
-                return other.freezePositionX == freezePositionX &&
-                            other.freezePositionY == freezePositionY &&
-                            other.maintainOffsetX == maintainOffsetX &&
-                            other.maintainOffsetY == maintainOffsetY &&
-                            other.boundsTransform == boundsTransform &&
-                            other.bounds == bounds;
+                bool freezePosition = other.freezePositionX == freezePositionX &&
+                    other.freezePositionY == freezePositionY;
+
+                bool maintainOffset = other.maintainOffsetX == maintainOffsetX &&
+                    other.maintainOffsetY == maintainOffsetY;
+
+                bool restrictBounds = other.boundsTransform == boundsTransform &&
+                    other.bounds == bounds;
+
+                return freezePosition && maintainOffset && restrictBounds;
 
             }
         }
 
         [SerializeField]
         private bool _tracking = true;
-        public bool tracking
+        public bool Tracking
         {
             get { return _tracking; }
             set { _tracking = value; }
@@ -44,7 +50,7 @@ namespace CandyCoded
 
         [SerializeField]
         private Transform _mainTarget;
-        public Transform mainTarget
+        public Transform MainTarget
         {
             get { return _mainTarget; }
             set { _mainTarget = value; }
@@ -61,25 +67,38 @@ namespace CandyCoded
         private Vector3 cameraPositionOffset;
 
         private float cameraOrthographicSize;
+        private float cameraExtentHorizontal
+        {
+
+            get
+            {
+
+                return cameraOrthographicSize * Screen.width / Screen.height;
+
+            }
+
+        }
 
         private Vector3 velocity = Vector3.zero;
 
+#pragma warning disable S1144
+        // Disables "Unused private types or members should be removed" warning as method is part of MonoBehaviour.
         private void Awake()
         {
 
             cameraTransform = Camera.main.transform;
             cameraOrthographicSize = Camera.main.orthographicSize;
 
-            if (mainTarget == null)
+            if (MainTarget == null)
             {
 
-                mainTarget = gameObject.transform;
+                MainTarget = gameObject.transform;
 
             }
 
             cameraPositionOffset = new Vector2(
-                cameraTransform.position.x - mainTarget.transform.position.x,
-                cameraTransform.position.y - mainTarget.transform.position.y
+                cameraTransform.position.x - MainTarget.transform.position.x,
+                cameraTransform.position.y - MainTarget.transform.position.y
             );
 
         }
@@ -87,35 +106,16 @@ namespace CandyCoded
         private void LateUpdate()
         {
 
-            if (tracking && mainTarget)
+            if (Tracking && MainTarget)
             {
 
-                Vector3 newPosition = mainTarget.transform.position;
+                Vector3 newPosition = MainTarget.transform.position;
 
-                if (constraints.maintainOffsetX) { newPosition.x += cameraPositionOffset.x; }
-                if (constraints.maintainOffsetY) { newPosition.y += cameraPositionOffset.y; }
+                newPosition += CalculateOffset();
 
-                if (constraints.boundsTransform)
-                {
+                newPosition = CalculateBounds(newPosition);
 
-                    constraints.bounds = Calculation.ParentBounds(constraints.boundsTransform);
-
-                }
-
-                float cameraExtentHorizontal = cameraOrthographicSize * Screen.width / Screen.height;
-
-                if (Mathf.Abs(constraints.bounds.size.magnitude) >= Single.Epsilon)
-                {
-
-                    newPosition.x = Mathf.Clamp(newPosition.x, constraints.bounds.min.x + cameraExtentHorizontal, constraints.bounds.max.x - cameraExtentHorizontal);
-                    newPosition.y = Mathf.Clamp(newPosition.y, constraints.bounds.min.y + cameraOrthographicSize, constraints.bounds.max.y - cameraOrthographicSize);
-
-                }
-
-                if (constraints.freezePositionX) { newPosition.x = cameraTransform.position.x; }
-                if (constraints.freezePositionY) { newPosition.y = cameraTransform.position.y; }
-
-                newPosition.z = cameraTransform.position.z;
+                newPosition = FreezePositions(newPosition);
 
                 cameraTransform.position = Vector3.SmoothDamp(
                     cameraTransform.position,
@@ -125,6 +125,77 @@ namespace CandyCoded
                 );
 
             }
+
+        }
+#pragma warning restore S1144
+
+        public Vector3 CalculateOffset()
+        {
+
+            Vector3 offset = Vector3.zero;
+
+            if (constraints.maintainOffsetX)
+            {
+
+                offset.x = cameraPositionOffset.x;
+
+            }
+
+            if (constraints.maintainOffsetY)
+            {
+
+                offset.y = cameraPositionOffset.y;
+
+            }
+
+            return offset;
+
+        }
+
+        public Vector3 CalculateBounds(Vector3 newPosition)
+        {
+
+            Bounds bounds = constraints.bounds;
+
+            if (constraints.boundsTransform)
+            {
+
+                bounds = Calculation.ParentBounds(constraints.boundsTransform);
+
+            }
+
+            if (Mathf.Abs(bounds.size.magnitude) >= Single.Epsilon)
+            {
+
+                newPosition.x = Mathf.Clamp(newPosition.x, bounds.min.x + cameraExtentHorizontal, bounds.max.x - cameraExtentHorizontal);
+                newPosition.y = Mathf.Clamp(newPosition.y, bounds.min.y + cameraOrthographicSize, bounds.max.y - cameraOrthographicSize);
+
+            }
+
+            return newPosition;
+
+        }
+
+        public Vector3 FreezePositions(Vector3 newPosition)
+        {
+
+            if (constraints.freezePositionX)
+            {
+
+                newPosition.x = cameraTransform.position.x;
+
+            }
+
+            if (constraints.freezePositionY)
+            {
+
+                newPosition.y = cameraTransform.position.y;
+
+            }
+
+            newPosition.z = cameraTransform.position.z;
+
+            return newPosition;
 
         }
 

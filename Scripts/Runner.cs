@@ -1,3 +1,5 @@
+﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +12,7 @@ namespace CandyCoded
 
         public delegate void OneShotFunc();
 
-        private Dictionary<string, Coroutine> _coroutines = new Dictionary<string, Coroutine>();
+        private readonly Dictionary<string, Coroutine> _coroutines = new Dictionary<string, Coroutine>();
         public Dictionary<string, Coroutine> Coroutines
         {
             get
@@ -60,7 +62,7 @@ namespace CandyCoded
         public void RemoveAllCoroutines()
         {
 
-            List<string> coroutineKeys = new List<string>(_coroutines.Keys);
+            var coroutineKeys = new List<string>(_coroutines.Keys);
 
             foreach (string coroutineKey in coroutineKeys)
             {

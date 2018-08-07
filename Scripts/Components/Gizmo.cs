@@ -1,3 +1,5 @@
+﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -9,37 +11,43 @@ namespace CandyCoded
     public class Gizmo : MonoBehaviour
     {
 
-        private enum GIZMO_TYPE
+        private enum GizmoTypes
         {
-            None,
             Cube,
             Line,
             Sphere
         }
 
         [SerializeField]
-        private GIZMO_TYPE type = GIZMO_TYPE.None;
+        private GizmoTypes type = GizmoTypes.Cube;
 
+#pragma warning disable S2933
+        // Disables "Fields that are only assigned in the constructor should be "readonly"" warning as properties are modified via separate script.
         private Color color = Color.green;
         private Vector3 offset = Vector3.zero;
         private Vector3 size = Vector3.one;
         private Vector3 endPosition = Vector3.zero;
         private bool relativeEndPosition = true;
         private float radius = 1.0f;
+#pragma warning restore S2933
 
+#pragma warning disable S1144
+        // Disables "Unused private types or members should be removed" warning as method is part of MonoBehaviour.
         private void OnDrawGizmos()
         {
 
             Gizmos.color = color;
 
+#pragma warning disable S131, IDE0010
+            // Disables "Add missing case" warning as value can only be one of three enum values.
             switch (type)
             {
 
-                case GIZMO_TYPE.Cube:
+                case GizmoTypes.Cube:
                     Gizmos.DrawWireCube(gameObject.transform.position + offset, size);
                     break;
 
-                case GIZMO_TYPE.Line:
+                case GizmoTypes.Line:
                     if (relativeEndPosition)
                     {
 
@@ -54,16 +62,15 @@ namespace CandyCoded
                     }
                     break;
 
-                case GIZMO_TYPE.Sphere:
+                case GizmoTypes.Sphere:
                     Gizmos.DrawWireSphere(gameObject.transform.position + offset, radius);
                     break;
 
-                case GIZMO_TYPE.None:
-                    break;
-
             }
+#pragma warning restore S131, IDE0010
 
         }
+#pragma warning restore S1144
 
 #if UNITY_EDITOR
 
@@ -76,34 +83,34 @@ namespace CandyCoded
 
                 DrawDefaultInspector();
 
-                Gizmo script = (Gizmo)target;
+                var script = (Gizmo)target;
 
+#pragma warning disable S131, IDE0010
+                // Disables "Add missing case" warning as value can only be one of three enum values.
                 switch (script.type)
                 {
 
-                    case GIZMO_TYPE.Cube:
+                    case GizmoTypes.Cube:
                         script.color = EditorGUILayout.ColorField("Color", script.color);
                         script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
                         script.size = EditorGUILayout.Vector3Field("Size", script.size);
                         break;
 
-                    case GIZMO_TYPE.Line:
+                    case GizmoTypes.Line:
                         script.color = EditorGUILayout.ColorField("Color", script.color);
                         script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
                         script.endPosition = EditorGUILayout.Vector3Field("End Position", script.endPosition);
                         script.relativeEndPosition = EditorGUILayout.Toggle("Relative End Position", script.relativeEndPosition);
                         break;
 
-                    case GIZMO_TYPE.Sphere:
+                    case GizmoTypes.Sphere:
                         script.color = EditorGUILayout.ColorField("Color", script.color);
                         script.offset = EditorGUILayout.Vector3Field("Offset", script.offset);
                         script.radius = EditorGUILayout.FloatField("Radius", script.radius);
                         break;
 
-                    case GIZMO_TYPE.None:
-                        break;
-
                 }
+#pragma warning restore S131, IDE0010
 
             }
 

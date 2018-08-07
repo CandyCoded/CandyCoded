@@ -1,3 +1,5 @@
+﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using System;
 using System.Collections;
 #if UNITY_EDITOR
@@ -5,6 +7,9 @@ using System.Reflection;
 using UnityEditor;
 #endif
 using UnityEngine;
+
+#pragma warning disable S3903
+// Disables "Types should be defined in named namespaces" warning as component should be available at all times.
 
 [AttributeUsage(AttributeTargets.Method)]
 public class DisplayInInspectorAttribute : PropertyAttribute { }
@@ -19,7 +24,7 @@ public class DisplayInInspectorDrawer : Editor
 
         DrawDefaultInspector();
 
-        MemberInfo[] methods = target.GetType().GetMembers(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+        var methods = target.GetType().GetMembers(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
 
         foreach (MemberInfo method in methods)
         {
@@ -30,7 +35,7 @@ public class DisplayInInspectorDrawer : Editor
                 if (GUILayout.Button(ObjectNames.NicifyVariableName(method.Name)))
                 {
 
-                    MethodInfo info = (MethodInfo)method;
+                    var info = (MethodInfo)method;
 
                     if (info.ReturnType == typeof(IEnumerator))
                     {
@@ -55,3 +60,5 @@ public class DisplayInInspectorDrawer : Editor
 
 }
 #endif
+
+#pragma warning restore S3903

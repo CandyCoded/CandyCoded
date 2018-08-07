@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
+using System.Collections;
 using UnityEngine;
 
 namespace CandyCoded
@@ -12,7 +14,7 @@ namespace CandyCoded
         private static IEnumerator Loop(GameObject gameObject, string coroutineKey, bool isLooping, float maxTime, AnimationFunc animationFunc)
         {
 
-            Runner runner = gameObject.AddOrGetComponent<Runner>();
+            var runner = gameObject.AddOrGetComponent<Runner>();
 
             float elapsedTime = 0;
 
@@ -47,7 +49,7 @@ namespace CandyCoded
         private static Coroutine StartCoroutine(GameObject gameObject, string coroutineKey, IEnumerator routine)
         {
 
-            Runner runner = gameObject.AddOrGetComponent<Runner>();
+            var runner = gameObject.AddOrGetComponent<Runner>();
 
             runner.RemoveCoroutine(coroutineKey);
 
@@ -65,7 +67,7 @@ namespace CandyCoded
         public static void Stop(GameObject gameObject, string animationName)
         {
 
-            Runner runner = gameObject.AddOrGetComponent<Runner>();
+            var runner = gameObject.AddOrGetComponent<Runner>();
 
             runner.RemoveCoroutine(animationName);
 
@@ -80,7 +82,7 @@ namespace CandyCoded
         public static void StopAll(GameObject gameObject)
         {
 
-            Runner runner = gameObject.AddOrGetComponent<Runner>();
+            var runner = gameObject.AddOrGetComponent<Runner>();
 
             runner.RemoveAllCoroutines();
 
@@ -96,7 +98,7 @@ namespace CandyCoded
         public static Coroutine Fade(GameObject gameObject, AnimationCurve animationCurve)
         {
 
-            AnimationData animationData = gameObject.AddOrGetComponent<AnimationData>();
+            var animationData = gameObject.AddOrGetComponent<AnimationData>();
 
             return StartCoroutine(gameObject, "Fade",
                 Loop(gameObject, "Fade", animationCurve.IsLooping(), animationCurve.MaxTime(),
@@ -115,12 +117,12 @@ namespace CandyCoded
         public static void Fade(AnimationCurve animationCurve, float elapsedTime, AnimationData animationData)
         {
 
-            float globalAlpha = animationCurve.Evaluate(elapsedTime);
+            var globalAlpha = animationCurve.Evaluate(elapsedTime);
 
             foreach (MaterialData materialData in animationData.Materials)
             {
 
-                materialData.material.color = Materials.SetColorAlpha(materialData.material.color, materialData.startColor.a * globalAlpha);
+                materialData.Material.color = Materials.SetColorAlpha(materialData.Material.color, materialData.StartColor.a * globalAlpha);
 
             }
 
@@ -135,12 +137,27 @@ namespace CandyCoded
         /// <param name="duration">Length of the animation in seconds.</param>
         /// <returns>Coroutine</returns>
 
-        public static Coroutine Fade(GameObject gameObject, float from, float to, float duration = 1.0f)
+        public static Coroutine Fade(GameObject gameObject, float from, float to, float duration)
         {
 
-            AnimationCurve animationCurve = AnimationCurve.EaseInOut(0, from, duration, to);
+            var animationCurve = AnimationCurve.EaseInOut(0, from, duration, to);
 
             return Fade(gameObject, animationCurve);
+
+        }
+
+        /// <summary>
+        /// Fades a GameObject from a specified alpha to another.
+        /// </summary>
+        /// <param name="gameObject">GameObject to fade.</param>
+        /// <param name="from">Starting alpha.</param>
+        /// <param name="to">Ending alpha.</param>
+        /// <returns>Coroutine</returns>
+
+        public static Coroutine Fade(GameObject gameObject, float from, float to)
+        {
+
+            return Fade(gameObject, from, to, 1);
 
         }
 
@@ -183,10 +200,10 @@ namespace CandyCoded
         /// <param name="duration">Length of the animation in seconds.</param>
         /// <returns>Coroutine</returns>
 
-        public static Coroutine MoveTo(GameObject gameObject, Vector3 newPosition, float duration = 1.0f)
+        public static Coroutine MoveTo(GameObject gameObject, Vector3 newPosition, float duration)
         {
 
-            Vector3AnimationCurve animationCurve = new Vector3AnimationCurve();
+            var animationCurve = new Vector3AnimationCurve();
 
             Vector3 currentPosition = gameObject.transform.position;
 
@@ -195,6 +212,20 @@ namespace CandyCoded
             animationCurve.z = AnimationCurve.EaseInOut(0, currentPosition.z, duration, newPosition.z);
 
             return Position(gameObject, animationCurve);
+
+        }
+
+        /// <summary>
+        /// Animates the position of a GameObject to the specified Vector3 over time.
+        /// </summary>
+        /// <param name="gameObject">GameObject to move.</param>
+        /// <param name="newPosition">New Vector3 position.</param>
+        /// <returns>Coroutine</returns>
+
+        public static Coroutine MoveTo(GameObject gameObject, Vector3 newPosition)
+        {
+
+            return MoveTo(gameObject, newPosition, 1);
 
         }
 
@@ -208,7 +239,7 @@ namespace CandyCoded
         public static Coroutine PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
-            AnimationData animationData = gameObject.AddOrGetComponent<AnimationData>();
+            var animationData = gameObject.AddOrGetComponent<AnimationData>();
 
             return StartCoroutine(gameObject, "PositionRelative",
                 Loop(gameObject, "PositionRelative", animationCurve.IsLooping(), animationCurve.MaxTime(),
@@ -228,7 +259,7 @@ namespace CandyCoded
         public static void PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime, AnimationData animationData)
         {
 
-            gameObject.transform.localPosition = animationData.TransformData.position + animationCurve.Evaluate(elapsedTime);
+            gameObject.transform.localPosition = animationData.TransformData.Position + animationCurve.Evaluate(elapsedTime);
 
         }
 
@@ -243,9 +274,9 @@ namespace CandyCoded
         public static void PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime)
         {
 
-            AnimationData animationData = gameObject.AddOrGetComponent<AnimationData>();
+            var animationData = gameObject.AddOrGetComponent<AnimationData>();
 
-            gameObject.transform.localPosition = animationData.TransformData.position + animationCurve.Evaluate(elapsedTime);
+            gameObject.transform.localPosition = animationData.TransformData.Position + animationCurve.Evaluate(elapsedTime);
 
         }
 
@@ -276,7 +307,7 @@ namespace CandyCoded
         public static void Rotation(GameObject gameObject, Vector4AnimationCurve animationCurve, float elapsedTime)
         {
 
-            Vector4 rotation = animationCurve.Evaluate(elapsedTime);
+            var rotation = animationCurve.Evaluate(elapsedTime);
 
             gameObject.transform.localRotation = new Quaternion(rotation.x, rotation.y, rotation.z, rotation.w);
 
@@ -290,10 +321,24 @@ namespace CandyCoded
         /// <param name="duration">Length of the animation in seconds.</param>
         /// <returns>Coroutine</returns>
 
-        public static Coroutine RotateTo(GameObject gameObject, Vector3 newRotation, float duration = 1.0f)
+        public static Coroutine RotateTo(GameObject gameObject, Vector3 newRotation, float duration)
         {
 
             return RotateTo(gameObject, Quaternion.Euler(newRotation), duration);
+
+        }
+
+        /// <summary>
+        /// Animates the rotation of a GameObject to the specified Vector3 over time.
+        /// </summary>
+        /// <param name="gameObject">GameObject to rotate.</param>
+        /// <param name="newRotation">New Vector3 rotation.</param>
+        /// <returns>Coroutine</returns>
+
+        public static Coroutine RotateTo(GameObject gameObject, Vector3 newRotation)
+        {
+
+            return RotateTo(gameObject, newRotation, 1);
 
         }
 
@@ -305,14 +350,14 @@ namespace CandyCoded
         /// <param name="duration">Length of the animation in seconds.</param>
         /// <returns>Coroutine</returns>
 
-        public static Coroutine RotateTo(GameObject gameObject, Quaternion newRotation, float duration = 1.0f)
+        public static Coroutine RotateTo(GameObject gameObject, Quaternion newRotation, float duration)
         {
 
-            Vector4AnimationCurve animationCurve = new Vector4AnimationCurve();
+            var animationCurve = new Vector4AnimationCurve();
 
             Quaternion currentRotation = gameObject.transform.localRotation;
 
-            Quaternion newRotationCopy = Quaternion.SlerpUnclamped(currentRotation, newRotation, 1);
+            var newRotationCopy = Quaternion.SlerpUnclamped(currentRotation, newRotation, 1);
 
             animationCurve.x = AnimationCurve.EaseInOut(0, currentRotation.x, duration, newRotationCopy.x);
             animationCurve.y = AnimationCurve.EaseInOut(0, currentRotation.y, duration, newRotationCopy.y);
@@ -320,6 +365,20 @@ namespace CandyCoded
             animationCurve.w = AnimationCurve.EaseInOut(0, currentRotation.w, duration, newRotationCopy.w);
 
             return Rotation(gameObject, animationCurve);
+
+        }
+
+        /// <summary>
+        /// Animates the rotation of a GameObject to the specified Quaternion over time.
+        /// </summary>
+        /// <param name="gameObject">GameObject to rotate.</param>
+        /// <param name="newRotation">New Quaternion rotation.</param>
+        /// <returns>Coroutine</returns>
+
+        public static Coroutine RotateTo(GameObject gameObject, Quaternion newRotation)
+        {
+
+            return RotateTo(gameObject, newRotation, 1);
 
         }
 
@@ -362,10 +421,10 @@ namespace CandyCoded
         /// <param name="duration">Length of the animation in seconds.</param>
         /// <returns>Coroutine</returns>
 
-        public static Coroutine ScaleTo(GameObject gameObject, Vector3 newScale, float duration = 1.0f)
+        public static Coroutine ScaleTo(GameObject gameObject, Vector3 newScale, float duration)
         {
 
-            Vector3AnimationCurve animationCurve = new Vector3AnimationCurve();
+            var animationCurve = new Vector3AnimationCurve();
 
             Vector3 currentScale = gameObject.transform.localScale;
 
@@ -374,6 +433,20 @@ namespace CandyCoded
             animationCurve.z = AnimationCurve.EaseInOut(0, currentScale.z, duration, newScale.z);
 
             return Scale(gameObject, animationCurve);
+
+        }
+
+        /// <summary>
+        /// Animates the scale of a GameObject to the specified Vector3 over time.
+        /// </summary>
+        /// <param name="gameObject">GameObject to scale.</param>
+        /// <param name="newScale">New Vector3 scale.</param>
+        /// <returns>Coroutine</returns>
+
+        public static Coroutine ScaleTo(GameObject gameObject, Vector3 newScale)
+        {
+
+            return ScaleTo(gameObject, newScale, 1);
 
         }
 
@@ -387,7 +460,7 @@ namespace CandyCoded
         public static Coroutine ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
-            AnimationData animationData = gameObject.AddOrGetComponent<AnimationData>();
+            var animationData = gameObject.AddOrGetComponent<AnimationData>();
 
             return StartCoroutine(gameObject, "ScaleRelative",
                 Loop(gameObject, "ScaleRelative", animationCurve.IsLooping(), animationCurve.MaxTime(),
@@ -407,7 +480,7 @@ namespace CandyCoded
         public static void ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime, AnimationData animationData)
         {
 
-            gameObject.transform.localScale = animationData.TransformData.scale + animationCurve.Evaluate(elapsedTime);
+            gameObject.transform.localScale = animationData.TransformData.Scale + animationCurve.Evaluate(elapsedTime);
 
         }
 
@@ -422,9 +495,9 @@ namespace CandyCoded
         public static void ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime)
         {
 
-            AnimationData animationData = gameObject.AddOrGetComponent<AnimationData>();
+            var animationData = gameObject.AddOrGetComponent<AnimationData>();
 
-            gameObject.transform.localScale = animationData.TransformData.scale + animationCurve.Evaluate(elapsedTime);
+            gameObject.transform.localScale = animationData.TransformData.Scale + animationCurve.Evaluate(elapsedTime);
 
         }
 

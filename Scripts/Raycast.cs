@@ -1,3 +1,5 @@
+﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +23,7 @@ namespace CandyCoded
 
             hits = new List<RaycastHit>();
 
-            List<Vector3> linePositions = new List<Vector3>
+            var linePositions = new List<Vector3>
             {
                 startPosition
             };

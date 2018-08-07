@@ -1,3 +1,5 @@
+﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,9 +17,9 @@ namespace CandyCoded
         public static Material[] GetMaterialsInChildren(GameObject gameObject)
         {
 
-            List<Material> materials = new List<Material>();
+            var materials = new List<Material>();
 
-            Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
+            var renderers = gameObject.GetComponentsInChildren<Renderer>();
 
             foreach (Renderer renderer in renderers)
             {
@@ -41,7 +43,7 @@ namespace CandyCoded
         /// <param name="color">Color object to modify.</param>
         /// <param name="alpha">New alpha value.</param>
         /// <returns>Color</returns>
-        public static Color SetColorAlpha(Color color, float alpha = 1)
+        public static Color SetColorAlpha(Color color, float alpha)
         {
 
             color.a = alpha;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,57 +9,33 @@ namespace CandyCoded
 
     public struct TransformData : IEquatable<TransformData>
     {
-        private Vector3 _position;
-        public Vector3 position
-        {
-            get { return _position; }
-            set { _position = value; }
-        }
 
-        private Vector3 _scale;
-        public Vector3 scale
-        {
-            get { return _scale; }
-            set { _scale = value; }
-        }
-
-        private Quaternion _rotation;
-        public Quaternion rotation
-        {
-            get { return _rotation; }
-            set { _rotation = value; }
-        }
+        public Vector3 Position { get; set; }
+        public Vector3 Scale { get; set; }
+        public Quaternion Rotation { get; set; }
 
         public bool Equals(TransformData other)
         {
 
-            return other.position == position && other.scale == scale && other.rotation == rotation;
+            return other.Position == Position && other.Scale == Scale && other.Rotation == Rotation;
 
         }
+
     }
 
     public struct MaterialData : IEquatable<MaterialData>
     {
-        private Material _material;
-        public Material material
-        {
-            get { return _material; }
-            set { _material = value; }
-        }
 
-        private Color _startColor;
-        public Color startColor
-        {
-            get { return _startColor; }
-            set { _startColor = value; }
-        }
+        public Material Material { get; set; }
+        public Color StartColor { get; set; }
 
         public bool Equals(MaterialData other)
         {
 
-            return other.material == material && other.startColor == startColor;
+            return other.Material == Material && other.StartColor == StartColor;
 
         }
+
     }
 
     public class AnimationData : MonoBehaviour
@@ -81,12 +59,15 @@ namespace CandyCoded
             }
         }
 
+#pragma warning disable S1144
+        // Disables "Unused private types or members should be removed" warning as method is part of MonoBehaviour.
         private void Awake()
         {
 
             RebuildCachedData();
 
         }
+#pragma warning restore S1144
 
         /// <summary>
         /// Rebuilds all cache data related to basic animations: initial transform and material color data.
@@ -107,9 +88,9 @@ namespace CandyCoded
         public void CacheTransformData()
         {
 
-            _transformData.position = gameObject.transform.localPosition;
-            _transformData.scale = gameObject.transform.localScale;
-            _transformData.rotation = gameObject.transform.localRotation;
+            _transformData.Position = gameObject.transform.localPosition;
+            _transformData.Scale = gameObject.transform.localScale;
+            _transformData.Rotation = gameObject.transform.localRotation;
 
         }
 
@@ -122,15 +103,15 @@ namespace CandyCoded
 
             _materials = new List<MaterialData>();
 
-            Material[] materialsInChildren = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
+            var materialsInChildren = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
 
             foreach (Material material in materialsInChildren)
             {
 
-                MaterialData materialData = new MaterialData
+                var materialData = new MaterialData
                 {
-                    material = material,
-                    startColor = material.color
+                    Material = material,
+                    StartColor = material.color
                 };
 
                 _materials.Add(materialData);
