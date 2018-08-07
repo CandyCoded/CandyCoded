@@ -33,7 +33,7 @@ namespace CandyCoded
 #pragma warning restore S2933
 
 #pragma warning disable S1144
-        // Disables "Unused private types or members should be removed" warning method is part of MonoBehaviour.
+        // Disables "Unused private types or members should be removed" warning as method is part of MonoBehaviour.
         private void OnDrawGizmos()
         {
 
