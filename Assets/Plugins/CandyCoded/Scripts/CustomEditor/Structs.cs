@@ -3,6 +3,9 @@
 using System;
 using UnityEngine;
 
+#pragma warning disable S100
+// Disables "Methods and properties should be named in camel case" to allow properties to match Vector2, Vector3 and Vector4 structs.
+
 namespace CandyCoded
 {
 
@@ -318,3 +321,5 @@ namespace CandyCoded
     }
 
 }
+
+#pragma warning restore S100
