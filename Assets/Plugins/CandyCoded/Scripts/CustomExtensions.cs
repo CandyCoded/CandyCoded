@@ -1,5 +1,10 @@
+﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using System.Collections.Generic;
 using UnityEngine;
+
+#pragma warning disable S3903
+// Disables "Types should be defined in named namespaces" warning as component should be available at all times.
 
 public static class CustomExtensions
 {
@@ -11,7 +16,7 @@ public static class CustomExtensions
     public static T AddOrGetComponent<T>(this GameObject gameObject) where T : Component
     {
 
-        T component = gameObject.GetComponent<T>();
+        var component = gameObject.GetComponent<T>();
 
         if (component == null)
         {
@@ -114,12 +119,12 @@ public static class CustomExtensions
     public static Transform[] GetChildrenByName(this Transform parentTransform, string name)
     {
 
-        List<Transform> childTransforms = new List<Transform>();
+        var childTransforms = new List<Transform>();
 
         for (int i = 0; i < parentTransform.childCount; i += 1)
         {
 
-            Transform childTransform = parentTransform.GetChild(i);
+            var childTransform = parentTransform.GetChild(i);
 
             if (childTransform.gameObject.name.Equals(name))
             {
@@ -194,14 +199,14 @@ public static class CustomExtensions
     public static List<T> Shuffle<T>(this List<T> list)
     {
 
-        List<T> shuffledList = new List<T>(list);
+        var shuffledList = new List<T>(list);
 
         int count = shuffledList.Count;
 
         for (int i = 0; i < count; i += 1)
         {
 
-            int randomIndex = UnityEngine.Random.Range(i, count);
+            var randomIndex = UnityEngine.Random.Range(i, count);
 
             T tempValue = shuffledList[i];
 
@@ -224,7 +229,7 @@ public static class CustomExtensions
     public static List<T> Slice<T>(this List<T> list, int index, int count)
     {
 
-        List<T> partialList = list.GetRange(index, count);
+        var partialList = list.GetRange(index, count);
 
         return partialList;
 
@@ -235,10 +240,21 @@ public static class CustomExtensions
     /// </summary>
     /// <param name="count">Number of items to return.</param>
     /// <returns>List<typeparamref name="T"/>></returns>
-    public static List<T> Slice<T>(this List<T> list, int count = 1)
+    public static List<T> Slice<T>(this List<T> list, int count)
     {
 
         return list.Slice(0, count);
+
+    }
+
+    /// <summary>
+    /// Returns a shallow copy of a portion of a list.
+    /// </summary>
+    /// <returns>List<typeparamref name="T"/>></returns>
+    public static List<T> Slice<T>(this List<T> list)
+    {
+
+        return list.Slice(0, 1);
 
     }
 
@@ -251,7 +267,7 @@ public static class CustomExtensions
     public static List<T> Splice<T>(this List<T> list, int index, int count)
     {
 
-        List<T> partialList = list.GetRange(index, count);
+        var partialList = list.GetRange(index, count);
 
         list.RemoveRange(index, count);
 
@@ -264,11 +280,24 @@ public static class CustomExtensions
     /// </summary>
     /// <param name="count">Number of items to return and remove.</param>
     /// <returns>List<typeparamref name="T"/>></returns>
-    public static List<T> Splice<T>(this List<T> list, int count = 1)
+    public static List<T> Splice<T>(this List<T> list, int count)
     {
 
         return list.Splice(0, count);
 
     }
 
+    /// <summary>
+    /// Removes and returns a shallow copy of a portion of a list.
+    /// </summary>
+    /// <returns>List<typeparamref name="T"/>></returns>
+    public static List<T> Splice<T>(this List<T> list)
+    {
+
+        return list.Splice(0, 1);
+
+    }
+
 }
+
+#pragma warning restore S3903

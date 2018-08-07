@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
+using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -23,11 +25,11 @@ public class CustomExtensionsTest
     public void AddOrGetComponent()
     {
 
-        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
         Assert.IsNull(cube.GetComponent<SampleController>());
 
-        SampleController sampleController = cube.AddOrGetComponent<SampleController>();
+        var sampleController = cube.AddOrGetComponent<SampleController>();
 
         Assert.IsNotNull(cube.GetComponent<SampleController>());
 
@@ -68,7 +70,7 @@ public class CustomExtensionsTest
     public void EditKeyframeValueAnimationCurve()
     {
 
-        AnimationCurve animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
+        var animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
 
         animationCurve.EditKeyframeValue(0, 10);
 
@@ -80,7 +82,7 @@ public class CustomExtensionsTest
     public void EditKeyframeValueVector3AnimationCurve()
     {
 
-        CandyCoded.Vector3AnimationCurve animationCurve = new CandyCoded.Vector3AnimationCurve();
+        var animationCurve = new CandyCoded.Vector3AnimationCurve();
 
         animationCurve.x = AnimationCurve.Linear(0, 0, 1, 1);
         animationCurve.y = AnimationCurve.Linear(0, 0, 1, 1);
@@ -102,7 +104,7 @@ public class CustomExtensionsTest
     public void EditKeyframeValueVector2AnimationCurve()
     {
 
-        CandyCoded.Vector2AnimationCurve animationCurve = new CandyCoded.Vector2AnimationCurve();
+        var animationCurve = new CandyCoded.Vector2AnimationCurve();
 
         animationCurve.x = AnimationCurve.Linear(0, 0, 1, 1);
         animationCurve.y = AnimationCurve.Linear(0, 0, 1, 1);
@@ -121,7 +123,7 @@ public class CustomExtensionsTest
     public void IsLoopingAnimationCurve()
     {
 
-        AnimationCurve animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
+        var animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
 
         Assert.IsFalse(animationCurve.IsLooping());
 
@@ -135,7 +137,7 @@ public class CustomExtensionsTest
     public void ListShuffle()
     {
 
-        List<int> numberRange = new List<int>();
+        var numberRange = new List<int>();
 
         for (int i = 0; i < 10; i += 1)
         {
@@ -150,7 +152,7 @@ public class CustomExtensionsTest
     public void ListShuffleWithoutChangingReference()
     {
 
-        List<int> numberRange = new List<int>();
+        var numberRange = new List<int>();
 
         for (int i = 0; i < 10; i += 1)
         {
@@ -170,7 +172,7 @@ public class CustomExtensionsTest
     public void ListSlice()
     {
 
-        List<int> numberRange = new List<int>();
+        var numberRange = new List<int>();
 
         for (int i = 0; i < 10; i += 1)
         {
@@ -186,7 +188,7 @@ public class CustomExtensionsTest
     public void ListSliceWithoutIndex()
     {
 
-        List<int> numberRange = new List<int>();
+        var numberRange = new List<int>();
 
         for (int i = 0; i < 10; i += 1)
         {
@@ -202,7 +204,7 @@ public class CustomExtensionsTest
     public void ListSplice()
     {
 
-        List<int> numberRange = new List<int>();
+        var numberRange = new List<int>();
 
         for (int i = 0; i < 10; i += 1)
         {
@@ -218,7 +220,7 @@ public class CustomExtensionsTest
     public void ListSpliceWithoutIndex()
     {
 
-        List<int> numberRange = new List<int>();
+        var numberRange = new List<int>();
 
         for (int i = 0; i < 10; i += 1)
         {
@@ -234,7 +236,7 @@ public class CustomExtensionsTest
     public void MaxTimeAnimationCurve()
     {
 
-        AnimationCurve animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
+        var animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
 
         Assert.AreEqual(1, animationCurve.MaxTime());
 

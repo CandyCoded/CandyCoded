@@ -1,3 +1,5 @@
+﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using UnityEngine;
 
 namespace CandyCoded
@@ -9,6 +11,8 @@ namespace CandyCoded
         [SerializeField]
         private ParticleSystem ps;
 
+#pragma warning disable S1144
+        // Disables "Unused private types or members should be removed" warning as method is part of MonoBehaviour.
         private void Awake()
         {
 
@@ -32,6 +36,7 @@ namespace CandyCoded
             }
 
         }
+#pragma warning restore S1144
 
     }
 

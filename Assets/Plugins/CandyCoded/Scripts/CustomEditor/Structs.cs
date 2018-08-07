@@ -1,5 +1,10 @@
+﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using System;
 using UnityEngine;
+
+#pragma warning disable S100
+// Disables "Methods and properties should be named in camel case" to allow properties to match Vector2, Vector3 and Vector4 structs.
 
 namespace CandyCoded
 {
@@ -89,7 +94,7 @@ namespace CandyCoded
         public static explicit operator Vector3AnimationCurve(Vector2AnimationCurve animationCurve)
         {
 
-            Vector3AnimationCurve newAnimationCurve = new Vector3AnimationCurve
+            var newAnimationCurve = new Vector3AnimationCurve
             {
                 x = animationCurve.x,
                 y = animationCurve.y
@@ -197,7 +202,7 @@ namespace CandyCoded
         public static explicit operator Vector2AnimationCurve(Vector3AnimationCurve animationCurve)
         {
 
-            Vector2AnimationCurve newAnimationCurve = new Vector2AnimationCurve
+            var newAnimationCurve = new Vector2AnimationCurve
             {
                 x = animationCurve.x,
                 y = animationCurve.y
@@ -316,3 +321,5 @@ namespace CandyCoded
     }
 
 }
+
+#pragma warning restore S100

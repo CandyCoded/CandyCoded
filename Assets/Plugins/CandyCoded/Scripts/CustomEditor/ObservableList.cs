@@ -1,5 +1,10 @@
-﻿using System.Collections;
+﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
+using System.Collections;
 using System.Collections.Generic;
+
+#pragma warning disable S3903
+// Disables "Types should be defined in named namespaces" warning as component should be available at all times.
 
 public class ObservableList<T> : IList<T>
 {
@@ -12,7 +17,7 @@ public class ObservableList<T> : IList<T>
     public event EventHandler ClearEvent;
     public event EventHandler RemoveEvent;
 
-    private IList<T> _items;
+    private readonly IList<T> _items;
 
     /// <summary>
     /// Gets the number of elements contained in the ObservableList.
@@ -169,7 +174,7 @@ public class ObservableList<T> : IList<T>
     public bool Remove(T item)
     {
 
-        bool result = _items.Remove(item);
+        var result = _items.Remove(item);
 
         if (RemoveEvent != null)
         {
@@ -206,7 +211,7 @@ public class ObservableList<T> : IList<T>
     public ObservableList<T> GetRange(int index, int count)
     {
 
-        ObservableList<T> items = new ObservableList<T>();
+        var items = new ObservableList<T>();
 
         for (int i = index; i < index + count; i += 1)
         {
@@ -278,14 +283,14 @@ public class ObservableList<T> : IList<T>
     public ObservableList<T> Shuffle()
     {
 
-        ObservableList<T> shuffledList = new ObservableList<T>(_items);
+        var shuffledList = new ObservableList<T>(_items);
 
         int count = shuffledList.Count;
 
         for (int i = 0; i < count; i += 1)
         {
 
-            int randomIndex = UnityEngine.Random.Range(i, count);
+            var randomIndex = UnityEngine.Random.Range(i, count);
 
             T tempValue = shuffledList[i];
 
@@ -308,7 +313,7 @@ public class ObservableList<T> : IList<T>
     public ObservableList<T> Slice(int index, int count)
     {
 
-        ObservableList<T> partialList = GetRange(index, count);
+        var partialList = GetRange(index, count);
 
         return partialList;
 
@@ -319,10 +324,21 @@ public class ObservableList<T> : IList<T>
     /// </summary>
     /// <param name="count">Number of items to return.</param>
     /// <returns>ObservableList<typeparamref name="T"/>></returns>
-    public ObservableList<T> Slice(int count = 1)
+    public ObservableList<T> Slice(int count)
     {
 
         return Slice(0, count);
+
+    }
+
+    /// <summary>
+    /// Returns a shallow copy of a portion of an Observablelist.
+    /// </summary>
+    /// <returns>ObservableList<typeparamref name="T"/>></returns>
+    public ObservableList<T> Slice()
+    {
+
+        return Slice(0, 1);
 
     }
 
@@ -335,7 +351,7 @@ public class ObservableList<T> : IList<T>
     public ObservableList<T> Splice(int index, int count)
     {
 
-        ObservableList<T> partialList = GetRange(index, count);
+        var partialList = GetRange(index, count);
 
         RemoveRange(index, count);
 
@@ -348,10 +364,21 @@ public class ObservableList<T> : IList<T>
     /// </summary>
     /// <param name="count">Number of items to return and remove.</param>
     /// <returns>ObservableList<typeparamref name="T"/>></returns>
-    public ObservableList<T> Splice(int count = 1)
+    public ObservableList<T> Splice(int count)
     {
 
         return Splice(0, count);
+
+    }
+
+    /// <summary>
+    /// Removes and returns a shallow copy of a portion of an Observablelist.
+    /// </summary>
+    /// <returns>ObservableList<typeparamref name="T"/>></returns>
+    public ObservableList<T> Splice()
+    {
+
+        return Splice(0, 1);
 
     }
 
@@ -362,7 +389,7 @@ public class ObservableList<T> : IList<T>
     public List<T> ToList()
     {
 
-        List<T> newList = new List<T>(_items);
+        var newList = new List<T>(_items);
 
         return newList;
 
@@ -371,10 +398,12 @@ public class ObservableList<T> : IList<T>
     public static explicit operator List<T>(ObservableList<T> observableList)
     {
 
-        List<T> newList = new List<T>(observableList);
+        var newList = new List<T>(observableList);
 
         return newList;
 
     }
 
 }
+
+#pragma warning restore S3903

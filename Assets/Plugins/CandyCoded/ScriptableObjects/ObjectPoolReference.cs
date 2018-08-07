@@ -1,3 +1,5 @@
+﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,18 +16,23 @@ namespace CandyCoded
         [SerializeField]
         private int minObjects = 10;
 
-        private List<GameObject> activeGameObjects = new List<GameObject>();
-        private Queue<GameObject> inactiveGameObjects = new Queue<GameObject>();
+        private readonly List<GameObject> activeGameObjects = new List<GameObject>();
+        private readonly Queue<GameObject> inactiveGameObjects = new Queue<GameObject>();
 
         public void PopulatePool()
         {
 
-            if (!prefab) { return; }
+            if (!prefab)
+            {
+
+                return;
+
+            }
 
             for (int i = 0; i < minObjects; i += 1)
             {
 
-                GameObject gameObject = Instantiate(prefab);
+                var gameObject = Instantiate(prefab);
 
                 gameObject.SetActive(false);
 
@@ -38,7 +45,12 @@ namespace CandyCoded
         public GameObject Spawn(Vector3 position, Quaternion rotation)
         {
 
-            if (!prefab) { return null; }
+            if (!prefab)
+            {
+
+                return null;
+
+            }
 
             GameObject gameObject = null;
 
@@ -67,7 +79,12 @@ namespace CandyCoded
         public GameObject Spawn(Vector3 position)
         {
 
-            if (!prefab) { return null; }
+            if (!prefab)
+            {
+
+                return null;
+
+            }
 
             return Spawn(position, Quaternion.identity);
 
@@ -76,7 +93,12 @@ namespace CandyCoded
         public GameObject Spawn()
         {
 
-            if (!prefab) { return null; }
+            if (!prefab)
+            {
+
+                return null;
+
+            }
 
             return Spawn(Vector3.zero, Quaternion.identity);
 
@@ -140,7 +162,7 @@ namespace CandyCoded
             while (inactiveGameObjects.Count > 0)
             {
 
-                GameObject gameObject = inactiveGameObjects.Dequeue();
+                var gameObject = inactiveGameObjects.Dequeue();
 
                 if (gameObject)
                 {
