@@ -112,9 +112,9 @@ namespace CandyCoded
             lookAtPosition = tempSecondaryTarget.transform.position;
 
             cameraPositionOffset = new Vector3(
-                cameraTransform.position.x - MainTarget.transform.position.x,
-                cameraTransform.position.y - MainTarget.transform.position.y,
-                cameraTransform.position.z - MainTarget.transform.position.z
+                cameraTransform.position.x - MainTarget.position.x,
+                cameraTransform.position.y - MainTarget.position.y,
+                cameraTransform.position.z - MainTarget.position.z
             );
 
         }
@@ -125,7 +125,7 @@ namespace CandyCoded
             if (Tracking && MainTarget)
             {
 
-                Vector3 newPosition = MainTarget.transform.position;
+                Vector3 newPosition = MainTarget.position;
 
                 newPosition = CalculateOffset(newPosition);
 
