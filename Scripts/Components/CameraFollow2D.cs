@@ -9,6 +9,8 @@ namespace CandyCoded
     public class CameraFollow2D : MonoBehaviour
     {
 
+#pragma warning disable S3459
+        // Disables "Unassigned members should be removed" warning as properties are used.
         [Serializable]
         private struct CameraConstraints2D : IEquatable<CameraConstraints2D>
         {
@@ -39,6 +41,7 @@ namespace CandyCoded
 
             }
         }
+#pragma warning restore S3459
 
         [SerializeField]
         private bool _tracking = true;
