@@ -65,9 +65,11 @@ namespace CandyCoded
         [SerializeField]
         private Transform cameraTransform;
         private Vector3 cameraPositionOffset;
-
         private float cameraOrthographicSize;
-        private float cameraExtentHorizontal
+
+        private Vector3 velocity = Vector3.zero;
+
+        private float CameraExtentHorizontal
         {
 
             get
@@ -78,8 +80,6 @@ namespace CandyCoded
             }
 
         }
-
-        private Vector3 velocity = Vector3.zero;
 
 #pragma warning disable S1144
         // Disables "Unused private types or members should be removed" warning as method is part of MonoBehaviour.
@@ -167,7 +167,7 @@ namespace CandyCoded
             if (Mathf.Abs(bounds.size.magnitude) >= Single.Epsilon)
             {
 
-                newPosition.x = Mathf.Clamp(newPosition.x, bounds.min.x + cameraExtentHorizontal, bounds.max.x - cameraExtentHorizontal);
+                newPosition.x = Mathf.Clamp(newPosition.x, bounds.min.x + CameraExtentHorizontal, bounds.max.x - CameraExtentHorizontal);
                 newPosition.y = Mathf.Clamp(newPosition.y, bounds.min.y + cameraOrthographicSize, bounds.max.y - cameraOrthographicSize);
 
             }
