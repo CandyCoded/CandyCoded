@@ -1,5 +1,20 @@
 # Changelog
 
+## v1.0.0-beta.10 (August 9, 2018)
+
+### Bug Fixes
+
+- Put event handler call after the list is modified. <https://github.com/neogeek/CandyCoded/pull/33>
+
+### Features
+
+- Added ToList method to ObservableList. <https://github.com/neogeek/CandyCoded/pull/34>
+- Added RotateTo that takes quaternion rather than Vector3. <https://github.com/neogeek/CandyCoded/pull/32>
+
+### Maintenance
+
+- Improved code quality per recommendations via [Codacy](https://www.codacy.com/) and [Sonar C#](https://github.com/SonarSource/sonar-csharp)
+
 ## v1.0.0-beta.9 (July 16, 2018)
 
 ### Bug Fixes
