@@ -11,5 +11,5 @@ clean:
 	rm -rf Library/
 	rm -rf Packages/
 	rm -rf ProjectSettings/
-	rm test.xml
-	rm unity.log
+	rm -f test.xml
+	rm -f unity.log
