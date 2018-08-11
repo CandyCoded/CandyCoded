@@ -127,8 +127,6 @@ $ git submodule update --remote
 - [Unity Editor Extensions](Documentation/6.%20Unity%20Editor%20Extensions/)
     - [DisplayInInspector](Documentation/6.%20Unity%20Editor%20Extensions/DisplayInInspector.md)
     - [EnumMask](Documentation/6.%20Unity%20Editor%20Extensions/EnumMask.md)
-- [Shaders](Documentation/7.%20Shaders/)
-    - [TiledTexture](Documentation/7.%20Shaders/TiledTexture.md)
 
 ## Credits
 
