@@ -3,14 +3,14 @@
 using System.IO;
 using UnityEditor;
 
-public class CreateAssetBundles
+public static class CreateAssetBundles
 {
 
-    [MenuItem("Assets/Build AssetBundles")]
-    static void BuildAllAssetBundles()
-    {
+    private readonly static string assetBundleDirectory = "Assets/AssetBundles";
 
-        string assetBundleDirectory = "Assets/AssetBundles";
+    [MenuItem("Assets/Build AssetBundles")]
+    private static void BuildAllAssetBundles()
+    {
 
         if (!Directory.Exists(assetBundleDirectory))
         {
@@ -19,7 +19,7 @@ public class CreateAssetBundles
 
         }
 
-        BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.None, BuildTarget.StandaloneOSX);
+        BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.None, EditorUserBuildSettings.activeBuildTarget);
 
     }
 }
