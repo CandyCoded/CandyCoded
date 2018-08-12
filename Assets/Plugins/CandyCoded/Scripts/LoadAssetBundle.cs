@@ -9,10 +9,10 @@ namespace CandyCoded
     public static class LoadAssetBundle
     {
 
-        public static IEnumerator FromURL(string url, string name)
+        public static IEnumerator FromURL(string assetBundleUrl, string name)
         {
 
-            using (UnityWebRequest uwr = UnityWebRequestAssetBundle.GetAssetBundle(url))
+            using (UnityWebRequest uwr = UnityWebRequestAssetBundle.GetAssetBundle(assetBundleUrl))
             {
 
                 yield return uwr.SendWebRequest();
