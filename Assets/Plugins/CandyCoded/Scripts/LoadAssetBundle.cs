@@ -31,7 +31,7 @@ namespace CandyCoded
                     if (bundle.isStreamedSceneAssetBundle)
                     {
 
-                        LoadAndAddScenesFromBundle(bundle, name, LoadSceneMode.Additive);
+                        yield return LoadAndAddScenesFromBundle(bundle, name, LoadSceneMode.Additive);
 
                     }
                     else
@@ -49,7 +49,7 @@ namespace CandyCoded
 
         }
 
-        public static void LoadAndAddScenesFromBundle(AssetBundle bundle, string name, LoadSceneMode loadSceneMode)
+        public static IEnumerator LoadAndAddScenesFromBundle(AssetBundle bundle, string name, LoadSceneMode loadSceneMode)
         {
 
             var scenes = bundle.GetAllScenePaths();
@@ -60,7 +60,7 @@ namespace CandyCoded
                 if (scenes[i].Equals(name))
                 {
 
-                    SceneManager.LoadScene(scenes[i], loadSceneMode);
+                    yield return SceneManager.LoadSceneAsync(scenes[i], loadSceneMode);
 
                 }
 
