@@ -22,6 +22,7 @@ public static class CreateAssetBundles
         BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.None, EditorUserBuildSettings.activeBuildTarget);
 
     }
+
 }
 
 #endif
