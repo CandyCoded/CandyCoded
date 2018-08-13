@@ -1,3 +1,5 @@
+// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -9,7 +11,7 @@ namespace CandyCoded
     public static class LoadAssetBundle
     {
 
-        public static IEnumerator FromURL(string assetBundleUrl, string name)
+        public static IEnumerator FromURL(string assetBundleUrl, string name, LoadSceneMode loadSceneMode)
         {
 
             using (UnityWebRequest uwr = UnityWebRequestAssetBundle.GetAssetBundle(assetBundleUrl))
@@ -31,7 +33,7 @@ namespace CandyCoded
                     if (bundle.isStreamedSceneAssetBundle)
                     {
 
-                        yield return LoadAndAddScenesFromBundle(bundle, name, LoadSceneMode.Additive);
+                        yield return LoadAndAddScenesFromBundle(bundle, name, loadSceneMode);
 
                     }
                     else
@@ -46,6 +48,13 @@ namespace CandyCoded
                 }
 
             }
+
+        }
+
+        public static IEnumerator FromURL(string assetBundleUrl, string name)
+        {
+
+            return FromURL(assetBundleUrl, name, LoadSceneMode.Additive);
 
         }
 
