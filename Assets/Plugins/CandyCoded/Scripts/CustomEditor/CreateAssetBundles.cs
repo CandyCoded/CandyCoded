@@ -1,3 +1,5 @@
+// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
 #if UNITY_EDITOR
 
 using System.IO;
@@ -8,7 +10,7 @@ public static class CreateAssetBundles
 
     private readonly static string assetBundleDirectory = "Assets/AssetBundles";
 
-    [MenuItem("Assets/Build AssetBundles")]
+    [MenuItem("Assets/CandyCoded/Tools/Build AssetBundles")]
     private static void BuildAllAssetBundles()
     {
 
