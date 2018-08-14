@@ -3,6 +3,7 @@
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
     -batchmode \
     -nographics \
+    -noUpm \
     -silent-crashes \
     -logFile "$(pwd)/unity.log" \
     -projectPath "$(pwd)/" \
