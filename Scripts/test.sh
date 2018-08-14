@@ -12,4 +12,7 @@
 
 CODE=$?
 
+echo $CODE
+cat "$(pwd)/unity.log"
+
 cat "$(pwd)/test.xml" && exit $CODE
