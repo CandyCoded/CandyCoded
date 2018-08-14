@@ -107,6 +107,10 @@ $ git submodule update --remote
         - [ParentBounds](Documentation/4.%20Static%20Methods/Calculation.md#parentbounds)
     - [Debugger](Documentation/4.%20Static%20Methods/Debugger.md)
         - [DrawLines](Documentation/4.%20Static%20Methods/Debugger.md#drawlines)
+    - [LoadAssetBundle](Documentation/4.%20Static%20Methods/LoadAssetBundle.md)
+        - [FromUrl](Documentation/4.%20Static%20Methods/LoadAssetBundle.md#fromurl)
+        - [LoadAndAddScenesFromBundle](Documentation/4.%20Static%20Methods/LoadAssetBundle.md#loadandaddscenesfrombundle)
+        - [LoadAndInstantiateFromBundle](Documentation/4.%20Static%20Methods/LoadAssetBundle.md#loadandinstantiatefrombundle)
     - [Materials](Documentation/4.%20Static%20Methods/Materials.md)
         - [GetMaterialsInChildren](Documentation/4.%20Static%20Methods/Materials.md#getmaterialsinchildren)
         - [SetColorAlpha](Documentation/4.%20Static%20Methods/Materials.md#setcoloralpha)
@@ -125,6 +129,7 @@ $ git submodule update --remote
     - [String](Documentation/5.%20ScriptableObject/String.md)
     - [CustomGenericScriptableObject](Documentation/5.%20ScriptableObject/CustomGenericScriptableObject.md)
 - [Unity Editor Extensions](Documentation/6.%20Unity%20Editor%20Extensions/)
+    - [CreateAssetBundles](Documentation/6.%20Unity%20Editor%20Extensions/CreateAssetBundles.md)
     - [DisplayInInspector](Documentation/6.%20Unity%20Editor%20Extensions/DisplayInInspector.md)
     - [EnumMask](Documentation/6.%20Unity%20Editor%20Extensions/EnumMask.md)
 
