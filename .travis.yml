@@ -2,6 +2,11 @@ language: objective-c
 osx_image: xcode9.4.1
 rvm:
 - 2.5.1
+cache:
+  timeout: 86400 # 1 day
+  directories:
+  - /home/travis/cache/
+  - /home/travis/.rvm/
 before_install:
 - chmod +x ./Scripts/auth.sh
 - chmod +x ./Scripts/build_docs.sh
