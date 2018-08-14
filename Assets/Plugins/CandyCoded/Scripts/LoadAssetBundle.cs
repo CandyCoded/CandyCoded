@@ -11,7 +11,7 @@ namespace CandyCoded
     public static class LoadAssetBundle
     {
 
-        public static IEnumerator FromURL(string assetBundleUrl, string name, LoadSceneMode loadSceneMode)
+        public static IEnumerator FromUrl(string assetBundleUrl, string name, LoadSceneMode loadSceneMode)
         {
 
             using (UnityWebRequest uwr = UnityWebRequestAssetBundle.GetAssetBundle(assetBundleUrl))
@@ -51,10 +51,10 @@ namespace CandyCoded
 
         }
 
-        public static IEnumerator FromURL(string assetBundleUrl, string name)
+        public static IEnumerator FromUrl(string assetBundleUrl, string name)
         {
 
-            return FromURL(assetBundleUrl, name, LoadSceneMode.Additive);
+            return FromUrl(assetBundleUrl, name, LoadSceneMode.Additive);
 
         }
 
