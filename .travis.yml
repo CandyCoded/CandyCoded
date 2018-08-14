@@ -19,7 +19,9 @@ before_install:
 install:
 - ./Scripts/install_unity.sh
 script:
-- make test
+- ./Scripts/auth.sh
+- ./Scripts/test.sh
+- ./Scripts/deauth.sh
 after_success:
 - if [ "$TRAVIS_BRANCH" == "master" ]; then make build; fi
 deploy:
