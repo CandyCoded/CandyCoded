@@ -71,6 +71,10 @@ namespace CandyCoded
 
                     yield return SceneManager.LoadSceneAsync(scenes[i], loadSceneMode);
 
+                    Scene sceneRef = SceneManager.GetSceneByPath(scenes[i]);
+
+                    SceneManager.SetActiveScene(sceneRef);
+
                 }
 
             }
