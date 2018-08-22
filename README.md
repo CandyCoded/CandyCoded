@@ -7,6 +7,22 @@
 [![Join the chat at https://discord.gg/nNtFsfd](https://img.shields.io/badge/discord-join%20chat-7289DA.svg)](https://discord.gg/nNtFsfd)
 [![](https://img.shields.io/badge/Trello-Board-blue.svg)](https://trello.com/b/LH4DWRKk/candycoded)
 
+## Introduction
+
+CandyCoded is a collection of useful components and extensions for building in Unity. Whether you are building a quick prototype or a production-ready experience, CandyCoded will help you get there.
+
+## Features
+
+- ObservableList object
+- Vector2, Vector3 and Vector4 AnimationCurves objects
+- CameraFollow 2D and 3D components
+- ScreenShake component
+- Transform animation methods
+- Raycast reflect method
+- Custom ScriptableObjects with event handlers
+- DisplayInInspector method attribute
+- EnumMask enum attribute
+
 ## Installation
 
 ### Unity Asset Store
