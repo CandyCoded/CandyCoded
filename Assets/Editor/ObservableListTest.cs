@@ -1,5 +1,6 @@
 ﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
+#if UNITY_EDITOR || UNITY_STANDALONE
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
@@ -333,3 +334,4 @@ public class ObservableListTest
     }
 
 }
+#endif
