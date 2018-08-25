@@ -1,13 +1,13 @@
-﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
-using NUnit.Framework;
+#if UNITY_EDITOR || UNITY_STANDALONE
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class ScriptableObjectTest
 {
 
-    [SetUp]
+    [NUnit.Framework.SetUp]
     public void ResetScene()
     {
 
@@ -15,7 +15,7 @@ public class ScriptableObjectTest
 
     }
 
-    [Test]
+    [NUnit.Framework.Test]
     public void BoolReference()
     {
 
@@ -23,15 +23,15 @@ public class ScriptableObjectTest
 
         boolReference.Value = true;
 
-        Assert.AreEqual(true, boolReference.Value);
+        NUnit.Framework.Assert.AreEqual(true, boolReference.Value);
 
         boolReference.Reset();
 
-        Assert.AreEqual(false, boolReference.Value);
+        NUnit.Framework.Assert.AreEqual(false, boolReference.Value);
 
     }
 
-    [Test]
+    [NUnit.Framework.Test]
     public void FloatReference()
     {
 
@@ -39,34 +39,34 @@ public class ScriptableObjectTest
 
         floatReference.Value = 1.5f;
 
-        Assert.AreEqual(1.5f, floatReference.Value);
+        NUnit.Framework.Assert.AreEqual(1.5f, floatReference.Value);
 
         floatReference.Reset();
 
-        Assert.AreEqual(0.0f, floatReference.Value);
+        NUnit.Framework.Assert.AreEqual(0.0f, floatReference.Value);
 
     }
 
-    [Test]
+    [NUnit.Framework.Test]
     public void GameObjectReference()
     {
 
         var gameObjectListReference = ScriptableObject.CreateInstance<CandyCoded.GameObjectListReference>();
 
-        Assert.AreEqual(0, gameObjectListReference.Items.Count);
+        NUnit.Framework.Assert.AreEqual(0, gameObjectListReference.Items.Count);
 
         gameObjectListReference.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
         gameObjectListReference.Add(GameObject.CreatePrimitive(PrimitiveType.Sphere));
 
-        Assert.AreEqual(2, gameObjectListReference.Items.Count);
+        NUnit.Framework.Assert.AreEqual(2, gameObjectListReference.Items.Count);
 
         gameObjectListReference.Reset();
 
-        Assert.AreEqual(0, gameObjectListReference.Items.Count);
+        NUnit.Framework.Assert.AreEqual(0, gameObjectListReference.Items.Count);
 
     }
 
-    [Test]
+    [NUnit.Framework.Test]
     public void IntReference()
     {
 
@@ -74,15 +74,15 @@ public class ScriptableObjectTest
 
         intReference.Value = 1;
 
-        Assert.AreEqual(1, intReference.Value);
+        NUnit.Framework.Assert.AreEqual(1, intReference.Value);
 
         intReference.Reset();
 
-        Assert.AreEqual(0, intReference.Value);
+        NUnit.Framework.Assert.AreEqual(0, intReference.Value);
 
     }
 
-    [Test]
+    [NUnit.Framework.Test]
     public void StringReference()
     {
 
@@ -90,12 +90,13 @@ public class ScriptableObjectTest
 
         stringReference.Value = "Hello, World";
 
-        Assert.AreEqual("Hello, World", stringReference.Value);
+        NUnit.Framework.Assert.AreEqual("Hello, World", stringReference.Value);
 
         stringReference.Reset();
 
-        Assert.AreEqual(null, stringReference.Value);
+        NUnit.Framework.Assert.AreEqual(null, stringReference.Value);
 
     }
 
 }
+#endif

@@ -1,6 +1,3 @@
-test:
-	Scripts/test.sh
-
 build:
 	Scripts/install_pandoc.sh
 	Scripts/build_docs.sh
