@@ -2,9 +2,7 @@
 
 #if UNITY_EDITOR || UNITY_STANDALONE
 using System.Collections.Generic;
-using System.Linq;
 using UnityEditor.SceneManagement;
-using UnityEngine;
 
 public class ObservableListTest
 {
