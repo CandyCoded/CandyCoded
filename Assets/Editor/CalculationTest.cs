@@ -1,13 +1,14 @@
 // Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #if UNITY_EDITOR || UNITY_STANDALONE
+using NUnit.Framework;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class CalculationTest
 {
 
-    [NUnit.Framework.SetUp]
+    [SetUp]
     public void ResetScene()
     {
 
@@ -15,7 +16,7 @@ public class CalculationTest
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
     public void BoundsCalculatedOnMultipleChildrenObjects()
     {
 
@@ -36,10 +37,10 @@ public class CalculationTest
 
         var bounds = CandyCoded.Calculation.ParentBounds(parentGameObject);
 
-        NUnit.Framework.Assert.AreEqual(new Vector3(-0.5f, 0, -1.0f), bounds.center);
-        NUnit.Framework.Assert.AreEqual(new Vector3(-2.5f, -0.5f, -2.5f), bounds.min);
-        NUnit.Framework.Assert.AreEqual(new Vector3(1.5f, 0.5f, 0.5f), bounds.max);
-        NUnit.Framework.Assert.AreEqual(new Vector3(4.0f, 1.0f, 3.0f), bounds.size);
+        Assert.AreEqual(new Vector3(-0.5f, 0, -1.0f), bounds.center);
+        Assert.AreEqual(new Vector3(-2.5f, -0.5f, -2.5f), bounds.min);
+        Assert.AreEqual(new Vector3(1.5f, 0.5f, 0.5f), bounds.max);
+        Assert.AreEqual(new Vector3(4.0f, 1.0f, 3.0f), bounds.size);
 
     }
 
