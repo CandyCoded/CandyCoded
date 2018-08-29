@@ -15,7 +15,6 @@ CandyCoded is a collection of useful components and extensions for building in U
 
 - ObservableList object
 - Vector2, Vector3 and Vector4 AnimationCurves objects
-- CameraFollow 2D and 3D components
 - ScreenShake component
 - Transform animation methods
 - Raycast reflect method
@@ -83,8 +82,6 @@ $ git submodule update --remote
         - [MaxTime](Documentation/1.%20Objects/Vector3AnimationCurve.md#maxtime)
 - [Components](Documentation/2.%20Components/)
     - [BillboardTowardsCamera](Documentation/2.%20Components/BillboardTowardsCamera.md)
-    - [CameraFollow2D](Documentation/2.%20Components/CameraFollow2D.md)
-    - [CameraFollow3D](Documentation/2.%20Components/CameraFollow3D.md)
     - [Gizmo](Documentation/2.%20Components/Gizmo.md)
     - [ScreenShake](Documentation/2.%20Components/ScreenShake.md)
     - [SelfDestructParticleSystem](Documentation/2.%20Components/SelfDestructParticleSystem.md)
