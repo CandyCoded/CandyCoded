@@ -110,9 +110,15 @@ namespace CandyCoded
 
                 var materialData = new MaterialData
                 {
-                    Material = material,
-                    StartColor = material.color
+                    Material = material
                 };
+
+                if (material.HasProperty("color"))
+                {
+
+                    materialData.StartColor = material.color;
+
+                }
 
                 _materials.Add(materialData);
 
