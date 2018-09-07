@@ -2,6 +2,7 @@
 
 #if UNITY_EDITOR || UNITY_STANDALONE
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public class SampleController : MonoBehaviour
 public class CustomExtensionsTest
 {
 
-    [NUnit.Framework.SetUp]
+    [SetUp]
     public void ResetScene()
     {
 
@@ -21,52 +22,52 @@ public class CustomExtensionsTest
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
     public void AddOrGetComponent()
     {
 
         var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-        NUnit.Framework.Assert.IsNull(cube.GetComponent<SampleController>());
+        Assert.IsNull(cube.GetComponent<SampleController>());
 
         var sampleController = cube.AddOrGetComponent<SampleController>();
 
-        NUnit.Framework.Assert.IsNotNull(cube.GetComponent<SampleController>());
+        Assert.IsNotNull(cube.GetComponent<SampleController>());
 
-        NUnit.Framework.Assert.AreEqual(sampleController, cube.GetComponent<SampleController>());
+        Assert.AreEqual(sampleController, cube.GetComponent<SampleController>());
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
     public void LayerMaskContains()
     {
 
         LayerMask layerMask = ~0;
 
-        NUnit.Framework.Assert.IsTrue(layerMask.Contains(LayerMask.NameToLayer("Default")));
-        NUnit.Framework.Assert.IsTrue(layerMask.Contains(1));
-        NUnit.Framework.Assert.IsTrue(layerMask.Contains(0 | 1));
+        Assert.IsTrue(layerMask.Contains(LayerMask.NameToLayer("Default")));
+        Assert.IsTrue(layerMask.Contains(1));
+        Assert.IsTrue(layerMask.Contains(0 | 1));
 
         layerMask = 0;
 
-        NUnit.Framework.Assert.IsFalse(layerMask.Contains(LayerMask.NameToLayer("UI")));
-        NUnit.Framework.Assert.IsFalse(layerMask.Contains(1));
-        NUnit.Framework.Assert.IsFalse(layerMask.Contains(0 | 1));
+        Assert.IsFalse(layerMask.Contains(LayerMask.NameToLayer("UI")));
+        Assert.IsFalse(layerMask.Contains(1));
+        Assert.IsFalse(layerMask.Contains(0 | 1));
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
     public void BitwiseContains()
     {
 
         int bitwiseMask = 0 | 1;
 
-        NUnit.Framework.Assert.IsTrue(bitwiseMask.Contains(1));
-        NUnit.Framework.Assert.IsFalse(bitwiseMask.Contains(2));
+        Assert.IsTrue(bitwiseMask.Contains(1));
+        Assert.IsFalse(bitwiseMask.Contains(2));
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
     public void EditKeyframeValueAnimationCurve()
     {
 
@@ -74,11 +75,11 @@ public class CustomExtensionsTest
 
         animationCurve.EditKeyframeValue(0, 10);
 
-        NUnit.Framework.Assert.AreEqual(10, animationCurve.keys[0].value);
+        Assert.AreEqual(10, animationCurve.keys[0].value);
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
     public void EditKeyframeValueVector3AnimationCurve()
     {
 
@@ -90,17 +91,17 @@ public class CustomExtensionsTest
 
         animationCurve.EditKeyframeValue(0, new Vector3(10, 15, 20));
 
-        NUnit.Framework.Assert.AreEqual(10, animationCurve.x.keys[0].value);
-        NUnit.Framework.Assert.AreEqual(15, animationCurve.y.keys[0].value);
-        NUnit.Framework.Assert.AreEqual(20, animationCurve.z.keys[0].value);
+        Assert.AreEqual(10, animationCurve.x.keys[0].value);
+        Assert.AreEqual(15, animationCurve.y.keys[0].value);
+        Assert.AreEqual(20, animationCurve.z.keys[0].value);
 
-        NUnit.Framework.Assert.AreEqual(1, animationCurve.x.keys[1].value);
-        NUnit.Framework.Assert.AreEqual(1, animationCurve.y.keys[1].value);
-        NUnit.Framework.Assert.AreEqual(1, animationCurve.z.keys[1].value);
+        Assert.AreEqual(1, animationCurve.x.keys[1].value);
+        Assert.AreEqual(1, animationCurve.y.keys[1].value);
+        Assert.AreEqual(1, animationCurve.z.keys[1].value);
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
     public void EditKeyframeValueVector2AnimationCurve()
     {
 
@@ -111,29 +112,29 @@ public class CustomExtensionsTest
 
         animationCurve.EditKeyframeValue(0, new Vector2(10, 15));
 
-        NUnit.Framework.Assert.AreEqual(10, animationCurve.x.keys[0].value);
-        NUnit.Framework.Assert.AreEqual(15, animationCurve.y.keys[0].value);
+        Assert.AreEqual(10, animationCurve.x.keys[0].value);
+        Assert.AreEqual(15, animationCurve.y.keys[0].value);
 
-        NUnit.Framework.Assert.AreEqual(1, animationCurve.x.keys[1].value);
-        NUnit.Framework.Assert.AreEqual(1, animationCurve.y.keys[1].value);
+        Assert.AreEqual(1, animationCurve.x.keys[1].value);
+        Assert.AreEqual(1, animationCurve.y.keys[1].value);
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
     public void IsLoopingAnimationCurve()
     {
 
         var animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
 
-        NUnit.Framework.Assert.IsFalse(animationCurve.IsLooping());
+        Assert.IsFalse(animationCurve.IsLooping());
 
         animationCurve.postWrapMode = WrapMode.Loop;
 
-        NUnit.Framework.Assert.IsTrue(animationCurve.IsLooping());
+        Assert.IsTrue(animationCurve.IsLooping());
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
     public void ListShuffle()
     {
 
@@ -144,11 +145,11 @@ public class CustomExtensionsTest
             numberRange.Add(i);
         }
 
-        NUnit.Framework.Assert.AreNotEqual(numberRange, numberRange.Shuffle());
+        Assert.AreNotEqual(numberRange, numberRange.Shuffle());
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
     public void ListShuffleWithoutChangingReference()
     {
 
@@ -163,12 +164,12 @@ public class CustomExtensionsTest
 
         for (int i = 0; i < 10; i += 1)
         {
-            NUnit.Framework.Assert.AreEqual(i, numberRange[i]);
+            Assert.AreEqual(i, numberRange[i]);
         }
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
     public void ListSlice()
     {
 
@@ -179,12 +180,12 @@ public class CustomExtensionsTest
             numberRange.Add(i);
         }
 
-        NUnit.Framework.Assert.AreEqual(2, numberRange.Slice(1, 2).Count);
-        NUnit.Framework.Assert.AreEqual(10, numberRange.Count);
+        Assert.AreEqual(2, numberRange.Slice(1, 2).Count);
+        Assert.AreEqual(10, numberRange.Count);
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
     public void ListSliceWithoutIndex()
     {
 
@@ -195,12 +196,12 @@ public class CustomExtensionsTest
             numberRange.Add(i);
         }
 
-        NUnit.Framework.Assert.AreEqual(2, numberRange.Slice(2).Count);
-        NUnit.Framework.Assert.AreEqual(10, numberRange.Count);
+        Assert.AreEqual(2, numberRange.Slice(2).Count);
+        Assert.AreEqual(10, numberRange.Count);
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
     public void ListSplice()
     {
 
@@ -211,12 +212,12 @@ public class CustomExtensionsTest
             numberRange.Add(i);
         }
 
-        NUnit.Framework.Assert.AreEqual(2, numberRange.Splice(1, 2).Count);
-        NUnit.Framework.Assert.AreEqual(8, numberRange.Count);
+        Assert.AreEqual(2, numberRange.Splice(1, 2).Count);
+        Assert.AreEqual(8, numberRange.Count);
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
     public void ListSpliceWithoutIndex()
     {
 
@@ -227,22 +228,22 @@ public class CustomExtensionsTest
             numberRange.Add(i);
         }
 
-        NUnit.Framework.Assert.AreEqual(2, numberRange.Splice(2).Count);
-        NUnit.Framework.Assert.AreEqual(8, numberRange.Count);
+        Assert.AreEqual(2, numberRange.Splice(2).Count);
+        Assert.AreEqual(8, numberRange.Count);
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
     public void MaxTimeAnimationCurve()
     {
 
         var animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
 
-        NUnit.Framework.Assert.AreEqual(1, animationCurve.MaxTime());
+        Assert.AreEqual(1, animationCurve.MaxTime());
 
         animationCurve = AnimationCurve.Linear(0, 0, 5, 1);
 
-        NUnit.Framework.Assert.AreEqual(5, animationCurve.MaxTime());
+        Assert.AreEqual(5, animationCurve.MaxTime());
 
     }
 

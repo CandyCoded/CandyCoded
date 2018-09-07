@@ -2,8 +2,8 @@
 
 > Custom Unity Components that are delightful
 
-[![Build Status](https://travis-ci.org/neogeek/CandyCoded.svg?branch=master)](https://travis-ci.org/neogeek/CandyCoded)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b0c24c2b49e2430b9ce42e2ba07e83ee)](https://www.codacy.com/app/neogeek/CandyCoded?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=neogeek/CandyCoded&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.org/CandyCoded/CandyCoded.svg?branch=master)](https://travis-ci.org/CandyCoded/CandyCoded)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b0c24c2b49e2430b9ce42e2ba07e83ee)](https://www.codacy.com/app/CandyCoded/CandyCoded?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=CandyCoded/CandyCoded&amp;utm_campaign=Badge_Grade)
 [![Join the chat at https://discord.gg/nNtFsfd](https://img.shields.io/badge/discord-join%20chat-7289DA.svg)](https://discord.gg/nNtFsfd)
 [![](https://img.shields.io/badge/Trello-Board-blue.svg)](https://trello.com/b/LH4DWRKk/candycoded)
 
@@ -15,7 +15,6 @@ CandyCoded is a collection of useful components and extensions for building in U
 
 - ObservableList object
 - Vector2, Vector3 and Vector4 AnimationCurves objects
-- CameraFollow 2D and 3D components
 - ScreenShake component
 - Transform animation methods
 - Raycast reflect method
@@ -31,7 +30,7 @@ CandyCoded is a collection of useful components and extensions for building in U
 
 ### Direct Install
 
-[Download Latest `CandyCoded.unitypackage`](https://github.com/neogeek/CandyCoded/releases)
+[Download Latest `CandyCoded.unitypackage`](https://github.com/CandyCoded/CandyCoded/releases)
 
 ### Unity Package Manager _(Unity 2018)_
 
@@ -40,7 +39,7 @@ CandyCoded is a collection of useful components and extensions for building in U
 #### Install
 
 ```bash
-$ git submodule add git@github.com:neogeek/CandyCoded.git Packages/CandyCoded/
+$ git submodule add git@github.com:CandyCoded/CandyCoded.git Packages/CandyCoded/
 ```
 
 After cloning repo with submodule already installed
@@ -83,8 +82,6 @@ $ git submodule update --remote
         - [MaxTime](Documentation/1.%20Objects/Vector3AnimationCurve.md#maxtime)
 - [Components](Documentation/2.%20Components/)
     - [BillboardTowardsCamera](Documentation/2.%20Components/BillboardTowardsCamera.md)
-    - [CameraFollow2D](Documentation/2.%20Components/CameraFollow2D.md)
-    - [CameraFollow3D](Documentation/2.%20Components/CameraFollow3D.md)
     - [Gizmo](Documentation/2.%20Components/Gizmo.md)
     - [ScreenShake](Documentation/2.%20Components/ScreenShake.md)
     - [SelfDestructParticleSystem](Documentation/2.%20Components/SelfDestructParticleSystem.md)

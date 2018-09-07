@@ -3,13 +3,14 @@
 #if UNITY_EDITOR || UNITY_STANDALONE
 using System;
 using System.Collections;
+using NUnit.Framework;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class RunnerTest
 {
 
-    [NUnit.Framework.SetUp]
+    [SetUp]
     public void ResetScene()
     {
 
@@ -17,7 +18,7 @@ public class RunnerTest
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
     public void RunnerAddCoroutine()
     {
 
@@ -27,11 +28,11 @@ public class RunnerTest
 
         runner.AddCoroutine("TestCoroutine", TestCoroutine());
 
-        NUnit.Framework.Assert.AreEqual(1, runner.Coroutines.Count);
+        Assert.AreEqual(1, runner.Coroutines.Count);
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
     public void RunnerFailsToAddDuplicateCoroutine()
     {
 
@@ -41,11 +42,11 @@ public class RunnerTest
 
         runner.AddCoroutine("TestCoroutine", TestCoroutine());
 
-        NUnit.Framework.Assert.Throws<ArgumentException>(() => runner.AddCoroutine("TestCoroutine", TestCoroutine()));
+        Assert.Throws<ArgumentException>(() => runner.AddCoroutine("TestCoroutine", TestCoroutine()));
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
     public void RunnerRemoveCoroutine()
     {
 
@@ -55,15 +56,35 @@ public class RunnerTest
 
         runner.AddCoroutine("TestCoroutine", TestCoroutine());
 
-        NUnit.Framework.Assert.AreEqual(1, runner.Coroutines.Count);
+        Assert.AreEqual(1, runner.Coroutines.Count);
 
         runner.RemoveCoroutine("TestCoroutine");
 
-        NUnit.Framework.Assert.AreEqual(0, runner.Coroutines.Count);
+        Assert.AreEqual(0, runner.Coroutines.Count);
 
     }
 
-    [NUnit.Framework.Test]
+    [Test]
+    public void RunnerRemoveCoroutineOnNullValue()
+    {
+
+        var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+
+        var runner = cube.AddComponent<CandyCoded.Runner>();
+
+        runner.AddCoroutine("TestCoroutine", TestCoroutine());
+
+        Assert.AreEqual(1, runner.Coroutines.Count);
+
+        runner.Coroutines["TestCoroutine"] = null;
+
+        runner.RemoveCoroutine("TestCoroutine");
+
+        Assert.AreEqual(0, runner.Coroutines.Count);
+
+    }
+
+    [Test]
     public void RunnerRemoveAllCoroutines()
     {
 
@@ -75,11 +96,11 @@ public class RunnerTest
         runner.AddCoroutine("TestCoroutine2", TestCoroutine());
         runner.AddCoroutine("TestCoroutine3", TestCoroutine());
 
-        NUnit.Framework.Assert.AreEqual(3, runner.Coroutines.Count);
+        Assert.AreEqual(3, runner.Coroutines.Count);
 
         runner.RemoveAllCoroutines();
 
-        NUnit.Framework.Assert.AreEqual(0, runner.Coroutines.Count);
+        Assert.AreEqual(0, runner.Coroutines.Count);
 
     }
 
