@@ -65,6 +65,26 @@ public class RunnerTest
     }
 
     [Test]
+    public void RunnerRemoveCoroutineOnNullValue()
+    {
+
+        var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+
+        var runner = cube.AddComponent<CandyCoded.Runner>();
+
+        runner.AddCoroutine("TestCoroutine", TestCoroutine());
+
+        Assert.AreEqual(1, runner.Coroutines.Count);
+
+        runner.Coroutines["TestCoroutine"] = null;
+
+        runner.RemoveCoroutine("TestCoroutine");
+
+        Assert.AreEqual(0, runner.Coroutines.Count);
+
+    }
+
+    [Test]
     public void RunnerRemoveAllCoroutines()
     {
 
