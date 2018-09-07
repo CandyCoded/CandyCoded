@@ -47,7 +47,12 @@ namespace CandyCoded
             if (_coroutines.ContainsKey(coroutineKey))
             {
 
-                StopCoroutine(_coroutines[coroutineKey]);
+                if (_coroutines[coroutineKey] != null)
+                {
+
+                    StopCoroutine(_coroutines[coroutineKey]);
+
+                }
 
                 _coroutines.Remove(coroutineKey);
 
@@ -67,7 +72,12 @@ namespace CandyCoded
             foreach (string coroutineKey in coroutineKeys)
             {
 
-                StopCoroutine(_coroutines[coroutineKey]);
+                if (_coroutines[coroutineKey] != null)
+                {
+
+                    StopCoroutine(_coroutines[coroutineKey]);
+
+                }
 
             }
 
