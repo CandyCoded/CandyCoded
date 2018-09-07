@@ -338,7 +338,7 @@ namespace CandyCoded
         public static Coroutine RotateTo(GameObject gameObject, Vector3 newRotation)
         {
 
-            return RotateTo(gameObject, newRotation, 1);
+            return RotateTo(gameObject, Quaternion.Euler(newRotation), 1);
 
         }
 
