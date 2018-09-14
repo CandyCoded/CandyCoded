@@ -7,7 +7,7 @@ public abstract class RigidbodyMonoBehaviour : MonoBehaviour
 
     private bool sleepingState;
 
-    private void Awake()
+    protected virtual void Awake()
     {
 
         rb = gameObject.GetComponent<Rigidbody>();
