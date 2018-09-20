@@ -13,3 +13,16 @@ private void Awake() {
 
 }
 ```
+
+
+#### GetLayerMask
+
+Creates a LayerMask from a GameObject's layer property.
+
+```csharp
+private void Start() {
+
+    Debug.Log(gameObject.GetLayerMask())
+
+}
+```

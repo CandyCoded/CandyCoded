@@ -135,6 +135,21 @@ public class CustomExtensionsTest
     }
 
     [Test]
+    public void GetLayerMask()
+    {
+
+        GameObject gameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        gameObject.layer = LayerMask.NameToLayer("UI");
+
+        LayerMask layerMask = LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer));
+
+        LayerMask calculatedLayerMask = gameObject.GetLayerMask();
+
+        Assert.AreEqual(layerMask.value, calculatedLayerMask.value);
+
+    }
+
+    [Test]
     public void ListShuffle()
     {
 
