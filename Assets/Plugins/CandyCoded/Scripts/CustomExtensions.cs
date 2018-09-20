@@ -168,6 +168,17 @@ public static class CustomExtensions
     }
 
     /// <summary>
+    /// Creates a LayerMask from a GameObject's layer property.
+    /// </summary>
+    /// <returns>LayerMask</returns>
+    public static LayerMask GetLayerMask(this GameObject gameObject)
+    {
+
+        return 1 << gameObject.layer;
+
+    }
+
+    /// <summary>
     /// Rotates transform so the forward vector points at target's position.
     /// </summary>
     /// <param name="target">Object to point towards.</param>
