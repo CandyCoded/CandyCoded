@@ -89,9 +89,21 @@ namespace CandyCoded
 
         }
 
-        public static Vector3? GetMousePosition()
+        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, LayerMask layerMask)
         {
 
+            int currentFingerId;
+
+            bool isMouseDown = GetMouseButtonDown(gameObject, mainCamera, layerMask);
+
+            bool hasTouchBegin = GetTouchDown(gameObject, mainCamera, layerMask, out currentFingerId);
+
+            return isMouseDown || hasTouchBegin;
+
+        }
+
+        public static Vector3? GetMousePosition()
+        {
 
             Vector3? inputPosition = null;
 
