@@ -198,20 +198,50 @@ namespace CandyCoded
         /// <param name="gameObject">GameObject to move.</param>
         /// <param name="newPosition">New Vector3 position.</param>
         /// <param name="duration">Length of the animation in seconds.</param>
+        /// <param name="relativeTo">Coordinate system to animate with.</param>
         /// <returns>Coroutine</returns>
 
-        public static Coroutine MoveTo(GameObject gameObject, Vector3 newPosition, float duration)
+        public static Coroutine MoveTo(GameObject gameObject, Vector3 newPosition, float duration, Space relativeTo)
         {
 
             var animationCurve = new Vector3AnimationCurve();
 
-            Vector3 currentPosition = gameObject.transform.position;
+            var currentPosition = gameObject.transform.localPosition;
+
+            if (relativeTo == Space.World)
+            {
+
+                currentPosition = gameObject.transform.position;
+
+            }
 
             animationCurve.x = AnimationCurve.EaseInOut(0, currentPosition.x, duration, newPosition.x);
             animationCurve.y = AnimationCurve.EaseInOut(0, currentPosition.y, duration, newPosition.y);
             animationCurve.z = AnimationCurve.EaseInOut(0, currentPosition.z, duration, newPosition.z);
 
-            return Position(gameObject, animationCurve);
+            if (relativeTo == Space.World)
+            {
+
+                return Position(gameObject, animationCurve);
+
+            }
+
+            return PositionRelative(gameObject, animationCurve);
+
+        }
+
+        /// <summary>
+        /// Animates the position of a GameObject to the specified Vector3 over time.
+        /// </summary>
+        /// <param name="gameObject">GameObject to move.</param>
+        /// <param name="newPosition">New Vector3 position.</param>
+        /// <param name="duration">Length of the animation in seconds.</param>
+        /// <returns>Coroutine</returns>
+
+        public static Coroutine MoveTo(GameObject gameObject, Vector3 newPosition, float duration)
+        {
+
+            return MoveTo(gameObject, newPosition, duration, Space.Self);
 
         }
 
