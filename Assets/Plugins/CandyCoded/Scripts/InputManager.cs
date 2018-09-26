@@ -107,7 +107,7 @@ namespace CandyCoded
 
             Vector3? inputPosition = null;
 
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(0) || Input.GetMouseButtonUp(0))
             {
 
                 inputPosition = Input.mousePosition;
