@@ -42,6 +42,12 @@ Move a GameObject to a new Vector3 with a duration of 1s.
 CandyCoded.Animate.MoveTo(target, new Vector3(10, 10, 10), 1);
 ```
 
+Move an object in world space.
+
+```csharp
+CandyCoded.Animate.MoveTo(target, new Vector3(10, 10, 10), 1, Space.World);
+```
+
 ![](https://media.giphy.com/media/3ohc0Wy60RfUYSERW0/giphy.gif)
 
 #### Position
