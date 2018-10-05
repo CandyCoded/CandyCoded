@@ -16,15 +16,11 @@ namespace CandyCoded
 
                 RaycastHit hit;
 
-                if (Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, layerMask))
+                if (Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, layerMask) &&
+                    hit.transform.gameObject == gameObject)
                 {
 
-                    if (hit.transform.gameObject == gameObject)
-                    {
-
-                        isMouseDown = true;
-
-                    }
+                    isMouseDown = true;
 
                 }
 
@@ -54,17 +50,13 @@ namespace CandyCoded
 
                         RaycastHit hit;
 
-                        if (Physics.Raycast(mainCamera.ScreenPointToRay(touch.position), out hit, Mathf.Infinity, layerMask))
+                        if (Physics.Raycast(mainCamera.ScreenPointToRay(touch.position), out hit, Mathf.Infinity, layerMask) &&
+                           hit.transform.gameObject == gameObject)
                         {
 
-                            if (hit.transform.gameObject == gameObject)
-                            {
+                            hasTouchBegin = true;
 
-                                hasTouchBegin = true;
-
-                                currentFingerId = touch.fingerId;
-
-                            }
+                            currentFingerId = touch.fingerId;
 
                         }
 
