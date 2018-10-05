@@ -22,7 +22,7 @@ namespace CandyCoded
                 if (uwr.isNetworkError || uwr.isHttpError)
                 {
 
-                    Debug.Log(uwr.error);
+                    Debug.LogError(uwr.error);
 
                 }
                 else
