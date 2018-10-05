@@ -57,7 +57,7 @@ namespace CandyCoded
                     RaycastHit hit;
 
                     if (Physics.Raycast(mainCamera.ScreenPointToRay(touch.position), out hit, Mathf.Infinity, layerMask) &&
-                       hit.transform.gameObject == gameObject)
+                        hit.transform.gameObject == gameObject)
                     {
 
                         hasTouchBegin = true;
