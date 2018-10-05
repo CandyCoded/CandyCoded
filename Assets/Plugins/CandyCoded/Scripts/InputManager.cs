@@ -37,28 +37,30 @@ namespace CandyCoded
 
             bool hasTouchBegin = false;
 
-            if (Input.touchSupported && Input.touchCount > 0)
+            if (!Input.touchSupported || Input.touchCount == 0)
             {
 
-                for (int i = 0; i < Input.touchCount; i += 1)
+                return hasTouchBegin;
+
+            }
+
+            for (int i = 0; i < Input.touchCount; i += 1)
+            {
+
+                Touch touch = Input.GetTouch(i);
+
+                if (touch.phase == TouchPhase.Began)
                 {
 
-                    Touch touch = Input.GetTouch(i);
+                    RaycastHit hit;
 
-                    if (touch.phase == TouchPhase.Began)
+                    if (Physics.Raycast(mainCamera.ScreenPointToRay(touch.position), out hit, Mathf.Infinity, layerMask) &&
+                       hit.transform.gameObject == gameObject)
                     {
 
-                        RaycastHit hit;
+                        hasTouchBegin = true;
 
-                        if (Physics.Raycast(mainCamera.ScreenPointToRay(touch.position), out hit, Mathf.Infinity, layerMask) &&
-                           hit.transform.gameObject == gameObject)
-                        {
-
-                            hasTouchBegin = true;
-
-                            currentFingerId = touch.fingerId;
-
-                        }
+                        currentFingerId = touch.fingerId;
 
                     }
 
@@ -115,20 +117,22 @@ namespace CandyCoded
 
             Vector3? inputPosition = null;
 
-            if (Input.touchSupported && Input.touchCount > 0)
+            if (!Input.touchSupported || Input.touchCount == 0)
             {
 
-                for (int i = 0; i < Input.touchCount; i += 1)
+                return inputPosition;
+
+            }
+
+            for (int i = 0; i < Input.touchCount; i += 1)
+            {
+
+                Touch touch = Input.GetTouch(i);
+
+                if (touch.fingerId == currentFingerId)
                 {
 
-                    Touch touch = Input.GetTouch(i);
-
-                    if (touch.fingerId == currentFingerId)
-                    {
-
-                        inputPosition = touch.position;
-
-                    }
+                    inputPosition = touch.position;
 
                 }
 
@@ -215,23 +219,25 @@ namespace CandyCoded
 
             bool doesCurrentStateMatch = false;
 
-            if (Input.touchSupported && Input.touchCount > 0)
+            if (!Input.touchSupported || Input.touchCount == 0)
             {
 
-                for (int i = 0; i < Input.touchCount; i += 1)
+                return doesCurrentStateMatch;
+
+            }
+
+            for (int i = 0; i < Input.touchCount; i += 1)
+            {
+
+                Touch touch = Input.GetTouch(i);
+
+                if (touch.fingerId == currentFingerId)
                 {
 
-                    Touch touch = Input.GetTouch(i);
-
-                    if (touch.fingerId == currentFingerId)
+                    for (int j = 0; j < touchPhases.Length; j += 1)
                     {
 
-                        for (int j = 0; j < touchPhases.Length; j += 1)
-                        {
-
-                            doesCurrentStateMatch = doesCurrentStateMatch || touch.phase == touchPhases[j];
-
-                        }
+                        doesCurrentStateMatch = doesCurrentStateMatch || touch.phase == touchPhases[j];
 
                     }
 
