@@ -20,3 +20,15 @@ StartCoroutine(CandyCoded.LoadAssetBundle.FromUrl(
     "Cube"
 ));
 ```
+
+#### LoadAndAddScenesFromBundle
+
+```csharp
+yield return LoadAndAddScenesFromBundle(bundle, "SampleScene", LoadSceneMode.Additive);
+```
+
+#### LoadAndInstantiateFromBundle
+
+```csharp
+LoadAndInstantiateFromBundle(bundle, "Cube");
+```
