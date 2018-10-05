@@ -24,7 +24,7 @@ StartCoroutine(CandyCoded.LoadAssetBundle.FromUrl(
 #### LoadAndAddScenesFromBundle
 
 ```csharp
-yield return LoadAndAddScenesFromBundle(bundle, "SampleScene", LoadSceneMode.Additive);
+yield return LoadAndAddScenesFromBundle(bundle, "Assets/Scenes/SampleScene.unity", LoadSceneMode.Additive);
 ```
 
 #### LoadAndInstantiateFromBundle
