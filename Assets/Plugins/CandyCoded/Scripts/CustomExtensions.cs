@@ -204,6 +204,42 @@ public static class CustomExtensions
     }
 
     /// <summary>
+    /// Returns a list of all possible combinations of a list of items.
+    /// </summary>
+    /// <returns>List<List<<typeparamref name="T"/>></returns>
+    public static List<List<T>> Permutations<T>(this List<T> list)
+    {
+
+        var results = new List<List<T>>();
+
+        var numberOfPossibleCombinations = (int)Mathf.Pow(2, list.Count);
+
+        for (int i = 1; i < numberOfPossibleCombinations; i += 1)
+        {
+
+            var combination = new List<T>();
+
+            for (int j = 0; j < list.Count; j += 1)
+            {
+
+                if ((i >> j & 1) == 1)
+                {
+
+                    combination.Add(list[j]);
+
+                }
+
+            }
+
+            results.Add(combination);
+
+        }
+
+        return results;
+
+    }
+
+    /// <summary>
     /// Creates a new copy of a list and shuffles the values.
     /// </summary>
     /// <returns>List<typeparamref name="T"/>></returns>
