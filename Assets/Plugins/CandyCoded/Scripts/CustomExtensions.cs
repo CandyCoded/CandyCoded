@@ -204,7 +204,7 @@ public static class CustomExtensions
     }
 
     /// <summary>
-    /// Returns a list of all possible combinations of a list of items.
+    /// Returns a list of all possible combinations for a list of items.
     /// </summary>
     /// <returns>List<List<typeparamref name="T"/>></returns>
     public static List<List<T>> Permutations<T>(this List<T> list)
