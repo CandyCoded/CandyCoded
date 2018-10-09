@@ -262,5 +262,25 @@ public class CustomExtensionsTest
 
     }
 
+    [Test]
+    public void Permutations()
+    {
+
+        var list = new List<int> { 1, 2, 3 };
+
+        var listOfCombinations = list.Permutations();
+
+        Assert.AreEqual(7, listOfCombinations.Count);
+
+        Assert.AreEqual(new List<int> { 1 }, listOfCombinations[0]);
+        Assert.AreEqual(new List<int> { 2 }, listOfCombinations[1]);
+        Assert.AreEqual(new List<int> { 1, 2 }, listOfCombinations[2]);
+        Assert.AreEqual(new List<int> { 3 }, listOfCombinations[3]);
+        Assert.AreEqual(new List<int> { 1, 3 }, listOfCombinations[4]);
+        Assert.AreEqual(new List<int> { 2, 3 }, listOfCombinations[5]);
+        Assert.AreEqual(new List<int> { 1, 2, 3 }, listOfCombinations[6]);
+
+    }
+
 }
 #endif

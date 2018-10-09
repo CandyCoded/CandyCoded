@@ -207,7 +207,7 @@ public class ObservableList<T> : IList<T>
     /// </summary>
     /// <param name="index">The zero-based index at which the range starts.</param>
     /// <param name="count">The number of elements in the range.</param>
-    /// <returns>ObservableList<typeparamref name="T"/>></returns>
+    /// <returns>ObservableList<typeparamref name="T"/></returns>
     public ObservableList<T> GetRange(int index, int count)
     {
 
@@ -279,7 +279,7 @@ public class ObservableList<T> : IList<T>
     /// <summary>
     /// Creates a new copy of an Observablelist and shuffles the values.
     /// </summary>
-    /// <returns>ObservableList<typeparamref name="T"/>></returns>
+    /// <returns>ObservableList<typeparamref name="T"/></returns>
     public ObservableList<T> Shuffle()
     {
 
@@ -309,7 +309,7 @@ public class ObservableList<T> : IList<T>
     /// </summary>
     /// <param name="index">Index of list to start at.</param>
     /// <param name="count">Number of items to return.</param>
-    /// <returns>ObservableList<typeparamref name="T"/>></returns>
+    /// <returns>ObservableList<typeparamref name="T"/></returns>
     public ObservableList<T> Slice(int index, int count)
     {
 
@@ -323,7 +323,7 @@ public class ObservableList<T> : IList<T>
     /// Returns a shallow copy of a portion of an Observablelist.
     /// </summary>
     /// <param name="count">Number of items to return.</param>
-    /// <returns>ObservableList<typeparamref name="T"/>></returns>
+    /// <returns>ObservableList<typeparamref name="T"/></returns>
     public ObservableList<T> Slice(int count)
     {
 
@@ -334,7 +334,7 @@ public class ObservableList<T> : IList<T>
     /// <summary>
     /// Returns a shallow copy of a portion of an Observablelist.
     /// </summary>
-    /// <returns>ObservableList<typeparamref name="T"/>></returns>
+    /// <returns>ObservableList<typeparamref name="T"/></returns>
     public ObservableList<T> Slice()
     {
 
@@ -347,7 +347,7 @@ public class ObservableList<T> : IList<T>
     /// </summary>
     /// <param name="index">Index of list to start at.</param>
     /// <param name="count">Number of items to return and remove.</param>
-    /// <returns>ObservableList<typeparamref name="T"/>></returns>
+    /// <returns>ObservableList<typeparamref name="T"/></returns>
     public ObservableList<T> Splice(int index, int count)
     {
 
@@ -363,7 +363,7 @@ public class ObservableList<T> : IList<T>
     /// Removes and returns a shallow copy of a portion of an Observablelist.
     /// </summary>
     /// <param name="count">Number of items to return and remove.</param>
-    /// <returns>ObservableList<typeparamref name="T"/>></returns>
+    /// <returns>ObservableList<typeparamref name="T"/></returns>
     public ObservableList<T> Splice(int count)
     {
 
@@ -374,7 +374,7 @@ public class ObservableList<T> : IList<T>
     /// <summary>
     /// Removes and returns a shallow copy of a portion of an Observablelist.
     /// </summary>
-    /// <returns>ObservableList<typeparamref name="T"/>></returns>
+    /// <returns>ObservableList<typeparamref name="T"/></returns>
     public ObservableList<T> Splice()
     {
 
@@ -385,7 +385,7 @@ public class ObservableList<T> : IList<T>
     /// <summary>
     /// Creates a List with the values from an Observablelist.
     /// </summary>
-    /// <returns>List<typeparamref name="T"/>></returns>
+    /// <returns>List<typeparamref name="T"/></returns>
     public List<T> ToList()
     {
 
