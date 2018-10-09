@@ -12,7 +12,7 @@ public static class CustomExtensions
     /// <summary>
     /// Returns a reference to an existing component or a new component if it didn't already exist.
     /// </summary>
-    /// <returns><typeparamref name="T"/>></returns>
+    /// <returns><typeparamref name="T"/></returns>
     public static T AddOrGetComponent<T>(this GameObject gameObject) where T : Component
     {
 
@@ -206,7 +206,7 @@ public static class CustomExtensions
     /// <summary>
     /// Returns a list of all possible combinations of a list of items.
     /// </summary>
-    /// <returns>List<List<<typeparamref name="T"/>></returns>
+    /// <returns>List<List<typeparamref name="T"/>></returns>
     public static List<List<T>> Permutations<T>(this List<T> list)
     {
 
@@ -242,7 +242,7 @@ public static class CustomExtensions
     /// <summary>
     /// Creates a new copy of a list and shuffles the values.
     /// </summary>
-    /// <returns>List<typeparamref name="T"/>></returns>
+    /// <returns>List<typeparamref name="T"/></returns>
     public static List<T> Shuffle<T>(this List<T> list)
     {
 
@@ -272,7 +272,7 @@ public static class CustomExtensions
     /// </summary>
     /// <param name="index">Index of list to start at.</param>
     /// <param name="count">Number of items to return.</param>
-    /// <returns>List<typeparamref name="T"/>></returns>
+    /// <returns>List<typeparamref name="T"/></returns>
     public static List<T> Slice<T>(this List<T> list, int index, int count)
     {
 
@@ -286,7 +286,7 @@ public static class CustomExtensions
     /// Returns a shallow copy of a portion of a list.
     /// </summary>
     /// <param name="count">Number of items to return.</param>
-    /// <returns>List<typeparamref name="T"/>></returns>
+    /// <returns>List<typeparamref name="T"/></returns>
     public static List<T> Slice<T>(this List<T> list, int count)
     {
 
@@ -297,7 +297,7 @@ public static class CustomExtensions
     /// <summary>
     /// Returns a shallow copy of a portion of a list.
     /// </summary>
-    /// <returns>List<typeparamref name="T"/>></returns>
+    /// <returns>List<typeparamref name="T"/></returns>
     public static List<T> Slice<T>(this List<T> list)
     {
 
@@ -310,7 +310,7 @@ public static class CustomExtensions
     /// </summary>
     /// <param name="index">Index of list to start at.</param>
     /// <param name="count">Number of items to return and remove.</param>
-    /// <returns>List<typeparamref name="T"/>></returns>
+    /// <returns>List<typeparamref name="T"/></returns>
     public static List<T> Splice<T>(this List<T> list, int index, int count)
     {
 
@@ -326,7 +326,7 @@ public static class CustomExtensions
     /// Removes and returns a shallow copy of a portion of a list.
     /// </summary>
     /// <param name="count">Number of items to return and remove.</param>
-    /// <returns>List<typeparamref name="T"/>></returns>
+    /// <returns>List<typeparamref name="T"/></returns>
     public static List<T> Splice<T>(this List<T> list, int count)
     {
 
@@ -337,7 +337,7 @@ public static class CustomExtensions
     /// <summary>
     /// Removes and returns a shallow copy of a portion of a list.
     /// </summary>
-    /// <returns>List<typeparamref name="T"/>></returns>
+    /// <returns>List<typeparamref name="T"/></returns>
     public static List<T> Splice<T>(this List<T> list)
     {
 
