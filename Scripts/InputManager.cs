@@ -1,5 +1,6 @@
 ﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using System.Linq;
 using UnityEngine;
 
 namespace CandyCoded
@@ -8,41 +9,45 @@ namespace CandyCoded
     public static class InputManager
     {
 
-        public static bool GetMouseButtonDown(this GameObject gameObject, Camera mainCamera, LayerMask layerMask)
+        public static bool TouchActive
+        {
+            get
+            {
+                return Input.touchSupported && Input.touchCount > 0;
+            }
+        }
+
+        public static bool GetMouseButtonDown(this GameObject gameObject, Camera mainCamera, out RaycastHit hit)
         {
 
-            bool isMouseDown = false;
+            hit = new RaycastHit();
 
-            if (Input.GetMouseButtonDown(0))
-            {
-
-                RaycastHit hit;
-
-                if (Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, layerMask) &&
-                    hit.transform.gameObject == gameObject)
-                {
-
-                    isMouseDown = true;
-
-                }
-
-            }
-
-            return isMouseDown;
+            return Input.GetMouseButtonDown(0) &&
+                        Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, gameObject.GetLayerMask()) &&
+                        hit.transform.gameObject.Equals(gameObject);
 
         }
 
-        public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, LayerMask layerMask, out int currentFingerId)
+        public static bool GetMouseButtonDown(this GameObject gameObject, Camera mainCamera)
+        {
+
+            RaycastHit hit;
+
+            return GetMouseButtonDown(gameObject, mainCamera, out hit);
+
+        }
+
+        public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId, out RaycastHit hit)
         {
 
             currentFingerId = 0;
 
-            bool hasTouchBegin = false;
+            hit = new RaycastHit();
 
-            if (!Input.touchSupported || Input.touchCount == 0)
+            if (!TouchActive)
             {
 
-                return hasTouchBegin;
+                return false;
 
             }
 
@@ -51,78 +56,82 @@ namespace CandyCoded
 
                 Touch touch = Input.GetTouch(i);
 
-                if (touch.phase == TouchPhase.Began)
+                if (touch.phase.Equals(TouchPhase.Began) &&
+                    Physics.Raycast(mainCamera.ScreenPointToRay(touch.position), out hit, Mathf.Infinity, gameObject.GetLayerMask()) &&
+                    hit.transform.gameObject.Equals(gameObject))
                 {
 
-                    RaycastHit hit;
+                    currentFingerId = touch.fingerId;
 
-                    if (Physics.Raycast(mainCamera.ScreenPointToRay(touch.position), out hit, Mathf.Infinity, layerMask) &&
-                        hit.transform.gameObject == gameObject)
-                    {
-
-                        hasTouchBegin = true;
-
-                        currentFingerId = touch.fingerId;
-
-                    }
+                    return true;
 
                 }
 
             }
 
-            return hasTouchBegin;
+            return false;
 
         }
 
-        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, LayerMask layerMask, out int currentFingerId)
+        public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId)
         {
 
-            bool isMouseDown = GetMouseButtonDown(gameObject, mainCamera, layerMask);
+            RaycastHit hit;
 
-            bool hasTouchBegin = GetTouchDown(gameObject, mainCamera, layerMask, out currentFingerId);
-
-            return isMouseDown || hasTouchBegin;
+            return GetTouchDown(gameObject, mainCamera, out currentFingerId, out hit);
 
         }
 
-        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, LayerMask layerMask)
+        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId, out RaycastHit hit)
+        {
+
+            currentFingerId = 0;
+
+            if (TouchActive)
+            {
+
+                return GetTouchDown(gameObject, mainCamera, out currentFingerId, out hit);
+
+            }
+
+            return GetMouseButtonDown(gameObject, mainCamera, out hit);
+
+        }
+
+        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId)
+        {
+
+            RaycastHit hit;
+
+            return GetInputDown(gameObject, mainCamera, out currentFingerId, out hit);
+
+        }
+
+        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera)
         {
 
             int currentFingerId;
 
-            bool isMouseDown = GetMouseButtonDown(gameObject, mainCamera, layerMask);
+            RaycastHit hit;
 
-            bool hasTouchBegin = GetTouchDown(gameObject, mainCamera, layerMask, out currentFingerId);
-
-            return isMouseDown || hasTouchBegin;
+            return GetInputDown(gameObject, mainCamera, out currentFingerId, out hit);
 
         }
 
         public static Vector3? GetMousePosition()
         {
 
-            Vector3? inputPosition = null;
-
-            if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(0) || Input.GetMouseButtonUp(0))
-            {
-
-                inputPosition = Input.mousePosition;
-
-            }
-
-            return inputPosition;
+            return Input.mousePosition;
 
         }
 
         public static Vector3? GetTouchPosition(int currentFingerId)
         {
 
-            Vector3? inputPosition = null;
-
-            if (!Input.touchSupported || Input.touchCount == 0)
+            if (!TouchActive)
             {
 
-                return inputPosition;
+                return null;
 
             }
 
@@ -131,32 +140,30 @@ namespace CandyCoded
 
                 Touch touch = Input.GetTouch(i);
 
-                if (touch.fingerId == currentFingerId)
+                if (touch.fingerId.Equals(currentFingerId))
                 {
 
-                    inputPosition = touch.position;
+                    return touch.position;
 
                 }
 
             }
 
-            return inputPosition;
+            return null;
 
         }
 
         public static Vector3? GetInputPosition(int currentFingerId)
         {
 
-            Vector3? inputPosition = GetMousePosition();
-
-            if (Input.touchSupported && Input.touchCount > 0)
+            if (TouchActive)
             {
 
-                inputPosition = GetTouchPosition(currentFingerId);
+                return GetTouchPosition(currentFingerId);
 
             }
 
-            return inputPosition;
+            return GetMousePosition();
 
         }
 
@@ -170,61 +177,59 @@ namespace CandyCoded
         public static bool GetTouchHeld(int currentFingerId)
         {
 
-            bool isTouchHeld = TestTouchState(currentFingerId, TouchPhase.Moved, TouchPhase.Stationary);
-
-            return isTouchHeld;
+            return TestTouchState(currentFingerId, TouchPhase.Moved, TouchPhase.Stationary);
 
         }
 
         public static bool GetInputHeld(int currentFingerId)
         {
 
-            bool isMouseHeld = GetMouseButtonHeld();
+            if (TouchActive)
+            {
 
-            bool isTouchHeld = GetTouchHeld(currentFingerId);
+                return GetTouchHeld(currentFingerId);
 
-            return isMouseHeld || isTouchHeld;
+            }
+
+            return GetMouseButtonHeld();
 
         }
 
         public static bool GetMouseButtonUp()
         {
 
-            bool isMouseUp = Input.GetMouseButtonUp(0);
-
-            return isMouseUp;
+            return Input.GetMouseButtonUp(0);
 
         }
 
         public static bool GetTouchUp(int currentFingerId)
         {
 
-            bool hasTouchEnded = TestTouchState(currentFingerId, TouchPhase.Ended, TouchPhase.Canceled);
-
-            return hasTouchEnded;
+            return TestTouchState(currentFingerId, TouchPhase.Ended, TouchPhase.Canceled);
 
         }
 
         public static bool GetInputUp(int currentFingerId)
         {
 
-            bool isMouseUp = GetMouseButtonUp();
+            if (TouchActive)
+            {
 
-            bool hasTouchEnded = GetTouchUp(currentFingerId);
+                return GetTouchUp(currentFingerId);
 
-            return isMouseUp || hasTouchEnded;
+            }
+
+            return GetMouseButtonUp();
 
         }
 
         public static bool TestTouchState(int currentFingerId, params TouchPhase[] touchPhases)
         {
 
-            bool doesCurrentStateMatch = false;
-
-            if (!Input.touchSupported || Input.touchCount == 0)
+            if (!TouchActive)
             {
 
-                return doesCurrentStateMatch;
+                return false;
 
             }
 
@@ -233,21 +238,16 @@ namespace CandyCoded
 
                 Touch touch = Input.GetTouch(i);
 
-                if (touch.fingerId == currentFingerId)
+                if (touch.fingerId.Equals(currentFingerId))
                 {
 
-                    for (int j = 0; j < touchPhases.Length; j += 1)
-                    {
-
-                        doesCurrentStateMatch = doesCurrentStateMatch || touch.phase == touchPhases[j];
-
-                    }
+                    return touchPhases.Contains(touch.phase);
 
                 }
 
             }
 
-            return doesCurrentStateMatch;
+            return false;
 
         }
 
