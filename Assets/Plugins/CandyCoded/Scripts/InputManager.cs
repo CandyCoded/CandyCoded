@@ -149,8 +149,6 @@ namespace CandyCoded
 
             }
 
-            Vector3? inputPosition = null;
-
             for (int i = 0; i < Input.touchCount; i += 1)
             {
 
@@ -159,13 +157,13 @@ namespace CandyCoded
                 if (touch.fingerId.Equals(currentFingerId))
                 {
 
-                    inputPosition = touch.position;
+                    return touch.position;
 
                 }
 
             }
 
-            return inputPosition;
+            return null;
 
         }
 
