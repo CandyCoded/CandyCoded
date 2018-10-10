@@ -126,7 +126,7 @@ namespace CandyCoded
 
             }
 
-            return GetMouseButtonDown(gameObject, mainCamera);
+            return GetMouseButtonDown(gameObject, mainCamera, out hit);
 
         }
 
@@ -144,7 +144,7 @@ namespace CandyCoded
 
             }
 
-            return GetMouseButtonDown(gameObject, mainCamera);
+            return GetMouseButtonDown(gameObject, mainCamera, out hit);
 
         }
 
