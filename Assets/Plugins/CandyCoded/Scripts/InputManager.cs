@@ -16,7 +16,7 @@ namespace CandyCoded
             }
         }
 
-        public static bool GetMouseButtonDown(this GameObject gameObject, Camera mainCamera, LayerMask layerMask, out RaycastHit hit)
+        public static bool GetMouseButtonDown(this GameObject gameObject, Camera mainCamera, out RaycastHit hit)
         {
 
             hit = new RaycastHit();
@@ -24,7 +24,7 @@ namespace CandyCoded
             if (Input.GetMouseButtonDown(0))
             {
 
-                if (Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, layerMask) &&
+                if (Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, gameObject.GetLayerMask()) &&
                     hit.transform.gameObject == gameObject)
                 {
 
@@ -38,16 +38,16 @@ namespace CandyCoded
 
         }
 
-        public static bool GetMouseButtonDown(this GameObject gameObject, Camera mainCamera, LayerMask layerMask)
+        public static bool GetMouseButtonDown(this GameObject gameObject, Camera mainCamera)
         {
 
             RaycastHit hit;
 
-            return GetMouseButtonDown(gameObject, mainCamera, layerMask, out hit);
+            return GetMouseButtonDown(gameObject, mainCamera, out hit);
 
         }
 
-        public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, LayerMask layerMask, out int currentFingerId, out RaycastHit hit)
+        public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId, out RaycastHit hit)
         {
 
             currentFingerId = 0;
@@ -69,7 +69,7 @@ namespace CandyCoded
                 if (touch.phase == TouchPhase.Began)
                 {
 
-                    if (Physics.Raycast(mainCamera.ScreenPointToRay(touch.position), out hit, Mathf.Infinity, layerMask) &&
+                    if (Physics.Raycast(mainCamera.ScreenPointToRay(touch.position), out hit, Mathf.Infinity, gameObject.GetLayerMask()) &&
                         hit.transform.gameObject == gameObject)
                     {
 
@@ -87,16 +87,16 @@ namespace CandyCoded
 
         }
 
-        public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, LayerMask layerMask, out int currentFingerId)
+        public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId)
         {
 
             RaycastHit hit;
 
-            return GetTouchDown(gameObject, mainCamera, layerMask, out currentFingerId, out hit);
+            return GetTouchDown(gameObject, mainCamera, out currentFingerId, out hit);
 
         }
 
-        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, LayerMask layerMask, out int currentFingerId, out RaycastHit hit)
+        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId, out RaycastHit hit)
         {
 
             currentFingerId = 0;
@@ -104,15 +104,15 @@ namespace CandyCoded
             if (TouchActive)
             {
 
-                return GetTouchDown(gameObject, mainCamera, layerMask, out currentFingerId, out hit);
+                return GetTouchDown(gameObject, mainCamera, out currentFingerId, out hit);
 
             }
 
-            return GetMouseButtonDown(gameObject, mainCamera, layerMask, out hit);
+            return GetMouseButtonDown(gameObject, mainCamera, out hit);
 
         }
 
-        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, LayerMask layerMask, out int currentFingerId)
+        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId)
         {
 
             currentFingerId = 0;
@@ -122,15 +122,15 @@ namespace CandyCoded
             if (TouchActive)
             {
 
-                return GetTouchDown(gameObject, mainCamera, layerMask, out currentFingerId, out hit);
+                return GetTouchDown(gameObject, mainCamera, out currentFingerId, out hit);
 
             }
 
-            return GetMouseButtonDown(gameObject, mainCamera, layerMask);
+            return GetMouseButtonDown(gameObject, mainCamera);
 
         }
 
-        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, LayerMask layerMask)
+        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera)
         {
 
             int currentFingerId;
@@ -140,11 +140,11 @@ namespace CandyCoded
             if (TouchActive)
             {
 
-                return GetTouchDown(gameObject, mainCamera, layerMask, out currentFingerId, out hit);
+                return GetTouchDown(gameObject, mainCamera, out currentFingerId, out hit);
 
             }
 
-            return GetMouseButtonDown(gameObject, mainCamera, layerMask);
+            return GetMouseButtonDown(gameObject, mainCamera);
 
         }
 
