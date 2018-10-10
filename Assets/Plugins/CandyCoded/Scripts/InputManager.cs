@@ -25,7 +25,7 @@ namespace CandyCoded
             {
 
                 if (Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, gameObject.GetLayerMask()) &&
-                    hit.transform.gameObject == gameObject)
+                    hit.transform.gameObject.Equals(gameObject))
                 {
 
                     return true;
@@ -66,11 +66,11 @@ namespace CandyCoded
 
                 Touch touch = Input.GetTouch(i);
 
-                if (touch.phase == TouchPhase.Began)
+                if (touch.phase.Equals(TouchPhase.Began))
                 {
 
                     if (Physics.Raycast(mainCamera.ScreenPointToRay(touch.position), out hit, Mathf.Infinity, gameObject.GetLayerMask()) &&
-                        hit.transform.gameObject == gameObject)
+                        hit.transform.gameObject.Equals(gameObject))
                     {
 
                         currentFingerId = touch.fingerId;
@@ -172,7 +172,7 @@ namespace CandyCoded
 
                 Touch touch = Input.GetTouch(i);
 
-                if (touch.fingerId == currentFingerId)
+                if (touch.fingerId.Equals(currentFingerId))
                 {
 
                     inputPosition = touch.position;
@@ -272,13 +272,13 @@ namespace CandyCoded
 
                 Touch touch = Input.GetTouch(i);
 
-                if (touch.fingerId == currentFingerId)
+                if (touch.fingerId.Equals(currentFingerId))
                 {
 
                     for (int j = 0; j < touchPhases.Length; j += 1)
                     {
 
-                        doesCurrentStateMatch = doesCurrentStateMatch || touch.phase == touchPhases[j];
+                        doesCurrentStateMatch = doesCurrentStateMatch || touch.phase.Equals(touchPhases[j]);
 
                     }
 
