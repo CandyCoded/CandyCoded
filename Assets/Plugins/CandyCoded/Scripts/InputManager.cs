@@ -1,5 +1,6 @@
 ﻿// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using System.Linq;
 using UnityEngine;
 
 namespace CandyCoded
@@ -240,17 +241,7 @@ namespace CandyCoded
                 if (touch.fingerId.Equals(currentFingerId))
                 {
 
-                    for (int j = 0; j < touchPhases.Length; j += 1)
-                    {
-
-                        if (touch.phase.Equals(touchPhases[j]))
-                        {
-
-                            return true;
-
-                        }
-
-                    }
+                    return touchPhases.Contains(touch.phase);
 
                 }
 
