@@ -115,18 +115,9 @@ namespace CandyCoded
         public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId)
         {
 
-            currentFingerId = 0;
-
             RaycastHit hit;
 
-            if (TouchActive)
-            {
-
-                return GetTouchDown(gameObject, mainCamera, out currentFingerId, out hit);
-
-            }
-
-            return GetMouseButtonDown(gameObject, mainCamera, out hit);
+            return GetInputDown(gameObject, mainCamera, out currentFingerId, out hit);
 
         }
 
@@ -137,14 +128,7 @@ namespace CandyCoded
 
             RaycastHit hit;
 
-            if (TouchActive)
-            {
-
-                return GetTouchDown(gameObject, mainCamera, out currentFingerId, out hit);
-
-            }
-
-            return GetMouseButtonDown(gameObject, mainCamera, out hit);
+            return GetInputDown(gameObject, mainCamera, out currentFingerId, out hit);
 
         }
 
