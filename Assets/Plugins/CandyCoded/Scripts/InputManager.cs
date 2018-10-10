@@ -265,8 +265,6 @@ namespace CandyCoded
 
             }
 
-            bool doesCurrentStateMatch = false;
-
             for (int i = 0; i < Input.touchCount; i += 1)
             {
 
@@ -278,7 +276,12 @@ namespace CandyCoded
                     for (int j = 0; j < touchPhases.Length; j += 1)
                     {
 
-                        doesCurrentStateMatch = doesCurrentStateMatch || touch.phase.Equals(touchPhases[j]);
+                        if (touch.phase.Equals(touchPhases[j]))
+                        {
+
+                            return true;
+
+                        }
 
                     }
 
@@ -286,7 +289,7 @@ namespace CandyCoded
 
             }
 
-            return doesCurrentStateMatch;
+            return false;
 
         }
 
