@@ -339,7 +339,7 @@ public class ObservableListTest
 
         var testList = new ObservableList<int>();
 
-        int addedItem = 0;
+        int? addedItem = null;
 
         testList.AddEvent += (int item) => { addedItem = item; };
 
@@ -347,7 +347,8 @@ public class ObservableListTest
 
         yield return null;
 
-        Assert.AreEqual(1, addedItem);
+        Assert.IsTrue(addedItem.HasValue);
+        Assert.AreEqual(1, addedItem.Value);
 
     }
 
@@ -384,7 +385,6 @@ public class ObservableListTest
         yield return null;
 
         Assert.IsTrue(itemRemoved.HasValue);
-
         Assert.AreEqual(2, itemRemoved.Value);
 
     }
@@ -404,7 +404,6 @@ public class ObservableListTest
         yield return null;
 
         Assert.IsTrue(itemRemoved.HasValue);
-
         Assert.AreEqual(2, itemRemoved.Value);
 
     }
