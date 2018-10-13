@@ -21,7 +21,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void CreateObservableList()
+    public void Create()
     {
 
         var list = new ObservableList<int>();
@@ -31,7 +31,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void CreateObservableListWithValues()
+    public void CreateWithValues()
     {
 
         var list = new ObservableList<int> { 1, 2, 3, 4, 5 };
@@ -41,7 +41,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void CreateObservableListWithList()
+    public void CreateWithList()
     {
 
         var list = new ObservableList<int>(sampleList);
@@ -51,7 +51,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void GetObservableListItemValues()
+    public void GetItemValues()
     {
 
         var list = new ObservableList<int>(sampleList);
@@ -65,7 +65,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void AddItemToObservableList()
+    public void AddItem()
     {
 
         var list = new ObservableList<int>();
@@ -77,7 +77,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void ClearObservableList()
+    public void Clear()
     {
 
         var list = new ObservableList<int>();
@@ -93,7 +93,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void ContainsItemInObservableList()
+    public void ContainsItem()
     {
 
         var list = new ObservableList<int>(sampleList);
@@ -122,7 +122,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void IndexOfItemInObservableList()
+    public void IndexOfItem()
     {
 
         var list = new ObservableList<int>(sampleList);
@@ -133,7 +133,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void InsertItemIntoObservableList()
+    public void InsertItem()
     {
 
         var list = new ObservableList<int>(sampleList);
@@ -150,7 +150,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void RemoveItemFromObservableList()
+    public void RemoveItem()
     {
 
         var list = new ObservableList<int>(sampleList);
@@ -165,7 +165,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void RemoveAtFromObservableList()
+    public void RemoveAtIndex()
     {
 
         var list = new ObservableList<int>(sampleList);
@@ -180,7 +180,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void GetRangeFromObservableList()
+    public void GetRange()
     {
 
         var list = new ObservableList<int>(sampleList);
@@ -195,7 +195,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void AddRangeToObservableListWithList()
+    public void AddRangeWithList()
     {
 
         var list = new ObservableList<int>();
@@ -209,7 +209,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void AddRangeToObservableListWithObservableList()
+    public void AddRangeWithObservableList()
     {
 
         var list = new ObservableList<int>();
@@ -223,7 +223,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void RemoveRangeFromObservableList()
+    public void RemoveRange()
     {
 
         var list = new ObservableList<int>(sampleList);
@@ -235,7 +235,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void ObservableListShuffle()
+    public void Shuffle()
     {
 
         var numberRange = new ObservableList<int>();
@@ -250,7 +250,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void ObservableListShuffleWithoutChangingReference()
+    public void ShuffleWithoutChangingReference()
     {
 
         var numberRange = new ObservableList<int>();
@@ -270,7 +270,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void ObservableListSlice()
+    public void Slice()
     {
 
         var numberRange = new ObservableList<int>();
@@ -286,7 +286,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void ObservableListSliceWithoutIndex()
+    public void SliceWithoutIndex()
     {
 
         var numberRange = new ObservableList<int>();
@@ -302,7 +302,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void ObservableListSplice()
+    public void Splice()
     {
 
         var numberRange = new ObservableList<int>();
@@ -318,7 +318,7 @@ public class ObservableListTest
     }
 
     [Test]
-    public void ObservableListSpliceWithoutIndex()
+    public void SpliceWithoutIndex()
     {
 
         var numberRange = new ObservableList<int>();

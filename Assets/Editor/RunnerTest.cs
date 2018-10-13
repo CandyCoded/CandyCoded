@@ -19,7 +19,7 @@ public class RunnerTest
     }
 
     [Test]
-    public void RunnerAddCoroutine()
+    public void AddCoroutine()
     {
 
         var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -33,7 +33,7 @@ public class RunnerTest
     }
 
     [Test]
-    public void RunnerFailsToAddDuplicateCoroutine()
+    public void FailsToAddDuplicateCoroutine()
     {
 
         var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -47,7 +47,7 @@ public class RunnerTest
     }
 
     [Test]
-    public void RunnerRemoveCoroutine()
+    public void RemoveCoroutine()
     {
 
         var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -65,7 +65,7 @@ public class RunnerTest
     }
 
     [Test]
-    public void RunnerRemoveCoroutineOnNullValue()
+    public void RemoveCoroutineOnNullValue()
     {
 
         var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -85,7 +85,7 @@ public class RunnerTest
     }
 
     [Test]
-    public void RunnerRemoveAllCoroutines()
+    public void RemoveAllCoroutines()
     {
 
         var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
