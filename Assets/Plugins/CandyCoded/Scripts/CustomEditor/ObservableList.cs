@@ -15,7 +15,7 @@ public class ObservableList<T> : IList<T>
 
     public event EventHandlerWithItem AddEvent;
     public event EventHandler ClearEvent;
-    public event EventHandler RemoveEvent;
+    public event EventHandlerWithItem RemoveEvent;
 
     private readonly IList<T> _items;
 
@@ -178,7 +178,7 @@ public class ObservableList<T> : IList<T>
 
         if (RemoveEvent != null)
         {
-            RemoveEvent();
+            RemoveEvent(item);
         }
 
         return result;
@@ -193,11 +193,13 @@ public class ObservableList<T> : IList<T>
     public void RemoveAt(int index)
     {
 
+        var item = _items[index];
+
         _items.RemoveAt(index);
 
         if (RemoveEvent != null)
         {
-            RemoveEvent();
+            RemoveEvent(item);
         }
 
     }
