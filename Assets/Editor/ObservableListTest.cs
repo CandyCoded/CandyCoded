@@ -1,9 +1,11 @@
 // Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #if UNITY_EDITOR || UNITY_STANDALONE
+using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEditor.SceneManagement;
+using UnityEngine.TestTools;
 
 public class ObservableListTest
 {
@@ -328,6 +330,81 @@ public class ObservableListTest
 
         Assert.AreEqual(2, numberRange.Splice(2).Count);
         Assert.AreEqual(8, numberRange.Count);
+
+    }
+
+    [UnityTest]
+    public IEnumerator AddEvent()
+    {
+
+        var testList = new ObservableList<int>();
+
+        int? addedItem = null;
+
+        testList.AddEvent += (int item) => { addedItem = item; };
+
+        testList.Add(1);
+
+        yield return null;
+
+        Assert.IsTrue(addedItem.HasValue);
+        Assert.AreEqual(1, addedItem.Value);
+
+    }
+
+    [UnityTest]
+    public IEnumerator ClearEvent()
+    {
+
+        var testList = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+        int numberOfItemsInList = testList.Count;
+
+        testList.ClearEvent += () => { numberOfItemsInList = testList.Count; };
+
+        testList.Clear();
+
+        yield return null;
+
+        Assert.AreEqual(0, numberOfItemsInList);
+
+    }
+
+    [UnityTest]
+    public IEnumerator RemoveEventWithItem()
+    {
+
+        var testList = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+        int? itemRemoved = null;
+
+        testList.RemoveEvent += (int item) => { itemRemoved = item; };
+
+        testList.Remove(2);
+
+        yield return null;
+
+        Assert.IsTrue(itemRemoved.HasValue);
+        Assert.AreEqual(2, itemRemoved.Value);
+
+    }
+
+    [UnityTest]
+    public IEnumerator RemoveEventWithIndex()
+    {
+
+        var testList = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+        int? itemRemoved = null;
+
+        testList.RemoveEvent += (int item) => { itemRemoved = item; };
+
+        testList.RemoveAt(1);
+
+        yield return null;
+
+        Assert.IsTrue(itemRemoved.HasValue);
+        Assert.AreEqual(2, itemRemoved.Value);
 
     }
 
