@@ -228,9 +228,9 @@ public class ObservableListTest
 
         var list = new ObservableList<int>(sampleList);
 
-        list.RemoveRange(1, 2);
+        list.RemoveRange(0, 3);
 
-        Assert.AreEqual(3, list.Count);
+        Assert.AreEqual(new ObservableList<int> { 4, 5 }, list);
 
     }
 
