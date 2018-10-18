@@ -408,5 +408,22 @@ public class ObservableListTest
 
     }
 
+    [Test]
+    public void BrokenTest()
+    {
+
+        ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
+        ObservableList<int> newList = new ObservableList<int>();
+
+        newList = list.GetRange(2, 2);
+
+        newList.AddRange(new ObservableList<int> { 4, 5, 6 });
+
+        newList.RemoveRange(0, 3);
+
+        Assert.AreEqual(new ObservableList<int> { 5, 6 }, newList);
+
+    }
+
 }
 #endif
