@@ -417,7 +417,11 @@ public class ObservableListTest
 
         newList = list.GetRange(2, 2);
 
+        Assert.AreEqual(new List<int> { 3, 4 }, newList);
+
         newList.AddRange(new ObservableList<int> { 4, 5, 6 });
+
+        Assert.AreEqual(new List<int> { 3, 4, 4, 5, 6 }, newList);
 
         newList.RemoveRange(0, 3);
 
