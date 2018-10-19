@@ -269,7 +269,7 @@ public class ObservableList<T> : IList<T>
     public void RemoveRange(int index, int count)
     {
 
-        for (int i = index; i < index + count; i += 1)
+        for (int i = index + count - 1; i > index - 1; i -= 1)
         {
 
             RemoveAt(i);
