@@ -2,7 +2,7 @@ sudo: required
 language: objective-c
 osx_image: xcode10.0
 rvm:
-  - 2.5.3
+  - 2.5.1
 cache:
   timeout: 86400 # 1 day
   directories:
