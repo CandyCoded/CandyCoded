@@ -1,5 +1,29 @@
 # Changelog
 
+## v1.0.0-beta.11 (October 21, 2018)
+
+### Bug Fixes
+
+- Prevent attempt to select color when no color exists. <https://github.com/neogeek/CandyCoded/pull/44>
+- Fixed issue with ObservableList RemoveRange method <https://github.com/neogeek/CandyCoded/pull/56>
+
+### Features
+
+- Wrap Vector3 in Quaternion.Euler method call. <https://github.com/neogeek/CandyCoded/pull/45>
+- Added GetLayerMask extension. <https://github.com/neogeek/CandyCoded/pull/49>
+- Added LoadAssetBundle <https://github.com/neogeek/CandyCoded/pull/40>
+- Added InputManager <https://github.com/neogeek/CandyCoded/pull/48>
+- Added Permutations method. <https://github.com/neogeek/CandyCoded/pull/52>
+- Added RaycastHit to GetInputDown methods. <https://github.com/neogeek/CandyCoded/pull/53>
+- Return item on RemoveEvent. <https://github.com/neogeek/CandyCoded/pull/54>
+
+### Maintenance
+
+- Removed all materials, shaders and textures. <https://github.com/neogeek/CandyCoded/pull/38>
+- Switch to remote Travis CI scripts <https://github.com/neogeek/CandyCoded/pull/41>
+- Removed camera components in favor of Cinemachine. <https://github.com/neogeek/CandyCoded/pull/42>
+- Test the routine value before calling StopCoroutine. <https://github.com/neogeek/CandyCoded/pull/46>
+
 ## v1.0.0-beta.10 (August 9, 2018)
 
 ### Bug Fixes

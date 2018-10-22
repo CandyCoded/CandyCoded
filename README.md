@@ -20,6 +20,8 @@ CandyCoded is a collection of useful components and extensions for building in U
 - Custom ScriptableObjects with event handlers
 - DisplayInInspector method attribute
 - EnumMask enum attribute
+- LoadAssetBundle methods
+- InputManager methods
 
 ## Installation
 
