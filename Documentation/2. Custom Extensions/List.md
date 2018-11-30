@@ -19,6 +19,15 @@ List<List<int>> listOfCombinations = list.Permutations();
 | 5 | 2, 3 |
 | 6 | 1, 2, 3 |
 
+#### Random
+
+Returns a random item from a List.
+
+```csharp
+List<float> list = new List<float>() { 1, 2, 3, 4, 5 };
+float randomItemFromList = list.Random();
+```
+
 #### Shuffle
 
 Creates a new copy of a list and shuffles the values.
