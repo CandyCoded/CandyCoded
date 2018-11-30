@@ -195,3 +195,13 @@ ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
 
 ObservableList<int> removedItemsList = numberRange.Splice(1, 2);
 ```
+
+#### ToList
+
+Creates a List with the values from an ObservableList.
+
+```csharp
+ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+List<int> newList = list.ToList();
+```
