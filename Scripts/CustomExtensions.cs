@@ -240,6 +240,28 @@ public static class CustomExtensions
     }
 
     /// <summary>
+    /// Returns a random item from a List.
+    /// </summary>
+    /// <returns><typeparamref name="T"/></returns>
+    public static T Random<T>(this List<T> _items)
+    {
+
+        return _items[UnityEngine.Random.Range(0, _items.Count)];
+
+    }
+
+    /// <summary>
+    /// Returns a random item from an Array.
+    /// </summary>
+    /// <returns><typeparamref name="T"/></returns>
+    public static T Random<T>(this T[] _items)
+    {
+
+        return _items[UnityEngine.Random.Range(0, _items.Length)];
+
+    }
+
+    /// <summary>
     /// Creates a new copy of a list and shuffles the values.
     /// </summary>
     /// <returns>List<typeparamref name="T"/></returns>
