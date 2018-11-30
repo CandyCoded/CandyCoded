@@ -1,8 +1,9 @@
 // Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #if UNITY_EDITOR || UNITY_STANDALONE
-using System.Collections.Generic;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
@@ -279,6 +280,28 @@ public class CustomExtensionsTest
         Assert.AreEqual(new List<int> { 1, 3 }, listOfCombinations[4]);
         Assert.AreEqual(new List<int> { 2, 3 }, listOfCombinations[5]);
         Assert.AreEqual(new List<int> { 1, 2, 3 }, listOfCombinations[6]);
+
+    }
+
+    [Test]
+    public void RandomItemFromArray()
+    {
+
+        float[] list = new float[] { 1, 2, 3, 4, 5 };
+        float randomItemFromList = list.Random();
+
+        Assert.IsTrue(list.Contains(randomItemFromList));
+
+    }
+
+    [Test]
+    public void RandomItemFromList()
+    {
+
+        List<float> list = new List<float>() { 1, 2, 3, 4, 5 };
+        float randomItemFromList = list.Random();
+
+        Assert.IsTrue(list.Contains(randomItemFromList));
 
     }
 
