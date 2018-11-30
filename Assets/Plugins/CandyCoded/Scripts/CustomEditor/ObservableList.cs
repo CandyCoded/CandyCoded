@@ -279,6 +279,17 @@ public class ObservableList<T> : IList<T>
     }
 
     /// <summary>
+    /// Returns a random item from an ObservableList.
+    /// </summary>
+    /// <returns><typeparamref name="T"/></returns>
+    public T Random()
+    {
+
+        return _items[UnityEngine.Random.Range(0, _items.Count)];
+
+    }
+
+    /// <summary>
     /// Creates a new copy of an ObservableList and shuffles the values.
     /// </summary>
     /// <returns>ObservableList<typeparamref name="T"/></returns>
@@ -381,17 +392,6 @@ public class ObservableList<T> : IList<T>
     {
 
         return Splice(0, 1);
-
-    }
-
-    /// <summary>
-    /// Returns a random item from an ObservableList.
-    /// </summary>
-    /// <returns><typeparamref name="T"/></returns>
-    public T Random()
-    {
-
-        return _items[UnityEngine.Random.Range(0, _items.Count)];
 
     }
 
