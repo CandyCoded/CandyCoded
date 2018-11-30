@@ -168,7 +168,7 @@ list.RemoveRange(1, 2);
 
 #### Shuffle
 
-Creates a new copy of an Observablelist and shuffles the values.
+Creates a new copy of an ObservableList and shuffles the values.
 
 ```csharp
 ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
@@ -178,7 +178,7 @@ ObservableList<int> shuffledList = numberRange.Shuffle();
 
 #### Slice
 
-Returns a shallow copy of a portion of an Observablelist.
+Returns a shallow copy of a portion of an ObservableList.
 
 ```csharp
 ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
@@ -188,7 +188,7 @@ ObservableList<int> slicedItemsList = numberRange.Slice(2);
 
 #### Splice
 
-Removes and returns a shallow copy of a portion of an Observablelist.
+Removes and returns a shallow copy of a portion of an ObservableList.
 
 ```csharp
 ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };

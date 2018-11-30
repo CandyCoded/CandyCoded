@@ -279,7 +279,7 @@ public class ObservableList<T> : IList<T>
     }
 
     /// <summary>
-    /// Creates a new copy of an Observablelist and shuffles the values.
+    /// Creates a new copy of an ObservableList and shuffles the values.
     /// </summary>
     /// <returns>ObservableList<typeparamref name="T"/></returns>
     public ObservableList<T> Shuffle()
@@ -307,7 +307,7 @@ public class ObservableList<T> : IList<T>
     }
 
     /// <summary>
-    /// Returns a shallow copy of a portion of an Observablelist.
+    /// Returns a shallow copy of a portion of an ObservableList.
     /// </summary>
     /// <param name="index">Index of list to start at.</param>
     /// <param name="count">Number of items to return.</param>
@@ -322,7 +322,7 @@ public class ObservableList<T> : IList<T>
     }
 
     /// <summary>
-    /// Returns a shallow copy of a portion of an Observablelist.
+    /// Returns a shallow copy of a portion of an ObservableList.
     /// </summary>
     /// <param name="count">Number of items to return.</param>
     /// <returns>ObservableList<typeparamref name="T"/></returns>
@@ -334,7 +334,7 @@ public class ObservableList<T> : IList<T>
     }
 
     /// <summary>
-    /// Returns a shallow copy of a portion of an Observablelist.
+    /// Returns a shallow copy of a portion of an ObservableList.
     /// </summary>
     /// <returns>ObservableList<typeparamref name="T"/></returns>
     public ObservableList<T> Slice()
@@ -345,7 +345,7 @@ public class ObservableList<T> : IList<T>
     }
 
     /// <summary>
-    /// Removes and returns a shallow copy of a portion of an Observablelist.
+    /// Removes and returns a shallow copy of a portion of an ObservableList.
     /// </summary>
     /// <param name="index">Index of list to start at.</param>
     /// <param name="count">Number of items to return and remove.</param>
@@ -362,7 +362,7 @@ public class ObservableList<T> : IList<T>
     }
 
     /// <summary>
-    /// Removes and returns a shallow copy of a portion of an Observablelist.
+    /// Removes and returns a shallow copy of a portion of an ObservableList.
     /// </summary>
     /// <param name="count">Number of items to return and remove.</param>
     /// <returns>ObservableList<typeparamref name="T"/></returns>
@@ -374,7 +374,7 @@ public class ObservableList<T> : IList<T>
     }
 
     /// <summary>
-    /// Removes and returns a shallow copy of a portion of an Observablelist.
+    /// Removes and returns a shallow copy of a portion of an ObservableList.
     /// </summary>
     /// <returns>ObservableList<typeparamref name="T"/></returns>
     public ObservableList<T> Splice()
@@ -385,7 +385,7 @@ public class ObservableList<T> : IList<T>
     }
 
     /// <summary>
-    /// Creates a List with the values from an Observablelist.
+    /// Creates a List with the values from an ObservableList.
     /// </summary>
     /// <returns>List<typeparamref name="T"/></returns>
     public List<T> ToList()
