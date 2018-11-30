@@ -287,10 +287,10 @@ public class CustomExtensionsTest
     public void RandomItemFromArray()
     {
 
-        float[] list = new float[] { 1, 2, 3, 4, 5 };
-        float randomItemFromList = list.Random();
+        float[] array = new float[] { 1, 2, 3, 4, 5 };
+        float randomItemFromArray = array.Random();
 
-        Assert.IsTrue(list.Contains(randomItemFromList));
+        Assert.IsTrue(array.Contains(randomItemFromArray));
 
     }
 
