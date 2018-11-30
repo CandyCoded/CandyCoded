@@ -196,6 +196,16 @@ ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
 ObservableList<int> removedItemsList = numberRange.Splice(1, 2);
 ```
 
+#### Random
+
+Returns a random item from an ObservableList.
+
+```csharp
+ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+int randomItemFromList = list.Random();
+```
+
 #### ToList
 
 Creates a List with the values from an ObservableList.

@@ -1,9 +1,9 @@
 // Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #if UNITY_EDITOR || UNITY_STANDALONE
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
 using UnityEditor.SceneManagement;
 using UnityEngine.TestTools;
 
@@ -330,6 +330,18 @@ public class ObservableListTest
 
         Assert.AreEqual(2, numberRange.Splice(2).Count);
         Assert.AreEqual(8, numberRange.Count);
+
+    }
+
+    [Test]
+    public void ReturnRandomItem()
+    {
+
+        var testList = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+        var randomItemFromList = testList.Random();
+
+        Assert.IsTrue(testList.Contains(randomItemFromList));
 
     }
 
