@@ -385,6 +385,17 @@ public class ObservableList<T> : IList<T>
     }
 
     /// <summary>
+    /// Returns a random item from an ObservableList.
+    /// </summary>
+    /// <returns><typeparamref name="T"/></returns>
+    public T Random()
+    {
+
+        return _items[UnityEngine.Random.Range(0, _items.Count)];
+
+    }
+
+    /// <summary>
     /// Creates a List with the values from an ObservableList.
     /// </summary>
     /// <returns>List<typeparamref name="T"/></returns>
