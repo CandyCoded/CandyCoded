@@ -36,7 +36,21 @@ public static class CustomExtensions
     public static bool Compare(this Transform transform, Transform other)
     {
 
-        return transform == null && other == null || transform != null && other != null && transform.gameObject.Equals(other.gameObject);
+        if (transform == null && other == null)
+        {
+
+            return true;
+
+        }
+
+        if (transform != null && other != null && transform.gameObject.Equals(other.gameObject))
+        {
+
+            return true;
+
+        }
+
+        return false;
 
     }
 
