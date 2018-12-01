@@ -68,11 +68,15 @@ public class ObservableListTest
     public void AddItem()
     {
 
-        var list = new ObservableList<int>();
+        var list = new ObservableList<int>
+        {
+            1
+        };
 
-        list.Add(1);
+        list.Add(2);
 
         Assert.AreEqual(1, list[0]);
+        Assert.AreEqual(2, list[1]);
 
     }
 
@@ -80,9 +84,10 @@ public class ObservableListTest
     public void Clear()
     {
 
-        var list = new ObservableList<int>();
-
-        list.Add(1);
+        var list = new ObservableList<int>
+        {
+            1
+        };
 
         Assert.AreEqual(1, list.Count);
 
@@ -109,7 +114,7 @@ public class ObservableListTest
 
         var list = new ObservableList<int>(sampleList);
 
-        int[] array = new int[10];
+        var array = new int[10];
 
         list.CopyTo(array, 2);
 

@@ -4,7 +4,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class SampleController : MonoBehaviour
@@ -76,11 +75,12 @@ public class CustomExtensionsTest : TestSetup
     public void EditKeyframeValueVector3AnimationCurve()
     {
 
-        var animationCurve = new CandyCoded.Vector3AnimationCurve();
-
-        animationCurve.x = AnimationCurve.Linear(0, 0, 1, 1);
-        animationCurve.y = AnimationCurve.Linear(0, 0, 1, 1);
-        animationCurve.z = AnimationCurve.Linear(0, 0, 1, 1);
+        var animationCurve = new CandyCoded.Vector3AnimationCurve
+        {
+            x = AnimationCurve.Linear(0, 0, 1, 1),
+            y = AnimationCurve.Linear(0, 0, 1, 1),
+            z = AnimationCurve.Linear(0, 0, 1, 1)
+        };
 
         animationCurve.EditKeyframeValue(0, new Vector3(10, 15, 20));
 
@@ -98,10 +98,11 @@ public class CustomExtensionsTest : TestSetup
     public void EditKeyframeValueVector2AnimationCurve()
     {
 
-        var animationCurve = new CandyCoded.Vector2AnimationCurve();
-
-        animationCurve.x = AnimationCurve.Linear(0, 0, 1, 1);
-        animationCurve.y = AnimationCurve.Linear(0, 0, 1, 1);
+        var animationCurve = new CandyCoded.Vector2AnimationCurve
+        {
+            x = AnimationCurve.Linear(0, 0, 1, 1),
+            y = AnimationCurve.Linear(0, 0, 1, 1)
+        };
 
         animationCurve.EditKeyframeValue(0, new Vector2(10, 15));
 
@@ -131,12 +132,12 @@ public class CustomExtensionsTest : TestSetup
     public void GetLayerMask()
     {
 
-        GameObject gameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        var gameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
         gameObject.layer = LayerMask.NameToLayer("UI");
 
         LayerMask layerMask = LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer));
 
-        LayerMask calculatedLayerMask = gameObject.GetLayerMask();
+        var calculatedLayerMask = gameObject.GetLayerMask();
 
         Assert.AreEqual(layerMask.value, calculatedLayerMask.value);
 
@@ -279,8 +280,8 @@ public class CustomExtensionsTest : TestSetup
     public void RandomItemFromArray()
     {
 
-        float[] array = new float[] { 1, 2, 3, 4, 5 };
-        float randomItemFromArray = array.Random();
+        var array = new float[] { 1, 2, 3, 4, 5 };
+        var randomItemFromArray = array.Random();
 
         Assert.IsTrue(array.Contains(randomItemFromArray));
 
@@ -290,8 +291,8 @@ public class CustomExtensionsTest : TestSetup
     public void RandomItemFromList()
     {
 
-        List<float> list = new List<float>() { 1, 2, 3, 4, 5 };
-        float randomItemFromList = list.Random();
+        var list = new List<float>() { 1, 2, 3, 4, 5 };
+        var randomItemFromList = list.Random();
 
         Assert.IsTrue(list.Contains(randomItemFromList));
 
