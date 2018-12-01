@@ -12,16 +12,8 @@ public class SampleController : MonoBehaviour
 
 }
 
-public class CustomExtensionsTest
+public class CustomExtensionsTest : TestSetup
 {
-
-    [SetUp]
-    public void ResetScene()
-    {
-
-        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
-
-    }
 
     [Test]
     public void AddOrGetComponent()
