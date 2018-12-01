@@ -6,411 +6,518 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.TestTools;
 
-public class ObservableListTest : TestSetup
+public class ObservableListTest
 {
 
-    [Test]
-    public void Create()
+    public class AddEvent : TestSetup
     {
 
-        var list = new ObservableList<int>();
+        [UnityTest]
+        public IEnumerator SetupAddEventAndListenForResponse()
+        {
 
-        Assert.AreEqual(0, list.Count);
+            var testList = new ObservableList<int>();
+
+            int? addedItem = null;
+
+            testList.AddEvent += (int item) => { addedItem = item; };
+
+            testList.Add(1);
+
+            yield return null;
+
+            Assert.IsTrue(addedItem.HasValue);
+            Assert.AreEqual(1, addedItem.Value);
+
+        }
 
     }
 
-    [Test]
-    public void CreateWithValues()
+    public class ClearEvent : TestSetup
     {
 
-        var list = new ObservableList<int> { 1, 2, 3, 4, 5 };
+        [UnityTest]
+        public IEnumerator SetupClearEventAndListenForResponse()
+        {
 
-        Assert.AreEqual(5, list.Count);
+            var testList = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+            int numberOfItemsInList = testList.Count;
+
+            testList.ClearEvent += () => { numberOfItemsInList = testList.Count; };
+
+            testList.Clear();
+
+            yield return null;
+
+            Assert.AreEqual(0, numberOfItemsInList);
+
+        }
 
     }
 
-    [Test]
-    public void CreateWithList()
+    public class RemoveEvent : TestSetup
     {
 
-        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
+        [UnityTest]
+        public IEnumerator SetupRemoveEventWithItemAndListenForResponse()
+        {
 
-        Assert.AreEqual(5, list.Count);
+            var testList = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+            int? itemRemoved = null;
+
+            testList.RemoveEvent += (int item) => { itemRemoved = item; };
+
+            testList.Remove(2);
+
+            yield return null;
+
+            Assert.IsTrue(itemRemoved.HasValue);
+            Assert.AreEqual(2, itemRemoved.Value);
+
+        }
+
+        [UnityTest]
+        public IEnumerator SetupRemoveEventWithIndexAndListenForResponse()
+        {
+
+            var testList = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+            int? itemRemoved = null;
+
+            testList.RemoveEvent += (int item) => { itemRemoved = item; };
+
+            testList.RemoveAt(1);
+
+            yield return null;
+
+            Assert.IsTrue(itemRemoved.HasValue);
+            Assert.AreEqual(2, itemRemoved.Value);
+
+        }
 
     }
 
-    [Test]
-    public void GetItemValues()
+    public class Get : TestSetup
     {
 
-        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
+        [Test]
+        public void GetItemValuesWithIndex()
+        {
 
-        Assert.AreEqual(1, list[0]);
-        Assert.AreEqual(2, list[1]);
-        Assert.AreEqual(3, list[2]);
-        Assert.AreEqual(4, list[3]);
-        Assert.AreEqual(5, list[4]);
+            var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
+
+            Assert.AreEqual(1, list[0]);
+            Assert.AreEqual(2, list[1]);
+            Assert.AreEqual(3, list[2]);
+            Assert.AreEqual(4, list[3]);
+            Assert.AreEqual(5, list[4]);
+
+        }
 
     }
 
-    [Test]
-    public void AddItem()
+    public class Constructor : TestSetup
     {
 
-        var list = new ObservableList<int>
+        [Test]
+        public void CreateEmpty()
+        {
+
+            var list = new ObservableList<int>();
+
+            Assert.AreEqual(0, list.Count);
+
+        }
+
+        [Test]
+        public void CreateWithValues()
+        {
+
+            var list = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+            Assert.AreEqual(5, list.Count);
+
+        }
+
+        [Test]
+        public void CreateWithList()
+        {
+
+            var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
+
+            Assert.AreEqual(5, list.Count);
+
+        }
+
+    }
+
+    public class Add : TestSetup
+    {
+
+        [Test]
+        public void AddItem()
+        {
+
+            var list = new ObservableList<int>
         {
             1
         };
 
-        list.Add(2);
+            list.Add(2);
 
-        Assert.AreEqual(1, list[0]);
-        Assert.AreEqual(2, list[1]);
+            Assert.AreEqual(1, list[0]);
+            Assert.AreEqual(2, list[1]);
+
+        }
 
     }
 
-    [Test]
-    public void Clear()
+    public class Clear : TestSetup
     {
 
-        var list = new ObservableList<int>
+        [Test]
+        public void ClearList()
+        {
+
+            var list = new ObservableList<int>
         {
             1
         };
 
-        Assert.AreEqual(1, list.Count);
+            Assert.AreEqual(1, list.Count);
 
-        list.Clear();
+            list.Clear();
 
-        Assert.AreEqual(0, list.Count);
+            Assert.AreEqual(0, list.Count);
 
-    }
-
-    [Test]
-    public void ContainsItem()
-    {
-
-        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
-
-        Assert.AreEqual(true, list.Contains(2));
-        Assert.AreEqual(false, list.Contains(10));
-
-    }
-
-    [Test]
-    public void CopyToArrayWithIndex()
-    {
-
-        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
-
-        var array = new int[10];
-
-        list.CopyTo(array, 2);
-
-        Assert.AreEqual(1, array[2]);
-        Assert.AreEqual(2, array[3]);
-        Assert.AreEqual(3, array[4]);
-        Assert.AreEqual(4, array[5]);
-        Assert.AreEqual(5, array[6]);
-
-    }
-
-    [Test]
-    public void IndexOfItem()
-    {
-
-        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
-
-        Assert.AreEqual(0, list.IndexOf(1));
-        Assert.AreEqual(1, list.IndexOf(2));
-
-    }
-
-    [Test]
-    public void InsertItem()
-    {
-
-        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
-
-        Assert.AreEqual(1, list[0]);
-        Assert.AreEqual(2, list[1]);
-
-        list.Insert(1, 6);
-
-        Assert.AreEqual(1, list[0]);
-        Assert.AreEqual(6, list[1]);
-        Assert.AreEqual(2, list[2]);
-
-    }
-
-    [Test]
-    public void RemoveItem()
-    {
-
-        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
-
-        Assert.AreEqual(1, list[0]);
-        Assert.AreEqual(2, list[1]);
-
-        list.Remove(1);
-
-        Assert.AreEqual(2, list[0]);
-
-    }
-
-    [Test]
-    public void RemoveAtIndex()
-    {
-
-        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
-
-        Assert.AreEqual(1, list[0]);
-        Assert.AreEqual(2, list[1]);
-
-        list.RemoveAt(0);
-
-        Assert.AreEqual(2, list[0]);
-
-    }
-
-    [Test]
-    public void GetRange()
-    {
-
-        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
-
-        var newList = list.GetRange(1, 2);
-
-        Assert.AreEqual(2, newList.Count);
-
-        Assert.AreEqual(2, newList[0]);
-        Assert.AreEqual(3, newList[1]);
-
-    }
-
-    [Test]
-    public void AddRangeWithList()
-    {
-
-        var list = new ObservableList<int>();
-
-        Assert.AreEqual(0, list.Count);
-
-        list.AddRange(new List<int> { 1, 2, 3 });
-
-        Assert.AreEqual(3, list.Count);
-
-    }
-
-    [Test]
-    public void AddRangeWithObservableList()
-    {
-
-        var list = new ObservableList<int>();
-
-        Assert.AreEqual(0, list.Count);
-
-        list.AddRange(new ObservableList<int> { 1, 2, 3 });
-
-        Assert.AreEqual(3, list.Count);
-
-    }
-
-    [Test]
-    public void RemoveRange()
-    {
-
-        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
-
-        list.RemoveRange(0, 3);
-
-        Assert.AreEqual(new ObservableList<int> { 4, 5 }, list);
-
-    }
-
-    [Test]
-    public void Shuffle()
-    {
-
-        var numberRange = new ObservableList<int>();
-
-        for (var i = 0; i < 10; i += 1)
-        {
-            numberRange.Add(i);
-        }
-
-        Assert.AreNotEqual(numberRange, numberRange.Shuffle());
-
-    }
-
-    [Test]
-    public void ShuffleWithoutChangingReference()
-    {
-
-        var numberRange = new ObservableList<int>();
-
-        for (var i = 0; i < 10; i += 1)
-        {
-            numberRange.Add(i);
-        }
-
-        numberRange.Shuffle();
-
-        for (var i = 0; i < 10; i += 1)
-        {
-            Assert.AreEqual(i, numberRange[i]);
         }
 
     }
 
-    [Test]
-    public void Slice()
+    public class Contains : TestSetup
     {
 
-        var numberRange = new ObservableList<int>();
-
-        for (var i = 0; i < 10; i += 1)
+        [Test]
+        public void ContainsItem()
         {
-            numberRange.Add(i);
+
+            var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
+
+            Assert.AreEqual(true, list.Contains(2));
+            Assert.AreEqual(false, list.Contains(10));
+
         }
 
-        Assert.AreEqual(2, numberRange.Slice(1, 2).Count);
-        Assert.AreEqual(10, numberRange.Count);
-
     }
 
-    [Test]
-    public void SliceWithoutIndex()
+    public class CopyTo : TestSetup
     {
 
-        var numberRange = new ObservableList<int>();
-
-        for (var i = 0; i < 10; i += 1)
+        [Test]
+        public void CopyToArrayWithIndex()
         {
-            numberRange.Add(i);
+
+            var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
+
+            var array = new int[10];
+
+            list.CopyTo(array, 2);
+
+            Assert.AreEqual(1, array[2]);
+            Assert.AreEqual(2, array[3]);
+            Assert.AreEqual(3, array[4]);
+            Assert.AreEqual(4, array[5]);
+            Assert.AreEqual(5, array[6]);
+
         }
 
-        Assert.AreEqual(2, numberRange.Slice(2).Count);
-        Assert.AreEqual(10, numberRange.Count);
-
     }
 
-    [Test]
-    public void Splice()
+    public class IndexOf : TestSetup
     {
 
-        var numberRange = new ObservableList<int>();
-
-        for (var i = 0; i < 10; i += 1)
+        [Test]
+        public void IndexOfItem()
         {
-            numberRange.Add(i);
+
+            var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
+
+            Assert.AreEqual(0, list.IndexOf(1));
+            Assert.AreEqual(1, list.IndexOf(2));
+
         }
 
-        Assert.AreEqual(2, numberRange.Splice(1, 2).Count);
-        Assert.AreEqual(8, numberRange.Count);
-
     }
 
-    [Test]
-    public void SpliceWithoutIndex()
+    public class Insert : TestSetup
     {
 
-        var numberRange = new ObservableList<int>();
-
-        for (var i = 0; i < 10; i += 1)
+        [Test]
+        public void InsertItem()
         {
-            numberRange.Add(i);
+
+            var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
+
+            Assert.AreEqual(1, list[0]);
+            Assert.AreEqual(2, list[1]);
+
+            list.Insert(1, 6);
+
+            Assert.AreEqual(1, list[0]);
+            Assert.AreEqual(6, list[1]);
+            Assert.AreEqual(2, list[2]);
+
         }
 
-        Assert.AreEqual(2, numberRange.Splice(2).Count);
-        Assert.AreEqual(8, numberRange.Count);
+    }
+
+    public class Remove : TestSetup
+    {
+
+        [Test]
+        public void RemoveItem()
+        {
+
+            var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
+
+            Assert.AreEqual(1, list[0]);
+            Assert.AreEqual(2, list[1]);
+
+            list.Remove(1);
+
+            Assert.AreEqual(2, list[0]);
+
+        }
 
     }
 
-    [Test]
-    public void ReturnRandomItem()
+    public class RemoveAt : TestSetup
     {
 
-        var testList = new ObservableList<int> { 1, 2, 3, 4, 5 };
+        [Test]
+        public void RemoveItemAtIndex()
+        {
 
-        var randomItemFromList = testList.Random();
+            var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
 
-        Assert.IsTrue(testList.Contains(randomItemFromList));
+            Assert.AreEqual(1, list[0]);
+            Assert.AreEqual(2, list[1]);
+
+            list.RemoveAt(0);
+
+            Assert.AreEqual(2, list[0]);
+
+        }
 
     }
 
-    [UnityTest]
-    public IEnumerator AddEvent()
+    public class GetRange : TestSetup
     {
 
-        var testList = new ObservableList<int>();
+        [Test]
+        public void GetRangeWithIndexes()
+        {
 
-        int? addedItem = null;
+            var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
 
-        testList.AddEvent += (int item) => { addedItem = item; };
+            var newList = list.GetRange(1, 2);
 
-        testList.Add(1);
+            Assert.AreEqual(2, newList.Count);
 
-        yield return null;
+            Assert.AreEqual(2, newList[0]);
+            Assert.AreEqual(3, newList[1]);
 
-        Assert.IsTrue(addedItem.HasValue);
-        Assert.AreEqual(1, addedItem.Value);
+        }
 
     }
 
-    [UnityTest]
-    public IEnumerator ClearEvent()
+    public class AddRange : TestSetup
     {
 
-        var testList = new ObservableList<int> { 1, 2, 3, 4, 5 };
+        [Test]
+        public void AddRangeWithList()
+        {
 
-        int numberOfItemsInList = testList.Count;
+            var list = new ObservableList<int>();
 
-        testList.ClearEvent += () => { numberOfItemsInList = testList.Count; };
+            Assert.AreEqual(0, list.Count);
 
-        testList.Clear();
+            list.AddRange(new List<int> { 1, 2, 3 });
 
-        yield return null;
+            Assert.AreEqual(3, list.Count);
 
-        Assert.AreEqual(0, numberOfItemsInList);
+        }
+
+        [Test]
+        public void AddRangeWithObservableList()
+        {
+
+            var list = new ObservableList<int>();
+
+            Assert.AreEqual(0, list.Count);
+
+            list.AddRange(new ObservableList<int> { 1, 2, 3 });
+
+            Assert.AreEqual(3, list.Count);
+
+        }
 
     }
 
-    [UnityTest]
-    public IEnumerator RemoveEventWithItem()
+    public class RemoveRange : TestSetup
     {
 
-        var testList = new ObservableList<int> { 1, 2, 3, 4, 5 };
+        [Test]
+        public void RemoveRangeFromList()
+        {
 
-        int? itemRemoved = null;
+            var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
 
-        testList.RemoveEvent += (int item) => { itemRemoved = item; };
+            list.RemoveRange(0, 3);
 
-        testList.Remove(2);
+            Assert.AreEqual(new ObservableList<int> { 4, 5 }, list);
 
-        yield return null;
-
-        Assert.IsTrue(itemRemoved.HasValue);
-        Assert.AreEqual(2, itemRemoved.Value);
+        }
 
     }
 
-    [UnityTest]
-    public IEnumerator RemoveEventWithIndex()
+    public class Random : TestSetup
     {
 
-        var testList = new ObservableList<int> { 1, 2, 3, 4, 5 };
+        [Test]
+        public void ReturnRandomItem()
+        {
 
-        int? itemRemoved = null;
+            var testList = new ObservableList<int> { 1, 2, 3, 4, 5 };
 
-        testList.RemoveEvent += (int item) => { itemRemoved = item; };
+            var randomItemFromList = testList.Random();
 
-        testList.RemoveAt(1);
+            Assert.IsTrue(testList.Contains(randomItemFromList));
 
-        yield return null;
+        }
 
-        Assert.IsTrue(itemRemoved.HasValue);
-        Assert.AreEqual(2, itemRemoved.Value);
+    }
+
+    public class Shuffle : TestSetup
+    {
+
+        [Test]
+        public void ShuffleValues()
+        {
+
+            var numberRange = new ObservableList<int>();
+
+            for (var i = 0; i < 10; i += 1)
+            {
+                numberRange.Add(i);
+            }
+
+            Assert.AreNotEqual(numberRange, numberRange.Shuffle());
+
+        }
+
+        [Test]
+        public void ShuffleValuesWithoutChangingReference()
+        {
+
+            var numberRange = new ObservableList<int>();
+
+            for (var i = 0; i < 10; i += 1)
+            {
+                numberRange.Add(i);
+            }
+
+            numberRange.Shuffle();
+
+            for (var i = 0; i < 10; i += 1)
+            {
+                Assert.AreEqual(i, numberRange[i]);
+            }
+
+        }
+
+    }
+
+    public class Slice : TestSetup
+    {
+
+        [Test]
+        public void SliceItemsFromList()
+        {
+
+            var numberRange = new ObservableList<int>();
+
+            for (var i = 0; i < 10; i += 1)
+            {
+                numberRange.Add(i);
+            }
+
+            Assert.AreEqual(2, numberRange.Slice(1, 2).Count);
+            Assert.AreEqual(10, numberRange.Count);
+
+        }
+
+        [Test]
+        public void SliceWithoutIndex()
+        {
+
+            var numberRange = new ObservableList<int>();
+
+            for (var i = 0; i < 10; i += 1)
+            {
+                numberRange.Add(i);
+            }
+
+            Assert.AreEqual(2, numberRange.Slice(2).Count);
+            Assert.AreEqual(10, numberRange.Count);
+
+        }
+
+    }
+
+    public class Splice : TestSetup
+    {
+
+        [Test]
+        public void SpliceItemsOutOfList()
+        {
+
+            var numberRange = new ObservableList<int>();
+
+            for (var i = 0; i < 10; i += 1)
+            {
+                numberRange.Add(i);
+            }
+
+            Assert.AreEqual(2, numberRange.Splice(1, 2).Count);
+            Assert.AreEqual(8, numberRange.Count);
+
+        }
+
+        [Test]
+        public void SpliceWithoutIndex()
+        {
+
+            var numberRange = new ObservableList<int>();
+
+            for (var i = 0; i < 10; i += 1)
+            {
+                numberRange.Add(i);
+            }
+
+            Assert.AreEqual(2, numberRange.Splice(2).Count);
+            Assert.AreEqual(8, numberRange.Count);
+
+        }
+
+    }
+
+    [Ignore("NotImplemented")]
+    public class ToList : TestSetup
+    {
+
 
     }
 
