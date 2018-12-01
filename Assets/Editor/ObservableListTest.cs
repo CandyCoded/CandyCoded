@@ -9,8 +9,6 @@ using UnityEngine.TestTools;
 public class ObservableListTest : TestSetup
 {
 
-    private readonly List<int> sampleList = new List<int> { 1, 2, 3, 4, 5 };
-
     [Test]
     public void Create()
     {
@@ -35,7 +33,7 @@ public class ObservableListTest : TestSetup
     public void CreateWithList()
     {
 
-        var list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
 
         Assert.AreEqual(5, list.Count);
 
@@ -45,7 +43,7 @@ public class ObservableListTest : TestSetup
     public void GetItemValues()
     {
 
-        var list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
 
         Assert.AreEqual(1, list[0]);
         Assert.AreEqual(2, list[1]);
@@ -92,7 +90,7 @@ public class ObservableListTest : TestSetup
     public void ContainsItem()
     {
 
-        var list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
 
         Assert.AreEqual(true, list.Contains(2));
         Assert.AreEqual(false, list.Contains(10));
@@ -103,7 +101,7 @@ public class ObservableListTest : TestSetup
     public void CopyToArrayWithIndex()
     {
 
-        var list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
 
         var array = new int[10];
 
@@ -121,7 +119,7 @@ public class ObservableListTest : TestSetup
     public void IndexOfItem()
     {
 
-        var list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
 
         Assert.AreEqual(0, list.IndexOf(1));
         Assert.AreEqual(1, list.IndexOf(2));
@@ -132,7 +130,7 @@ public class ObservableListTest : TestSetup
     public void InsertItem()
     {
 
-        var list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
 
         Assert.AreEqual(1, list[0]);
         Assert.AreEqual(2, list[1]);
@@ -149,7 +147,7 @@ public class ObservableListTest : TestSetup
     public void RemoveItem()
     {
 
-        var list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
 
         Assert.AreEqual(1, list[0]);
         Assert.AreEqual(2, list[1]);
@@ -164,7 +162,7 @@ public class ObservableListTest : TestSetup
     public void RemoveAtIndex()
     {
 
-        var list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
 
         Assert.AreEqual(1, list[0]);
         Assert.AreEqual(2, list[1]);
@@ -179,7 +177,7 @@ public class ObservableListTest : TestSetup
     public void GetRange()
     {
 
-        var list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
 
         var newList = list.GetRange(1, 2);
 
@@ -222,7 +220,7 @@ public class ObservableListTest : TestSetup
     public void RemoveRange()
     {
 
-        var list = new ObservableList<int>(sampleList);
+        var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
 
         list.RemoveRange(0, 3);
 
