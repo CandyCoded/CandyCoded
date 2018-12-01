@@ -305,16 +305,8 @@ public class CustomExtensionsTest
 
     }
 
-    public class CompareTransform
+    public class CompareTransform : TestSetup
     {
-
-        [SetUp]
-        public void ResetScene()
-        {
-
-            EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
-
-        }
 
         [Test]
         public void CompareTransformsParentToGameObject()
