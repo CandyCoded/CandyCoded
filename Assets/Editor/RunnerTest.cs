@@ -116,5 +116,11 @@ public class RunnerTest
 
     }
 
+    [Ignore("NotImplemented")]
+    public class OneShot : TestSetup
+    {
+
+    }
+
 }
 #endif
