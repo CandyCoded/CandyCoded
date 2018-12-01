@@ -1,22 +1,13 @@
 // Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #if UNITY_EDITOR || UNITY_STANDALONE
+using NUnit.Framework;
 using System;
 using System.Collections;
-using NUnit.Framework;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
-public class RunnerTest
+public class RunnerTest : TestSetup
 {
-
-    [SetUp]
-    public void ResetScene()
-    {
-
-        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
-
-    }
 
     [Test]
     public void AddCoroutine()
@@ -104,7 +95,7 @@ public class RunnerTest
 
     }
 
-    IEnumerator TestCoroutine()
+    private IEnumerator TestCoroutine()
     {
 
         yield return new WaitForSeconds(1f);

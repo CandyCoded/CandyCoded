@@ -4,21 +4,12 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine.TestTools;
 
-public class ObservableListTest
+public class ObservableListTest : TestSetup
 {
 
     private readonly List<int> sampleList = new List<int> { 1, 2, 3, 4, 5 };
-
-    [SetUp]
-    public void ResetScene()
-    {
-
-        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
-
-    }
 
     [Test]
     public void Create()

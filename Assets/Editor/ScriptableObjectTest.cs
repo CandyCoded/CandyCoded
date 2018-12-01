@@ -2,19 +2,10 @@
 
 #if UNITY_EDITOR || UNITY_STANDALONE
 using NUnit.Framework;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
-public class ScriptableObjectTest
+public class ScriptableObjectTest : TestSetup
 {
-
-    [SetUp]
-    public void ResetScene()
-    {
-
-        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
-
-    }
 
     [Test]
     public void BoolReference()
