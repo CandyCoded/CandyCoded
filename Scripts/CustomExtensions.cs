@@ -30,6 +30,31 @@ public static class CustomExtensions
     }
 
     /// <summary>
+    /// Compares one transform to another using the attached gameobjects.
+    /// </summary>
+    /// <returns>bool</returns>
+    public static bool Compare(this Transform transform, Transform other)
+    {
+
+        if (transform == null && other == null)
+        {
+
+            return true;
+
+        }
+
+        if (transform != null && other != null && transform.gameObject.Equals(other.gameObject))
+        {
+
+            return true;
+
+        }
+
+        return false;
+
+    }
+
+    /// <summary>
     /// Tests LayerMask for the supplied Layer name.
     /// </summary>
     /// <param name="layerName">Layer name to compare against layerMask.</param>
