@@ -4,35 +4,39 @@
 using NUnit.Framework;
 using UnityEngine;
 
-public class CalculationTest : TestSetup
+public class CalculationTest
 {
 
-    [Test]
-    public void BoundsCalculatedOnMultipleChildrenObjects()
+    public class ParentBoundsTest : TestSetup
     {
 
-        var parentGameObject = new GameObject("ParentGameObject");
-        parentGameObject.transform.position = new Vector3(5f, 5f, 5f);
+        [Test]
+        public void BoundsCalculatedOnMultipleChildrenObjects()
+        {
 
-        var cube1 = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        cube1.transform.position = Vector3.back * 2;
-        cube1.transform.parent = parentGameObject.transform;
+            var parentGameObject = new GameObject("ParentGameObject");
+            parentGameObject.transform.position = new Vector3(5f, 5f, 5f);
 
-        var cube2 = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        cube2.transform.position = Vector3.left * 2;
-        cube2.transform.parent = parentGameObject.transform;
+            var cube1 = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube1.transform.position = Vector3.back * 2;
+            cube1.transform.parent = parentGameObject.transform;
 
-        var cube3 = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        cube3.transform.position = Vector3.right;
-        cube3.transform.parent = parentGameObject.transform;
+            var cube2 = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube2.transform.position = Vector3.left * 2;
+            cube2.transform.parent = parentGameObject.transform;
 
-        var bounds = CandyCoded.Calculation.ParentBounds(parentGameObject);
+            var cube3 = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube3.transform.position = Vector3.right;
+            cube3.transform.parent = parentGameObject.transform;
 
-        Assert.AreEqual(new Vector3(-0.5f, 0, -1.0f), bounds.center);
-        Assert.AreEqual(new Vector3(-2.5f, -0.5f, -2.5f), bounds.min);
-        Assert.AreEqual(new Vector3(1.5f, 0.5f, 0.5f), bounds.max);
-        Assert.AreEqual(new Vector3(4.0f, 1.0f, 3.0f), bounds.size);
+            var bounds = CandyCoded.Calculation.ParentBounds(parentGameObject);
 
+            Assert.AreEqual(new Vector3(-0.5f, 0, -1.0f), bounds.center);
+            Assert.AreEqual(new Vector3(-2.5f, -0.5f, -2.5f), bounds.min);
+            Assert.AreEqual(new Vector3(1.5f, 0.5f, 0.5f), bounds.max);
+            Assert.AreEqual(new Vector3(4.0f, 1.0f, 3.0f), bounds.size);
+
+        }
     }
 
 }
