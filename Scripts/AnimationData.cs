@@ -105,7 +105,7 @@ namespace CandyCoded
 
             var materialsInChildren = CandyCoded.Materials.GetMaterialsInChildren(gameObject);
 
-            foreach (Material material in materialsInChildren)
+            foreach (var material in materialsInChildren)
             {
 
                 var materialData = new MaterialData

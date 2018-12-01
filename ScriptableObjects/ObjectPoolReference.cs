@@ -29,7 +29,7 @@ namespace CandyCoded
 
             }
 
-            for (int i = 0; i < minObjects; i += 1)
+            for (var i = 0; i < minObjects; i += 1)
             {
 
                 var gameObject = Instantiate(prefab);
@@ -145,7 +145,7 @@ namespace CandyCoded
         public override void Reset()
         {
 
-            for (int i = 0; i < activeGameObjects.Count; i += 1)
+            for (var i = 0; i < activeGameObjects.Count; i += 1)
             {
 
                 if (activeGameObjects[i])

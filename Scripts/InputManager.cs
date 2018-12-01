@@ -51,10 +51,10 @@ namespace CandyCoded
 
             }
 
-            for (int i = 0; i < Input.touchCount; i += 1)
+            for (var i = 0; i < Input.touchCount; i += 1)
             {
 
-                Touch touch = Input.GetTouch(i);
+                var touch = Input.GetTouch(i);
 
                 if (touch.phase.Equals(TouchPhase.Began) &&
                     Physics.Raycast(mainCamera.ScreenPointToRay(touch.position), out hit, Mathf.Infinity, gameObject.GetLayerMask()) &&
@@ -135,10 +135,10 @@ namespace CandyCoded
 
             }
 
-            for (int i = 0; i < Input.touchCount; i += 1)
+            for (var i = 0; i < Input.touchCount; i += 1)
             {
 
-                Touch touch = Input.GetTouch(i);
+                var touch = Input.GetTouch(i);
 
                 if (touch.fingerId.Equals(currentFingerId))
                 {
@@ -233,10 +233,10 @@ namespace CandyCoded
 
             }
 
-            for (int i = 0; i < Input.touchCount; i += 1)
+            for (var i = 0; i < Input.touchCount; i += 1)
             {
 
-                Touch touch = Input.GetTouch(i);
+                var touch = Input.GetTouch(i);
 
                 if (touch.fingerId.Equals(currentFingerId))
                 {

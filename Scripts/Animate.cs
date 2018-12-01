@@ -119,7 +119,7 @@ namespace CandyCoded
 
             var globalAlpha = animationCurve.Evaluate(elapsedTime);
 
-            foreach (MaterialData materialData in animationData.Materials)
+            foreach (var materialData in animationData.Materials)
             {
 
                 materialData.Material.color = Materials.SetColorAlpha(materialData.Material.color, materialData.StartColor.a * globalAlpha);
@@ -385,7 +385,7 @@ namespace CandyCoded
 
             var animationCurve = new Vector4AnimationCurve();
 
-            Quaternion currentRotation = gameObject.transform.localRotation;
+            var currentRotation = gameObject.transform.localRotation;
 
             var newRotationCopy = Quaternion.SlerpUnclamped(currentRotation, newRotation, 1);
 
@@ -456,7 +456,7 @@ namespace CandyCoded
 
             var animationCurve = new Vector3AnimationCurve();
 
-            Vector3 currentScale = gameObject.transform.localScale;
+            var currentScale = gameObject.transform.localScale;
 
             animationCurve.x = AnimationCurve.EaseInOut(0, currentScale.x, duration, newScale.x);
             animationCurve.y = AnimationCurve.EaseInOut(0, currentScale.y, duration, newScale.y);

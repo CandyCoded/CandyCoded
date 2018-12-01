@@ -28,7 +28,7 @@ namespace CandyCoded
                 else
                 {
 
-                    AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(uwr);
+                    var bundle = DownloadHandlerAssetBundle.GetContent(uwr);
 
                     if (bundle.isStreamedSceneAssetBundle)
                     {
@@ -63,7 +63,7 @@ namespace CandyCoded
 
             var scenes = bundle.GetAllScenePaths();
 
-            for (int i = 0; i < scenes.Length; i += 1)
+            for (var i = 0; i < scenes.Length; i += 1)
             {
 
                 if (scenes[i].Equals(name))
@@ -71,7 +71,7 @@ namespace CandyCoded
 
                     yield return SceneManager.LoadSceneAsync(scenes[i], loadSceneMode);
 
-                    Scene sceneRef = SceneManager.GetSceneByPath(scenes[i]);
+                    var sceneRef = SceneManager.GetSceneByPath(scenes[i]);
 
                     SceneManager.SetActiveScene(sceneRef);
 
@@ -86,7 +86,7 @@ namespace CandyCoded
 
             var gameObjects = bundle.LoadAllAssets<GameObject>();
 
-            for (int i = 0; i < gameObjects.Length; i += 1)
+            for (var i = 0; i < gameObjects.Length; i += 1)
             {
 
                 if (gameObjects[i].name.Equals(name))

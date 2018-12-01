@@ -69,7 +69,7 @@ namespace CandyCoded
 
             var coroutineKeys = new List<string>(_coroutines.Keys);
 
-            foreach (string coroutineKey in coroutineKeys)
+            foreach (var coroutineKey in coroutineKeys)
             {
 
                 if (_coroutines[coroutineKey] != null)
