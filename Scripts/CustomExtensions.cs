@@ -165,6 +165,17 @@ public static class CustomExtensions
     }
 
     /// <summary>
+    /// Creates a LayerMask from a GameObject's layer property.
+    /// </summary>
+    /// <returns>LayerMask</returns>
+    public static LayerMask GetLayerMask(this GameObject gameObject)
+    {
+
+        return 1 << gameObject.layer;
+
+    }
+
+    /// <summary>
     /// Tests to see if AnimationCurve loops.
     /// </summary>
     /// <returns>bool</returns>
@@ -189,17 +200,6 @@ public static class CustomExtensions
         float deg = Vector3.Angle(Vector3.forward, direction) * Mathf.Sign(Vector3.Cross(Vector3.forward, direction).x);
 
         transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(angle.y, angle.x) * Mathf.Rad2Deg + deg, Vector3.forward);
-
-    }
-
-    /// <summary>
-    /// Creates a LayerMask from a GameObject's layer property.
-    /// </summary>
-    /// <returns>LayerMask</returns>
-    public static LayerMask GetLayerMask(this GameObject gameObject)
-    {
-
-        return 1 << gameObject.layer;
 
     }
 
