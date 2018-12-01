@@ -20,7 +20,7 @@ namespace CandyCoded
         public static void DrawLines(Vector3[] points, Color color, float duration, bool depthTest)
         {
 
-            for (int i = 0; i < points.Length - 1; i += 1)
+            for (var i = 0; i < points.Length - 1; i += 1)
             {
 
                 Debug.DrawLine(points[i], points[i + 1], color, duration, depthTest);

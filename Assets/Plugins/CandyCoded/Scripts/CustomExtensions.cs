@@ -146,7 +146,7 @@ public static class CustomExtensions
 
         var childTransforms = new List<Transform>();
 
-        for (int i = 0; i < parentTransform.childCount; i += 1)
+        for (var i = 0; i < parentTransform.childCount; i += 1)
         {
 
             var childTransform = parentTransform.GetChild(i);
@@ -239,12 +239,12 @@ public static class CustomExtensions
 
         var numberOfPossibleCombinations = (int)Mathf.Pow(2, list.Count);
 
-        for (int i = 1; i < numberOfPossibleCombinations; i += 1)
+        for (var i = 1; i < numberOfPossibleCombinations; i += 1)
         {
 
             var combination = new List<T>();
 
-            for (int j = 0; j < list.Count; j += 1)
+            for (var j = 0; j < list.Count; j += 1)
             {
 
                 if ((i >> j & 1) == 1)
@@ -297,12 +297,12 @@ public static class CustomExtensions
 
         int count = shuffledList.Count;
 
-        for (int i = 0; i < count; i += 1)
+        for (var i = 0; i < count; i += 1)
         {
 
             var randomIndex = UnityEngine.Random.Range(i, count);
 
-            T tempValue = shuffledList[i];
+            var tempValue = shuffledList[i];
 
             shuffledList[i] = shuffledList[randomIndex];
 

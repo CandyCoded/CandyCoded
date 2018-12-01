@@ -149,7 +149,7 @@ public class CustomExtensionsTest : TestSetup
 
         var numberRange = new List<int>();
 
-        for (int i = 0; i < 10; i += 1)
+        for (var i = 0; i < 10; i += 1)
         {
             numberRange.Add(i);
         }
@@ -164,14 +164,14 @@ public class CustomExtensionsTest : TestSetup
 
         var numberRange = new List<int>();
 
-        for (int i = 0; i < 10; i += 1)
+        for (var i = 0; i < 10; i += 1)
         {
             numberRange.Add(i);
         }
 
         numberRange.Shuffle();
 
-        for (int i = 0; i < 10; i += 1)
+        for (var i = 0; i < 10; i += 1)
         {
             Assert.AreEqual(i, numberRange[i]);
         }
@@ -184,7 +184,7 @@ public class CustomExtensionsTest : TestSetup
 
         var numberRange = new List<int>();
 
-        for (int i = 0; i < 10; i += 1)
+        for (var i = 0; i < 10; i += 1)
         {
             numberRange.Add(i);
         }
@@ -200,7 +200,7 @@ public class CustomExtensionsTest : TestSetup
 
         var numberRange = new List<int>();
 
-        for (int i = 0; i < 10; i += 1)
+        for (var i = 0; i < 10; i += 1)
         {
             numberRange.Add(i);
         }
@@ -216,7 +216,7 @@ public class CustomExtensionsTest : TestSetup
 
         var numberRange = new List<int>();
 
-        for (int i = 0; i < 10; i += 1)
+        for (var i = 0; i < 10; i += 1)
         {
             numberRange.Add(i);
         }
@@ -232,7 +232,7 @@ public class CustomExtensionsTest : TestSetup
 
         var numberRange = new List<int>();
 
-        for (int i = 0; i < 10; i += 1)
+        for (var i = 0; i < 10; i += 1)
         {
             numberRange.Add(i);
         }

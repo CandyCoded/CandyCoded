@@ -23,10 +23,10 @@ namespace CandyCoded
 
             var renderers = gameObject.GetComponentsInChildren<Renderer>();
 
-            foreach (Renderer renderer in renderers)
+            foreach (var renderer in renderers)
             {
 
-                Bounds childBounds = renderer.bounds;
+                var childBounds = renderer.bounds;
 
                 if (min.HasValue)
                 {

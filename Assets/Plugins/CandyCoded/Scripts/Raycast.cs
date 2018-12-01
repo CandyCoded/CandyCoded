@@ -30,9 +30,9 @@ namespace CandyCoded
 
             RaycastHit hitInfo;
 
-            float remainingDistance = distance;
+            var remainingDistance = distance;
 
-            Vector3 currentDirection = direction;
+            var currentDirection = direction;
 
             while (remainingDistance > 0)
             {

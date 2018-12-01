@@ -21,10 +21,10 @@ namespace CandyCoded
 
             var renderers = gameObject.GetComponentsInChildren<Renderer>();
 
-            foreach (Renderer renderer in renderers)
+            foreach (var renderer in renderers)
             {
 
-                foreach (Material material in renderer.materials)
+                foreach (var material in renderer.materials)
                 {
 
                     materials.Add(material);

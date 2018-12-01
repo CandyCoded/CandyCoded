@@ -215,7 +215,7 @@ public class ObservableList<T> : IList<T>
 
         var items = new ObservableList<T>();
 
-        for (int i = index; i < index + count; i += 1)
+        for (var i = index; i < index + count; i += 1)
         {
 
             items.Add(_items[i]);
@@ -234,7 +234,7 @@ public class ObservableList<T> : IList<T>
     public void AddRange(List<T> items)
     {
 
-        for (int i = 0; i < items.Count; i += 1)
+        for (var i = 0; i < items.Count; i += 1)
         {
 
             Add(items[i]);
@@ -251,7 +251,7 @@ public class ObservableList<T> : IList<T>
     public void AddRange(ObservableList<T> items)
     {
 
-        for (int i = 0; i < items.Count; i += 1)
+        for (var i = 0; i < items.Count; i += 1)
         {
 
             Add(items[i]);
@@ -269,7 +269,7 @@ public class ObservableList<T> : IList<T>
     public void RemoveRange(int index, int count)
     {
 
-        for (int i = index + count - 1; i > index - 1; i -= 1)
+        for (var i = index + count - 1; i > index - 1; i -= 1)
         {
 
             RemoveAt(i);
@@ -300,7 +300,7 @@ public class ObservableList<T> : IList<T>
 
         int count = shuffledList.Count;
 
-        for (int i = 0; i < count; i += 1)
+        for (var i = 0; i < count; i += 1)
         {
 
             var randomIndex = UnityEngine.Random.Range(i, count);
