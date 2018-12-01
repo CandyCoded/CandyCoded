@@ -29,6 +29,10 @@ public static class CustomExtensions
 
     }
 
+    /// <summary>
+    /// Compares one transform to another using the attached gameobjects.
+    /// </summary>
+    /// <returns>bool</returns>
     public static bool Compare(this Transform transform, Transform other)
     {
 
