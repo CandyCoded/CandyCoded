@@ -12,16 +12,8 @@ public class SampleController : MonoBehaviour
 
 }
 
-public class CustomExtensionsTest
+public class CustomExtensionsTest : TestSetup
 {
-
-    [SetUp]
-    public void ResetScene()
-    {
-
-        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
-
-    }
 
     [Test]
     public void AddOrGetComponent()
@@ -302,6 +294,45 @@ public class CustomExtensionsTest
         float randomItemFromList = list.Random();
 
         Assert.IsTrue(list.Contains(randomItemFromList));
+
+    }
+
+    public class CompareTransform : TestSetup
+    {
+
+        [Test]
+        public void CompareTransformsParentToGameObject()
+        {
+
+            var parentGameObject = new GameObject("ParentGameObject");
+            var childGameObject = new GameObject("ChildGameObject");
+            childGameObject.transform.SetParent(parentGameObject.transform);
+
+            Assert.IsTrue(childGameObject.transform.parent.Compare(parentGameObject.transform));
+
+        }
+
+        [Test]
+        public void CompareTransformsNullParentToGameObject()
+        {
+
+            var parentGameObject = new GameObject("ParentGameObject");
+            var childGameObject = new GameObject("ChildGameObject");
+
+            Assert.IsFalse(childGameObject.transform.parent.Compare(parentGameObject.transform));
+
+        }
+
+        [Test]
+        public void CompareTransformsNullParentToGameObjectNullParent()
+        {
+
+            var parentGameObject = new GameObject("ParentGameObject");
+            var childGameObject = new GameObject("ChildGameObject");
+
+            Assert.IsTrue(childGameObject.transform.parent.Compare(parentGameObject.transform.parent));
+
+        }
 
     }
 
