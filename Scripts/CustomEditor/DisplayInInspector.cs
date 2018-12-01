@@ -26,7 +26,7 @@ public class DisplayInInspectorDrawer : Editor
 
         var methods = target.GetType().GetMembers(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
 
-        foreach (MemberInfo method in methods)
+        foreach (var method in methods)
         {
 
             if (Attribute.IsDefined(method, typeof(DisplayInInspectorAttribute)))
