@@ -514,10 +514,22 @@ public class ObservableListTest
 
     }
 
-    [Ignore("NotImplemented")]
     public class ToList : TestSetup
     {
 
+        [Test]
+        public void CreateListFromObservableList()
+        {
+
+            var observableList = new ObservableList<int>();
+
+            Assert.AreNotEqual(typeof(System.Collections.Generic.List<int>), observableList.GetType());
+
+            var list = observableList.ToList();
+
+            Assert.AreEqual(typeof(System.Collections.Generic.List<int>), list.GetType());
+
+        }
 
     }
 
