@@ -20,7 +20,7 @@ public class ListEventsAttribute : PropertyAttribute { }
 public class ListEventsDrawer : Editor
 {
 
-    private readonly string eventListHeaderTemplate = "Event Listeners for {0}";
+    private readonly string eventListHeaderTemplate = "Event Listeners for {0} ({1})";
     private readonly string eventListItemTemplate = "- {0}";
     private readonly string eventListNoItemsTemplate = "No methods have been subscribed to this event.";
     private readonly int spaceBeforeEventListHeight = 10;
@@ -46,8 +46,10 @@ public class ListEventsDrawer : Editor
                 if (Attribute.IsDefined(ev, typeof(ListEventsAttribute)))
                 {
 
+                    var methods = GetSubscribedMethodsToEvent((MulticastDelegate)target.GetType().GetField(ev.Name, bindingFlags).GetValue(target));
+
                     GUILayout.Space(spaceBeforeEventListHeight);
-                    GUILayout.Label(string.Format(eventListHeaderTemplate, ObjectNames.NicifyVariableName(ev.Name)), EditorStyles.boldLabel);
+                    GUILayout.Label(string.Format(eventListHeaderTemplate, ObjectNames.NicifyVariableName(ev.Name), methods.Count), EditorStyles.boldLabel);
 
                     if (!scrollPositions.ContainsKey(ev.Name))
                     {
@@ -57,8 +59,6 @@ public class ListEventsDrawer : Editor
                     }
 
                     scrollPositions[ev.Name] = GUILayout.BeginScrollView(scrollPositions[ev.Name]);
-
-                    var methods = GetSubscribedMethodsToEvent((MulticastDelegate)target.GetType().GetField(ev.Name, bindingFlags).GetValue(target));
 
                     if (methods.Count > 0)
                     {
