@@ -24,29 +24,32 @@ public class DisplayInInspectorDrawer : Editor
 
         DrawDefaultInspector();
 
-        var members = target.GetType().GetMembers(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+        var methods = target.GetType().GetMethods(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
 
-        foreach (var member in members)
+        foreach (var method in methods)
         {
 
-            if (Attribute.IsDefined(member, typeof(DisplayInInspectorAttribute)))
+            if (Attribute.IsDefined(method, typeof(DisplayInInspectorAttribute)))
             {
 
-                if (GUILayout.Button(ObjectNames.NicifyVariableName(member.Name)))
+                if (GUILayout.Button(ObjectNames.NicifyVariableName(method.Name)))
                 {
 
-                    var info = (MethodInfo)member;
-
-                    if (info.ReturnType == typeof(IEnumerator))
+                    if (method.ReturnType == typeof(IEnumerator))
                     {
 
-                        ((MonoBehaviour)target).StartCoroutine(member.Name);
+                        if (EditorApplication.isPlaying)
+                        {
+
+                            ((MonoBehaviour)target).StartCoroutine(method.Name);
+
+                        }
 
                     }
                     else
                     {
 
-                        info.Invoke(target, null);
+                        method.Invoke(target, null);
 
                     }
 
