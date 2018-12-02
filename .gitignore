@@ -40,7 +40,7 @@ sysinfo.txt
 .scannerwork/
 .vscode/
 
-Documentation/*.meta
+Documentation/**/*.meta
 
 Assets/Plugins/CandyCoded/Documentation.meta
 Assets/Plugins/CandyCoded/Documentation/
