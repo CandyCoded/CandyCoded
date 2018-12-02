@@ -40,6 +40,8 @@ sysinfo.txt
 .scannerwork/
 .vscode/
 
+*.meta
+
 Documentation/**/*.meta
 
 Assets/Plugins/CandyCoded/Documentation.meta
@@ -47,6 +49,8 @@ Assets/Plugins/CandyCoded/Documentation/
 
 Packages/
 ProjectSettings/
+
+Scripts/**/*.meta
 
 *.log
 *.xml
