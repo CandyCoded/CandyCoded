@@ -23,7 +23,6 @@ public class ListEventsDrawer : Editor
     private readonly string eventListHeaderTemplate = "Event Listeners for {0}";
     private readonly string eventListItemTemplate = "- {0}";
     private readonly string eventListNoItemsTemplate = "No methods have been subscribed to this event.";
-    private readonly int eventListMaxHeight = 200;
     private readonly int spaceBeforeEventListHeight = 10;
     private readonly int spaceAfterEventListHeight = 10;
 
