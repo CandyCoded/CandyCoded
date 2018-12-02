@@ -24,23 +24,23 @@ public class DisplayInInspectorDrawer : Editor
 
         DrawDefaultInspector();
 
-        var methods = target.GetType().GetMembers(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+        var members = target.GetType().GetMembers(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
 
-        foreach (var method in methods)
+        foreach (var member in members)
         {
 
-            if (Attribute.IsDefined(method, typeof(DisplayInInspectorAttribute)))
+            if (Attribute.IsDefined(member, typeof(DisplayInInspectorAttribute)))
             {
 
-                if (GUILayout.Button(ObjectNames.NicifyVariableName(method.Name)))
+                if (GUILayout.Button(ObjectNames.NicifyVariableName(member.Name)))
                 {
 
-                    var info = (MethodInfo)method;
+                    var info = (MethodInfo)member;
 
                     if (info.ReturnType == typeof(IEnumerator))
                     {
 
-                        ((MonoBehaviour)target).StartCoroutine(method.Name);
+                        ((MonoBehaviour)target).StartCoroutine(member.Name);
 
                     }
                     else
