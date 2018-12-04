@@ -40,7 +40,7 @@ sysinfo.txt
 .scannerwork/
 .vscode/
 
-*.meta
+/*.meta
 
 Documentation/**/*.meta
 
