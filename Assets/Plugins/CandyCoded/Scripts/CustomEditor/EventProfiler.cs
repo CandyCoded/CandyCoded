@@ -1,3 +1,7 @@
+// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
+#if UNITY_EDITOR
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +33,10 @@ namespace CandyCoded
             GetWindow(typeof(EventProfiler), false, "Event Profiler", true);
 
         }
+
+
+#pragma warning disable S100
+        // Disables "Methods and properties should be named in camel case" warning as those methods are defined by Unity.
 
         private void OnGUI()
         {
@@ -75,6 +83,14 @@ namespace CandyCoded
 
         }
 
+#pragma warning restore S100
+
+#pragma warning disable S1144
+        // Disables "Unused private types or members should be removed" warning as those methods are defined by Unity.
+
+#pragma warning disable S2325
+        // Disables "Methods and properties that don't access instance data should be static" warning as those methods are defined by Unity.
+
         private void HandleSelectionChanged()
         {
 
@@ -95,6 +111,10 @@ namespace CandyCoded
             Selection.selectionChanged -= HandleSelectionChanged;
 
         }
+
+#pragma warning restore S2325
+
+#pragma warning restore S1144
 
         private void DrawEvents(EventInfo ev, List<string> methods)
         {
@@ -151,3 +171,5 @@ namespace CandyCoded
     }
 
 }
+
+#endif
