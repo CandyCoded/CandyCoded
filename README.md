@@ -14,6 +14,7 @@ CandyCoded is a collection of useful components and extensions for building in U
 ## Features
 
 - ObservableList object
+- Event Profiler editor window
 - Vector2, Vector3 and Vector4 AnimationCurves objects
 - Transform animation methods
 - Raycast reflect method
