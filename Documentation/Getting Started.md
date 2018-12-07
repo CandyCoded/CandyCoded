@@ -1,6 +1,6 @@
 ## Getting Started
 
-Once you have imported CandyCoded into your project you can start using it right away. Editor extensions like `DisplayInInspector` and `EnumMask` are automatically available to all scripts. Functionality like the Animate and Raycast methods are tucked away behind the CandyCoded namespace which can be used either by adding the namespace to a class header or calling the method directly.
+Once you have imported CandyCoded into your project you can start using it right away. Editor extensions like `EnumMask` are automatically available to all scripts. Functionality like the Animate and Raycast methods are tucked away behind the CandyCoded namespace which can be used either by adding the namespace to a class header or calling the method directly.
 
 Below are a couple of ways to get started with CandyCoded.
 

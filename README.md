@@ -14,12 +14,11 @@ CandyCoded is a collection of useful components and extensions for building in U
 ## Features
 
 - ObservableList object
-- Event Profiler editor window
 - Vector2, Vector3 and Vector4 AnimationCurves objects
 - Transform animation methods
 - Raycast reflect method
 - Custom ScriptableObjects with event handlers
-- DisplayInInspector method attribute
+- Event Profiler editor window
 - EnumMask enum attribute
 - LoadAssetBundle methods
 - InputManager methods
@@ -140,7 +139,6 @@ $ git submodule update --remote
     - [CustomGenericScriptableObject](Documentation/4.%20ScriptableObject/CustomGenericScriptableObject.md)
 - [Unity Editor Extensions](Documentation/5.%20Unity%20Editor%20Extensions/)
     - [CreateAssetBundles](Documentation/5.%20Unity%20Editor%20Extensions/CreateAssetBundles.md)
-    - [DisplayInInspector](Documentation/5.%20Unity%20Editor%20Extensions/DisplayInInspector.md)
     - [EnumMask](Documentation/5.%20Unity%20Editor%20Extensions/EnumMask.md)
 
 ## Credits
