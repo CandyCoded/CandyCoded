@@ -15,8 +15,27 @@ namespace CandyCoded
     public class EventProfiler : EditorWindow
     {
 
+        public struct ExtendedMethodInfo
+        {
+
+            public MethodInfo methodInfo;
+            public GameObject gameObject;
+            public string label
+            {
+
+                get
+                {
+
+                    return string.Format("{0} > {1}.{2}", gameObject.name, methodInfo.ReflectedType.Name, methodInfo.Name);
+
+                }
+
+            }
+
+        }
+
         private readonly string eventListHeaderTemplate = "Event Listeners for {0} ({1})";
-        private readonly string eventListItemTemplate = "- {0}";
+        private readonly string eventListItemTemplate = "{0}. {1}";
         private readonly string eventListNoItemsTemplate = "No methods have been subscribed to this event.";
         private readonly string noContentTemplate = "Select a GameObject with scripts that contain public events.";
         private readonly int spaceBeforeEventListHeight = 10;
@@ -116,7 +135,7 @@ namespace CandyCoded
 
 #pragma warning restore S1144
 
-        private void DrawEvents(EventInfo ev, List<string> methods)
+        private void DrawEvents(EventInfo ev, List<ExtendedMethodInfo> methods)
         {
 
             GUILayout.Space(spaceBeforeEventListHeight);
@@ -134,10 +153,15 @@ namespace CandyCoded
             if (methods.Count > 0)
             {
 
-                foreach (var method in methods)
+                for (var i = 0; i < methods.Count; i += 1)
                 {
 
-                    GUILayout.Label(string.Format(eventListItemTemplate, method));
+                    if (GUILayout.Button(string.Format(eventListItemTemplate, i + 1, methods[i].label), EditorStyles.label))
+                    {
+
+                        Selection.activeGameObject = methods[i].gameObject;
+
+                    }
 
                 }
 
@@ -154,17 +178,21 @@ namespace CandyCoded
 
         }
 
-        public static List<string> GetSubscribedMethodsToEvent(MulticastDelegate multicastDelegate)
+        public static List<ExtendedMethodInfo> GetSubscribedMethodsToEvent(MulticastDelegate multicastDelegate)
         {
 
             if (multicastDelegate != null)
             {
 
-                return multicastDelegate.GetInvocationList().Select(i => string.Format("{0}.{1}", i.Method.DeclaringType.FullName, i.Method.Name)).ToList();
+                return multicastDelegate.GetInvocationList().Select(i => new ExtendedMethodInfo
+                {
+                    gameObject = ((MonoBehaviour)i.Target).gameObject,
+                    methodInfo = i.Method
+                }).ToList();
 
             }
 
-            return new List<string>();
+            return new List<ExtendedMethodInfo>();
 
         }
 
