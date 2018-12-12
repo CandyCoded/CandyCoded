@@ -45,6 +45,8 @@ namespace CandyCoded
 
         private Dictionary<string, Vector2> scrollPositions = new Dictionary<string, Vector2>();
 
+        private bool inspectorLocked;
+
         private GameObject currentActiveGameObject;
 
         [MenuItem("Window/CandyCoded/Event Profiler")]
@@ -103,6 +105,20 @@ namespace CandyCoded
 
         }
 
+        private void ShowButton(Rect rect)
+        {
+
+            var icon = inspectorLocked ? "Icon.Locked" : "IN LockButton";
+
+            if (GUI.Button(rect, GUIContent.none, icon))
+            {
+
+                inspectorLocked = !inspectorLocked;
+
+            }
+
+        }
+
 #pragma warning restore S100
 
 #pragma warning disable S1144
@@ -114,7 +130,12 @@ namespace CandyCoded
         private void HandleSelectionChanged()
         {
 
-            currentActiveGameObject = Selection.activeGameObject;
+            if (!inspectorLocked)
+            {
+
+                currentActiveGameObject = Selection.activeGameObject;
+
+            }
 
             Repaint();
 
