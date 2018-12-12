@@ -15,16 +15,39 @@ namespace CandyCoded
     public class EventProfiler : EditorWindow
     {
 
+        public struct ExtendedMethodInfo
+        {
+
+            public MethodInfo methodInfo;
+            public GameObject gameObject;
+            public string label
+            {
+
+                get
+                {
+
+                    return string.Format("{0} > {1}.{2}", gameObject.name, methodInfo.ReflectedType.Name, methodInfo.Name);
+
+                }
+
+            }
+
+        }
+
         private readonly string eventListHeaderTemplate = "Event Listeners for {0} ({1})";
-        private readonly string eventListItemTemplate = "- {0}";
+        private readonly string eventListItemTemplate = "{0}. {1}";
         private readonly string eventListNoItemsTemplate = "No methods have been subscribed to this event.";
         private readonly string noContentTemplate = "Select a GameObject with scripts that contain public events.";
         private readonly int spaceBeforeEventListHeight = 10;
         private readonly int spaceAfterEventListHeight = 10;
 
+        private readonly BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+
         private Dictionary<string, Vector2> scrollPositions = new Dictionary<string, Vector2>();
 
-        private readonly BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+        private bool inspectorLocked;
+
+        private GameObject currentActiveGameObject;
 
         [MenuItem("Window/CandyCoded/Event Profiler")]
         public static void ShowWindow()
@@ -34,17 +57,16 @@ namespace CandyCoded
 
         }
 
-
 #pragma warning disable S100
         // Disables "Methods and properties should be named in camel case" warning as those methods are defined by Unity.
 
         private void OnGUI()
         {
 
-            if (Selection.activeGameObject)
+            if (currentActiveGameObject)
             {
 
-                var scripts = Selection.activeGameObject.GetComponents<MonoBehaviour>();
+                var scripts = currentActiveGameObject.GetComponents<MonoBehaviour>();
 
                 if (scripts.Length > 0)
                 {
@@ -83,6 +105,20 @@ namespace CandyCoded
 
         }
 
+        private void ShowButton(Rect rect)
+        {
+
+            var icon = inspectorLocked ? "Icon.Locked" : "IN LockButton";
+
+            if (GUI.Button(rect, GUIContent.none, icon))
+            {
+
+                inspectorLocked = !inspectorLocked;
+
+            }
+
+        }
+
 #pragma warning restore S100
 
 #pragma warning disable S1144
@@ -93,6 +129,13 @@ namespace CandyCoded
 
         private void HandleSelectionChanged()
         {
+
+            if (!inspectorLocked)
+            {
+
+                currentActiveGameObject = Selection.activeGameObject;
+
+            }
 
             Repaint();
 
@@ -116,7 +159,7 @@ namespace CandyCoded
 
 #pragma warning restore S1144
 
-        private void DrawEvents(EventInfo ev, List<string> methods)
+        private void DrawEvents(EventInfo ev, List<ExtendedMethodInfo> methods)
         {
 
             GUILayout.Space(spaceBeforeEventListHeight);
@@ -134,10 +177,15 @@ namespace CandyCoded
             if (methods.Count > 0)
             {
 
-                foreach (var method in methods)
+                for (var i = 0; i < methods.Count; i += 1)
                 {
 
-                    GUILayout.Label(string.Format(eventListItemTemplate, method));
+                    if (GUILayout.Button(string.Format(eventListItemTemplate, i + 1, methods[i].label), EditorStyles.label))
+                    {
+
+                        Selection.activeGameObject = methods[i].gameObject;
+
+                    }
 
                 }
 
@@ -154,17 +202,21 @@ namespace CandyCoded
 
         }
 
-        public static List<string> GetSubscribedMethodsToEvent(MulticastDelegate multicastDelegate)
+        public static List<ExtendedMethodInfo> GetSubscribedMethodsToEvent(MulticastDelegate multicastDelegate)
         {
 
             if (multicastDelegate != null)
             {
 
-                return multicastDelegate.GetInvocationList().Select(i => string.Format("{0}.{1}", i.Method.DeclaringType.FullName, i.Method.Name)).ToList();
+                return multicastDelegate.GetInvocationList().Select(i => new ExtendedMethodInfo
+                {
+                    gameObject = ((MonoBehaviour)i.Target).gameObject,
+                    methodInfo = i.Method
+                }).ToList();
 
             }
 
-            return new List<string>();
+            return new List<ExtendedMethodInfo>();
 
         }
 
