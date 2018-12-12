@@ -41,9 +41,9 @@ namespace CandyCoded
         private readonly int spaceBeforeEventListHeight = 10;
         private readonly int spaceAfterEventListHeight = 10;
 
-        private Dictionary<string, Vector2> scrollPositions = new Dictionary<string, Vector2>();
-
         private readonly BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+
+        private Dictionary<string, Vector2> scrollPositions = new Dictionary<string, Vector2>();
 
         [MenuItem("Window/CandyCoded/Event Profiler")]
         public static void ShowWindow()
