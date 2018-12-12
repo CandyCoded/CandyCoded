@@ -108,9 +108,9 @@ namespace CandyCoded
         private void ShowButton(Rect rect)
         {
 
-            var icon = inspectorLocked ? "Icon.Locked" : "IN LockButton";
+            var icon = (GUIStyle)"IN LockButton";
 
-            if (GUI.Button(rect, GUIContent.none, icon))
+            if (GUI.Toggle(rect, inspectorLocked, GUIContent.none, icon))
             {
 
                 inspectorLocked = !inspectorLocked;
