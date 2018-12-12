@@ -45,6 +45,8 @@ namespace CandyCoded
 
         private Dictionary<string, Vector2> scrollPositions = new Dictionary<string, Vector2>();
 
+        private GameObject currentActiveGameObject;
+
         [MenuItem("Window/CandyCoded/Event Profiler")]
         public static void ShowWindow()
         {
@@ -59,10 +61,10 @@ namespace CandyCoded
         private void OnGUI()
         {
 
-            if (Selection.activeGameObject)
+            if (currentActiveGameObject)
             {
 
-                var scripts = Selection.activeGameObject.GetComponents<MonoBehaviour>();
+                var scripts = currentActiveGameObject.GetComponents<MonoBehaviour>();
 
                 if (scripts.Length > 0)
                 {
@@ -111,6 +113,8 @@ namespace CandyCoded
 
         private void HandleSelectionChanged()
         {
+
+            currentActiveGameObject = Selection.activeGameObject;
 
             Repaint();
 
