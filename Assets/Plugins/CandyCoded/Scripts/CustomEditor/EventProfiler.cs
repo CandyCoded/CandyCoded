@@ -53,7 +53,6 @@ namespace CandyCoded
 
         }
 
-
 #pragma warning disable S100
         // Disables "Methods and properties should be named in camel case" warning as those methods are defined by Unity.
 
