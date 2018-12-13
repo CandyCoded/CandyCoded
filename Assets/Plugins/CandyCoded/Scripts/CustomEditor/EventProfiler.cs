@@ -128,47 +128,6 @@ namespace CandyCoded
 
         }
 
-#pragma warning restore S100
-
-#pragma warning disable S1144
-        // Disables "Unused private types or members should be removed" warning as those methods are defined by Unity.
-
-#pragma warning disable S2325
-        // Disables "Methods and properties that don't access instance data should be static" warning as those methods are defined by Unity.
-
-        private void HandleSelectionChanged()
-        {
-
-            if (!inspectorLocked)
-            {
-
-                currentActiveGameObject = Selection.activeGameObject;
-
-            }
-
-            Repaint();
-
-        }
-
-        private void OnEnable()
-        {
-            prefabIcon = EditorGUIUtility.FindTexture("Prefab Icon");
-
-            Selection.selectionChanged += HandleSelectionChanged;
-
-        }
-
-        private void OnDisable()
-        {
-
-            Selection.selectionChanged -= HandleSelectionChanged;
-
-        }
-
-#pragma warning restore S2325
-
-#pragma warning restore S1144
-
         private void DrawEvents(EventInfo ev, List<ExtendedMethodInfo> methods)
         {
 
@@ -240,6 +199,47 @@ namespace CandyCoded
             return new List<ExtendedMethodInfo>();
 
         }
+
+#pragma warning restore S100
+
+#pragma warning disable S1144
+        // Disables "Unused private types or members should be removed" warning as those methods are defined by Unity.
+
+#pragma warning disable S2325
+        // Disables "Methods and properties that don't access instance data should be static" warning as those methods are defined by Unity.
+
+        private void HandleSelectionChanged()
+        {
+
+            if (!inspectorLocked)
+            {
+
+                currentActiveGameObject = Selection.activeGameObject;
+
+            }
+
+            Repaint();
+
+        }
+
+        private void OnEnable()
+        {
+            prefabIcon = EditorGUIUtility.FindTexture("Prefab Icon");
+
+            Selection.selectionChanged += HandleSelectionChanged;
+
+        }
+
+        private void OnDisable()
+        {
+
+            Selection.selectionChanged -= HandleSelectionChanged;
+
+        }
+
+#pragma warning restore S2325
+
+#pragma warning restore S1144
 
     }
 
