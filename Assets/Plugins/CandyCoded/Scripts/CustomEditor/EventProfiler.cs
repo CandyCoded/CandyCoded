@@ -45,6 +45,8 @@ namespace CandyCoded
 
         private Dictionary<string, Vector2> scrollPositions = new Dictionary<string, Vector2>();
 
+        private Texture2D prefabIcon;
+
         private bool inspectorLocked;
 
         private GameObject currentActiveGameObject;
@@ -150,6 +152,7 @@ namespace CandyCoded
 
         private void OnEnable()
         {
+            prefabIcon = EditorGUIUtility.FindTexture("Prefab Icon");
 
             Selection.selectionChanged += HandleSelectionChanged;
 
@@ -187,12 +190,23 @@ namespace CandyCoded
                 for (var i = 0; i < methods.Count; i += 1)
                 {
 
+                    GUILayout.BeginHorizontal();
+
+                    if (GUILayout.Button(prefabIcon, EditorStyles.label, GUILayout.Width(EditorGUIUtility.singleLineHeight), GUILayout.Height(EditorGUIUtility.singleLineHeight)))
+                    {
+
+                        Selection.activeGameObject = methods[i].gameObject;
+
+                    }
+
                     if (GUILayout.Button(string.Format(eventListItemTemplate, i + 1, methods[i].label), EditorStyles.label))
                     {
 
                         Selection.activeGameObject = methods[i].gameObject;
 
                     }
+
+                    GUILayout.EndHorizontal();
 
                 }
 
