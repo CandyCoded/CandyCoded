@@ -77,6 +77,8 @@ namespace CandyCoded
         private void OnGUI()
         {
 
+            bool eventsFound = false;
+
             if (currentActiveGameObject)
             {
 
@@ -97,20 +99,17 @@ namespace CandyCoded
 
                             DrawEvents(ev, methods);
 
+                            eventsFound = true;
+
                         }
 
                     }
 
                 }
-                else
-                {
-
-                    GUILayout.Label(noContentTemplate, EditorStyles.helpBox);
-
-                }
 
             }
-            else
+
+            if (!eventsFound)
             {
 
                 GUILayout.Label(noContentTemplate, EditorStyles.helpBox);
