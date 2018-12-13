@@ -57,6 +57,18 @@ namespace CandyCoded
 
         }
 
+        private void Update()
+        {
+
+            if (EditorApplication.isPlaying && !EditorApplication.isPaused)
+            {
+
+                Repaint();
+
+            }
+
+        }
+
 #pragma warning disable S100
         // Disables "Methods and properties should be named in camel case" warning as those methods are defined by Unity.
 
