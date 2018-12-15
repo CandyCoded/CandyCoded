@@ -4,4 +4,5 @@ echo "Installing pandoc"
 
 brew update
 brew cask install basictex
-brew install pandoc
+brew install pandoc || brew upgrade pandoc
+brew cleanup
