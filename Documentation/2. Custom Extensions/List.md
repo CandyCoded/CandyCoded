@@ -9,15 +9,15 @@ List<int> list = new List<int> { 1, 2, 3 };
 List<List<int>> listOfCombinations = list.Permutations();
 ```
 
-| Index | Value |
-| ----- | ----- |
-| 0 | 1 |
-| 1 | 2 |
-| 2 | 1, 2 |
-| 3 | 3 |
-| 4 | 1, 3  |
-| 5 | 2, 3 |
-| 6 | 1, 2, 3 |
+| Index | Value   |
+| ----- | ------- |
+| 0     | 1       |
+| 1     | 2       |
+| 2     | 1, 2    |
+| 3     | 3       |
+| 4     | 1, 3    |
+| 5     | 2, 3    |
+| 6     | 1, 2, 3 |
 
 #### Random
 

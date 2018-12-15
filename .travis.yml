@@ -2,31 +2,31 @@ sudo: required
 language: objective-c
 osx_image: xcode10.0
 rvm:
-  - 2.5.1
+    - 2.5.1
 cache:
-  timeout: 86400 # 1 day
-  directories:
-    - /home/travis/cache/
-    - /home/travis/.rvm/
+    timeout: 86400 # 1 day
+    directories:
+        - /home/travis/cache/
+        - /home/travis/.rvm/
 before_install:
-  - chmod +x ./Scripts/build_docs.sh
-  - chmod +x ./Scripts/build_package.sh
-  - chmod +x ./Scripts/install_pandoc.sh
+    - chmod +x ./Scripts/build_docs.sh
+    - chmod +x ./Scripts/build_package.sh
+    - chmod +x ./Scripts/install_pandoc.sh
 install:
-  - bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/master/bin/install.sh)
+    - bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/master/bin/install.sh)
 script:
-  - bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/master/bin/auth.sh)
-  - bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/master/bin/test.sh)
-  - bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/master/bin/deauth.sh)
+    - bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/master/bin/auth.sh)
+    - bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/master/bin/test.sh)
+    - bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/master/bin/deauth.sh)
 after_success:
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then make build; fi
+    - if [ "$TRAVIS_BRANCH" == "master" ]; then make build; fi
 deploy:
-  provider: s3
-  access_key_id: $ACCESS_KEY_ID
-  secret_access_key: $ACCESS_KEY
-  bucket: candycoded
-  local-dir: build
-  upload-dir: build
-  skip_cleanup: true
-  on:
-    branch: master
+    provider: s3
+    access_key_id: $ACCESS_KEY_ID
+    secret_access_key: $ACCESS_KEY
+    bucket: candycoded
+    local-dir: build
+    upload-dir: build
+    skip_cleanup: true
+    on:
+        branch: master

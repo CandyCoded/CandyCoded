@@ -14,7 +14,6 @@ private void Awake() {
 }
 ```
 
-
 #### GetLayerMask
 
 Creates a LayerMask from a GameObject's layer property.
