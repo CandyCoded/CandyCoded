@@ -224,6 +224,7 @@ namespace CandyCoded
 
         private void OnEnable()
         {
+
             prefabIcon = EditorGUIUtility.FindTexture("Prefab Icon");
 
             Selection.selectionChanged += HandleSelectionChanged;
