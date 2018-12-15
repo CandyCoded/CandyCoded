@@ -48,7 +48,7 @@ namespace CandyCoded
 
         private Texture2D prefabIcon;
 
-        private bool inspectorLocked;
+        private bool isInspectorLocked;
 
         private GameObject currentActiveGameObject;
 
@@ -124,7 +124,7 @@ namespace CandyCoded
 
             var lockIcon = (GUIStyle)"IN LockButton";
 
-            inspectorLocked = GUI.Toggle(rect, inspectorLocked, GUIContent.none, lockIcon);
+            isInspectorLocked = GUI.Toggle(rect, isInspectorLocked, GUIContent.none, lockIcon);
 
         }
 
@@ -211,7 +211,7 @@ namespace CandyCoded
         private void HandleSelectionChanged()
         {
 
-            if (!inspectorLocked)
+            if (!isInspectorLocked)
             {
 
                 currentActiveGameObject = Selection.activeGameObject;
