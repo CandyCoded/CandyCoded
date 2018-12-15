@@ -2,8 +2,6 @@
 
 ## v1.0.0-beta.12 (Decemeber 14, 2018)
 
-### Bug Fixes
-
 ### Features
 
 -   Added new EventProfiler. <https://github.com/CandyCoded/CandyCoded/pull/60>
