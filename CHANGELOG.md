@@ -1,5 +1,22 @@
 # Changelog
 
+## v1.0.0-beta.12 (Decemeber 14, 2018)
+
+### Bug Fixes
+
+### Features
+
+-   Added new EventProfiler. <https://github.com/CandyCoded/CandyCoded/pull/60>
+-   Added Compare method to Transform objects. <https://github.com/CandyCoded/CandyCoded/pull/59>
+-   Added Random method to Array and List. <https://github.com/CandyCoded/CandyCoded/pull/58>
+-   Added Random method to ObservableList. <https://github.com/CandyCoded/CandyCoded/pull/57>
+
+### Maintenance
+
+-   Removed DisplayInInspector editor attribute. <https://github.com/CandyCoded/CandyCoded/pull/61>
+-   Added missing ToList method to documentation.
+-   Code cleanup on test files.
+
 ## v1.0.0-beta.11 (October 21, 2018)
 
 ### Bug Fixes
