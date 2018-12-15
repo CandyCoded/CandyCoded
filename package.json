@@ -1,0 +1,14 @@
+{
+    "name": "com.candycoded.candycoded",
+    "displayName": "CandyCoded",
+    "version": "1.0.0-beta.12",
+    "unity": "2018.3",
+    "description": "Custom Unity Components that are delightful",
+    "keywords": [
+        "components",
+        "extensions",
+        "animation"
+    ],
+    "category": "Scripting/Animation",
+    "dependencies": {}
+}
