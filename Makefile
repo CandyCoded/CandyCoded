@@ -10,3 +10,6 @@ clean:
 	rm -rf ProjectSettings/
 	rm -f test.xml
 	rm -f unity.log
+
+deploy:
+	git subtree push --prefix Assets/Plugins/CandyCoded origin upm
