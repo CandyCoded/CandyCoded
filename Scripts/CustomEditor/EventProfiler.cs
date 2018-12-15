@@ -38,6 +38,7 @@ namespace CandyCoded
         private readonly string eventListItemTemplate = "{0}. {1}";
         private readonly string eventListNoItemsTemplate = "No methods have subscribed to this event.";
         private readonly string noContentTemplate = "Select a GameObject with scripts that contain events.";
+
         private readonly int spaceBeforeEventListHeight = 10;
         private readonly int spaceAfterEventListHeight = 10;
 
