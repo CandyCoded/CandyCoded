@@ -113,7 +113,7 @@ namespace CandyCoded
         /// <param name="key">Key of each keyframe to modify.</param>
         /// <param name="vector">Vector3 to update each corresponding keyframe with.</param>
         /// <returns>void</returns>
-        public static void EditKeyframeValue(this CandyCoded.Vector3AnimationCurve animationCurve, int key, Vector3 vector)
+        public static void EditKeyframeValue(this Vector3AnimationCurve animationCurve, int key, Vector3 vector)
         {
 
             animationCurve.x.EditKeyframeValue(key, vector.x);
@@ -128,7 +128,7 @@ namespace CandyCoded
         /// <param name="key">Key of each keyframe to modify.</param>
         /// <param name="vector">Vector2 to update each corresponding keyframe with.</param>
         /// <returns>void</returns>
-        public static void EditKeyframeValue(this CandyCoded.Vector2AnimationCurve animationCurve, int key, Vector2 vector)
+        public static void EditKeyframeValue(this Vector2AnimationCurve animationCurve, int key, Vector2 vector)
         {
 
             animationCurve.x.EditKeyframeValue(key, vector.x);
