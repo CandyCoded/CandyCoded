@@ -5,6 +5,7 @@ using NUnit.Framework;
 using System;
 using System.Collections;
 using UnityEngine;
+using CandyCoded;
 
 public class RunnerTest
 {
@@ -25,7 +26,7 @@ public class RunnerTest
 
             var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-            var runner = cube.AddComponent<CandyCoded.Runner>();
+            var runner = cube.AddComponent<Runner>();
 
             runner.AddCoroutine("TestCoroutine", TestCoroutine());
 
@@ -38,7 +39,7 @@ public class RunnerTest
 
             var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-            var runner = cube.AddComponent<CandyCoded.Runner>();
+            var runner = cube.AddComponent<Runner>();
 
             runner.AddCoroutine("TestCoroutine", TestCoroutine());
 
@@ -57,7 +58,7 @@ public class RunnerTest
 
             var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-            var runner = cube.AddComponent<CandyCoded.Runner>();
+            var runner = cube.AddComponent<Runner>();
 
             runner.AddCoroutine("TestCoroutine", TestCoroutine());
 
@@ -75,7 +76,7 @@ public class RunnerTest
 
             var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-            var runner = cube.AddComponent<CandyCoded.Runner>();
+            var runner = cube.AddComponent<Runner>();
 
             runner.AddCoroutine("TestCoroutine", TestCoroutine());
 
@@ -100,7 +101,7 @@ public class RunnerTest
 
             var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-            var runner = cube.AddComponent<CandyCoded.Runner>();
+            var runner = cube.AddComponent<Runner>();
 
             runner.AddCoroutine("TestCoroutine1", TestCoroutine());
             runner.AddCoroutine("TestCoroutine2", TestCoroutine());

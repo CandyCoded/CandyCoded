@@ -5,6 +5,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using CandyCoded;
 
 public class CustomExtensionsTest : TestSetup
 {
@@ -122,7 +123,7 @@ public class CustomExtensionsTest : TestSetup
         public void EditKeyframeValueVector3AnimationCurve()
         {
 
-            var animationCurve = new CandyCoded.Vector3AnimationCurve
+            var animationCurve = new Vector3AnimationCurve
             {
                 x = AnimationCurve.Linear(0, 0, 1, 1),
                 y = AnimationCurve.Linear(0, 0, 1, 1),
@@ -145,7 +146,7 @@ public class CustomExtensionsTest : TestSetup
         public void EditKeyframeValueVector2AnimationCurve()
         {
 
-            var animationCurve = new CandyCoded.Vector2AnimationCurve
+            var animationCurve = new Vector2AnimationCurve
             {
                 x = AnimationCurve.Linear(0, 0, 1, 1),
                 y = AnimationCurve.Linear(0, 0, 1, 1)
