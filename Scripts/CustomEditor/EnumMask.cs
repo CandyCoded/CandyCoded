@@ -6,35 +6,35 @@ using UnityEditor;
 #endif
 using UnityEngine;
 
-#pragma warning disable S3903
-// Disables "Types should be defined in named namespaces" warning as component should be available at all times.
-
-#if UNITY_EDITOR
-[CustomPropertyDrawer(typeof(Enum))]
-#endif
-public class EnumMaskAttribute : PropertyAttribute { }
-
-#if UNITY_EDITOR
-[CustomPropertyDrawer(typeof(EnumMaskAttribute))]
-public class EnumMaskDrawer : PropertyDrawer
+namespace CandyCoded
 {
 
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+#if UNITY_EDITOR
+    [CustomPropertyDrawer(typeof(Enum))]
+#endif
+    public class EnumMaskAttribute : PropertyAttribute { }
+
+#if UNITY_EDITOR
+    [CustomPropertyDrawer(typeof(EnumMaskAttribute))]
+    public class EnumMaskDrawer : PropertyDrawer
     {
 
-        var enumValue = (Enum)fieldInfo.GetValue(property.serializedObject.targetObject);
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        {
 
-        EditorGUI.BeginProperty(position, label, property);
+            var enumValue = (Enum)fieldInfo.GetValue(property.serializedObject.targetObject);
 
-        var enumNew = EditorGUI.EnumFlagsField(position, label, enumValue);
+            EditorGUI.BeginProperty(position, label, property);
 
-        property.intValue = (int)Convert.ChangeType(enumNew, enumValue.GetType());
+            var enumNew = EditorGUI.EnumFlagsField(position, label, enumValue);
 
-        EditorGUI.EndProperty();
+            property.intValue = (int)Convert.ChangeType(enumNew, enumValue.GetType());
+
+            EditorGUI.EndProperty();
+
+        }
 
     }
-
-}
 #endif
 
-#pragma warning restore S3903
+}
