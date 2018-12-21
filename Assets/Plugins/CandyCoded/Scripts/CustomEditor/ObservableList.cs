@@ -88,10 +88,7 @@ namespace CandyCoded
 
             _items.Add(item);
 
-            if (AddEvent != null)
-            {
-                AddEvent(item);
-            }
+            AddEvent?.Invoke(item);
 
         }
 
@@ -104,10 +101,7 @@ namespace CandyCoded
 
             _items.Clear();
 
-            if (ClearEvent != null)
-            {
-                ClearEvent();
-            }
+            ClearEvent?.Invoke();
 
         }
 
@@ -159,10 +153,7 @@ namespace CandyCoded
 
             _items.Insert(index, item);
 
-            if (AddEvent != null)
-            {
-                AddEvent(item);
-            }
+            AddEvent?.Invoke(item);
 
         }
 
@@ -176,10 +167,7 @@ namespace CandyCoded
 
             var result = _items.Remove(item);
 
-            if (RemoveEvent != null)
-            {
-                RemoveEvent(item);
-            }
+            RemoveEvent?.Invoke(item);
 
             return result;
 
@@ -197,10 +185,7 @@ namespace CandyCoded
 
             _items.RemoveAt(index);
 
-            if (RemoveEvent != null)
-            {
-                RemoveEvent(item);
-            }
+            RemoveEvent?.Invoke(item);
 
         }
 

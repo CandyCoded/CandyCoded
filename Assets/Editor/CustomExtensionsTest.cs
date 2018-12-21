@@ -279,7 +279,7 @@ public class CustomExtensionsTest : TestSetup
         public void RandomItemFromList()
         {
 
-            var list = new List<float>() { 1, 2, 3, 4, 5 };
+            var list = new List<float> { 1, 2, 3, 4, 5 };
             var randomItemFromList = list.Random();
 
             Assert.IsTrue(list.Contains(randomItemFromList));
