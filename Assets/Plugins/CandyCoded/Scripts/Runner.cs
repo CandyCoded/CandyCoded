@@ -12,14 +12,7 @@ namespace CandyCoded
 
         public delegate void OneShotFunc();
 
-        private readonly Dictionary<string, Coroutine> _coroutines = new Dictionary<string, Coroutine>();
-        public Dictionary<string, Coroutine> Coroutines
-        {
-            get
-            {
-                return _coroutines;
-            }
-        }
+        public Dictionary<string, Coroutine> Coroutines { get; } = new Dictionary<string, Coroutine>();
 
         /// <summary>
         /// Starts and adds a coroutine to a list.
@@ -30,9 +23,9 @@ namespace CandyCoded
         public Coroutine AddCoroutine(string coroutineKey, IEnumerator routine)
         {
 
-            _coroutines.Add(coroutineKey, StartCoroutine(routine));
+            Coroutines.Add(coroutineKey, StartCoroutine(routine));
 
-            return _coroutines[coroutineKey];
+            return Coroutines[coroutineKey];
 
         }
 
@@ -44,17 +37,17 @@ namespace CandyCoded
         public void RemoveCoroutine(string coroutineKey)
         {
 
-            if (_coroutines.ContainsKey(coroutineKey))
+            if (Coroutines.ContainsKey(coroutineKey))
             {
 
-                if (_coroutines[coroutineKey] != null)
+                if (Coroutines[coroutineKey] != null)
                 {
 
-                    StopCoroutine(_coroutines[coroutineKey]);
+                    StopCoroutine(Coroutines[coroutineKey]);
 
                 }
 
-                _coroutines.Remove(coroutineKey);
+                Coroutines.Remove(coroutineKey);
 
             }
 
@@ -67,21 +60,21 @@ namespace CandyCoded
         public void RemoveAllCoroutines()
         {
 
-            var coroutineKeys = new List<string>(_coroutines.Keys);
+            var coroutineKeys = new List<string>(Coroutines.Keys);
 
             foreach (var coroutineKey in coroutineKeys)
             {
 
-                if (_coroutines[coroutineKey] != null)
+                if (Coroutines[coroutineKey] != null)
                 {
 
-                    StopCoroutine(_coroutines[coroutineKey]);
+                    StopCoroutine(Coroutines[coroutineKey]);
 
                 }
 
             }
 
-            _coroutines.Clear();
+            Coroutines.Clear();
 
         }
 

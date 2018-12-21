@@ -7,7 +7,7 @@ using System.Collections;
 using UnityEngine;
 using CandyCoded;
 
-public class RunnerTest
+public static class RunnerTest
 {
 
     public static IEnumerator TestCoroutine()

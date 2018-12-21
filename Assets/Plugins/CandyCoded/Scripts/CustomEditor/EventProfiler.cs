@@ -20,17 +20,7 @@ namespace CandyCoded
 
             public MethodInfo methodInfo;
             public GameObject gameObject;
-            public string label
-            {
-
-                get
-                {
-
-                    return string.Format("{0} > {1}.{2}", gameObject.name, methodInfo.ReflectedType.Name, methodInfo.Name);
-
-                }
-
-            }
+            public string label => string.Format("{0} > {1}.{2}", gameObject.name, methodInfo.ReflectedType.Name, methodInfo.Name);
 
         }
 
