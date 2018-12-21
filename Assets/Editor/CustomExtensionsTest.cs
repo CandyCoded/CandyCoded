@@ -5,6 +5,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using CandyCoded;
 
 public class CustomExtensionsTest : TestSetup
 {

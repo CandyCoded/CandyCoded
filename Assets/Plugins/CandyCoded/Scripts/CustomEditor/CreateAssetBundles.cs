@@ -5,26 +5,31 @@
 using System.IO;
 using UnityEditor;
 
-public static class CreateAssetBundles
+namespace CandyCoded
 {
 
-    private readonly static string assetBundleDirectory = "Assets/AssetBundles";
-
-    [MenuItem("Assets/CandyCoded/Tools/Build AssetBundles")]
-    private static void BuildAllAssetBundles()
+    public static class CreateAssetBundles
     {
 
-        if (!Directory.Exists(assetBundleDirectory))
+        private readonly static string assetBundleDirectory = "Assets/AssetBundles";
+
+        [MenuItem("Assets/CandyCoded/Tools/Build AssetBundles")]
+        private static void BuildAllAssetBundles()
         {
 
-            Directory.CreateDirectory(assetBundleDirectory);
+            if (!Directory.Exists(assetBundleDirectory))
+            {
+
+                Directory.CreateDirectory(assetBundleDirectory);
+
+            }
+
+            BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.None, EditorUserBuildSettings.activeBuildTarget);
 
         }
 
-        BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.None, EditorUserBuildSettings.activeBuildTarget);
 
     }
 
 }
-
 #endif

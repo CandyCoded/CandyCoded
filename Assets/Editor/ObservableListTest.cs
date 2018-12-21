@@ -5,6 +5,7 @@ using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.TestTools;
+using CandyCoded;
 
 public class ObservableListTest
 {
@@ -523,11 +524,11 @@ public class ObservableListTest
 
             var observableList = new ObservableList<int>();
 
-            Assert.AreNotEqual(typeof(System.Collections.Generic.List<int>), observableList.GetType());
+            Assert.AreNotEqual(typeof(List<int>), observableList.GetType());
 
             var list = observableList.ToList();
 
-            Assert.AreEqual(typeof(System.Collections.Generic.List<int>), list.GetType());
+            Assert.AreEqual(typeof(List<int>), list.GetType());
 
         }
 

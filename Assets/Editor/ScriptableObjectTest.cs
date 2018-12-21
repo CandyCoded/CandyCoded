@@ -3,6 +3,7 @@
 #if UNITY_EDITOR || UNITY_STANDALONE
 using NUnit.Framework;
 using UnityEngine;
+using CandyCoded;
 
 public class ScriptableObjectTest : TestSetup
 {
@@ -11,7 +12,7 @@ public class ScriptableObjectTest : TestSetup
     public void BoolReference()
     {
 
-        var boolReference = ScriptableObject.CreateInstance<CandyCoded.BoolReference>();
+        var boolReference = ScriptableObject.CreateInstance<BoolReference>();
 
         boolReference.Value = true;
 
@@ -27,7 +28,7 @@ public class ScriptableObjectTest : TestSetup
     public void FloatReference()
     {
 
-        var floatReference = ScriptableObject.CreateInstance<CandyCoded.FloatReference>();
+        var floatReference = ScriptableObject.CreateInstance<FloatReference>();
 
         floatReference.Value = 1.5f;
 
@@ -43,7 +44,7 @@ public class ScriptableObjectTest : TestSetup
     public void GameObjectReference()
     {
 
-        var gameObjectListReference = ScriptableObject.CreateInstance<CandyCoded.GameObjectListReference>();
+        var gameObjectListReference = ScriptableObject.CreateInstance<GameObjectListReference>();
 
         Assert.AreEqual(0, gameObjectListReference.Items.Count);
 
@@ -62,7 +63,7 @@ public class ScriptableObjectTest : TestSetup
     public void IntReference()
     {
 
-        var intReference = ScriptableObject.CreateInstance<CandyCoded.IntReference>();
+        var intReference = ScriptableObject.CreateInstance<IntReference>();
 
         intReference.Value = 1;
 
@@ -78,7 +79,7 @@ public class ScriptableObjectTest : TestSetup
     public void StringReference()
     {
 
-        var stringReference = ScriptableObject.CreateInstance<CandyCoded.StringReference>();
+        var stringReference = ScriptableObject.CreateInstance<StringReference>();
 
         stringReference.Value = "Hello, World";
 

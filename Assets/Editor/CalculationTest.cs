@@ -3,6 +3,7 @@
 #if UNITY_EDITOR || UNITY_STANDALONE
 using NUnit.Framework;
 using UnityEngine;
+using CandyCoded;
 
 public class CalculationTest
 {
@@ -29,7 +30,7 @@ public class CalculationTest
             cube3.transform.position = Vector3.right;
             cube3.transform.parent = parentGameObject.transform;
 
-            var bounds = CandyCoded.Calculation.ParentBounds(parentGameObject);
+            var bounds = Calculation.ParentBounds(parentGameObject);
 
             Assert.AreEqual(new Vector3(-0.5f, 0, -1.0f), bounds.center);
             Assert.AreEqual(new Vector3(-2.5f, -0.5f, -2.5f), bounds.min);
