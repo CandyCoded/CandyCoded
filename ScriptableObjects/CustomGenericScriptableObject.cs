@@ -24,10 +24,7 @@ namespace CandyCoded
 
                 _value = value;
 
-                if (UpdateEvent != null)
-                {
-                    UpdateEvent(_value);
-                }
+                UpdateEvent?.Invoke(_value);
 
             }
         }
@@ -48,10 +45,7 @@ namespace CandyCoded
 
             _value = DefaultValue;
 
-            if (ResetEvent != null)
-            {
-                ResetEvent(_value);
-            }
+            ResetEvent?.Invoke(_value);
 
         }
 
