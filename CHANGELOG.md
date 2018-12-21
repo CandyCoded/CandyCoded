@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.1 (December 20, 2018)
+
+### Features
+
+-   Updated to .NET 4 <https://github.com/CandyCoded/CandyCoded/pull/67>
+-   Added namespace to files without it. <https://github.com/CandyCoded/CandyCoded/pull/66>
+-   Unity Package Manager Support
+
 ## v1.0.0-beta.12 (Decemeber 14, 2018)
 
 ### Features
