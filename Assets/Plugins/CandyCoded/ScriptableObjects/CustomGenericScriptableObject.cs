@@ -34,6 +34,12 @@ namespace CandyCoded
         public T DefaultValue
         {
             get { return _defaultValue; }
+            private set
+            {
+
+                _defaultValue = value;
+
+            }
         }
 
         /// <summary>
