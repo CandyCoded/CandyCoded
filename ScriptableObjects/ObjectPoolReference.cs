@@ -10,8 +10,10 @@ namespace CandyCoded
     public class ObjectPoolReference : CustomScriptableObject
     {
 
+#pragma warning disable CS0649
         [SerializeField]
         private GameObject prefab;
+#pragma warning restore CS0649
 
         [SerializeField]
         private int minObjects = 10;
