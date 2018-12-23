@@ -150,6 +150,7 @@ $ git submodule update --remote
 -   [Unity Editor Extensions](Documentation/5.%20Unity%20Editor%20Extensions/)
     -   [CreateAssetBundles](Documentation/5.%20Unity%20Editor%20Extensions/CreateAssetBundles.md)
     -   [EnumMask](Documentation/5.%20Unity%20Editor%20Extensions/EnumMask.md)
+    -   [EventProfiler](Documentation/5.%20Unity%20Editor%20Extensions/EventProfiler.md)
 
 ## Credits
 
