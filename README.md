@@ -45,26 +45,6 @@ CandyCoded is a collection of useful components and extensions for building in U
 }
 ```
 
-### Git Submodule
-
-#### Install
-
-```bash
-$ git submodule add git@github.com:CandyCoded/CandyCoded.git Assets/Plugins/CandyCoded/
-```
-
-After cloning repo with submodule already installed
-
-```bash
-$ git submodule init && git submodule update --remote
-```
-
-#### Update
-
-```bash
-$ git submodule update --remote
-```
-
 ## Contents
 
 -   [Introduction](Documentation/Introduction.md)
