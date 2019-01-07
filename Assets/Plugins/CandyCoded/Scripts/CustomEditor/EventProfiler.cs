@@ -146,12 +146,16 @@ namespace CandyCoded
 
                         Selection.activeGameObject = methods[i].gameObject;
 
+                        EditorGUIUtility.PingObject(Selection.activeGameObject);
+
                     }
 
                     if (GUILayout.Button(string.Format(eventListItemTemplate, i + 1, methods[i].label), EditorStyles.label))
                     {
 
                         Selection.activeGameObject = methods[i].gameObject;
+
+                        EditorGUIUtility.PingObject(Selection.activeGameObject);
 
                     }
 
