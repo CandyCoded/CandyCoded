@@ -1,7 +1,7 @@
 {
     "name": "com.candycoded.candycoded",
     "displayName": "CandyCoded",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "unity": "2018.3",
     "description": "Custom Unity Components that are delightful",
     "keywords": [
