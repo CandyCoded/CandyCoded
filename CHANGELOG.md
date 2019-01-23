@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.1.1 (January 23, 2019)
+
+### Bug Fixes
+
+-   Suppress warnings <https://github.com/CandyCoded/CandyCoded/pull/68>
+
+### Features
+
+-   Highlight gameobject on select. <https://github.com/CandyCoded/CandyCoded/pull/69>
+
 ## v1.1.0 (December 20, 2018)
 
 ### Features
