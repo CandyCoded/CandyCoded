@@ -28,6 +28,26 @@ namespace CandyCoded
 
         }
 
+        public static bool GetMouseButtonDown(this GameObject gameObject, Camera mainCamera, out RaycastHit2D hit)
+        {
+
+            hit = new RaycastHit2D();
+
+            if (Input.GetMouseButtonDown(0))
+            {
+
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+
+                return hit && hit.transform.gameObject.Equals(gameObject);
+
+            }
+
+            return false;
+
+        }
+
         public static bool GetMouseButtonDown(this GameObject gameObject, Camera mainCamera)
         {
 
@@ -62,6 +82,49 @@ namespace CandyCoded
                     currentFingerId = touch.fingerId;
 
                     return true;
+
+                }
+
+            }
+
+            return false;
+
+        }
+
+        public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId, out RaycastHit2D hit)
+        {
+
+            currentFingerId = 0;
+
+            hit = new RaycastHit2D();
+
+            if (!TouchActive)
+            {
+
+                return false;
+
+            }
+
+            for (var i = 0; i < Input.touchCount; i += 1)
+            {
+
+                var touch = Input.GetTouch(i);
+
+                if (touch.phase.Equals(TouchPhase.Began))
+                {
+
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                    hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+
+                    if (hit && hit.transform.gameObject.Equals(gameObject))
+                    {
+
+                        currentFingerId = touch.fingerId;
+
+                        return true;
+
+                    }
 
                 }
 
