@@ -38,7 +38,7 @@ namespace CandyCoded
 
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+                hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, gameObject.GetLayerMask());
 
                 return hit && hit.transform.gameObject.Equals(gameObject);
 
@@ -115,7 +115,7 @@ namespace CandyCoded
 
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                    hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+                    hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, gameObject.GetLayerMask());
 
                     if (hit && hit.transform.gameObject.Equals(gameObject))
                     {
