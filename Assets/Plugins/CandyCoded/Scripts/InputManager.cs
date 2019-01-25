@@ -169,6 +169,22 @@ namespace CandyCoded
 
         }
 
+        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId, out RaycastHit2D hit)
+        {
+
+            currentFingerId = 0;
+
+            if (TouchActive)
+            {
+
+                return GetTouchDown(gameObject, mainCamera, out currentFingerId, out hit);
+
+            }
+
+            return GetMouseButtonDown(gameObject, mainCamera, out hit);
+
+        }
+
         public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId)
         {
 
