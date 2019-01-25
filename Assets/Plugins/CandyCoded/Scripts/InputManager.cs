@@ -22,9 +22,16 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            return Input.GetMouseButtonDown(0) &&
-                        Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, gameObject.GetLayerMask()) &&
-                        hit.transform.gameObject.Equals(gameObject);
+            if (Input.GetMouseButtonDown(0))
+            {
+
+                var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+                return Physics.Raycast(ray, out hit, Mathf.Infinity, gameObject.GetLayerMask()) && hit.transform.gameObject.Equals(gameObject);
+
+            }
+
+            return false;
 
         }
 
@@ -74,14 +81,19 @@ namespace CandyCoded
 
                 var touch = Input.GetTouch(i);
 
-                if (touch.phase.Equals(TouchPhase.Began) &&
-                    Physics.Raycast(mainCamera.ScreenPointToRay(touch.position), out hit, Mathf.Infinity, gameObject.GetLayerMask()) &&
-                    hit.transform.gameObject.Equals(gameObject))
+                if (touch.phase.Equals(TouchPhase.Began))
                 {
 
-                    currentFingerId = touch.fingerId;
+                    Ray ray = mainCamera.ScreenPointToRay(touch.position);
 
-                    return true;
+                    if (Physics.Raycast(ray, out hit, Mathf.Infinity, gameObject.GetLayerMask()) && hit.transform.gameObject.Equals(gameObject))
+                    {
+
+                        currentFingerId = touch.fingerId;
+
+                        return true;
+
+                    }
 
                 }
 
