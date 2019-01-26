@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.2 (January 26, 2019)
+
+### Features
+
+-   InputManager: Added new methods for working with 2d colliders. <https://github.com/CandyCoded/CandyCoded/pull/70>
+
 ## v1.1.1 (January 23, 2019)
 
 ### Bug Fixes
