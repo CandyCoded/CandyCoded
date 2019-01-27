@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.3] - 2019-01-26
+
+### Maintenance
+
+-   Fixes recommendations by the Unity Package Validation Suite <https://github.com/CandyCoded/CandyCoded/pull/71>
+
 ## [1.1.2] - 2019-01-26
 
 ### Features
