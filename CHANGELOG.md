@@ -1,0 +1,1 @@
+Assets/Plugins/CandyCoded/CHANGELOG.md
