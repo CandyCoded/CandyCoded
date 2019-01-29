@@ -175,6 +175,39 @@ public class ObservableListTest
 
     }
 
+    public class AddRange : TestSetup
+    {
+
+        [Test]
+        public void AddRangeWithList()
+        {
+
+            var list = new ObservableList<int>();
+
+            Assert.AreEqual(0, list.Count);
+
+            list.AddRange(new List<int> { 1, 2, 3 });
+
+            Assert.AreEqual(3, list.Count);
+
+        }
+
+        [Test]
+        public void AddRangeWithObservableList()
+        {
+
+            var list = new ObservableList<int>();
+
+            Assert.AreEqual(0, list.Count);
+
+            list.AddRange(new ObservableList<int> { 1, 2, 3 });
+
+            Assert.AreEqual(3, list.Count);
+
+        }
+
+    }
+
     public class Clear : TestSetup
     {
 
@@ -236,6 +269,26 @@ public class ObservableListTest
 
     }
 
+    public class GetRange : TestSetup
+    {
+
+        [Test]
+        public void GetRangeWithIndexes()
+        {
+
+            var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
+
+            var newList = list.GetRange(1, 2);
+
+            Assert.AreEqual(2, newList.Count);
+
+            Assert.AreEqual(2, newList[0]);
+            Assert.AreEqual(3, newList[1]);
+
+        }
+
+    }
+
     public class IndexOf : TestSetup
     {
 
@@ -269,6 +322,23 @@ public class ObservableListTest
             Assert.AreEqual(1, list[0]);
             Assert.AreEqual(6, list[1]);
             Assert.AreEqual(2, list[2]);
+
+        }
+
+    }
+
+    public class Random : TestSetup
+    {
+
+        [Test]
+        public void ReturnRandomItem()
+        {
+
+            var testList = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+            var randomItemFromList = testList.Random();
+
+            Assert.IsTrue(testList.Contains(randomItemFromList));
 
         }
 
@@ -314,59 +384,6 @@ public class ObservableListTest
 
     }
 
-    public class GetRange : TestSetup
-    {
-
-        [Test]
-        public void GetRangeWithIndexes()
-        {
-
-            var list = new ObservableList<int>(new List<int> { 1, 2, 3, 4, 5 });
-
-            var newList = list.GetRange(1, 2);
-
-            Assert.AreEqual(2, newList.Count);
-
-            Assert.AreEqual(2, newList[0]);
-            Assert.AreEqual(3, newList[1]);
-
-        }
-
-    }
-
-    public class AddRange : TestSetup
-    {
-
-        [Test]
-        public void AddRangeWithList()
-        {
-
-            var list = new ObservableList<int>();
-
-            Assert.AreEqual(0, list.Count);
-
-            list.AddRange(new List<int> { 1, 2, 3 });
-
-            Assert.AreEqual(3, list.Count);
-
-        }
-
-        [Test]
-        public void AddRangeWithObservableList()
-        {
-
-            var list = new ObservableList<int>();
-
-            Assert.AreEqual(0, list.Count);
-
-            list.AddRange(new ObservableList<int> { 1, 2, 3 });
-
-            Assert.AreEqual(3, list.Count);
-
-        }
-
-    }
-
     public class RemoveRange : TestSetup
     {
 
@@ -379,23 +396,6 @@ public class ObservableListTest
             list.RemoveRange(0, 3);
 
             Assert.AreEqual(new ObservableList<int> { 4, 5 }, list);
-
-        }
-
-    }
-
-    public class Random : TestSetup
-    {
-
-        [Test]
-        public void ReturnRandomItem()
-        {
-
-            var testList = new ObservableList<int> { 1, 2, 3, 4, 5 };
-
-            var randomItemFromList = testList.Random();
-
-            Assert.IsTrue(testList.Contains(randomItemFromList));
 
         }
 

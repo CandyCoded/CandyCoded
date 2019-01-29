@@ -58,6 +58,22 @@ ObservableList<int> list = new ObservableList<int>();
 list.Add(1);
 ```
 
+#### AddRange
+
+Adds the elements of the specified collection to the end of the ObservableList.
+
+```csharp
+ObservableList<int> list = new ObservableList<int>();
+
+list.AddRange(new List<int> { 1, 2, 3 });
+```
+
+```csharp
+ObservableList<int> list = new ObservableList<int>();
+
+list.AddRange(new ObservableList<int> { 1, 2, 3 });
+```
+
 #### Clear
 
 Removes all objects from the ObservableList.
@@ -90,6 +106,16 @@ int[] array = new int[10];
 list.CopyTo(array, 0);
 ```
 
+#### GetRange
+
+Creates a shallow copy of a range of elements in the source ObservableList.
+
+```csharp
+ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+ObservableList<int> newList = list.GetRange(1, 2);
+```
+
 #### IndexOf
 
 Searches for the specified object and returns the zero-based index of the first occurrence within the entire ObservableList.
@@ -110,6 +136,16 @@ ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
 list.Insert(1, 6);
 ```
 
+#### Random
+
+Returns a random item from an ObservableList.
+
+```csharp
+ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+int randomItemFromList = list.Random();
+```
+
 #### Remove
 
 Removes the first occurrence of a specific object from the ObservableList.
@@ -128,42 +164,6 @@ Removes the element at the specified index of the ObservableList.
 ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
 
 list.RemoveAt(0);
-```
-
-#### GetRange
-
-Creates a shallow copy of a range of elements in the source ObservableList.
-
-```csharp
-ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
-
-ObservableList<int> newList = list.GetRange(1, 2);
-```
-
-#### AddRange
-
-Adds the elements of the specified collection to the end of the ObservableList.
-
-```csharp
-ObservableList<int> list = new ObservableList<int>();
-
-list.AddRange(new List<int> { 1, 2, 3 });
-```
-
-```csharp
-ObservableList<int> list = new ObservableList<int>();
-
-list.AddRange(new ObservableList<int> { 1, 2, 3 });
-```
-
-#### Random
-
-Returns a random item from an ObservableList.
-
-```csharp
-ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
-
-int randomItemFromList = list.Random();
 ```
 
 #### RemoveRange

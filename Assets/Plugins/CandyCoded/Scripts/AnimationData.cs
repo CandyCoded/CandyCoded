@@ -70,31 +70,6 @@ namespace CandyCoded
 #pragma warning restore S1144
 
         /// <summary>
-        /// Rebuilds all cache data related to basic animations: initial transform and material color data.
-        /// </summary>
-        /// <returns>void</returns>
-        public void RebuildCachedData()
-        {
-
-            CacheTransformData();
-            CacheMaterials();
-
-        }
-
-        /// <summary>
-        /// Rebuilds all cache transform data.
-        /// </summary>
-        /// <returns>void</returns>
-        public void CacheTransformData()
-        {
-
-            _transformData.Position = gameObject.transform.localPosition;
-            _transformData.Scale = gameObject.transform.localScale;
-            _transformData.Rotation = gameObject.transform.localRotation;
-
-        }
-
-        /// <summary>
         /// Rebuilds all cache material color data.
         /// </summary>
         /// <returns>void</returns>
@@ -123,6 +98,31 @@ namespace CandyCoded
                 _materials.Add(materialData);
 
             }
+
+        }
+
+        /// <summary>
+        /// Rebuilds all cache transform data.
+        /// </summary>
+        /// <returns>void</returns>
+        public void CacheTransformData()
+        {
+
+            _transformData.Position = gameObject.transform.localPosition;
+            _transformData.Scale = gameObject.transform.localScale;
+            _transformData.Rotation = gameObject.transform.localRotation;
+
+        }
+
+        /// <summary>
+        /// Rebuilds all cache data related to basic animations: initial transform and material color data.
+        /// </summary>
+        /// <returns>void</returns>
+        public void RebuildCachedData()
+        {
+
+            CacheTransformData();
+            CacheMaterials();
 
         }
 
