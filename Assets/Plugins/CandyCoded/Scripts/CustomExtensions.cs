@@ -423,7 +423,7 @@ namespace CandyCoded
         /// <summary>
         /// Adds a range of items to the beginning of a list.
         /// </summary>
-        /// <returns>List<typeparamref name="T"/></returns>
+        /// <returns>void</returns>
         public static void Unshift<T>(this List<T> list, List<T> items)
         {
 
@@ -434,7 +434,7 @@ namespace CandyCoded
         /// <summary>
         /// Adds an item to the beginning of a list.
         /// </summary>
-        /// <returns>List<typeparamref name="T"/></returns>
+        /// <returns>void</returns>
         public static void Unshift<T>(this List<T> list, T item)
         {
 
