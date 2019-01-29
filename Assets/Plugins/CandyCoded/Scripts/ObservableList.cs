@@ -93,6 +93,40 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Adds the elements of the specified collection to the end of the ObservableList.
+        /// </summary>
+        /// <param name="items">The collection whose elements should be added to the end of the ObservableList.</param>
+        /// <returns>void</returns>
+        public void AddRange(List<T> items)
+        {
+
+            for (var i = 0; i < items.Count; i += 1)
+            {
+
+                Add(items[i]);
+
+            }
+
+        }
+
+        /// <summary>
+        /// Adds the elements of the specified collection to the end of the ObservableList.
+        /// </summary>
+        /// <param name="items">The collection whose elements should be added to the end of the ObservableList.</param>
+        /// <returns>void</returns>
+        public void AddRange(ObservableList<T> items)
+        {
+
+            for (var i = 0; i < items.Count; i += 1)
+            {
+
+                Add(items[i]);
+
+            }
+
+        }
+
+        /// <summary>
         /// Removes all objects from the ObservableList.
         /// </summary>
         /// <returns>void</returns>
@@ -131,6 +165,28 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Creates a shallow copy of a range of elements in the source ObservableList.
+        /// </summary>
+        /// <param name="index">The zero-based index at which the range starts.</param>
+        /// <param name="count">The number of elements in the range.</param>
+        /// <returns>ObservableList<typeparamref name="T"/></returns>
+        public ObservableList<T> GetRange(int index, int count)
+        {
+
+            var items = new ObservableList<T>();
+
+            for (var i = index; i < index + count; i += 1)
+            {
+
+                items.Add(_items[i]);
+
+            }
+
+            return items;
+
+        }
+
+        /// <summary>
         /// Searches for the specified object and returns the zero-based index of the first occurrence within the entire ObservableList.
         /// </summary>
         /// <param name="item">The object to locate in the ObservableList.</param>
@@ -154,6 +210,17 @@ namespace CandyCoded
             _items.Insert(index, item);
 
             AddEvent?.Invoke(item);
+
+        }
+
+        /// <summary>
+        /// Returns a random item from an ObservableList.
+        /// </summary>
+        /// <returns><typeparamref name="T"/></returns>
+        public T Random()
+        {
+
+            return _items[UnityEngine.Random.Range(0, _items.Count)];
 
         }
 
@@ -190,62 +257,6 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Creates a shallow copy of a range of elements in the source ObservableList.
-        /// </summary>
-        /// <param name="index">The zero-based index at which the range starts.</param>
-        /// <param name="count">The number of elements in the range.</param>
-        /// <returns>ObservableList<typeparamref name="T"/></returns>
-        public ObservableList<T> GetRange(int index, int count)
-        {
-
-            var items = new ObservableList<T>();
-
-            for (var i = index; i < index + count; i += 1)
-            {
-
-                items.Add(_items[i]);
-
-            }
-
-            return items;
-
-        }
-
-        /// <summary>
-        /// Adds the elements of the specified collection to the end of the ObservableList.
-        /// </summary>
-        /// <param name="items">The collection whose elements should be added to the end of the ObservableList.</param>
-        /// <returns>void</returns>
-        public void AddRange(List<T> items)
-        {
-
-            for (var i = 0; i < items.Count; i += 1)
-            {
-
-                Add(items[i]);
-
-            }
-
-        }
-
-        /// <summary>
-        /// Adds the elements of the specified collection to the end of the ObservableList.
-        /// </summary>
-        /// <param name="items">The collection whose elements should be added to the end of the ObservableList.</param>
-        /// <returns>void</returns>
-        public void AddRange(ObservableList<T> items)
-        {
-
-            for (var i = 0; i < items.Count; i += 1)
-            {
-
-                Add(items[i]);
-
-            }
-
-        }
-
-        /// <summary>
         /// Removes a range of elements from the ObservableList.
         /// </summary>
         /// <param name="index">The zero-based starting index of the range of elements to remove.</param>
@@ -260,17 +271,6 @@ namespace CandyCoded
                 RemoveAt(i);
 
             }
-
-        }
-
-        /// <summary>
-        /// Returns a random item from an ObservableList.
-        /// </summary>
-        /// <returns><typeparamref name="T"/></returns>
-        public T Random()
-        {
-
-            return _items[UnityEngine.Random.Range(0, _items.Count)];
 
         }
 

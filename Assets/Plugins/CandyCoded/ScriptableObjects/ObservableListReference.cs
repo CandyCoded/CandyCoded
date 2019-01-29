@@ -36,6 +36,17 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Clears the list attached to the scriptable object.
+        /// </summary>
+        /// <returns>void</returns>
+        public void Clear()
+        {
+
+            _items.Clear();
+
+        }
+
+        /// <summary>
         /// Removes an item from the list attached to the scriptable object.
         /// </summary>
         /// <param name="item">Item to remove from the list.</param>
@@ -44,17 +55,6 @@ namespace CandyCoded
         {
 
             return _items.Remove(item);
-
-        }
-
-        /// <summary>
-        /// Clears the list attached to the scriptable object.
-        /// </summary>
-        /// <returns>void</returns>
-        public void Clear()
-        {
-
-            _items.Clear();
 
         }
 
