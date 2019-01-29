@@ -44,6 +44,28 @@ namespace CandyCoded
 
         }
 
+        public bool Equals(Vector2AnimationCurve other)
+        {
+
+            return other.x == x && other.y == y;
+
+        }
+
+        /// <summary>
+        /// Evalues both animation curves and generates a Vector2 with the results.
+        /// </summary>
+        /// <param name="time">The time to evaluate each animation curve with.</param>
+        /// <returns>Vector2</returns>
+        public Vector2 Evaluate(float time)
+        {
+
+            return new Vector2(
+                x.Evaluate(time),
+                y.Evaluate(time)
+            );
+
+        }
+
         /// <summary>
         /// Checks the x and y animation curves to see if either of them loop.
         /// </summary>
@@ -66,28 +88,6 @@ namespace CandyCoded
                 x.MaxTime(),
                 y.MaxTime()
             );
-
-        }
-
-        /// <summary>
-        /// Evalues both animation curves and generates a Vector2 with the results.
-        /// </summary>
-        /// <param name="time">The time to evaluate each animation curve with.</param>
-        /// <returns>Vector2</returns>
-        public Vector2 Evaluate(float time)
-        {
-
-            return new Vector2(
-                x.Evaluate(time),
-                y.Evaluate(time)
-            );
-
-        }
-
-        public bool Equals(Vector2AnimationCurve other)
-        {
-
-            return other.x == x && other.y == y;
 
         }
 
@@ -150,6 +150,29 @@ namespace CandyCoded
 
         }
 
+        public bool Equals(Vector3AnimationCurve other)
+        {
+
+            return other.x == x && other.y == y && other.z == z;
+
+        }
+
+        /// <summary>
+        /// Evalues all animation curves and generates a Vector3 with the results.
+        /// </summary>
+        /// <param name="time">The time to evaluate each animation curve with.</param>
+        /// <returns>Vector3</returns>
+        public Vector3 Evaluate(float time)
+        {
+
+            return new Vector3(
+                x.Evaluate(time),
+                y.Evaluate(time),
+                z.Evaluate(time)
+            );
+
+        }
+
         /// <summary>
         /// Checks the x, y and z animation curves to see if any of them loop.
         /// </summary>
@@ -173,29 +196,6 @@ namespace CandyCoded
                 y.MaxTime(),
                 z.MaxTime()
             );
-
-        }
-
-        /// <summary>
-        /// Evalues all animation curves and generates a Vector3 with the results.
-        /// </summary>
-        /// <param name="time">The time to evaluate each animation curve with.</param>
-        /// <returns>Vector3</returns>
-        public Vector3 Evaluate(float time)
-        {
-
-            return new Vector3(
-                x.Evaluate(time),
-                y.Evaluate(time),
-                z.Evaluate(time)
-            );
-
-        }
-
-        public bool Equals(Vector3AnimationCurve other)
-        {
-
-            return other.x == x && other.y == y && other.z == z;
 
         }
 
@@ -267,6 +267,30 @@ namespace CandyCoded
 
         }
 
+        public bool Equals(Vector4AnimationCurve other)
+        {
+
+            return other.x == x && other.y == y && other.z == z && other.w == w;
+
+        }
+
+        /// <summary>
+        /// Evalues all animation curves and generates a Vector4 with the results.
+        /// </summary>
+        /// <param name="time">The time to evaluate each animation curve with.</param>
+        /// <returns>Vector4</returns>
+        public Vector4 Evaluate(float time)
+        {
+
+            return new Vector4(
+                x.Evaluate(time),
+                y.Evaluate(time),
+                z.Evaluate(time),
+                w.Evaluate(time)
+            );
+
+        }
+
         /// <summary>
         /// Checks the x, y, z and w animation curves to see if any of them loop.
         /// </summary>
@@ -291,30 +315,6 @@ namespace CandyCoded
                 z.MaxTime(),
                 w.MaxTime()
             );
-
-        }
-
-        /// <summary>
-        /// Evalues all animation curves and generates a Vector4 with the results.
-        /// </summary>
-        /// <param name="time">The time to evaluate each animation curve with.</param>
-        /// <returns>Vector4</returns>
-        public Vector4 Evaluate(float time)
-        {
-
-            return new Vector4(
-                x.Evaluate(time),
-                y.Evaluate(time),
-                z.Evaluate(time),
-                w.Evaluate(time)
-            );
-
-        }
-
-        public bool Equals(Vector4AnimationCurve other)
-        {
-
-            return other.x == x && other.y == y && other.z == z && other.w == w;
 
         }
 

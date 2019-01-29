@@ -44,68 +44,6 @@ namespace CandyCoded
 
         }
 
-        public GameObject Spawn(Vector3 position, Quaternion rotation)
-        {
-
-            if (!prefab)
-            {
-
-                return null;
-
-            }
-
-            GameObject gameObject = null;
-
-            if (inactiveGameObjects.Count > 0)
-            {
-
-                gameObject = inactiveGameObjects.Dequeue();
-                gameObject.transform.position = position;
-                gameObject.transform.rotation = rotation;
-                gameObject.SetActive(true);
-
-            }
-            else
-            {
-
-                gameObject = Instantiate(prefab, position, rotation);
-
-            }
-
-            activeGameObjects.Add(gameObject);
-
-            return gameObject;
-
-        }
-
-        public GameObject Spawn(Vector3 position)
-        {
-
-            if (!prefab)
-            {
-
-                return null;
-
-            }
-
-            return Spawn(position, Quaternion.identity);
-
-        }
-
-        public GameObject Spawn()
-        {
-
-            if (!prefab)
-            {
-
-                return null;
-
-            }
-
-            return Spawn(Vector3.zero, Quaternion.identity);
-
-        }
-
         public void Release(GameObject gameObject)
         {
 
@@ -174,6 +112,68 @@ namespace CandyCoded
                 }
 
             }
+
+        }
+
+        public GameObject Spawn(Vector3 position, Quaternion rotation)
+        {
+
+            if (!prefab)
+            {
+
+                return null;
+
+            }
+
+            GameObject gameObject = null;
+
+            if (inactiveGameObjects.Count > 0)
+            {
+
+                gameObject = inactiveGameObjects.Dequeue();
+                gameObject.transform.position = position;
+                gameObject.transform.rotation = rotation;
+                gameObject.SetActive(true);
+
+            }
+            else
+            {
+
+                gameObject = Instantiate(prefab, position, rotation);
+
+            }
+
+            activeGameObjects.Add(gameObject);
+
+            return gameObject;
+
+        }
+
+        public GameObject Spawn(Vector3 position)
+        {
+
+            if (!prefab)
+            {
+
+                return null;
+
+            }
+
+            return Spawn(position, Quaternion.identity);
+
+        }
+
+        public GameObject Spawn()
+        {
+
+            if (!prefab)
+            {
+
+                return null;
+
+            }
+
+            return Spawn(Vector3.zero, Quaternion.identity);
 
         }
 
