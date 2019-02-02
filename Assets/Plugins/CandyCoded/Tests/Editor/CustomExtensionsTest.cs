@@ -270,8 +270,8 @@ public class CustomExtensionsTest : TestSetup
 
             var numberRange = new List<int> { 1, 2, 3, 4, 5 };
 
-            Assert.AreEqual(4, numberRange.Pop());
-            Assert.AreNotEqual(5, numberRange[numberRange.Count - 1]);
+            Assert.AreEqual(5, numberRange.Pop());
+            Assert.AreEqual(4, numberRange[numberRange.Count - 1]);
 
         }
 

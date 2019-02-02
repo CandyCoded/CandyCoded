@@ -265,15 +265,17 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Remove the last item from a list and return the new length of the list.
+        /// Removes the last item from a list and returns that item.
         /// </summary>
         /// <returns>integer</returns>
-        public static int Pop<T>(this List<T> list)
+        public static T Pop<T>(this List<T> list)
         {
+
+            var item = list[list.Count - 1];
 
             list.RemoveAt(list.Count - 1);
 
-            return list.Count;
+            return item;
 
         }
 
