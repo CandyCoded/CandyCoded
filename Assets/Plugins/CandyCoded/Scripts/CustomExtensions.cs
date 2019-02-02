@@ -300,7 +300,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Remove the first item from a list and return that item.
+        /// Removes the first item from a list and returns that item.
         /// </summary>
         /// <returns><typeparamref name="T"/></returns>
         public static T Shift<T>(this List<T> list)
