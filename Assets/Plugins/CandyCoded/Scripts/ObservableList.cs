@@ -246,9 +246,9 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes the last item from an ObservableList and return that item.
+        /// Removes the last item from an ObservableList and returns that item.
         /// </summary>
-        /// <returns>integer</returns>
+        /// <returns><typeparamref name="T"/></returns>
         public T Pop()
         {
 
