@@ -209,7 +209,7 @@ Removes the first item from an ObservableList and returns that item.
 ```csharp
 ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
 
-int firstItemInList = list.Pop();
+int firstItemInList = list.Shift();
 ```
 
 #### Shuffle
