@@ -1,5 +1,6 @@
 // Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -213,6 +214,45 @@ namespace CandyCoded
 
         }
 
+        public void InsertRange(int index, List<T> items)
+        {
+
+            for (var i = 0; i < items.Count; i += 1)
+            {
+
+                Insert(i + index, items[i]);
+
+            }
+
+        }
+
+        public void InsertRange(int index, ObservableList<T> items)
+        {
+
+            for (var i = 0; i < items.Count; i += 1)
+            {
+
+                Insert(i + index, items[i]);
+
+            }
+
+        }
+
+        /// <summary>
+        /// Removes the last item from an ObservableList and return that item.
+        /// </summary>
+        /// <returns>integer</returns>
+        public T Pop()
+        {
+
+            var item = _items[_items.Count - 1];
+
+            RemoveAt(_items.Count - 1);
+
+            return item;
+
+        }
+
         /// <summary>
         /// Returns a random item from an ObservableList.
         /// </summary>
@@ -271,6 +311,21 @@ namespace CandyCoded
                 RemoveAt(i);
 
             }
+
+        }
+
+        /// <summary>
+        /// Removes the first item from an ObservableList and returns that item.
+        /// </summary>
+        /// <returns><typeparamref name="T"/></returns>
+        public T Shift()
+        {
+
+            var item = _items[0];
+
+            RemoveAt(0);
+
+            return item;
 
         }
 
@@ -377,6 +432,39 @@ namespace CandyCoded
         {
 
             return Splice(0, 1);
+
+        }
+
+        /// <summary>
+        /// Adds a range of items to the beginning of an ObservableList.
+        /// </summary>
+        /// <returns>void</returns>
+        public void Unshift(List<T> items)
+        {
+
+            InsertRange(0, items);
+
+        }
+
+        /// <summary>
+        /// Adds a range of items to the beginning of an ObservableList.
+        /// </summary>
+        /// <returns>void</returns>
+        public void Unshift(ObservableList<T> items)
+        {
+
+            InsertRange(0, items);
+
+        }
+
+        /// <summary>
+        /// Adds an item to the beginning of an ObservableList.
+        /// </summary>
+        /// <returns>void</returns>
+        public void Unshift(T item)
+        {
+
+            Insert(0, item);
 
         }
 
