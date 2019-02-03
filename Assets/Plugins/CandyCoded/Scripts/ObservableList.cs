@@ -213,6 +213,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Inserts the items of a List into the ObservableList at the specified index.
+        /// </summary>
+        /// <returns>void</returns>
         public void InsertRange(int index, List<T> items)
         {
 
@@ -225,6 +229,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Inserts the items of an ObservableList into the ObservableList at the specified index.
+        /// </summary>
+        /// <returns>void</returns>
         public void InsertRange(int index, ObservableList<T> items)
         {
 
