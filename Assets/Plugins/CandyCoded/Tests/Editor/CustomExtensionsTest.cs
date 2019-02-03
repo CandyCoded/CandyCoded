@@ -265,7 +265,7 @@ public class CustomExtensionsTest : TestSetup
     {
 
         [Test]
-        public void ListPop()
+        public void PopItem()
         {
 
             var numberRange = new List<int> { 1, 2, 3, 4, 5 };
@@ -438,7 +438,7 @@ public class CustomExtensionsTest : TestSetup
     {
 
         [Test]
-        public void ListPopSingleItem()
+        public void ListUnshiftSingleItem()
         {
 
             var numberRange = new List<int> { 1, 2, 3, 4, 5 };
@@ -450,7 +450,7 @@ public class CustomExtensionsTest : TestSetup
         }
 
         [Test]
-        public void ListPopLisOfItems()
+        public void ListUnshiftListOfItems()
         {
 
             var numberRange = new List<int> { 1, 2, 3, 4, 5 };
@@ -459,6 +459,7 @@ public class CustomExtensionsTest : TestSetup
 
             Assert.AreEqual(-1, numberRange[0]);
             Assert.AreEqual(0, numberRange[1]);
+            Assert.AreEqual(1, numberRange[2]);
 
         }
 
