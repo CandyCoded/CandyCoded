@@ -443,6 +443,19 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Creates a List with the values from an ObservableList.
+        /// </summary>
+        /// <returns>List<typeparamref name="T"/></returns>
+        public List<T> ToList()
+        {
+
+            var newList = new List<T>(_items);
+
+            return newList;
+
+        }
+
+        /// <summary>
         /// Adds a range of items to the beginning of an ObservableList.
         /// </summary>
         /// <returns>void</returns>
@@ -472,19 +485,6 @@ namespace CandyCoded
         {
 
             Insert(0, item);
-
-        }
-
-        /// <summary>
-        /// Creates a List with the values from an ObservableList.
-        /// </summary>
-        /// <returns>List<typeparamref name="T"/></returns>
-        public List<T> ToList()
-        {
-
-            var newList = new List<T>(_items);
-
-            return newList;
 
         }
 
