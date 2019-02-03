@@ -267,3 +267,11 @@ ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
 
 list.Unshift(new ObservableList<int> { -1, 0 });
 ```
+
+Adds an item to the beginning of an ObservableList.
+
+```csharp
+ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+list.Unshift(0);
+```

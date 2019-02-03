@@ -72,3 +72,27 @@ Removes and returns a shallow copy of a portion of a list.
 List<float> list = new List<float>();
 List<float> removedItems = list.Splice(0, 1);
 ```
+
+#### Unshift
+
+Adds a range of items to the beginning of an List.
+
+```csharp
+List<int> list = new List<int> { 1, 2, 3, 4, 5 };
+
+list.Unshift(new List<int> { -1, 0 });
+```
+
+```csharp
+List<int> list = new List<int> { 1, 2, 3, 4, 5 };
+
+list.Unshift(new List<int> { -1, 0 });
+```
+
+Adds an item to the beginning of an List.
+
+```csharp
+List<int> list = new List<int> { 1, 2, 3, 4, 5 };
+
+list.Unshift(0);
+```
