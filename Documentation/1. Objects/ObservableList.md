@@ -50,7 +50,7 @@ Debug.Log(list.IsReadOnly);
 
 #### Add
 
-Adds an object to the end of the ObservableList.
+Adds an item to the end of the ObservableList.
 
 ```csharp
 ObservableList<int> list = new ObservableList<int>();
@@ -60,7 +60,7 @@ list.Add(1);
 
 #### AddRange
 
-Adds the elements of the specified collection to the end of the ObservableList.
+Adds the items of a List to the end of the ObservableList.
 
 ```csharp
 ObservableList<int> list = new ObservableList<int>();
@@ -76,7 +76,7 @@ list.AddRange(new ObservableList<int> { 1, 2, 3 });
 
 #### Clear
 
-Removes all objects from the ObservableList.
+Removes all items from the ObservableList.
 
 ```csharp
 ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
@@ -86,7 +86,7 @@ list.Clear();
 
 #### Contains
 
-Determines whether an element is in the ObservableList.
+Determines whether an item is in the ObservableList.
 
 ```csharp
 ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
@@ -108,7 +108,7 @@ list.CopyTo(array, 0);
 
 #### GetRange
 
-Creates a shallow copy of a range of elements in the source ObservableList.
+Creates a shallow copy of a range of items in the source ObservableList.
 
 ```csharp
 ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
@@ -118,7 +118,7 @@ ObservableList<int> newList = list.GetRange(1, 2);
 
 #### IndexOf
 
-Searches for the specified object and returns the zero-based index of the first occurrence within the entire ObservableList.
+Searches for the specified item and returns the zero-based index of the first occurrence within the entire ObservableList.
 
 ```csharp
 ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
@@ -128,12 +128,38 @@ Debug.Log(list.IndexOf(2));
 
 #### Insert
 
-Inserts an element into the ObservableList at the specified index.
+Inserts an item into the ObservableList at the specified index.
 
 ```csharp
 ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
 
 list.Insert(1, 6);
+```
+
+#### InsertRange
+
+Inserts the items of a List into the ObservableList at the specified index.
+
+```csharp
+ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+list.InsertRange(0, new List<int> { -1, 0 });
+```
+
+```csharp
+ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+list.InsertRange(0, new ObservableList<int> { -1, 0 });
+```
+
+#### Pop
+
+Removes the last item from an ObservableList and returns that item.
+
+```csharp
+ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+int lastItemInList = list.Pop();
 ```
 
 #### Random
@@ -148,7 +174,7 @@ int randomItemFromList = list.Random();
 
 #### Remove
 
-Removes the first occurrence of a specific object from the ObservableList.
+Removes the first occurrence of a specific item from the ObservableList.
 
 ```csharp
 ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
@@ -158,7 +184,7 @@ list.Remove(1);
 
 #### RemoveAt
 
-Removes the element at the specified index of the ObservableList.
+Removes the item at the specified index of the ObservableList.
 
 ```csharp
 ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
@@ -168,7 +194,7 @@ list.RemoveAt(0);
 
 #### RemoveRange
 
-Removes a range of elements from the ObservableList.
+Removes a range of items from the ObservableList.
 
 ```csharp
 ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
@@ -176,9 +202,19 @@ ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
 list.RemoveRange(1, 2);
 ```
 
+#### Shift
+
+Removes the first item from an ObservableList and returns that item.
+
+```csharp
+ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+int firstItemInList = list.Pop();
+```
+
 #### Shuffle
 
-Creates a new copy of an ObservableList and shuffles the values.
+Creates a new copy of an ObservableList and shuffles the items.
 
 ```csharp
 ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
@@ -214,4 +250,20 @@ Creates a List with the values from an ObservableList.
 ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
 
 List<int> newList = list.ToList();
+```
+
+#### Unshift
+
+Adds a range of items to the beginning of an ObservableList.
+
+```csharp
+ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+list.Unshift(new List<int> { -1, 0 });
+```
+
+```csharp
+ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+list.Unshift(new ObservableList<int> { -1, 0 });
 ```

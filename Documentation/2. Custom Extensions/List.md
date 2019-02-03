@@ -19,6 +19,15 @@ List<List<int>> listOfCombinations = list.Permutations();
 | 5     | 2, 3    |
 | 6     | 1, 2, 3 |
 
+#### Pop
+
+Removes the last item from a list and returns that item.
+
+```csharp
+List<float> list = new List<float>() { 1, 2, 3, 4, 5 };
+float lastItemInList = list.Pop();
+```
+
 #### Random
 
 Returns a random item from a List.
@@ -26,6 +35,15 @@ Returns a random item from a List.
 ```csharp
 List<float> list = new List<float>() { 1, 2, 3, 4, 5 };
 float randomItemFromList = list.Random();
+```
+
+#### Shift
+
+Removes the first item from a list and returns that item.
+
+```csharp
+List<float> list = new List<float>() { 1, 2, 3, 4, 5 };
+float firstItemInList = list.Shift();
 ```
 
 #### Shuffle
