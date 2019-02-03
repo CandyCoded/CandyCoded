@@ -79,9 +79,9 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Adds an object to the end of the ObservableList.
+        /// Adds an item to the end of the ObservableList.
         /// </summary>
-        /// <param name="item">The object to be added to the end of the ObservableList.</param>
+        /// <param name="item">The item to be added to the end of the ObservableList.</param>
         /// <returns>void</returns>
         public void Add(T item)
         {
@@ -127,7 +127,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes all objects from the ObservableList.
+        /// Removes all items from the ObservableList.
         /// </summary>
         /// <returns>void</returns>
         public void Clear()
@@ -142,7 +142,7 @@ namespace CandyCoded
         /// <summary>
         /// Determines whether an item is in the ObservableList.
         /// </summary>
-        /// <param name="item">The object to locate in the ObservableList.</param>
+        /// <param name="item">The item to locate in the ObservableList.</param>
         /// <returns>bool</returns>
         public bool Contains(T item)
         {
@@ -187,9 +187,9 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Searches for the specified object and returns the zero-based index of the first occurrence within the entire ObservableList.
+        /// Searches for the specified item and returns the zero-based index of the first occurrence within the entire ObservableList.
         /// </summary>
-        /// <param name="item">The object to locate in the ObservableList.</param>
+        /// <param name="item">The item to locate in the ObservableList.</param>
         /// <returns>int</returns>
         public int IndexOf(T item)
         {
@@ -202,7 +202,7 @@ namespace CandyCoded
         /// Inserts an item into the ObservableList at the specified index.
         /// </summary>
         /// <param name="index">The zero-based index at which item should be inserted.</param>
-        /// <param name="item">The object to insert.</param>
+        /// <param name="item">The item to insert.</param>
         /// <returns>void</returns>
         public void Insert(int index, T item)
         {
@@ -272,9 +272,9 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes the first occurrence of a specific object from the ObservableList.
+        /// Removes the first occurrence of a specific item from the ObservableList.
         /// </summary>
-        /// <param name="item">The object to remove from the ObservableList.</param>
+        /// <param name="item">The item to remove from the ObservableList.</param>
         /// <returns>bool</returns>
         public bool Remove(T item)
         {
@@ -337,7 +337,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Creates a new copy of an ObservableList and shuffles the values.
+        /// Creates a new copy of an ObservableList and shuffles the items.
         /// </summary>
         /// <returns>ObservableList<typeparamref name="T"/></returns>
         public ObservableList<T> Shuffle()
