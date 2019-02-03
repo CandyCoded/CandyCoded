@@ -267,7 +267,7 @@ namespace CandyCoded
         /// <summary>
         /// Removes the last item from a list and returns that item.
         /// </summary>
-        /// <returns>integer</returns>
+        /// <returns><typeparamref name="T"/></returns>
         public static T Pop<T>(this List<T> list)
         {
 
