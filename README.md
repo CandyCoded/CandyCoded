@@ -61,6 +61,7 @@ CandyCoded is a collection of useful components and extensions for building in U
         -   [GetRange](Documentation/1.%20Objects/ObservableList.md#getrange)
         -   [IndexOf](Documentation/1.%20Objects/ObservableList.md#indexof)
         -   [Insert](Documentation/1.%20Objects/ObservableList.md#insert)
+        -   [InsertRange](Documentation/1.%20Objects/ObservableList.md#insertrange)
         -   [Pop](Documentation/1.%20Objects/ObservableList.md#pop)
         -   [Random](Documentation/1.%20Objects/ObservableList.md#random)
         -   [Remove](Documentation/1.%20Objects/ObservableList.md#remove)
