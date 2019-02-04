@@ -3,11 +3,14 @@ language: objective-c
 osx_image: xcode10.0
 rvm:
     - 2.5.1
+branches:
+    only:
+        - master
 cache:
     timeout: 86400 # 1 day
     directories:
-        - /home/travis/cache/
-        - /home/travis/.rvm/
+        - /Users/travis/cache/
+        - /Users/travis/.rvm/
 before_install:
     - chmod +x ./Scripts/build_docs.sh
     - chmod +x ./Scripts/build_package.sh
@@ -19,7 +22,7 @@ script:
     - bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/master/bin/test.sh)
     - bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/master/bin/deauth.sh)
 after_success:
-    - if [ "$TRAVIS_BRANCH" == "master" ]; then make build; fi
+    - if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then make build; fi
 deploy:
     provider: s3
     access_key_id: $ACCESS_KEY_ID
