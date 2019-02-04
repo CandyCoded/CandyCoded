@@ -3,6 +3,9 @@ language: objective-c
 osx_image: xcode10.0
 rvm:
     - 2.5.1
+branches:
+    only:
+        - master
 cache:
     timeout: 86400 # 1 day
     directories:
