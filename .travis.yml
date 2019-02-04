@@ -6,8 +6,8 @@ rvm:
 cache:
     timeout: 86400 # 1 day
     directories:
-        - /home/travis/cache/
-        - /home/travis/.rvm/
+        - /Users/travis/cache/
+        - /Users/travis/.rvm/
 before_install:
     - chmod +x ./Scripts/build_docs.sh
     - chmod +x ./Scripts/build_package.sh
