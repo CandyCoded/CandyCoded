@@ -261,6 +261,22 @@ public class CustomExtensionsTest : TestSetup
 
     }
 
+    public class Pop : TestSetup
+    {
+
+        [Test]
+        public void PopItem()
+        {
+
+            var numberRange = new List<int> { 1, 2, 3, 4, 5 };
+
+            Assert.AreEqual(5, numberRange.Pop());
+            Assert.AreEqual(4, numberRange[numberRange.Count - 1]);
+
+        }
+
+    }
+
     public class Random : TestSetup
     {
 
@@ -283,6 +299,22 @@ public class CustomExtensionsTest : TestSetup
             var randomItemFromList = list.Random();
 
             Assert.IsTrue(list.Contains(randomItemFromList));
+
+        }
+
+    }
+
+    public class Shift : TestSetup
+    {
+
+        [Test]
+        public void ListShift()
+        {
+
+            var numberRange = new List<int> { 1, 2, 3, 4, 5 };
+
+            Assert.AreEqual(1, numberRange.Shift());
+            Assert.AreNotEqual(1, numberRange[0]);
 
         }
 
@@ -397,6 +429,37 @@ public class CustomExtensionsTest : TestSetup
 
             Assert.AreEqual(2, numberRange.Splice(2).Count);
             Assert.AreEqual(8, numberRange.Count);
+
+        }
+
+    }
+
+    public class Unshift : TestSetup
+    {
+
+        [Test]
+        public void ListUnshiftSingleItem()
+        {
+
+            var numberRange = new List<int> { 1, 2, 3, 4, 5 };
+
+            numberRange.Unshift(0);
+
+            Assert.AreEqual(0, numberRange[0]);
+
+        }
+
+        [Test]
+        public void ListUnshiftListOfItems()
+        {
+
+            var numberRange = new List<int> { 1, 2, 3, 4, 5 };
+
+            numberRange.Unshift(new List<int> { -1, 0 });
+
+            Assert.AreEqual(-1, numberRange[0]);
+            Assert.AreEqual(0, numberRange[1]);
+            Assert.AreEqual(1, numberRange[2]);
 
         }
 

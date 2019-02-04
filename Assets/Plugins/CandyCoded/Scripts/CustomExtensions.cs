@@ -265,6 +265,21 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Removes the last item from a list and returns that item.
+        /// </summary>
+        /// <returns><typeparamref name="T"/></returns>
+        public static T Pop<T>(this List<T> list)
+        {
+
+            var item = list[list.Count - 1];
+
+            list.RemoveAt(list.Count - 1);
+
+            return item;
+
+        }
+
+        /// <summary>
         /// Returns a random item from a List.
         /// </summary>
         /// <returns><typeparamref name="T"/></returns>
@@ -283,6 +298,21 @@ namespace CandyCoded
         {
 
             return _items[UnityEngine.Random.Range(0, _items.Length)];
+
+        }
+
+        /// <summary>
+        /// Removes the first item from a list and returns that item.
+        /// </summary>
+        /// <returns><typeparamref name="T"/></returns>
+        public static T Shift<T>(this List<T> list)
+        {
+
+            var item = list[0];
+
+            list.RemoveAt(0);
+
+            return item;
 
         }
 
@@ -389,6 +419,28 @@ namespace CandyCoded
         {
 
             return list.Splice(0, 1);
+
+        }
+
+        /// <summary>
+        /// Adds a range of items to the beginning of a list.
+        /// </summary>
+        /// <returns>void</returns>
+        public static void Unshift<T>(this List<T> list, List<T> items)
+        {
+
+            list.InsertRange(0, items);
+
+        }
+
+        /// <summary>
+        /// Adds an item to the beginning of a list.
+        /// </summary>
+        /// <returns>void</returns>
+        public static void Unshift<T>(this List<T> list, T item)
+        {
+
+            list.Insert(0, item);
 
         }
 

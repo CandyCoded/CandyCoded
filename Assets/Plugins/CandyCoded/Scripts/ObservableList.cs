@@ -20,7 +20,7 @@ namespace CandyCoded
         private readonly IList<T> _items;
 
         /// <summary>
-        /// Gets the number of elements contained in the ObservableList.
+        /// Gets the number of items contained in the ObservableList.
         /// </summary>
         /// <returns>int</returns>
         public int Count
@@ -79,9 +79,9 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Adds an object to the end of the ObservableList.
+        /// Adds an item to the end of the ObservableList.
         /// </summary>
-        /// <param name="item">The object to be added to the end of the ObservableList.</param>
+        /// <param name="item">The item to be added to the end of the ObservableList.</param>
         /// <returns>void</returns>
         public void Add(T item)
         {
@@ -93,9 +93,9 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Adds the elements of the specified collection to the end of the ObservableList.
+        /// Adds the items of a List to the end of the ObservableList.
         /// </summary>
-        /// <param name="items">The collection whose elements should be added to the end of the ObservableList.</param>
+        /// <param name="items">The collection whose items should be added to the end of the ObservableList.</param>
         /// <returns>void</returns>
         public void AddRange(List<T> items)
         {
@@ -110,9 +110,9 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Adds the elements of the specified collection to the end of the ObservableList.
+        /// Adds the items of an ObservableList to the end of the ObservableList.
         /// </summary>
-        /// <param name="items">The collection whose elements should be added to the end of the ObservableList.</param>
+        /// <param name="items">The collection whose items should be added to the end of the ObservableList.</param>
         /// <returns>void</returns>
         public void AddRange(ObservableList<T> items)
         {
@@ -127,7 +127,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes all objects from the ObservableList.
+        /// Removes all items from the ObservableList.
         /// </summary>
         /// <returns>void</returns>
         public void Clear()
@@ -140,9 +140,9 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Determines whether an element is in the ObservableList.
+        /// Determines whether an item is in the ObservableList.
         /// </summary>
-        /// <param name="item">The object to locate in the ObservableList.</param>
+        /// <param name="item">The item to locate in the ObservableList.</param>
         /// <returns>bool</returns>
         public bool Contains(T item)
         {
@@ -154,7 +154,7 @@ namespace CandyCoded
         /// <summary>
         /// Copies all items in the ObservableList to the array starting at the <paramref name="arrayIndex"/>.
         /// </summary>
-        /// <param name="array">The one-dimensional Array that is the destination of the elements copied from the ObservableList.</param>
+        /// <param name="array">The one-dimensional Array that is the destination of the items copied from the ObservableList.</param>
         /// <param name="arrayIndex">The zero-based index in array at which copying begins.</param>
         /// <returns>void</returns>
         public void CopyTo(T[] array, int arrayIndex)
@@ -165,10 +165,10 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Creates a shallow copy of a range of elements in the source ObservableList.
+        /// Creates a shallow copy of a range of items in the source ObservableList.
         /// </summary>
         /// <param name="index">The zero-based index at which the range starts.</param>
-        /// <param name="count">The number of elements in the range.</param>
+        /// <param name="count">The number of items in the range.</param>
         /// <returns>ObservableList<typeparamref name="T"/></returns>
         public ObservableList<T> GetRange(int index, int count)
         {
@@ -187,9 +187,9 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Searches for the specified object and returns the zero-based index of the first occurrence within the entire ObservableList.
+        /// Searches for the specified item and returns the zero-based index of the first occurrence within the entire ObservableList.
         /// </summary>
-        /// <param name="item">The object to locate in the ObservableList.</param>
+        /// <param name="item">The item to locate in the ObservableList.</param>
         /// <returns>int</returns>
         public int IndexOf(T item)
         {
@@ -199,10 +199,10 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Inserts an element into the ObservableList at the specified index.
+        /// Inserts an item into the ObservableList at the specified index.
         /// </summary>
         /// <param name="index">The zero-based index at which item should be inserted.</param>
-        /// <param name="item">The object to insert.</param>
+        /// <param name="item">The item to insert.</param>
         /// <returns>void</returns>
         public void Insert(int index, T item)
         {
@@ -210,6 +210,53 @@ namespace CandyCoded
             _items.Insert(index, item);
 
             AddEvent?.Invoke(item);
+
+        }
+
+        /// <summary>
+        /// Inserts the items of a List into the ObservableList at the specified index.
+        /// </summary>
+        /// <returns>void</returns>
+        public void InsertRange(int index, List<T> items)
+        {
+
+            for (var i = 0; i < items.Count; i += 1)
+            {
+
+                Insert(i + index, items[i]);
+
+            }
+
+        }
+
+        /// <summary>
+        /// Inserts the items of an ObservableList into the ObservableList at the specified index.
+        /// </summary>
+        /// <returns>void</returns>
+        public void InsertRange(int index, ObservableList<T> items)
+        {
+
+            for (var i = 0; i < items.Count; i += 1)
+            {
+
+                Insert(i + index, items[i]);
+
+            }
+
+        }
+
+        /// <summary>
+        /// Removes the last item from an ObservableList and returns that item.
+        /// </summary>
+        /// <returns><typeparamref name="T"/></returns>
+        public T Pop()
+        {
+
+            var item = _items[_items.Count - 1];
+
+            RemoveAt(_items.Count - 1);
+
+            return item;
 
         }
 
@@ -225,9 +272,9 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes the first occurrence of a specific object from the ObservableList.
+        /// Removes the first occurrence of a specific item from the ObservableList.
         /// </summary>
-        /// <param name="item">The object to remove from the ObservableList.</param>
+        /// <param name="item">The item to remove from the ObservableList.</param>
         /// <returns>bool</returns>
         public bool Remove(T item)
         {
@@ -241,9 +288,9 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes the element at the specified index of the ObservableList.
+        /// Removes the item at the specified index of the ObservableList.
         /// </summary>
-        /// <param name="index">The zero-based index of the element to remove.</param>
+        /// <param name="index">The zero-based index of the item to remove.</param>
         /// <returns>void</returns>
         public void RemoveAt(int index)
         {
@@ -257,10 +304,10 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes a range of elements from the ObservableList.
+        /// Removes a range of items from the ObservableList.
         /// </summary>
-        /// <param name="index">The zero-based starting index of the range of elements to remove.</param>
-        /// <param name="count">The number of elements to remove.</param>
+        /// <param name="index">The zero-based starting index of the range of items to remove.</param>
+        /// <param name="count">The number of items to remove.</param>
         /// <returns>void</returns>
         public void RemoveRange(int index, int count)
         {
@@ -275,7 +322,22 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Creates a new copy of an ObservableList and shuffles the values.
+        /// Removes the first item from an ObservableList and returns that item.
+        /// </summary>
+        /// <returns><typeparamref name="T"/></returns>
+        public T Shift()
+        {
+
+            var item = _items[0];
+
+            RemoveAt(0);
+
+            return item;
+
+        }
+
+        /// <summary>
+        /// Creates a new copy of an ObservableList and shuffles the items.
         /// </summary>
         /// <returns>ObservableList<typeparamref name="T"/></returns>
         public ObservableList<T> Shuffle()
@@ -390,6 +452,39 @@ namespace CandyCoded
             var newList = new List<T>(_items);
 
             return newList;
+
+        }
+
+        /// <summary>
+        /// Adds a range of items to the beginning of an ObservableList.
+        /// </summary>
+        /// <returns>void</returns>
+        public void Unshift(List<T> items)
+        {
+
+            InsertRange(0, items);
+
+        }
+
+        /// <summary>
+        /// Adds a range of items to the beginning of an ObservableList.
+        /// </summary>
+        /// <returns>void</returns>
+        public void Unshift(ObservableList<T> items)
+        {
+
+            InsertRange(0, items);
+
+        }
+
+        /// <summary>
+        /// Adds an item to the beginning of an ObservableList.
+        /// </summary>
+        /// <returns>void</returns>
+        public void Unshift(T item)
+        {
+
+            Insert(0, item);
 
         }
 
