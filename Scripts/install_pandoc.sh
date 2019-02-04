@@ -1,8 +1,16 @@
 #!/bin/bash
 
-echo "Installing pandoc"
+if ! pandoc -v &> /dev/null; then
 
-brew update
-brew cask install basictex
-brew install pandoc || brew upgrade pandoc
-brew cleanup
+    echo "Installing pandoc"
+
+    brew update
+    brew cask install basictex
+    brew install pandoc
+    brew cleanup
+
+else
+
+    echo "Skipping installation of pandoc"
+
+fi
