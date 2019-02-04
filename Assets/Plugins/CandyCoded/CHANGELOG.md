@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.4] - 2019-02-03
+
+### Maintenance
+
+-   Sorted methods in code and documentation. <https://github.com/CandyCoded/CandyCoded/pull/72>
+
+### Features
+
+-   Added pop, shift and unshift list extensions. <https://github.com/CandyCoded/CandyCoded/pull/73>
+
 ## [1.1.3] - 2019-01-26
 
 ### Maintenance
