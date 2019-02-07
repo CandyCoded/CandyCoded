@@ -1,6 +1,7 @@
 // Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace CandyCoded
@@ -319,26 +320,29 @@ namespace CandyCoded
         /// <summary>
         /// Creates a new copy of a list and shuffles the values.
         /// </summary>
+        /// <param name="seed">A number used for randomly shuffling the items of the list.</param>
+        /// <returns>List<typeparamref name="T"/></returns>
+        public static List<T> Shuffle<T>(this List<T> list, int seed)
+        {
+
+            var random = new System.Random(seed);
+
+            var shuffledList = new List<T>(list).OrderBy(c => random.Next()).ToList();
+
+            return shuffledList;
+
+        }
+
+        /// <summary>
+        /// Creates a new copy of a list and shuffles the values.
+        /// </summary>
         /// <returns>List<typeparamref name="T"/></returns>
         public static List<T> Shuffle<T>(this List<T> list)
         {
 
-            var shuffledList = new List<T>(list);
+            var random = new System.Random();
 
-            int count = shuffledList.Count;
-
-            for (var i = 0; i < count; i += 1)
-            {
-
-                var randomIndex = UnityEngine.Random.Range(i, count);
-
-                var tempValue = shuffledList[i];
-
-                shuffledList[i] = shuffledList[randomIndex];
-
-                shuffledList[randomIndex] = tempValue;
-
-            }
+            var shuffledList = new List<T>(list).OrderBy(c => random.Next()).ToList();
 
             return shuffledList;
 

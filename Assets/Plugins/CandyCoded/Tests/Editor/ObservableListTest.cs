@@ -471,6 +471,27 @@ public class ObservableListTest
 
         }
 
+        [Test]
+        public void ListShuffleWithSeed()
+        {
+
+            var numberRange = new ObservableList<int>();
+
+            for (var i = 0; i < 10; i += 1)
+            {
+                numberRange.Add(i);
+            }
+
+            var numberRangeShuffled1 = numberRange.Shuffle(10);
+            var numberRangeShuffled2 = numberRange.Shuffle(10);
+
+            Assert.AreNotEqual(numberRange, numberRangeShuffled1);
+            Assert.AreNotEqual(numberRange, numberRangeShuffled2);
+
+            Assert.AreEqual(numberRangeShuffled1, numberRangeShuffled2);
+
+        }
+
     }
 
     public class Slice : TestSetup
