@@ -327,7 +327,7 @@ namespace CandyCoded
 
             var random = new System.Random(seed);
 
-            var shuffledList = new List<T>(list).OrderBy(c => random.Next()).ToList();
+            var shuffledList = new List<T>(list.OrderBy(_ => random.Next()));
 
             return shuffledList;
 
@@ -342,7 +342,7 @@ namespace CandyCoded
 
             var random = new System.Random();
 
-            var shuffledList = new List<T>(list).OrderBy(c => random.Next()).ToList();
+            var shuffledList = new List<T>(list.OrderBy(_ => random.Next()));
 
             return shuffledList;
 

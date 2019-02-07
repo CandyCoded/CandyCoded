@@ -347,7 +347,7 @@ namespace CandyCoded
 
             var random = new System.Random(seed);
 
-            var shuffledList = new ObservableList<T>(_items).OrderBy(c => random.Next()) as ObservableList<T>;
+            var shuffledList = new ObservableList<T>(_items.OrderBy(_ => random.Next()));
 
             return shuffledList;
 
@@ -362,7 +362,7 @@ namespace CandyCoded
 
             var random = new System.Random();
 
-            var shuffledList = new ObservableList<T>(_items).OrderBy(c => random.Next()) as ObservableList<T>;
+            var shuffledList = new ObservableList<T>(_items.OrderBy(_ => random.Next()));
 
             return shuffledList;
 

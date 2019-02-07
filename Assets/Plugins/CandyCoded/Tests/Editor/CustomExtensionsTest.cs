@@ -372,6 +372,9 @@ public class CustomExtensionsTest : TestSetup
             var numberRangeShuffled1 = numberRange.Shuffle(10);
             var numberRangeShuffled2 = numberRange.Shuffle(10);
 
+            Assert.AreNotEqual(null, numberRangeShuffled1);
+            Assert.AreNotEqual(null, numberRangeShuffled2);
+
             Assert.AreNotEqual(numberRange, numberRangeShuffled1);
             Assert.AreNotEqual(numberRange, numberRangeShuffled2);
 
