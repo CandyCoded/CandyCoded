@@ -1,6 +1,7 @@
 // Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace CandyCoded
@@ -323,22 +324,9 @@ namespace CandyCoded
         public static List<T> Shuffle<T>(this List<T> list)
         {
 
-            var shuffledList = new List<T>(list);
+            var random = new System.Random();
 
-            int count = shuffledList.Count;
-
-            for (var i = 0; i < count; i += 1)
-            {
-
-                var randomIndex = UnityEngine.Random.Range(i, count);
-
-                var tempValue = shuffledList[i];
-
-                shuffledList[i] = shuffledList[randomIndex];
-
-                shuffledList[randomIndex] = tempValue;
-
-            }
+            var shuffledList = new List<T>(list).OrderBy(c => random.Next()).ToList();
 
             return shuffledList;
 

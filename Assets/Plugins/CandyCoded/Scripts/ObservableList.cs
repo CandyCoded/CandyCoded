@@ -2,6 +2,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CandyCoded
 {
@@ -343,22 +344,9 @@ namespace CandyCoded
         public ObservableList<T> Shuffle()
         {
 
-            var shuffledList = new ObservableList<T>(_items);
+            var random = new System.Random();
 
-            int count = shuffledList.Count;
-
-            for (var i = 0; i < count; i += 1)
-            {
-
-                var randomIndex = UnityEngine.Random.Range(i, count);
-
-                T tempValue = shuffledList[i];
-
-                shuffledList[i] = shuffledList[randomIndex];
-
-                shuffledList[randomIndex] = tempValue;
-
-            }
+            var shuffledList = new ObservableList<T>(_items).OrderBy(c => random.Next()) as ObservableList<T>;
 
             return shuffledList;
 
