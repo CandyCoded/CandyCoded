@@ -320,6 +320,22 @@ namespace CandyCoded
         /// <summary>
         /// Creates a new copy of a list and shuffles the values.
         /// </summary>
+        /// <param name="seed">A number used for randomly shuffling the items of the list.</param>
+        /// <returns>List<typeparamref name="T"/></returns>
+        public static List<T> Shuffle<T>(this List<T> list, int seed)
+        {
+
+            var random = new System.Random(seed);
+
+            var shuffledList = new List<T>(list).OrderBy(c => random.Next()).ToList();
+
+            return shuffledList;
+
+        }
+
+        /// <summary>
+        /// Creates a new copy of a list and shuffles the values.
+        /// </summary>
         /// <returns>List<typeparamref name="T"/></returns>
         public static List<T> Shuffle<T>(this List<T> list)
         {
