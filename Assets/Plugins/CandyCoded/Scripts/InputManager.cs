@@ -259,7 +259,7 @@ namespace CandyCoded
         public static bool GetTouchHeld(int currentFingerId)
         {
 
-            return TestTouchState(currentFingerId, TouchPhase.Moved, TouchPhase.Stationary);
+            return GetTouch(currentFingerId, TouchPhase.Moved, TouchPhase.Stationary).HasValue;
 
         }
 
@@ -294,35 +294,7 @@ namespace CandyCoded
         public static bool GetTouchUp(int currentFingerId)
         {
 
-            return TestTouchState(currentFingerId, TouchPhase.Ended, TouchPhase.Canceled);
-
-        }
-
-        public static bool TestTouchState(int currentFingerId, params TouchPhase[] touchPhases)
-        {
-
-            if (!TouchActive)
-            {
-
-                return false;
-
-            }
-
-            for (var i = 0; i < Input.touchCount; i += 1)
-            {
-
-                var touch = Input.GetTouch(i);
-
-                if (touch.fingerId.Equals(currentFingerId))
-                {
-
-                    return touchPhases.Contains(touch.phase);
-
-                }
-
-            }
-
-            return false;
+            return GetTouch(currentFingerId, TouchPhase.Ended, TouchPhase.Canceled).HasValue;
 
         }
 
