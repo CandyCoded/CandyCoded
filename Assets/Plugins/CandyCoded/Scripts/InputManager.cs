@@ -332,6 +332,40 @@ namespace CandyCoded
 
         }
 
+        public static bool RaycastToGameObject(GameObject gameObject, Camera mainCamera, Vector3 position, out RaycastHit hit)
+        {
+
+            Ray ray = mainCamera.ScreenPointToRay(position);
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, gameObject.GetLayerMask()) && hit.transform.gameObject.Equals(gameObject))
+            {
+
+                return true;
+
+            }
+
+            return false;
+
+        }
+
+        public static bool RaycastToGameObject(GameObject gameObject, Camera mainCamera, Vector3 position, out RaycastHit2D hit)
+        {
+
+            Ray ray = mainCamera.ScreenPointToRay(position);
+
+            hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, gameObject.GetLayerMask());
+
+            if (hit && hit.transform.gameObject.Equals(gameObject))
+            {
+
+                return true;
+
+            }
+
+            return false;
+
+        }
+
     }
 
 }
