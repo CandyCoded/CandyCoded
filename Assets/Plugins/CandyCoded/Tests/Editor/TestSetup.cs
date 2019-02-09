@@ -5,7 +5,7 @@ public class TestSetup
 {
 
     [SetUp]
-    public void ResetScene()
+    public static void ResetScene()
     {
 
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
