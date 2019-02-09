@@ -110,16 +110,7 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            if (Input.GetMouseButtonDown(0))
-            {
-
-                var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-
-                return Physics.Raycast(ray, out hit, Mathf.Infinity, gameObject.GetLayerMask()) && hit.transform.gameObject.Equals(gameObject);
-
-            }
-
-            return false;
+            return Input.GetMouseButtonDown(0) && RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
 
         }
 
@@ -128,18 +119,7 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            if (Input.GetMouseButtonDown(0))
-            {
-
-                var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-
-                hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, gameObject.GetLayerMask());
-
-                return hit && hit.transform.gameObject.Equals(gameObject);
-
-            }
-
-            return false;
+            return Input.GetMouseButtonDown(0) && RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
 
         }
 
@@ -219,19 +199,12 @@ namespace CandyCoded
 
                 var touch = Input.GetTouch(i);
 
-                if (touch.phase.Equals(TouchPhase.Began))
+                if (touch.phase.Equals(TouchPhase.Began) && RaycastToGameObject(gameObject, mainCamera, touch.position, out hit))
                 {
 
-                    Ray ray = mainCamera.ScreenPointToRay(touch.position);
+                    currentFingerId = touch.fingerId;
 
-                    if (Physics.Raycast(ray, out hit, Mathf.Infinity, gameObject.GetLayerMask()) && hit.transform.gameObject.Equals(gameObject))
-                    {
-
-                        currentFingerId = touch.fingerId;
-
-                        return true;
-
-                    }
+                    return true;
 
                 }
 
@@ -260,23 +233,15 @@ namespace CandyCoded
 
                 var touch = Input.GetTouch(i);
 
-                if (touch.phase.Equals(TouchPhase.Began))
+                if (touch.phase.Equals(TouchPhase.Began) && RaycastToGameObject(gameObject, mainCamera, touch.position, out hit))
                 {
 
-                    Ray ray = mainCamera.ScreenPointToRay(touch.position);
+                    currentFingerId = touch.fingerId;
 
-                    hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, gameObject.GetLayerMask());
-
-                    if (hit && hit.transform.gameObject.Equals(gameObject))
-                    {
-
-                        currentFingerId = touch.fingerId;
-
-                        return true;
-
-                    }
+                    return true;
 
                 }
+
 
             }
 
