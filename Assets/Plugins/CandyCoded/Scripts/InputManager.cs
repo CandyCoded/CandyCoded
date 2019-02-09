@@ -134,7 +134,7 @@ namespace CandyCoded
 
         }
 
-        public static Touch? GetTouch(int? fingerId = null, params TouchPhase[] touchPhasesFilter)
+        public static Touch? GetTouch(int? fingerId, params TouchPhase[] touchPhasesFilter)
         {
 
             if (TouchActive)
@@ -163,6 +163,13 @@ namespace CandyCoded
 
         }
 
+        public static Touch? GetTouch(params TouchPhase[] touchPhasesFilter)
+        {
+
+            return GetTouch(null, touchPhasesFilter);
+
+        }
+
         public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId, out RaycastHit hit)
         {
 
@@ -170,7 +177,7 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            Touch? touch = GetTouch(touchPhasesFilter: TouchPhase.Began);
+            Touch? touch = GetTouch(TouchPhase.Began);
 
             if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
             {
@@ -192,7 +199,7 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            Touch? touch = GetTouch(touchPhasesFilter: TouchPhase.Began);
+            Touch? touch = GetTouch(TouchPhase.Began);
 
             if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
             {
@@ -228,7 +235,7 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            Touch? touch = GetTouch(touchPhasesFilter: TouchPhase.Ended);
+            Touch? touch = GetTouch(TouchPhase.Ended);
 
             if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
             {
@@ -246,7 +253,7 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            Touch? touch = GetTouch(touchPhasesFilter: TouchPhase.Ended);
+            Touch? touch = GetTouch(TouchPhase.Ended);
 
             if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
             {
