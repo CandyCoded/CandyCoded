@@ -187,26 +187,14 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            if (!TouchActive)
+            Touch? touch = GetTouch(touchPhasesFilter: TouchPhase.Began);
+
+            if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
             {
 
-                return false;
+                currentFingerId = touch.Value.fingerId;
 
-            }
-
-            for (var i = 0; i < Input.touchCount; i += 1)
-            {
-
-                var touch = Input.GetTouch(i);
-
-                if (touch.phase.Equals(TouchPhase.Began) && RaycastToGameObject(gameObject, mainCamera, touch.position, out hit))
-                {
-
-                    currentFingerId = touch.fingerId;
-
-                    return true;
-
-                }
+                return true;
 
             }
 
@@ -221,27 +209,14 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            if (!TouchActive)
+            Touch? touch = GetTouch(touchPhasesFilter: TouchPhase.Began);
+
+            if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
             {
 
-                return false;
+                currentFingerId = touch.Value.fingerId;
 
-            }
-
-            for (var i = 0; i < Input.touchCount; i += 1)
-            {
-
-                var touch = Input.GetTouch(i);
-
-                if (touch.phase.Equals(TouchPhase.Began) && RaycastToGameObject(gameObject, mainCamera, touch.position, out hit))
-                {
-
-                    currentFingerId = touch.fingerId;
-
-                    return true;
-
-                }
-
+                return true;
 
             }
 
@@ -266,24 +241,12 @@ namespace CandyCoded
         public static Vector3? GetTouchPosition(int currentFingerId)
         {
 
-            if (!TouchActive)
+            Touch? touch = GetTouch(currentFingerId);
+
+            if (touch.HasValue)
             {
 
-                return null;
-
-            }
-
-            for (var i = 0; i < Input.touchCount; i += 1)
-            {
-
-                var touch = Input.GetTouch(i);
-
-                if (touch.fingerId.Equals(currentFingerId))
-                {
-
-                    return touch.position;
-
-                }
+                return touch.Value.position;
 
             }
 
