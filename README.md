@@ -90,6 +90,7 @@ CandyCoded is a collection of useful components and extensions for building in U
     -   [List](Documentation/2.%20Custom%20Extensions/List.md)
         -   [Permutations](Documentation/2.%20Custom%20Extensions/List.md#permutations)
         -   [Pop](Documentation/2.%20Custom%20Extensions/List.md#pop)
+        -   [Random](Documentation/2.%20Custom%20Extensions/List.md#random)
         -   [Shift](Documentation/2.%20Custom%20Extensions/List.md#shift)
         -   [Shuffle](Documentation/2.%20Custom%20Extensions/List.md#shuffle)
         -   [Slice](Documentation/2.%20Custom%20Extensions/List.md#slice)
