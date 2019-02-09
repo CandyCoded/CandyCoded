@@ -63,6 +63,34 @@ namespace CandyCoded
 
         }
 
+        public static bool GetInputUp(this GameObject gameObject, Camera mainCamera, int currentFingerId, out RaycastHit hit)
+        {
+
+            if (TouchActive)
+            {
+
+                return GetTouchUp(gameObject, mainCamera, currentFingerId, out hit);
+
+            }
+
+            return GetMouseButtonUp(gameObject, mainCamera, out hit);
+
+        }
+
+        public static bool GetInputUp(this GameObject gameObject, Camera mainCamera, int currentFingerId, out RaycastHit2D hit)
+        {
+
+            if (TouchActive)
+            {
+
+                return GetTouchUp(gameObject, mainCamera, currentFingerId, out hit);
+
+            }
+
+            return GetMouseButtonUp(gameObject, mainCamera, out hit);
+
+        }
+
         public static bool GetMouseButtonDown(this GameObject gameObject, Camera mainCamera, out RaycastHit hit)
         {
 
@@ -81,10 +109,21 @@ namespace CandyCoded
 
         }
 
-        public static bool GetMouseButtonUp()
+        public static bool GetMouseButtonUp(this GameObject gameObject, Camera mainCamera, out RaycastHit hit)
         {
 
-            return Input.GetMouseButtonUp(0);
+            hit = new RaycastHit();
+
+            return Input.GetMouseButtonUp(0) && RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
+
+        }
+
+        public static bool GetMouseButtonUp(this GameObject gameObject, Camera mainCamera, out RaycastHit2D hit)
+        {
+
+            hit = new RaycastHit2D();
+
+            return Input.GetMouseButtonUp(0) && RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
 
         }
 
@@ -181,6 +220,42 @@ namespace CandyCoded
             }
 
             return null;
+
+        }
+
+        public static bool GetTouchUp(this GameObject gameObject, Camera mainCamera, int currentFingerId, out RaycastHit hit)
+        {
+
+            hit = new RaycastHit();
+
+            Touch? touch = GetTouch(touchPhasesFilter: TouchPhase.Ended);
+
+            if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
+            {
+
+                return true;
+
+            }
+
+            return false;
+
+        }
+
+        public static bool GetTouchUp(this GameObject gameObject, Camera mainCamera, int currentFingerId, out RaycastHit2D hit)
+        {
+
+            hit = new RaycastHit2D();
+
+            Touch? touch = GetTouch(touchPhasesFilter: TouchPhase.Ended);
+
+            if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
+            {
+
+                return true;
+
+            }
+
+            return false;
 
         }
 
