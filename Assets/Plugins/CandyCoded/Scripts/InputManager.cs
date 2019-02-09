@@ -63,20 +63,6 @@ namespace CandyCoded
 
         }
 
-        public static bool GetInputHeld(int currentFingerId)
-        {
-
-            if (TouchActive)
-            {
-
-                return GetTouchHeld(currentFingerId);
-
-            }
-
-            return GetMouseButtonHeld();
-
-        }
-
         public static Vector3? GetInputPosition(int currentFingerId)
         {
 
@@ -127,13 +113,6 @@ namespace CandyCoded
         {
 
             return GetMouseButtonDown(gameObject, mainCamera, out RaycastHit hit);
-
-        }
-
-        public static bool GetMouseButtonHeld()
-        {
-
-            return Input.GetMouseButton(0);
 
         }
 
@@ -228,13 +207,6 @@ namespace CandyCoded
         {
 
             return GetTouchDown(gameObject, mainCamera, out currentFingerId, out RaycastHit hit);
-
-        }
-
-        public static bool GetTouchHeld(int currentFingerId)
-        {
-
-            return GetTouch(currentFingerId, TouchPhase.Moved, TouchPhase.Stationary).HasValue;
 
         }
 
