@@ -171,6 +171,35 @@ namespace CandyCoded
 
         }
 
+        public static Touch? GetTouch(int? fingerId = null, params TouchPhase[] touchPhasesFilter)
+        {
+
+            if (TouchActive)
+            {
+
+                for (var i = 0; i < Input.touchCount; i += 1)
+                {
+
+                    var touch = Input.GetTouch(i);
+
+                    var fingerIdMatch = fingerId.HasValue && touch.fingerId.Equals(fingerId.Value) || !fingerId.HasValue;
+                    var touchPhasesFilterMatch = touchPhasesFilter.Length > 0 && touchPhasesFilter.Contains(touch.phase) || touchPhasesFilter.Length == 0;
+
+                    if (fingerIdMatch && touchPhasesFilterMatch)
+                    {
+
+                        return touch;
+
+                    }
+
+                }
+
+            }
+
+            return null;
+
+        }
+
         public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId, out RaycastHit hit)
         {
 
