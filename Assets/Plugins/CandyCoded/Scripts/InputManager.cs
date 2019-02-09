@@ -234,7 +234,7 @@ namespace CandyCoded
                 if (touch.phase.Equals(TouchPhase.Began))
                 {
 
-                    Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+                    Ray ray = mainCamera.ScreenPointToRay(touch.position);
 
                     hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, gameObject.GetLayerMask());
 
