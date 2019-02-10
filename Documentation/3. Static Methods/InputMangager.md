@@ -38,7 +38,7 @@ if (InputManager.GetInputUp(gameObject, mainCamera, currentFingerId, out Raycast
 
 Returns true if the user has pressed the primary mouse button over a specific GameObject.
 
-```chsarp
+```csharp
 if (InputManager.GetMouseButtonDown(gameObject, mainCamera, out RaycastHit2D hit))
 {
 
@@ -51,7 +51,7 @@ if (InputManager.GetMouseButtonDown(gameObject, mainCamera, out RaycastHit2D hit
 
 Returns true if the user has released the primary mouse button over a specific GameObject.
 
-```chsarp
+```csharp
 if (InputManager.GetMouseButtonUp(gameObject, mainCamera, out RaycastHit2D hit))
 {
 
