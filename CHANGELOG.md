@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.1.5] - 2019-02-10
+
+### Bug Fixes
+
+-   Fixed bug where Shuffle on ObservableList would return null. <https://github.com/CandyCoded/CandyCoded/pull/76>
+-   Replaced reference to mousePosition in touch method. <https://github.com/CandyCoded/CandyCoded/pull/77>
+
+### Features
+
+-   Shuffle seed parameter <https://github.com/CandyCoded/CandyCoded/pull/75>
+-   Refactored InputManager GetInputUp Methods <https://github.com/CandyCoded/CandyCoded/pull/78>
+
+### Maintenance
+
+-   Fixed code warnings <https://github.com/CandyCoded/CandyCoded/pull/79>
+-   InputManager documentation <https://github.com/CandyCoded/CandyCoded/pull/80>
+
 ## [1.1.4] - 2019-02-03
 
 ### Maintenance
