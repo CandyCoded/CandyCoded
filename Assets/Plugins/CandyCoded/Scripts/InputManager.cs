@@ -180,7 +180,7 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            Touch? touch = GetTouch(TouchPhase.Began);
+            var touch = GetTouch(TouchPhase.Began);
 
             if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
             {
@@ -202,7 +202,7 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            Touch? touch = GetTouch(TouchPhase.Began);
+            var touch = GetTouch(TouchPhase.Began);
 
             if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
             {
@@ -220,7 +220,7 @@ namespace CandyCoded
         public static Vector3? GetTouchPosition(int currentFingerId)
         {
 
-            Touch? touch = GetTouch(currentFingerId);
+            var touch = GetTouch(currentFingerId);
 
             if (touch.HasValue)
             {
@@ -238,7 +238,7 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            Touch? touch = GetTouch(TouchPhase.Ended);
+            var touch = GetTouch(TouchPhase.Ended);
 
             if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
             {
@@ -256,7 +256,7 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            Touch? touch = GetTouch(TouchPhase.Ended);
+            var touch = GetTouch(TouchPhase.Ended);
 
             if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
             {
@@ -272,7 +272,7 @@ namespace CandyCoded
         public static bool RaycastToGameObject(GameObject gameObject, Camera mainCamera, Vector3 position, out RaycastHit hit)
         {
 
-            Ray ray = mainCamera.ScreenPointToRay(position);
+            var ray = mainCamera.ScreenPointToRay(position);
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, gameObject.GetLayerMask()) && hit.transform.gameObject.Equals(gameObject))
             {
@@ -288,7 +288,7 @@ namespace CandyCoded
         public static bool RaycastToGameObject(GameObject gameObject, Camera mainCamera, Vector3 position, out RaycastHit2D hit)
         {
 
-            Ray ray = mainCamera.ScreenPointToRay(position);
+            var ray = mainCamera.ScreenPointToRay(position);
 
             hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, gameObject.GetLayerMask());
 
