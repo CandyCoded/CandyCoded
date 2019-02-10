@@ -134,7 +134,7 @@ namespace CandyCoded
 
         }
 
-        public static Touch? GetTouch(int fingerId, params TouchPhase[] touchPhasesFilter)
+        public static Touch? GetActiveTouch(int fingerId, params TouchPhase[] touchPhasesFilter)
         {
 
             if (TouchActive)
@@ -160,7 +160,7 @@ namespace CandyCoded
 
         }
 
-        public static Touch? GetTouch(params TouchPhase[] touchPhasesFilter)
+        public static Touch? GetActiveTouch(params TouchPhase[] touchPhasesFilter)
         {
 
             if (TouchActive)
@@ -193,7 +193,7 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            var touch = GetTouch(TouchPhase.Began);
+            var touch = GetActiveTouch(TouchPhase.Began);
 
             if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
             {
@@ -215,7 +215,7 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            var touch = GetTouch(TouchPhase.Began);
+            var touch = GetActiveTouch(TouchPhase.Began);
 
             if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
             {
@@ -233,7 +233,7 @@ namespace CandyCoded
         public static Vector3? GetTouchPosition(int currentFingerId)
         {
 
-            var touch = GetTouch(currentFingerId);
+            var touch = GetActiveTouch(currentFingerId);
 
             if (touch.HasValue)
             {
@@ -251,7 +251,7 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            var touch = GetTouch(TouchPhase.Ended);
+            var touch = GetActiveTouch(TouchPhase.Ended);
 
             if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
             {
@@ -269,7 +269,7 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            var touch = GetTouch(TouchPhase.Ended);
+            var touch = GetActiveTouch(TouchPhase.Ended);
 
             if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
             {
