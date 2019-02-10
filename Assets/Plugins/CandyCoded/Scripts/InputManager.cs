@@ -251,7 +251,7 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            var touch = GetActiveTouch(TouchPhase.Ended);
+            var touch = GetActiveTouch(currentFingerId, TouchPhase.Ended);
 
             if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
             {
@@ -269,7 +269,7 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            var touch = GetActiveTouch(TouchPhase.Ended);
+            var touch = GetActiveTouch(currentFingerId, TouchPhase.Ended);
 
             if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
             {
