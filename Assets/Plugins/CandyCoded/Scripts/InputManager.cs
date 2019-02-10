@@ -145,10 +145,13 @@ namespace CandyCoded
 
                     var touch = Input.GetTouch(i);
 
-                    var fingerIdMatch = fingerId.HasValue && touch.fingerId.Equals(fingerId.Value) || !fingerId.HasValue;
-                    var touchPhasesFilterMatch = touchPhasesFilter.Length > 0 && touchPhasesFilter.Contains(touch.phase) || touchPhasesFilter.Length == 0;
+                    var fingerIdMatch = fingerId.HasValue && touch.fingerId.Equals(fingerId.Value);
+                    var touchPhasesFilterMatch = touchPhasesFilter.Length > 0 && touchPhasesFilter.Contains(touch.phase);
 
-                    if (fingerIdMatch && touchPhasesFilterMatch)
+                    if (
+                        (fingerIdMatch && touchPhasesFilterMatch) ||
+                        (fingerIdMatch && touchPhasesFilter.Length == 0) ||
+                        (!fingerId.HasValue && touchPhasesFilterMatch))
                     {
 
                         return touch;
