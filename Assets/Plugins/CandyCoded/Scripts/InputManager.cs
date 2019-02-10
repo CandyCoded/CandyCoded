@@ -134,7 +134,7 @@ namespace CandyCoded
 
         }
 
-        public static Touch? GetTouch(int? fingerId, params TouchPhase[] touchPhasesFilter)
+        public static Touch? GetTouch(int fingerId, params TouchPhase[] touchPhasesFilter)
         {
 
             if (TouchActive)
@@ -145,13 +145,7 @@ namespace CandyCoded
 
                     var touch = Input.GetTouch(i);
 
-                    var fingerIdMatch = fingerId.HasValue && touch.fingerId.Equals(fingerId.Value);
-                    var touchPhasesFilterMatch = touchPhasesFilter.Length > 0 && touchPhasesFilter.Contains(touch.phase);
-
-                    if (
-                        (fingerIdMatch && touchPhasesFilterMatch) ||
-                        (fingerIdMatch && touchPhasesFilter.Length == 0) ||
-                        (!fingerId.HasValue && touchPhasesFilterMatch))
+                    if (touch.fingerId.Equals(fingerId) && touchPhasesFilter.Contains(touch.phase))
                     {
 
                         return touch;
@@ -169,7 +163,26 @@ namespace CandyCoded
         public static Touch? GetTouch(params TouchPhase[] touchPhasesFilter)
         {
 
-            return GetTouch(null, touchPhasesFilter);
+            if (TouchActive)
+            {
+
+                for (var i = 0; i < Input.touchCount; i += 1)
+                {
+
+                    var touch = Input.GetTouch(i);
+
+                    if (touchPhasesFilter.Contains(touch.phase))
+                    {
+
+                        return touch;
+
+                    }
+
+                }
+
+            }
+
+            return null;
 
         }
 
