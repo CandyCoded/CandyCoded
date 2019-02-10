@@ -210,8 +210,8 @@ namespace CandyCoded
         /// <summary>
         /// Returns the active touch based on a unique finger ID and a TouchPhase enum filter.
         /// </summary>
-        /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
-        /// <param name="TouchPhase[]">TouchPhase enums to filter with.</param>
+        /// <param name="fingerId">The stored unique finger ID of the touch event.</param>
+        /// <param name="touchPhasesFilter">TouchPhase enums to filter with.</param>
         /// <returns>Touch</returns>
         public static Touch? GetActiveTouch(int fingerId, params TouchPhase[] touchPhasesFilter)
         {
@@ -242,7 +242,7 @@ namespace CandyCoded
         /// <summary>
         /// Returns the active touch based a TouchPhase enum filter.
         /// </summary>
-        /// <param name="TouchPhase[]">TouchPhase enums to filter with.</param>
+        /// <param name="touchPhasesFilter">TouchPhase enums to filter with.</param>
         /// <returns>Touch</returns>
         public static Touch? GetActiveTouch(params TouchPhase[] touchPhasesFilter)
         {
