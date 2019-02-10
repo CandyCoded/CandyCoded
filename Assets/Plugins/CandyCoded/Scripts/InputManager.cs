@@ -9,6 +9,10 @@ namespace CandyCoded
     public static class InputManager
     {
 
+        /// <summary>
+        /// Returns true if touch is enabled on the device and there is at least one touch event active.
+        /// </summary>
+        /// <returns>bool</returns>
         public static bool TouchActive
         {
             get
@@ -17,6 +21,14 @@ namespace CandyCoded
             }
         }
 
+        /// <summary>
+        /// Returns true if the user has either pressed the primary mouse button or touched the screen over a specific GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="mainCamera">Current active camera.</param>
+        /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
+        /// <param name="hit">The result of the raycast.</param>
+        /// <returns>bool</returns>
         public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId, out RaycastHit hit)
         {
 
@@ -33,6 +45,14 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns true if the user has either pressed the primary mouse button or touched the screen over a specific GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="mainCamera">Current active camera.</param>
+        /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
+        /// <param name="hit">The result of the raycast.</param>
+        /// <returns>bool</returns>
         public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId, out RaycastHit2D hit)
         {
 
@@ -49,6 +69,11 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns the position of either the mouse or a specific touch.
+        /// </summary>
+        /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
+        /// <returns>Vector3</returns>
         public static Vector3? GetInputPosition(int currentFingerId)
         {
 
@@ -63,6 +88,14 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns true if the user has either released the primary mouse button or ended a touch on the screen over a specific GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="mainCamera">Current active camera.</param>
+        /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
+        /// <param name="hit">The result of the raycast.</param>
+        /// <returns>bool</returns>
         public static bool GetInputUp(this GameObject gameObject, Camera mainCamera, int currentFingerId, out RaycastHit hit)
         {
 
@@ -77,6 +110,14 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns true if the user has either released the primary mouse button or ended a touch on the screen over a specific GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="mainCamera">Current active camera.</param>
+        /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
+        /// <param name="hit">The result of the raycast.</param>
+        /// <returns>bool</returns>
         public static bool GetInputUp(this GameObject gameObject, Camera mainCamera, int currentFingerId, out RaycastHit2D hit)
         {
 
@@ -91,6 +132,13 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns true if the user has pressed the primary mouse button over a specific GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="mainCamera">Current active camera.</param>
+        /// <param name="hit">The result of the raycast.</param>
+        /// <returns>bool</returns>
         public static bool GetMouseButtonDown(this GameObject gameObject, Camera mainCamera, out RaycastHit hit)
         {
 
@@ -100,6 +148,13 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns true if the user has pressed the primary mouse button over a specific GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="mainCamera">Current active camera.</param>
+        /// <param name="hit">The result of the raycast.</param>
+        /// <returns>bool</returns>
         public static bool GetMouseButtonDown(this GameObject gameObject, Camera mainCamera, out RaycastHit2D hit)
         {
 
@@ -109,6 +164,13 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns true if the user has released the primary mouse button over a specific GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="mainCamera">Current active camera.</param>
+        /// <param name="hit">The result of the raycast.</param>
+        /// <returns>bool</returns>
         public static bool GetMouseButtonUp(this GameObject gameObject, Camera mainCamera, out RaycastHit hit)
         {
 
@@ -118,6 +180,13 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns true if the user has released the primary mouse button over a specific GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="mainCamera">Current active camera.</param>
+        /// <param name="hit">The result of the raycast.</param>
+        /// <returns>bool</returns>
         public static bool GetMouseButtonUp(this GameObject gameObject, Camera mainCamera, out RaycastHit2D hit)
         {
 
@@ -127,6 +196,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns the position of the mouse.
+        /// </summary>
+        /// <returns>Vector3</returns>
         public static Vector3? GetMousePosition()
         {
 
@@ -134,6 +207,12 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns the active touch based on a unique finger ID and a TouchPhase enum filter.
+        /// </summary>
+        /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
+        /// <param name="TouchPhase[]">TouchPhase enums to filter with.</param>
+        /// <returns>Touch</returns>
         public static Touch? GetActiveTouch(int fingerId, params TouchPhase[] touchPhasesFilter)
         {
 
@@ -160,6 +239,11 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns the active touch based a TouchPhase enum filter.
+        /// </summary>
+        /// <param name="TouchPhase[]">TouchPhase enums to filter with.</param>
+        /// <returns>Touch</returns>
         public static Touch? GetActiveTouch(params TouchPhase[] touchPhasesFilter)
         {
 
@@ -186,6 +270,14 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns true if the user has touched the screen over a specific GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="mainCamera">Current active camera.</param>
+        /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
+        /// <param name="hit">The result of the raycast.</param>
+        /// <returns>bool</returns>
         public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId, out RaycastHit hit)
         {
 
@@ -208,6 +300,14 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns true if the user has touched the screen over a specific GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="mainCamera">Current active camera.</param>
+        /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
+        /// <param name="hit">The result of the raycast.</param>
+        /// <returns>bool</returns>
         public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId, out RaycastHit2D hit)
         {
 
@@ -230,6 +330,11 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns the position of a specific touch.
+        /// </summary>
+        /// <param name="currentFingerId">The stored unique finger ID of the touch.</param>
+        /// <returns>Vector3</returns>
         public static Vector3? GetTouchPosition(int currentFingerId)
         {
 
@@ -246,6 +351,14 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns true if the user has ended a touch on the screen over a specific GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="mainCamera">Current active camera.</param>
+        /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
+        /// <param name="hit">The result of the raycast.</param>
+        /// <returns>bool</returns>
         public static bool GetTouchUp(this GameObject gameObject, Camera mainCamera, int currentFingerId, out RaycastHit hit)
         {
 
@@ -264,6 +377,14 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns true if the user has ended a touch on the screen over a specific GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="mainCamera">Current active camera.</param>
+        /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
+        /// <param name="hit">The result of the raycast.</param>
+        /// <returns>bool</returns>
         public static bool GetTouchUp(this GameObject gameObject, Camera mainCamera, int currentFingerId, out RaycastHit2D hit)
         {
 
@@ -282,6 +403,14 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns true if a position collides with a GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="mainCamera">Current active camera.</param>
+        /// <param name="position">Vector3 to test raycast with.</param>
+        /// <param name="hit">The result of the raycast.</param>
+        /// <returns>bool</returns>
         public static bool RaycastToGameObject(GameObject gameObject, Camera mainCamera, Vector3 position, out RaycastHit hit)
         {
 
@@ -298,6 +427,14 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns true if a position collides with a GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="mainCamera">Current active camera.</param>
+        /// <param name="position">Vector3 to test raycast with.</param>
+        /// <param name="hit">The result of the raycast.</param>
+        /// <returns>bool</returns>
         public static bool RaycastToGameObject(GameObject gameObject, Camera mainCamera, Vector3 position, out RaycastHit2D hit)
         {
 
