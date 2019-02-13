@@ -1,5 +1,7 @@
 ﻿using System.IO;
+using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine;
 
 namespace CandyCoded.Experimental
 {
@@ -7,40 +9,73 @@ namespace CandyCoded.Experimental
     public static class SaveManager
     {
 
-        public static bool SaveData<T>(T obj, string filePath)
+        public static void SaveData<T>(T obj, string filePath)
         {
 
-            var bf = new BinaryFormatter();
+            using (var fs = File.Create(filePath))
+            {
 
-            var fs = new FileStream(filePath, FileMode.Create);
+                try
+                {
 
-            bf.Serialize(fs, obj);
+                    var bf = new BinaryFormatter();
 
-            fs.Close();
+                    bf.Serialize(fs, obj);
 
-            return true;
+                }
+                catch (SerializationException err)
+                {
+
+                    Debug.LogError(err.Message);
+
+                    throw;
+
+                }
+                finally
+                {
+
+                    fs.Close();
+
+                }
+
+            }
 
         }
 
         public static T LoadData<T>(string filePath)
         {
 
-            if (File.Exists(filePath))
+            using (var fs = File.OpenRead(filePath))
             {
 
-                var bf = new BinaryFormatter();
+                T data;
 
-                var fs = new FileStream(filePath, FileMode.Open);
+                try
+                {
 
-                var data = (T)bf.Deserialize(fs);
+                    var bf = new BinaryFormatter();
 
-                fs.Close();
+                    data = (T)bf.Deserialize(fs);
+
+                }
+                catch (SerializationException err)
+                {
+
+                    Debug.LogError(err.Message);
+
+                    throw;
+
+                }
+                finally
+                {
+
+                    fs.Close();
+
+                }
 
                 return data;
 
             }
-
-            throw new FileNotFoundException("File not found.");
 
         }
 
