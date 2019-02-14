@@ -342,6 +342,56 @@ public class ObservableListTest
 
     }
 
+    public class InsertRange : TestSetup
+    {
+
+        [Test]
+        public void InsertRangeWithList()
+        {
+
+            var list = new ObservableList<int> { 0 };
+
+            Assert.AreEqual(1, list.Count);
+
+            list.InsertRange(1, new List<int> { 1, 2, 3 });
+
+            Assert.AreEqual(1, list[1]);
+            Assert.AreEqual(4, list.Count);
+
+        }
+
+        [Test]
+        public void InsertRangeWithObservableList()
+        {
+
+            var list = new ObservableList<int> { 0 };
+
+            Assert.AreEqual(1, list.Count);
+
+            list.InsertRange(1, new ObservableList<int> { 1, 2, 3 });
+
+            Assert.AreEqual(1, list[1]);
+            Assert.AreEqual(4, list.Count);
+
+        }
+
+        [Test]
+        public void InsertRangeWithIEnumerableCollection()
+        {
+
+            var list = new ObservableList<int> { 0 };
+
+            Assert.AreEqual(1, list.Count);
+
+            list.InsertRange(1, new List<int> { 1, 2, 3 }.Where(t => t > 0));
+
+            Assert.AreEqual(1, list[1]);
+            Assert.AreEqual(4, list.Count);
+
+        }
+
+    }
+
     public class Pop : TestSetup
     {
 
