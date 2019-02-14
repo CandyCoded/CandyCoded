@@ -198,32 +198,20 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Inserts the items of a List into the ObservableList at the specified index.
+        /// Inserts the items of an IEnumerable collection into the ObservableList at the specified index.
         /// </summary>
         /// <returns>void</returns>
-        public void InsertRange(int index, List<T> items)
+        public void InsertRange(int index, IEnumerable<T> items)
         {
 
-            for (var i = 0; i < items.Count; i += 1)
+            var i = 0;
+
+            foreach (var item in items)
             {
 
-                Insert(i + index, items[i]);
+                Insert(i + index, item);
 
-            }
-
-        }
-
-        /// <summary>
-        /// Inserts the items of an ObservableList into the ObservableList at the specified index.
-        /// </summary>
-        /// <returns>void</returns>
-        public void InsertRange(int index, ObservableList<T> items)
-        {
-
-            for (var i = 0; i < items.Count; i += 1)
-            {
-
-                Insert(i + index, items[i]);
+                i = i + 1;
 
             }
 
