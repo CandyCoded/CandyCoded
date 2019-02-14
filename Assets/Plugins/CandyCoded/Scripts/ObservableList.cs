@@ -94,40 +94,6 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Adds the items of a List to the end of the ObservableList.
-        /// </summary>
-        /// <param name="items">The collection whose items should be added to the end of the ObservableList.</param>
-        /// <returns>void</returns>
-        public void AddRange(List<T> items)
-        {
-
-            for (var i = 0; i < items.Count; i += 1)
-            {
-
-                Add(items[i]);
-
-            }
-
-        }
-
-        /// <summary>
-        /// Adds the items of an ObservableList to the end of the ObservableList.
-        /// </summary>
-        /// <param name="items">The collection whose items should be added to the end of the ObservableList.</param>
-        /// <returns>void</returns>
-        public void AddRange(ObservableList<T> items)
-        {
-
-            for (var i = 0; i < items.Count; i += 1)
-            {
-
-                Add(items[i]);
-
-            }
-
-        }
-
-        /// <summary>
         /// Adds the items of an IEnumerable collection to the end of the ObservableList.
         /// </summary>
         /// <param name="items">The collection whose items should be added to the end of the ObservableList.</param>
