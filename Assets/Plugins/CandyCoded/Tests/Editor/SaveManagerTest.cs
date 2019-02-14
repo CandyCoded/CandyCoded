@@ -5,11 +5,21 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEditor;
 using CandyCoded;
 using CandyCoded.Experimental;
 
 public class SaveManagerTest : TestSetup
 {
+
+    [SetUp]
+    public static void DeleteFiles()
+    {
+
+        FileUtil.DeleteFileOrDirectory(Application.persistentDataPath + Path.DirectorySeparatorChar + "List.dat");
+        FileUtil.DeleteFileOrDirectory(Application.persistentDataPath + Path.DirectorySeparatorChar + "ObservableList.dat");
+
+    }
 
     [Test]
     public void SaveAndLoadList()
