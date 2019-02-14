@@ -4,6 +4,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.TestTools;
 using CandyCoded;
 
@@ -201,6 +202,20 @@ public class ObservableListTest
             Assert.AreEqual(0, list.Count);
 
             list.AddRange(new ObservableList<int> { 1, 2, 3 });
+
+            Assert.AreEqual(3, list.Count);
+
+        }
+
+        [Test]
+        public void AddRangeWithIEnumerableCollection()
+        {
+
+            var list = new ObservableList<int>();
+
+            Assert.AreEqual(0, list.Count);
+
+            list.AddRange(new List<int> { 1, 2, 3 }.Where(t => t > 0));
 
             Assert.AreEqual(3, list.Count);
 

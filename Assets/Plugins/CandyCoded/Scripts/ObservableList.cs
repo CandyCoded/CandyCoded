@@ -130,6 +130,23 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Adds the items of an IEnumerable collection to the end of the ObservableList.
+        /// </summary>
+        /// <param name="items">The collection whose items should be added to the end of the ObservableList.</param>
+        /// <returns>void</returns>
+        public void AddRange(IEnumerable<T> items)
+        {
+
+            foreach (var item in items)
+            {
+
+                Add(item);
+
+            }
+
+        }
+
+        /// <summary>
         /// Removes all items from the ObservableList.
         /// </summary>
         /// <returns>void</returns>
