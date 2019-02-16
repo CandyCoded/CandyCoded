@@ -240,6 +240,37 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Returns the active touch based on a unique finger ID.
+        /// </summary>
+        /// <param name="fingerId">The stored unique finger ID of the touch event.</param>
+        /// <returns>Touch</returns>
+        public static Touch? GetActiveTouch(int fingerId)
+        {
+
+            if (TouchActive)
+            {
+
+                for (var i = 0; i < Input.touchCount; i += 1)
+                {
+
+                    var touch = Input.GetTouch(i);
+
+                    if (touch.fingerId.Equals(fingerId))
+                    {
+
+                        return touch;
+
+                    }
+
+                }
+
+            }
+
+            return null;
+
+        }
+
+        /// <summary>
         /// Returns the active touch based a TouchPhase enum filter.
         /// </summary>
         /// <param name="touchPhasesFilter">TouchPhase enums to filter with.</param>
