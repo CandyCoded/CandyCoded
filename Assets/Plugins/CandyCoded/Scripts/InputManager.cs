@@ -285,14 +285,24 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            var touch = GetActiveTouch(TouchPhase.Began);
-
-            if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
+            if (TouchActive)
             {
 
-                currentFingerId = touch.Value.fingerId;
+                for (var i = 0; i < Input.touchCount; i += 1)
+                {
 
-                return true;
+                    var touch = Input.GetTouch(i);
+
+                    if (touch.phase.Equals(TouchPhase.Began) && RaycastToGameObject(gameObject, mainCamera, touch.position, out hit))
+                    {
+
+                        currentFingerId = touch.fingerId;
+
+                        return true;
+
+                    }
+
+                }
 
             }
 
@@ -315,14 +325,24 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            var touch = GetActiveTouch(TouchPhase.Began);
-
-            if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
+            if (TouchActive)
             {
 
-                currentFingerId = touch.Value.fingerId;
+                for (var i = 0; i < Input.touchCount; i += 1)
+                {
 
-                return true;
+                    var touch = Input.GetTouch(i);
+
+                    if (touch.phase.Equals(TouchPhase.Began) && RaycastToGameObject(gameObject, mainCamera, touch.position, out hit))
+                    {
+
+                        currentFingerId = touch.fingerId;
+
+                        return true;
+
+                    }
+
+                }
 
             }
 
