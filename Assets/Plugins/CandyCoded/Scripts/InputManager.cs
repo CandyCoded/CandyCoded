@@ -271,37 +271,6 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns the active touch based a TouchPhase enum filter.
-        /// </summary>
-        /// <param name="touchPhasesFilter">TouchPhase enums to filter with.</param>
-        /// <returns>Touch</returns>
-        public static Touch? GetActiveTouch(params TouchPhase[] touchPhasesFilter)
-        {
-
-            if (TouchActive)
-            {
-
-                for (var i = 0; i < Input.touchCount; i += 1)
-                {
-
-                    var touch = Input.GetTouch(i);
-
-                    if (touchPhasesFilter.Contains(touch.phase))
-                    {
-
-                        return touch;
-
-                    }
-
-                }
-
-            }
-
-            return null;
-
-        }
-
-        /// <summary>
         /// Returns true if the user has touched the screen over a specific GameObject.
         /// </summary>
         /// <param name="gameObject">GameObject to test.</param>

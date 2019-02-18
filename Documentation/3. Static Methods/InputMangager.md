@@ -73,17 +73,6 @@ Debug.Log(InputManager.GetMousePosition());
 Returns the active touch based on a unique finger ID and a TouchPhase enum filter.
 
 ```csharp
-var touch = InputManager.GetActiveTouch(TouchPhase.Began);
-
-if (touch.HasValue)
-{
-
-    Debug.Log(touch.Value.fingerId);
-
-}
-```
-
-```csharp
 var touch = InputManager.GetActiveTouch(fingerId);
 
 if (touch.HasValue)
