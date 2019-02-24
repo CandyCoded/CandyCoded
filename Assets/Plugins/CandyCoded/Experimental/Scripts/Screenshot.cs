@@ -13,7 +13,7 @@ namespace CandyCoded.Experimental
 
         private static readonly DateTime epoch = new DateTime(1970, 1, 1);
 
-        private static int GetTimeStamp()
+        private static int GetTimestamp()
         {
 
             return (int)(DateTime.UtcNow - epoch).TotalSeconds;
@@ -44,7 +44,7 @@ namespace CandyCoded.Experimental
         public static void Save(int ratio)
         {
 
-            var filename = string.Format("{0}/{1}.png", Application.persistentDataPath, GetTimeStamp());
+            var filename = string.Format("{0}/{1}.png", Application.persistentDataPath, GetTimestamp());
 
             ScreenCapture.CaptureScreenshot(filename, ratio);
 
