@@ -44,7 +44,11 @@ namespace CandyCoded.Experimental
         public static void Save(int ratio)
         {
 
-            ScreenCapture.CaptureScreenshot(string.Format("{0}/{1}.png", Application.persistentDataPath, GetTimeStamp()), ratio);
+            var filename = string.Format("{0}/{1}.png", Application.persistentDataPath, GetTimeStamp());
+
+            ScreenCapture.CaptureScreenshot(filename, ratio);
+
+            Debug.Log(string.Format("Saved screenshot to {0}", filename));
 
         }
 
