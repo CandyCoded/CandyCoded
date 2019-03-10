@@ -70,6 +70,45 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Returns true if the user has either pressed the primary mouse button or touched the screen.
+        /// </summary>
+        /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
+        /// <returns>bool</returns>
+        public static bool GetInputDown(out int currentFingerId)
+        {
+
+            currentFingerId = 0;
+
+            if (TouchActive)
+            {
+
+                return GetTouchDown(out currentFingerId);
+
+            }
+
+            return GetMouseButtonDown();
+
+        }
+
+        /// <summary>
+        /// Returns true if the user has either pressed the primary mouse button or touched the screen.
+        /// </summary>
+        /// <returns>bool</returns>
+        public static bool GetInputDown()
+        {
+
+            if (TouchActive)
+            {
+
+                return GetTouchDown();
+
+            }
+
+            return GetMouseButtonDown();
+
+        }
+
+        /// <summary>
         /// Returns the position of either the mouse or a specific touch.
         /// </summary>
         /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
@@ -133,6 +172,64 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Returns true if the user has either released the primary mouse button or ended a touch on the screen.
+        /// </summary>
+        /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
+        /// <returns>bool</returns>
+        public static bool GetInputUp(int currentFingerId)
+        {
+
+            if (TouchActive)
+            {
+
+                return GetTouchUp(currentFingerId);
+
+            }
+
+            return GetMouseButtonUp();
+
+        }
+
+        /// <summary>
+        /// Returns true if the user has either released the primary mouse button or ended a touch on the screen.
+        /// </summary>
+        /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
+        /// <returns>bool</returns>
+        public static bool GetInputUp(out int currentFingerId)
+        {
+
+            currentFingerId = 0;
+
+            if (TouchActive)
+            {
+
+                return GetTouchUp(out currentFingerId);
+
+            }
+
+            return GetMouseButtonUp();
+
+        }
+
+        /// <summary>
+        /// Returns true if the user has either released the primary mouse button or ended a touch on the screen.
+        /// </summary>
+        /// <returns>bool</returns>
+        public static bool GetInputUp()
+        {
+
+            if (TouchActive)
+            {
+
+                return GetTouchUp();
+
+            }
+
+            return GetMouseButtonUp();
+
+        }
+
+        /// <summary>
         /// Returns true if the user has pressed the primary mouse button over a specific GameObject.
         /// </summary>
         /// <param name="gameObject">GameObject to test.</param>
@@ -161,6 +258,17 @@ namespace CandyCoded
             hit = new RaycastHit2D();
 
             return Input.GetMouseButtonDown(0) && RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
+
+        }
+
+        /// <summary>
+        /// Returns true if the user has pressed the primary mouse button.
+        /// </summary>
+        /// <returns>bool</returns>
+        public static bool GetMouseButtonDown()
+        {
+
+            return Input.GetMouseButtonDown(0);
 
         }
 
@@ -197,6 +305,17 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Returns true if the user has released the primary mouse button.
+        /// </summary>
+        /// <returns>bool</returns>
+        public static bool GetMouseButtonUp()
+        {
+
+            return Input.GetMouseButtonUp(0);
+
+        }
+
+        /// <summary>
         /// Returns the position of the mouse.
         /// </summary>
         /// <returns>Vector3</returns>
@@ -223,6 +342,35 @@ namespace CandyCoded
                 {
 
                     if (touch.fingerId.Equals(fingerId) && touchPhasesFilter.Contains(touch.phase))
+                    {
+
+                        return touch;
+
+                    }
+
+                }
+
+            }
+
+            return null;
+
+        }
+
+        /// <summary>
+        /// Returns the active touch based on a TouchPhase enum filter.
+        /// </summary>
+        /// <param name="touchPhasesFilter">TouchPhase enums to filter with.</param>
+        /// <returns>Touch</returns>
+        public static Touch? GetActiveTouch(params TouchPhase[] touchPhasesFilter)
+        {
+
+            if (TouchActive)
+            {
+
+                foreach (var touch in Input.touches)
+                {
+
+                    if (touchPhasesFilter.Contains(touch.phase))
                     {
 
                         return touch;
@@ -343,6 +491,51 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Returns true if the user has touched the screen.
+        /// </summary>
+        /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
+        /// <returns>bool</returns>
+        public static bool GetTouchDown(out int currentFingerId)
+        {
+
+            currentFingerId = 0;
+
+            var touch = GetActiveTouch(TouchPhase.Began);
+
+            if (touch.HasValue)
+            {
+
+                currentFingerId = touch.Value.fingerId;
+
+                return true;
+
+            }
+
+            return false;
+
+        }
+
+        /// <summary>
+        /// Returns true if the user has touched the screen.
+        /// </summary>
+        /// <returns>bool</returns>
+        public static bool GetTouchDown()
+        {
+
+            var touch = GetActiveTouch(TouchPhase.Began);
+
+            if (touch.HasValue)
+            {
+
+                return true;
+
+            }
+
+            return false;
+
+        }
+
+        /// <summary>
         /// Returns the position of a specific touch.
         /// </summary>
         /// <param name="currentFingerId">The stored unique finger ID of the touch.</param>
@@ -405,6 +598,72 @@ namespace CandyCoded
             var touch = GetActiveTouch(currentFingerId, TouchPhase.Ended, TouchPhase.Canceled);
 
             if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
+            {
+
+                return true;
+
+            }
+
+            return false;
+
+        }
+
+        /// <summary>
+        /// Returns true if the user has ended a touch on the screen.
+        /// </summary>
+        /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
+        /// <returns>bool</returns>
+        public static bool GetTouchUp(int currentFingerId)
+        {
+
+            var touch = GetActiveTouch(currentFingerId, TouchPhase.Ended, TouchPhase.Canceled);
+
+            if (touch.HasValue)
+            {
+
+                return true;
+
+            }
+
+            return false;
+
+        }
+
+        /// <summary>
+        /// Returns true if the user has ended a touch on the screen.
+        /// </summary>
+        /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
+        /// <returns>bool</returns>
+        public static bool GetTouchUp(out int currentFingerId)
+        {
+
+            currentFingerId = 0;
+
+            var touch = GetActiveTouch(TouchPhase.Ended, TouchPhase.Canceled);
+
+            if (touch.HasValue)
+            {
+
+                currentFingerId = touch.Value.fingerId;
+
+                return true;
+
+            }
+
+            return false;
+
+        }
+
+        /// <summary>
+        /// Returns true if the user has ended a touch on the screen.
+        /// </summary>
+        /// <returns>bool</returns>
+        public static bool GetTouchUp()
+        {
+
+            var touch = GetActiveTouch(TouchPhase.Ended, TouchPhase.Canceled);
+
+            if (touch.HasValue)
             {
 
                 return true;
