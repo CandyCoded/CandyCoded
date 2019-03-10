@@ -13,6 +13,26 @@ if (InputManager.GetInputDown(gameObject, mainCamera, out currentFingerId, out R
 }
 ```
 
+Returns true if the user has either pressed the primary mouse button or touched the screen.
+
+```csharp
+if (InputManager.GetInputDown(out currentFingerId))
+{
+
+    Debug.Log("Input down");
+
+}
+```
+
+```csharp
+if (InputManager.GetInputDown())
+{
+
+    Debug.Log("Input down");
+
+}
+```
+
 #### GetInputPosition
 
 Returns the position of either the mouse or a specific touch.
@@ -34,6 +54,35 @@ if (InputManager.GetInputUp(gameObject, mainCamera, currentFingerId, out Raycast
 }
 ```
 
+Returns true if the user has either released the primary mouse button or ended a touch on the screen.
+
+```csharp
+if (InputManager.GetInputUp(currentFingerId))
+{
+
+    Debug.Log("Input up");
+
+}
+```
+
+```csharp
+if (InputManager.GetInputUp(out currentFingerId))
+{
+
+    Debug.Log("Input up");
+
+}
+```
+
+```csharp
+if (InputManager.GetInputUp())
+{
+
+    Debug.Log("Input up");
+
+}
+```
+
 #### GetMouseButtonDown
 
 Returns true if the user has pressed the primary mouse button over a specific GameObject.
@@ -47,6 +96,17 @@ if (InputManager.GetMouseButtonDown(gameObject, mainCamera, out RaycastHit2D hit
 }
 ```
 
+Returns true if the user has pressed the primary mouse button.
+
+```csharp
+if (InputManager.GetMouseButtonDown())
+{
+
+    Debug.Log("Mouse button down");
+
+}
+```
+
 #### GetMouseButtonUp
 
 Returns true if the user has released the primary mouse button over a specific GameObject.
@@ -56,6 +116,17 @@ if (InputManager.GetMouseButtonUp(gameObject, mainCamera, out RaycastHit2D hit))
 {
 
     Debug.Log(gameObject.name);
+
+}
+```
+
+Returns true if the user has released the primary mouse button.
+
+```csharp
+if (InputManager.GetMouseButtonUp())
+{
+
+    Debug.Log("Mouse button up");
 
 }
 ```
@@ -94,6 +165,17 @@ if (touch.HasValue)
 }
 ```
 
+```csharp
+var touch = InputManager.GetActiveTouch(TouchPhase.Began);
+
+if (touch.HasValue)
+{
+
+    Debug.Log(touch.Value.position);
+
+}
+```
+
 #### GetTouchDown
 
 Returns true if the user has touched the screen over a specific GameObject.
@@ -103,6 +185,26 @@ if (InputManager.GetTouchDown(gameObject, mainCamera, out currentFingerId, out R
 {
 
     Debug.Log(gameObject.name);
+
+}
+```
+
+Returns true if the user has touched the screen.
+
+```csharp
+if (InputManager.GetTouchDown(out currentFingerId))
+{
+
+    Debug.Log("Touch down");
+
+}
+```
+
+```csharp
+if (InputManager.GetTouchDown())
+{
+
+    Debug.Log("Touch down");
 
 }
 ```
@@ -124,6 +226,35 @@ if (InputManager.GetTouchUp(gameObject, mainCamera, currentFingerId, out Raycast
 {
 
     Debug.Log(gameObject.name);
+
+}
+```
+
+Returns true if the user has ended a touch on the screen.
+
+```csharp
+if (InputManager.GetTouchUp(currentFingerId))
+{
+
+    Debug.Log("Touch up");
+
+}
+```
+
+```csharp
+if (InputManager.GetTouchUp(out currentFingerId))
+{
+
+    Debug.Log("Touch up");
+
+}
+```
+
+```csharp
+if (InputManager.GetTouchUp())
+{
+
+    Debug.Log("Touch up");
 
 }
 ```
