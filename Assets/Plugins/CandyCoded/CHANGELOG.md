@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.1.6] - 2019-03-10
+
+### Bug Fixes
+
+-   Fixed issue where InputManager.GetTouchDown would only work with one target at time. <https://github.com/CandyCoded/CandyCoded/pull/86>
+
+### Features
+
+-   Added new overload for AddRange that takes IEnumerable collections. <https://github.com/CandyCoded/CandyCoded/pull/82>
+-   Changed InsertRange to take an IEnumerable collection. <https://github.com/CandyCoded/CandyCoded/pull/83>
+-   Added new overload for GetActiveTouch that takes only fingerId. <https://github.com/CandyCoded/CandyCoded/pull/84>
+-   New experimental feature SaveManager <https://github.com/CandyCoded/CandyCoded/pull/81>
+-   Added Screenshot class. <https://github.com/CandyCoded/CandyCoded/pull/87>
+-   Added InputManager methods that don't require a GameObject. <https://github.com/CandyCoded/CandyCoded/pull/89>
+
+### Maintenance
+
+-   Moved ScriptableObjects folder into Scripts folder.
+-   Switched to using Input.touches rather than Input.GetTouch. <https://github.com/CandyCoded/CandyCoded/pull/88>
+
 ## [1.1.5] - 2019-02-10
 
 ### Bug Fixes
