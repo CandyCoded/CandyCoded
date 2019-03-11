@@ -183,7 +183,7 @@ namespace CandyCoded
         public static bool IsLooping(this AnimationCurve animationCurve)
         {
 
-            return animationCurve != null && (animationCurve.postWrapMode == WrapMode.Loop || animationCurve.postWrapMode == WrapMode.PingPong);
+            return animationCurve != null && (animationCurve.postWrapMode.Equals(WrapMode.Loop) || animationCurve.postWrapMode.Equals(WrapMode.PingPong));
 
         }
 
