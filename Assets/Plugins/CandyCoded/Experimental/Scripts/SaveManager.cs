@@ -17,7 +17,7 @@ namespace CandyCoded.Experimental
             if (relative)
             {
 
-                path = string.Format("{0}{1}{2}", Application.persistentDataPath, Path.DirectorySeparatorChar, filePath);
+                path = string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, filePath);
 
             }
 
@@ -66,7 +66,7 @@ namespace CandyCoded.Experimental
             if (relative)
             {
 
-                path = string.Format("{0}{1}{2}", Application.persistentDataPath, Path.DirectorySeparatorChar, filePath);
+                path = string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, filePath);
 
             }
 
