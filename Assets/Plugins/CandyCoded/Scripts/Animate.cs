@@ -146,7 +146,7 @@ namespace CandyCoded
 
             var currentPosition = gameObject.transform.localPosition;
 
-            if (relativeTo == Space.World)
+            if (relativeTo.Equals(Space.World))
             {
 
                 currentPosition = gameObject.transform.position;
@@ -157,7 +157,7 @@ namespace CandyCoded
             animationCurve.y = AnimationCurve.EaseInOut(0, currentPosition.y, duration, newPosition.y);
             animationCurve.z = AnimationCurve.EaseInOut(0, currentPosition.z, duration, newPosition.z);
 
-            if (relativeTo == Space.World)
+            if (relativeTo.Equals(Space.World))
             {
 
                 return Position(gameObject, animationCurve);
