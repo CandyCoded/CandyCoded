@@ -9,10 +9,19 @@ namespace CandyCoded.Experimental
     public static class SaveManager
     {
 
-        public static void SaveData<T>(T obj, string filePath)
+        public static void SaveData<T>(T obj, string filePath, bool relative)
         {
 
-            using (var fs = File.Create(filePath))
+            var path = filePath;
+
+            if (relative)
+            {
+
+                path = string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, filePath);
+
+            }
+
+            using(var fs = File.Create(path))
             {
 
                 try
@@ -42,10 +51,26 @@ namespace CandyCoded.Experimental
 
         }
 
-        public static T LoadData<T>(string filePath)
+        public static void SaveData<T>(T obj, string relativeFilePath)
         {
 
-            using (var fs = File.OpenRead(filePath))
+            SaveData(obj, relativeFilePath, true);
+
+        }
+
+        public static T LoadData<T>(string filePath, bool relative)
+        {
+
+            var path = filePath;
+
+            if (relative)
+            {
+
+                path = string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, filePath);
+
+            }
+
+            using(var fs = File.OpenRead(path))
             {
 
                 T data;
@@ -76,6 +101,13 @@ namespace CandyCoded.Experimental
                 return data;
 
             }
+
+        }
+
+        public static T LoadData<T>(string relativeFilePath)
+        {
+
+            return LoadData<T>(relativeFilePath, true);
 
         }
 
