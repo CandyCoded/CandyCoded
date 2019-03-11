@@ -55,6 +55,13 @@ List<float> list = new List<float>();
 List<float> shuffledList = list.Shuffle();
 ```
 
+Shuffle with a specific seed.
+
+```csharp
+List<float> list = new List<float>();
+List<float> shuffledList = list.Shuffle(10);
+```
+
 #### Slice
 
 Returns a shallow copy of a portion of a list.

@@ -222,6 +222,14 @@ ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
 ObservableList<int> shuffledList = numberRange.Shuffle();
 ```
 
+Shuffle with a specific seed.
+
+```csharp
+ObservableList<int> list = new ObservableList<int> { 1, 2, 3, 4, 5 };
+
+ObservableList<int> shuffledList = numberRange.Shuffle(10);
+```
+
 #### Slice
 
 Returns a shallow copy of a portion of an ObservableList.
