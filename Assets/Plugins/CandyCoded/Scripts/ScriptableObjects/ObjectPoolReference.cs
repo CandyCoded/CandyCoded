@@ -21,7 +21,7 @@ namespace CandyCoded
         private readonly List<GameObject> activeGameObjects = new List<GameObject>();
         private readonly Queue<GameObject> inactiveGameObjects = new Queue<GameObject>();
 
-        public void PopulatePool()
+        public void PopulatePool(Transform parentTransform)
         {
 
             if (!prefab)
@@ -34,13 +34,20 @@ namespace CandyCoded
             for (var i = 0; i < minObjects; i += 1)
             {
 
-                var gameObject = Instantiate(prefab);
+                var gameObject = Instantiate(prefab, parentTransform);
 
                 gameObject.SetActive(false);
 
                 inactiveGameObjects.Enqueue(gameObject);
 
             }
+
+        }
+
+        public void PopulatePool()
+        {
+
+            PopulatePool(null);
 
         }
 
