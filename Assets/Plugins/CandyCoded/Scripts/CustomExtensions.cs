@@ -10,7 +10,7 @@ namespace CandyCoded
     public static class CustomExtensions
     {
 
-        public static readonly float EPSILON = 0.01f;
+        private const float EPSILON = 0.01f;
 
         /// <summary>
         /// Returns a reference to an existing component or a new component if it didn't already exist.
