@@ -10,6 +10,8 @@ namespace CandyCoded
     public static class CustomExtensions
     {
 
+        public static readonly float EPSILON = 0.01f;
+
         /// <summary>
         /// Returns a reference to an existing component or a new component if it didn't already exist.
         /// </summary>
@@ -226,6 +228,35 @@ namespace CandyCoded
         {
 
             return (animationCurve != null && animationCurve.keys.Length > 0) ? animationCurve.keys[animationCurve.keys.Length - 1].time : 0;
+
+        }
+
+        /// <summary>
+        /// Returns true if the difference between num1 and num2 is less than the supplied epsilon.
+        /// </summary>
+        /// <param name="num1">The first number in the comparison.</param>
+        /// <param name="num2">The second number in the comparison.</param>
+        /// <param name="epsilon">The custom epsilon to compare with.</param>
+        /// <returns>bool</returns>
+        public static bool NearlyEqual(this float num1, float num2, float epsilon)
+        {
+
+            Debug.Log(Mathf.Abs(num1 - num2));
+
+            return Mathf.Abs(num1 - num2) < epsilon;
+
+        }
+
+        /// <summary>
+        /// Returns true if the difference between num1 and num2 is less than the default epsilon.
+        /// </summary>
+        /// <param name="num1">The first number in the comparison.</param>
+        /// <param name="num2">The second number in the comparison.</param>
+        /// <returns>bool</returns>
+        public static bool NearlyEqual(this float num1, float num2)
+        {
+
+            return NearlyEqual(num1, num2, EPSILON);
 
         }
 

@@ -81,6 +81,8 @@ CandyCoded is a collection of useful components and extensions for building in U
         -   [EditKeyframeValue](Documentation/2.%20Custom%20Extensions/AnimationCurve.md#editkeyframevalue)
         -   [IsLooping](Documentation/2.%20Custom%20Extensions/AnimationCurve.md#islooping)
         -   [MaxTime](Documentation/2.%20Custom%20Extensions/AnimationCurve.md#maxtime)
+    -   [Float](Documentation/2.%20Custom%20Extensions/Float.md)
+        -   [Contains](Documentation/2.%20Custom%20Extensions/Float.md#nearlyequal)
     -   [GameObject](Documentation/2.%20Custom%20Extensions/GameObject.md)
         -   [AddOrGetComponent](Documentation/2.%20Custom%20Extensions/GameObject.md#addorgetcomponent)
     -   [Int](Documentation/2.%20Custom%20Extensions/Int.md)

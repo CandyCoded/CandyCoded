@@ -236,6 +236,32 @@ public class CustomExtensionsTest : TestSetup
 
     }
 
+    public class NearlyEqual : TestSetup
+    {
+
+        [Test]
+        public void ComparisonWithoutCustomEpsilon()
+        {
+
+            float positionX = 0.1001f;
+
+            Assert.IsTrue(positionX.NearlyEqual(0.1f));
+
+        }
+
+        [Test]
+        public void ComparisonWithCustomEpsilon()
+        {
+
+            float positionX = 0.1001f;
+            float customEpsilon = 0.01f;
+
+            Assert.IsTrue(positionX.NearlyEqual(0.1f, customEpsilon));
+
+        }
+
+    }
+
     public class Permutations : TestSetup
     {
 
