@@ -241,8 +241,6 @@ namespace CandyCoded
         public static bool NearlyEqual(this float num1, float num2, float epsilon)
         {
 
-            Debug.Log(Mathf.Abs(num1 - num2));
-
             return Mathf.Abs(num1 - num2) < epsilon;
 
         }
