@@ -687,7 +687,7 @@ namespace CandyCoded
 
             var ray = mainCamera.ScreenPointToRay(position);
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, gameObject.GetLayerMask()) && hit.transform.gameObject.Equals(gameObject))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, gameObject.GetLayerMask()) && hit.transform.IsChildOf(gameObject.transform))
             {
 
                 return true;
@@ -713,7 +713,7 @@ namespace CandyCoded
 
             hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, gameObject.GetLayerMask());
 
-            if (hit && hit.transform.gameObject.Equals(gameObject))
+            if (hit && hit.transform.IsChildOf(gameObject.transform))
             {
 
                 return true;
