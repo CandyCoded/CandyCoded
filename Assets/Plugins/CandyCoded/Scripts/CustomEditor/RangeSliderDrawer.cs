@@ -28,13 +28,13 @@ namespace CandyCoded
 
         public float minLimit;
         public float maxLimit;
-        public float stepLimit;
+        public float stepIncrement;
 
         public RangeSliderAttribute(float min = 0, float max = 1, float step = 0.1f)
         {
             minLimit = min;
             maxLimit = max;
-            stepLimit = step;
+            stepIncrement = step;
         }
 
     }
@@ -56,8 +56,8 @@ namespace CandyCoded
 
             EditorGUI.MinMaxSlider(position, label, ref minValue, ref maxValue, limits.minLimit, limits.maxLimit);
 
-            minValue = Mathf.Round(minValue / limits.stepLimit) * limits.stepLimit;
-            maxValue = Mathf.Round(maxValue / limits.stepLimit) * limits.stepLimit;
+            minValue = Mathf.Round(minValue / limits.stepIncrement) * limits.stepIncrement;
+            maxValue = Mathf.Round(maxValue / limits.stepIncrement) * limits.stepIncrement;
 
             property.FindPropertyRelative("min").floatValue = minValue;
             property.FindPropertyRelative("max").floatValue = maxValue;
