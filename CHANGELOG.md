@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.7] - 2019-04-09
+
+### Features
+
+- Added persistentDataPath as a default prefix for relative paths. <https://github.com/CandyCoded/CandyCoded/pull/90>
+- Switched to using Equals when comparing enums. <https://github.com/CandyCoded/CandyCoded/pull/91>
+- Added optional parentTransform to object pool. <https://github.com/CandyCoded/CandyCoded/pull/92>
+- Added NearlyEqual method. <https://github.com/CandyCoded/CandyCoded/pull/93>
+- Updated InputManager to support clicking on child colliders. <https://github.com/CandyCoded/CandyCoded/pull/94>
+
 ## [1.1.6] - 2019-03-10
 
 ### Bug Fixes
