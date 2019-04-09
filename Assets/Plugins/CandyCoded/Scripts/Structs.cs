@@ -10,16 +10,26 @@ namespace CandyCoded
 {
 
     [Serializable]
-    public struct RangedFloat
+    public struct RangedFloat : IEquatable<RangedFloat>
     {
+
         public float min;
         public float max;
+
         public float Random()
         {
 
             return UnityEngine.Random.Range(min, max);
 
         }
+
+        public bool Equals(RangedFloat other)
+        {
+
+            return other.min.NearlyEqual(min) && other.max.NearlyEqual(max);
+
+        }
+
     }
 
     [Serializable]
