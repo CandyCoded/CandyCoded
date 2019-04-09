@@ -1,4 +1,3 @@
-using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -6,19 +5,6 @@ using UnityEngine;
 
 namespace CandyCoded
 {
-
-    [Serializable]
-    public struct RangedFloat
-    {
-        public float min;
-        public float max;
-        public float Random()
-        {
-
-            return UnityEngine.Random.Range(min, max);
-
-        }
-    }
 
 #if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(RangedFloat))]

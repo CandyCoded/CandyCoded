@@ -10,6 +10,19 @@ namespace CandyCoded
 {
 
     [Serializable]
+    public struct RangedFloat
+    {
+        public float min;
+        public float max;
+        public float Random()
+        {
+
+            return UnityEngine.Random.Range(min, max);
+
+        }
+    }
+
+    [Serializable]
     public struct Vector2AnimationCurve : IEquatable<Vector2AnimationCurve>
     {
 
