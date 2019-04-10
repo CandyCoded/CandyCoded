@@ -12,9 +12,9 @@ namespace CandyCoded
     public class RangedStepSliderAttribute : PropertyAttribute
     {
 
-        public float minLimit;
-        public float maxLimit;
-        public float stepIncrement;
+        public float minLimit { get; private set; }
+        public float maxLimit { get; private set; }
+        public float stepIncrement { get; private set; }
 
         public RangedStepSliderAttribute(float min, float max, float step)
         {

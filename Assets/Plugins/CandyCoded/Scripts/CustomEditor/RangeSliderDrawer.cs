@@ -12,8 +12,8 @@ namespace CandyCoded
     public class RangeSliderAttribute : PropertyAttribute
     {
 
-        public float minLimit;
-        public float maxLimit;
+        public float minLimit { get; private set; }
+        public float maxLimit { get; private set; }
 
         public RangeSliderAttribute(float min, float max)
         {
