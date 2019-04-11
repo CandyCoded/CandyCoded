@@ -12,15 +12,15 @@ namespace CandyCoded
     public class RangedStepSliderAttribute : PropertyAttribute
     {
 
-        public float minLimit { get; private set; }
-        public float maxLimit { get; private set; }
-        public float stepIncrement { get; private set; }
+        public float MinLimit { get; private set; }
+        public float MaxLimit { get; private set; }
+        public float StepIncrement { get; private set; }
 
         public RangedStepSliderAttribute(float min, float max, float step)
         {
-            minLimit = min;
-            maxLimit = max;
-            stepIncrement = step;
+            MinLimit = min;
+            MaxLimit = max;
+            StepIncrement = step;
         }
 
     }
@@ -40,10 +40,10 @@ namespace CandyCoded
 
             label.tooltip = string.Format("[{0}, {1}]", minValue, maxValue);
 
-            EditorGUI.MinMaxSlider(position, label, ref minValue, ref maxValue, limits.minLimit, limits.maxLimit);
+            EditorGUI.MinMaxSlider(position, label, ref minValue, ref maxValue, limits.MinLimit, limits.MaxLimit);
 
-            minValue = Mathf.Round(minValue / limits.stepIncrement) * limits.stepIncrement;
-            maxValue = Mathf.Round(maxValue / limits.stepIncrement) * limits.stepIncrement;
+            minValue = Mathf.Round(minValue / limits.StepIncrement) * limits.StepIncrement;
+            maxValue = Mathf.Round(maxValue / limits.StepIncrement) * limits.StepIncrement;
 
             property.FindPropertyRelative("min").floatValue = minValue;
             property.FindPropertyRelative("max").floatValue = maxValue;

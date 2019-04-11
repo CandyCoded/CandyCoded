@@ -12,13 +12,13 @@ namespace CandyCoded
     public class RangeSliderAttribute : PropertyAttribute
     {
 
-        public float minLimit { get; private set; }
-        public float maxLimit { get; private set; }
+        public float MinLimit { get; private set; }
+        public float MaxLimit { get; private set; }
 
         public RangeSliderAttribute(float min, float max)
         {
-            minLimit = min;
-            maxLimit = max;
+            MinLimit = min;
+            MaxLimit = max;
         }
 
     }
@@ -38,7 +38,7 @@ namespace CandyCoded
 
             label.tooltip = string.Format("[{0}, {1}]", minValue, maxValue);
 
-            EditorGUI.MinMaxSlider(position, label, ref minValue, ref maxValue, limits.minLimit, limits.maxLimit);
+            EditorGUI.MinMaxSlider(position, label, ref minValue, ref maxValue, limits.MinLimit, limits.MaxLimit);
 
             property.FindPropertyRelative("min").floatValue = minValue;
             property.FindPropertyRelative("max").floatValue = maxValue;
