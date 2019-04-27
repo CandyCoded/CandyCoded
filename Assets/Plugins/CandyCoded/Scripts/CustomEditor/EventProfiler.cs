@@ -19,22 +19,28 @@ namespace CandyCoded
         {
 
             public MethodInfo methodInfo;
+
             public GameObject gameObject;
-            public string label => string.Format("{0} > {1}.{2}", gameObject.name, methodInfo.ReflectedType.Name, methodInfo.Name);
+
+            public string label => $"{gameObject.name} > {methodInfo?.ReflectedType?.Name}.{methodInfo?.Name}";
 
         }
 
-        private readonly string eventListHeaderTemplate = "Event Listeners for {0} ({1})";
-        private readonly string eventListItemTemplate = "{0}. {1}";
-        private readonly string eventListNoItemsTemplate = "No methods have subscribed to this event.";
-        private readonly string noContentTemplate = "Select a GameObject with scripts that contain events.";
+        private const string eventListHeaderTemplate = "Event Listeners for {0} ({1})";
 
-        private readonly int spaceBeforeEventListHeight = 10;
-        private readonly int spaceAfterEventListHeight = 10;
+        private const string eventListItemTemplate = "{0}. {1}";
 
-        private readonly BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+        private const string eventListNoItemsTemplate = "No methods have subscribed to this event.";
 
-        private Dictionary<string, Vector2> scrollPositions = new Dictionary<string, Vector2>();
+        private const string noContentTemplate = "Select a GameObject with scripts that contain events.";
+
+        private const int spaceBeforeEventListHeight = 10;
+
+        private const int spaceAfterEventListHeight = 10;
+
+        private const BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+
+        private readonly Dictionary<string, Vector2> scrollPositions = new Dictionary<string, Vector2>();
 
         private Texture2D prefabIcon;
 
@@ -63,12 +69,13 @@ namespace CandyCoded
         }
 
 #pragma warning disable S100
+
         // Disables "Methods and properties should be named in camel case" warning as those methods are defined by Unity.
 
         private void OnGUI()
         {
 
-            bool eventsFound = false;
+            var eventsFound = false;
 
             if (currentActiveGameObject)
             {
@@ -86,7 +93,7 @@ namespace CandyCoded
                         foreach (var ev in events)
                         {
 
-                            var methods = GetSubscribedMethodsToEvent((MulticastDelegate)script.GetType().GetField(ev.Name, bindingFlags).GetValue(script));
+                            var methods = GetSubscribedMethodsToEvent((MulticastDelegate)script.GetType().GetField(ev.Name, bindingFlags)?.GetValue(script));
 
                             DrawEvents(ev, methods);
 
@@ -182,11 +189,7 @@ namespace CandyCoded
             if (multicastDelegate != null)
             {
 
-                return multicastDelegate.GetInvocationList().Select(i => new ExtendedMethodInfo
-                {
-                    gameObject = ((MonoBehaviour)i.Target).gameObject,
-                    methodInfo = i.Method
-                }).ToList();
+                return multicastDelegate.GetInvocationList().Select(i => new ExtendedMethodInfo { gameObject = ((MonoBehaviour)i.Target).gameObject, methodInfo = i.Method }).ToList();
 
             }
 
@@ -197,9 +200,11 @@ namespace CandyCoded
 #pragma warning restore S100
 
 #pragma warning disable S1144
+
         // Disables "Unused private types or members should be removed" warning as those methods are defined by Unity.
 
 #pragma warning disable S2325
+
         // Disables "Methods and properties that don't access instance data should be static" warning as those methods are defined by Unity.
 
         private void HandleSelectionChanged()

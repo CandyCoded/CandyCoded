@@ -13,13 +13,7 @@ namespace CandyCoded
         /// Returns true if touch is enabled on the device and there is at least one touch event active.
         /// </summary>
         /// <returns>bool</returns>
-        public static bool TouchActive
-        {
-            get
-            {
-                return Input.touchSupported && Input.touchCount > 0;
-            }
-        }
+        public static bool TouchActive => Input.touchSupported && Input.touchCount > 0;
 
         /// <summary>
         /// Returns true if the user has either pressed the primary mouse button or touched the screen over a specific GameObject.
@@ -545,14 +539,7 @@ namespace CandyCoded
 
             var touch = GetActiveTouch(currentFingerId);
 
-            if (touch.HasValue)
-            {
-
-                return touch.Value.position;
-
-            }
-
-            return null;
+            return touch?.position;
 
         }
 

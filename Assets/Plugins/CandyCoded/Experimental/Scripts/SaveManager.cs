@@ -1,3 +1,5 @@
+// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -21,7 +23,7 @@ namespace CandyCoded.Experimental
 
             }
 
-            using(var fs = File.Create(path))
+            using (var fs = File.Create(path))
             {
 
                 try
@@ -70,7 +72,7 @@ namespace CandyCoded.Experimental
 
             }
 
-            using(var fs = File.OpenRead(path))
+            using (var fs = File.OpenRead(path))
             {
 
                 T data;

@@ -11,7 +11,7 @@ namespace CandyCoded
     public static class CreateAssetBundles
     {
 
-        private readonly static string assetBundleDirectory = "Assets/AssetBundles";
+        private const string assetBundleDirectory = "Assets/AssetBundles";
 
         [MenuItem("Assets/CandyCoded/Tools/Build AssetBundles")]
         private static void BuildAllAssetBundles()

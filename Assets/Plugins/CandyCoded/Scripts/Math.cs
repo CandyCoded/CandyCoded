@@ -18,18 +18,18 @@ namespace CandyCoded
         public static float Clerp(float start, float end, float value)
         {
 
-            float max = 360;
-            float half = max / 2;
-            float diff = end - start;
+            const float max = 360f;
+            const float half = max / 2;
+            var diff = end - start;
 
             if (diff < -half)
             {
-                return start + ((max - start) + end) * value;
+                return start + (max - start + end) * value;
             }
 
             if (diff > half)
             {
-                return start - ((max - end) + start) * value;
+                return start - (max - end + start) * value;
             }
 
             return start + (end - start) * value;

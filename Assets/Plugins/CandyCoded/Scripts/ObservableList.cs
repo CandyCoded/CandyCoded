@@ -13,11 +13,15 @@ namespace CandyCoded
     {
 
         public delegate void EventHandlerWithItem(T item);
+
         public delegate void EventHandlerWithItems(T[] items);
+
         public delegate void EventHandler();
 
         public event EventHandlerWithItem AddEvent;
+
         public event EventHandler ClearEvent;
+
         public event EventHandlerWithItem RemoveEvent;
 
         private readonly IList<T> _items;
@@ -26,19 +30,13 @@ namespace CandyCoded
         /// Gets the number of items contained in the ObservableList.
         /// </summary>
         /// <returns>int</returns>
-        public int Count
-        {
-            get { return _items.Count; }
-        }
+        public int Count => _items.Count;
 
         /// <summary>
         /// Gets a value indicating whether the ObservableList is read-only.
         /// </summary>
         /// <returns>bool</returns>
-        public bool IsReadOnly
-        {
-            get { return _items.IsReadOnly; }
-        }
+        public bool IsReadOnly => _items.IsReadOnly;
 
         public ObservableList()
         {
@@ -63,8 +61,8 @@ namespace CandyCoded
 
         public T this[int index]
         {
-            get { return _items[index]; }
-            set { _items[index] = value; }
+            get => _items[index];
+            set => _items[index] = value;
         }
 
         public IEnumerator<T> GetEnumerator()
@@ -318,7 +316,7 @@ namespace CandyCoded
         public ObservableList<T> Shuffle(int seed)
         {
 
-            var random = new System.Random(seed);
+            var random = new Random(seed);
 
             var shuffledList = new ObservableList<T>(_items.OrderBy(_ => random.Next()));
 
@@ -333,7 +331,7 @@ namespace CandyCoded
         public ObservableList<T> Shuffle()
         {
 
-            var random = new System.Random();
+            var random = new Random();
 
             var shuffledList = new ObservableList<T>(_items.OrderBy(_ => random.Next()));
 
