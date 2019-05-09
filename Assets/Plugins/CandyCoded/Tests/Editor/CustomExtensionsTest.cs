@@ -5,515 +5,545 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using CandyCoded;
 
-public class CustomExtensionsTest : TestSetup
+namespace CandyCoded.Tests
 {
 
-    public class AddOrGetComponent : TestSetup
+    public class CustomExtensionsTest : TestSetup
     {
 
-        [Test]
-        public void AddOrGetRigidbodyComponent()
+        public class AddOrGetComponent : TestSetup
         {
 
-            var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-
-            Assert.IsNull(cube.GetComponent<Rigidbody>());
-
-            var sampleController = cube.AddOrGetComponent<Rigidbody>();
-
-            Assert.IsNotNull(cube.GetComponent<Rigidbody>());
-
-            Assert.AreEqual(sampleController, cube.GetComponent<Rigidbody>());
-
-        }
-
-    }
-
-    public class Compare : TestSetup
-    {
-
-        [Test]
-        public void CompareTransformsParentToGameObject()
-        {
-
-            var parentGameObject = new GameObject("ParentGameObject");
-            var childGameObject = new GameObject("ChildGameObject");
-            childGameObject.transform.SetParent(parentGameObject.transform);
-
-            Assert.IsTrue(childGameObject.transform.parent.Compare(parentGameObject.transform));
-
-        }
-
-        [Test]
-        public void CompareTransformsNullParentToGameObject()
-        {
-
-            var parentGameObject = new GameObject("ParentGameObject");
-            var childGameObject = new GameObject("ChildGameObject");
-
-            Assert.IsFalse(childGameObject.transform.parent.Compare(parentGameObject.transform));
-
-        }
-
-        [Test]
-        public void CompareTransformsNullParentToGameObjectNullParent()
-        {
-
-            var parentGameObject = new GameObject("ParentGameObject");
-            var childGameObject = new GameObject("ChildGameObject");
-
-            Assert.IsTrue(childGameObject.transform.parent.Compare(parentGameObject.transform.parent));
-
-        }
-
-    }
-
-    public class Contains : TestSetup
-    {
-
-        [Test]
-        public void LayerMaskContains()
-        {
-
-            LayerMask layerMask = ~0;
-
-            Assert.IsTrue(layerMask.Contains(LayerMask.NameToLayer("Default")));
-            Assert.IsTrue(layerMask.Contains(1));
-            Assert.IsTrue(layerMask.Contains(0 | 1));
-
-            layerMask = 0;
-
-            Assert.IsFalse(layerMask.Contains(LayerMask.NameToLayer("UI")));
-            Assert.IsFalse(layerMask.Contains(1));
-            Assert.IsFalse(layerMask.Contains(0 | 1));
-
-        }
-
-        [Test]
-        public void BitwiseContains()
-        {
-
-            int bitwiseMask = 0 | 1;
-
-            Assert.IsTrue(bitwiseMask.Contains(1));
-            Assert.IsFalse(bitwiseMask.Contains(2));
-
-        }
-
-    }
-
-    public class EditKeyframeValue : TestSetup
-    {
-
-        [Test]
-        public void EditKeyframeValueAnimationCurve()
-        {
-
-            var animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
-
-            animationCurve.EditKeyframeValue(0, 10);
-
-            Assert.AreEqual(10, animationCurve.keys[0].value);
-
-        }
-
-        [Test]
-        public void EditKeyframeValueVector3AnimationCurve()
-        {
-
-            var animationCurve = new Vector3AnimationCurve
+            [Test]
+            public void AddOrGetRigidbodyComponent()
             {
-                x = AnimationCurve.Linear(0, 0, 1, 1),
-                y = AnimationCurve.Linear(0, 0, 1, 1),
-                z = AnimationCurve.Linear(0, 0, 1, 1)
-            };
 
-            animationCurve.EditKeyframeValue(0, new Vector3(10, 15, 20));
+                var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-            Assert.AreEqual(10, animationCurve.x.keys[0].value);
-            Assert.AreEqual(15, animationCurve.y.keys[0].value);
-            Assert.AreEqual(20, animationCurve.z.keys[0].value);
+                Assert.IsNull(cube.GetComponent<Rigidbody>());
 
-            Assert.AreEqual(1, animationCurve.x.keys[1].value);
-            Assert.AreEqual(1, animationCurve.y.keys[1].value);
-            Assert.AreEqual(1, animationCurve.z.keys[1].value);
+                var sampleController = cube.AddOrGetComponent<Rigidbody>();
 
-        }
+                Assert.IsNotNull(cube.GetComponent<Rigidbody>());
 
-        [Test]
-        public void EditKeyframeValueVector2AnimationCurve()
-        {
+                Assert.AreEqual(sampleController, cube.GetComponent<Rigidbody>());
 
-            var animationCurve = new Vector2AnimationCurve
-            {
-                x = AnimationCurve.Linear(0, 0, 1, 1),
-                y = AnimationCurve.Linear(0, 0, 1, 1)
-            };
-
-            animationCurve.EditKeyframeValue(0, new Vector2(10, 15));
-
-            Assert.AreEqual(10, animationCurve.x.keys[0].value);
-            Assert.AreEqual(15, animationCurve.y.keys[0].value);
-
-            Assert.AreEqual(1, animationCurve.x.keys[1].value);
-            Assert.AreEqual(1, animationCurve.y.keys[1].value);
-
-        }
-
-    }
-
-    [Ignore("NotImplemented")]
-    public class GetChildrenByName : TestSetup
-    {
-
-
-    }
-
-    public class GetLayerMask : TestSetup
-    {
-
-        [Test]
-        public void GetLayerMaskFromGameObject()
-        {
-
-            var gameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            gameObject.layer = LayerMask.NameToLayer("UI");
-
-            LayerMask layerMask = LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer));
-
-            var calculatedLayerMask = gameObject.GetLayerMask();
-
-            Assert.AreEqual(layerMask.value, calculatedLayerMask.value);
-
-        }
-
-    }
-
-    public class IsLoopingAnimationCurve : TestSetup
-    {
-
-        [Test]
-        public void IsLoopingAnimationCurveOnAnimationCurve()
-        {
-
-            var animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
-
-            Assert.IsFalse(animationCurve.IsLooping());
-
-            animationCurve.postWrapMode = WrapMode.Loop;
-
-            Assert.IsTrue(animationCurve.IsLooping());
-
-        }
-
-    }
-
-    [Ignore("NotImplemented")]
-    public class LookAt2D : TestSetup
-    {
-
-
-    }
-
-    public class MaxTime : TestSetup
-    {
-
-        [Test]
-        public void MaxTimeAnimationCurve()
-        {
-
-            var animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
-
-            Assert.AreEqual(1, animationCurve.MaxTime());
-
-            animationCurve = AnimationCurve.Linear(0, 0, 5, 1);
-
-            Assert.AreEqual(5, animationCurve.MaxTime());
-
-        }
-
-    }
-
-    public class NearlyEqual : TestSetup
-    {
-
-        [Test]
-        public void ComparisonWithoutCustomEpsilon()
-        {
-
-            float positionX = 0.1001f;
-
-            Assert.IsTrue(positionX.NearlyEqual(0.1f));
-
-        }
-
-        [Test]
-        public void ComparisonWithCustomEpsilon()
-        {
-
-            float positionX = 0.1001f;
-            float customEpsilon = 0.01f;
-
-            Assert.IsTrue(positionX.NearlyEqual(0.1f, customEpsilon));
-
-        }
-
-    }
-
-    public class Permutations : TestSetup
-    {
-
-        [Test]
-        public void PermutationsFromList()
-        {
-
-            var list = new List<int> { 1, 2, 3 };
-
-            var listOfCombinations = list.Permutations();
-
-            Assert.AreEqual(7, listOfCombinations.Count);
-
-            Assert.AreEqual(new List<int> { 1 }, listOfCombinations[0]);
-            Assert.AreEqual(new List<int> { 2 }, listOfCombinations[1]);
-            Assert.AreEqual(new List<int> { 1, 2 }, listOfCombinations[2]);
-            Assert.AreEqual(new List<int> { 3 }, listOfCombinations[3]);
-            Assert.AreEqual(new List<int> { 1, 3 }, listOfCombinations[4]);
-            Assert.AreEqual(new List<int> { 2, 3 }, listOfCombinations[5]);
-            Assert.AreEqual(new List<int> { 1, 2, 3 }, listOfCombinations[6]);
-
-        }
-
-    }
-
-    public class Pop : TestSetup
-    {
-
-        [Test]
-        public void PopItem()
-        {
-
-            var numberRange = new List<int> { 1, 2, 3, 4, 5 };
-
-            Assert.AreEqual(5, numberRange.Pop());
-            Assert.AreEqual(4, numberRange[numberRange.Count - 1]);
-
-        }
-
-    }
-
-    public class Random : TestSetup
-    {
-
-        [Test]
-        public void RandomItemFromArray()
-        {
-
-            var array = new float[] { 1, 2, 3, 4, 5 };
-            var randomItemFromArray = array.Random();
-
-            Assert.IsTrue(array.Contains(randomItemFromArray));
-
-        }
-
-        [Test]
-        public void RandomItemFromList()
-        {
-
-            var list = new List<float> { 1, 2, 3, 4, 5 };
-            var randomItemFromList = list.Random();
-
-            Assert.IsTrue(list.Contains(randomItemFromList));
-
-        }
-
-    }
-
-    public class Shift : TestSetup
-    {
-
-        [Test]
-        public void ListShift()
-        {
-
-            var numberRange = new List<int> { 1, 2, 3, 4, 5 };
-
-            Assert.AreEqual(1, numberRange.Shift());
-            Assert.AreNotEqual(1, numberRange[0]);
-
-        }
-
-    }
-
-    public class Shuffle : TestSetup
-    {
-
-        [Test]
-        public void ListShuffle()
-        {
-
-            var numberRange = new List<int>();
-
-            for (var i = 0; i < 10; i += 1)
-            {
-                numberRange.Add(i);
-            }
-
-            Assert.AreNotEqual(numberRange, numberRange.Shuffle());
-
-        }
-
-        [Test]
-        public void ListShuffleWithoutChangingReference()
-        {
-
-            var numberRange = new List<int>();
-
-            for (var i = 0; i < 10; i += 1)
-            {
-                numberRange.Add(i);
-            }
-
-            numberRange.Shuffle();
-
-            for (var i = 0; i < 10; i += 1)
-            {
-                Assert.AreEqual(i, numberRange[i]);
             }
 
         }
 
-        [Test]
-        public void ListShuffleWithSeed()
+        public class Compare : TestSetup
         {
 
-            var numberRange = new List<int>();
-
-            for (var i = 0; i < 10; i += 1)
+            [Test]
+            public void CompareTransformsParentToGameObject()
             {
-                numberRange.Add(i);
+
+                var parentGameObject = new GameObject("ParentGameObject");
+                var childGameObject = new GameObject("ChildGameObject");
+                childGameObject.transform.SetParent(parentGameObject.transform);
+
+                Assert.IsTrue(childGameObject.transform.parent.Compare(parentGameObject.transform));
+
             }
 
-            var numberRangeShuffled1 = numberRange.Shuffle(10);
-            var numberRangeShuffled2 = numberRange.Shuffle(10);
-
-            Assert.AreNotEqual(null, numberRangeShuffled1);
-            Assert.AreNotEqual(null, numberRangeShuffled2);
-
-            Assert.AreNotEqual(numberRange, numberRangeShuffled1);
-            Assert.AreNotEqual(numberRange, numberRangeShuffled2);
-
-            Assert.AreEqual(numberRangeShuffled1, numberRangeShuffled2);
-
-        }
-
-    }
-
-    public class Slice : TestSetup
-    {
-
-        [Test]
-        public void ListSlice()
-        {
-
-            var numberRange = new List<int>();
-
-            for (var i = 0; i < 10; i += 1)
+            [Test]
+            public void CompareTransformsNullParentToGameObject()
             {
-                numberRange.Add(i);
+
+                var parentGameObject = new GameObject("ParentGameObject");
+                var childGameObject = new GameObject("ChildGameObject");
+
+                Assert.IsFalse(childGameObject.transform.parent.Compare(parentGameObject.transform));
+
             }
 
-            Assert.AreEqual(2, numberRange.Slice(1, 2).Count);
-            Assert.AreEqual(10, numberRange.Count);
-
-        }
-
-        [Test]
-        public void ListSliceWithoutIndex()
-        {
-
-            var numberRange = new List<int>();
-
-            for (var i = 0; i < 10; i += 1)
+            [Test]
+            public void CompareTransformsNullParentToGameObjectNullParent()
             {
-                numberRange.Add(i);
+
+                var parentGameObject = new GameObject("ParentGameObject");
+                var childGameObject = new GameObject("ChildGameObject");
+
+                Assert.IsTrue(childGameObject.transform.parent.Compare(parentGameObject.transform.parent));
+
             }
 
-            Assert.AreEqual(2, numberRange.Slice(2).Count);
-            Assert.AreEqual(10, numberRange.Count);
-
         }
 
-    }
-
-    public class Splice : TestSetup
-    {
-
-        [Test]
-        public void ListSplice()
+        public class Contains : TestSetup
         {
 
-            var numberRange = new List<int>();
-
-            for (var i = 0; i < 10; i += 1)
+            [Test]
+            public void LayerMaskContains()
             {
-                numberRange.Add(i);
+
+                LayerMask layerMask = ~0;
+
+                Assert.IsTrue(layerMask.Contains(LayerMask.NameToLayer("Default")));
+                Assert.IsTrue(layerMask.Contains(1));
+                Assert.IsTrue(layerMask.Contains(0 | 1));
+
+                layerMask = 0;
+
+                Assert.IsFalse(layerMask.Contains(LayerMask.NameToLayer("UI")));
+                Assert.IsFalse(layerMask.Contains(1));
+                Assert.IsFalse(layerMask.Contains(0 | 1));
+
             }
 
-            Assert.AreEqual(2, numberRange.Splice(1, 2).Count);
-            Assert.AreEqual(8, numberRange.Count);
-
-        }
-
-        [Test]
-        public void ListSpliceWithoutIndex()
-        {
-
-            var numberRange = new List<int>();
-
-            for (var i = 0; i < 10; i += 1)
+            [Test]
+            public void BitwiseContains()
             {
-                numberRange.Add(i);
+
+                var bitwiseMask = 0 | 1;
+
+                Assert.IsTrue(bitwiseMask.Contains(1));
+                Assert.IsFalse(bitwiseMask.Contains(2));
+
             }
 
-            Assert.AreEqual(2, numberRange.Splice(2).Count);
-            Assert.AreEqual(8, numberRange.Count);
+        }
+
+        public class EditKeyframeValue : TestSetup
+        {
+
+            [Test]
+            public void EditKeyframeValueAnimationCurve()
+            {
+
+                var animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
+
+                animationCurve.EditKeyframeValue(0, 10);
+
+                Assert.AreEqual(10, animationCurve.keys[0].value);
+
+            }
+
+            [Test]
+            public void EditKeyframeValueVector3AnimationCurve()
+            {
+
+                var animationCurve = new Vector3AnimationCurve { x = AnimationCurve.Linear(0, 0, 1, 1), y = AnimationCurve.Linear(0, 0, 1, 1), z = AnimationCurve.Linear(0, 0, 1, 1) };
+
+                animationCurve.EditKeyframeValue(0, new Vector3(10, 15, 20));
+
+                Assert.AreEqual(10, animationCurve.x.keys[0].value);
+                Assert.AreEqual(15, animationCurve.y.keys[0].value);
+                Assert.AreEqual(20, animationCurve.z.keys[0].value);
+
+                Assert.AreEqual(1, animationCurve.x.keys[1].value);
+                Assert.AreEqual(1, animationCurve.y.keys[1].value);
+                Assert.AreEqual(1, animationCurve.z.keys[1].value);
+
+            }
+
+            [Test]
+            public void EditKeyframeValueVector2AnimationCurve()
+            {
+
+                var animationCurve = new Vector2AnimationCurve { x = AnimationCurve.Linear(0, 0, 1, 1), y = AnimationCurve.Linear(0, 0, 1, 1) };
+
+                animationCurve.EditKeyframeValue(0, new Vector2(10, 15));
+
+                Assert.AreEqual(10, animationCurve.x.keys[0].value);
+                Assert.AreEqual(15, animationCurve.y.keys[0].value);
+
+                Assert.AreEqual(1, animationCurve.x.keys[1].value);
+                Assert.AreEqual(1, animationCurve.y.keys[1].value);
+
+            }
 
         }
 
-    }
-
-    public class Unshift : TestSetup
-    {
-
-        [Test]
-        public void ListUnshiftSingleItem()
+        [Ignore("NotImplemented")]
+        public class GetChildrenByName : TestSetup
         {
-
-            var numberRange = new List<int> { 1, 2, 3, 4, 5 };
-
-            numberRange.Unshift(0);
-
-            Assert.AreEqual(0, numberRange[0]);
 
         }
 
-        [Test]
-        public void ListUnshiftListOfItems()
+        public class GetLayerMask : TestSetup
         {
 
-            var numberRange = new List<int> { 1, 2, 3, 4, 5 };
+            [Test]
+            public void GetLayerMaskFromGameObject()
+            {
 
-            numberRange.Unshift(new List<int> { -1, 0 });
+                var gameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                gameObject.layer = LayerMask.NameToLayer("UI");
 
-            Assert.AreEqual(-1, numberRange[0]);
-            Assert.AreEqual(0, numberRange[1]);
-            Assert.AreEqual(1, numberRange[2]);
+                LayerMask layerMask = LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer));
+
+                var calculatedLayerMask = gameObject.GetLayerMask();
+
+                Assert.AreEqual(layerMask.value, calculatedLayerMask.value);
+
+            }
+
+        }
+
+        public class IsLoopingAnimationCurve : TestSetup
+        {
+
+            [Test]
+            public void IsLoopingAnimationCurveOnAnimationCurve()
+            {
+
+                var animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
+
+                Assert.IsFalse(animationCurve.IsLooping());
+
+                animationCurve.postWrapMode = WrapMode.Loop;
+
+                Assert.IsTrue(animationCurve.IsLooping());
+
+            }
+
+        }
+
+        [Ignore("NotImplemented")]
+        public class LookAt2D : TestSetup
+        {
+
+        }
+
+        public class MaxTime : TestSetup
+        {
+
+            [Test]
+            public void MaxTimeAnimationCurve()
+            {
+
+                var animationCurve = AnimationCurve.Linear(0, 0, 1, 1);
+
+                Assert.AreEqual(1, animationCurve.MaxTime());
+
+                animationCurve = AnimationCurve.Linear(0, 0, 5, 1);
+
+                Assert.AreEqual(5, animationCurve.MaxTime());
+
+            }
+
+        }
+
+        public class NearlyEqual : TestSetup
+        {
+
+            [Test]
+            public void ComparisonWithoutCustomEpsilon()
+            {
+
+                var positionX = 0.1001f;
+
+                Assert.IsTrue(positionX.NearlyEqual(0.1f));
+
+            }
+
+            [Test]
+            public void ComparisonWithCustomEpsilon()
+            {
+
+                var positionX = 0.1001f;
+                var customEpsilon = 0.01f;
+
+                Assert.IsTrue(positionX.NearlyEqual(0.1f, customEpsilon));
+
+            }
+
+        }
+
+        public class Permutations : TestSetup
+        {
+
+            [Test]
+            public void PermutationsFromList()
+            {
+
+                var list = new List<int> { 1, 2, 3 };
+
+                var listOfCombinations = list.Permutations();
+
+                Assert.AreEqual(7, listOfCombinations.Count);
+
+                Assert.AreEqual(new List<int> { 1 }, listOfCombinations[0]);
+                Assert.AreEqual(new List<int> { 2 }, listOfCombinations[1]);
+                Assert.AreEqual(new List<int> { 1, 2 }, listOfCombinations[2]);
+                Assert.AreEqual(new List<int> { 3 }, listOfCombinations[3]);
+                Assert.AreEqual(new List<int> { 1, 3 }, listOfCombinations[4]);
+                Assert.AreEqual(new List<int> { 2, 3 }, listOfCombinations[5]);
+                Assert.AreEqual(new List<int> { 1, 2, 3 }, listOfCombinations[6]);
+
+            }
+
+        }
+
+        public class Pop : TestSetup
+        {
+
+            [Test]
+            public void PopItem()
+            {
+
+                var numberRange = new List<int>
+                {
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                };
+
+                Assert.AreEqual(5, numberRange.Pop());
+                Assert.AreEqual(4, numberRange[numberRange.Count - 1]);
+
+            }
+
+        }
+
+        public class Random : TestSetup
+        {
+
+            [Test]
+            public void RandomItemFromArray()
+            {
+
+                var array = new float[] { 1, 2, 3, 4, 5 };
+                var randomItemFromArray = array.Random();
+
+                Assert.IsTrue(array.Contains(randomItemFromArray));
+
+            }
+
+            [Test]
+            public void RandomItemFromList()
+            {
+
+                var list = new List<float>
+                {
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                };
+
+                var randomItemFromList = list.Random();
+
+                Assert.IsTrue(list.Contains(randomItemFromList));
+
+            }
+
+        }
+
+        public class Shift : TestSetup
+        {
+
+            [Test]
+            public void ListShift()
+            {
+
+                var numberRange = new List<int>
+                {
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                };
+
+                Assert.AreEqual(1, numberRange.Shift());
+                Assert.AreNotEqual(1, numberRange[0]);
+
+            }
+
+        }
+
+        public class Shuffle : TestSetup
+        {
+
+            [Test]
+            public void ListShuffle()
+            {
+
+                var numberRange = new List<int>();
+
+                for (var i = 0; i < 10; i += 1)
+                {
+                    numberRange.Add(i);
+                }
+
+                Assert.AreNotEqual(numberRange, numberRange.Shuffle());
+
+            }
+
+            [Test]
+            public void ListShuffleWithoutChangingReference()
+            {
+
+                var numberRange = new List<int>();
+
+                for (var i = 0; i < 10; i += 1)
+                {
+                    numberRange.Add(i);
+                }
+
+                numberRange.Shuffle();
+
+                for (var i = 0; i < 10; i += 1)
+                {
+                    Assert.AreEqual(i, numberRange[i]);
+                }
+
+            }
+
+            [Test]
+            public void ListShuffleWithSeed()
+            {
+
+                var numberRange = new List<int>();
+
+                for (var i = 0; i < 10; i += 1)
+                {
+                    numberRange.Add(i);
+                }
+
+                var numberRangeShuffled1 = numberRange.Shuffle(10);
+                var numberRangeShuffled2 = numberRange.Shuffle(10);
+
+                Assert.AreNotEqual(null, numberRangeShuffled1);
+                Assert.AreNotEqual(null, numberRangeShuffled2);
+
+                Assert.AreNotEqual(numberRange, numberRangeShuffled1);
+                Assert.AreNotEqual(numberRange, numberRangeShuffled2);
+
+                Assert.AreEqual(numberRangeShuffled1, numberRangeShuffled2);
+
+            }
+
+        }
+
+        public class Slice : TestSetup
+        {
+
+            [Test]
+            public void ListSlice()
+            {
+
+                var numberRange = new List<int>();
+
+                for (var i = 0; i < 10; i += 1)
+                {
+                    numberRange.Add(i);
+                }
+
+                Assert.AreEqual(2, numberRange.Slice(1, 2).Count);
+                Assert.AreEqual(10, numberRange.Count);
+
+            }
+
+            [Test]
+            public void ListSliceWithoutIndex()
+            {
+
+                var numberRange = new List<int>();
+
+                for (var i = 0; i < 10; i += 1)
+                {
+                    numberRange.Add(i);
+                }
+
+                Assert.AreEqual(2, numberRange.Slice(2).Count);
+                Assert.AreEqual(10, numberRange.Count);
+
+            }
+
+        }
+
+        public class Splice : TestSetup
+        {
+
+            [Test]
+            public void ListSplice()
+            {
+
+                var numberRange = new List<int>();
+
+                for (var i = 0; i < 10; i += 1)
+                {
+                    numberRange.Add(i);
+                }
+
+                Assert.AreEqual(2, numberRange.Splice(1, 2).Count);
+                Assert.AreEqual(8, numberRange.Count);
+
+            }
+
+            [Test]
+            public void ListSpliceWithoutIndex()
+            {
+
+                var numberRange = new List<int>();
+
+                for (var i = 0; i < 10; i += 1)
+                {
+                    numberRange.Add(i);
+                }
+
+                Assert.AreEqual(2, numberRange.Splice(2).Count);
+                Assert.AreEqual(8, numberRange.Count);
+
+            }
+
+        }
+
+        public class Unshift : TestSetup
+        {
+
+            [Test]
+            public void ListUnshiftSingleItem()
+            {
+
+                var numberRange = new List<int>
+                {
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                };
+
+                numberRange.Unshift(0);
+
+                Assert.AreEqual(0, numberRange[0]);
+
+            }
+
+            [Test]
+            public void ListUnshiftListOfItems()
+            {
+
+                var numberRange = new List<int>
+                {
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                };
+
+                numberRange.Unshift(new List<int> { -1, 0 });
+
+                Assert.AreEqual(-1, numberRange[0]);
+                Assert.AreEqual(0, numberRange[1]);
+                Assert.AreEqual(1, numberRange[2]);
+
+            }
 
         }
 
     }
 
 }
+
 #endif

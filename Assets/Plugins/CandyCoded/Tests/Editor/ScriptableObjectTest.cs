@@ -3,91 +3,95 @@
 #if UNITY_EDITOR || UNITY_STANDALONE
 using NUnit.Framework;
 using UnityEngine;
-using CandyCoded;
 
-public class ScriptableObjectTest : TestSetup
+namespace CandyCoded.Tests
 {
 
-    [Test]
-    public void BoolReference()
+    public class ScriptableObjectTest : TestSetup
     {
 
-        var boolReference = ScriptableObject.CreateInstance<BoolReference>();
+        [Test]
+        public void BoolReference()
+        {
 
-        boolReference.Value = true;
+            var boolReference = ScriptableObject.CreateInstance<BoolReference>();
 
-        Assert.AreEqual(true, boolReference.Value);
+            boolReference.Value = true;
 
-        boolReference.Reset();
+            Assert.AreEqual(true, boolReference.Value);
 
-        Assert.AreEqual(false, boolReference.Value);
+            boolReference.Reset();
 
-    }
+            Assert.AreEqual(false, boolReference.Value);
 
-    [Test]
-    public void FloatReference()
-    {
+        }
 
-        var floatReference = ScriptableObject.CreateInstance<FloatReference>();
+        [Test]
+        public void FloatReference()
+        {
 
-        floatReference.Value = 1.5f;
+            var floatReference = ScriptableObject.CreateInstance<FloatReference>();
 
-        Assert.AreEqual(1.5f, floatReference.Value);
+            floatReference.Value = 1.5f;
 
-        floatReference.Reset();
+            Assert.AreEqual(1.5f, floatReference.Value);
 
-        Assert.AreEqual(0.0f, floatReference.Value);
+            floatReference.Reset();
 
-    }
+            Assert.AreEqual(0.0f, floatReference.Value);
 
-    [Test]
-    public void GameObjectReference()
-    {
+        }
 
-        var gameObjectListReference = ScriptableObject.CreateInstance<GameObjectListReference>();
+        [Test]
+        public void GameObjectReference()
+        {
 
-        Assert.AreEqual(0, gameObjectListReference.Items.Count);
+            var gameObjectListReference = ScriptableObject.CreateInstance<GameObjectListReference>();
 
-        gameObjectListReference.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
-        gameObjectListReference.Add(GameObject.CreatePrimitive(PrimitiveType.Sphere));
+            Assert.AreEqual(0, gameObjectListReference.Items.Count);
 
-        Assert.AreEqual(2, gameObjectListReference.Items.Count);
+            gameObjectListReference.Add(GameObject.CreatePrimitive(PrimitiveType.Cube));
+            gameObjectListReference.Add(GameObject.CreatePrimitive(PrimitiveType.Sphere));
 
-        gameObjectListReference.Reset();
+            Assert.AreEqual(2, gameObjectListReference.Items.Count);
 
-        Assert.AreEqual(0, gameObjectListReference.Items.Count);
+            gameObjectListReference.Reset();
 
-    }
+            Assert.AreEqual(0, gameObjectListReference.Items.Count);
 
-    [Test]
-    public void IntReference()
-    {
+        }
 
-        var intReference = ScriptableObject.CreateInstance<IntReference>();
+        [Test]
+        public void IntReference()
+        {
 
-        intReference.Value = 1;
+            var intReference = ScriptableObject.CreateInstance<IntReference>();
 
-        Assert.AreEqual(1, intReference.Value);
+            intReference.Value = 1;
 
-        intReference.Reset();
+            Assert.AreEqual(1, intReference.Value);
 
-        Assert.AreEqual(0, intReference.Value);
+            intReference.Reset();
 
-    }
+            Assert.AreEqual(0, intReference.Value);
 
-    [Test]
-    public void StringReference()
-    {
+        }
 
-        var stringReference = ScriptableObject.CreateInstance<StringReference>();
+        [Test]
+        public void StringReference()
+        {
 
-        stringReference.Value = "Hello, World";
+            var stringReference = ScriptableObject.CreateInstance<StringReference>();
 
-        Assert.AreEqual("Hello, World", stringReference.Value);
+            stringReference.Value = "Hello, World";
 
-        stringReference.Reset();
+            Assert.AreEqual("Hello, World", stringReference.Value);
 
-        Assert.AreEqual(null, stringReference.Value);
+            stringReference.Reset();
+
+            Assert.AreEqual(null, stringReference.Value);
+
+        }
 
     }
 

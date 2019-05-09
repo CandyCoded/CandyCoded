@@ -6,74 +6,106 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEditor;
-using CandyCoded;
 using CandyCoded.Experimental;
 
-public class SaveManagerTest : TestSetup
+namespace CandyCoded.Tests
 {
 
-    [SetUp]
-    public static void DeleteFiles()
+    public class SaveManagerTest : TestSetup
     {
 
-        FileUtil.DeleteFileOrDirectory(string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, "List.dat"));
-        FileUtil.DeleteFileOrDirectory(string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, "ObservableList.dat"));
+        [SetUp]
+        public static void DeleteFiles()
+        {
 
-    }
+            FileUtil.DeleteFileOrDirectory(string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, "List.dat"));
+            FileUtil.DeleteFileOrDirectory(string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, "ObservableList.dat"));
 
-    [Test]
-    public void SaveAndLoadList()
-    {
+        }
 
-        var listOfNumbers = new List<int> { 1, 2, 3, 4, 5 };
+        [Test]
+        public void SaveAndLoadList()
+        {
 
-        SaveManager.SaveData(listOfNumbers, "List.dat");
+            var listOfNumbers = new List<int>
+            {
+                1,
+                2,
+                3,
+                4,
+                5
+            };
 
-        var newListOfNumbers = SaveManager.LoadData<List<int>>("List.dat");
+            SaveManager.SaveData(listOfNumbers, "List.dat");
 
-        Assert.AreEqual(listOfNumbers, newListOfNumbers);
+            var newListOfNumbers = SaveManager.LoadData<List<int>>("List.dat");
 
-    }
+            Assert.AreEqual(listOfNumbers, newListOfNumbers);
 
-    [Test]
-    public void SaveAndLoadObservableList()
-    {
+        }
 
-        var listOfNumbers = new ObservableList<int> { 1, 2, 3, 4, 5 };
+        [Test]
+        public void SaveAndLoadObservableList()
+        {
 
-        SaveManager.SaveData(listOfNumbers, "ObservableList.dat");
+            var listOfNumbers = new ObservableList<int>
+            {
+                1,
+                2,
+                3,
+                4,
+                5
+            };
 
-        var newListOfNumbers = SaveManager.LoadData<ObservableList<int>>("ObservableList.dat");
+            SaveManager.SaveData(listOfNumbers, "ObservableList.dat");
 
-        Assert.AreEqual(listOfNumbers, newListOfNumbers);
+            var newListOfNumbers = SaveManager.LoadData<ObservableList<int>>("ObservableList.dat");
 
-    }
+            Assert.AreEqual(listOfNumbers, newListOfNumbers);
 
-    [Test]
-    public void SaveAndLoadListWithAbsolutePaths()
-    {
+        }
 
-        var listOfNumbers = new List<int> { 1, 2, 3, 4, 5 };
+        [Test]
+        public void SaveAndLoadListWithAbsolutePaths()
+        {
 
-        SaveManager.SaveData(listOfNumbers, string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, "List.dat"), false);
+            var listOfNumbers = new List<int>
+            {
+                1,
+                2,
+                3,
+                4,
+                5
+            };
 
-        var newListOfNumbers = SaveManager.LoadData<List<int>>(string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, "List.dat"), false);
+            SaveManager.SaveData(listOfNumbers, string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, "List.dat"), false);
 
-        Assert.AreEqual(listOfNumbers, newListOfNumbers);
+            var newListOfNumbers = SaveManager.LoadData<List<int>>(string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, "List.dat"), false);
 
-    }
+            Assert.AreEqual(listOfNumbers, newListOfNumbers);
 
-    [Test]
-    public void SaveAndLoadObservableListWithAbsolutePaths()
-    {
+        }
 
-        var listOfNumbers = new ObservableList<int> { 1, 2, 3, 4, 5 };
+        [Test]
+        public void SaveAndLoadObservableListWithAbsolutePaths()
+        {
 
-        SaveManager.SaveData(listOfNumbers, string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, "ObservableList.dat"), false);
+            var listOfNumbers = new ObservableList<int>
+            {
+                1,
+                2,
+                3,
+                4,
+                5
+            };
 
-        var newListOfNumbers = SaveManager.LoadData<ObservableList<int>>(string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, "ObservableList.dat"), false);
+            SaveManager.SaveData(listOfNumbers, string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, "ObservableList.dat"), false);
 
-        Assert.AreEqual(listOfNumbers, newListOfNumbers);
+            var newListOfNumbers = SaveManager.LoadData<ObservableList<int>>(string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, "ObservableList.dat"), false);
+
+            Assert.AreEqual(listOfNumbers, newListOfNumbers);
+
+        }
 
     }
 

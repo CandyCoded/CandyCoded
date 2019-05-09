@@ -1,6 +1,7 @@
+// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using System;
 using UnityEngine;
-
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -33,7 +34,6 @@ namespace CandyCoded.Experimental
 #if UNITY_EDITOR
         [MenuItem("Window/CandyCoded/Save Screenshot @ 2x")]
 #endif
-
         public static void SaveHighResolutionImage()
         {
 
@@ -44,11 +44,11 @@ namespace CandyCoded.Experimental
         public static void Save(int ratio)
         {
 
-            var filename = string.Format("{0}/{1}.png", Application.persistentDataPath, GetTimestamp());
+            var filename = $"{Application.persistentDataPath}/{GetTimestamp()}.png";
 
             ScreenCapture.CaptureScreenshot(filename, ratio);
 
-            Debug.Log(string.Format("Saved screenshot to {0}", filename));
+            Debug.Log($"Saved screenshot to {filename}");
 
         }
 

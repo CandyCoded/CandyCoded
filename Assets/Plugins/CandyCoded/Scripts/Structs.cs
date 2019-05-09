@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 
 #pragma warning disable S100
+
 // Disables "Methods and properties should be named in camel case" to allow properties to match Vector2, Vector3 and Vector4 structs.
 
 namespace CandyCoded
@@ -15,18 +16,20 @@ namespace CandyCoded
 
         [SerializeField]
         private AnimationCurve _x;
+
         public AnimationCurve x
         {
-            get { return _x; }
-            set { _x = value; }
+            get => _x;
+            set => _x = value;
         }
 
         [SerializeField]
         private AnimationCurve _y;
+
         public AnimationCurve y
         {
-            get { return _y; }
-            set { _y = value; }
+            get => _y;
+            set => _y = value;
         }
 
         /// <summary>
@@ -36,23 +39,19 @@ namespace CandyCoded
         public Vector2AnimationCurve Clone()
         {
 
-            return new Vector2AnimationCurve
-            {
-                x = new AnimationCurve(x.keys),
-                y = new AnimationCurve(y.keys)
-            };
+            return new Vector2AnimationCurve { x = new AnimationCurve(x.keys), y = new AnimationCurve(y.keys) };
 
         }
 
         public bool Equals(Vector2AnimationCurve other)
         {
 
-            return other.x == x && other.y == y;
+            return other.x.Equals(x) && other.y.Equals(y);
 
         }
 
         /// <summary>
-        /// Evalues both animation curves and generates a Vector2 with the results.
+        /// Evaluates both animation curves and generates a Vector2 with the results.
         /// </summary>
         /// <param name="time">The time to evaluate each animation curve with.</param>
         /// <returns>Vector2</returns>
@@ -94,11 +93,7 @@ namespace CandyCoded
         public static explicit operator Vector3AnimationCurve(Vector2AnimationCurve animationCurve)
         {
 
-            var newAnimationCurve = new Vector3AnimationCurve
-            {
-                x = animationCurve.x,
-                y = animationCurve.y
-            };
+            var newAnimationCurve = new Vector3AnimationCurve { x = animationCurve.x, y = animationCurve.y };
 
             return newAnimationCurve;
 
@@ -112,26 +107,29 @@ namespace CandyCoded
 
         [SerializeField]
         private AnimationCurve _x;
+
         public AnimationCurve x
         {
-            get { return _x; }
-            set { _x = value; }
+            get => _x;
+            set => _x = value;
         }
 
         [SerializeField]
         private AnimationCurve _y;
+
         public AnimationCurve y
         {
-            get { return _y; }
-            set { _y = value; }
+            get => _y;
+            set => _y = value;
         }
 
         [SerializeField]
         private AnimationCurve _z;
+
         public AnimationCurve z
         {
-            get { return _z; }
-            set { _z = value; }
+            get => _z;
+            set => _z = value;
         }
 
         /// <summary>
@@ -141,24 +139,19 @@ namespace CandyCoded
         public Vector3AnimationCurve Clone()
         {
 
-            return new Vector3AnimationCurve
-            {
-                x = new AnimationCurve(x.keys),
-                y = new AnimationCurve(y.keys),
-                z = new AnimationCurve(z.keys)
-            };
+            return new Vector3AnimationCurve { x = new AnimationCurve(x.keys), y = new AnimationCurve(y.keys), z = new AnimationCurve(z.keys) };
 
         }
 
         public bool Equals(Vector3AnimationCurve other)
         {
 
-            return other.x == x && other.y == y && other.z == z;
+            return other.x.Equals(x) && other.y.Equals(y) && other.z.Equals(z);
 
         }
 
         /// <summary>
-        /// Evalues all animation curves and generates a Vector3 with the results.
+        /// Evaluates all animation curves and generates a Vector3 with the results.
         /// </summary>
         /// <param name="time">The time to evaluate each animation curve with.</param>
         /// <returns>Vector3</returns>
@@ -202,11 +195,7 @@ namespace CandyCoded
         public static explicit operator Vector2AnimationCurve(Vector3AnimationCurve animationCurve)
         {
 
-            var newAnimationCurve = new Vector2AnimationCurve
-            {
-                x = animationCurve.x,
-                y = animationCurve.y
-            };
+            var newAnimationCurve = new Vector2AnimationCurve { x = animationCurve.x, y = animationCurve.y };
 
             return newAnimationCurve;
 
@@ -220,34 +209,38 @@ namespace CandyCoded
 
         [SerializeField]
         private AnimationCurve _x;
+
         public AnimationCurve x
         {
-            get { return _x; }
-            set { _x = value; }
+            get => _x;
+            set => _x = value;
         }
 
         [SerializeField]
         private AnimationCurve _y;
+
         public AnimationCurve y
         {
-            get { return _y; }
-            set { _y = value; }
+            get => _y;
+            set => _y = value;
         }
 
         [SerializeField]
         private AnimationCurve _z;
+
         public AnimationCurve z
         {
-            get { return _z; }
-            set { _z = value; }
+            get => _z;
+            set => _z = value;
         }
 
         [SerializeField]
         private AnimationCurve _w;
+
         public AnimationCurve w
         {
-            get { return _w; }
-            set { _w = value; }
+            get => _w;
+            set => _w = value;
         }
 
         /// <summary>
@@ -257,25 +250,19 @@ namespace CandyCoded
         public Vector4AnimationCurve Clone()
         {
 
-            return new Vector4AnimationCurve
-            {
-                x = new AnimationCurve(x.keys),
-                y = new AnimationCurve(y.keys),
-                z = new AnimationCurve(z.keys),
-                w = new AnimationCurve(w.keys)
-            };
+            return new Vector4AnimationCurve { x = new AnimationCurve(x.keys), y = new AnimationCurve(y.keys), z = new AnimationCurve(z.keys), w = new AnimationCurve(w.keys) };
 
         }
 
         public bool Equals(Vector4AnimationCurve other)
         {
 
-            return other.x == x && other.y == y && other.z == z && other.w == w;
+            return other.x.Equals(x) && other.y.Equals(y) && other.z.Equals(z) && other.w.Equals(w);
 
         }
 
         /// <summary>
-        /// Evalues all animation curves and generates a Vector4 with the results.
+        /// Evaluates all animation curves and generates a Vector4 with the results.
         /// </summary>
         /// <param name="time">The time to evaluate each animation curve with.</param>
         /// <returns>Vector4</returns>

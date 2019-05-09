@@ -5,121 +5,126 @@ using NUnit.Framework;
 using System;
 using System.Collections;
 using UnityEngine;
-using CandyCoded;
 
-public static class RunnerTest
+namespace CandyCoded.Tests
 {
 
-    public static IEnumerator TestCoroutine()
+    public static class RunnerTest
     {
 
-        yield return new WaitForSeconds(1f);
-
-    }
-
-    public class AddCoroutine : TestSetup
-    {
-
-        [Test]
-        public void AddSingleCoroutine()
+        public static IEnumerator TestCoroutine()
         {
 
-            var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-
-            var runner = cube.AddComponent<Runner>();
-
-            runner.AddCoroutine("TestCoroutine", TestCoroutine());
-
-            Assert.AreEqual(1, runner.Coroutines.Count);
-
-        }
-        [Test]
-        public void FailsToAddDuplicateCoroutine()
-        {
-
-            var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-
-            var runner = cube.AddComponent<Runner>();
-
-            runner.AddCoroutine("TestCoroutine", TestCoroutine());
-
-            Assert.Throws<ArgumentException>(() => runner.AddCoroutine("TestCoroutine", TestCoroutine()));
+            yield return new WaitForSeconds(1f);
 
         }
 
-    }
-
-    public class RemoveCoroutine : TestSetup
-    {
-
-        [Test]
-        public void RemoveSingleCoroutine()
+        public class AddCoroutine : TestSetup
         {
 
-            var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            [Test]
+            public void AddSingleCoroutine()
+            {
 
-            var runner = cube.AddComponent<Runner>();
+                var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-            runner.AddCoroutine("TestCoroutine", TestCoroutine());
+                var runner = cube.AddComponent<Runner>();
 
-            Assert.AreEqual(1, runner.Coroutines.Count);
+                runner.AddCoroutine("TestCoroutine", TestCoroutine());
 
-            runner.RemoveCoroutine("TestCoroutine");
+                Assert.AreEqual(1, runner.Coroutines.Count);
 
-            Assert.AreEqual(0, runner.Coroutines.Count);
+            }
+
+            [Test]
+            public void FailsToAddDuplicateCoroutine()
+            {
+
+                var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+
+                var runner = cube.AddComponent<Runner>();
+
+                runner.AddCoroutine("TestCoroutine", TestCoroutine());
+
+                Assert.Throws<ArgumentException>(() => runner.AddCoroutine("TestCoroutine", TestCoroutine()));
+
+            }
 
         }
 
-        [Test]
-        public void RemoveCoroutineOnNullValue()
+        public class RemoveCoroutine : TestSetup
         {
 
-            var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            [Test]
+            public void RemoveSingleCoroutine()
+            {
 
-            var runner = cube.AddComponent<Runner>();
+                var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-            runner.AddCoroutine("TestCoroutine", TestCoroutine());
+                var runner = cube.AddComponent<Runner>();
 
-            Assert.AreEqual(1, runner.Coroutines.Count);
+                runner.AddCoroutine("TestCoroutine", TestCoroutine());
 
-            runner.Coroutines["TestCoroutine"] = null;
+                Assert.AreEqual(1, runner.Coroutines.Count);
 
-            runner.RemoveCoroutine("TestCoroutine");
+                runner.RemoveCoroutine("TestCoroutine");
 
-            Assert.AreEqual(0, runner.Coroutines.Count);
+                Assert.AreEqual(0, runner.Coroutines.Count);
+
+            }
+
+            [Test]
+            public void RemoveCoroutineOnNullValue()
+            {
+
+                var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+
+                var runner = cube.AddComponent<Runner>();
+
+                runner.AddCoroutine("TestCoroutine", TestCoroutine());
+
+                Assert.AreEqual(1, runner.Coroutines.Count);
+
+                runner.Coroutines["TestCoroutine"] = null;
+
+                runner.RemoveCoroutine("TestCoroutine");
+
+                Assert.AreEqual(0, runner.Coroutines.Count);
+
+            }
 
         }
 
-    }
-
-    public class RemoveAllCoroutines : TestSetup
-    {
-
-        [Test]
-        public void RemoveAllCoroutinesFromRunner()
+        public class RemoveAllCoroutines : TestSetup
         {
 
-            var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            [Test]
+            public void RemoveAllCoroutinesFromRunner()
+            {
 
-            var runner = cube.AddComponent<Runner>();
+                var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-            runner.AddCoroutine("TestCoroutine1", TestCoroutine());
-            runner.AddCoroutine("TestCoroutine2", TestCoroutine());
-            runner.AddCoroutine("TestCoroutine3", TestCoroutine());
+                var runner = cube.AddComponent<Runner>();
 
-            Assert.AreEqual(3, runner.Coroutines.Count);
+                runner.AddCoroutine("TestCoroutine1", TestCoroutine());
+                runner.AddCoroutine("TestCoroutine2", TestCoroutine());
+                runner.AddCoroutine("TestCoroutine3", TestCoroutine());
 
-            runner.RemoveAllCoroutines();
+                Assert.AreEqual(3, runner.Coroutines.Count);
 
-            Assert.AreEqual(0, runner.Coroutines.Count);
+                runner.RemoveAllCoroutines();
+
+                Assert.AreEqual(0, runner.Coroutines.Count);
+
+            }
 
         }
 
-    }
+        [Ignore("NotImplemented")]
+        public class OneShot : TestSetup
+        {
 
-    [Ignore("NotImplemented")]
-    public class OneShot : TestSetup
-    {
+        }
 
     }
 

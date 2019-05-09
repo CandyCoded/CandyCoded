@@ -11,7 +11,9 @@ namespace CandyCoded
     {
 
         public Vector3 Position { get; set; }
+
         public Vector3 Scale { get; set; }
+
         public Quaternion Rotation { get; set; }
 
         public bool Equals(TransformData other)
@@ -27,6 +29,7 @@ namespace CandyCoded
     {
 
         public Material Material { get; set; }
+
         public Color StartColor { get; set; }
 
         public bool Equals(MaterialData other)
@@ -41,25 +44,16 @@ namespace CandyCoded
     public class AnimationData : MonoBehaviour
     {
 
-        private TransformData _transformData = new TransformData();
-        public TransformData TransformData
-        {
-            get
-            {
-                return _transformData;
-            }
-        }
+        private TransformData _transformData;
+
+        public TransformData TransformData => _transformData;
 
         private List<MaterialData> _materials = new List<MaterialData>();
-        public List<MaterialData> Materials
-        {
-            get
-            {
-                return _materials;
-            }
-        }
+
+        public List<MaterialData> Materials => _materials;
 
 #pragma warning disable S1144
+
         // Disables "Unused private types or members should be removed" warning as method is part of MonoBehaviour.
         private void Awake()
         {
@@ -83,10 +77,7 @@ namespace CandyCoded
             foreach (var material in materialsInChildren)
             {
 
-                var materialData = new MaterialData
-                {
-                    Material = material
-                };
+                var materialData = new MaterialData { Material = material };
 
                 if (material.HasProperty("color"))
                 {
@@ -108,9 +99,11 @@ namespace CandyCoded
         public void CacheTransformData()
         {
 
-            _transformData.Position = gameObject.transform.localPosition;
-            _transformData.Scale = gameObject.transform.localScale;
-            _transformData.Rotation = gameObject.transform.localRotation;
+            var localTransform = gameObject.transform;
+
+            _transformData.Position = localTransform.localPosition;
+            _transformData.Scale = localTransform.localScale;
+            _transformData.Rotation = localTransform.localRotation;
 
         }
 
