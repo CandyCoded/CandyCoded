@@ -23,10 +23,7 @@ namespace CandyCoded
 
             hits = new List<RaycastHit>();
 
-            var linePositions = new List<Vector3>
-            {
-                startPosition
-            };
+            var linePositions = new List<Vector3> { startPosition };
 
             var remainingDistance = distance;
 
@@ -35,7 +32,7 @@ namespace CandyCoded
             while (remainingDistance > 0)
             {
 
-                if (Physics.Raycast(linePositions[linePositions.Count - 1], currentDirection, out RaycastHit hitInfo, remainingDistance, layerMask, QueryTriggerInteraction.Ignore))
+                if (Physics.Raycast(linePositions[linePositions.Count - 1], currentDirection, out var hitInfo, remainingDistance, layerMask, QueryTriggerInteraction.Ignore))
                 {
 
                     remainingDistance -= Vector3.Distance(linePositions[linePositions.Count - 1], hitInfo.point);
@@ -73,7 +70,7 @@ namespace CandyCoded
         public static Vector3[] Reflect(Vector3 startPosition, Vector3 direction, float distance, LayerMask layerMask)
         {
 
-            return Reflect(startPosition, direction, distance, layerMask, out List<RaycastHit> hits);
+            return Reflect(startPosition, direction, distance, layerMask, out var hits);
 
         }
 

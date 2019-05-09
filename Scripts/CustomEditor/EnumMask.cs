@@ -12,7 +12,10 @@ namespace CandyCoded
 #if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(Enum))]
 #endif
-    public class EnumMaskAttribute : PropertyAttribute { }
+    public class EnumMaskAttribute : PropertyAttribute
+    {
+
+    }
 
 #if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(EnumMaskAttribute))]

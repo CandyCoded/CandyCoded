@@ -14,7 +14,7 @@ namespace CandyCoded
         public static IEnumerator FromUrl(string assetBundleUrl, string name, LoadSceneMode loadSceneMode)
         {
 
-            using (UnityWebRequest uwr = UnityWebRequestAssetBundle.GetAssetBundle(assetBundleUrl))
+            using (var uwr = UnityWebRequestAssetBundle.GetAssetBundle(assetBundleUrl))
             {
 
                 yield return uwr.SendWebRequest();

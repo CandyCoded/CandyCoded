@@ -16,7 +16,7 @@ namespace CandyCoded
 
             var runner = gameObject.AddOrGetComponent<Runner>();
 
-            float elapsedTime = 0;
+            var elapsedTime = 0f;
 
             while (isLooping || elapsedTime < maxTime)
             {
@@ -26,7 +26,7 @@ namespace CandyCoded
                 if (isLooping)
                 {
 
-                    elapsedTime = elapsedTime + Time.deltaTime;
+                    elapsedTime += Time.deltaTime;
 
                 }
                 else
@@ -63,7 +63,6 @@ namespace CandyCoded
         /// <param name="gameObject">GameObject to fade.</param>
         /// <param name="animationCurve">AnimationCurve to evaluate.</param>
         /// <returns>Coroutine</returns>
-
         public static Coroutine Fade(GameObject gameObject, AnimationCurve animationCurve)
         {
 
@@ -76,13 +75,12 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Changes the alpha of all materials in a GameObject to the evaluated float calulcated from a AnimationCurve object.
+        /// Changes the alpha of all materials in a GameObject to the evaluated float calculated from a AnimationCurve object.
         /// </summary>
         /// <param name="animationCurve">AnimationCurve to evaluate.</param>
         /// <param name="elapsedTime">The time elapsed since the animation started.</param>
         /// <param name="animationData">AnimationData object containing cached references to all materials in the GameObject.</param>
         /// <returns>void</returns>
-
         public static void Fade(AnimationCurve animationCurve, float elapsedTime, AnimationData animationData)
         {
 
@@ -105,7 +103,6 @@ namespace CandyCoded
         /// <param name="to">Ending alpha.</param>
         /// <param name="duration">Length of the animation in seconds.</param>
         /// <returns>Coroutine</returns>
-
         public static Coroutine Fade(GameObject gameObject, float from, float to, float duration)
         {
 
@@ -122,7 +119,6 @@ namespace CandyCoded
         /// <param name="from">Starting alpha.</param>
         /// <param name="to">Ending alpha.</param>
         /// <returns>Coroutine</returns>
-
         public static Coroutine Fade(GameObject gameObject, float from, float to)
         {
 
@@ -138,7 +134,6 @@ namespace CandyCoded
         /// <param name="duration">Length of the animation in seconds.</param>
         /// <param name="relativeTo">Coordinate system to animate with.</param>
         /// <returns>Coroutine</returns>
-
         public static Coroutine MoveTo(GameObject gameObject, Vector3 newPosition, float duration, Space relativeTo)
         {
 
@@ -175,7 +170,6 @@ namespace CandyCoded
         /// <param name="newPosition">New Vector3 position.</param>
         /// <param name="duration">Length of the animation in seconds.</param>
         /// <returns>Coroutine</returns>
-
         public static Coroutine MoveTo(GameObject gameObject, Vector3 newPosition, float duration)
         {
 
@@ -189,7 +183,6 @@ namespace CandyCoded
         /// <param name="gameObject">GameObject to move.</param>
         /// <param name="newPosition">New Vector3 position.</param>
         /// <returns>Coroutine</returns>
-
         public static Coroutine MoveTo(GameObject gameObject, Vector3 newPosition)
         {
 
@@ -203,7 +196,6 @@ namespace CandyCoded
         /// <param name="gameObject">GameObject to move.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
         /// <returns>Coroutine</returns>
-
         public static Coroutine Position(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
@@ -214,13 +206,12 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Changes the position of a GameObject to the evaluated Vector3 calulcated from a Vector3AnimationCurve object.
+        /// Changes the position of a GameObject to the evaluated Vector3 calculated from a Vector3AnimationCurve object.
         /// </summary>
         /// <param name="gameObject">GameObject to move.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
         /// <param name="elapsedTime">The time elapsed since the animation started.</param>
         /// <returns>void</returns>
-
         public static void Position(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime)
         {
 
@@ -234,7 +225,6 @@ namespace CandyCoded
         /// <param name="gameObject">GameObject to move.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
         /// <returns>Coroutine</returns>
-
         public static Coroutine PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
@@ -247,14 +237,13 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Changes the position of a GameObject, relative to it's original position, to the evaluated Vector3 calulcated from a Vector3AnimationCurve object.
+        /// Changes the position of a GameObject, relative to it's original position, to the evaluated Vector3 calculated from a Vector3AnimationCurve object.
         /// </summary>
         /// <param name="gameObject">GameObject to move.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
         /// <param name="elapsedTime">The time elapsed since the animation started.</param>
         /// <param name="animationData">AnimationData object containing cached transform data.</param>
         /// <returns>void</returns>
-
         public static void PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime, AnimationData animationData)
         {
 
@@ -263,13 +252,12 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Changes the position of a GameObject, relative to it's original position, to the evaluated Vector3 calulcated from a Vector3AnimationCurve object.
+        /// Changes the position of a GameObject, relative to it's original position, to the evaluated Vector3 calculated from a Vector3AnimationCurve object.
         /// </summary>
         /// <param name="gameObject">GameObject to move.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
         /// <param name="elapsedTime">The time elapsed since the animation started.</param>
         /// <returns>void</returns>
-
         public static void PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime)
         {
 
@@ -286,7 +274,6 @@ namespace CandyCoded
         /// <param name="newRotation">New Vector3 rotation.</param>
         /// <param name="duration">Length of the animation in seconds.</param>
         /// <returns>Coroutine</returns>
-
         public static Coroutine RotateTo(GameObject gameObject, Vector3 newRotation, float duration)
         {
 
@@ -300,7 +287,6 @@ namespace CandyCoded
         /// <param name="gameObject">GameObject to rotate.</param>
         /// <param name="newRotation">New Vector3 rotation.</param>
         /// <returns>Coroutine</returns>
-
         public static Coroutine RotateTo(GameObject gameObject, Vector3 newRotation)
         {
 
@@ -315,7 +301,6 @@ namespace CandyCoded
         /// <param name="newRotation">New Quaternion rotation.</param>
         /// <param name="duration">Length of the animation in seconds.</param>
         /// <returns>Coroutine</returns>
-
         public static Coroutine RotateTo(GameObject gameObject, Quaternion newRotation, float duration)
         {
 
@@ -340,7 +325,6 @@ namespace CandyCoded
         /// <param name="gameObject">GameObject to rotate.</param>
         /// <param name="newRotation">New Quaternion rotation.</param>
         /// <returns>Coroutine</returns>
-
         public static Coroutine RotateTo(GameObject gameObject, Quaternion newRotation)
         {
 
@@ -354,7 +338,6 @@ namespace CandyCoded
         /// <param name="gameObject">GameObject to rotate.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
         /// <returns>Coroutine</returns>
-
         public static Coroutine Rotation(GameObject gameObject, Vector4AnimationCurve animationCurve)
         {
 
@@ -365,13 +348,12 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Changes the rotation of a GameObject to the evaluated Vector3 calulcated from a Vector3AnimationCurve object.
+        /// Changes the rotation of a GameObject to the evaluated Vector3 calculated from a Vector3AnimationCurve object.
         /// </summary>
         /// <param name="gameObject">GameObject to rotate.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
         /// <param name="elapsedTime">The time elapsed since the animation started.</param>
         /// <returns>void</returns>
-
         public static void Rotation(GameObject gameObject, Vector4AnimationCurve animationCurve, float elapsedTime)
         {
 
@@ -387,7 +369,6 @@ namespace CandyCoded
         /// <param name="gameObject">GameObject to scale.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
         /// <returns>Coroutine</returns>
-
         public static Coroutine Scale(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
@@ -398,13 +379,12 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Changes the scale of a GameObject to the evaluated Vector3 calulcated from a Vector3AnimationCurve object.
+        /// Changes the scale of a GameObject to the evaluated Vector3 calculated from a Vector3AnimationCurve object.
         /// </summary>
         /// <param name="gameObject">GameObject to scale.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
         /// <param name="elapsedTime">The time elapsed since the animation started.</param>
         /// <returns>void</returns>
-
         public static void Scale(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime)
         {
 
@@ -418,7 +398,6 @@ namespace CandyCoded
         /// <param name="gameObject">GameObject to scale.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
         /// <returns>Coroutine</returns>
-
         public static Coroutine ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve)
         {
 
@@ -431,14 +410,13 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Changes the scale of a GameObject, relative to it's original scale, to the evaluated Vector3 calulcated from a Vector3AnimationCurve object.
+        /// Changes the scale of a GameObject, relative to it's original scale, to the evaluated Vector3 calculated from a Vector3AnimationCurve object.
         /// </summary>
         /// <param name="gameObject">GameObject to scale.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
         /// <param name="elapsedTime">The time elapsed since the animation started.</param>
         /// <param name="animationData">AnimationData object containing cached transform data.</param>
         /// <returns>void</returns>
-
         public static void ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime, AnimationData animationData)
         {
 
@@ -447,13 +425,12 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Changes the scale of a GameObject, relative to it's original scale, to the evaluated Vector3 calulcated from a Vector3AnimationCurve object.
+        /// Changes the scale of a GameObject, relative to it's original scale, to the evaluated Vector3 calculated from a Vector3AnimationCurve object.
         /// </summary>
         /// <param name="gameObject">GameObject to scale.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
         /// <param name="elapsedTime">The time elapsed since the animation started.</param>
         /// <returns>void</returns>
-
         public static void ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime)
         {
 
@@ -470,7 +447,6 @@ namespace CandyCoded
         /// <param name="newScale">New Vector3 scale.</param>
         /// <param name="duration">Length of the animation in seconds.</param>
         /// <returns>Coroutine</returns>
-
         public static Coroutine ScaleTo(GameObject gameObject, Vector3 newScale, float duration)
         {
 
@@ -492,7 +468,6 @@ namespace CandyCoded
         /// <param name="gameObject">GameObject to scale.</param>
         /// <param name="newScale">New Vector3 scale.</param>
         /// <returns>Coroutine</returns>
-
         public static Coroutine ScaleTo(GameObject gameObject, Vector3 newScale)
         {
 
@@ -506,7 +481,6 @@ namespace CandyCoded
         /// <param name="gameObject">GameObject to stop animation on.</param>
         /// <param name="animationName">Name of animation to stop. Equivalent to the static method called to start animation.</param>
         /// <returns>void</returns>
-
         public static void Stop(GameObject gameObject, string animationName)
         {
 
@@ -521,7 +495,6 @@ namespace CandyCoded
         /// </summary>
         /// <param name="gameObject">GameObject to stop all animations on.</param>
         /// <returns>void</returns>
-
         public static void StopAll(GameObject gameObject)
         {
 
