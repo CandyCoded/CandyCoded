@@ -6,19 +6,23 @@ namespace CandyCoded
 {
 
 #pragma warning disable S1694
+
     // Disables "An abstract class should have both abstract and concrete methods" warning as class must extend CustomScriptableObject.
     public abstract class CustomGenericScriptableObject<T> : CustomScriptableObject
     {
 
         public delegate void EventHandler(T updatedValue);
+
         public event EventHandler UpdateEvent;
+
         public event EventHandler ResetEvent;
 
         [SerializeField]
         private T _value;
+
         public T Value
         {
-            get { return _value; }
+            get => _value;
             set
             {
 
@@ -29,18 +33,12 @@ namespace CandyCoded
             }
         }
 
+#pragma warning disable CS0649
         [SerializeField]
         private T _defaultValue;
-        public T DefaultValue
-        {
-            get { return _defaultValue; }
-            private set
-            {
+#pragma warning restore CS0649
 
-                _defaultValue = value;
-
-            }
-        }
+        public T DefaultValue => _defaultValue;
 
         /// <summary>
         /// Resets the scriptable object value back to its default value.

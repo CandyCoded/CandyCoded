@@ -19,6 +19,7 @@ namespace CandyCoded
         private int minObjects = 10;
 
         private readonly List<GameObject> activeGameObjects = new List<GameObject>();
+
         private readonly Queue<GameObject> inactiveGameObjects = new Queue<GameObject>();
 
         public void PopulatePool(Transform parentTransform)
@@ -132,7 +133,7 @@ namespace CandyCoded
 
             }
 
-            GameObject gameObject = null;
+            GameObject gameObject;
 
             if (inactiveGameObjects.Count > 0)
             {

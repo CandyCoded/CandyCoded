@@ -6,22 +6,21 @@ namespace CandyCoded
 {
 
 #pragma warning disable S1694
+
     // Disables "An abstract class should have both abstract and concrete methods" warning as class must extend CustomScriptableObject.
     public abstract class ObservableListReference<T> : CustomScriptableObject
     {
 
         [SerializeField]
         private ObservableList<T> _items = new ObservableList<T>();
+
         public ObservableList<T> Items
         {
-            get { return _items; }
-            set { _items = value; }
+            get => _items;
+            set => _items = value;
         }
 
-        public int Count
-        {
-            get { return _items.Count; }
-        }
+        public int Count => _items.Count;
 
         /// <summary>
         /// Adds an item to the list attached to the scriptable object.

@@ -6,7 +6,11 @@ mv Assets/Plugins/CandyCoded/Tests Assets/Plugins/CandyCoded/Tests~
 
 BUILD_TAG=$(cat Documentation/Version.txt)
 
-/Applications/Unity/Unity.app/Contents/MacOS/Unity \
+LATEST_UNITY_VERSION=$(find /Applications/Unity/Hub/Editor -name Unity.app | sort -r | head -1)
+
+echo "Building with ${LATEST_UNITY_VERSION}"
+
+"${LATEST_UNITY_VERSION}/Contents/MacOS/Unity" \
     -batchmode \
     -nographics \
     -silent-crashes \

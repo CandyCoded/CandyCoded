@@ -13,8 +13,8 @@ namespace CandyCoded
         /// Returns an array of materials attached to renderers that are children of the supplied GameObject.
         /// </summary>
         /// <param name="gameObject">Parent GameObject.</param>
-        /// <returns>Material[]</returns>
-        public static Material[] GetMaterialsInChildren(GameObject gameObject)
+        /// <returns>IEnumerable<Material/></returns>
+        public static IEnumerable<Material> GetMaterialsInChildren(GameObject gameObject)
         {
 
             var materials = new List<Material>();

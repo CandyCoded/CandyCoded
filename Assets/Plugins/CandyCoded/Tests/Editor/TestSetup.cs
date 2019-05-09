@@ -1,14 +1,19 @@
 using NUnit.Framework;
 using UnityEditor.SceneManagement;
 
-public class TestSetup
+namespace CandyCoded.Tests
 {
 
-    [SetUp]
-    public static void ResetScene()
+    public class TestSetup
     {
 
-        EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
+        [SetUp]
+        protected static void ResetScene()
+        {
+
+            EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
+
+        }
 
     }
 
