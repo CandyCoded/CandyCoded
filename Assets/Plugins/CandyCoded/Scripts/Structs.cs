@@ -16,18 +16,20 @@ namespace CandyCoded
 
         [SerializeField]
         private float _min;
+
         public float min
         {
-            get { return _min; }
-            set { _min = value; }
+            get => _min;
+            set => _min = value;
         }
 
         [SerializeField]
         private float _max;
+
         public float max
         {
-            get { return _max; }
-            set { _max = value; }
+            get => _max;
+            set => _max = value;
         }
 
         public float Random()
