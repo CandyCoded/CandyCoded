@@ -9,14 +9,14 @@ namespace CandyCoded
 #if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(RangedFloat))]
 #endif
-    public class RangeSliderAttribute : PropertyAttribute
+    public class RangedSliderAttribute : PropertyAttribute
     {
 
         public float MinLimit { get; }
 
         public float MaxLimit { get; }
 
-        public RangeSliderAttribute(float min, float max)
+        public RangedSliderAttribute(float min, float max)
         {
             MinLimit = min;
             MaxLimit = max;
@@ -25,14 +25,14 @@ namespace CandyCoded
     }
 
 #if UNITY_EDITOR
-    [CustomPropertyDrawer(typeof(RangeSliderAttribute))]
+    [CustomPropertyDrawer(typeof(RangedSliderAttribute))]
     public class RangeSliderDrawer : PropertyDrawer
     {
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
 
-            var limits = attribute as RangeSliderAttribute;
+            var limits = attribute as RangedSliderAttribute;
 
             var minValue = property.FindPropertyRelative("min").floatValue;
             var maxValue = property.FindPropertyRelative("max").floatValue;
