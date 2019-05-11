@@ -211,7 +211,7 @@ namespace CandyCoded
 
                 Insert(i + index, item);
 
-                i = i + 1;
+                i += 1;
 
             }
 
@@ -434,7 +434,7 @@ namespace CandyCoded
         /// Adds a range of items to the beginning of an ObservableList.
         /// </summary>
         /// <returns>void</returns>
-        public void Unshift(List<T> items)
+        public void Unshift(IEnumerable<T> items)
         {
 
             InsertRange(0, items);
