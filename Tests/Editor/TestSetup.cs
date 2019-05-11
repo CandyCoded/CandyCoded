@@ -8,7 +8,7 @@ namespace CandyCoded.Tests
     {
 
         [SetUp]
-        protected static void ResetScene()
+        protected void ResetScene()
         {
 
             EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
