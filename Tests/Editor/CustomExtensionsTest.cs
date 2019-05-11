@@ -97,7 +97,7 @@ namespace CandyCoded.Tests
             public void BitwiseContains()
             {
 
-                var bitwiseMask = 0 | 1;
+                const int bitwiseMask = 0 | 1;
 
                 Assert.IsTrue(bitwiseMask.Contains(1));
                 Assert.IsFalse(bitwiseMask.Contains(2));
@@ -244,8 +244,8 @@ namespace CandyCoded.Tests
             public void ComparisonWithCustomEpsilon()
             {
 
-                var positionX = 0.1001f;
-                var customEpsilon = 0.01f;
+                const float positionX = 0.1001f;
+                const float customEpsilon = 0.01f;
 
                 Assert.IsTrue(positionX.NearlyEqual(0.1f, customEpsilon));
 

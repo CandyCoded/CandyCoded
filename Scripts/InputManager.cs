@@ -518,14 +518,7 @@ namespace CandyCoded
 
             var touch = GetActiveTouch(TouchPhase.Began);
 
-            if (touch.HasValue)
-            {
-
-                return true;
-
-            }
-
-            return false;
+            return touch.HasValue;
 
         }
 
@@ -558,14 +551,7 @@ namespace CandyCoded
 
             var touch = GetActiveTouch(currentFingerId, TouchPhase.Ended, TouchPhase.Canceled);
 
-            if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
-            {
-
-                return true;
-
-            }
-
-            return false;
+            return touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit);
 
         }
 
@@ -584,14 +570,7 @@ namespace CandyCoded
 
             var touch = GetActiveTouch(currentFingerId, TouchPhase.Ended, TouchPhase.Canceled);
 
-            if (touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit))
-            {
-
-                return true;
-
-            }
-
-            return false;
+            return touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit);
 
         }
 
@@ -605,14 +584,7 @@ namespace CandyCoded
 
             var touch = GetActiveTouch(currentFingerId, TouchPhase.Ended, TouchPhase.Canceled);
 
-            if (touch.HasValue)
-            {
-
-                return true;
-
-            }
-
-            return false;
+            return touch.HasValue;
 
         }
 
@@ -650,14 +622,7 @@ namespace CandyCoded
 
             var touch = GetActiveTouch(TouchPhase.Ended, TouchPhase.Canceled);
 
-            if (touch.HasValue)
-            {
-
-                return true;
-
-            }
-
-            return false;
+            return touch.HasValue;
 
         }
 
@@ -674,14 +639,7 @@ namespace CandyCoded
 
             var ray = mainCamera.ScreenPointToRay(position);
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, gameObject.GetLayerMask()) && hit.transform.IsChildOf(gameObject.transform))
-            {
-
-                return true;
-
-            }
-
-            return false;
+            return Physics.Raycast(ray, out hit, Mathf.Infinity, gameObject.GetLayerMask()) && hit.transform.IsChildOf(gameObject.transform);
 
         }
 
@@ -700,14 +658,7 @@ namespace CandyCoded
 
             hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, gameObject.GetLayerMask());
 
-            if (hit && hit.transform.IsChildOf(gameObject.transform))
-            {
-
-                return true;
-
-            }
-
-            return false;
+            return hit && hit.transform.IsChildOf(gameObject.transform);
 
         }
 
