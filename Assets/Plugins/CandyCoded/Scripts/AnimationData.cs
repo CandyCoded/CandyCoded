@@ -50,7 +50,7 @@ namespace CandyCoded
 
         private List<MaterialData> _materials = new List<MaterialData>();
 
-        public List<MaterialData> Materials => _materials;
+        public IEnumerable<MaterialData> Materials => _materials;
 
 #pragma warning disable S1144
 

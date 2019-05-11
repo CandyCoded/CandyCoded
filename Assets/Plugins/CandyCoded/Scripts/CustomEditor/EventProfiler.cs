@@ -125,7 +125,7 @@ namespace CandyCoded
 
         }
 
-        private void DrawEvents(EventInfo ev, List<ExtendedMethodInfo> methods)
+        private void DrawEvents(MemberInfo ev, IReadOnlyList<ExtendedMethodInfo> methods)
         {
 
             GUILayout.Space(spaceBeforeEventListHeight);
