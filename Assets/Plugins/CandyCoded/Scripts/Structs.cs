@@ -14,23 +14,9 @@ namespace CandyCoded
     public struct RangedFloat : IEquatable<RangedFloat>
     {
 
-        [SerializeField]
-        private float _min;
+        public float min;
 
-        public float min
-        {
-            get => _min;
-            set => _min = value;
-        }
-
-        [SerializeField]
-        private float _max;
-
-        public float max
-        {
-            get => _max;
-            set => _max = value;
-        }
+        public float max;
 
         public float Random()
         {
