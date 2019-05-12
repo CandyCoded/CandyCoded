@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.1.8] - 2019-05-12
+
+### Features
+
+- Added RangedSliderDrawer property attribute. <https://github.com/CandyCoded/CandyCoded/pull/95>
+
+### Maintenance
+
+- Added .editorconfig and formatted all code to match new style <https://github.com/CandyCoded/CandyCoded/pull/97>
+- Changed List.Shuffle to return an IEnumerable rather than a List.
+- Changed ObservableList.Unshift return an IEnumerable rather than a List.
+- Changed Materials.Materials to an IEnumerable rather than a List.
+- Changed Materials.GetMaterialsInChildren to return an IEnumerable rather than an array.
+- Improvements to Travis CI build/testing.
+
 ## [1.1.7] - 2019-04-09
 
 ### Features
