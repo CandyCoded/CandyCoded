@@ -2,14 +2,6 @@
 
 Creates a stepable range selector in the inspector panel on a `RangedFloat`.
 
-## No Properties
-
-```csharp
-[SerializeField]
-[RangedSlider]
-private RangedFloat volume;
-```
-
 ## Min/Max Properties Set
 
 ```csharp
