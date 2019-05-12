@@ -28,7 +28,7 @@ namespace CandyCoded
         public bool Equals(RangedFloat other)
         {
 
-            return other.min.NearlyEqual(min) && other.max.NearlyEqual(max);
+            return other.min.Equals(min) && other.max.Equals(max);
 
         }
 
