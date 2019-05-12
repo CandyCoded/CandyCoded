@@ -26,7 +26,7 @@ script:
   - bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/master/bin/deauth.sh)
   - shellcheck Scripts/*.sh
 after_success:
-  - if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then make build; fi
+  - if [[ "$TRAVIS_PULL_REQUEST" == "false" ]] && [[ "$TRAVIS_BRANCH" == "master" ]]; then make build; fi
 deploy:
   provider: s3
   access_key_id: $ACCESS_KEY_ID
