@@ -160,7 +160,7 @@ CandyCoded is a collection of useful components and extensions for building in U
     -   [CreateAssetBundles](Documentation/5.%20Unity%20Editor%20Extensions/CreateAssetBundles.md)
     -   [EnumMask](Documentation/5.%20Unity%20Editor%20Extensions/EnumMask.md)
     -   [EventProfiler](Documentation/5.%20Unity%20Editor%20Extensions/EventProfiler.md)
-    -   [RangeSliderDrawer](Documentation/5.%20Unity%20Editor%20Extensions/RangeSliderDrawer.md)
+    -   [RangedSliderDrawer](Documentation/5.%20Unity%20Editor%20Extensions/RangedSliderDrawer.md)
 
 ## Credits
 

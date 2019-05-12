@@ -1,4 +1,4 @@
-# RangeSliderDrawer
+# RangedSliderDrawer
 
 Creates a stepable range selector in the inspector panel on a `RangedFloat`.
 
@@ -6,7 +6,7 @@ Creates a stepable range selector in the inspector panel on a `RangedFloat`.
 
 ```csharp
 [SerializeField]
-[RangeSlider]
+[RangedSlider]
 private RangedFloat volume;
 ```
 
@@ -14,7 +14,7 @@ private RangedFloat volume;
 
 ```csharp
 [SerializeField]
-[RangeSlider(0, 1)]
+[RangedSlider(0, 1)]
 private RangedFloat volume;
 ```
 
@@ -22,7 +22,7 @@ private RangedFloat volume;
 
 ```csharp
 [SerializeField]
-[RangeSlider(0, 1, 0.1f)]
+[RangedStepSlider(0, 1, 0.1f)]
 private RangedFloat volume;
 ```
 
