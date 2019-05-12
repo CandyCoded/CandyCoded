@@ -1,6 +1,3 @@
-test:
-	shellcheck Scripts/build_docs.sh Scripts/build_package.sh Scripts/install_pandoc.sh
-
 build:
 	Scripts/install_pandoc.sh
 	Scripts/build_docs.sh
