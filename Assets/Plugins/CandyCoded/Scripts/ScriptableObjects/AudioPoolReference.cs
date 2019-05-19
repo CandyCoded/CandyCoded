@@ -20,10 +20,10 @@ namespace CandyCoded
             public AudioClip[] clips;
 
             [RangedSlider(0, 1)]
-            public RangedFloat volume;
+            public RangedFloat volume = new RangedFloat{min = 0, max = 1};
 
-            [RangedSlider(0, 1)]
-            public RangedFloat pitch;
+            [RangedSlider(-3, 3)]
+            public RangedFloat pitch = new RangedFloat{min = 0, max = 0};
 
         }
 
