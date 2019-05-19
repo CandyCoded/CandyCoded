@@ -16,15 +16,27 @@ namespace CandyCoded
         public class AudioData
         {
 
-            public string name;
+            [SerializeField]
+            public string _name;
 
-            public AudioClip[] clips;
+            public string name => _name;
+
+            [SerializeField]
+            private AudioClip[] _clips;
+
+            public AudioClip[] clips => _clips;
 
             [RangedSlider(0, 1)]
-            public RangedFloat volume = new RangedFloat{min=1, max=1};
+            [SerializeField]
+            private RangedFloat _volume = new RangedFloat { min = 1, max = 1 };
+
+            public RangedFloat volume => _volume;
 
             [RangedSlider(-3, 3)]
-            public RangedFloat pitch = new RangedFloat{min=1, max=1};
+            [SerializeField]
+            private RangedFloat _pitch = new RangedFloat { min = 1, max = 1 };
+
+            public RangedFloat pitch => _pitch;
 
         }
 
