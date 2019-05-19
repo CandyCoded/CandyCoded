@@ -38,22 +38,31 @@ namespace CandyCoded
             var minValue = property.FindPropertyRelative("min").floatValue;
             var maxValue = property.FindPropertyRelative("max").floatValue;
 
-            if (limits != null)
+            if (limits == null)
             {
-                var prefixLabel = EditorGUI.PrefixLabel(position, label);
-                var rectHeight = EditorGUI.GetPropertyHeight(property);
-
-                var minLabelRect = new Rect(prefixLabel.x, prefixLabel.y, labelRectWidth, rectHeight);
-                var valueRect = new Rect(minLabelRect.xMax, prefixLabel.y, prefixLabel.width - labelRectWidth * 2, rectHeight);
-                var maxLabelRect = new Rect(valueRect.xMax, prefixLabel.y, labelRectWidth, rectHeight);
-
-                EditorGUI.LabelField(minLabelRect, minValue.ToString("F2"), new GUIStyle(GUI.skin.label) { alignment = TextAnchor.UpperLeft });
-                EditorGUI.MinMaxSlider(valueRect, ref minValue, ref maxValue, limits.MinLimit, limits.MaxLimit);
-                EditorGUI.LabelField(maxLabelRect, maxValue.ToString("F2"), new GUIStyle(GUI.skin.label) { alignment = TextAnchor.UpperRight });
+                return;
             }
 
-            property.FindPropertyRelative("min").floatValue = minValue;
-            property.FindPropertyRelative("max").floatValue = maxValue;
+            var prefixLabel = EditorGUI.PrefixLabel(position, label);
+            var rectHeight = EditorGUI.GetPropertyHeight(property);
+
+            var minLabelRect = new Rect(prefixLabel.x, prefixLabel.y, labelRectWidth, rectHeight);
+            var sliderRect = new Rect(minLabelRect.xMax, prefixLabel.y, prefixLabel.width - labelRectWidth * 2, rectHeight);
+            var maxLabelRect = new Rect(sliderRect.xMax, prefixLabel.y, labelRectWidth, rectHeight);
+
+            EditorGUI.LabelField(minLabelRect, minValue.ToString("F2"), new GUIStyle(GUI.skin.label) { alignment = TextAnchor.UpperLeft });
+
+            EditorGUI.BeginChangeCheck();
+            EditorGUI.MinMaxSlider(sliderRect, ref minValue, ref maxValue, limits.MinLimit, limits.MaxLimit);
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                property.FindPropertyRelative("min").floatValue = minValue;
+                property.FindPropertyRelative("max").floatValue = maxValue;
+            }
+
+            EditorGUI.LabelField(maxLabelRect, maxValue.ToString("F2"), new GUIStyle(GUI.skin.label) { alignment = TextAnchor.UpperRight });
+
         }
 
     }
