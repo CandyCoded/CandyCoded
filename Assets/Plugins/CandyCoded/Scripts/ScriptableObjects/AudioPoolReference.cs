@@ -12,7 +12,7 @@ namespace CandyCoded
     {
 
         [Serializable]
-        public class AudioData
+        public struct AudioData
         {
 
             public string name;
@@ -20,10 +20,10 @@ namespace CandyCoded
             public AudioClip[] clips;
 
             [RangedSlider(0, 1)]
-            public RangedFloat volume = new RangedFloat{min = 0, max = 1};
+            public RangedFloat volume;
 
             [RangedSlider(-3, 3)]
-            public RangedFloat pitch = new RangedFloat{min = 0, max = 0};
+            public RangedFloat pitch;
 
         }
 
