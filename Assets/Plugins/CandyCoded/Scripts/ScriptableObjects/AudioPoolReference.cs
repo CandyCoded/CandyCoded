@@ -17,7 +17,7 @@ namespace CandyCoded
         {
 
             [SerializeField]
-            public string _name;
+            private string _name;
 
             public string name => _name;
 
@@ -78,6 +78,9 @@ namespace CandyCoded
 
         }
 
+#pragma warning disable S1144
+
+        // Disables "Unused private types or members should be removed" warning as method is part of MonoBehaviour.
         private void OnValidate()
         {
 
@@ -103,6 +106,8 @@ namespace CandyCoded
             previousAudioDataArrayLength = 0;
 
         }
+
+#pragma warning restore S1144
 
     }
 
