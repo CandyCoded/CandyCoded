@@ -2,7 +2,7 @@
 
 using System;
 using System.ComponentModel;
-using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace CandyCoded
@@ -16,6 +16,7 @@ namespace CandyCoded
         public class AudioData
         {
 
+#pragma warning disable CS0649
             [SerializeField]
             private string _name;
 
@@ -25,22 +26,29 @@ namespace CandyCoded
             private AudioClip[] _clips;
 
             public AudioClip[] clips => _clips;
+#pragma warning restore CS0649
 
             [RangedSlider(0, 1)]
             [SerializeField]
-            private RangedFloat _volume = new RangedFloat { min = 1, max = 1 };
+            private RangedFloat _volume;
 
             public RangedFloat volume => _volume;
 
             [RangedSlider(-3, 3)]
             [SerializeField]
-            private RangedFloat _pitch = new RangedFloat { min = 1, max = 1 };
+            private RangedFloat _pitch;
 
             public RangedFloat pitch => _pitch;
 
-        }
+            public void Reset()
+            {
 
-        private int previousAudioDataArrayLength;
+                _volume = new RangedFloat { min = 1, max = 1 };
+                _pitch = new RangedFloat { min = 1, max = 1 };
+
+            }
+
+        }
 
 #pragma warning disable CS0649
         [SerializeField]
@@ -55,13 +63,8 @@ namespace CandyCoded
             if (audioData.clips.Length == 0)
             {
 
-#if UNITY_EDITOR
-
-                throw new WarningException($"{audioDataName} not found!");
-
-#endif
-
                 return;
+
             }
 
             audioSource.clip = audioData.clips.Random();
@@ -74,41 +77,67 @@ namespace CandyCoded
         private AudioData GetAudioDataByName(string audioDataName)
         {
 
-            return audioDataArray.FirstOrDefault(audioData => audioData.name.Equals(audioDataName));
-
-        }
-
-#pragma warning disable S1144
-
-        // Disables "Unused private types or members should be removed" warning as method is part of MonoBehaviour.
-        private void OnValidate()
-        {
-
-            if (audioDataArray.Length > previousAudioDataArrayLength)
+            foreach (var audioData in audioDataArray)
             {
 
-                for (var i = previousAudioDataArrayLength; i < audioDataArray.Length; i += 1)
+                if (audioData.name.Equals(audioDataName))
                 {
 
-                    audioDataArray[i] = new AudioData();
+                    return audioData;
 
                 }
 
             }
 
-            previousAudioDataArrayLength = audioDataArray.Length;
+#if UNITY_EDITOR
+
+            throw new WarningException($"{audioDataName} not found!");
+
+#else
+            return null;
+
+#endif
 
         }
 
-        private void Reset()
+        public void ResetVolumeAndPitch()
         {
 
-            previousAudioDataArrayLength = 0;
+            foreach (var audioData in audioDataArray)
+            {
+
+                audioData.Reset();
+
+            }
 
         }
 
-#pragma warning restore S1144
+    }
+
+#if UNITY_EDITOR
+
+    [CustomEditor(typeof(AudioPoolReference), true)]
+    public class AudioPoolReferenceEditor : Editor
+    {
+
+        public override void OnInspectorGUI()
+        {
+
+            DrawDefaultInspector();
+
+            var script = (AudioPoolReference)target;
+
+            if (GUILayout.Button("Reset Volume and Pitch to Default"))
+            {
+
+                script.ResetVolumeAndPitch();
+
+            }
+
+        }
 
     }
+
+#endif
 
 }
