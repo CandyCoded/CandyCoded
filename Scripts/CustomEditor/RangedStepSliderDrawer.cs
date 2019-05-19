@@ -32,6 +32,8 @@ namespace CandyCoded
     public class RangedStepSliderDrawer : PropertyDrawer
     {
 
+        private const int labelRectWidth = 50;
+
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
 
@@ -40,15 +42,39 @@ namespace CandyCoded
             var minValue = property.FindPropertyRelative("min").floatValue;
             var maxValue = property.FindPropertyRelative("max").floatValue;
 
-            label.tooltip = $"[{minValue}, {maxValue}]";
+            if (limits == null)
+            {
+                return;
+            }
 
-            EditorGUI.MinMaxSlider(position, label, ref minValue, ref maxValue, limits.MinLimit, limits.MaxLimit);
+            var prefixLabel = EditorGUI.PrefixLabel(position, label);
+            var rectHeight = EditorGUI.GetPropertyHeight(property);
 
-            minValue = Mathf.Round(minValue / limits.StepIncrement) * limits.StepIncrement;
-            maxValue = Mathf.Round(maxValue / limits.StepIncrement) * limits.StepIncrement;
+            var prevIndentLevel = EditorGUI.indentLevel;
 
-            property.FindPropertyRelative("min").floatValue = minValue;
-            property.FindPropertyRelative("max").floatValue = maxValue;
+            EditorGUI.indentLevel = 0;
+
+            var minLabelRect = new Rect(prefixLabel.x, prefixLabel.y, labelRectWidth, rectHeight);
+            var sliderRect = new Rect(minLabelRect.xMax, prefixLabel.y, prefixLabel.width - labelRectWidth * 2, rectHeight);
+            var maxLabelRect = new Rect(sliderRect.xMax, prefixLabel.y, labelRectWidth, rectHeight);
+
+            EditorGUI.LabelField(minLabelRect, minValue.ToString("F2"), new GUIStyle(GUI.skin.label) { alignment = TextAnchor.UpperLeft });
+
+            EditorGUI.BeginChangeCheck();
+            EditorGUI.MinMaxSlider(sliderRect, ref minValue, ref maxValue, limits.MinLimit, limits.MaxLimit);
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                minValue = Mathf.Round(minValue / limits.StepIncrement) * limits.StepIncrement;
+                maxValue = Mathf.Round(maxValue / limits.StepIncrement) * limits.StepIncrement;
+
+                property.FindPropertyRelative("min").floatValue = minValue;
+                property.FindPropertyRelative("max").floatValue = maxValue;
+            }
+
+            EditorGUI.LabelField(maxLabelRect, maxValue.ToString("F2"), new GUIStyle(GUI.skin.label) { alignment = TextAnchor.UpperRight });
+
+            EditorGUI.indentLevel = prevIndentLevel;
 
         }
 
