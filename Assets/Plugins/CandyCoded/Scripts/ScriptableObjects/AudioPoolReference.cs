@@ -41,7 +41,11 @@ namespace CandyCoded
             if (audioData.clips.Length == 0)
             {
 
+#if UNITY_EDITOR
+
                 throw new WarningException($"{audioDataName} not found!");
+
+#endif
 
                 return;
             }
