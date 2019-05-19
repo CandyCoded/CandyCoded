@@ -46,6 +46,10 @@ namespace CandyCoded
             var prefixLabel = EditorGUI.PrefixLabel(position, label);
             var rectHeight = EditorGUI.GetPropertyHeight(property);
 
+            var prevIndentLevel = EditorGUI.indentLevel;
+
+            EditorGUI.indentLevel = 0;
+
             var minLabelRect = new Rect(prefixLabel.x, prefixLabel.y, labelRectWidth, rectHeight);
             var sliderRect = new Rect(minLabelRect.xMax, prefixLabel.y, prefixLabel.width - labelRectWidth * 2, rectHeight);
             var maxLabelRect = new Rect(sliderRect.xMax, prefixLabel.y, labelRectWidth, rectHeight);
@@ -62,6 +66,8 @@ namespace CandyCoded
             }
 
             EditorGUI.LabelField(maxLabelRect, maxValue.ToString("F2"), new GUIStyle(GUI.skin.label) { alignment = TextAnchor.UpperRight });
+
+            EditorGUI.indentLevel = prevIndentLevel;
 
         }
 
