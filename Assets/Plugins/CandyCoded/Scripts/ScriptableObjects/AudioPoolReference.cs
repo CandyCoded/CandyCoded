@@ -28,6 +28,8 @@ namespace CandyCoded
 
         }
 
+        private int previousAudioDataArrayLength;
+
 #pragma warning disable CS0649
         [SerializeField]
         private AudioData[] audioDataArray;
@@ -61,6 +63,32 @@ namespace CandyCoded
         {
 
             return audioDataArray.FirstOrDefault(audioData => audioData.name.Equals(audioDataName));
+
+        }
+
+        private void OnValidate()
+        {
+
+            if (audioDataArray.Length > previousAudioDataArrayLength)
+            {
+
+                for (var i = previousAudioDataArrayLength; i < audioDataArray.Length; i += 1)
+                {
+
+                    audioDataArray[i] = new AudioData();
+
+                }
+
+            }
+
+            previousAudioDataArrayLength = audioDataArray.Length;
+
+        }
+
+        private void Reset()
+        {
+
+            previousAudioDataArrayLength = 0;
 
         }
 
