@@ -29,24 +29,31 @@ namespace CandyCoded
     public class RangeSliderDrawer : PropertyDrawer
     {
 
+        private const int labelRectWidth = 50;
+
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-
             var limits = attribute as RangedSliderAttribute;
 
             var minValue = property.FindPropertyRelative("min").floatValue;
             var maxValue = property.FindPropertyRelative("max").floatValue;
 
-            label.tooltip = $"[{minValue}, {maxValue}]";
-
             if (limits != null)
             {
-                EditorGUI.MinMaxSlider(position, label, ref minValue, ref maxValue, limits.MinLimit, limits.MaxLimit);
+                var prefixLabel = EditorGUI.PrefixLabel(position, label);
+                var rectHeight = EditorGUI.GetPropertyHeight(property);
+
+                var minLabelRect = new Rect(prefixLabel.x, prefixLabel.y, labelRectWidth, rectHeight);
+                var valueRect = new Rect(minLabelRect.xMax, prefixLabel.y, prefixLabel.width - labelRectWidth * 2, rectHeight);
+                var maxLabelRect = new Rect(valueRect.xMax, prefixLabel.y, labelRectWidth, rectHeight);
+
+                EditorGUI.LabelField(minLabelRect, minValue.ToString("F2"), new GUIStyle(GUI.skin.label) { alignment = TextAnchor.UpperLeft });
+                EditorGUI.MinMaxSlider(valueRect, ref minValue, ref maxValue, limits.MinLimit, limits.MaxLimit);
+                EditorGUI.LabelField(maxLabelRect, maxValue.ToString("F2"), new GUIStyle(GUI.skin.label) { alignment = TextAnchor.UpperRight });
             }
 
             property.FindPropertyRelative("min").floatValue = minValue;
             property.FindPropertyRelative("max").floatValue = maxValue;
-
         }
 
     }
