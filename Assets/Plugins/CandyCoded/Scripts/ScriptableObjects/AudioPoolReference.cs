@@ -1,6 +1,7 @@
 // Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using System;
+using System.ComponentModel;
 using System.Linq;
 using UnityEngine;
 
@@ -39,6 +40,9 @@ namespace CandyCoded
 
             if (audioData.clips.Length == 0)
             {
+
+                throw new WarningException($"{audioDataName} not found!");
+
                 return;
             }
 
