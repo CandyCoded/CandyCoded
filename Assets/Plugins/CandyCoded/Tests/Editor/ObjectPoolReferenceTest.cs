@@ -44,6 +44,47 @@ namespace CandyCoded.Tests
 
             Assert.AreEqual(10, objectPoolReference.inactiveObjects.Count);
 
+            var gameObject = objectPoolReference.Retrieve();
+
+            Assert.AreEqual(1, objectPoolReference.activeObjects.Count);
+            Assert.AreEqual(9, objectPoolReference.inactiveObjects.Count);
+
+            objectPoolReference.Release(gameObject);
+
+            Assert.AreEqual(0, objectPoolReference.activeObjects.Count);
+            Assert.AreEqual(10, objectPoolReference.inactiveObjects.Count);
+
+        }
+
+        [Test]
+        public void ReleaseAllObjects()
+        {
+
+            var objectPoolReference = ScriptableObject.CreateInstance<ObjectPoolReference>();
+
+            var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+
+            objectPoolReference.obj = cube;
+
+            objectPoolReference.Populate();
+
+            Assert.AreEqual(10, objectPoolReference.inactiveObjects.Count);
+
+            for (var i = 0; i < 10; i += 1)
+            {
+
+                var gameObject = objectPoolReference.Retrieve();
+
+            }
+
+            Assert.AreEqual(10, objectPoolReference.activeObjects.Count);
+            Assert.AreEqual(0, objectPoolReference.inactiveObjects.Count);
+
+            objectPoolReference.ReleaseAllObjects();
+
+            Assert.AreEqual(0, objectPoolReference.activeObjects.Count);
+            Assert.AreEqual(10, objectPoolReference.inactiveObjects.Count);
+
         }
 
         [Test]

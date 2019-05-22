@@ -76,7 +76,7 @@ namespace CandyCoded
         public void Release(T item)
         {
 
-            if (!_activeObjects.Contains(item) || !_inactiveObjects.Contains(item))
+            if (!_activeObjects.Contains(item) & !_inactiveObjects.Contains(item))
             {
 
                 return;
