@@ -9,19 +9,12 @@ namespace CandyCoded
     public class ObjectPoolReference : PoolReference<GameObject>
     {
 
-        [SerializeField]
-        private Transform _parentTransform;
-
-        public Transform parentTransform
-        {
-            get => _parentTransform;
-            set => _parentTransform = value;
-        }
+        public Transform parentTransform { get; set; }
 
         protected override GameObject Create()
         {
 
-            var gameObject = Instantiate(_obj, _parentTransform);
+            var gameObject = Instantiate(_obj, parentTransform);
 
             gameObject.SetActive(false);
 
