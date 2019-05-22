@@ -9,12 +9,21 @@ namespace CandyCoded
     public class ObjectPoolReference : PoolReference<GameObject>
     {
 
+        [SerializeField]
+        internal GameObject _prefab;
+
+        public GameObject prefab
+        {
+            get => _prefab;
+            set => _prefab = value;
+        }
+
         public Transform parentTransform { get; set; }
 
         protected override GameObject Create()
         {
 
-            var gameObject = Instantiate(_obj, parentTransform);
+            var gameObject = Instantiate(_prefab, parentTransform);
 
             gameObject.SetActive(false);
 
@@ -22,7 +31,7 @@ namespace CandyCoded
 
         }
 
-        public GameObject Instantiate(Vector3 position, Quaternion rotation)
+        public GameObject Spawn(Vector3 position, Quaternion rotation)
         {
 
             var gameObject = Retrieve();

@@ -10,15 +10,6 @@ namespace CandyCoded
     {
 
         [SerializeField]
-        internal T _obj;
-
-        public T obj
-        {
-            get => _obj;
-            set => _obj = value;
-        }
-
-        [SerializeField]
         internal int _minObjects = 10;
 
         public int minObjects

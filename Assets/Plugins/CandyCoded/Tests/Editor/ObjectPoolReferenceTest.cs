@@ -20,7 +20,7 @@ namespace CandyCoded.Tests
 
             var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-            objectPoolReference.obj = cube;
+            objectPoolReference.prefab = cube;
 
             objectPoolReference.minObjects = 100;
 
@@ -38,7 +38,7 @@ namespace CandyCoded.Tests
 
             var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-            objectPoolReference.obj = cube;
+            objectPoolReference.prefab = cube;
 
             objectPoolReference.Populate();
 
@@ -64,7 +64,7 @@ namespace CandyCoded.Tests
 
             var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-            objectPoolReference.obj = cube;
+            objectPoolReference.prefab = cube;
 
             objectPoolReference.Populate();
 
@@ -95,7 +95,7 @@ namespace CandyCoded.Tests
 
             var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-            objectPoolReference.obj = cube;
+            objectPoolReference.prefab = cube;
 
             objectPoolReference.Populate();
 
@@ -121,7 +121,7 @@ namespace CandyCoded.Tests
 
             var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-            objectPoolReference.obj = cube;
+            objectPoolReference.prefab = cube;
 
             objectPoolReference.Populate();
 
