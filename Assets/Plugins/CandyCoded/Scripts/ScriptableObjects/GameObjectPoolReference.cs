@@ -5,8 +5,8 @@ using UnityEngine;
 namespace CandyCoded
 {
 
-    [CreateAssetMenu(fileName = "ObjectPoolReference", menuName = "CandyCoded/ObjectPoolReference")]
-    public class ObjectPoolReference : PoolReference<GameObject>
+    [CreateAssetMenu(fileName = "GameObjectPoolReference", menuName = "CandyCoded/GameObjectPoolReference")]
+    public class GameObjectPoolReference : PoolReference<GameObject>
     {
 
         [SerializeField]

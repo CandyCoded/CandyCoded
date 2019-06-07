@@ -9,14 +9,14 @@ using UnityEngine;
 namespace CandyCoded.Tests
 {
 
-    public class ObjectPoolReferenceTest : TestSetup
+    public class GameObjectPoolReferenceTest : TestSetup
     {
 
         [Test]
         public void PopulatePool()
         {
 
-            var objectPoolReference = ScriptableObject.CreateInstance<ObjectPoolReference>();
+            var objectPoolReference = ScriptableObject.CreateInstance<GameObjectPoolReference>();
 
             var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
@@ -34,7 +34,7 @@ namespace CandyCoded.Tests
         public void ReleaseObject()
         {
 
-            var objectPoolReference = ScriptableObject.CreateInstance<ObjectPoolReference>();
+            var objectPoolReference = ScriptableObject.CreateInstance<GameObjectPoolReference>();
 
             var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
@@ -60,7 +60,7 @@ namespace CandyCoded.Tests
         public void ReleaseAllObjects()
         {
 
-            var objectPoolReference = ScriptableObject.CreateInstance<ObjectPoolReference>();
+            var objectPoolReference = ScriptableObject.CreateInstance<GameObjectPoolReference>();
 
             var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
@@ -91,7 +91,7 @@ namespace CandyCoded.Tests
         public void RetrieveObjects()
         {
 
-            var objectPoolReference = ScriptableObject.CreateInstance<ObjectPoolReference>();
+            var objectPoolReference = ScriptableObject.CreateInstance<GameObjectPoolReference>();
 
             var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
@@ -117,7 +117,7 @@ namespace CandyCoded.Tests
         public void ExpandPool()
         {
 
-            var objectPoolReference = ScriptableObject.CreateInstance<ObjectPoolReference>();
+            var objectPoolReference = ScriptableObject.CreateInstance<GameObjectPoolReference>();
 
             var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
