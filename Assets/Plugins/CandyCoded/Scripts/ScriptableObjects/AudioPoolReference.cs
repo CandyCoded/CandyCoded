@@ -2,6 +2,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -73,6 +74,23 @@ namespace CandyCoded
         {
 
             return tempGameObject.AddComponent<AudioSource>();
+
+        }
+
+        public void ReleaseAllFinishedAudioSources()
+        {
+
+            foreach (var audioSource in _activeObjects.ToList())
+            {
+
+                if (!_activeObjects[0].isPlaying)
+                {
+
+                    Release(audioSource);
+
+                }
+
+            }
 
         }
 
