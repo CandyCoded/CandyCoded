@@ -9,7 +9,7 @@ namespace CandyCoded
 {
 
     [CreateAssetMenu(fileName = "AudioPoolReference", menuName = "CandyCoded/AudioPoolReference")]
-    public class AudioPoolReference : ScriptableObject
+    public class AudioPoolReference : PoolReference<AudioSource>
     {
 
         [Serializable]
@@ -50,6 +50,32 @@ namespace CandyCoded
 
         }
 
+        private GameObject _tempGameObject;
+
+        public GameObject tempGameObject
+        {
+            get
+            {
+
+                if (_tempGameObject == null)
+                {
+
+                    _tempGameObject = new GameObject("AudioPool (Clone)");
+
+                }
+
+                return _tempGameObject;
+
+            }
+        }
+
+        protected override AudioSource Create()
+        {
+
+            return tempGameObject.AddComponent<AudioSource>();
+
+        }
+
 #pragma warning disable CS0649
         [SerializeField]
         private AudioData[] audioDataArray;
@@ -71,6 +97,13 @@ namespace CandyCoded
             audioSource.volume = audioData.volume.Random();
             audioSource.pitch = audioData.pitch.Random();
             audioSource.Play();
+
+        }
+
+        public void Play(string audioDataName)
+        {
+
+            Play(audioDataName, Retrieve());
 
         }
 
