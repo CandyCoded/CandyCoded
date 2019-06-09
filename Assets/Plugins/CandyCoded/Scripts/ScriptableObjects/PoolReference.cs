@@ -43,20 +43,7 @@ namespace CandyCoded
         public T Retrieve()
         {
 
-            T activeObject;
-
-            if (_inactiveObjects.Count > 0)
-            {
-
-                activeObject = _inactiveObjects.Dequeue();
-
-            }
-            else
-            {
-
-                activeObject = Create();
-
-            }
+            var activeObject = _inactiveObjects.Count > 0 ? _inactiveObjects.Dequeue() : Create();
 
             _activeObjects.Add(activeObject);
 
