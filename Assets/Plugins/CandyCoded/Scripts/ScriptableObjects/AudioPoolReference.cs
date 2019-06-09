@@ -1,6 +1,7 @@
 // Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using System;
+using System.Collections;
 using System.ComponentModel;
 using System.Linq;
 using UnityEngine;
@@ -65,12 +66,16 @@ namespace CandyCoded
 
                     _tempGameObject = new GameObject("AudioPool (Clone)");
 
+                    _tempRunner = _tempGameObject.AddComponent<Runner>();
+
                 }
 
                 return _tempGameObject;
 
             }
         }
+
+        private Runner _tempRunner;
 
         protected override AudioSource Create()
         {
@@ -79,20 +84,17 @@ namespace CandyCoded
 
         }
 
-        public void ReleaseAllFinishedAudioSources()
+        private IEnumerator ReleaseAudioSource(AudioSource audioSource)
         {
 
-            foreach (var audioSource in _activeObjects.ToList())
+            while (audioSource.isPlaying)
             {
 
-                if (!_activeObjects[0].isPlaying)
-                {
-
-                    Release(audioSource);
-
-                }
+                yield return null;
 
             }
+
+            Release(audioSource);
 
         }
 
@@ -123,7 +125,11 @@ namespace CandyCoded
         public void Play(string audioDataName)
         {
 
-            Play(audioDataName, Retrieve());
+            var audioSource = Retrieve();
+
+            Play(audioDataName, audioSource);
+
+            _tempRunner.StartCoroutine(ReleaseAudioSource(audioSource));
 
         }
 
