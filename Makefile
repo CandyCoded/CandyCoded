@@ -12,4 +12,7 @@ clean:
 	rm -f unity.log
 
 deploy:
+	git subtree push --prefix Assets/Plugins/CandyCoded origin upm
+
+deploy-force:
 	git push origin `git subtree split --prefix Assets/Plugins/CandyCoded master`:upm --force
