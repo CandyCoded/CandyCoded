@@ -1,17 +1,14 @@
 // Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using System;
-using System.ComponentModel;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
+using System.Collections;
 using UnityEngine;
 
 namespace CandyCoded
 {
 
     [CreateAssetMenu(fileName = "AudioPoolReference", menuName = "CandyCoded/AudioPoolReference")]
-    public class AudioPoolReference : ScriptableObject
+    public class AudioPoolReference : PoolReference<AudioSource>
     {
 
         [Serializable]
@@ -52,17 +49,51 @@ namespace CandyCoded
 
         }
 
+        private GameObject _gameObject;
+
+        public GameObject gameObject
+        {
+            get
+            {
+
+                if (_gameObject != null)
+                {
+
+                    return _gameObject;
+
+                }
+
+                _gameObject = new GameObject("AudioPool (Auto)");
+
+                _runner = _gameObject.AddComponent<Runner>();
+
+                return _gameObject;
+
+            }
+        }
+
+        private Runner _runner;
+
+        protected override AudioSource Create()
+        {
+
+            return gameObject.AddComponent<AudioSource>();
+
+        }
+
 #pragma warning disable CS0649
         [SerializeField]
         private AudioData[] audioDataArray;
 #pragma warning restore CS0649
+
+        private int prevAudioDataArrayLength;
 
         public void Play(string audioDataName, AudioSource audioSource)
         {
 
             var audioData = GetAudioDataByName(audioDataName);
 
-            if (audioData.clips.Length == 0)
+            if (Equals(audioData, null) || audioData.clips.Length.Equals(0))
             {
 
                 return;
@@ -76,11 +107,24 @@ namespace CandyCoded
 
         }
 
+        public void Play(string audioDataName)
+        {
+
+            var audioSource = Retrieve();
+
+            Play(audioDataName, audioSource);
+
+            _runner.StartCoroutine(ReleaseAudioSource(audioSource));
+
+        }
+
         private AudioData GetAudioDataByName(string audioDataName)
         {
 
-            foreach (var audioData in audioDataArray)
+            for (var i = 0; i < audioDataArray.Length; i++)
             {
+
+                var audioData = audioDataArray[i];
 
                 if (audioData.name.Equals(audioDataName))
                 {
@@ -91,55 +135,45 @@ namespace CandyCoded
 
             }
 
-#if UNITY_EDITOR
-
-            throw new WarningException($"{audioDataName} not found!");
-
-#else
             return null;
 
-#endif
+        }
+
+        private IEnumerator ReleaseAudioSource(AudioSource audioSource)
+        {
+
+            while (!Equals(audioSource.clip, null) && audioSource.isPlaying)
+            {
+
+                yield return null;
+
+            }
+
+            Release(audioSource);
 
         }
 
-        public void ResetVolumeAndPitch()
+        public void OnValidate()
         {
 
-            foreach (var audioData in audioDataArray)
+            for (var i = prevAudioDataArrayLength; i < audioDataArray.Length; i += 1)
             {
 
-                audioData.Reset();
+                var audioData = audioDataArray[i];
+
+                if (audioData.name.Equals(string.Empty) && audioData.clips.Length.Equals(0))
+                {
+
+                    audioData.Reset();
+
+                }
 
             }
+
+            prevAudioDataArrayLength = audioDataArray.Length;
 
         }
 
     }
-
-#if UNITY_EDITOR
-
-    [CustomEditor(typeof(AudioPoolReference), true)]
-    public class AudioPoolReferenceEditor : Editor
-    {
-
-        public override void OnInspectorGUI()
-        {
-
-            DrawDefaultInspector();
-
-            var script = (AudioPoolReference)target;
-
-            if (GUILayout.Button("Reset Volume and Pitch to Default"))
-            {
-
-                script.ResetVolumeAndPitch();
-
-            }
-
-        }
-
-    }
-
-#endif
 
 }

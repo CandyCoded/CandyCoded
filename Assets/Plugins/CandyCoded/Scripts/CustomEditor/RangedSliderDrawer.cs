@@ -38,7 +38,7 @@ namespace CandyCoded
             var minValue = property.FindPropertyRelative("min").floatValue;
             var maxValue = property.FindPropertyRelative("max").floatValue;
 
-            if (limits == null)
+            if (Equals(limits, null))
             {
                 return;
             }
