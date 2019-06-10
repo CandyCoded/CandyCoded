@@ -80,6 +80,8 @@ namespace CandyCoded
 
             }
 
+            _inactiveObjects.TrimExcess();
+
         }
 
     }
