@@ -54,16 +54,14 @@ namespace CandyCoded
         public void Release(T item)
         {
 
-            if (!_activeObjects.Contains(item) & !_inactiveObjects.Contains(item))
+            if (_activeObjects.Contains(item) && !_inactiveObjects.Contains(item))
             {
 
-                return;
+                _activeObjects.Remove(item);
+
+                _inactiveObjects.Enqueue(item);
 
             }
-
-            _activeObjects.Remove(item);
-
-            _inactiveObjects.Enqueue(item);
 
         }
 
