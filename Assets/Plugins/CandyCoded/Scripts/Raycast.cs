@@ -70,7 +70,7 @@ namespace CandyCoded
         public static Vector3[] Reflect(Vector3 startPosition, Vector3 direction, float distance, LayerMask layerMask)
         {
 
-            return Reflect(startPosition, direction, distance, layerMask, out var hits);
+            return Reflect(startPosition, direction, distance, layerMask, out _);
 
         }
 
