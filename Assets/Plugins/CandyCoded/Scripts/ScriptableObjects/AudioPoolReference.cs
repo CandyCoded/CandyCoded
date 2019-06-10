@@ -2,11 +2,7 @@
 
 using System;
 using System.Collections;
-using System.ComponentModel;
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace CandyCoded
 {
@@ -53,47 +49,35 @@ namespace CandyCoded
 
         }
 
-        private GameObject _tempGameObject;
+        private GameObject _gameObject;
 
-        public GameObject tempGameObject
+        public GameObject gameObject
         {
             get
             {
 
-                if (_tempGameObject == null)
+                if (_gameObject != null)
                 {
 
-                    _tempGameObject = new GameObject("AudioPool (Clone)");
-
-                    _tempRunner = _tempGameObject.AddComponent<Runner>();
+                    return _gameObject;
 
                 }
 
-                return _tempGameObject;
+                _gameObject = new GameObject("AudioPool (Auto)");
+
+                _runner = _gameObject.AddComponent<Runner>();
+
+                return _gameObject;
 
             }
         }
 
-        private Runner _tempRunner;
+        private Runner _runner;
 
         protected override AudioSource Create()
         {
 
-            return tempGameObject.AddComponent<AudioSource>();
-
-        }
-
-        private IEnumerator ReleaseAudioSource(AudioSource audioSource)
-        {
-
-            while (audioSource.isPlaying)
-            {
-
-                yield return null;
-
-            }
-
-            Release(audioSource);
+            return gameObject.AddComponent<AudioSource>();
 
         }
 
@@ -102,12 +86,14 @@ namespace CandyCoded
         private AudioData[] audioDataArray;
 #pragma warning restore CS0649
 
+        private int prevAudioDataArrayLength;
+
         public void Play(string audioDataName, AudioSource audioSource)
         {
 
             var audioData = GetAudioDataByName(audioDataName);
 
-            if (audioData.clips.Length == 0)
+            if (Equals(audioData, null) || audioData.clips.Length.Equals(0))
             {
 
                 return;
@@ -128,15 +114,17 @@ namespace CandyCoded
 
             Play(audioDataName, audioSource);
 
-            _tempRunner.StartCoroutine(ReleaseAudioSource(audioSource));
+            _runner.StartCoroutine(ReleaseAudioSource(audioSource));
 
         }
 
         private AudioData GetAudioDataByName(string audioDataName)
         {
 
-            foreach (var audioData in audioDataArray)
+            for (var i = 0; i < audioDataArray.Length; i++)
             {
+
+                var audioData = audioDataArray[i];
 
                 if (audioData.name.Equals(audioDataName))
                 {
@@ -147,55 +135,45 @@ namespace CandyCoded
 
             }
 
-#if UNITY_EDITOR
-
-            throw new WarningException($"{audioDataName} not found!");
-
-#else
             return null;
 
-#endif
+        }
+
+        private IEnumerator ReleaseAudioSource(AudioSource audioSource)
+        {
+
+            while (!Equals(audioSource.clip, null) && audioSource.isPlaying)
+            {
+
+                yield return null;
+
+            }
+
+            Release(audioSource);
 
         }
 
-        public void ResetVolumeAndPitch()
+        public void OnValidate()
         {
 
-            foreach (var audioData in audioDataArray)
+            for (var i = prevAudioDataArrayLength; i < audioDataArray.Length; i += 1)
             {
 
-                audioData.Reset();
+                var audioData = audioDataArray[i];
+
+                if (audioData.name.Equals(string.Empty) && audioData.clips.Length.Equals(0))
+                {
+
+                    audioData.Reset();
+
+                }
 
             }
+
+            prevAudioDataArrayLength = audioDataArray.Length;
 
         }
 
     }
-
-#if UNITY_EDITOR
-
-    [CustomEditor(typeof(AudioPoolReference), true)]
-    public class AudioPoolReferenceEditor : Editor
-    {
-
-        public override void OnInspectorGUI()
-        {
-
-            DrawDefaultInspector();
-
-            var script = (AudioPoolReference)target;
-
-            if (GUILayout.Button("Reset Volume and Pitch to Default"))
-            {
-
-                script.ResetVolumeAndPitch();
-
-            }
-
-        }
-
-    }
-
-#endif
 
 }
