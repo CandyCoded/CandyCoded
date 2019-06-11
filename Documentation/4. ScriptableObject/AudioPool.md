@@ -6,7 +6,7 @@ Start by creating a new AudioPoolReference ScriptableObject from **Assets** > **
 
 Enter the number of sound effects you want to manage into the `AudioDataArray` property. Drag and drop the audio files you want to manage into the `Clips` array of each `AudioData` object. And if you want the volume and pitch to vary per sound effect, specify a range using the range sliders.
 
-![](https://i.imgur.com/uFZsxnm.png)
+![](https://i.imgur.com/DRgr1v4.png)
 
 #### Play
 
