@@ -20,6 +20,10 @@ namespace CandyCoded
 
         public Transform parentTransform { get; set; }
 
+        /// <summary>
+        /// Creates a new GameObject for use in a GameObject pool.
+        /// </summary>
+        /// <returns>GameObject</returns>
         protected override GameObject Create()
         {
 
@@ -31,6 +35,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Retrieves a GameObject from the GameObject pool, sets position and rotation, and then activates it in the scene.
+        /// </summary>
+        /// <returns>GameObject</returns>
         public GameObject Spawn(Vector3 position, Quaternion rotation)
         {
 
