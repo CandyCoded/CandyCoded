@@ -11,19 +11,19 @@ namespace CandyCoded.Experimental
     public static class SaveManager
     {
 
-        public static void SaveData<T>(T obj, string filePath, bool relative)
+        /// <summary>
+        /// Save serializable object to a local file.
+        /// </summary>
+        /// <param name="obj">Object to serialize.</param>
+        /// <param name="fileName">File name to save the serialized file to.</param>
+        /// <param name="directory">Directory to store file in.</param>
+        /// <returns>void</returns>
+        public static void SaveData<T>(T obj, string fileName, string directory)
         {
 
-            var path = filePath;
+            var path = string.Concat(directory, Path.DirectorySeparatorChar, fileName);
 
-            if (relative)
-            {
-
-                path = string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, filePath);
-
-            }
-
-            using (var fs = File.Create(path))
+            using(var fs = File.Create(path))
             {
 
                 try
@@ -53,26 +53,31 @@ namespace CandyCoded.Experimental
 
         }
 
-        public static void SaveData<T>(T obj, string relativeFilePath)
+        /// <summary>
+        /// Save serializable object to a local file.
+        /// </summary>
+        /// <param name="obj">Object to serialize.</param>
+        /// <param name="fileName">File name to save the serialized file to.</param>
+        /// <returns>void</returns>
+        public static void SaveData<T>(T obj, string fileName)
         {
 
-            SaveData(obj, relativeFilePath, true);
+            SaveData(obj, fileName, Application.persistentDataPath);
 
         }
 
-        public static T LoadData<T>(string filePath, bool relative)
+        /// <summary>
+        /// Load serializable object from a local file.
+        /// </summary>
+        /// <param name="fileName">File to load.</param>
+        /// <param name="directory">Directory file is in.</param>
+        /// <returns>void</returns>
+        public static T LoadData<T>(string fileName, string directory)
         {
 
-            var path = filePath;
+            var path = string.Concat(directory, Path.DirectorySeparatorChar, fileName);
 
-            if (relative)
-            {
-
-                path = string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, filePath);
-
-            }
-
-            using (var fs = File.OpenRead(path))
+            using(var fs = File.OpenRead(path))
             {
 
                 T data;
@@ -82,7 +87,7 @@ namespace CandyCoded.Experimental
 
                     var bf = new BinaryFormatter();
 
-                    data = (T)bf.Deserialize(fs);
+                    data = (T) bf.Deserialize(fs);
 
                 }
                 catch (SerializationException err)
@@ -106,10 +111,15 @@ namespace CandyCoded.Experimental
 
         }
 
-        public static T LoadData<T>(string relativeFilePath)
+        /// <summary>
+        /// Load serializable object from a local file.
+        /// </summary>
+        /// <param name="fileName">File to load.</param>
+        /// <returns>void</returns>
+        public static T LoadData<T>(string fileName)
         {
 
-            return LoadData<T>(relativeFilePath, true);
+            return LoadData<T>(fileName, Application.persistentDataPath);
 
         }
 
