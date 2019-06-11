@@ -27,7 +27,7 @@ namespace CandyCoded.Experimental
         public static void SaveNormalResolutionImage()
         {
 
-            Save(1);
+            Debug.Log($"Saved screenshot to {Save(1)}");
 
         }
 
@@ -37,18 +37,23 @@ namespace CandyCoded.Experimental
         public static void SaveHighResolutionImage()
         {
 
-            Save(2);
+            Debug.Log($"Saved screenshot to {Save(2)}");
 
         }
 
-        public static void Save(int ratio)
+        /// <summary>
+        /// Save a screenshot to the applications persistant data path (device specific) with a random file name.
+        /// </summary>
+        /// <param name="ratio">Ratio to the image at. Default is 1.</param>
+        /// <returns>string</returns>
+        public static string Save(int ratio)
         {
 
             var filename = $"{Application.persistentDataPath}/{GetTimestamp()}.png";
 
             ScreenCapture.CaptureScreenshot(filename, ratio);
 
-            Debug.Log($"Saved screenshot to {filename}");
+            return filename;
 
         }
 
