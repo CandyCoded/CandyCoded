@@ -18,7 +18,14 @@ namespace CandyCoded
             set => _prefab = value;
         }
 
-        public Transform parentTransform { get; set; }
+        [SerializeField]
+        internal Transform _parentTransform;
+
+        public Transform parentTransform
+        {
+            get => _parentTransform;
+            set => _parentTransform = value;
+        }
 
         /// <summary>
         /// Creates a new GameObject for use in a GameObject pool.
@@ -27,7 +34,7 @@ namespace CandyCoded
         protected override GameObject Create()
         {
 
-            var gameObject = Instantiate(_prefab, parentTransform);
+            var gameObject = Instantiate(_prefab, _parentTransform);
 
             gameObject.SetActive(false);
 
