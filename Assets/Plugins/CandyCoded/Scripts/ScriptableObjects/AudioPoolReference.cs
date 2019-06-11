@@ -74,6 +74,13 @@ namespace CandyCoded
 
         private Runner _runner;
 
+#pragma warning disable CS0649
+        [SerializeField]
+        private AudioData[] audioDataArray;
+#pragma warning restore CS0649
+
+        private int prevAudioDataArrayLength;
+
         /// <summary>
         /// Creates a new AudioSource for use in a AudioSource pool.
         /// </summary>
@@ -84,13 +91,6 @@ namespace CandyCoded
             return gameObject.AddComponent<AudioSource>();
 
         }
-
-#pragma warning disable CS0649
-        [SerializeField]
-        private AudioData[] audioDataArray;
-#pragma warning restore CS0649
-
-        private int prevAudioDataArrayLength;
 
         /// <summary>
         /// Plays an audio clip stored in the audio data array by name with a specified AudioSource component.
