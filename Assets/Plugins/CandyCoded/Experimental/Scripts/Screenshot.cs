@@ -42,9 +42,9 @@ namespace CandyCoded.Experimental
         }
 
         /// <summary>
-        /// Save a screenshot to the applications persistant data path (device specific) with a random file name.
+        /// Save a screenshot to the applications persistent data path (device specific) with a random file name.
         /// </summary>
-        /// <param name="ratio">Ratio to the image at. Default is 1.</param>
+        /// <param name="ratio">Ratio to save the image at. Default is 1.</param>
         /// <returns>string</returns>
         public static string Save(int ratio)
         {
