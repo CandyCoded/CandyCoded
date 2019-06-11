@@ -28,6 +28,10 @@ namespace CandyCoded
 
         protected abstract T Create();
 
+        /// <summary>
+        /// Populates pool with objects generated via the Create method.
+        /// </summary>
+        /// <returns>void</returns>
         public void Populate()
         {
 
@@ -40,6 +44,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Retrieves an object from the pool if available. If no objects are available, a new one is created and returned.
+        /// </summary>
+        /// <returns><typeparamref name="T"/></returns>
         public T Retrieve()
         {
 
@@ -51,6 +59,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Releases an object back into the object pool.
+        /// </summary>
+        /// <returns>void</returns>
         public void Release(T item)
         {
 
@@ -65,6 +77,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Releases all objects back into the object pool.
+        /// </summary>
+        /// <returns>void</returns>
         public void ReleaseAllObjects()
         {
 
