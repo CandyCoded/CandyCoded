@@ -143,6 +143,7 @@ CandyCoded is a collection of useful components and extensions for building in U
         -   [Reflect](Documentation/3.%20Static%20Methods/Raycast.md#reflect)
     -   [Runner](Documentation/3.%20Static%20Methods/Runner.md)
 -   [ScriptableObject](Documentation/4.%20ScriptableObject/)
+    -   [AudioPool](Documentation/4.%20ScriptableObject/AudioPool.md)
     -   [Bool](Documentation/4.%20ScriptableObject/Bool.md)
     -   [CustomGenericScriptableObject](Documentation/4.%20ScriptableObject/CustomGenericScriptableObject.md)
     -   [Float](Documentation/4.%20ScriptableObject/Float.md)
