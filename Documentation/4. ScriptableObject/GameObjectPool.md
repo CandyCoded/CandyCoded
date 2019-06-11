@@ -6,6 +6,8 @@ Start by creating a new GameObjectPoolReference ScriptableObject from **Assets**
 
 Drag the prefab you are going to Instantiate into the newly created GameObjectPoolReference and specify the number of GameObjects to Instantiate on populate. You can also specify a parent transform here.
 
+![](https://i.imgur.com/DRgr1v4.png)
+
 In a script, create a private, serialized field for the GameObjectPoolReference.
 
 ```csharp
