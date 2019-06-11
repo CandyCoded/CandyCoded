@@ -74,6 +74,10 @@ namespace CandyCoded
 
         private Runner _runner;
 
+        /// <summary>
+        /// Creates a new AudioSource for use in a AudioSource pool.
+        /// </summary>
+        /// <returns>AudioSource</returns>
         protected override AudioSource Create()
         {
 
@@ -88,6 +92,12 @@ namespace CandyCoded
 
         private int prevAudioDataArrayLength;
 
+        /// <summary>
+        /// Plays an audio clip stored in the audio data array by name with a specified AudioSource component.
+        /// </summary>
+        /// <param name="audioDataName">String representing the audio clip to play.</param>
+        /// <param name="audioSource">AudioSource component to play an AudioClip with.</param>
+        /// <returns>void</returns>
         public void Play(string audioDataName, AudioSource audioSource)
         {
 
@@ -107,6 +117,11 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Plays an audio clip stored in the audio data array by name with a dynamically pooled AudioSource.
+        /// </summary>
+        /// <param name="audioDataName">String representing the audio clip to play.</param>
+        /// <returns>void</returns>
         public void Play(string audioDataName)
         {
 
@@ -118,6 +133,11 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Returns an AudioData object by name.
+        /// </summary>
+        /// <param name="audioDataName">String representing the audio clip to play.</param>
+        /// <returns>AudioData</returns>
         private AudioData GetAudioDataByName(string audioDataName)
         {
 
@@ -139,6 +159,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Release AudioSource back into the object pool when the AudioClip is finished playing.
+        /// </summary>
+        /// <returns>IEnumerator</returns>
         private IEnumerator ReleaseAudioSource(AudioSource audioSource)
         {
 
