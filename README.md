@@ -150,6 +150,7 @@ CandyCoded is a collection of useful components and extensions for building in U
     -   [Int](Documentation/4.%20ScriptableObject/Int.md)
     -   [List](Documentation/4.%20ScriptableObject/List.md)
     -   [ObjectPool](Documentation/4.%20ScriptableObject/ObjectPool.md)
+    -   [PoolReference](Documentation/4.%20ScriptableObject/PoolReference.md)
     -   [String](Documentation/4.%20ScriptableObject/String.md)
 -   [Unity Editor Extensions](Documentation/5.%20Unity%20Editor%20Extensions/)
     -   [EnumMask](Documentation/5.%20Unity%20Editor%20Extensions/EnumMask.md)
