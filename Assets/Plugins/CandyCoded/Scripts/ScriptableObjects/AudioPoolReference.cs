@@ -177,7 +177,7 @@ namespace CandyCoded
 
         }
 
-        public void OnValidate()
+        private void OnValidate()
         {
 
             for (var i = prevAudioDataArrayLength; i < audioDataArray.Length; i += 1)
