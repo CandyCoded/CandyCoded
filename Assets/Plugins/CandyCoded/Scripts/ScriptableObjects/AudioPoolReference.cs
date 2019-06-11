@@ -177,6 +177,9 @@ namespace CandyCoded
 
         }
 
+#pragma warning disable S1144
+
+        // Disables "Unused private types or members should be removed" warning as method is part of MonoBehaviour.
         private void OnValidate()
         {
 
@@ -197,6 +200,7 @@ namespace CandyCoded
             prevAudioDataArrayLength = audioDataArray.Length;
 
         }
+#pragma warning restore S1144
 
     }
 
