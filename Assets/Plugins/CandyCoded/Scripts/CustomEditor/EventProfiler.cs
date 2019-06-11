@@ -22,7 +22,20 @@ namespace CandyCoded
 
             public GameObject gameObject;
 
-            public string label => $"{gameObject.name} > {methodInfo?.ReflectedType?.Name}.{methodInfo?.Name}";
+            public string label
+            {
+                get
+                {
+                    if (methodInfo == null || methodInfo.ReflectedType == null)
+                    {
+
+                        return null;
+
+                    }
+
+                    return $"{gameObject.name} > {methodInfo.ReflectedType.Name}.{methodInfo.Name}";
+                }
+            }
 
         }
 
@@ -93,7 +106,16 @@ namespace CandyCoded
                         foreach (var ev in events)
                         {
 
-                            var methods = GetSubscribedMethodsToEvent((MulticastDelegate)script.GetType().GetField(ev.Name, bindingFlags)?.GetValue(script));
+                            var field = script.GetType().GetField(ev.Name, bindingFlags);
+
+                            if (field == null)
+                            {
+
+                                continue;
+
+                            }
+
+                            var methods = GetSubscribedMethodsToEvent((MulticastDelegate)field.GetValue(script));
 
                             DrawEvents(ev, methods);
 
