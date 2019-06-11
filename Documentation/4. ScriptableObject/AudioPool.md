@@ -8,6 +8,17 @@ Enter the number of sound effects you want to manage into the `AudioDataArray` p
 
 ![](https://i.imgur.com/DRgr1v4.png)
 
+Populate the AudioSource pool on either Awake or Start.
+
+```csharp
+private void Awake()
+{
+
+    audioPoolReference.Populate();
+
+}
+```
+
 #### Play
 
 Plays an audio clip stored in the audio data array by name with a dynamically pooled AudioSource.

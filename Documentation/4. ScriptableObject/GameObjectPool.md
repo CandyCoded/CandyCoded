@@ -14,13 +14,13 @@ In a script, create a private, serialized field for the GameObjectPoolReference.
 public CandyCoded.GameObjectPoolReference gameObjectPoolRef;
 ```
 
-Then populate the GameObject pool on either Awake or Start.
+Populate the GameObject pool on either Awake or Start.
 
 ```csharp
 private void Awake()
 {
 
-    gameObjectPoolRef.PopulatePool();
+    gameObjectPoolRef.Populate();
 
 }
 ```
