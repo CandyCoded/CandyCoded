@@ -18,12 +18,23 @@ namespace CandyCoded
             set => _prefab = value;
         }
 
-        public Transform parentTransform { get; set; }
+        [SerializeField]
+        internal Transform _parentTransform;
 
+        public Transform parentTransform
+        {
+            get => _parentTransform;
+            set => _parentTransform = value;
+        }
+
+        /// <summary>
+        /// Creates a new GameObject for use in a GameObject pool.
+        /// </summary>
+        /// <returns>GameObject</returns>
         protected override GameObject Create()
         {
 
-            var gameObject = Instantiate(_prefab, parentTransform);
+            var gameObject = Instantiate(_prefab, _parentTransform);
 
             gameObject.SetActive(false);
 
@@ -31,6 +42,10 @@ namespace CandyCoded
 
         }
 
+        /// <summary>
+        /// Retrieves a GameObject from the GameObject pool, sets position and rotation, and then activates it in the scene.
+        /// </summary>
+        /// <returns>GameObject</returns>
         public GameObject Spawn(Vector3 position, Quaternion rotation)
         {
 

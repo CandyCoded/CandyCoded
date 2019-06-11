@@ -78,9 +78,9 @@ namespace CandyCoded.Tests
                 5
             };
 
-            SaveManager.SaveData(listOfNumbers, string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, "List.dat"), false);
+            SaveManager.SaveData(listOfNumbers, "List.dat", Application.persistentDataPath);
 
-            var newListOfNumbers = SaveManager.LoadData<List<int>>(string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, "List.dat"), false);
+            var newListOfNumbers = SaveManager.LoadData<List<int>>("List.dat", Application.persistentDataPath);
 
             Assert.AreEqual(listOfNumbers, newListOfNumbers);
 
@@ -99,9 +99,9 @@ namespace CandyCoded.Tests
                 5
             };
 
-            SaveManager.SaveData(listOfNumbers, string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, "ObservableList.dat"), false);
+            SaveManager.SaveData(listOfNumbers, "ObservableList.dat", Application.persistentDataPath);
 
-            var newListOfNumbers = SaveManager.LoadData<ObservableList<int>>(string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, "ObservableList.dat"), false);
+            var newListOfNumbers = SaveManager.LoadData<ObservableList<int>>("ObservableList.dat", Application.persistentDataPath);
 
             Assert.AreEqual(listOfNumbers, newListOfNumbers);
 
