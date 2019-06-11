@@ -23,7 +23,7 @@ namespace CandyCoded.Experimental
 
             var path = string.Concat(directory, Path.DirectorySeparatorChar, fileName);
 
-            using(var fs = File.Create(path))
+            using (var fs = File.Create(path))
             {
 
                 try
@@ -77,7 +77,7 @@ namespace CandyCoded.Experimental
 
             var path = string.Concat(directory, Path.DirectorySeparatorChar, fileName);
 
-            using(var fs = File.OpenRead(path))
+            using (var fs = File.OpenRead(path))
             {
 
                 T data;
@@ -87,7 +87,7 @@ namespace CandyCoded.Experimental
 
                     var bf = new BinaryFormatter();
 
-                    data = (T) bf.Deserialize(fs);
+                    data = (T)bf.Deserialize(fs);
 
                 }
                 catch (SerializationException err)
