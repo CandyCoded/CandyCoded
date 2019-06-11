@@ -20,7 +20,6 @@ CandyCoded is a collection of useful components and extensions for building in U
 -   Custom ScriptableObjects with event handlers
 -   Event Profiler editor window
 -   EnumMask enum attribute
--   LoadAssetBundle methods
 -   InputManager methods
 
 ## Installation
@@ -135,10 +134,6 @@ CandyCoded is a collection of useful components and extensions for building in U
         -   [GetTouchPosition](Documentation/3.%20Static%20Methods/InputMangager.md#gettouchposition)
         -   [GetTouchUp](Documentation/3.%20Static%20Methods/InputMangager.md#gettouchup)
         -   [RaycastToGameObject](Documentation/3.%20Static%20Methods/InputMangager.md#raycasttogameobject)
-    -   [LoadAssetBundle](Documentation/3.%20Static%20Methods/LoadAssetBundle.md)
-        -   [FromUrl](Documentation/3.%20Static%20Methods/LoadAssetBundle.md#fromurl)
-        -   [LoadAndAddScenesFromBundle](Documentation/3.%20Static%20Methods/LoadAssetBundle.md#loadandaddscenesfrombundle)
-        -   [LoadAndInstantiateFromBundle](Documentation/3.%20Static%20Methods/LoadAssetBundle.md#loadandinstantiatefrombundle)
     -   [Materials](Documentation/3.%20Static%20Methods/Materials.md)
         -   [GetMaterialsInChildren](Documentation/3.%20Static%20Methods/Materials.md#getmaterialsinchildren)
         -   [SetColorAlpha](Documentation/3.%20Static%20Methods/Materials.md#setcoloralpha)
