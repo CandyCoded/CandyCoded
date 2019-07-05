@@ -1,29 +1,48 @@
 # Changelog
 
+## [2.0.0] - 2019-07-05
+
+### Features
+
+-   Added AudioPoolReference. <https://github.com/CandyCoded/CandyCoded/pull/100>
+-   Added Pool extensions. <https://github.com/CandyCoded/CandyCoded/pull/103>
+
+### Bug Fixes
+
+-   Fixed issues with reset functionality in AudioPoolReference. <https://github.com/CandyCoded/CandyCoded/pull/102>
+
+### Maintenance
+
+-   Removed CreateAssetBundles. <https://github.com/CandyCoded/CandyCoded/pull/104>
+-   Code cleanup. <https://github.com/CandyCoded/CandyCoded/pull/105>
+-   Removed elvis operator from EventProfiler. <https://github.com/CandyCoded/CandyCoded/pull/107>
+-   Removed LoadAssetBundle. <https://github.com/CandyCoded/CandyCoded/pull/108>
+-   Updated documentation. <https://github.com/CandyCoded/CandyCoded/pull/109>
+
 ## [1.1.8] - 2019-05-12
 
 ### Features
 
-- Added RangedSliderDrawer property attribute. <https://github.com/CandyCoded/CandyCoded/pull/95>
+-   Added RangedSliderDrawer property attribute. <https://github.com/CandyCoded/CandyCoded/pull/95>
 
 ### Maintenance
 
-- Added .editorconfig and formatted all code to match new style <https://github.com/CandyCoded/CandyCoded/pull/97>
-- Changed List.Shuffle to return an IEnumerable rather than a List.
-- Changed ObservableList.Unshift return an IEnumerable rather than a List.
-- Changed Materials.Materials to an IEnumerable rather than a List.
-- Changed Materials.GetMaterialsInChildren to return an IEnumerable rather than an array.
-- Improvements to Travis CI build/testing.
+-   Added .editorconfig and formatted all code to match new style <https://github.com/CandyCoded/CandyCoded/pull/97>
+-   Changed List.Shuffle to return an IEnumerable rather than a List.
+-   Changed ObservableList.Unshift return an IEnumerable rather than a List.
+-   Changed Materials.Materials to an IEnumerable rather than a List.
+-   Changed Materials.GetMaterialsInChildren to return an IEnumerable rather than an array.
+-   Improvements to Travis CI build/testing.
 
 ## [1.1.7] - 2019-04-09
 
 ### Features
 
-- Added persistentDataPath as a default prefix for relative paths. <https://github.com/CandyCoded/CandyCoded/pull/90>
-- Switched to using Equals when comparing enums. <https://github.com/CandyCoded/CandyCoded/pull/91>
-- Added optional parentTransform to object pool. <https://github.com/CandyCoded/CandyCoded/pull/92>
-- Added NearlyEqual method. <https://github.com/CandyCoded/CandyCoded/pull/93>
-- Updated InputManager to support clicking on child colliders. <https://github.com/CandyCoded/CandyCoded/pull/94>
+-   Added persistentDataPath as a default prefix for relative paths. <https://github.com/CandyCoded/CandyCoded/pull/90>
+-   Switched to using Equals when comparing enums. <https://github.com/CandyCoded/CandyCoded/pull/91>
+-   Added optional parentTransform to object pool. <https://github.com/CandyCoded/CandyCoded/pull/92>
+-   Added NearlyEqual method. <https://github.com/CandyCoded/CandyCoded/pull/93>
+-   Updated InputManager to support clicking on child colliders. <https://github.com/CandyCoded/CandyCoded/pull/94>
 
 ## [1.1.6] - 2019-03-10
 
