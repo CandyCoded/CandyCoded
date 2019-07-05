@@ -1,6 +1,6 @@
 ### AudioPool
 
-The GameObjectPool ScriptableObject is used to play sounds effects without needing to reference AudioSource components manually. It can also randomly pick from an array of similar sound effects and randomly choose a volume and pitch based on a predefined range.
+The AudioPool ScriptableObject is used to play sounds effects without needing to reference AudioSource components manually. It can also randomly pick from an array of similar sound effects and randomly choose a volume and pitch based on a predefined range.
 
 Start by creating a new AudioPoolReference ScriptableObject from **Assets** > **Create** > **CandyCoded** > **AudioPoolReference**.
 
