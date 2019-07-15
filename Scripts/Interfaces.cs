@@ -1,7 +1,7 @@
 namespace CandyCoded.Interfaces
 {
 
-    internal interface IPauseable
+    public interface IPauseable
     {
 
         void Pause();
@@ -10,7 +10,7 @@ namespace CandyCoded.Interfaces
 
     }
 
-    internal interface IToggleable
+    public interface IToggleable
     {
 
         void On();
