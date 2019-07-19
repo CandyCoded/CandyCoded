@@ -123,6 +123,34 @@ namespace CandyCoded.Experimental
 
         }
 
+
+        /// <summary>
+        /// Delete a local file.
+        /// </summary>
+        /// <param name="fileName">File to delete.</param>
+        /// <param name="directory">Directory file is in.</param>
+        /// <returns>void</returns>
+        public static void DeleteData(string fileName, string directory)
+        {
+
+            var path = string.Concat(directory, Path.DirectorySeparatorChar, fileName);
+
+            File.Delete(path);
+
+        }
+
+        /// <summary>
+        /// Delete a local file.
+        /// </summary>
+        /// <param name="fileName">File to delete.</param>
+        /// <returns>void</returns>
+        public static void DeleteData(string fileName)
+        {
+
+            DeleteData(fileName, Application.persistentDataPath);
+
+        }
+
     }
 
 }
