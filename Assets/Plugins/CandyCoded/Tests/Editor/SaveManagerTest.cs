@@ -66,6 +66,29 @@ namespace CandyCoded.Tests
         }
 
         [Test]
+        public void SaveAndDeleteList()
+        {
+
+            var listOfNumbers = new List<int>
+            {
+                1,
+                2,
+                3,
+                4,
+                5
+            };
+
+            SaveManager.SaveData(listOfNumbers, "List.dat");
+
+            Assert.IsTrue(File.Exists($"{Application.persistentDataPath}{Path.DirectorySeparatorChar}List.dat"));
+
+            SaveManager.DeleteData("List.dat");
+
+            Assert.IsFalse(File.Exists($"{Application.persistentDataPath}{Path.DirectorySeparatorChar}List.dat"));
+
+        }
+
+        [Test]
         public void SaveAndLoadListWithAbsolutePaths()
         {
 
@@ -104,6 +127,29 @@ namespace CandyCoded.Tests
             var newListOfNumbers = SaveManager.LoadData<ObservableList<int>>("ObservableList.dat", Application.persistentDataPath);
 
             Assert.AreEqual(listOfNumbers, newListOfNumbers);
+
+        }
+
+        [Test]
+        public void SaveAndDeleteListWithAbsolutePaths()
+        {
+
+            var listOfNumbers = new List<int>
+            {
+                1,
+                2,
+                3,
+                4,
+                5
+            };
+
+            SaveManager.SaveData(listOfNumbers, "List.dat", Application.persistentDataPath);
+
+            Assert.IsTrue(File.Exists($"{Application.persistentDataPath}{Path.DirectorySeparatorChar}List.dat"));
+
+            SaveManager.DeleteData("List.dat", Application.persistentDataPath);
+
+            Assert.IsFalse(File.Exists($"{Application.persistentDataPath}{Path.DirectorySeparatorChar}List.dat"));
 
         }
 
