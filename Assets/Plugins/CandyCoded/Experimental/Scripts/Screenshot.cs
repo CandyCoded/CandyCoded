@@ -1,6 +1,7 @@
 // Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using System;
+using System.IO;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -49,7 +50,7 @@ namespace CandyCoded.Experimental
         public static string Save(int ratio)
         {
 
-            var filename = $"{Application.persistentDataPath}/{GetTimestamp()}.png";
+            var filename = Path.Combine(Application.persistentDataPath, $"{GetTimestamp()}.png");
 
             ScreenCapture.CaptureScreenshot(filename, ratio);
 

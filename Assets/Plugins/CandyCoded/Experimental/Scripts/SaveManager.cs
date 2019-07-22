@@ -21,7 +21,7 @@ namespace CandyCoded.Experimental
         public static void SaveData<T>(T obj, string fileName, string directory)
         {
 
-            var path = string.Concat(directory, Path.DirectorySeparatorChar, fileName);
+            var path = Path.Combine(directory, fileName);
 
             using (var fs = File.Create(path))
             {
@@ -75,7 +75,7 @@ namespace CandyCoded.Experimental
         public static T LoadData<T>(string fileName, string directory)
         {
 
-            var path = string.Concat(directory, Path.DirectorySeparatorChar, fileName);
+            var path = Path.Combine(directory, fileName);
 
             using (var fs = File.OpenRead(path))
             {
@@ -133,7 +133,7 @@ namespace CandyCoded.Experimental
         public static void DeleteData(string fileName, string directory)
         {
 
-            var path = string.Concat(directory, Path.DirectorySeparatorChar, fileName);
+            var path = Path.Combine(directory, fileName);
 
             File.Delete(path);
 
