@@ -14,12 +14,18 @@ namespace CandyCoded.Tests
     public class SaveManagerTest : TestSetup
     {
 
+        private const string listPathFileName = "List.dat";
+        private const string observableListPathFileName = "ObservableList.dat";
+
+        private static string listPath => Path.Combine(Application.persistentDataPath, listPathFileName);
+        private static string observableListPath => Path.Combine(Application.persistentDataPath,observableListPathFileName);
+
         [SetUp]
         public static void DeleteFiles()
         {
 
-            FileUtil.DeleteFileOrDirectory(string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, "List.dat"));
-            FileUtil.DeleteFileOrDirectory(string.Concat(Application.persistentDataPath, Path.DirectorySeparatorChar, "ObservableList.dat"));
+            FileUtil.DeleteFileOrDirectory(listPath);
+            FileUtil.DeleteFileOrDirectory(observableListPath);
 
         }
 
@@ -36,9 +42,9 @@ namespace CandyCoded.Tests
                 5
             };
 
-            SaveManager.SaveData(listOfNumbers, "List.dat");
+            SaveManager.SaveData(listOfNumbers, listPath);
 
-            var newListOfNumbers = SaveManager.LoadData<List<int>>("List.dat");
+            var newListOfNumbers = SaveManager.LoadData<List<int>>(listPath);
 
             Assert.AreEqual(listOfNumbers, newListOfNumbers);
 
@@ -57,9 +63,9 @@ namespace CandyCoded.Tests
                 5
             };
 
-            SaveManager.SaveData(listOfNumbers, "ObservableList.dat");
+            SaveManager.SaveData(listOfNumbers, observableListPathFileName);
 
-            var newListOfNumbers = SaveManager.LoadData<ObservableList<int>>("ObservableList.dat");
+            var newListOfNumbers = SaveManager.LoadData<ObservableList<int>>(observableListPathFileName);
 
             Assert.AreEqual(listOfNumbers, newListOfNumbers);
 
@@ -78,13 +84,13 @@ namespace CandyCoded.Tests
                 5
             };
 
-            SaveManager.SaveData(listOfNumbers, "List.dat");
+            SaveManager.SaveData(listOfNumbers, listPathFileName);
 
-            Assert.IsTrue(File.Exists($"{Application.persistentDataPath}{Path.DirectorySeparatorChar}List.dat"));
+            Assert.IsTrue(File.Exists(listPath));
 
-            SaveManager.DeleteData("List.dat");
+            SaveManager.DeleteData(listPathFileName);
 
-            Assert.IsFalse(File.Exists($"{Application.persistentDataPath}{Path.DirectorySeparatorChar}List.dat"));
+            Assert.IsFalse(File.Exists(listPath));
 
         }
 
@@ -101,9 +107,9 @@ namespace CandyCoded.Tests
                 5
             };
 
-            SaveManager.SaveData(listOfNumbers, "List.dat", Application.persistentDataPath);
+            SaveManager.SaveData(listOfNumbers, listPathFileName, Application.persistentDataPath);
 
-            var newListOfNumbers = SaveManager.LoadData<List<int>>("List.dat", Application.persistentDataPath);
+            var newListOfNumbers = SaveManager.LoadData<List<int>>(listPathFileName, Application.persistentDataPath);
 
             Assert.AreEqual(listOfNumbers, newListOfNumbers);
 
@@ -122,9 +128,9 @@ namespace CandyCoded.Tests
                 5
             };
 
-            SaveManager.SaveData(listOfNumbers, "ObservableList.dat", Application.persistentDataPath);
+            SaveManager.SaveData(listOfNumbers, observableListPathFileName, Application.persistentDataPath);
 
-            var newListOfNumbers = SaveManager.LoadData<ObservableList<int>>("ObservableList.dat", Application.persistentDataPath);
+            var newListOfNumbers = SaveManager.LoadData<ObservableList<int>>(observableListPathFileName, Application.persistentDataPath);
 
             Assert.AreEqual(listOfNumbers, newListOfNumbers);
 
@@ -143,13 +149,13 @@ namespace CandyCoded.Tests
                 5
             };
 
-            SaveManager.SaveData(listOfNumbers, "List.dat", Application.persistentDataPath);
+            SaveManager.SaveData(listOfNumbers, listPathFileName, Application.persistentDataPath);
 
-            Assert.IsTrue(File.Exists($"{Application.persistentDataPath}{Path.DirectorySeparatorChar}List.dat"));
+            Assert.IsTrue(File.Exists(listPath));
 
             SaveManager.DeleteData("List.dat", Application.persistentDataPath);
 
-            Assert.IsFalse(File.Exists($"{Application.persistentDataPath}{Path.DirectorySeparatorChar}List.dat"));
+            Assert.IsFalse(File.Exists(listPath));
 
         }
 
