@@ -202,6 +202,21 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Tests to see if transform is in the given cameras viewport.
+        /// </summary>
+        /// <param name="transform">Transform object.</param>
+        /// <param name="camera">Camera object.</param>
+        /// <returns>bool</returns>
+        public static bool IsVisible(this Transform transform, Camera camera)
+        {
+
+            var positionInViewport = camera.WorldToViewportPoint(transform.position);
+
+            return positionInViewport.x >= 0 && positionInViewport.x <= 1 && positionInViewport.y >= 0 && positionInViewport.y <= 1;
+
+        }
+
+        /// <summary>
         /// Rotates transform so the forward vector points at target's position.
         /// </summary>
         /// <param name="transform">Transform object.</param>
