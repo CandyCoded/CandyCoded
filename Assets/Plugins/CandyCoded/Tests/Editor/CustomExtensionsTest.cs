@@ -202,6 +202,27 @@ namespace CandyCoded.Tests
 
         }
 
+        public class IsVisible : TestSetup
+        {
+
+            [Test]
+            public void IsGameObjectVisibleToCamera()
+            {
+
+                var mainCamera = GameObject.FindObjectOfType<Camera>();
+
+                var gameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
+
+                Assert.IsTrue(gameObject.transform.IsVisible(mainCamera));
+
+                gameObject.transform.position = new Vector3(100, 0, 0);
+
+                Assert.IsFalse((gameObject.transform.IsVisible(mainCamera)));
+
+            }
+
+        }
+
         [Ignore("NotImplemented")]
         public class LookAt2D : TestSetup
         {
