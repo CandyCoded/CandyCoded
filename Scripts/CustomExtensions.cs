@@ -222,15 +222,15 @@ namespace CandyCoded
         /// <param name="transform">Transform object.</param>
         /// <param name="target">Object to point towards.</param>
         /// <param name="direction">Vector specifying the forward direction.</param>
-        /// <returns>void</returns>
-        public static void LookAt2D(this Transform transform, Transform target, Vector3 direction)
+        /// <returns>Quaternion</returns>
+        public static Quaternion LookAt2D(this Transform transform, Transform target, Vector3 direction)
         {
 
             Vector2 angle = target.position - transform.position;
 
             var deg = Vector3.Angle(Vector3.forward, direction) * Mathf.Sign(Vector3.Cross(Vector3.forward, direction).x);
 
-            transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(angle.y, angle.x) * Mathf.Rad2Deg + deg, Vector3.forward);
+            return Quaternion.AngleAxis(Mathf.Atan2(angle.y, angle.x) * Mathf.Rad2Deg + deg, Vector3.forward);
 
         }
 
@@ -239,13 +239,13 @@ namespace CandyCoded
         /// </summary>
         /// <param name="transform">Transform object.</param>
         /// <param name="target">Object to point towards.</param>
-        /// <returns>void</returns>
-        public static void LookAt2D(this Transform transform, Transform target)
+        /// <returns>Quaternion</returns>
+        public static Quaternion LookAt2D(this Transform transform, Transform target)
         {
 
             Vector2 angle = target.position - transform.position;
 
-            transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(angle.y, angle.x) * Mathf.Rad2Deg, Vector3.forward);
+            return Quaternion.AngleAxis(Mathf.Atan2(angle.y, angle.x) * Mathf.Rad2Deg, Vector3.forward);
 
         }
 
