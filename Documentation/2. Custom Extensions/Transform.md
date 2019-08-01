@@ -13,9 +13,9 @@ Transform[] children = gameObject.transform.GetChildrenByName("Item");
 Rotates transform so the forward vector (or supplied Vector3) points at target's position.
 
 ```csharp
-gameObject.transform.LookAt2D(currentMousePosition);
+gameObject.transform.rotation = gameObject.transform.LookAt2D(currentMousePosition);
 ```
 
 ```csharp
-gameObject.transform.LookAt2D(currentMousePosition, Vector3.right);
+gameObject.transform.rotation = gameObject.transform.LookAt2D(currentMousePosition, Vector3.right);
 ```
