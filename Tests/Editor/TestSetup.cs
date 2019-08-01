@@ -16,7 +16,7 @@ namespace CandyCoded.Tests
         protected static void ResetScene()
         {
 
-            EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
+            EditorSceneManager.NewScene(NewSceneSetup.DefaultGameObjects);
 
         }
 
