@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.1.0] - 2019-08-07
+
+### Features
+
+-   Added CandyCoded.Interfaces class. <https://github.com/CandyCoded/CandyCoded/pull/110>
+-   Added DeleteData method. <https://github.com/CandyCoded/CandyCoded/pull/112>
+-   Added IsVisible transform extension <https://github.com/CandyCoded/CandyCoded/pull/113>
+-   Added transparent screenshot method <https://github.com/CandyCoded/CandyCoded/pull/115>
+
+### Bug Fixes
+
+-   Fixed issue with interface access modifiers. <https://github.com/CandyCoded/CandyCoded/pull/111>
+-   Changed return value for LookAt2D <https://github.com/CandyCoded/CandyCoded/pull/114>
+
 ## [2.0.0] - 2019-07-05
 
 ### Features
