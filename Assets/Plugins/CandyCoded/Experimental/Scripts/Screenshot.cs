@@ -24,23 +24,25 @@ namespace CandyCoded.Experimental
 
 #if UNITY_EDITOR
         [MenuItem("Window/CandyCoded/Save Screenshot")]
-#endif
-        public static void SaveNormalResolutionImage()
+        private static void SaveNormalResolutionImage()
         {
+
+            EditorApplication.ExecuteMenuItem("Window/General/Game");
 
             Debug.Log($"Saved screenshot to {Save(1)}");
 
         }
 
-#if UNITY_EDITOR
         [MenuItem("Window/CandyCoded/Save Screenshot @ 2x")]
-#endif
-        public static void SaveHighResolutionImage()
+        private static void SaveHighResolutionImage()
         {
+
+            EditorApplication.ExecuteMenuItem("Window/General/Game");
 
             Debug.Log($"Saved screenshot to {Save(2)}");
 
         }
+#endif
 
         /// <summary>
         /// Save a screenshot to the applications persistent data path (device specific) with a random file name.
