@@ -3,6 +3,10 @@ build:
 	Scripts/build_docs.sh
 	Scripts/build_package.sh
 
+test: SHELL:=/bin/bash
+test:
+	bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/master/bin/test.sh)
+
 clean:
 	rm -rf build/
 	rm -rf Library/
