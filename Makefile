@@ -8,12 +8,7 @@ test:
 	bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/master/bin/test.sh)
 
 clean:
-	rm -rf build/
-	rm -rf Library/
-	rm -rf Packages/
-	rm -rf ProjectSettings/
-	rm -f test.xml
-	rm -f unity.log
+	git clean -xdf
 
 deploy:
 	git subtree push --prefix Assets/Plugins/CandyCoded origin upm
