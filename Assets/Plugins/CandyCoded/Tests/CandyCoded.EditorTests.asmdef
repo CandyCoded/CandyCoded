@@ -1,6 +1,8 @@
 {
     "name": "CandyCoded.EditorTests",
     "references": [
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
         "CandyCoded"
     ],
     "includePlatforms": [
@@ -13,6 +15,8 @@
         "nunit.framework.dll"
     ],
     "autoReferenced": false,
-    "defineConstraints": [],
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
     "versionDefines": []
 }
