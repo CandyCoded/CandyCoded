@@ -70,7 +70,6 @@ Assets/Plugins/Editor/
 
 Documentation/**/*.meta
 
-Packages/
 ProjectSettings/
 
 Scripts/**/*.meta
