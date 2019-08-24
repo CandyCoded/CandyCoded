@@ -55,10 +55,14 @@ namespace CandyCoded
             EditorGUI.indentLevel = 0;
 
             var minLabelRect = new Rect(prefixLabel.x, prefixLabel.y, labelRectWidth, rectHeight);
-            var sliderRect = new Rect(minLabelRect.xMax, prefixLabel.y, prefixLabel.width - labelRectWidth * 2, rectHeight);
+
+            var sliderRect = new Rect(minLabelRect.xMax, prefixLabel.y, prefixLabel.width - labelRectWidth * 2,
+                rectHeight);
+
             var maxLabelRect = new Rect(sliderRect.xMax, prefixLabel.y, labelRectWidth, rectHeight);
 
-            EditorGUI.LabelField(minLabelRect, minValue.ToString("F2"), new GUIStyle(GUI.skin.label) { alignment = TextAnchor.UpperLeft });
+            EditorGUI.LabelField(minLabelRect, minValue.ToString("F2"),
+                new GUIStyle(GUI.skin.label) { alignment = TextAnchor.UpperLeft });
 
             EditorGUI.BeginChangeCheck();
             EditorGUI.MinMaxSlider(sliderRect, ref minValue, ref maxValue, limits.MinLimit, limits.MaxLimit);
@@ -72,7 +76,8 @@ namespace CandyCoded
                 property.FindPropertyRelative("max").floatValue = maxValue;
             }
 
-            EditorGUI.LabelField(maxLabelRect, maxValue.ToString("F2"), new GUIStyle(GUI.skin.label) { alignment = TextAnchor.UpperRight });
+            EditorGUI.LabelField(maxLabelRect, maxValue.ToString("F2"),
+                new GUIStyle(GUI.skin.label) { alignment = TextAnchor.UpperRight });
 
             EditorGUI.indentLevel = prevIndentLevel;
 

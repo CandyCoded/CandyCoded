@@ -151,7 +151,10 @@ namespace CandyCoded
         {
 
             GUILayout.Space(spaceBeforeEventListHeight);
-            GUILayout.Label(string.Format(eventListHeaderTemplate, ObjectNames.NicifyVariableName(ev.Name), methods.Count), EditorStyles.boldLabel);
+
+            GUILayout.Label(
+                string.Format(eventListHeaderTemplate, ObjectNames.NicifyVariableName(ev.Name), methods.Count),
+                EditorStyles.boldLabel);
 
             if (!scrollPositions.ContainsKey(ev.Name))
             {
@@ -170,7 +173,9 @@ namespace CandyCoded
 
                     GUILayout.BeginHorizontal();
 
-                    if (GUILayout.Button(prefabIcon, EditorStyles.label, GUILayout.Width(EditorGUIUtility.singleLineHeight), GUILayout.Height(EditorGUIUtility.singleLineHeight)))
+                    if (GUILayout.Button(prefabIcon, EditorStyles.label,
+                        GUILayout.Width(EditorGUIUtility.singleLineHeight),
+                        GUILayout.Height(EditorGUIUtility.singleLineHeight)))
                     {
 
                         Selection.activeGameObject = methods[i].gameObject;
@@ -179,7 +184,8 @@ namespace CandyCoded
 
                     }
 
-                    if (GUILayout.Button(string.Format(eventListItemTemplate, i + 1, methods[i].label), EditorStyles.label))
+                    if (GUILayout.Button(string.Format(eventListItemTemplate, i + 1, methods[i].label),
+                        EditorStyles.label))
                     {
 
                         Selection.activeGameObject = methods[i].gameObject;
@@ -211,7 +217,12 @@ namespace CandyCoded
             if (multicastDelegate != null)
             {
 
-                return multicastDelegate.GetInvocationList().Select(i => new ExtendedMethodInfo { gameObject = ((MonoBehaviour)i.Target).gameObject, methodInfo = i.Method }).ToList();
+                return multicastDelegate.GetInvocationList().Select(i =>
+                        new ExtendedMethodInfo
+                            {
+                                gameObject = ((MonoBehaviour)i.Target).gameObject, methodInfo = i.Method
+                            })
+                    .ToList();
 
             }
 
