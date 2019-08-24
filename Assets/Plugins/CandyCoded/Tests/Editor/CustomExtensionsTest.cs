@@ -125,7 +125,12 @@ namespace CandyCoded.Tests
             public void EditKeyframeValueVector3AnimationCurve()
             {
 
-                var animationCurve = new Vector3AnimationCurve { x = AnimationCurve.Linear(0, 0, 1, 1), y = AnimationCurve.Linear(0, 0, 1, 1), z = AnimationCurve.Linear(0, 0, 1, 1) };
+                var animationCurve = new Vector3AnimationCurve
+                {
+                    x = AnimationCurve.Linear(0, 0, 1, 1),
+                    y = AnimationCurve.Linear(0, 0, 1, 1),
+                    z = AnimationCurve.Linear(0, 0, 1, 1)
+                };
 
                 animationCurve.EditKeyframeValue(0, new Vector3(10, 15, 20));
 
@@ -143,7 +148,10 @@ namespace CandyCoded.Tests
             public void EditKeyframeValueVector2AnimationCurve()
             {
 
-                var animationCurve = new Vector2AnimationCurve { x = AnimationCurve.Linear(0, 0, 1, 1), y = AnimationCurve.Linear(0, 0, 1, 1) };
+                var animationCurve = new Vector2AnimationCurve
+                {
+                    x = AnimationCurve.Linear(0, 0, 1, 1), y = AnimationCurve.Linear(0, 0, 1, 1)
+                };
 
                 animationCurve.EditKeyframeValue(0, new Vector2(10, 15));
 
@@ -209,7 +217,7 @@ namespace CandyCoded.Tests
             public void IsGameObjectVisibleToCamera()
             {
 
-                var mainCamera = GameObject.FindObjectOfType<Camera>();
+                var mainCamera = Object.FindObjectOfType<Camera>();
 
                 var gameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
@@ -217,7 +225,7 @@ namespace CandyCoded.Tests
 
                 gameObject.transform.position = new Vector3(100, 0, 0);
 
-                Assert.IsFalse((gameObject.transform.IsVisible(mainCamera)));
+                Assert.IsFalse(gameObject.transform.IsVisible(mainCamera));
 
             }
 

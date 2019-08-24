@@ -1,3 +1,5 @@
+// Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -9,6 +11,7 @@ namespace CandyCoded
 #if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(RangedFloat))]
 #endif
+    // ReSharper disable once RequiredBaseTypesIsNotInherited
     public class RangedStepSliderAttribute : PropertyAttribute
     {
 
@@ -55,10 +58,14 @@ namespace CandyCoded
             EditorGUI.indentLevel = 0;
 
             var minLabelRect = new Rect(prefixLabel.x, prefixLabel.y, labelRectWidth, rectHeight);
-            var sliderRect = new Rect(minLabelRect.xMax, prefixLabel.y, prefixLabel.width - labelRectWidth * 2, rectHeight);
+
+            var sliderRect = new Rect(minLabelRect.xMax, prefixLabel.y, prefixLabel.width - labelRectWidth * 2,
+                rectHeight);
+
             var maxLabelRect = new Rect(sliderRect.xMax, prefixLabel.y, labelRectWidth, rectHeight);
 
-            EditorGUI.LabelField(minLabelRect, minValue.ToString("F2"), new GUIStyle(GUI.skin.label) { alignment = TextAnchor.UpperLeft });
+            EditorGUI.LabelField(minLabelRect, minValue.ToString("F2"),
+                new GUIStyle(GUI.skin.label) { alignment = TextAnchor.UpperLeft });
 
             EditorGUI.BeginChangeCheck();
             EditorGUI.MinMaxSlider(sliderRect, ref minValue, ref maxValue, limits.MinLimit, limits.MaxLimit);
@@ -72,7 +79,8 @@ namespace CandyCoded
                 property.FindPropertyRelative("max").floatValue = maxValue;
             }
 
-            EditorGUI.LabelField(maxLabelRect, maxValue.ToString("F2"), new GUIStyle(GUI.skin.label) { alignment = TextAnchor.UpperRight });
+            EditorGUI.LabelField(maxLabelRect, maxValue.ToString("F2"),
+                new GUIStyle(GUI.skin.label) { alignment = TextAnchor.UpperRight });
 
             EditorGUI.indentLevel = prevIndentLevel;
 

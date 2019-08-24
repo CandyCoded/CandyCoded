@@ -11,7 +11,8 @@ namespace CandyCoded
 
         private delegate void AnimationFunc(float elapsedTime);
 
-        private static IEnumerator Loop(GameObject gameObject, string coroutineKey, bool isLooping, float maxTime, AnimationFunc animationFunc)
+        private static IEnumerator Loop(GameObject gameObject, string coroutineKey, bool isLooping, float maxTime,
+            AnimationFunc animationFunc)
         {
 
             var runner = gameObject.AddOrGetComponent<Runner>();
@@ -89,7 +90,8 @@ namespace CandyCoded
             foreach (var materialData in animationData.Materials)
             {
 
-                materialData.Material.color = Materials.SetColorAlpha(materialData.Material.color, materialData.StartColor.a * globalAlpha);
+                materialData.Material.color = Materials.SetColorAlpha(materialData.Material.color,
+                    materialData.StartColor.a * globalAlpha);
 
             }
 
@@ -244,10 +246,12 @@ namespace CandyCoded
         /// <param name="elapsedTime">The time elapsed since the animation started.</param>
         /// <param name="animationData">AnimationData object containing cached transform data.</param>
         /// <returns>void</returns>
-        public static void PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime, AnimationData animationData)
+        public static void PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve,
+            float elapsedTime, AnimationData animationData)
         {
 
-            gameObject.transform.localPosition = animationData.TransformData.Position + animationCurve.Evaluate(elapsedTime);
+            gameObject.transform.localPosition =
+                animationData.TransformData.Position + animationCurve.Evaluate(elapsedTime);
 
         }
 
@@ -258,12 +262,14 @@ namespace CandyCoded
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
         /// <param name="elapsedTime">The time elapsed since the animation started.</param>
         /// <returns>void</returns>
-        public static void PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime)
+        public static void PositionRelative(GameObject gameObject, Vector3AnimationCurve animationCurve,
+            float elapsedTime)
         {
 
             var animationData = gameObject.AddOrGetComponent<AnimationData>();
 
-            gameObject.transform.localPosition = animationData.TransformData.Position + animationCurve.Evaluate(elapsedTime);
+            gameObject.transform.localPosition =
+                animationData.TransformData.Position + animationCurve.Evaluate(elapsedTime);
 
         }
 
@@ -417,7 +423,8 @@ namespace CandyCoded
         /// <param name="elapsedTime">The time elapsed since the animation started.</param>
         /// <param name="animationData">AnimationData object containing cached transform data.</param>
         /// <returns>void</returns>
-        public static void ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime, AnimationData animationData)
+        public static void ScaleRelative(GameObject gameObject, Vector3AnimationCurve animationCurve, float elapsedTime,
+            AnimationData animationData)
         {
 
             gameObject.transform.localScale = animationData.TransformData.Scale + animationCurve.Evaluate(elapsedTime);

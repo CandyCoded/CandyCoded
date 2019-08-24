@@ -163,7 +163,10 @@ namespace CandyCoded
         public Vector3AnimationCurve Clone()
         {
 
-            return new Vector3AnimationCurve { x = new AnimationCurve(x.keys), y = new AnimationCurve(y.keys), z = new AnimationCurve(z.keys) };
+            return new Vector3AnimationCurve
+            {
+                x = new AnimationCurve(x.keys), y = new AnimationCurve(y.keys), z = new AnimationCurve(z.keys)
+            };
 
         }
 
@@ -274,7 +277,13 @@ namespace CandyCoded
         public Vector4AnimationCurve Clone()
         {
 
-            return new Vector4AnimationCurve { x = new AnimationCurve(x.keys), y = new AnimationCurve(y.keys), z = new AnimationCurve(z.keys), w = new AnimationCurve(w.keys) };
+            return new Vector4AnimationCurve
+            {
+                x = new AnimationCurve(x.keys),
+                y = new AnimationCurve(y.keys),
+                z = new AnimationCurve(z.keys),
+                w = new AnimationCurve(w.keys)
+            };
 
         }
 

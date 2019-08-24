@@ -71,7 +71,7 @@ namespace CandyCoded.Tests
             for (var i = 0; i < 10; i += 1)
             {
 
-                var gameObject = objectPoolReference.Retrieve();
+                objectPoolReference.Retrieve();
 
             }
 
@@ -102,7 +102,7 @@ namespace CandyCoded.Tests
             for (var i = 0; i < 10; i += 1)
             {
 
-                var gameObject = objectPoolReference.Retrieve();
+                objectPoolReference.Retrieve();
 
             }
 
@@ -128,7 +128,7 @@ namespace CandyCoded.Tests
             for (var i = 0; i < 100; i += 1)
             {
 
-                var gameObject = objectPoolReference.Retrieve();
+                objectPoolReference.Retrieve();
 
             }
 
