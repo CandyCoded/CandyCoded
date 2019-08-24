@@ -217,7 +217,7 @@ namespace CandyCoded.Tests
             public void IsGameObjectVisibleToCamera()
             {
 
-                var mainCamera = GameObject.FindObjectOfType<Camera>();
+                var mainCamera = Object.FindObjectOfType<Camera>();
 
                 var gameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
@@ -225,7 +225,7 @@ namespace CandyCoded.Tests
 
                 gameObject.transform.position = new Vector3(100, 0, 0);
 
-                Assert.IsFalse((gameObject.transform.IsVisible(mainCamera)));
+                Assert.IsFalse(gameObject.transform.IsVisible(mainCamera));
 
             }
 
