@@ -197,7 +197,8 @@ namespace CandyCoded
         public static bool IsLooping(this AnimationCurve animationCurve)
         {
 
-            return animationCurve != null && (animationCurve.postWrapMode.Equals(WrapMode.Loop) || animationCurve.postWrapMode.Equals(WrapMode.PingPong));
+            return animationCurve != null && (animationCurve.postWrapMode.Equals(WrapMode.Loop) ||
+                                              animationCurve.postWrapMode.Equals(WrapMode.PingPong));
 
         }
 
@@ -212,7 +213,8 @@ namespace CandyCoded
 
             var positionInViewport = camera.WorldToViewportPoint(transform.position);
 
-            return positionInViewport.x >= 0 && positionInViewport.x <= 1 && positionInViewport.y >= 0 && positionInViewport.y <= 1;
+            return positionInViewport.x >= 0 && positionInViewport.x <= 1 && positionInViewport.y >= 0 &&
+                   positionInViewport.y <= 1;
 
         }
 
@@ -228,7 +230,8 @@ namespace CandyCoded
 
             Vector2 angle = target.position - transform.position;
 
-            var deg = Vector3.Angle(Vector3.forward, direction) * Mathf.Sign(Vector3.Cross(Vector3.forward, direction).x);
+            var deg = Vector3.Angle(Vector3.forward, direction) *
+                      Mathf.Sign(Vector3.Cross(Vector3.forward, direction).x);
 
             return Quaternion.AngleAxis(Mathf.Atan2(angle.y, angle.x) * Mathf.Rad2Deg + deg, Vector3.forward);
 
@@ -256,7 +259,9 @@ namespace CandyCoded
         public static float MaxTime(this AnimationCurve animationCurve)
         {
 
-            return animationCurve != null && animationCurve.keys.Length > 0 ? animationCurve.keys[animationCurve.keys.Length - 1].time : 0;
+            return animationCurve != null && animationCurve.keys.Length > 0
+                ? animationCurve.keys[animationCurve.keys.Length - 1].time
+                : 0;
 
         }
 

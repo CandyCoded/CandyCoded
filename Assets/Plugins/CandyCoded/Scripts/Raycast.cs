@@ -18,7 +18,8 @@ namespace CandyCoded
         /// <param name="layerMask">LayerMask used to determine what the raycast can collide with.</param>
         /// <param name="hits">List of objects raycast collided with.</param>
         /// <returns>Vector3[]</returns>
-        public static Vector3[] Reflect(Vector3 startPosition, Vector3 direction, float distance, LayerMask layerMask, out List<RaycastHit> hits)
+        public static Vector3[] Reflect(Vector3 startPosition, Vector3 direction, float distance, LayerMask layerMask,
+            out List<RaycastHit> hits)
         {
 
             hits = new List<RaycastHit>();
@@ -32,7 +33,8 @@ namespace CandyCoded
             while (remainingDistance > 0)
             {
 
-                if (Physics.Raycast(linePositions[linePositions.Count - 1], currentDirection, out var hitInfo, remainingDistance, layerMask, QueryTriggerInteraction.Ignore))
+                if (Physics.Raycast(linePositions[linePositions.Count - 1], currentDirection, out var hitInfo,
+                    remainingDistance, layerMask, QueryTriggerInteraction.Ignore))
                 {
 
                     remainingDistance -= Vector3.Distance(linePositions[linePositions.Count - 1], hitInfo.point);
