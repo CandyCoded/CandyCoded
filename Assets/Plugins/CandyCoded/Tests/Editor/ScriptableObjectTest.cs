@@ -62,6 +62,24 @@ namespace CandyCoded.Tests
         }
 
         [Test]
+        public void GameObjectReference()
+        {
+
+            var gameObjectReference = ScriptableObject.CreateInstance<GameObjectReference>();
+
+            var gameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
+
+            gameObjectReference.Value = gameObject;
+
+            Assert.AreEqual(gameObject, gameObjectReference.Value);
+
+            gameObjectReference.Reset();
+
+            Assert.AreEqual(null, gameObjectReference.Value);
+
+        }
+
+        [Test]
         public void IntReference()
         {
 
