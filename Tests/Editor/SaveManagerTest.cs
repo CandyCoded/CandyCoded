@@ -15,10 +15,13 @@ namespace CandyCoded.Tests
     {
 
         private const string listPathFileName = "List.dat";
+
         private const string observableListPathFileName = "ObservableList.dat";
 
         private static string listPath => Path.Combine(Application.persistentDataPath, listPathFileName);
-        private static string observableListPath => Path.Combine(Application.persistentDataPath,observableListPathFileName);
+
+        private static string observableListPath =>
+            Path.Combine(Application.persistentDataPath, observableListPathFileName);
 
         [SetUp]
         public static void DeleteFiles()
@@ -130,7 +133,8 @@ namespace CandyCoded.Tests
 
             SaveManager.SaveData(listOfNumbers, observableListPathFileName, Application.persistentDataPath);
 
-            var newListOfNumbers = SaveManager.LoadData<ObservableList<int>>(observableListPathFileName, Application.persistentDataPath);
+            var newListOfNumbers =
+                SaveManager.LoadData<ObservableList<int>>(observableListPathFileName, Application.persistentDataPath);
 
             Assert.AreEqual(listOfNumbers, newListOfNumbers);
 

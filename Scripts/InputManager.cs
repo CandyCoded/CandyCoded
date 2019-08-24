@@ -23,7 +23,8 @@ namespace CandyCoded
         /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
-        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId, out RaycastHit hit)
+        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId,
+            out RaycastHit hit)
         {
 
             currentFingerId = 0;
@@ -47,7 +48,8 @@ namespace CandyCoded
         /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
-        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId, out RaycastHit2D hit)
+        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId,
+            out RaycastHit2D hit)
         {
 
             currentFingerId = 0;
@@ -129,7 +131,8 @@ namespace CandyCoded
         /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
-        public static bool GetInputUp(this GameObject gameObject, Camera mainCamera, int currentFingerId, out RaycastHit hit)
+        public static bool GetInputUp(this GameObject gameObject, Camera mainCamera, int currentFingerId,
+            out RaycastHit hit)
         {
 
             if (TouchActive)
@@ -151,7 +154,8 @@ namespace CandyCoded
         /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
-        public static bool GetInputUp(this GameObject gameObject, Camera mainCamera, int currentFingerId, out RaycastHit2D hit)
+        public static bool GetInputUp(this GameObject gameObject, Camera mainCamera, int currentFingerId,
+            out RaycastHit2D hit)
         {
 
             if (TouchActive)
@@ -235,7 +239,8 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            return Input.GetMouseButtonDown(0) && RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
+            return Input.GetMouseButtonDown(0) &&
+                   RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
 
         }
 
@@ -251,7 +256,8 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            return Input.GetMouseButtonDown(0) && RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
+            return Input.GetMouseButtonDown(0) &&
+                   RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
 
         }
 
@@ -278,7 +284,8 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            return Input.GetMouseButtonUp(0) && RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
+            return Input.GetMouseButtonUp(0) &&
+                   RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
 
         }
 
@@ -294,7 +301,8 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            return Input.GetMouseButtonUp(0) && RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
+            return Input.GetMouseButtonUp(0) &&
+                   RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
 
         }
 
@@ -416,7 +424,8 @@ namespace CandyCoded
         /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
-        public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId, out RaycastHit hit)
+        public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId,
+            out RaycastHit hit)
         {
 
             currentFingerId = 0;
@@ -429,7 +438,8 @@ namespace CandyCoded
                 foreach (var touch in Input.touches)
                 {
 
-                    if (touch.phase.Equals(TouchPhase.Began) && RaycastToGameObject(gameObject, mainCamera, touch.position, out hit))
+                    if (touch.phase.Equals(TouchPhase.Began) &&
+                        RaycastToGameObject(gameObject, mainCamera, touch.position, out hit))
                     {
 
                         currentFingerId = touch.fingerId;
@@ -454,7 +464,8 @@ namespace CandyCoded
         /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
-        public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId, out RaycastHit2D hit)
+        public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId,
+            out RaycastHit2D hit)
         {
 
             currentFingerId = 0;
@@ -467,7 +478,8 @@ namespace CandyCoded
                 foreach (var touch in Input.touches)
                 {
 
-                    if (touch.phase.Equals(TouchPhase.Began) && RaycastToGameObject(gameObject, mainCamera, touch.position, out hit))
+                    if (touch.phase.Equals(TouchPhase.Began) &&
+                        RaycastToGameObject(gameObject, mainCamera, touch.position, out hit))
                     {
 
                         currentFingerId = touch.fingerId;
@@ -544,7 +556,8 @@ namespace CandyCoded
         /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
-        public static bool GetTouchUp(this GameObject gameObject, Camera mainCamera, int currentFingerId, out RaycastHit hit)
+        public static bool GetTouchUp(this GameObject gameObject, Camera mainCamera, int currentFingerId,
+            out RaycastHit hit)
         {
 
             hit = new RaycastHit();
@@ -563,7 +576,8 @@ namespace CandyCoded
         /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
-        public static bool GetTouchUp(this GameObject gameObject, Camera mainCamera, int currentFingerId, out RaycastHit2D hit)
+        public static bool GetTouchUp(this GameObject gameObject, Camera mainCamera, int currentFingerId,
+            out RaycastHit2D hit)
         {
 
             hit = new RaycastHit2D();
@@ -634,12 +648,14 @@ namespace CandyCoded
         /// <param name="position">Vector3 to test raycast with.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
-        public static bool RaycastToGameObject(GameObject gameObject, Camera mainCamera, Vector3 position, out RaycastHit hit)
+        public static bool RaycastToGameObject(GameObject gameObject, Camera mainCamera, Vector3 position,
+            out RaycastHit hit)
         {
 
             var ray = mainCamera.ScreenPointToRay(position);
 
-            return Physics.Raycast(ray, out hit, Mathf.Infinity, gameObject.GetLayerMask()) && hit.transform.IsChildOf(gameObject.transform);
+            return Physics.Raycast(ray, out hit, Mathf.Infinity, gameObject.GetLayerMask()) &&
+                   hit.transform.IsChildOf(gameObject.transform);
 
         }
 
@@ -651,7 +667,8 @@ namespace CandyCoded
         /// <param name="position">Vector3 to test raycast with.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
-        public static bool RaycastToGameObject(GameObject gameObject, Camera mainCamera, Vector3 position, out RaycastHit2D hit)
+        public static bool RaycastToGameObject(GameObject gameObject, Camera mainCamera, Vector3 position,
+            out RaycastHit2D hit)
         {
 
             var ray = mainCamera.ScreenPointToRay(position);
