@@ -62,6 +62,9 @@ crashlytics-build.properties
 
 .idea/
 
+**/Assets/*
+!Assets/Plugins/
+
 Assets/Plugins/CandyCoded/Documentation.meta
 Assets/Plugins/CandyCoded/Documentation/
 
