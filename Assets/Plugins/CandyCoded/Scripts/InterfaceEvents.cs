@@ -1,6 +1,8 @@
 using System.Linq;
 using UnityEngine;
 
+// ReSharper disable SuspiciousTypeConversion.Global
+
 namespace CandyCoded.Interfaces
 {
 
