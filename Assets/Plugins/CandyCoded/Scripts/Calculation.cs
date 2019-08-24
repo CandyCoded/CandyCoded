@@ -56,6 +56,7 @@ namespace CandyCoded
 
             }
 
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
             if (min.HasValue && max.HasValue)
             {
 

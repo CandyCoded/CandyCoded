@@ -138,6 +138,7 @@ namespace CandyCoded
 
         }
 
+        // ReSharper disable once UnusedMember.Local
         private void ShowButton(Rect rect)
         {
 
