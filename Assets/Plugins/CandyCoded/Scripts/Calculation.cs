@@ -28,31 +28,9 @@ namespace CandyCoded
 
                 var childBounds = renderer.bounds;
 
-                if (min.HasValue)
-                {
+                min = min.HasValue ? Vector3.Min(min.Value, childBounds.min) : childBounds.min;
 
-                    min = Vector3.Min(min.Value, childBounds.min);
-
-                }
-                else
-                {
-
-                    min = childBounds.min;
-
-                }
-
-                if (max.HasValue)
-                {
-
-                    max = Vector3.Max(max.Value, childBounds.max);
-
-                }
-                else
-                {
-
-                    max = childBounds.max;
-
-                }
+                max = max.HasValue ? Vector3.Max(max.Value, childBounds.max) : childBounds.max;
 
             }
 
