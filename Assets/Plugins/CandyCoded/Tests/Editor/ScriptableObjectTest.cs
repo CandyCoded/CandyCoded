@@ -43,7 +43,7 @@ namespace CandyCoded.Tests
         }
 
         [Test]
-        public void GameObjectReference()
+        public void GameObjectListReference()
         {
 
             var gameObjectListReference = ScriptableObject.CreateInstance<GameObjectListReference>();
