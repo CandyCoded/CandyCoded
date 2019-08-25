@@ -147,6 +147,7 @@ CandyCoded is a collection of useful components and extensions for building in U
     -   [Bool](Documentation/4.%20ScriptableObject/Bool.md)
     -   [CustomGenericScriptableObject](Documentation/4.%20ScriptableObject/CustomGenericScriptableObject.md)
     -   [Float](Documentation/4.%20ScriptableObject/Float.md)
+    -   [GameObject](Documentation/4.%20ScriptableObject/GameObject.md)
     -   [GameObjectList](Documentation/4.%20ScriptableObject/GameObjectList.md)
     -   [GameObjectPool](Documentation/4.%20ScriptableObject/GameObjectPool.md)
     -   [Int](Documentation/4.%20ScriptableObject/Int.md)
