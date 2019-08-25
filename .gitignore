@@ -68,9 +68,6 @@ crashlytics-build.properties
 Assets/Plugins/CandyCoded/Documentation.meta
 Assets/Plugins/CandyCoded/Documentation/
 
-Assets/Plugins/Editor.meta
-Assets/Plugins/Editor/
-
 ProjectSettings/
 
 /*.log
