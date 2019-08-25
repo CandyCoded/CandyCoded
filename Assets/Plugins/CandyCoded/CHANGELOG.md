@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.2.0] - 2019-08-24
+
+### Features
+
+-   Added GameObjectReference <https://github.com/CandyCoded/CandyCoded/pull/119>
+
+### Maintenance
+
+-   Code formatting <https://github.com/CandyCoded/CandyCoded/pull/118>
+-   Fix tests 2019.2 <https://github.com/CandyCoded/CandyCoded/pull/117>
+-   Added missing dependencies to package file. <https://github.com/CandyCoded/CandyCoded/pull/116>
+
+### Bug Fixes
+
+-   Prevent including top level assets <https://github.com/CandyCoded/CandyCoded/pull/120>
+
 ## [2.1.0] - 2019-08-07
 
 ### Features
