@@ -7,6 +7,17 @@ using UnityEngine;
 namespace CandyCoded
 {
 
+    public enum ROTATION_AXIS
+    {
+
+        ALL,
+
+        HORIZONTAL,
+
+        VERTICAL,
+
+    }
+
     public static class CustomExtensions
     {
 
@@ -370,6 +381,51 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Rotate transform with delta input position.
+        /// </summary>
+        /// <param name="transform">Transform to rotate.</param>
+        /// <param name="delta">Delta of current input position and previous input position.</param>
+        /// <param name="speed">Speed at which to rotate transform.</param>
+        /// <param name="cameraTransform">Active camera transform.</param>
+        /// <param name="axis">Axis rotation will be performed on.</param>
+        /// <returns>void</returns>
+        public static void RotateWithDelta(this Transform transform, Vector3 delta, float speed,
+            Transform cameraTransform, ROTATION_AXIS axis)
+        {
+
+            if (axis.Equals(ROTATION_AXIS.ALL) || axis.Equals(ROTATION_AXIS.HORIZONTAL))
+            {
+
+                transform.Rotate(cameraTransform.up, delta.x * speed * Time.deltaTime, Space.World);
+
+            }
+
+            if (axis.Equals(ROTATION_AXIS.ALL) || axis.Equals(ROTATION_AXIS.VERTICAL))
+            {
+
+                transform.Rotate(cameraTransform.right, -delta.y * speed * Time.deltaTime, Space.World);
+
+            }
+
+        }
+
+        /// <summary>
+        /// Rotate transform with delta input position.
+        /// </summary>
+        /// <param name="transform">Transform to rotate.</param>
+        /// <param name="delta">Delta of current input position and previous input position.</param>
+        /// <param name="speed">Speed at which to rotate transform.</param>
+        /// <param name="cameraTransform">Active camera transform.</param>
+        /// <returns>void</returns>
+        public static void RotateWithDelta(this Transform transform, Vector3 delta, float speed,
+            Transform cameraTransform)
+        {
+
+            transform.RotateWithDelta(delta, speed, cameraTransform, ROTATION_AXIS.ALL);
+
+        }
+
+        /// <summary>
         /// Removes the first item from a list and returns that item.
         /// </summary>
         /// <param name="list">List<T/> object.</param>
@@ -456,6 +512,23 @@ namespace CandyCoded
         {
 
             return list.Slice(0, 1);
+
+        }
+
+        /// <summary>
+        /// Snaps a rotation to the specified angle.
+        /// </summary>
+        /// <param name="quaternion">Quaternion to modify.</param>
+        /// <param name="angle">Angle to snap rotation to.</param>
+        /// <returns>Quaternion</returns>
+        public static Quaternion SnapRotation(this Quaternion quaternion, float angle)
+        {
+
+            return Quaternion.Euler(
+                Mathf.Round(quaternion.eulerAngles.x / angle) * angle,
+                Mathf.Round(quaternion.eulerAngles.y / angle) * angle,
+                Mathf.Round(quaternion.eulerAngles.z / angle) * angle
+            );
 
         }
 
