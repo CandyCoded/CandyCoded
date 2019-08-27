@@ -426,6 +426,24 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Return a high precision viewport point. (0, 0) to (100, 100)
+        /// </summary>
+        /// <param name="camera">Camera to calculate viewport position with.</param>
+        /// <param name="position">Screen position.</param>
+        /// <returns>void</returns>
+        public static Vector3 ScreenToHighPrecisionViewportPoint(this Camera camera, Vector3 position)
+        {
+
+            const int multiplier = 10;
+
+            var x = position.x * multiplier / camera.pixelWidth * multiplier;
+            var y = position.y * multiplier / camera.pixelHeight * multiplier;
+
+            return new Vector3(x, y, 0);
+
+        }
+
+        /// <summary>
         /// Removes the first item from a list and returns that item.
         /// </summary>
         /// <param name="list">List<T/> object.</param>
