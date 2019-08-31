@@ -10,11 +10,11 @@ namespace CandyCoded
     public enum RotationAxis
     {
 
-        ALL,
+        All,
 
-        HORIZONTAL,
+        Horizontal,
 
-        VERTICAL,
+        Vertical,
 
     }
 
@@ -393,14 +393,14 @@ namespace CandyCoded
             Transform cameraTransform, RotationAxis axis)
         {
 
-            if (axis.Equals(RotationAxis.ALL) || axis.Equals(RotationAxis.HORIZONTAL))
+            if (axis.Equals(RotationAxis.All) || axis.Equals(RotationAxis.Horizontal))
             {
 
                 transform.Rotate(cameraTransform.up, delta.x * speed * Time.deltaTime, Space.World);
 
             }
 
-            if (axis.Equals(RotationAxis.ALL) || axis.Equals(RotationAxis.VERTICAL))
+            if (axis.Equals(RotationAxis.All) || axis.Equals(RotationAxis.Vertical))
             {
 
                 transform.Rotate(cameraTransform.right, -delta.y * speed * Time.deltaTime, Space.World);
@@ -421,7 +421,7 @@ namespace CandyCoded
             Transform cameraTransform)
         {
 
-            transform.RotateWithDelta(delta, speed, cameraTransform, RotationAxis.ALL);
+            transform.RotateWithDelta(delta, speed, cameraTransform, RotationAxis.All);
 
         }
 
