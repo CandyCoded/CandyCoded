@@ -426,6 +426,23 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Return a custom high precision viewport point. (0, 0) to (n, n)
+        /// </summary>
+        /// <param name="camera">Camera to calculate viewport position with.</param>
+        /// <param name="position">Screen position.</param>
+        /// <param name="multiplier">Multiplier used to calculate viewport point.</param>
+        /// <returns>void</returns>
+        public static Vector3 ScreenToHighPrecisionViewportPoint(this Camera camera, Vector3 position, int multiplier)
+        {
+
+            var x = position.x * multiplier / camera.pixelWidth * multiplier;
+            var y = position.y * multiplier / camera.pixelHeight * multiplier;
+
+            return new Vector3(x, y, 0);
+
+        }
+
+        /// <summary>
         /// Return a high precision viewport point. (0, 0) to (100, 100)
         /// </summary>
         /// <param name="camera">Camera to calculate viewport position with.</param>
@@ -434,12 +451,7 @@ namespace CandyCoded
         public static Vector3 ScreenToHighPrecisionViewportPoint(this Camera camera, Vector3 position)
         {
 
-            const int multiplier = 10;
-
-            var x = position.x * multiplier / camera.pixelWidth * multiplier;
-            var y = position.y * multiplier / camera.pixelHeight * multiplier;
-
-            return new Vector3(x, y, 0);
+            return camera.ScreenToHighPrecisionViewportPoint(position, 10);
 
         }
 
