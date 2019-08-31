@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.3.0] - 2019-08-31
+
+### Features
+
+-   Transform and camera extensions. <https://github.com/CandyCoded/CandyCoded/pull/121>
+
+### Maintenance
+
+-   Updated documentation.
+-   Renamed LICENSE file.
+
 ## [2.2.0] - 2019-08-24
 
 ### Features
