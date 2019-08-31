@@ -96,7 +96,7 @@ namespace CandyCoded
         /// Plays an audio clip stored in the audio data array by name with a specified AudioSource component.
         /// </summary>
         /// <param name="audioDataName">String representing the audio clip to play.</param>
-        /// <param name="audioSource">AudioSource component to play an AudioClip with.</param>
+        /// <param name="audioSource">AudioSource component used to play an AudioClip.</param>
         /// <returns>void</returns>
         public void Play(string audioDataName, AudioSource audioSource)
         {
