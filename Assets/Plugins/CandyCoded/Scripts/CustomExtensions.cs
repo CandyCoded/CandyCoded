@@ -389,7 +389,7 @@ namespace CandyCoded
         /// <param name="cameraTransform">Active camera transform.</param>
         /// <param name="axis">Axis rotation will be performed on.</param>
         /// <returns>void</returns>
-        public static void RotateWithDelta(this Transform transform, Vector3 delta, float speed,
+        public static void RotateWithInputDelta(this Transform transform, Vector3 delta, float speed,
             Transform cameraTransform, RotationAxis axis)
         {
 
@@ -417,11 +417,11 @@ namespace CandyCoded
         /// <param name="speed">Speed at which to rotate transform.</param>
         /// <param name="cameraTransform">Active camera transform.</param>
         /// <returns>void</returns>
-        public static void RotateWithDelta(this Transform transform, Vector3 delta, float speed,
+        public static void RotateWithInputDelta(this Transform transform, Vector3 delta, float speed,
             Transform cameraTransform)
         {
 
-            transform.RotateWithDelta(delta, speed, cameraTransform, RotationAxis.All);
+            transform.RotateWithInputDelta(delta, speed, cameraTransform, RotationAxis.All);
 
         }
 

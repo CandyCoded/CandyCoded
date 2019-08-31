@@ -107,7 +107,7 @@ CandyCoded is a collection of useful components and extensions for building in U
     -   [Transform](Documentation/2.%20Custom%20Extensions/Transform.md)
         -   [GetChildrenByName](Documentation/2.%20Custom%20Extensions/Transform.md#getchildrenbyname)
         -   [LookAt2D](Documentation/2.%20Custom%20Extensions/Transform.md#lookat2d)
-        -   [RotateWithDelta](Documentation/2.%20Custom%20Extensions/Transform.md#rotatewithdelta)
+        -   [RotateWithInputDelta](Documentation/2.%20Custom%20Extensions/Transform.md#rotatewithinputdelta)
 -   [Static Methods](Documentation/3.%20Static%20Methods/)
     -   [Animate](Documentation/3.%20Static%20Methods/Animate.md)
         -   [Fade](Documentation/3.%20Static%20Methods/Animate.md#fade)

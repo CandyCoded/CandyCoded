@@ -20,16 +20,16 @@ gameObject.transform.rotation = gameObject.transform.LookAt2D(currentMousePositi
 gameObject.transform.rotation = gameObject.transform.LookAt2D(currentMousePosition, Vector3.right);
 ```
 
-#### RotateWithDelta
+#### RotateWithInputDelta
 
 Rotate transform with delta input position.
 
 ```csharp
-gameObject.transform.RotateWithDelta(delta, rotateSpeed, mainCameraTransform);
+gameObject.transform.RotateWithInputDelta(delta, rotateSpeed, mainCameraTransform);
 ```
 
 Rotate transform along a custom axis with delta input position.
 
 ```csharp
-gameObject.transform.RotateWithDelta(delta, rotateSpeed, mainCameraTransform, RotationAxis.Horizontal);
+gameObject.transform.RotateWithInputDelta(delta, rotateSpeed, mainCameraTransform, RotationAxis.Horizontal);
 ```
