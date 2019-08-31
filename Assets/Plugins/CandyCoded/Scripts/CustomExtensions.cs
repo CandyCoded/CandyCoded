@@ -7,6 +7,17 @@ using UnityEngine;
 namespace CandyCoded
 {
 
+    public enum RotationAxis
+    {
+
+        All,
+
+        Horizontal,
+
+        Vertical,
+
+    }
+
     public static class CustomExtensions
     {
 
@@ -370,6 +381,81 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Rotate transform along a custom axis with delta input position.
+        /// </summary>
+        /// <param name="transform">Transform to rotate.</param>
+        /// <param name="delta">Delta of current input position and previous input position.</param>
+        /// <param name="speed">Speed at which to rotate transform.</param>
+        /// <param name="cameraTransform">Active camera transform.</param>
+        /// <param name="axis">Axis rotation will be performed on.</param>
+        /// <returns>void</returns>
+        public static void RotateWithInputDelta(this Transform transform, Vector3 delta, float speed,
+            Transform cameraTransform, RotationAxis axis)
+        {
+
+            if (axis.Equals(RotationAxis.All) || axis.Equals(RotationAxis.Horizontal))
+            {
+
+                transform.Rotate(cameraTransform.up, delta.x * speed * Time.deltaTime, Space.World);
+
+            }
+
+            if (axis.Equals(RotationAxis.All) || axis.Equals(RotationAxis.Vertical))
+            {
+
+                transform.Rotate(cameraTransform.right, -delta.y * speed * Time.deltaTime, Space.World);
+
+            }
+
+        }
+
+        /// <summary>
+        /// Rotate transform with delta input position.
+        /// </summary>
+        /// <param name="transform">Transform to rotate.</param>
+        /// <param name="delta">Delta of current input position and previous input position.</param>
+        /// <param name="speed">Speed at which to rotate transform.</param>
+        /// <param name="cameraTransform">Active camera transform.</param>
+        /// <returns>void</returns>
+        public static void RotateWithInputDelta(this Transform transform, Vector3 delta, float speed,
+            Transform cameraTransform)
+        {
+
+            transform.RotateWithInputDelta(delta, speed, cameraTransform, RotationAxis.All);
+
+        }
+
+        /// <summary>
+        /// Return a custom high precision viewport point. (0, 0) to (n, n)
+        /// </summary>
+        /// <param name="camera">Camera used to calculate viewport position.</param>
+        /// <param name="position">Input position on screen.</param>
+        /// <param name="multiplier">Multiplier used to calculate viewport point.</param>
+        /// <returns>void</returns>
+        public static Vector3 ScreenToHighPrecisionViewportPoint(this Camera camera, Vector3 position, int multiplier)
+        {
+
+            var x = position.x * multiplier / camera.pixelWidth * multiplier;
+            var y = position.y * multiplier / camera.pixelHeight * multiplier;
+
+            return new Vector3(x, y, 0);
+
+        }
+
+        /// <summary>
+        /// Return a high precision viewport point. (0, 0) to (100, 100)
+        /// </summary>
+        /// <param name="camera">Camera used to calculate viewport position.</param>
+        /// <param name="position">Input position on screen.</param>
+        /// <returns>void</returns>
+        public static Vector3 ScreenToHighPrecisionViewportPoint(this Camera camera, Vector3 position)
+        {
+
+            return camera.ScreenToHighPrecisionViewportPoint(position, 10);
+
+        }
+
+        /// <summary>
         /// Removes the first item from a list and returns that item.
         /// </summary>
         /// <param name="list">List<T/> object.</param>
@@ -456,6 +542,23 @@ namespace CandyCoded
         {
 
             return list.Slice(0, 1);
+
+        }
+
+        /// <summary>
+        /// Snaps a rotation to the specified angle.
+        /// </summary>
+        /// <param name="quaternion">Quaternion to modify.</param>
+        /// <param name="angle">Angle to snap rotation to.</param>
+        /// <returns>Quaternion</returns>
+        public static Quaternion SnapRotation(this Quaternion quaternion, float angle)
+        {
+
+            return Quaternion.Euler(
+                Mathf.Round(quaternion.eulerAngles.x / angle) * angle,
+                Mathf.Round(quaternion.eulerAngles.y / angle) * angle,
+                Mathf.Round(quaternion.eulerAngles.z / angle) * angle
+            );
 
         }
 
