@@ -381,7 +381,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Rotate transform with delta input position.
+        /// Rotate transform along a custom axis with delta input position.
         /// </summary>
         /// <param name="transform">Transform to rotate.</param>
         /// <param name="delta">Delta of current input position and previous input position.</param>
