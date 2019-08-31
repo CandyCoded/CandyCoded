@@ -428,7 +428,7 @@ namespace CandyCoded
         /// <summary>
         /// Return a custom high precision viewport point. (0, 0) to (n, n)
         /// </summary>
-        /// <param name="camera">Camera to calculate viewport position with.</param>
+        /// <param name="camera">Camera used to calculate viewport position.</param>
         /// <param name="position">Screen position.</param>
         /// <param name="multiplier">Multiplier used to calculate viewport point.</param>
         /// <returns>void</returns>
@@ -445,7 +445,7 @@ namespace CandyCoded
         /// <summary>
         /// Return a high precision viewport point. (0, 0) to (100, 100)
         /// </summary>
-        /// <param name="camera">Camera to calculate viewport position with.</param>
+        /// <param name="camera">Camera used to calculate viewport position.</param>
         /// <param name="position">Screen position.</param>
         /// <returns>void</returns>
         public static Vector3 ScreenToHighPrecisionViewportPoint(this Camera camera, Vector3 position)
