@@ -7,7 +7,7 @@ using UnityEngine;
 namespace CandyCoded
 {
 
-    public enum ROTATION_AXIS
+    public enum RotationAxis
     {
 
         ALL,
@@ -390,17 +390,17 @@ namespace CandyCoded
         /// <param name="axis">Axis rotation will be performed on.</param>
         /// <returns>void</returns>
         public static void RotateWithDelta(this Transform transform, Vector3 delta, float speed,
-            Transform cameraTransform, ROTATION_AXIS axis)
+            Transform cameraTransform, RotationAxis axis)
         {
 
-            if (axis.Equals(ROTATION_AXIS.ALL) || axis.Equals(ROTATION_AXIS.HORIZONTAL))
+            if (axis.Equals(RotationAxis.ALL) || axis.Equals(RotationAxis.HORIZONTAL))
             {
 
                 transform.Rotate(cameraTransform.up, delta.x * speed * Time.deltaTime, Space.World);
 
             }
 
-            if (axis.Equals(ROTATION_AXIS.ALL) || axis.Equals(ROTATION_AXIS.VERTICAL))
+            if (axis.Equals(RotationAxis.ALL) || axis.Equals(RotationAxis.VERTICAL))
             {
 
                 transform.Rotate(cameraTransform.right, -delta.y * speed * Time.deltaTime, Space.World);
@@ -421,7 +421,7 @@ namespace CandyCoded
             Transform cameraTransform)
         {
 
-            transform.RotateWithDelta(delta, speed, cameraTransform, ROTATION_AXIS.ALL);
+            transform.RotateWithDelta(delta, speed, cameraTransform, RotationAxis.ALL);
 
         }
 
