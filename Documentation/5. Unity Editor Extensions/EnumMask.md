@@ -8,7 +8,7 @@ using UnityEngine;
 public class EnumMaskDemo : MonoBehaviour
 {
 
-    public enum STATE
+    public enum State
     {
         None = 0,
         Idle = 1 << 0,
@@ -18,17 +18,17 @@ public class EnumMaskDemo : MonoBehaviour
         All = ~0
     }
 
-    public STATE currentState = STATE.Idle;
+    public State currentState = State.Idle;
 
     [EnumMask]
-    public STATE availableStates = STATE.Idle | STATE.Running | STATE.Falling;
+    public State availableStates = State.Idle | State.Running | State.Falling;
 
     private void Start()
     {
 
         // Typecast both availableStates and individual enum values to an int
         // to run a bitwise comparison using Contains (part of CandyCoded)
-        Debug.Log(((int) availableStates).Contains((int) STATE.Jumping)); // False
+        Debug.Log(((int) availableStates).Contains((int) State.Jumping)); // False
 
     }
 

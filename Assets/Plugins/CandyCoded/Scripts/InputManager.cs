@@ -332,7 +332,7 @@ namespace CandyCoded
         /// Returns the active touch based on a unique finger ID and a TouchPhase enum filter.
         /// </summary>
         /// <param name="fingerId">The stored unique finger ID of the touch event.</param>
-        /// <param name="touchPhasesFilter">TouchPhase enums to filter with.</param>
+        /// <param name="touchPhasesFilter">TouchPhase enums used to filter.</param>
         /// <returns>Touch</returns>
         public static Touch? GetActiveTouch(int fingerId, params TouchPhase[] touchPhasesFilter)
         {
@@ -361,7 +361,7 @@ namespace CandyCoded
         /// <summary>
         /// Returns the active touch based on a TouchPhase enum filter.
         /// </summary>
-        /// <param name="touchPhasesFilter">TouchPhase enums to filter with.</param>
+        /// <param name="touchPhasesFilter">TouchPhase enums used to filter.</param>
         /// <returns>Touch</returns>
         public static Touch? GetActiveTouch(params TouchPhase[] touchPhasesFilter)
         {
@@ -645,7 +645,7 @@ namespace CandyCoded
         /// </summary>
         /// <param name="gameObject">GameObject to test.</param>
         /// <param name="mainCamera">Current active camera.</param>
-        /// <param name="position">Vector3 to test raycast with.</param>
+        /// <param name="position">Vector3 used to test raycast.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
         public static bool RaycastToGameObject(GameObject gameObject, Camera mainCamera, Vector3 position,
@@ -655,7 +655,7 @@ namespace CandyCoded
             var ray = mainCamera.ScreenPointToRay(position);
 
             return Physics.Raycast(ray, out hit, Mathf.Infinity, gameObject.GetLayerMask()) &&
-                   hit.transform.IsChildOf(gameObject.transform);
+                hit.transform.IsChildOf(gameObject.transform);
 
         }
 
@@ -664,7 +664,7 @@ namespace CandyCoded
         /// </summary>
         /// <param name="gameObject">GameObject to test.</param>
         /// <param name="mainCamera">Current active camera.</param>
-        /// <param name="position">Vector3 to test raycast with.</param>
+        /// <param name="position">Vector3 used to test raycast.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
         public static bool RaycastToGameObject(GameObject gameObject, Camera mainCamera, Vector3 position,

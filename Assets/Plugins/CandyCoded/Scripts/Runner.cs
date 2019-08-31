@@ -17,8 +17,8 @@ namespace CandyCoded
         /// <summary>
         /// Starts and adds a coroutine to a list.
         /// </summary>
-        /// <param name="coroutineKey">Unique key to store coroutine with.</param>
-        /// <param name="routine">IEnumerator to start coroutine with.</param>
+        /// <param name="coroutineKey">Unique key used to store coroutine.</param>
+        /// <param name="routine">IEnumerator used to start coroutine.</param>
         /// <returns>Coroutine</returns>
         public Coroutine AddCoroutine(string coroutineKey, IEnumerator routine)
         {

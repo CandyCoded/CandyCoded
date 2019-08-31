@@ -77,7 +77,7 @@ namespace CandyCoded
         /// <summary>
         /// Evaluates both animation curves and generates a Vector2 with the results.
         /// </summary>
-        /// <param name="time">The time to evaluate each animation curve with.</param>
+        /// <param name="time">The time used to evaluate each animation curve.</param>
         /// <returns>Vector2</returns>
         public Vector2 Evaluate(float time)
         {
@@ -180,7 +180,7 @@ namespace CandyCoded
         /// <summary>
         /// Evaluates all animation curves and generates a Vector3 with the results.
         /// </summary>
-        /// <param name="time">The time to evaluate each animation curve with.</param>
+        /// <param name="time">The time used to evaluate each animation curve.</param>
         /// <returns>Vector3</returns>
         public Vector3 Evaluate(float time)
         {
@@ -297,7 +297,7 @@ namespace CandyCoded
         /// <summary>
         /// Evaluates all animation curves and generates a Vector4 with the results.
         /// </summary>
-        /// <param name="time">The time to evaluate each animation curve with.</param>
+        /// <param name="time">The time used to evaluate each animation curve.</param>
         /// <returns>Vector4</returns>
         public Vector4 Evaluate(float time)
         {

@@ -115,7 +115,7 @@ namespace CandyCoded
         /// </summary>
         /// <param name="animationCurve">AnimationCurve object.</param>
         /// <param name="key">Key of keyframe to modify.</param>
-        /// <param name="value">Value to update keyframe with.</param>
+        /// <param name="value">Value used to update keyframe.</param>
         /// <returns>void</returns>
         public static void EditKeyframeValue(this AnimationCurve animationCurve, int key, float value)
         {
@@ -133,7 +133,7 @@ namespace CandyCoded
         /// </summary>
         /// <param name="animationCurve">Vector3AnimationCurve object.</param>
         /// <param name="key">Key of each keyframe to modify.</param>
-        /// <param name="vector">Vector3 to update each corresponding keyframe with.</param>
+        /// <param name="vector">Vector3 used to update each corresponding keyframe.</param>
         /// <returns>void</returns>
         public static void EditKeyframeValue(this Vector3AnimationCurve animationCurve, int key, Vector3 vector)
         {
@@ -149,7 +149,7 @@ namespace CandyCoded
         /// </summary>
         /// <param name="animationCurve">Vector2AnimationCurve object.</param>
         /// <param name="key">Key of each keyframe to modify.</param>
-        /// <param name="vector">Vector2 to update each corresponding keyframe with.</param>
+        /// <param name="vector">Vector2 used to update each corresponding keyframe.</param>
         /// <returns>void</returns>
         public static void EditKeyframeValue(this Vector2AnimationCurve animationCurve, int key, Vector2 vector)
         {
@@ -281,7 +281,7 @@ namespace CandyCoded
         /// </summary>
         /// <param name="num1">The first number in the comparison.</param>
         /// <param name="num2">The second number in the comparison.</param>
-        /// <param name="epsilon">The custom epsilon to compare with.</param>
+        /// <param name="epsilon">The custom epsilon used to compare numbers.</param>
         /// <returns>bool</returns>
         public static bool NearlyEqual(this float num1, float num2, float epsilon)
         {
