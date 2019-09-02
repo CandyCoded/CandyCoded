@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.4.0] - 2019-09-02
+
+### Features
+
+-   Promote experimental features. <https://github.com/CandyCoded/CandyCoded/pull/124>
+-   Added missing teardown to test. <https://github.com/CandyCoded/CandyCoded/pull/123>
+-   Added custom editor extensions for finding and creating assets. <https://github.com/CandyCoded/CandyCoded/pull/122>
+
+### Maintenance
+
+-   Updated documentation.
+
 ## [2.3.0] - 2019-08-31
 
 ### Features
