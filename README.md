@@ -21,6 +21,8 @@ CandyCoded is a collection of useful components and extensions for building in U
 -   Event Profiler editor window
 -   EnumMask enum attribute
 -   InputManager methods
+-   SaveManager methods
+-   Screenshot methods and editor tools
 
 ## Installation
 
