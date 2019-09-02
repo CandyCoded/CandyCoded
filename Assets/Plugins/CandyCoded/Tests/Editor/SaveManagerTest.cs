@@ -23,7 +23,7 @@ namespace CandyCoded.Tests
         private static string observableListPath =>
             Path.Combine(Application.persistentDataPath, observableListPathFileName);
 
-        [SetUp]
+        [SetUp, TearDown]
         public static void DeleteFiles()
         {
 
