@@ -4,7 +4,7 @@
 
 **Note:** For fade animations to work you need to have materials with a blend mode of fade.
 
-![](https://i.imgur.com/J9gS7pc.png)
+<img src="https://i.imgur.com/J9gS7pc.png" width="400">
 
 **Note:** 100% alpha is relative to each GameObject's initial alpha value. This is to prevent materials with custom alpha values from being reset.
 
@@ -32,7 +32,7 @@ private void Start() {
 }
 ```
 
-![](https://media.giphy.com/media/xULW8zdlmLdaSSXDeU/giphy.gif)
+<img src="https://media.giphy.com/media/xULW8zdlmLdaSSXDeU/giphy.gif" width="400">
 
 #### MoveTo
 
@@ -48,7 +48,7 @@ Move an object in world space.
 CandyCoded.Animate.MoveTo(target, new Vector3(10, 10, 10), 1, Space.World);
 ```
 
-![](https://media.giphy.com/media/3ohc0Wy60RfUYSERW0/giphy.gif)
+<img src="https://media.giphy.com/media/3ohc0Wy60RfUYSERW0/giphy.gif" width="400">
 
 #### Position
 
@@ -86,7 +86,7 @@ Rotate a GameObject to a new Vector3 with a duration of 1s.
 CandyCoded.Animate.RotateTo(target, new Vector3(360, 0, 0), 1);
 ```
 
-![](https://media.giphy.com/media/d3OGaCsXxQSUtLgc/giphy.gif)
+<img src="https://media.giphy.com/media/d3OGaCsXxQSUtLgc/giphy.gif" width="400">
 
 #### Rotation
 
@@ -124,7 +124,7 @@ Scale a GameObject to a new Vector3 with a duration of 1s.
 CandyCoded.Animate.ScaleTo(target, new Vector3(2, 2, 2), 1);
 ```
 
-![](https://media.giphy.com/media/l0HUfPOnvdomnsz0A/giphy.gif)
+<img src="https://media.giphy.com/media/l0HUfPOnvdomnsz0A/giphy.gif" width="400">
 
 #### ScaleRelative
 

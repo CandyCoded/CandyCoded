@@ -1,6 +1,6 @@
 ### Vector3AnimationCurve
 
-![](https://i.imgur.com/OUL02NQ.png)
+<img src="https://i.imgur.com/OUL02NQ.png" width="400">
 
 Similar to Unity's `AnimationCurve`, but instead contains 3 `AnimationCurve` properties (`x`, `y`, and `z`) and can be evaluated in the same way as `AnimationCurve` to return a new `Vector3`. `Vector2AnimationCurve` and `Vector4AnimationCurve` structs are also available for generating `Vector2` and `Vector4` values respectively.
 

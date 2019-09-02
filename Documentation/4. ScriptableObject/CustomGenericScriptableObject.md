@@ -12,7 +12,7 @@ public class Vector3Reference : CandyCoded.CustomGenericScriptableObject<Vector3
 }
 ```
 
-![](https://i.imgur.com/9opk8j8.png)
+<img src="https://i.imgur.com/9opk8j8.png" width="400">
 
 Event handlers for update and reset events are available to each ScriptableObject with `value` and `defaultValue` properties.
 

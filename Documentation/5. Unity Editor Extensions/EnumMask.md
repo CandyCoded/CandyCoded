@@ -35,4 +35,4 @@ public class EnumMaskDemo : MonoBehaviour
 }
 ```
 
-![](https://i.imgur.com/s5rlIIF.png)
+<img src="https://i.imgur.com/s5rlIIF.png" width="400">

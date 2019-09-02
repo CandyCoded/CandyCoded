@@ -4,7 +4,7 @@ Creates a stepable range selector in the inspector panel on a `RangedFloat`.
 
 ## Min/Max Properties Set
 
-![](https://i.imgur.com/P5OkhzE.png)
+<img src="https://i.imgur.com/P5OkhzE.png" width="400">
 
 ```csharp
 [SerializeField]
@@ -14,7 +14,7 @@ private RangedFloat volume;
 
 ## Min/Max/Step Properties Set
 
-![](https://i.imgur.com/7vyR04J.png)
+<img src="https://i.imgur.com/7vyR04J.png" width="400">
 
 ```csharp
 [SerializeField]
@@ -22,4 +22,4 @@ private RangedFloat volume;
 private RangedFloat volume;
 ```
 
-![](https://media.giphy.com/media/J2IUzelKC3PlVZGmhD/giphy.gif)
+<img src="https://media.giphy.com/media/J2IUzelKC3PlVZGmhD/giphy.gif" width="400">

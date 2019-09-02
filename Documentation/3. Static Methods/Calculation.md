@@ -18,4 +18,4 @@ private void OnDrawGizmosSelected()
 }
 ```
 
-![](https://i.imgur.com/yX5f6rk.png)
+<img src="https://i.imgur.com/yX5f6rk.png" width="400">

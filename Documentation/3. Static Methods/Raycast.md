@@ -21,4 +21,4 @@ Vector3[] linePositions = CandyCoded.Raycast.Reflect(gameObject.transform.positi
     gameObject.transform.forward, distance, layerMask, out hits);
 ```
 
-![](https://media.giphy.com/media/55tArjOMKt3uUQp9KQ/giphy.gif)
+<img src="https://media.giphy.com/media/55tArjOMKt3uUQp9KQ/giphy.gif" width="400">
