@@ -29,7 +29,9 @@ namespace CandyCoded
 
             EditorApplication.ExecuteMenuItem("Window/General/Game");
 
-            Debug.Log($"Saved screenshot to {Save(1)}");
+            var filePath = Save();
+
+            Debug.Log($"Saved screenshot to {filePath}");
 
         }
 
@@ -39,7 +41,9 @@ namespace CandyCoded
 
             EditorApplication.ExecuteMenuItem("Window/General/Game");
 
-            Debug.Log($"Saved screenshot to {Save(2)}");
+            var filePath = Save(2);
+
+            Debug.Log($"Saved screenshot to {filePath}");
 
         }
 
@@ -49,7 +53,9 @@ namespace CandyCoded
 
             EditorApplication.ExecuteMenuItem("Window/General/Game");
 
-            Debug.Log($"Saved screenshot to {SaveTransparent()}");
+            var filePath = SaveTransparent();
+
+            Debug.Log($"Saved screenshot to {filePath}");
 
         }
 #endif
