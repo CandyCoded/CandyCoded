@@ -1,7 +1,9 @@
 build:
-	Scripts/install_pandoc.sh
 	Scripts/build_docs.sh
 	Scripts/build_package.sh
+
+install:
+	Scripts/install_pandoc.sh
 
 test: SHELL:=/bin/bash
 test:
