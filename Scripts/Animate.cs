@@ -134,7 +134,7 @@ namespace CandyCoded
         /// <param name="gameObject">GameObject to move.</param>
         /// <param name="newPosition">New Vector3 position.</param>
         /// <param name="duration">Length of the animation in seconds.</param>
-        /// <param name="relativeTo">Coordinate system used to animate the gameObject.</param>
+        /// <param name="relativeTo">Coordinate system used to animate the GameObject.</param>
         /// <returns>Coroutine</returns>
         public static Coroutine MoveTo(GameObject gameObject, Vector3 newPosition, float duration, Space relativeTo)
         {

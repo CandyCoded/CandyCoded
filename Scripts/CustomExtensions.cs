@@ -45,7 +45,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Compares one transform to another using the attached gameObjects.
+        /// Compares one transform to another using the attached GameObjects.
         /// </summary>
         /// <param name="transform">Transform object.</param>
         /// <param name="other">Other Transform object.</param>
