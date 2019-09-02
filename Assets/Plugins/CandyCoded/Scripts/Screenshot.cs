@@ -57,7 +57,7 @@ namespace CandyCoded
         /// <summary>
         /// Save a screenshot to the applications persistent data path (device specific) with a random file name.
         /// </summary>
-        /// <param name="ratio">Ratio to save the image at. Default is 1.</param>
+        /// <param name="ratio">Ratio to save the image at.</param>
         /// <returns>string</returns>
         public static string Save(int ratio)
         {
@@ -71,13 +71,22 @@ namespace CandyCoded
         }
 
         /// <summary>
+        /// Save a screenshot to the applications persistent data path (device specific) with a random file name.
+        /// </summary>
+        /// <returns>string</returns>
+        public static string Save()
+        {
+
+            return Save(1);
+
+        }
+
+        /// <summary>
         /// Save a transparent screenshot to the applications persistent data path (device specific) with a random file name.
         /// </summary>
         /// <returns>string</returns>
-        public static string SaveTransparent()
+        public static string SaveTransparent(Camera camera)
         {
-
-            var camera = Camera.main;
 
             if (camera == null)
             {
@@ -114,6 +123,17 @@ namespace CandyCoded
             UnityEngine.Object.DestroyImmediate(texture);
 
             return filename;
+
+        }
+
+        /// <summary>
+        /// Save a transparent screenshot to the applications persistent data path (device specific) with a random file name.
+        /// </summary>
+        /// <returns>string</returns>
+        public static string SaveTransparent()
+        {
+
+            return SaveTransparent(Camera.main);
 
         }
 
