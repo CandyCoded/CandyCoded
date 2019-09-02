@@ -7,7 +7,7 @@ using UnityEditor;
 #endif
 using UnityEngine;
 
-namespace CandyCoded.Experimental
+namespace CandyCoded
 {
 
     public static class Screenshot
