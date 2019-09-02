@@ -7,6 +7,7 @@ install:
 
 test: SHELL:=/bin/bash
 test:
+	shellcheck Scripts/*.sh
 	bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/master/bin/test.sh)
 
 clean:
