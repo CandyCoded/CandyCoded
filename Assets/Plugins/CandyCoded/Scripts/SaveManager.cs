@@ -23,15 +23,15 @@ namespace CandyCoded
 
             var path = Path.Combine(directory, fileName);
 
+            var binaryFormatter = new BinaryFormatter();
+
             using (var fs = File.Create(path))
             {
 
                 try
                 {
 
-                    var bf = new BinaryFormatter();
-
-                    bf.Serialize(fs, obj);
+                    binaryFormatter.Serialize(fs, obj);
 
                 }
                 catch (SerializationException err)
@@ -77,6 +77,8 @@ namespace CandyCoded
 
             var path = Path.Combine(directory, fileName);
 
+            var binaryFormatter = new BinaryFormatter();
+
             using (var fs = File.OpenRead(path))
             {
 
@@ -85,9 +87,7 @@ namespace CandyCoded
                 try
                 {
 
-                    var bf = new BinaryFormatter();
-
-                    data = (T)bf.Deserialize(fs);
+                    data = (T)binaryFormatter.Deserialize(fs);
 
                 }
                 catch (SerializationException err)
