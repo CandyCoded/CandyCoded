@@ -162,7 +162,7 @@
 -   Added namespace to files without it. <https://github.com/CandyCoded/CandyCoded/pull/66>
 -   Unity Package Manager Support
 
-## v1.0.0-beta.12 (Decemeber 14, 2018)
+## v1.0.0-beta.12 (December 14, 2018)
 
 ### Features
 
@@ -277,7 +277,7 @@
 
 ### Features
 
--   Plugin documentaion <https://github.com/neogeek/CandyCoded/pull/17>
+-   Plugin documentation <https://github.com/neogeek/CandyCoded/pull/17>
 
 ### Bug Fixes
 
