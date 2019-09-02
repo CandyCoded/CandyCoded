@@ -10,6 +10,8 @@ var screenshotFilePath = Save();
 Debug.Log($"Saved screenshot to {screenshotFilePath}");
 ```
 
+Save a higher resolution screenshot by passing a multiplier to the method.
+
 ```csharp
 var screenshotFilePath = Save(2);
 
