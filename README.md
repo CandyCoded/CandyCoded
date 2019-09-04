@@ -26,22 +26,16 @@ CandyCoded is a collection of useful components and extensions for building in U
 
 ## Installation
 
-### Unity Asset Store
-
-<https://assetstore.unity.com/packages/tools/animation/candycoded-115239>
-
 ### Direct Install
 
 [Download Latest `CandyCoded.unitypackage`](https://github.com/CandyCoded/CandyCoded/releases)
 
-### Unity Package Manager _(Unity 2018.3)_
-
-<https://docs.unity3d.com/Packages/com.unity.package-manager-ui@2.0/manual/index.html>
+### Unity Package Manager
 
 ```json
 {
     "dependencies": {
-        "com.candycoded.candycoded": "https://github.com/CandyCoded/CandyCoded.git#v2.4.0"
+        "xyz.candycoded.candycoded": "https://github.com/CandyCoded/CandyCoded.git#v3.0.0"
     }
 }
 ```

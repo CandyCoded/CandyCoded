@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.0.0] - 2019-09-04
+
+### Maintenance
+
+-   Setup project for distribution via a private NPM registry.
+
 ## [2.4.0] - 2019-09-02
 
 ### Features
