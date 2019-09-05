@@ -4,7 +4,7 @@
 
 ### Maintenance
 
--   Setup project for distribution via a private NPM registry.
+-   Setup project for distribution via an NPM registry.
 
 ## [2.4.0] - 2019-09-02
 
