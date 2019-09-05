@@ -32,11 +32,30 @@ CandyCoded is a collection of useful components and extensions for building in U
 
 ### Unity Package Manager
 
+#### Git
+
 ```json
 {
-    "dependencies": {
-        "xyz.candycoded.candycoded": "https://github.com/CandyCoded/CandyCoded.git#v3.0.0"
+  "dependencies": {
+    "xyz.candycoded.candycoded": "https://github.com/CandyCoded/CandyCoded.git#v3.0.0"
+  }
+}
+```
+
+#### Scoped UPM Registry
+
+```json
+{
+  "dependencies": {
+    "xyz.candycoded.candycoded": "3.0.0",
+  },
+  "scopedRegistries": [
+    {
+      "name": "candycoded",
+      "url": "https://registry.npmjs.com",
+      "scopes": ["xyz.candycoded"]
     }
+  ]
 }
 ```
 
