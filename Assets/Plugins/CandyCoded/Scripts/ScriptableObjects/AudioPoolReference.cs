@@ -79,7 +79,7 @@ namespace CandyCoded
         private AudioData[] audioDataArray;
 #pragma warning restore CS0649
 
-        private int prevAudioDataArrayLength;
+        private int _prevAudioDataArrayLength;
 
         /// <summary>
         /// Creates a new AudioSource for use in a AudioSource pool.
@@ -183,7 +183,7 @@ namespace CandyCoded
         private void OnValidate()
         {
 
-            for (var i = prevAudioDataArrayLength; i < audioDataArray.Length; i += 1)
+            for (var i = _prevAudioDataArrayLength; i < audioDataArray.Length; i += 1)
             {
 
                 var audioData = audioDataArray[i];
@@ -197,7 +197,7 @@ namespace CandyCoded
 
             }
 
-            prevAudioDataArrayLength = audioDataArray.Length;
+            _prevAudioDataArrayLength = audioDataArray.Length;
 
         }
 #pragma warning restore S1144
