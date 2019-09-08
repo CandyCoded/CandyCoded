@@ -396,14 +396,14 @@ namespace CandyCoded
             if (axis.Equals(RotationAxis.All) || axis.Equals(RotationAxis.Horizontal))
             {
 
-                transform.Rotate(cameraTransform.up, delta.x * speed * Time.deltaTime, Space.World);
+                transform.Rotate(cameraTransform.up, -delta.x * speed * Time.deltaTime, Space.World);
 
             }
 
             if (axis.Equals(RotationAxis.All) || axis.Equals(RotationAxis.Vertical))
             {
 
-                transform.Rotate(cameraTransform.right, -delta.y * speed * Time.deltaTime, Space.World);
+                transform.Rotate(cameraTransform.right, delta.y * speed * Time.deltaTime, Space.World);
 
             }
 
