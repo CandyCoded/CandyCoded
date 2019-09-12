@@ -12,9 +12,9 @@ For this example, we will be animating the position of a GameObject from its sta
 1. Attach a new script (or utilize an existing script) and open it up in your editor of choice.
 1. In the `Start()` method add the following code:
 
-    ```csharp
-    CandyCoded.Animate.MoveTo(gameObject, new Vector3(10, 10, 10), 1);
-    ```
+   ```csharp
+   CandyCoded.Animate.MoveTo(gameObject, new Vector3(10, 10, 10), 1);
+   ```
 
 1. Press play and your object will animate from its start position to `Vector3(10, 10, 10)` over the course of one second.
 
