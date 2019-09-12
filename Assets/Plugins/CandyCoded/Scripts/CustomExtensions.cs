@@ -396,14 +396,22 @@ namespace CandyCoded
             if (axis.Equals(RotationAxis.All) || axis.Equals(RotationAxis.Horizontal))
             {
 
-                transform.Rotate(cameraTransform.up, -delta.x * speed * Time.deltaTime, Space.World);
+                var transformUp = transform.InverseTransformDirection(cameraTransform.TransformDirection(Vector3.up));
+
+                var horizontalRotate = Quaternion.AngleAxis(-delta.x * speed * Time.deltaTime, transformUp);
+
+                transform.rotation *= horizontalRotate;
 
             }
 
             if (axis.Equals(RotationAxis.All) || axis.Equals(RotationAxis.Vertical))
             {
 
-                transform.Rotate(cameraTransform.right, delta.y * speed * Time.deltaTime, Space.World);
+                var transformRight = transform.InverseTransformDirection(cameraTransform.TransformDirection(Vector3.right));
+
+                var verticalRotate = Quaternion.AngleAxis(delta.y * speed * Time.deltaTime, transformRight);
+
+                transform.rotation *= verticalRotate;
 
             }
 
