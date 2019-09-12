@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.1] - 2019-09-12
+
+### Bug Fixes
+
+- Fixed issue with flipped rotate directions. <https://github.com/CandyCoded/CandyCoded/pull/126>
+- Calculate the up and right axis relative to the camera and the transform. <https://github.com/CandyCoded/CandyCoded/pull/127>
+
+### Maintenance
+
+- Changed variable names to match project standards. <https://github.com/CandyCoded/CandyCoded/pull/125>
+
 ## [3.0.0] - 2019-09-05
 
 ### Maintenance
