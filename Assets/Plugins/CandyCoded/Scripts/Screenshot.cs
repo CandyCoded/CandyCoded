@@ -71,7 +71,15 @@ namespace CandyCoded
             var filename = $"{GetTimestamp()}.png";
             var path = Path.Combine(Application.persistentDataPath, filename);
 
+#if (UNITY_IOS || UNITY_ANDROID) && !UNITY_EDITOR
+
+            ScreenCapture.CaptureScreenshot(filename, ratio);
+
+#else
+
             ScreenCapture.CaptureScreenshot(path, ratio);
+
+#endif
 
             return path;
 
