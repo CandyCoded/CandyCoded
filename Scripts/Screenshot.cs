@@ -29,9 +29,9 @@ namespace CandyCoded
 
             EditorApplication.ExecuteMenuItem("Window/General/Game");
 
-            var filePath = Save();
+            var path = Save();
 
-            Debug.Log($"Saved screenshot to {filePath}");
+            Debug.Log($"Saved screenshot to {path}");
 
         }
 
@@ -41,9 +41,9 @@ namespace CandyCoded
 
             EditorApplication.ExecuteMenuItem("Window/General/Game");
 
-            var filePath = Save(2);
+            var path = Save(2);
 
-            Debug.Log($"Saved screenshot to {filePath}");
+            Debug.Log($"Saved screenshot to {path}");
 
         }
 
@@ -53,9 +53,9 @@ namespace CandyCoded
 
             EditorApplication.ExecuteMenuItem("Window/General/Game");
 
-            var filePath = SaveTransparent();
+            var path = SaveTransparent();
 
-            Debug.Log($"Saved screenshot to {filePath}");
+            Debug.Log($"Saved screenshot to {path}");
 
         }
 #endif
@@ -68,11 +68,20 @@ namespace CandyCoded
         public static string Save(int ratio)
         {
 
-            var filename = Path.Combine(Application.persistentDataPath, $"{GetTimestamp()}.png");
+            var filename = $"{GetTimestamp()}.png";
+            var path = Path.Combine(Application.persistentDataPath, filename);
+
+#if (UNITY_IOS || UNITY_ANDROID) && !UNITY_EDITOR
 
             ScreenCapture.CaptureScreenshot(filename, ratio);
 
-            return filename;
+#else
+
+            ScreenCapture.CaptureScreenshot(path, ratio);
+
+#endif
+
+            return path;
 
         }
 
@@ -99,7 +108,8 @@ namespace CandyCoded
                 return null;
             }
 
-            var filename = Path.Combine(Application.persistentDataPath, $"{GetTimestamp()}.png");
+            var filename = $"{GetTimestamp()}.png";
+            var path = Path.Combine(Application.persistentDataPath, filename);
 
             var renderTexture = new RenderTexture(Screen.width, Screen.height, 24);
 
@@ -118,7 +128,7 @@ namespace CandyCoded
 
             texture.Apply();
 
-            File.WriteAllBytes(filename, texture.EncodeToPNG());
+            File.WriteAllBytes(path, texture.EncodeToPNG());
 
             camera.targetTexture = originalTargetTexture;
 
@@ -128,7 +138,7 @@ namespace CandyCoded
 
             UnityEngine.Object.DestroyImmediate(texture);
 
-            return filename;
+            return path;
 
         }
 
