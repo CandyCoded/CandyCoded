@@ -68,7 +68,8 @@ namespace CandyCoded
         public static string Save(int ratio)
         {
 
-            var path = Path.Combine(Application.persistentDataPath, $"{GetTimestamp()}.png");
+            var filename = $"{GetTimestamp()}.png";
+            var path = Path.Combine(Application.persistentDataPath, filename);
 
             ScreenCapture.CaptureScreenshot(path, ratio);
 
@@ -99,7 +100,8 @@ namespace CandyCoded
                 return null;
             }
 
-            var path = Path.Combine(Application.persistentDataPath, $"{GetTimestamp()}.png");
+            var filename = $"{GetTimestamp()}.png";
+            var path = Path.Combine(Application.persistentDataPath, filename);
 
             var renderTexture = new RenderTexture(Screen.width, Screen.height, 24);
 
