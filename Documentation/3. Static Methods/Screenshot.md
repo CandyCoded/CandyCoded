@@ -5,7 +5,7 @@
 Save a screenshot to the applications persistent data path (device specific) with a random file name.
 
 ```csharp
-var screenshotFilePath = Save();
+var screenshotFilePath = Screenshot.Save();
 
 Debug.Log($"Saved screenshot to {screenshotFilePath}");
 ```
@@ -13,7 +13,7 @@ Debug.Log($"Saved screenshot to {screenshotFilePath}");
 Save a higher resolution screenshot by passing a multiplier to the method.
 
 ```csharp
-var screenshotFilePath = Save(2);
+var screenshotFilePath = Screenshot.Save(2);
 
 Debug.Log($"Saved screenshot to {screenshotFilePath}");
 ```
@@ -23,13 +23,13 @@ Debug.Log($"Saved screenshot to {screenshotFilePath}");
 Save a transparent screenshot to the applications persistent data path (device specific) with a random file name.
 
 ```csharp
-var screenshotFilePath = SaveTransparent();
+var screenshotFilePath = Screenshot.SaveTransparent();
 
 Debug.Log($"Saved screenshot to {screenshotFilePath}");
 ```
 
 ```csharp
-var screenshotFilePath = SaveTransparent(secondaryCamera);
+var screenshotFilePath = Screenshot.SaveTransparent(secondaryCamera);
 
 Debug.Log($"Saved screenshot to {screenshotFilePath}");
 ```
