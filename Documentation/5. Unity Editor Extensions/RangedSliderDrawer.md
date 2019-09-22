@@ -22,4 +22,4 @@ private RangedFloat volume;
 private RangedFloat volume;
 ```
 
-<img src="https://media.giphy.com/media/WOfI4gvjMvSvcqyn8e/giphy.gif" width="400">
+<img src="https://media.giphy.com/media/ggL5by8ngGu7sRizOS/giphy.gif" width="400">
