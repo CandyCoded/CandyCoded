@@ -22,14 +22,14 @@ CandyCoded is a collection of useful components and extensions for building in U
 - Event Profiler editor window
 - EnumMask enum attribute
 - InputManager methods
-- SaveManager methods
+- [SaveManager methods](Documentation/3.%20Static%20Methods/SaveManager.md) - [Tutorial](Documentation/6.%20Tutorials/Save%20&%20Load%20ScriptableObjects/README.md)
 - Screenshot methods and editor tools
 
 ## Installation
 
 ### Direct Install
 
-[Download Latest `CandyCoded.unitypackage`](https://github.com/CandyCoded/CandyCoded/releases)
+[Download latest `CandyCoded.unitypackage` or `CandyCoded.dll`](https://github.com/CandyCoded/CandyCoded/releases)
 
 ### Unity Package Manager
 
@@ -64,6 +64,8 @@ CandyCoded is a collection of useful components and extensions for building in U
 
 - [Introduction](Documentation/Introduction.md)
 - [Getting Started](Documentation/Getting%20Started.md)
+- [Tutorials](Documentation/6.%20Tutorials/README.md)
+  - [Save & Load ScriptableObjects](Documentation/6.%20Tutorials/Save%20&%20Load%20ScriptableObjects/README.md)
 - [Objects](Documentation/1.%20Objects/)
   - [ObservableList](Documentation/1.%20Objects/ObservableList.md)
     - [Count](Documentation/1.%20Objects/ObservableList.md#count)
