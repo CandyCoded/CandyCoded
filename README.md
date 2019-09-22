@@ -5,7 +5,8 @@
 [![Build Status](https://travis-ci.org/CandyCoded/CandyCoded.svg?branch=master)](https://travis-ci.org/CandyCoded/CandyCoded)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b0c24c2b49e2430b9ce42e2ba07e83ee)](https://www.codacy.com/app/CandyCoded/CandyCoded?utm_source=github.com&utm_medium=referral&utm_content=CandyCoded/CandyCoded&utm_campaign=Badge_Grade)
 [![Join the chat at https://discord.gg/nNtFsfd](https://img.shields.io/badge/discord-join%20chat-7289DA.svg)](https://discord.gg/nNtFsfd)
-[![](https://img.shields.io/badge/Trello-Board-blue.svg)](https://trello.com/b/LH4DWRKk/candycoded)
+[![npm](https://img.shields.io/npm/v/xyz.candycoded.candycoded)](https://www.npmjs.com/package/xyz.candycoded.candycoded)
+[![license](https://img.shields.io/npm/l/xyz.candycoded.candycoded)](https://github.com/CandyCoded/CandyCoded/blob/master/LICENSE)
 
 ## Introduction
 
