@@ -1,7 +1,7 @@
 // Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using System;
 using System.IO;
-using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
@@ -34,7 +34,7 @@ namespace CandyCoded
                     binaryFormatter.Serialize(fs, obj);
 
                 }
-                catch (SerializationException err)
+                catch (Exception err)
                 {
 
                     Debug.LogError(err.Message);
@@ -90,7 +90,7 @@ namespace CandyCoded
                     data = (T)binaryFormatter.Deserialize(fs);
 
                 }
-                catch (SerializationException err)
+                catch (Exception err)
                 {
 
                     Debug.LogError(err.Message);
