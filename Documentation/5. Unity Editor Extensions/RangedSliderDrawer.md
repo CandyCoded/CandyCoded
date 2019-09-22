@@ -1,8 +1,8 @@
-# RangedSliderDrawer
+### RangedSliderDrawer
 
 Creates a stepable range selector in the inspector panel on a `RangedFloat`.
 
-## Min/Max Properties Set
+#### Min/Max Properties Set
 
 <img src="https://i.imgur.com/P5OkhzE.png" width="400">
 
@@ -12,7 +12,7 @@ Creates a stepable range selector in the inspector panel on a `RangedFloat`.
 private RangedFloat volume;
 ```
 
-## Min/Max/Step Properties Set
+#### Min/Max/Step Properties Set
 
 <img src="https://i.imgur.com/7vyR04J.png" width="400">
 
