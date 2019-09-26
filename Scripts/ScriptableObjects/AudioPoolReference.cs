@@ -8,6 +8,7 @@ namespace CandyCoded
 {
 
     [CreateAssetMenu(fileName = "AudioPoolReference", menuName = "CandyCoded/AudioPoolReference")]
+    [HelpURL("https://github.com/CandyCoded/CandyCoded/blob/master/Documentation/4.%20ScriptableObject/AudioPool.md")]
     public class AudioPoolReference : PoolReference<AudioSource>
     {
 

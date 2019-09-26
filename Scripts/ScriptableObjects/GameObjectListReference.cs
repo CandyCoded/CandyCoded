@@ -6,6 +6,7 @@ namespace CandyCoded
 {
 
     [CreateAssetMenu(fileName = "GameObjectListReference", menuName = "CandyCoded/GameObjectListReference")]
+    [HelpURL("https://github.com/CandyCoded/CandyCoded/blob/master/Documentation/4.%20ScriptableObject/GameObjectList.md")]
     public class GameObjectListReference : ObservableListReference<GameObject>
     {
 

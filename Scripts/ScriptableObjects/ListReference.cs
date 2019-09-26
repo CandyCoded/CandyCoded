@@ -8,6 +8,7 @@ namespace CandyCoded
 
 #pragma warning disable S1694
 
+    [HelpURL("https://github.com/CandyCoded/CandyCoded/blob/master/Documentation/4.%20ScriptableObject/List.md")]
     // Disables "An abstract class should have both abstract and concrete methods" warning as class must extend CustomScriptableObject.
     public abstract class ListReference<T> : CustomScriptableObject
     {
