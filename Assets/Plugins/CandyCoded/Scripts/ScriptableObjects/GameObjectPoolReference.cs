@@ -6,6 +6,7 @@ namespace CandyCoded
 {
 
     [CreateAssetMenu(fileName = "GameObjectPoolReference", menuName = "CandyCoded/GameObjectPoolReference")]
+    [HelpURL("https://github.com/CandyCoded/CandyCoded/blob/master/Documentation/4.%20ScriptableObject/GameObjectPool.md")]
     public class GameObjectPoolReference : PoolReference<GameObject>
     {
 
