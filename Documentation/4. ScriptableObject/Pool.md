@@ -1,4 +1,4 @@
-### PoolReference
+### Pool
 
 The PoolReference ScriptableObject is used to create ScriptableObjects that can pool generic objects for performant reuse.
 
