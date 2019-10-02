@@ -21,7 +21,7 @@ namespace CandyCoded
 
         internal readonly HashSet<T> _activeObjects = new HashSet<T>();
 
-        public HashSet<T> activeObjects => _activeObjects;
+        public IReadOnlyCollection<T> activeObjects => _activeObjects;
 
         internal readonly Queue<T> _inactiveObjects = new Queue<T>();
 
