@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -18,9 +19,9 @@ namespace CandyCoded
             set => _minObjects = value;
         }
 
-        internal readonly List<T> _activeObjects = new List<T>();
+        internal readonly HashSet<T> _activeObjects = new HashSet<T>();
 
-        public ReadOnlyCollection<T> activeObjects => _activeObjects.AsReadOnly();
+        public HashSet<T> activeObjects => _activeObjects;
 
         internal readonly Queue<T> _inactiveObjects = new Queue<T>();
 
@@ -84,15 +85,10 @@ namespace CandyCoded
         public void ReleaseAllObjects()
         {
 
-            while (_activeObjects.Count > 0)
+            foreach (T item in (IEnumerable)_inactiveObjects)
             {
 
-                if (_activeObjects[0] != null)
-                {
-
-                    Release(_activeObjects[0]);
-
-                }
+                Release(item);
 
             }
 
