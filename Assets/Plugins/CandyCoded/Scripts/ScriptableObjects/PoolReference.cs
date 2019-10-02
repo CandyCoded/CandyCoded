@@ -25,7 +25,7 @@ namespace CandyCoded
 
         internal readonly Queue<T> _inactiveObjects = new Queue<T>();
 
-        public ReadOnlyCollection<T> inactiveObjects => _inactiveObjects.ToList().AsReadOnly();
+        public IReadOnlyCollection<T> inactiveObjects => _inactiveObjects;
 
         protected abstract T Create();
 
