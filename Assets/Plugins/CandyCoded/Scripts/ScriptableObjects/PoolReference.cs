@@ -1,6 +1,5 @@
+using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 using UnityEngine;
 
 namespace CandyCoded
@@ -18,13 +17,13 @@ namespace CandyCoded
             set => _minObjects = value;
         }
 
-        internal readonly List<T> _activeObjects = new List<T>();
+        internal readonly HashSet<T> _activeObjects = new HashSet<T>();
 
-        public ReadOnlyCollection<T> activeObjects => _activeObjects.AsReadOnly();
+        public IReadOnlyCollection<T> activeObjects => _activeObjects;
 
         internal readonly Queue<T> _inactiveObjects = new Queue<T>();
 
-        public ReadOnlyCollection<T> inactiveObjects => _inactiveObjects.ToList().AsReadOnly();
+        public IReadOnlyCollection<T> inactiveObjects => _inactiveObjects;
 
         protected abstract T Create();
 
@@ -66,14 +65,14 @@ namespace CandyCoded
         public void Release(T item)
         {
 
-            if (_activeObjects.Contains(item) && !_inactiveObjects.Contains(item))
+            if (!_activeObjects.Contains(item) || _inactiveObjects.Contains(item))
             {
-
-                _activeObjects.Remove(item);
-
-                _inactiveObjects.Enqueue(item);
-
+                return;
             }
+
+            _activeObjects.Remove(item);
+
+            _inactiveObjects.Enqueue(item);
 
         }
 
@@ -84,15 +83,10 @@ namespace CandyCoded
         public void ReleaseAllObjects()
         {
 
-            while (_activeObjects.Count > 0)
+            foreach (T item in (IEnumerable)_inactiveObjects)
             {
 
-                if (_activeObjects[0] != null)
-                {
-
-                    Release(_activeObjects[0]);
-
-                }
+                Release(item);
 
             }
 
