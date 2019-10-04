@@ -1,5 +1,22 @@
 # Changelog
 
+## [3.0.2] - 2019-10-03
+
+### Features
+
+- Added destroy method to GameObjectPoolReference. <https://github.com/CandyCoded/CandyCoded/pull/136>
+
+### Bug Fixes
+
+- Fixed issue with releasing all active objects in pool. <https://github.com/CandyCoded/CandyCoded/pull/137>
+- Performance improvements to PoolReference <https://github.com/CandyCoded/CandyCoded/pull/135>
+- Use generic exception for catching errors. <https://github.com/CandyCoded/CandyCoded/pull/134>
+- Fixed issue with Screenshot.Save on mobile <https://github.com/CandyCoded/CandyCoded/pull/132>
+
+### Maintenance
+
+- Removed unused variable. <https://github.com/CandyCoded/CandyCoded/pull/133>
+
 ## [3.0.1] - 2019-09-12
 
 ### Bug Fixes
