@@ -39,13 +39,13 @@ private void Start() {
 Move a GameObject to a new Vector3 with a duration of 1s.
 
 ```csharp
-CandyCoded.Animate.MoveTo(target, new Vector3(10, 10, 10), 1);
+CandyCoded.Animate.MoveTo(gameObject, new Vector3(10, 10, 10), 1);
 ```
 
 Move an object in world space.
 
 ```csharp
-CandyCoded.Animate.MoveTo(target, new Vector3(10, 10, 10), 1, Space.World);
+CandyCoded.Animate.MoveTo(gameObject, new Vector3(10, 10, 10), 1, Space.World);
 ```
 
 <img src="https://media.giphy.com/media/3ohc0Wy60RfUYSERW0/giphy.gif" width="400">
@@ -83,7 +83,7 @@ private void Start() {
 Rotate a GameObject to a new Vector3 with a duration of 1s.
 
 ```csharp
-CandyCoded.Animate.RotateTo(target, new Vector3(360, 0, 0), 1);
+CandyCoded.Animate.RotateTo(gameObject, new Vector3(360, 0, 0), 1);
 ```
 
 <img src="https://media.giphy.com/media/d3OGaCsXxQSUtLgc/giphy.gif" width="400">
@@ -121,7 +121,7 @@ private void Start() {
 Scale a GameObject to a new Vector3 with a duration of 1s.
 
 ```csharp
-CandyCoded.Animate.ScaleTo(target, new Vector3(2, 2, 2), 1);
+CandyCoded.Animate.ScaleTo(gameObject, new Vector3(2, 2, 2), 1);
 ```
 
 <img src="https://media.giphy.com/media/l0HUfPOnvdomnsz0A/giphy.gif" width="400">
