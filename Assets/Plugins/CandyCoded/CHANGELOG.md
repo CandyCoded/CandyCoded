@@ -14,7 +14,7 @@
 
 ### Maintenance
 
-- Removed unused variable. (#133)
+- Removed unused variable. <https://github.com/CandyCoded/CandyCoded/pull/133>
 
 ## [3.0.1] - 2019-09-12
 
