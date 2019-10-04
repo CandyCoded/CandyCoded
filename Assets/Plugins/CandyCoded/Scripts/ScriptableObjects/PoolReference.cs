@@ -84,7 +84,7 @@ namespace CandyCoded
         public void ReleaseAllObjects()
         {
 
-            foreach (T item in (IEnumerable)_activeObjects.ToList())
+            foreach (var item in _activeObjects.ToList())
             {
 
                 Release(item);
