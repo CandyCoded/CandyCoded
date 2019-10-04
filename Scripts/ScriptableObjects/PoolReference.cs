@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace CandyCoded
@@ -83,14 +84,14 @@ namespace CandyCoded
         public void ReleaseAllObjects()
         {
 
-            foreach (T item in (IEnumerable)_inactiveObjects)
+            foreach (var item in _activeObjects.ToList())
             {
 
                 Release(item);
 
             }
 
-            _inactiveObjects.TrimExcess();
+            _activeObjects.TrimExcess();
 
         }
 
