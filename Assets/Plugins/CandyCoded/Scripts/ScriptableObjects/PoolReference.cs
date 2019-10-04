@@ -91,8 +91,6 @@ namespace CandyCoded
 
             }
 
-            _activeObjects.TrimExcess();
-
         }
 
     }
