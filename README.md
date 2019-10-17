@@ -109,8 +109,6 @@ CandyCoded is a collection of useful components and extensions for building in U
   - [GameObject](Documentation/2.%20Custom%20Extensions/GameObject.md)
     - [AddOrGetComponent](Documentation/2.%20Custom%20Extensions/GameObject.md#addorgetcomponent)
     - [GetLayerMask](Documentation/2.%20Custom%20Extensions/GameObject.md#getlayermask)
-  - [GameObject](Documentation/2.%20Custom%20Extensions/GameObject.md)
-    - [AddOrGetComponent](Documentation/2.%20Custom%20Extensions/GameObject.md#addorgetcomponent)
   - [Int](Documentation/2.%20Custom%20Extensions/Int.md)
     - [Contains](Documentation/2.%20Custom%20Extensions/Int.md#contains)
   - [LayerMask](Documentation/2.%20Custom%20Extensions/LayerMask.md)
