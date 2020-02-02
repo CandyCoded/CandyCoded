@@ -33,6 +33,8 @@ CandyCoded is a collection of useful components and extensions for building in U
 
 ### Unity Package Manager
 
+<https://docs.unity3d.com/Packages/com.unity.package-manager-ui@2.0/manual/index.html>
+
 #### Git
 
 ```json
@@ -59,6 +61,17 @@ CandyCoded is a collection of useful components and extensions for building in U
       "scopes": ["xyz.candycoded"]
     }
   ]
+}
+```
+
+### Include tests
+
+```json
+{
+  "dependencies": {
+    ...
+  },
+  "testables": ["xyz.candycoded.candycoded"]
 }
 ```
 
