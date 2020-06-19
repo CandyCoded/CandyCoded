@@ -3,7 +3,7 @@
 namespace CandyCoded.Interfaces
 {
 
-    public interface IPauseable
+    public interface IPausable
     {
 
         void Pause();

@@ -14,7 +14,7 @@ namespace CandyCoded.Interfaces
         public static void PauseAllPausableObjects()
         {
 
-            var pausableObjects = Object.FindObjectsOfType<MonoBehaviour>().OfType<IPauseable>();
+            var pausableObjects = Object.FindObjectsOfType<MonoBehaviour>().OfType<IPausable>();
 
             foreach (var pausableObject in pausableObjects)
             {
@@ -28,7 +28,7 @@ namespace CandyCoded.Interfaces
         public static void ResumeAllPausableObjects()
         {
 
-            var pausableObjects = Object.FindObjectsOfType<MonoBehaviour>().OfType<IPauseable>();
+            var pausableObjects = Object.FindObjectsOfType<MonoBehaviour>().OfType<IPausable>();
 
             foreach (var pausableObject in pausableObjects)
             {
