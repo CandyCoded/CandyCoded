@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = System.Random;
 
 namespace CandyCoded
 {
@@ -14,7 +15,7 @@ namespace CandyCoded
 
         Horizontal,
 
-        Vertical,
+        Vertical
 
     }
 
@@ -417,7 +418,8 @@ namespace CandyCoded
             if (axis.Equals(RotationAxis.All) || axis.Equals(RotationAxis.Vertical))
             {
 
-                var transformRight = transform.InverseTransformDirection(cameraTransform.TransformDirection(Vector3.right));
+                var transformRight =
+                    transform.InverseTransformDirection(cameraTransform.TransformDirection(Vector3.right));
 
                 var verticalRotate = Quaternion.AngleAxis(delta.y * speed * Time.deltaTime, transformRight);
 
@@ -500,7 +502,7 @@ namespace CandyCoded
         public static List<T> Shuffle<T>(this IEnumerable<T> list, int seed)
         {
 
-            var random = new System.Random(seed);
+            var random = new Random(seed);
 
             var shuffledList = new List<T>(list.OrderBy(_ => random.Next()));
 
@@ -516,7 +518,7 @@ namespace CandyCoded
         public static List<T> Shuffle<T>(this IEnumerable<T> list)
         {
 
-            var random = new System.Random();
+            var random = new Random();
 
             var shuffledList = new List<T>(list.OrderBy(_ => random.Next()));
 

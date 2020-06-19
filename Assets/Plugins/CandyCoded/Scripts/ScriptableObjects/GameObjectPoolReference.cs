@@ -14,6 +14,9 @@ namespace CandyCoded
     {
 
         [SerializeField]
+        internal Transform _parentTransform;
+
+        [SerializeField]
         internal GameObject _prefab;
 
         public GameObject prefab
@@ -21,9 +24,6 @@ namespace CandyCoded
             get => _prefab;
             set => _prefab = value;
         }
-
-        [SerializeField]
-        internal Transform _parentTransform;
 
         public Transform parentTransform
         {

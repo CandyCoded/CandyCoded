@@ -44,11 +44,11 @@ namespace CandyCoded
     public class AnimationData : MonoBehaviour
     {
 
+        private List<MaterialData> _materials = new List<MaterialData>();
+
         private TransformData _transformData;
 
         public TransformData TransformData => _transformData;
-
-        private List<MaterialData> _materials = new List<MaterialData>();
 
         public IEnumerable<MaterialData> Materials => _materials;
 

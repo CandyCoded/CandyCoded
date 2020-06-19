@@ -2,10 +2,11 @@
 
 using System;
 using System.IO;
+using UnityEngine;
+using Object = UnityEngine.Object;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-using UnityEngine;
 
 namespace CandyCoded
 {
@@ -21,44 +22,6 @@ namespace CandyCoded
             return (int)(DateTime.UtcNow - epoch).TotalSeconds;
 
         }
-
-#if UNITY_EDITOR
-        [MenuItem("Window/CandyCoded/Save Screenshot")]
-        private static void SaveNormalResolutionImage()
-        {
-
-            EditorApplication.ExecuteMenuItem("Window/General/Game");
-
-            var path = Save();
-
-            Debug.Log($"Saved screenshot to {path}");
-
-        }
-
-        [MenuItem("Window/CandyCoded/Save Screenshot @ 2x")]
-        private static void SaveHighResolutionImage()
-        {
-
-            EditorApplication.ExecuteMenuItem("Window/General/Game");
-
-            var path = Save(2);
-
-            Debug.Log($"Saved screenshot to {path}");
-
-        }
-
-        [MenuItem("Window/CandyCoded/Save Transparent Screenshot")]
-        private static void SaveTransparentImage()
-        {
-
-            EditorApplication.ExecuteMenuItem("Window/General/Game");
-
-            var path = SaveTransparent();
-
-            Debug.Log($"Saved screenshot to {path}");
-
-        }
-#endif
 
         /// <summary>
         ///     Save a screenshot to the applications persistent data path (device specific) with a random file name.
@@ -133,9 +96,9 @@ namespace CandyCoded
 
             RenderTexture.active = originalRenderTexture;
 
-            UnityEngine.Object.DestroyImmediate(renderTexture);
+            Object.DestroyImmediate(renderTexture);
 
-            UnityEngine.Object.DestroyImmediate(texture);
+            Object.DestroyImmediate(texture);
 
             return path;
 
@@ -151,6 +114,44 @@ namespace CandyCoded
             return SaveTransparent(Camera.main);
 
         }
+
+#if UNITY_EDITOR
+        [MenuItem("Window/CandyCoded/Save Screenshot")]
+        private static void SaveNormalResolutionImage()
+        {
+
+            EditorApplication.ExecuteMenuItem("Window/General/Game");
+
+            var path = Save();
+
+            Debug.Log($"Saved screenshot to {path}");
+
+        }
+
+        [MenuItem("Window/CandyCoded/Save Screenshot @ 2x")]
+        private static void SaveHighResolutionImage()
+        {
+
+            EditorApplication.ExecuteMenuItem("Window/General/Game");
+
+            var path = Save(2);
+
+            Debug.Log($"Saved screenshot to {path}");
+
+        }
+
+        [MenuItem("Window/CandyCoded/Save Transparent Screenshot")]
+        private static void SaveTransparentImage()
+        {
+
+            EditorApplication.ExecuteMenuItem("Window/General/Game");
+
+            var path = SaveTransparent();
+
+            Debug.Log($"Saved screenshot to {path}");
+
+        }
+#endif
 
     }
 
