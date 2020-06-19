@@ -9,7 +9,7 @@ namespace CandyCoded
     {
 
         /// <summary>
-        /// Interpolates circularly between either two numbers by a given value.
+        ///     Interpolates circularly between either two numbers by a given value.
         /// </summary>
         /// <param name="start">The start value.</param>
         /// <param name="end">The end value.</param>
@@ -37,7 +37,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Interpolates circularly between either two Vector3 objects by a given value.
+        ///     Interpolates circularly between either two Vector3 objects by a given value.
         /// </summary>
         /// <param name="start">The start value.</param>
         /// <param name="end">The end value.</param>

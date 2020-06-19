@@ -2,7 +2,6 @@
 
 using System;
 using UnityEngine;
-
 #pragma warning disable S100
 
 // Disables "Methods and properties should be named in camel case" to allow properties to match Vector2, Vector3 and Vector4 structs.
@@ -57,7 +56,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Creates a clone of the Vector2AnimationCurve object.
+        ///     Creates a clone of the Vector2AnimationCurve object.
         /// </summary>
         /// <returns>Vector2AnimationCurve</returns>
         public Vector2AnimationCurve Clone()
@@ -75,7 +74,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Evaluates both animation curves and generates a Vector2 with the results.
+        ///     Evaluates both animation curves and generates a Vector2 with the results.
         /// </summary>
         /// <param name="time">The time used to evaluate each animation curve.</param>
         /// <returns>Vector2</returns>
@@ -90,7 +89,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Checks the x and y animation curves to see if either of them loop.
+        ///     Checks the x and y animation curves to see if either of them loop.
         /// </summary>
         /// <returns>bool</returns>
         public bool IsLooping()
@@ -101,7 +100,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns the highest duration time of either the x or y animation curves.
+        ///     Returns the highest duration time of either the x or y animation curves.
         /// </summary>
         /// <returns>float</returns>
         public float MaxTime()
@@ -157,7 +156,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Creates a clone of the Vector3AnimationCurve object.
+        ///     Creates a clone of the Vector3AnimationCurve object.
         /// </summary>
         /// <returns>Vector3AnimationCurve</returns>
         public Vector3AnimationCurve Clone()
@@ -178,7 +177,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Evaluates all animation curves and generates a Vector3 with the results.
+        ///     Evaluates all animation curves and generates a Vector3 with the results.
         /// </summary>
         /// <param name="time">The time used to evaluate each animation curve.</param>
         /// <returns>Vector3</returns>
@@ -194,7 +193,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Checks the x, y and z animation curves to see if any of them loop.
+        ///     Checks the x, y and z animation curves to see if any of them loop.
         /// </summary>
         /// <returns>bool</returns>
         public bool IsLooping()
@@ -205,7 +204,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns the highest duration time of either the x, y or z animation curves.
+        ///     Returns the highest duration time of either the x, y or z animation curves.
         /// </summary>
         /// <returns>float</returns>
         public float MaxTime()
@@ -271,7 +270,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Creates a clone of the Vector4AnimationCurve object.
+        ///     Creates a clone of the Vector4AnimationCurve object.
         /// </summary>
         /// <returns>Vector4AnimationCurve</returns>
         public Vector4AnimationCurve Clone()
@@ -295,7 +294,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Evaluates all animation curves and generates a Vector4 with the results.
+        ///     Evaluates all animation curves and generates a Vector4 with the results.
         /// </summary>
         /// <param name="time">The time used to evaluate each animation curve.</param>
         /// <returns>Vector4</returns>
@@ -312,7 +311,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Checks the x, y, z and w animation curves to see if any of them loop.
+        ///     Checks the x, y, z and w animation curves to see if any of them loop.
         /// </summary>
         /// <returns>bool</returns>
         public bool IsLooping()
@@ -323,7 +322,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns the highest duration time of either the x, y, z or w animation curves.
+        ///     Returns the highest duration time of either the x, y, z or w animation curves.
         /// </summary>
         /// <returns>float</returns>
         public float MaxTime()

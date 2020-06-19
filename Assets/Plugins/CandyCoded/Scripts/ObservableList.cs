@@ -80,7 +80,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Adds an item to the end of the ObservableList.
+        ///     Adds an item to the end of the ObservableList.
         /// </summary>
         /// <param name="item">The item to be added to the end of the ObservableList.</param>
         /// <returns>void</returns>
@@ -124,7 +124,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Determines whether an item is in the ObservableList.
+        ///     Determines whether an item is in the ObservableList.
         /// </summary>
         /// <param name="item">The item to locate in the ObservableList.</param>
         /// <returns>bool</returns>
@@ -136,7 +136,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Copies all items in the ObservableList to the array starting at the <paramref name="arrayIndex"/>.
+        ///     Copies all items in the ObservableList to the array starting at the <paramref name="arrayIndex" />.
         /// </summary>
         /// <param name="array">The one-dimensional Array that is the destination of the items copied from the ObservableList.</param>
         /// <param name="arrayIndex">The zero-based index in array at which copying begins.</param>
@@ -276,7 +276,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes a range of items from the ObservableList.
+        ///     Removes a range of items from the ObservableList.
         /// </summary>
         /// <param name="index">The zero-based starting index of the range of items to remove.</param>
         /// <param name="count">The number of items to remove.</param>
@@ -294,9 +294,11 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes the first item from an ObservableList and returns that item.
+        ///     Removes the first item from an ObservableList and returns that item.
         /// </summary>
-        /// <returns><typeparamref name="T"/></returns>
+        /// <returns>
+        ///     <typeparamref name="T" />
+        /// </returns>
         public T Shift()
         {
 
@@ -309,10 +311,10 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Creates a new copy of an ObservableList and shuffles the items.
+        ///     Creates a new copy of an ObservableList and shuffles the items.
         /// </summary>
         /// <param name="seed">A number used for randomly shuffling the items of the list.</param>
-        /// <returns>ObservableList<typeparamref name="T"/></returns>
+        /// <returns>ObservableList<typeparamref name="T" /></returns>
         public ObservableList<T> Shuffle(int seed)
         {
 
@@ -325,9 +327,9 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Creates a new copy of an ObservableList and shuffles the items.
+        ///     Creates a new copy of an ObservableList and shuffles the items.
         /// </summary>
-        /// <returns>ObservableList<typeparamref name="T"/></returns>
+        /// <returns>ObservableList<typeparamref name="T" /></returns>
         public ObservableList<T> Shuffle()
         {
 
@@ -340,11 +342,11 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns a shallow copy of a portion of an ObservableList.
+        ///     Returns a shallow copy of a portion of an ObservableList.
         /// </summary>
         /// <param name="index">Index of list to start at.</param>
         /// <param name="count">Number of items to return.</param>
-        /// <returns>ObservableList<typeparamref name="T"/></returns>
+        /// <returns>ObservableList<typeparamref name="T" /></returns>
         public ObservableList<T> Slice(int index, int count)
         {
 
@@ -355,10 +357,10 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns a shallow copy of a portion of an ObservableList.
+        ///     Returns a shallow copy of a portion of an ObservableList.
         /// </summary>
         /// <param name="count">Number of items to return.</param>
-        /// <returns>ObservableList<typeparamref name="T"/></returns>
+        /// <returns>ObservableList<typeparamref name="T" /></returns>
         public ObservableList<T> Slice(int count)
         {
 
@@ -367,9 +369,9 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns a shallow copy of a portion of an ObservableList.
+        ///     Returns a shallow copy of a portion of an ObservableList.
         /// </summary>
-        /// <returns>ObservableList<typeparamref name="T"/></returns>
+        /// <returns>ObservableList<typeparamref name="T" /></returns>
         public ObservableList<T> Slice()
         {
 
@@ -378,11 +380,11 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes and returns a shallow copy of a portion of an ObservableList.
+        ///     Removes and returns a shallow copy of a portion of an ObservableList.
         /// </summary>
         /// <param name="index">Index of list to start at.</param>
         /// <param name="count">Number of items to return and remove.</param>
-        /// <returns>ObservableList<typeparamref name="T"/></returns>
+        /// <returns>ObservableList<typeparamref name="T" /></returns>
         public ObservableList<T> Splice(int index, int count)
         {
 
@@ -395,10 +397,10 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes and returns a shallow copy of a portion of an ObservableList.
+        ///     Removes and returns a shallow copy of a portion of an ObservableList.
         /// </summary>
         /// <param name="count">Number of items to return and remove.</param>
-        /// <returns>ObservableList<typeparamref name="T"/></returns>
+        /// <returns>ObservableList<typeparamref name="T" /></returns>
         public ObservableList<T> Splice(int count)
         {
 
@@ -407,9 +409,9 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes and returns a shallow copy of a portion of an ObservableList.
+        ///     Removes and returns a shallow copy of a portion of an ObservableList.
         /// </summary>
-        /// <returns>ObservableList<typeparamref name="T"/></returns>
+        /// <returns>ObservableList<typeparamref name="T" /></returns>
         public ObservableList<T> Splice()
         {
 
@@ -418,9 +420,9 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Creates a List with the values from an ObservableList.
+        ///     Creates a List with the values from an ObservableList.
         /// </summary>
-        /// <returns>List<typeparamref name="T"/></returns>
+        /// <returns>List<typeparamref name="T" /></returns>
         public List<T> ToList()
         {
 
@@ -431,7 +433,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Adds a range of items to the beginning of an ObservableList.
+        ///     Adds a range of items to the beginning of an ObservableList.
         /// </summary>
         /// <returns>void</returns>
         public void Unshift(IEnumerable<T> items)
@@ -442,7 +444,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Adds a range of items to the beginning of an ObservableList.
+        ///     Adds a range of items to the beginning of an ObservableList.
         /// </summary>
         /// <returns>void</returns>
         public void Unshift(ObservableList<T> items)
@@ -453,7 +455,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Adds an item to the beginning of an ObservableList.
+        ///     Adds an item to the beginning of an ObservableList.
         /// </summary>
         /// <returns>void</returns>
         public void Unshift(T item)

@@ -6,7 +6,8 @@ namespace CandyCoded
 {
 
     [CreateAssetMenu(fileName = "GameObjectPoolReference", menuName = "CandyCoded/GameObjectPoolReference")]
-    [HelpURL("https://github.com/CandyCoded/CandyCoded/blob/master/Documentation/4.%20ScriptableObject/GameObjectPool.md")]
+    [HelpURL(
+        "https://github.com/CandyCoded/CandyCoded/blob/master/Documentation/4.%20ScriptableObject/GameObjectPool.md")]
     public class GameObjectPoolReference : PoolReference<GameObject>
     {
 
@@ -29,7 +30,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Creates a new GameObject for use in a GameObject pool.
+        ///     Creates a new GameObject for use in a GameObject pool.
         /// </summary>
         /// <returns>GameObject</returns>
         protected override GameObject Create()
@@ -44,7 +45,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Retrieves a GameObject from the GameObject pool, sets position and rotation, and then activates it in the scene.
+        ///     Retrieves a GameObject from the GameObject pool, sets position and rotation, and then activates it in the scene.
         /// </summary>
         /// <returns>GameObject</returns>
         public GameObject Spawn(Vector3 position, Quaternion rotation)
@@ -62,7 +63,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Disables an object and returns it back into the object pool.
+        ///     Disables an object and returns it back into the object pool.
         /// </summary>
         /// <returns>void</returns>
         public void Destroy(GameObject gameObject)

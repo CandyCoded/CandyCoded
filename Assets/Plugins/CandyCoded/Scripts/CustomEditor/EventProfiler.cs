@@ -220,9 +220,9 @@ namespace CandyCoded
 
                 return multicastDelegate.GetInvocationList().Select(i =>
                         new ExtendedMethodInfo
-                            {
-                                gameObject = ((MonoBehaviour)i.Target).gameObject, methodInfo = i.Method
-                            })
+                        {
+                            gameObject = ((MonoBehaviour)i.Target).gameObject, methodInfo = i.Method
+                        })
                     .ToList();
 
             }

@@ -10,10 +10,10 @@ namespace CandyCoded
     {
 
         /// <summary>
-        /// Returns an array of materials attached to renderers that are children of the supplied GameObject.
+        ///     Returns an array of materials attached to renderers that are children of the supplied GameObject.
         /// </summary>
         /// <param name="gameObject">Parent GameObject.</param>
-        /// <returns>IEnumerable<Material/></returns>
+        /// <returns>IEnumerable<Material /></returns>
         public static IEnumerable<Material> GetMaterialsInChildren(GameObject gameObject)
         {
 
@@ -38,7 +38,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Set the alpha value of a color object.
+        ///     Set the alpha value of a color object.
         /// </summary>
         /// <param name="color">Color object to modify.</param>
         /// <param name="alpha">New alpha value.</param>

@@ -15,6 +15,7 @@ namespace CandyCoded.Tests
         {
 
             private const string gameObjectName = "Cube";
+
             private const string gameObjectMenuPath = "GameObject/3D Object/Cube";
 
             [Test]
@@ -25,7 +26,8 @@ namespace CandyCoded.Tests
 
                 Assert.IsNull(gameObject);
 
-                gameObject = CustomEditorExtensions.FindOrCreateGameObjectFromAssetMenu(gameObjectName, gameObjectMenuPath);
+                gameObject =
+                    CustomEditorExtensions.FindOrCreateGameObjectFromAssetMenu(gameObjectName, gameObjectMenuPath);
 
                 Assert.IsNotNull(gameObject);
 
@@ -41,7 +43,9 @@ namespace CandyCoded.Tests
         {
 
             private const string gameObjectName = "Cube";
+
             private const string gameObjectMenuPath = "GameObject/3D Object/Cube";
+
             private const string gameObjectPrefabPath = "Assets/Cube.prefab";
 
             [SetUp, TearDown]
@@ -60,7 +64,8 @@ namespace CandyCoded.Tests
 
                 Assert.IsNull(asset);
 
-                asset = CustomEditorExtensions.FindOrCreatePrefabFromAssetMenu(gameObjectName, gameObjectMenuPath, gameObjectPrefabPath);
+                asset = CustomEditorExtensions.FindOrCreatePrefabFromAssetMenu(gameObjectName, gameObjectMenuPath,
+                    gameObjectPrefabPath);
 
                 Assert.IsNotNull(asset);
 
@@ -93,7 +98,8 @@ namespace CandyCoded.Tests
 
                 Assert.IsNull(asset);
 
-                asset = CustomEditorExtensions.FindOrCreateScriptableObjectAtPath<ScriptableObject>(scriptableObjectAssetPath);
+                asset = CustomEditorExtensions.FindOrCreateScriptableObjectAtPath<ScriptableObject>(
+                    scriptableObjectAssetPath);
 
                 Assert.IsNotNull(asset);
 

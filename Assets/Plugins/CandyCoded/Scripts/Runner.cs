@@ -15,7 +15,7 @@ namespace CandyCoded
         public Dictionary<string, Coroutine> Coroutines { get; } = new Dictionary<string, Coroutine>();
 
         /// <summary>
-        /// Starts and adds a coroutine to a list.
+        ///     Starts and adds a coroutine to a list.
         /// </summary>
         /// <param name="coroutineKey">Unique key used to store coroutine.</param>
         /// <param name="routine">IEnumerator used to start coroutine.</param>
@@ -30,7 +30,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Wraps an anonymous method in an IEnumerator. Continues after the defined number of seconds.
+        ///     Wraps an anonymous method in an IEnumerator. Continues after the defined number of seconds.
         /// </summary>
         /// <param name="oneShotFunc">An anonymous method with no parameters.</param>
         /// <param name="delayInSeconds">Seconds to wait after calling the anonymous method.</param>
@@ -45,7 +45,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Wraps an anonymous method in an IEnumerator. Continues on the next frame.
+        ///     Wraps an anonymous method in an IEnumerator. Continues on the next frame.
         /// </summary>
         /// <param name="oneShotFunc">An anonymous method with no parameters.</param>
         /// <returns>IEnumerator</returns>
@@ -59,7 +59,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Stops coroutine and removes it from the list.
+        ///     Stops coroutine and removes it from the list.
         /// </summary>
         /// <param name="coroutineKey">Key coroutine was originally stored with.</param>
         /// <returns>void</returns>
@@ -83,7 +83,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Stops all coroutines and removes them from the list.
+        ///     Stops all coroutines and removes them from the list.
         /// </summary>
         /// <returns>void</returns>
         public void RemoveAllCoroutines()

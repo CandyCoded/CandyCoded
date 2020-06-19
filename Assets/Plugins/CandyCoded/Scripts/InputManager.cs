@@ -10,13 +10,14 @@ namespace CandyCoded
     {
 
         /// <summary>
-        /// Returns true if touch is enabled on the device and there is at least one touch event active.
+        ///     Returns true if touch is enabled on the device and there is at least one touch event active.
         /// </summary>
         /// <returns>bool</returns>
         public static bool TouchActive => Input.touchSupported && Input.touchCount > 0;
 
         /// <summary>
-        /// Returns true if the user has either pressed the primary mouse button or touched the screen over a specific GameObject.
+        ///     Returns true if the user has either pressed the primary mouse button or touched the screen over a specific
+        ///     GameObject.
         /// </summary>
         /// <param name="gameObject">GameObject to test.</param>
         /// <param name="mainCamera">Current active camera.</param>
@@ -41,7 +42,8 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has either pressed the primary mouse button or touched the screen over a specific GameObject.
+        ///     Returns true if the user has either pressed the primary mouse button or touched the screen over a specific
+        ///     GameObject.
         /// </summary>
         /// <param name="gameObject">GameObject to test.</param>
         /// <param name="mainCamera">Current active camera.</param>
@@ -66,7 +68,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has either pressed the primary mouse button or touched the screen.
+        ///     Returns true if the user has either pressed the primary mouse button or touched the screen.
         /// </summary>
         /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
         /// <returns>bool</returns>
@@ -87,7 +89,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has either pressed the primary mouse button or touched the screen.
+        ///     Returns true if the user has either pressed the primary mouse button or touched the screen.
         /// </summary>
         /// <returns>bool</returns>
         public static bool GetInputDown()
@@ -105,7 +107,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns the position of either the mouse or a specific touch.
+        ///     Returns the position of either the mouse or a specific touch.
         /// </summary>
         /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
         /// <returns>Vector3</returns>
@@ -124,7 +126,8 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has either released the primary mouse button or ended a touch on the screen over a specific GameObject.
+        ///     Returns true if the user has either released the primary mouse button or ended a touch on the screen over a
+        ///     specific GameObject.
         /// </summary>
         /// <param name="gameObject">GameObject to test.</param>
         /// <param name="mainCamera">Current active camera.</param>
@@ -147,7 +150,8 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has either released the primary mouse button or ended a touch on the screen over a specific GameObject.
+        ///     Returns true if the user has either released the primary mouse button or ended a touch on the screen over a
+        ///     specific GameObject.
         /// </summary>
         /// <param name="gameObject">GameObject to test.</param>
         /// <param name="mainCamera">Current active camera.</param>
@@ -170,7 +174,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has either released the primary mouse button or ended a touch on the screen.
+        ///     Returns true if the user has either released the primary mouse button or ended a touch on the screen.
         /// </summary>
         /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
         /// <returns>bool</returns>
@@ -189,7 +193,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has either released the primary mouse button or ended a touch on the screen.
+        ///     Returns true if the user has either released the primary mouse button or ended a touch on the screen.
         /// </summary>
         /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
         /// <returns>bool</returns>
@@ -210,7 +214,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has either released the primary mouse button or ended a touch on the screen.
+        ///     Returns true if the user has either released the primary mouse button or ended a touch on the screen.
         /// </summary>
         /// <returns>bool</returns>
         public static bool GetInputUp()
@@ -228,7 +232,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has pressed the primary mouse button over a specific GameObject.
+        ///     Returns true if the user has pressed the primary mouse button over a specific GameObject.
         /// </summary>
         /// <param name="gameObject">GameObject to test.</param>
         /// <param name="mainCamera">Current active camera.</param>
@@ -245,7 +249,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has pressed the primary mouse button over a specific GameObject.
+        ///     Returns true if the user has pressed the primary mouse button over a specific GameObject.
         /// </summary>
         /// <param name="gameObject">GameObject to test.</param>
         /// <param name="mainCamera">Current active camera.</param>
@@ -262,7 +266,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has pressed the primary mouse button.
+        ///     Returns true if the user has pressed the primary mouse button.
         /// </summary>
         /// <returns>bool</returns>
         public static bool GetMouseButtonDown()
@@ -273,7 +277,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has released the primary mouse button over a specific GameObject.
+        ///     Returns true if the user has released the primary mouse button over a specific GameObject.
         /// </summary>
         /// <param name="gameObject">GameObject to test.</param>
         /// <param name="mainCamera">Current active camera.</param>
@@ -290,7 +294,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has released the primary mouse button over a specific GameObject.
+        ///     Returns true if the user has released the primary mouse button over a specific GameObject.
         /// </summary>
         /// <param name="gameObject">GameObject to test.</param>
         /// <param name="mainCamera">Current active camera.</param>
@@ -307,7 +311,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has released the primary mouse button.
+        ///     Returns true if the user has released the primary mouse button.
         /// </summary>
         /// <returns>bool</returns>
         public static bool GetMouseButtonUp()
@@ -318,7 +322,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns the position of the mouse.
+        ///     Returns the position of the mouse.
         /// </summary>
         /// <returns>Vector3</returns>
         public static Vector3? GetMousePosition()
@@ -329,7 +333,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns the active touch based on a unique finger ID and a TouchPhase enum filter.
+        ///     Returns the active touch based on a unique finger ID and a TouchPhase enum filter.
         /// </summary>
         /// <param name="fingerId">The stored unique finger ID of the touch event.</param>
         /// <param name="touchPhasesFilter">TouchPhase enums used to filter.</param>
@@ -359,7 +363,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns the active touch based on a TouchPhase enum filter.
+        ///     Returns the active touch based on a TouchPhase enum filter.
         /// </summary>
         /// <param name="touchPhasesFilter">TouchPhase enums used to filter.</param>
         /// <returns>Touch</returns>
@@ -388,7 +392,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns the active touch based on a unique finger ID.
+        ///     Returns the active touch based on a unique finger ID.
         /// </summary>
         /// <param name="fingerId">The stored unique finger ID of the touch event.</param>
         /// <returns>Touch</returns>
@@ -417,7 +421,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has touched the screen over a specific GameObject.
+        ///     Returns true if the user has touched the screen over a specific GameObject.
         /// </summary>
         /// <param name="gameObject">GameObject to test.</param>
         /// <param name="mainCamera">Current active camera.</param>
@@ -457,7 +461,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has touched the screen over a specific GameObject.
+        ///     Returns true if the user has touched the screen over a specific GameObject.
         /// </summary>
         /// <param name="gameObject">GameObject to test.</param>
         /// <param name="mainCamera">Current active camera.</param>
@@ -497,7 +501,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has touched the screen.
+        ///     Returns true if the user has touched the screen.
         /// </summary>
         /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
         /// <returns>bool</returns>
@@ -522,7 +526,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has touched the screen.
+        ///     Returns true if the user has touched the screen.
         /// </summary>
         /// <returns>bool</returns>
         public static bool GetTouchDown()
@@ -535,7 +539,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns the position of a specific touch.
+        ///     Returns the position of a specific touch.
         /// </summary>
         /// <param name="currentFingerId">The stored unique finger ID of the touch.</param>
         /// <returns>Vector3</returns>
@@ -549,7 +553,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has ended a touch on the screen over a specific GameObject.
+        ///     Returns true if the user has ended a touch on the screen over a specific GameObject.
         /// </summary>
         /// <param name="gameObject">GameObject to test.</param>
         /// <param name="mainCamera">Current active camera.</param>
@@ -569,7 +573,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has ended a touch on the screen over a specific GameObject.
+        ///     Returns true if the user has ended a touch on the screen over a specific GameObject.
         /// </summary>
         /// <param name="gameObject">GameObject to test.</param>
         /// <param name="mainCamera">Current active camera.</param>
@@ -589,7 +593,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has ended a touch on the screen.
+        ///     Returns true if the user has ended a touch on the screen.
         /// </summary>
         /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
         /// <returns>bool</returns>
@@ -603,7 +607,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has ended a touch on the screen.
+        ///     Returns true if the user has ended a touch on the screen.
         /// </summary>
         /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
         /// <returns>bool</returns>
@@ -628,7 +632,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the user has ended a touch on the screen.
+        ///     Returns true if the user has ended a touch on the screen.
         /// </summary>
         /// <returns>bool</returns>
         public static bool GetTouchUp()
@@ -641,7 +645,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if a position collides with a GameObject.
+        ///     Returns true if a position collides with a GameObject.
         /// </summary>
         /// <param name="gameObject">GameObject to test.</param>
         /// <param name="mainCamera">Current active camera.</param>
@@ -655,12 +659,12 @@ namespace CandyCoded
             var ray = mainCamera.ScreenPointToRay(position);
 
             return Physics.Raycast(ray, out hit, Mathf.Infinity, gameObject.GetLayerMask()) &&
-                hit.transform.IsChildOf(gameObject.transform);
+                   hit.transform.IsChildOf(gameObject.transform);
 
         }
 
         /// <summary>
-        /// Returns true if a position collides with a GameObject.
+        ///     Returns true if a position collides with a GameObject.
         /// </summary>
         /// <param name="gameObject">GameObject to test.</param>
         /// <param name="mainCamera">Current active camera.</param>

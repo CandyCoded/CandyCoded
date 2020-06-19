@@ -59,7 +59,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Fades all of the materials in a GameObject with an AnimationCurve.
+        ///     Fades all of the materials in a GameObject with an AnimationCurve.
         /// </summary>
         /// <param name="gameObject">GameObject to fade.</param>
         /// <param name="animationCurve">AnimationCurve to evaluate.</param>
@@ -76,7 +76,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Changes the alpha of all materials in a GameObject to the evaluated float calculated from a AnimationCurve object.
+        ///     Changes the alpha of all materials in a GameObject to the evaluated float calculated from a AnimationCurve object.
         /// </summary>
         /// <param name="animationCurve">AnimationCurve to evaluate.</param>
         /// <param name="elapsedTime">The time elapsed since the animation started.</param>
@@ -98,7 +98,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Fades a GameObject from a specified alpha to another.
+        ///     Fades a GameObject from a specified alpha to another.
         /// </summary>
         /// <param name="gameObject">GameObject to fade.</param>
         /// <param name="from">Starting alpha.</param>
@@ -115,7 +115,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Fades a GameObject from a specified alpha to another.
+        ///     Fades a GameObject from a specified alpha to another.
         /// </summary>
         /// <param name="gameObject">GameObject to fade.</param>
         /// <param name="from">Starting alpha.</param>
@@ -129,7 +129,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Animates the position of a GameObject to the specified Vector3 over time.
+        ///     Animates the position of a GameObject to the specified Vector3 over time.
         /// </summary>
         /// <param name="gameObject">GameObject to move.</param>
         /// <param name="newPosition">New Vector3 position.</param>
@@ -166,7 +166,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Animates the position of a GameObject to the specified Vector3 over time.
+        ///     Animates the position of a GameObject to the specified Vector3 over time.
         /// </summary>
         /// <param name="gameObject">GameObject to move.</param>
         /// <param name="newPosition">New Vector3 position.</param>
@@ -180,7 +180,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Animates the position of a GameObject to the specified Vector3 over time.
+        ///     Animates the position of a GameObject to the specified Vector3 over time.
         /// </summary>
         /// <param name="gameObject">GameObject to move.</param>
         /// <param name="newPosition">New Vector3 position.</param>
@@ -193,7 +193,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Animates the position of a GameObject with a Vector3AnimationCurve.
+        ///     Animates the position of a GameObject with a Vector3AnimationCurve.
         /// </summary>
         /// <param name="gameObject">GameObject to move.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
@@ -208,7 +208,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Changes the position of a GameObject to the evaluated Vector3 calculated from a Vector3AnimationCurve object.
+        ///     Changes the position of a GameObject to the evaluated Vector3 calculated from a Vector3AnimationCurve object.
         /// </summary>
         /// <param name="gameObject">GameObject to move.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
@@ -222,7 +222,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Animates the position of a GameObject, relative to it's original position, with a Vector3AnimationCurve.
+        ///     Animates the position of a GameObject, relative to it's original position, with a Vector3AnimationCurve.
         /// </summary>
         /// <param name="gameObject">GameObject to move.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
@@ -239,7 +239,8 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Changes the position of a GameObject, relative to it's original position, to the evaluated Vector3 calculated from a Vector3AnimationCurve object.
+        ///     Changes the position of a GameObject, relative to it's original position, to the evaluated Vector3 calculated from
+        ///     a Vector3AnimationCurve object.
         /// </summary>
         /// <param name="gameObject">GameObject to move.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
@@ -256,7 +257,8 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Changes the position of a GameObject, relative to it's original position, to the evaluated Vector3 calculated from a Vector3AnimationCurve object.
+        ///     Changes the position of a GameObject, relative to it's original position, to the evaluated Vector3 calculated from
+        ///     a Vector3AnimationCurve object.
         /// </summary>
         /// <param name="gameObject">GameObject to move.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
@@ -274,7 +276,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Animates the rotation of a GameObject to the specified Vector3 over time.
+        ///     Animates the rotation of a GameObject to the specified Vector3 over time.
         /// </summary>
         /// <param name="gameObject">GameObject to rotate.</param>
         /// <param name="newRotation">New Vector3 rotation.</param>
@@ -288,7 +290,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Animates the rotation of a GameObject to the specified Vector3 over time.
+        ///     Animates the rotation of a GameObject to the specified Vector3 over time.
         /// </summary>
         /// <param name="gameObject">GameObject to rotate.</param>
         /// <param name="newRotation">New Vector3 rotation.</param>
@@ -301,7 +303,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Animates the rotation of a GameObject to the specified Quaternion over time.
+        ///     Animates the rotation of a GameObject to the specified Quaternion over time.
         /// </summary>
         /// <param name="gameObject">GameObject to rotate.</param>
         /// <param name="newRotation">New Quaternion rotation.</param>
@@ -326,7 +328,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Animates the rotation of a GameObject to the specified Quaternion over time.
+        ///     Animates the rotation of a GameObject to the specified Quaternion over time.
         /// </summary>
         /// <param name="gameObject">GameObject to rotate.</param>
         /// <param name="newRotation">New Quaternion rotation.</param>
@@ -339,7 +341,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Animates the rotation of a GameObject with a Vector3AnimationCurve.
+        ///     Animates the rotation of a GameObject with a Vector3AnimationCurve.
         /// </summary>
         /// <param name="gameObject">GameObject to rotate.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
@@ -354,7 +356,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Changes the rotation of a GameObject to the evaluated Vector3 calculated from a Vector3AnimationCurve object.
+        ///     Changes the rotation of a GameObject to the evaluated Vector3 calculated from a Vector3AnimationCurve object.
         /// </summary>
         /// <param name="gameObject">GameObject to rotate.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
@@ -370,7 +372,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Animates the scale of a GameObject with a Vector3AnimationCurve.
+        ///     Animates the scale of a GameObject with a Vector3AnimationCurve.
         /// </summary>
         /// <param name="gameObject">GameObject to scale.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
@@ -385,7 +387,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Changes the scale of a GameObject to the evaluated Vector3 calculated from a Vector3AnimationCurve object.
+        ///     Changes the scale of a GameObject to the evaluated Vector3 calculated from a Vector3AnimationCurve object.
         /// </summary>
         /// <param name="gameObject">GameObject to scale.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
@@ -399,7 +401,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Animates the scale of a GameObject, relative to it's original scale, with a Vector3AnimationCurve.
+        ///     Animates the scale of a GameObject, relative to it's original scale, with a Vector3AnimationCurve.
         /// </summary>
         /// <param name="gameObject">GameObject to scale.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
@@ -416,7 +418,8 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Changes the scale of a GameObject, relative to it's original scale, to the evaluated Vector3 calculated from a Vector3AnimationCurve object.
+        ///     Changes the scale of a GameObject, relative to it's original scale, to the evaluated Vector3 calculated from a
+        ///     Vector3AnimationCurve object.
         /// </summary>
         /// <param name="gameObject">GameObject to scale.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
@@ -432,7 +435,8 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Changes the scale of a GameObject, relative to it's original scale, to the evaluated Vector3 calculated from a Vector3AnimationCurve object.
+        ///     Changes the scale of a GameObject, relative to it's original scale, to the evaluated Vector3 calculated from a
+        ///     Vector3AnimationCurve object.
         /// </summary>
         /// <param name="gameObject">GameObject to scale.</param>
         /// <param name="animationCurve">Vector3AnimationCurve to evaluate.</param>
@@ -448,7 +452,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Animates the scale of a GameObject to the specified Vector3 over time.
+        ///     Animates the scale of a GameObject to the specified Vector3 over time.
         /// </summary>
         /// <param name="gameObject">GameObject to scale.</param>
         /// <param name="newScale">New Vector3 scale.</param>
@@ -470,7 +474,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Animates the scale of a GameObject to the specified Vector3 over time.
+        ///     Animates the scale of a GameObject to the specified Vector3 over time.
         /// </summary>
         /// <param name="gameObject">GameObject to scale.</param>
         /// <param name="newScale">New Vector3 scale.</param>
@@ -483,7 +487,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Stop animation attached to a GameObject by name.
+        ///     Stop animation attached to a GameObject by name.
         /// </summary>
         /// <param name="gameObject">GameObject to stop animation on.</param>
         /// <param name="animationName">Name of animation to stop. Equivalent to the static method called to start animation.</param>
@@ -498,7 +502,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Stops all animations attached to a GameObject.
+        ///     Stops all animations attached to a GameObject.
         /// </summary>
         /// <param name="gameObject">GameObject to stop all animations on.</param>
         /// <returns>void</returns>

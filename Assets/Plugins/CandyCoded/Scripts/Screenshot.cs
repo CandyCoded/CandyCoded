@@ -61,7 +61,7 @@ namespace CandyCoded
 #endif
 
         /// <summary>
-        /// Save a screenshot to the applications persistent data path (device specific) with a random file name.
+        ///     Save a screenshot to the applications persistent data path (device specific) with a random file name.
         /// </summary>
         /// <param name="ratio">Ratio to save the image at.</param>
         /// <returns>string</returns>
@@ -72,7 +72,6 @@ namespace CandyCoded
             var path = Path.Combine(Application.persistentDataPath, filename);
 
 #if (UNITY_IOS || UNITY_ANDROID) && !UNITY_EDITOR
-
             ScreenCapture.CaptureScreenshot(filename, ratio);
 
 #else
@@ -86,7 +85,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Save a screenshot to the applications persistent data path (device specific) with a random file name.
+        ///     Save a screenshot to the applications persistent data path (device specific) with a random file name.
         /// </summary>
         /// <returns>string</returns>
         public static string Save()
@@ -97,7 +96,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Save a transparent screenshot to the applications persistent data path (device specific) with a random file name.
+        ///     Save a transparent screenshot to the applications persistent data path (device specific) with a random file name.
         /// </summary>
         /// <returns>string</returns>
         public static string SaveTransparent(Camera camera)
@@ -143,7 +142,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Save a transparent screenshot to the applications persistent data path (device specific) with a random file name.
+        ///     Save a transparent screenshot to the applications persistent data path (device specific) with a random file name.
         /// </summary>
         /// <returns>string</returns>
         public static string SaveTransparent()
