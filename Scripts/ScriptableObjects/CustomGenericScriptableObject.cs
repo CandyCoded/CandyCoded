@@ -13,9 +13,10 @@ namespace CandyCoded
 
         public delegate void EventHandler(T updatedValue);
 
-        public event EventHandler UpdateEvent;
-
-        public event EventHandler ResetEvent;
+#pragma warning disable CS0649
+        [SerializeField]
+        private T _defaultValue;
+#pragma warning restore CS0649
 
         [SerializeField]
         private T _value;
@@ -33,12 +34,11 @@ namespace CandyCoded
             }
         }
 
-#pragma warning disable CS0649
-        [SerializeField]
-        private T _defaultValue;
-#pragma warning restore CS0649
-
         public T DefaultValue => _defaultValue;
+
+        public event EventHandler UpdateEvent;
+
+        public event EventHandler ResetEvent;
 
         /// <summary>
         ///     Resets the scriptable object value back to its default value.

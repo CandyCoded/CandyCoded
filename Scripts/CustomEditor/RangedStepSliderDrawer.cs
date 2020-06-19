@@ -1,9 +1,9 @@
 // Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-using UnityEngine;
 
 namespace CandyCoded
 {
@@ -16,18 +16,18 @@ namespace CandyCoded
     public class RangedStepSliderAttribute : PropertyAttribute
     {
 
-        public float MinLimit { get; }
-
-        public float MaxLimit { get; }
-
-        public float StepIncrement { get; }
-
         public RangedStepSliderAttribute(float min, float max, float step)
         {
             MinLimit = min;
             MaxLimit = max;
             StepIncrement = step;
         }
+
+        public float MinLimit { get; }
+
+        public float MaxLimit { get; }
+
+        public float StepIncrement { get; }
 
     }
 
