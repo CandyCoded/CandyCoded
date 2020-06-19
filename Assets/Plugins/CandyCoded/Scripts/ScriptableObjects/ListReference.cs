@@ -1,5 +1,8 @@
 // Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
+// ReSharper disable RequiredBaseTypesConflict
+// ReSharper disable RequiredBaseTypesIsNotInherited
+
 using System.Collections.Generic;
 using UnityEngine;
 
