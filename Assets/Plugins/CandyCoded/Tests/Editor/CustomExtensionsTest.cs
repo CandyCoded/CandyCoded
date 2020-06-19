@@ -1,9 +1,9 @@
 // Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #if UNITY_EDITOR || UNITY_STANDALONE
-using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework;
 using UnityEngine;
 
 namespace CandyCoded.Tests
@@ -263,7 +263,7 @@ namespace CandyCoded.Tests
             public void ComparisonWithoutCustomEpsilon()
             {
 
-                var positionX = 0.1001f;
+                const float positionX = 0.1001f;
 
                 Assert.IsTrue(positionX.NearlyEqual(0.1f));
 

@@ -1,11 +1,11 @@
 // Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #if UNITY_EDITOR || UNITY_STANDALONE
-using NUnit.Framework;
 using System.Collections.Generic;
 using System.IO;
-using UnityEngine;
+using NUnit.Framework;
 using UnityEditor;
+using UnityEngine;
 
 namespace CandyCoded.Tests
 {
@@ -22,7 +22,8 @@ namespace CandyCoded.Tests
         private static string observableListPath =>
             Path.Combine(Application.persistentDataPath, observableListPathFileName);
 
-        [SetUp, TearDown]
+        [SetUp]
+        [TearDown]
         public static void DeleteFiles()
         {
 
