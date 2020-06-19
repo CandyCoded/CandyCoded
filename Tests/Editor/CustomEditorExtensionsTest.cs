@@ -48,7 +48,8 @@ namespace CandyCoded.Tests
 
             private const string gameObjectPrefabPath = "Assets/Cube.prefab";
 
-            [SetUp, TearDown]
+            [SetUp]
+            [TearDown]
             public static void DeleteFiles()
             {
 
@@ -82,7 +83,8 @@ namespace CandyCoded.Tests
 
             private const string scriptableObjectAssetPath = "Assets/TestScriptableObject.asset";
 
-            [SetUp, TearDown]
+            [SetUp]
+            [TearDown]
             public static void DeleteFiles()
             {
 
