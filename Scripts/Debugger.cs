@@ -10,7 +10,7 @@ namespace CandyCoded
     {
 
         /// <summary>
-        /// Draws an array of vectors with Unity's Debug.DrawLine method.
+        ///     Draws an array of vectors with Unity's Debug.DrawLine method.
         /// </summary>
         /// <param name="points">Array of Vector3 objects used to render lines.</param>
         /// <param name="color">Color of lines.</param>
@@ -30,7 +30,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Draws an array of vectors with Unity's Debug.DrawLine method.
+        ///     Draws an array of vectors with Unity's Debug.DrawLine method.
         /// </summary>
         /// <param name="points">Array of Vector3 objects used to render lines.</param>
         /// <param name="color">Color of lines.</param>
@@ -44,7 +44,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Draws an array of vectors with Unity's Debug.DrawLine method.
+        ///     Draws an array of vectors with Unity's Debug.DrawLine method.
         /// </summary>
         /// <param name="points">Array of Vector3 objects used to render lines.</param>
         /// <param name="color">Color of lines.</param>
@@ -57,7 +57,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Draws a list of vectors with Unity's Debug.DrawLine method.
+        ///     Draws a list of vectors with Unity's Debug.DrawLine method.
         /// </summary>
         /// <param name="points">List of Vector3 objects used to render lines.</param>
         /// <param name="color">Color of lines.</param>
@@ -72,7 +72,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Draws a list of vectors with Unity's Debug.DrawLine method.
+        ///     Draws a list of vectors with Unity's Debug.DrawLine method.
         /// </summary>
         /// <param name="points">List of Vector3 objects used to render lines.</param>
         /// <param name="color">Color of lines.</param>
@@ -86,7 +86,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Draws a list of vectors with Unity's Debug.DrawLine method.
+        ///     Draws a list of vectors with Unity's Debug.DrawLine method.
         /// </summary>
         /// <param name="points">List of Vector3 objects used to render lines.</param>
         /// <param name="color">Color of lines.</param>
@@ -99,7 +99,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Draws an array of vectors with Unity's Debug.DrawLine method.
+        ///     Draws an array of vectors with Unity's Debug.DrawLine method.
         /// </summary>
         /// <param name="points">Array of Vector3 objects used to render lines.</param>
         /// <returns>void</returns>
@@ -111,7 +111,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Draws a list of vectors with Unity's Debug.DrawLine method.
+        ///     Draws a list of vectors with Unity's Debug.DrawLine method.
         /// </summary>
         /// <param name="points">List of Vector3 objects used to render lines.</param>
         /// <returns>void</returns>

@@ -11,6 +11,7 @@ namespace CandyCoded
 #if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(RangedFloat))]
 #endif
+
     // ReSharper disable once RequiredBaseTypesIsNotInherited
     public class RangedSliderAttribute : PropertyAttribute
     {

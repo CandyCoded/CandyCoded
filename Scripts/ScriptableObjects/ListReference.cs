@@ -9,6 +9,7 @@ namespace CandyCoded
 #pragma warning disable S1694
 
     [HelpURL("https://github.com/CandyCoded/CandyCoded/blob/master/Documentation/4.%20ScriptableObject/List.md")]
+
     // Disables "An abstract class should have both abstract and concrete methods" warning as class must extend CustomScriptableObject.
     public abstract class ListReference<T> : CustomScriptableObject
     {
@@ -25,7 +26,7 @@ namespace CandyCoded
         public int Count => _items.Count;
 
         /// <summary>
-        /// Adds an item to the list attached to the scriptable object.
+        ///     Adds an item to the list attached to the scriptable object.
         /// </summary>
         /// <param name="item">Item to add to the list.</param>
         /// <returns>void</returns>
@@ -42,7 +43,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Clears the list attached to the scriptable object.
+        ///     Clears the list attached to the scriptable object.
         /// </summary>
         /// <returns>void</returns>
         public void Clear()
@@ -53,7 +54,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes an item from the list attached to the scriptable object.
+        ///     Removes an item from the list attached to the scriptable object.
         /// </summary>
         /// <param name="item">Item to remove from the list.</param>
         /// <returns>bool</returns>
@@ -65,7 +66,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Clears the list attached to the scriptable object.
+        ///     Clears the list attached to the scriptable object.
         /// </summary>
         /// <returns>void</returns>
         public override void Reset()

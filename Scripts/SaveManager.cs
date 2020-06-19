@@ -12,7 +12,7 @@ namespace CandyCoded
     {
 
         /// <summary>
-        /// Save serializable object to a local file.
+        ///     Save serializable object to a local file.
         /// </summary>
         /// <param name="obj">Object to serialize.</param>
         /// <param name="fileName">File name to save the serialized file to.</param>
@@ -54,7 +54,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Save serializable object to a local file.
+        ///     Save serializable object to a local file.
         /// </summary>
         /// <param name="obj">Object to serialize.</param>
         /// <param name="fileName">File name to save the serialized file to.</param>
@@ -67,7 +67,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Load serializable object from a local file.
+        ///     Load serializable object from a local file.
         /// </summary>
         /// <param name="fileName">File to load.</param>
         /// <param name="directory">Directory file is in.</param>
@@ -112,7 +112,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Load serializable object from a local file.
+        ///     Load serializable object from a local file.
         /// </summary>
         /// <param name="fileName">File to load.</param>
         /// <returns>void</returns>
@@ -124,7 +124,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Delete a local file.
+        ///     Delete a local file.
         /// </summary>
         /// <param name="fileName">File to delete.</param>
         /// <param name="directory">Directory file is in.</param>
@@ -139,7 +139,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Delete a local file.
+        ///     Delete a local file.
         /// </summary>
         /// <param name="fileName">File to delete.</param>
         /// <returns>void</returns>

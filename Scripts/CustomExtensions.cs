@@ -24,10 +24,12 @@ namespace CandyCoded
         private const float EPSILON = 0.01f;
 
         /// <summary>
-        /// Returns a reference to an existing component or a new component if it didn't already exist.
+        ///     Returns a reference to an existing component or a new component if it didn't already exist.
         /// </summary>
         /// <param name="gameObject">GameObject object.</param>
-        /// <returns><typeparamref name="T"/></returns>
+        /// <returns>
+        ///     <typeparamref name="T" />
+        /// </returns>
         public static T AddOrGetComponent<T>(this GameObject gameObject) where T : Component
         {
 
@@ -45,7 +47,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Compares one transform to another using the attached GameObjects.
+        ///     Compares one transform to another using the attached GameObjects.
         /// </summary>
         /// <param name="transform">Transform object.</param>
         /// <param name="other">Other Transform object.</param>
@@ -72,7 +74,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Tests LayerMask for the supplied Layer name.
+        ///     Tests LayerMask for the supplied Layer name.
         /// </summary>
         /// <param name="layerMask">LayerMask object.</param>
         /// <param name="layerName">Layer name to compare against layerMask.</param>
@@ -85,7 +87,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Tests LayerMask for the supplied Layer int.
+        ///     Tests LayerMask for the supplied Layer int.
         /// </summary>
         /// <param name="layerMask">LayerMask object.</param>
         /// <param name="layerInt">Layer number to compare against layerMask.</param>
@@ -98,7 +100,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Is value in mask?
+        ///     Is value in mask?
         /// </summary>
         /// <param name="mask">LayerMask as integer.</param>
         /// <param name="value">Value to compare against mask.</param>
@@ -111,7 +113,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Edit the value of a keyframe in an AnimationCurve leaving the time and curve untouched.
+        ///     Edit the value of a keyframe in an AnimationCurve leaving the time and curve untouched.
         /// </summary>
         /// <param name="animationCurve">AnimationCurve object.</param>
         /// <param name="key">Key of keyframe to modify.</param>
@@ -129,7 +131,8 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Edit the values of the corresponding keyframes in a Vector3AnimationCurve leaving the time and curve of each keyframe untouched.
+        ///     Edit the values of the corresponding keyframes in a Vector3AnimationCurve leaving the time and curve of each
+        ///     keyframe untouched.
         /// </summary>
         /// <param name="animationCurve">Vector3AnimationCurve object.</param>
         /// <param name="key">Key of each keyframe to modify.</param>
@@ -145,7 +148,8 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Edit the values of the corresponding keyframes in a Vector2AnimationCurve leaving the time and curve of each keyframe untouched.
+        ///     Edit the values of the corresponding keyframes in a Vector2AnimationCurve leaving the time and curve of each
+        ///     keyframe untouched.
         /// </summary>
         /// <param name="animationCurve">Vector2AnimationCurve object.</param>
         /// <param name="key">Key of each keyframe to modify.</param>
@@ -160,7 +164,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Get children transforms of parent transform by GameObject name.
+        ///     Get children transforms of parent transform by GameObject name.
         /// </summary>
         /// <param name="parentTransform">Transform object.</param>
         /// <param name="name">Name of GameObject</param>
@@ -189,7 +193,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Creates a LayerMask from a GameObject's layer property.
+        ///     Creates a LayerMask from a GameObject's layer property.
         /// </summary>
         /// <param name="gameObject">GameObject object.</param>
         /// <returns>LayerMask</returns>
@@ -201,7 +205,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Tests to see if AnimationCurve loops.
+        ///     Tests to see if AnimationCurve loops.
         /// </summary>
         /// <param name="animationCurve">AnimationCurve object.</param>
         /// <returns>bool</returns>
@@ -214,7 +218,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Tests to see if transform is in the given cameras viewport.
+        ///     Tests to see if transform is in the given cameras viewport.
         /// </summary>
         /// <param name="transform">Transform object.</param>
         /// <param name="camera">Camera object.</param>
@@ -230,7 +234,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Rotates transform so the forward vector points at target's position.
+        ///     Rotates transform so the forward vector points at target's position.
         /// </summary>
         /// <param name="transform">Transform object.</param>
         /// <param name="target">Object to point towards.</param>
@@ -249,7 +253,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Rotates transform so the forward vector points at target's position.
+        ///     Rotates transform so the forward vector points at target's position.
         /// </summary>
         /// <param name="transform">Transform object.</param>
         /// <param name="target">Object to point towards.</param>
@@ -264,7 +268,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns duration of the AnimationCurve.
+        ///     Returns duration of the AnimationCurve.
         /// </summary>
         /// <returns>float</returns>
         public static float MaxTime(this AnimationCurve animationCurve)
@@ -277,7 +281,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the difference between num1 and num2 is less than the supplied epsilon.
+        ///     Returns true if the difference between num1 and num2 is less than the supplied epsilon.
         /// </summary>
         /// <param name="num1">The first number in the comparison.</param>
         /// <param name="num2">The second number in the comparison.</param>
@@ -291,7 +295,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns true if the difference between num1 and num2 is less than the default epsilon.
+        ///     Returns true if the difference between num1 and num2 is less than the default epsilon.
         /// </summary>
         /// <param name="num1">The first number in the comparison.</param>
         /// <param name="num2">The second number in the comparison.</param>
@@ -304,10 +308,10 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns a list of all possible combinations for a list of items.
+        ///     Returns a list of all possible combinations for a list of items.
         /// </summary>
-        /// <param name="list">List<T/> object.</param>
-        /// <returns>List<List/></returns>
+        /// <param name="list">List<T /> object.</param>
+        /// <returns>List<List /></returns>
         public static List<List<T>> Permutations<T>(this List<T> list)
         {
 
@@ -341,10 +345,12 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes the last item from a list and returns that item.
+        ///     Removes the last item from a list and returns that item.
         /// </summary>
-        /// <param name="list">List<T/> object.</param>
-        /// <returns><typeparamref name="T"/></returns>
+        /// <param name="list">List<T /> object.</param>
+        /// <returns>
+        ///     <typeparamref name="T" />
+        /// </returns>
         public static T Pop<T>(this List<T> list)
         {
 
@@ -357,10 +363,12 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns a random item from a List.
+        ///     Returns a random item from a List.
         /// </summary>
-        /// <param name="_items">List<T/> object.</param>
-        /// <returns><typeparamref name="T"/></returns>
+        /// <param name="_items">List<T /> object.</param>
+        /// <returns>
+        ///     <typeparamref name="T" />
+        /// </returns>
         public static T Random<T>(this List<T> _items)
         {
 
@@ -369,10 +377,12 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns a random item from an Array.
+        ///     Returns a random item from an Array.
         /// </summary>
-        /// <param name="_items">List<T/> object.</param>
-        /// <returns><typeparamref name="T"/></returns>
+        /// <param name="_items">List<T /> object.</param>
+        /// <returns>
+        ///     <typeparamref name="T" />
+        /// </returns>
         public static T Random<T>(this T[] _items)
         {
 
@@ -381,7 +391,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Rotate transform along a custom axis with delta input position.
+        ///     Rotate transform along a custom axis with delta input position.
         /// </summary>
         /// <param name="transform">Transform to rotate.</param>
         /// <param name="delta">Delta of current input position and previous input position.</param>
@@ -418,7 +428,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Rotate transform with delta input position.
+        ///     Rotate transform with delta input position.
         /// </summary>
         /// <param name="transform">Transform to rotate.</param>
         /// <param name="delta">Delta of current input position and previous input position.</param>
@@ -434,7 +444,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Return a custom high precision viewport point. (0, 0) to (n, n)
+        ///     Return a custom high precision viewport point. (0, 0) to (n, n)
         /// </summary>
         /// <param name="camera">Camera used to calculate viewport position.</param>
         /// <param name="position">Input position on screen.</param>
@@ -451,7 +461,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Return a high precision viewport point. (0, 0) to (100, 100)
+        ///     Return a high precision viewport point. (0, 0) to (100, 100)
         /// </summary>
         /// <param name="camera">Camera used to calculate viewport position.</param>
         /// <param name="position">Input position on screen.</param>
@@ -464,10 +474,12 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes the first item from a list and returns that item.
+        ///     Removes the first item from a list and returns that item.
         /// </summary>
-        /// <param name="list">List<T/> object.</param>
-        /// <returns><typeparamref name="T"/></returns>
+        /// <param name="list">List<T /> object.</param>
+        /// <returns>
+        ///     <typeparamref name="T" />
+        /// </returns>
         public static T Shift<T>(this List<T> list)
         {
 
@@ -480,11 +492,11 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Creates a new copy of a list and shuffles the values.
+        ///     Creates a new copy of a list and shuffles the values.
         /// </summary>
-        /// <param name="list">IEnumerable<T/> object.</param>
+        /// <param name="list">IEnumerable<T /> object.</param>
         /// <param name="seed">A number used for randomly shuffling the items of the list.</param>
-        /// <returns>List<typeparamref name="T"/></returns>
+        /// <returns>List<typeparamref name="T" /></returns>
         public static List<T> Shuffle<T>(this IEnumerable<T> list, int seed)
         {
 
@@ -497,10 +509,10 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Creates a new copy of a list and shuffles the values.
+        ///     Creates a new copy of a list and shuffles the values.
         /// </summary>
-        /// <param name="list">IEnumerable<T/> object.</param>
-        /// <returns>List<typeparamref name="T"/></returns>
+        /// <param name="list">IEnumerable<T /> object.</param>
+        /// <returns>List<typeparamref name="T" /></returns>
         public static List<T> Shuffle<T>(this IEnumerable<T> list)
         {
 
@@ -513,12 +525,12 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns a shallow copy of a portion of a list.
+        ///     Returns a shallow copy of a portion of a list.
         /// </summary>
-        /// <param name="list">List<T/> object.</param>
+        /// <param name="list">List<T /> object.</param>
         /// <param name="index">Index of list to start at.</param>
         /// <param name="count">Number of items to return.</param>
-        /// <returns>List<typeparamref name="T"/></returns>
+        /// <returns>List<typeparamref name="T" /></returns>
         public static List<T> Slice<T>(this List<T> list, int index, int count)
         {
 
@@ -529,11 +541,11 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns a shallow copy of a portion of a list.
+        ///     Returns a shallow copy of a portion of a list.
         /// </summary>
-        /// <param name="list">List<T/> object.</param>
+        /// <param name="list">List<T /> object.</param>
         /// <param name="count">Number of items to return.</param>
-        /// <returns>List<typeparamref name="T"/></returns>
+        /// <returns>List<typeparamref name="T" /></returns>
         public static List<T> Slice<T>(this List<T> list, int count)
         {
 
@@ -542,10 +554,10 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns a shallow copy of a portion of a list.
+        ///     Returns a shallow copy of a portion of a list.
         /// </summary>
-        /// <param name="list">List<T/> object.</param>
-        /// <returns>List<typeparamref name="T"/></returns>
+        /// <param name="list">List<T /> object.</param>
+        /// <returns>List<typeparamref name="T" /></returns>
         public static List<T> Slice<T>(this List<T> list)
         {
 
@@ -554,7 +566,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Snaps a rotation to the specified angle.
+        ///     Snaps a rotation to the specified angle.
         /// </summary>
         /// <param name="quaternion">Quaternion to modify.</param>
         /// <param name="angle">Angle to snap rotation to.</param>
@@ -571,12 +583,12 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes and returns a shallow copy of a portion of a list.
+        ///     Removes and returns a shallow copy of a portion of a list.
         /// </summary>
-        /// <param name="list">List<T/> object.</param>
+        /// <param name="list">List<T /> object.</param>
         /// <param name="index">Index of list to start at.</param>
         /// <param name="count">Number of items to return and remove.</param>
-        /// <returns>List<typeparamref name="T"/></returns>
+        /// <returns>List<typeparamref name="T" /></returns>
         public static List<T> Splice<T>(this List<T> list, int index, int count)
         {
 
@@ -589,11 +601,11 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes and returns a shallow copy of a portion of a list.
+        ///     Removes and returns a shallow copy of a portion of a list.
         /// </summary>
-        /// <param name="list">List<T/> object.</param>
+        /// <param name="list">List<T /> object.</param>
         /// <param name="count">Number of items to return and remove.</param>
-        /// <returns>List<typeparamref name="T"/></returns>
+        /// <returns>List<typeparamref name="T" /></returns>
         public static List<T> Splice<T>(this List<T> list, int count)
         {
 
@@ -602,10 +614,10 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes and returns a shallow copy of a portion of a list.
+        ///     Removes and returns a shallow copy of a portion of a list.
         /// </summary>
-        /// <param name="list">List<T/> object.</param>
-        /// <returns>List<typeparamref name="T"/></returns>
+        /// <param name="list">List<T /> object.</param>
+        /// <returns>List<typeparamref name="T" /></returns>
         public static List<T> Splice<T>(this List<T> list)
         {
 
@@ -614,10 +626,10 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Adds a range of items to the beginning of a list.
+        ///     Adds a range of items to the beginning of a list.
         /// </summary>
-        /// <param name="list">List<T/> object.</param>
-        /// <param name="items">List<T/> object.</param>
+        /// <param name="list">List<T /> object.</param>
+        /// <param name="items">List<T /> object.</param>
         /// <returns>void</returns>
         public static void Unshift<T>(this List<T> list, List<T> items)
         {
@@ -627,9 +639,9 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Adds an item to the beginning of a list.
+        ///     Adds an item to the beginning of a list.
         /// </summary>
-        /// <param name="list">List<T/> object.</param>
+        /// <param name="list">List<T /> object.</param>
         /// <param name="item">T object.</param>
         /// <returns>void</returns>
         public static void Unshift<T>(this List<T> list, T item)

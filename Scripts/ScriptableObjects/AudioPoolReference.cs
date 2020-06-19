@@ -83,7 +83,7 @@ namespace CandyCoded
         private int _prevAudioDataArrayLength;
 
         /// <summary>
-        /// Creates a new AudioSource for use in a AudioSource pool.
+        ///     Creates a new AudioSource for use in a AudioSource pool.
         /// </summary>
         /// <returns>AudioSource</returns>
         protected override AudioSource Create()
@@ -94,7 +94,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Plays an audio clip stored in the audio data array by name with a specified AudioSource component.
+        ///     Plays an audio clip stored in the audio data array by name with a specified AudioSource component.
         /// </summary>
         /// <param name="audioDataName">String representing the audio clip to play.</param>
         /// <param name="audioSource">AudioSource component used to play an AudioClip.</param>
@@ -119,7 +119,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Plays an audio clip stored in the audio data array by name with a dynamically pooled AudioSource.
+        ///     Plays an audio clip stored in the audio data array by name with a dynamically pooled AudioSource.
         /// </summary>
         /// <param name="audioDataName">String representing the audio clip to play.</param>
         /// <returns>void</returns>
@@ -135,7 +135,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns an AudioData object by name.
+        ///     Returns an AudioData object by name.
         /// </summary>
         /// <param name="audioDataName">String representing the audio clip to play.</param>
         /// <returns>AudioData</returns>
@@ -161,7 +161,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Release AudioSource back into the object pool when the AudioClip is finished playing.
+        ///     Release AudioSource back into the object pool when the AudioClip is finished playing.
         /// </summary>
         /// <returns>IEnumerator</returns>
         private IEnumerator ReleaseAudioSource(AudioSource audioSource)

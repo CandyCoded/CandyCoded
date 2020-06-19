@@ -10,7 +10,7 @@ namespace CandyCoded
     {
 
         /// <summary>
-        /// Creates a raycast that can reflect off certain objects in a layer mask.
+        ///     Creates a raycast that can reflect off certain objects in a layer mask.
         /// </summary>
         /// <param name="startPosition">Vector3 origin of raycast.</param>
         /// <param name="direction">Direction of raycast.</param>
@@ -62,7 +62,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Creates a raycast that can reflect off certain objects in a layer mask.
+        ///     Creates a raycast that can reflect off certain objects in a layer mask.
         /// </summary>
         /// <param name="startPosition">Vector3 origin of raycast.</param>
         /// <param name="direction">Direction of raycast.</param>

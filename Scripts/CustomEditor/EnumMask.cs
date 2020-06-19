@@ -12,6 +12,7 @@ namespace CandyCoded
 #if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(Enum))]
 #endif
+
     // ReSharper disable once RequiredBaseTypesIsNotInherited
     public class EnumMaskAttribute : PropertyAttribute
     {

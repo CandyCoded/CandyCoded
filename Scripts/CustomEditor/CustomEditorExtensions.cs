@@ -11,7 +11,7 @@ namespace CandyCoded
     {
 
         /// <summary>
-        /// Find or create GameObject found in the asset menu.
+        ///     Find or create GameObject found in the asset menu.
         /// </summary>
         /// <param name="name">GameObject name.</param>
         /// <param name="menuPath">Path of the GameObject in the create asset menu.</param>
@@ -35,7 +35,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Find or create prefab found in the asset menu.
+        ///     Find or create prefab found in the asset menu.
         /// </summary>
         /// <param name="name">GameObject name.</param>
         /// <param name="menuPath">Path of the GameObject in the create asset menu.</param>
@@ -66,10 +66,12 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Find or create scriptable object by type.
+        ///     Find or create scriptable object by type.
         /// </summary>
         /// <param name="assetPath">File path of the scriptable object.</param>
-        /// <returns><typeparamref name="T"/></returns>
+        /// <returns>
+        ///     <typeparamref name="T" />
+        /// </returns>
         public static T FindOrCreateScriptableObjectAtPath<T>(string assetPath) where T : ScriptableObject
         {
 

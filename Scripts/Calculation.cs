@@ -9,7 +9,7 @@ namespace CandyCoded
     {
 
         /// <summary>
-        /// Generates a bounds object based on the position and size of the child GameObjects.
+        ///     Generates a bounds object based on the position and size of the child GameObjects.
         /// </summary>
         /// <param name="gameObject">Parent GameObject to run calculation on.</param>
         /// <returns>Bounds</returns>
@@ -47,7 +47,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Generates a bounds object based on the position and size of the child GameObjects.
+        ///     Generates a bounds object based on the position and size of the child GameObjects.
         /// </summary>
         /// <param name="transform">Parent transform to run calculation on.</param>
         /// <returns>Bounds</returns>

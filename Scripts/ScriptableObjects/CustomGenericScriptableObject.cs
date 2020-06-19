@@ -41,7 +41,7 @@ namespace CandyCoded
         public T DefaultValue => _defaultValue;
 
         /// <summary>
-        /// Resets the scriptable object value back to its default value.
+        ///     Resets the scriptable object value back to its default value.
         /// </summary>
         /// <returns>void</returns>
         public override void Reset()
