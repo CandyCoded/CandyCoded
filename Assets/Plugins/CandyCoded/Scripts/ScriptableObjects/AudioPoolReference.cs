@@ -5,6 +5,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace CandyCoded
 {
@@ -59,8 +60,9 @@ namespace CandyCoded
         private Runner _runner;
 
 #pragma warning disable CS0649
+        [FormerlySerializedAs("audioDataArray")]
         [SerializeField]
-        private AudioData[] audioDataArray;
+        private AudioData[] _audioDataArray;
 #pragma warning restore CS0649
 
         public GameObject gameObject
@@ -144,10 +146,10 @@ namespace CandyCoded
         private AudioData GetAudioDataByName(string audioDataName)
         {
 
-            for (var i = 0; i < audioDataArray.Length; i++)
+            for (var i = 0; i < _audioDataArray.Length; i++)
             {
 
-                var audioData = audioDataArray[i];
+                var audioData = _audioDataArray[i];
 
                 if (audioData.name.Equals(audioDataName))
                 {
@@ -186,10 +188,10 @@ namespace CandyCoded
         private void OnValidate()
         {
 
-            for (var i = _prevAudioDataArrayLength; i < audioDataArray.Length; i += 1)
+            for (var i = _prevAudioDataArrayLength; i < _audioDataArray.Length; i += 1)
             {
 
-                var audioData = audioDataArray[i];
+                var audioData = _audioDataArray[i];
 
                 if (audioData.name.Equals(string.Empty) && audioData.clips.Length.Equals(0))
                 {
@@ -200,7 +202,7 @@ namespace CandyCoded
 
             }
 
-            _prevAudioDataArrayLength = audioDataArray.Length;
+            _prevAudioDataArrayLength = _audioDataArray.Length;
 
         }
 #pragma warning restore S1144
