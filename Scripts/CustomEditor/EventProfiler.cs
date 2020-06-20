@@ -55,11 +55,11 @@ namespace CandyCoded
 
         private readonly Dictionary<string, Vector2> scrollPositions = new Dictionary<string, Vector2>();
 
-        private Texture2D prefabIcon;
-
         private bool _isInspectorLocked;
 
         private GameObject currentActiveGameObject;
+
+        private Texture2D prefabIcon;
 
         [MenuItem("Window/CandyCoded/Event Profiler")]
         public static void ShowWindow()
