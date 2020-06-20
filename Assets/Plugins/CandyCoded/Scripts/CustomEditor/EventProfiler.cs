@@ -57,9 +57,9 @@ namespace CandyCoded
 
         private bool _isInspectorLocked;
 
-        private GameObject currentActiveGameObject;
+        private GameObject _currentActiveGameObject;
 
-        private Texture2D prefabIcon;
+        private Texture2D _prefabIcon;
 
         [MenuItem("Window/CandyCoded/Event Profiler")]
         public static void ShowWindow()
@@ -90,10 +90,10 @@ namespace CandyCoded
 
             var eventsFound = false;
 
-            if (currentActiveGameObject)
+            if (_currentActiveGameObject)
             {
 
-                var scripts = currentActiveGameObject.GetComponents<MonoBehaviour>();
+                var scripts = _currentActiveGameObject.GetComponents<MonoBehaviour>();
 
                 if (scripts.Length > 0)
                 {
@@ -174,7 +174,7 @@ namespace CandyCoded
 
                     GUILayout.BeginHorizontal();
 
-                    if (GUILayout.Button(prefabIcon, EditorStyles.label,
+                    if (GUILayout.Button(_prefabIcon, EditorStyles.label,
                         GUILayout.Width(EditorGUIUtility.singleLineHeight),
                         GUILayout.Height(EditorGUIUtility.singleLineHeight)))
                     {
@@ -247,7 +247,7 @@ namespace CandyCoded
             if (!_isInspectorLocked)
             {
 
-                currentActiveGameObject = Selection.activeGameObject;
+                _currentActiveGameObject = Selection.activeGameObject;
 
             }
 
@@ -258,7 +258,7 @@ namespace CandyCoded
         private void OnEnable()
         {
 
-            prefabIcon = EditorGUIUtility.FindTexture("Prefab Icon");
+            _prefabIcon = EditorGUIUtility.FindTexture("Prefab Icon");
 
             Selection.selectionChanged += HandleSelectionChanged;
 
