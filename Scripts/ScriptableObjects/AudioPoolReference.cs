@@ -9,48 +9,48 @@ using UnityEngine;
 namespace CandyCoded
 {
 
+    [Serializable]
+    public class AudioData
+    {
+
+#pragma warning disable CS0649
+        [SerializeField]
+        private string _name;
+
+        public string name => _name;
+
+        [SerializeField]
+        private AudioClip[] _clips;
+
+        public AudioClip[] clips => _clips;
+#pragma warning restore CS0649
+
+        [RangedSlider(0, 1)]
+        [SerializeField]
+        private RangedFloat _volume;
+
+        public RangedFloat volume => _volume;
+
+        [RangedSlider(-3, 3)]
+        [SerializeField]
+        private RangedFloat _pitch;
+
+        public RangedFloat pitch => _pitch;
+
+        public void Reset()
+        {
+
+            _volume = new RangedFloat { min = 1, max = 1 };
+            _pitch = new RangedFloat { min = 1, max = 1 };
+
+        }
+
+    }
+
     [CreateAssetMenu(fileName = "AudioPoolReference", menuName = "CandyCoded/AudioPoolReference")]
     [HelpURL("https://github.com/CandyCoded/CandyCoded/blob/master/Documentation/4.%20ScriptableObject/AudioPool.md")]
     public class AudioPoolReference : PoolReference<AudioSource>
     {
-
-        [Serializable]
-        public class AudioData
-        {
-
-#pragma warning disable CS0649
-            [SerializeField]
-            private string _name;
-
-            public string name => _name;
-
-            [SerializeField]
-            private AudioClip[] _clips;
-
-            public AudioClip[] clips => _clips;
-#pragma warning restore CS0649
-
-            [RangedSlider(0, 1)]
-            [SerializeField]
-            private RangedFloat _volume;
-
-            public RangedFloat volume => _volume;
-
-            [RangedSlider(-3, 3)]
-            [SerializeField]
-            private RangedFloat _pitch;
-
-            public RangedFloat pitch => _pitch;
-
-            public void Reset()
-            {
-
-                _volume = new RangedFloat { min = 1, max = 1 };
-                _pitch = new RangedFloat { min = 1, max = 1 };
-
-            }
-
-        }
 
         private GameObject _gameObject;
 
