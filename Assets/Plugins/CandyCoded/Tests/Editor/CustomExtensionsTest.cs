@@ -104,6 +104,17 @@ namespace CandyCoded.Tests
 
             }
 
+            [Test]
+            public void ListContains()
+            {
+
+                var list = new List<int> { 1, 2, 3, 4 };
+
+                Assert.IsTrue(list.Contains(new List<int> { 2, 3 }));
+                Assert.IsFalse(list.Contains(new List<int> { 3, 4, 5 }));
+
+            }
+
         }
 
         public class EditKeyframeValue : TestSetup
