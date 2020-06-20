@@ -63,14 +63,7 @@ namespace CandyCoded
 
             }
 
-            if (transform != null && other != null && transform.gameObject.Equals(other.gameObject))
-            {
-
-                return true;
-
-            }
-
-            return false;
+            return transform != null && other != null && transform.gameObject.Equals(other.gameObject);
 
         }
 
