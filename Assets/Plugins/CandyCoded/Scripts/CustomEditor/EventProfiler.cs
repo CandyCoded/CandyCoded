@@ -12,32 +12,32 @@ using UnityEngine;
 namespace CandyCoded
 {
 
-    public class EventProfiler : EditorWindow
+    public struct ExtendedMethodInfo
     {
 
-        public struct ExtendedMethodInfo
+        public MethodInfo methodInfo;
+
+        public GameObject gameObject;
+
+        public string label
         {
-
-            public MethodInfo methodInfo;
-
-            public GameObject gameObject;
-
-            public string label
+            get
             {
-                get
+                if (methodInfo == null || methodInfo.ReflectedType == null)
                 {
-                    if (methodInfo == null || methodInfo.ReflectedType == null)
-                    {
 
-                        return null;
+                    return null;
 
-                    }
-
-                    return $"{gameObject.name} > {methodInfo.ReflectedType.Name}.{methodInfo.Name}";
                 }
-            }
 
+                return $"{gameObject.name} > {methodInfo.ReflectedType.Name}.{methodInfo.Name}";
+            }
         }
+
+    }
+
+    public class EventProfiler : EditorWindow
+    {
 
         private const string eventListHeaderTemplate = "Event Listeners for {0} ({1})";
 
