@@ -218,6 +218,7 @@ namespace CandyCoded.Tests
             public void AddItem()
             {
 
+                // ReSharper disable once UseObjectOrCollectionInitializer
                 var list = new ObservableList<int> { 1 };
 
                 list.Add(2);
