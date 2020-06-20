@@ -279,18 +279,18 @@ namespace CandyCoded
         public static Touch? GetActiveTouch(int fingerId, params TouchPhase[] touchPhasesFilter)
         {
 
-            if (TouchActive)
+            if (!TouchActive)
+            {
+                return null;
+            }
+
+            foreach (var touch in Input.touches)
             {
 
-                foreach (var touch in Input.touches)
+                if (touch.fingerId.Equals(fingerId) && touchPhasesFilter.Contains(touch.phase))
                 {
 
-                    if (touch.fingerId.Equals(fingerId) && touchPhasesFilter.Contains(touch.phase))
-                    {
-
-                        return touch;
-
-                    }
+                    return touch;
 
                 }
 
@@ -308,18 +308,18 @@ namespace CandyCoded
         public static Touch? GetActiveTouch(params TouchPhase[] touchPhasesFilter)
         {
 
-            if (TouchActive)
+            if (!TouchActive)
+            {
+                return null;
+            }
+
+            foreach (var touch in Input.touches)
             {
 
-                foreach (var touch in Input.touches)
+                if (touchPhasesFilter.Contains(touch.phase))
                 {
 
-                    if (touchPhasesFilter.Contains(touch.phase))
-                    {
-
-                        return touch;
-
-                    }
+                    return touch;
 
                 }
 
@@ -337,18 +337,18 @@ namespace CandyCoded
         public static Touch? GetActiveTouch(int fingerId)
         {
 
-            if (TouchActive)
+            if (!TouchActive)
+            {
+                return null;
+            }
+
+            foreach (var touch in Input.touches)
             {
 
-                foreach (var touch in Input.touches)
+                if (touch.fingerId.Equals(fingerId))
                 {
 
-                    if (touch.fingerId.Equals(fingerId))
-                    {
-
-                        return touch;
-
-                    }
+                    return touch;
 
                 }
 
@@ -374,23 +374,23 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            if (TouchActive)
+            if (!TouchActive)
+            {
+                return false;
+            }
+
+            foreach (var touch in Input.touches)
             {
 
-                foreach (var touch in Input.touches)
+                if (!touch.phase.Equals(TouchPhase.Began) ||
+                    !RaycastToGameObject(gameObject, mainCamera, touch.position, out hit))
                 {
-
-                    if (touch.phase.Equals(TouchPhase.Began) &&
-                        RaycastToGameObject(gameObject, mainCamera, touch.position, out hit))
-                    {
-
-                        currentFingerId = touch.fingerId;
-
-                        return true;
-
-                    }
-
+                    continue;
                 }
+
+                currentFingerId = touch.fingerId;
+
+                return true;
 
             }
 
@@ -414,23 +414,23 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            if (TouchActive)
+            if (!TouchActive)
+            {
+                return false;
+            }
+
+            foreach (var touch in Input.touches)
             {
 
-                foreach (var touch in Input.touches)
+                if (!touch.phase.Equals(TouchPhase.Began) ||
+                    !RaycastToGameObject(gameObject, mainCamera, touch.position, out hit))
                 {
-
-                    if (touch.phase.Equals(TouchPhase.Began) &&
-                        RaycastToGameObject(gameObject, mainCamera, touch.position, out hit))
-                    {
-
-                        currentFingerId = touch.fingerId;
-
-                        return true;
-
-                    }
-
+                    continue;
                 }
+
+                currentFingerId = touch.fingerId;
+
+                return true;
 
             }
 
@@ -450,16 +450,14 @@ namespace CandyCoded
 
             var touch = GetActiveTouch(TouchPhase.Began);
 
-            if (touch.HasValue)
+            if (!touch.HasValue)
             {
-
-                currentFingerId = touch.Value.fingerId;
-
-                return true;
-
+                return false;
             }
 
-            return false;
+            currentFingerId = touch.Value.fingerId;
+
+            return true;
 
         }
 
@@ -556,16 +554,14 @@ namespace CandyCoded
 
             var touch = GetActiveTouch(TouchPhase.Ended, TouchPhase.Canceled);
 
-            if (touch.HasValue)
+            if (!touch.HasValue)
             {
-
-                currentFingerId = touch.Value.fingerId;
-
-                return true;
-
+                return false;
             }
 
-            return false;
+            currentFingerId = touch.Value.fingerId;
+
+            return true;
 
         }
 

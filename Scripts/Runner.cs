@@ -66,19 +66,19 @@ namespace CandyCoded
         public void RemoveCoroutine(string coroutineKey)
         {
 
-            if (Coroutines.ContainsKey(coroutineKey))
+            if (!Coroutines.ContainsKey(coroutineKey))
+            {
+                return;
+            }
+
+            if (Coroutines[coroutineKey] != null)
             {
 
-                if (Coroutines[coroutineKey] != null)
-                {
-
-                    StopCoroutine(Coroutines[coroutineKey]);
-
-                }
-
-                Coroutines.Remove(coroutineKey);
+                StopCoroutine(Coroutines[coroutineKey]);
 
             }
+
+            Coroutines.Remove(coroutineKey);
 
         }
 
