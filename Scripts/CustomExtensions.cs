@@ -631,9 +631,9 @@ namespace CandyCoded
         ///     Adds a range of items to the beginning of a list.
         /// </summary>
         /// <param name="list">List<T /> object.</param>
-        /// <param name="items">List<T /> object.</param>
+        /// <param name="items">IEnumerable<T /> object.</param>
         /// <returns>void</returns>
-        public static void Unshift<T>(this List<T> list, List<T> items)
+        public static void Unshift<T>(this List<T> list, IEnumerable<T> items)
         {
 
             list.InsertRange(0, items);
