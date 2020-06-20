@@ -68,12 +68,23 @@ namespace CandyCoded
         ///     Disables an object and returns it back into the object pool.
         /// </summary>
         /// <returns>void</returns>
+        public override void Release(GameObject item)
+        {
+
+            item.SetActive(false);
+
+            base.Release(item);
+
+        }
+
+        /// <summary>
+        ///     Disables an object and returns it back into the object pool.
+        /// </summary>
+        /// <returns>void</returns>
         public void Destroy(GameObject gameObject)
         {
 
             Release(gameObject);
-
-            gameObject.SetActive(false);
 
         }
 
