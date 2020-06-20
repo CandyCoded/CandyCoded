@@ -1,5 +1,14 @@
 ### List
 
+#### Contains
+
+Tests list for the supplied list items.
+
+```csharp
+List<float> list = new List<float>() { 1, 2, 3, 4, 5 };
+Debug.Log(list.Contains(new List<float>{1, 2, 3}));
+```
+
 #### Permutations
 
 Returns a list of all possible combinations for a list of items.

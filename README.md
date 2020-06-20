@@ -127,6 +127,7 @@ CandyCoded is a collection of useful components and extensions for building in U
   - [LayerMask](Documentation/2.%20Custom%20Extensions/LayerMask.md)
     - [Contains](Documentation/2.%20Custom%20Extensions/LayerMask.md#contains)
   - [List](Documentation/2.%20Custom%20Extensions/List.md)
+    - [Contains](Documentation/2.%20Custom%20Extensions/List.md#contains)
     - [Permutations](Documentation/2.%20Custom%20Extensions/List.md#permutations)
     - [Pop](Documentation/2.%20Custom%20Extensions/List.md#pop)
     - [Random](Documentation/2.%20Custom%20Extensions/List.md#random)
