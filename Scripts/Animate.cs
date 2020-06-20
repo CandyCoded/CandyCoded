@@ -152,14 +152,9 @@ namespace CandyCoded
             animationCurve.y = AnimationCurve.EaseInOut(0, currentPosition.y, duration, newPosition.y);
             animationCurve.z = AnimationCurve.EaseInOut(0, currentPosition.z, duration, newPosition.z);
 
-            if (relativeTo.Equals(Space.World))
-            {
-
-                return Position(gameObject, animationCurve);
-
-            }
-
-            return PositionRelative(gameObject, animationCurve);
+            return relativeTo.Equals(Space.World)
+                ? Position(gameObject, animationCurve)
+                : PositionRelative(gameObject, animationCurve);
 
         }
 

@@ -30,14 +30,9 @@ namespace CandyCoded
 
             currentFingerId = 0;
 
-            if (TouchActive)
-            {
-
-                return GetTouchDown(gameObject, mainCamera, out currentFingerId, out hit);
-
-            }
-
-            return GetMouseButtonDown(gameObject, mainCamera, out hit);
+            return TouchActive
+                ? GetTouchDown(gameObject, mainCamera, out currentFingerId, out hit)
+                : GetMouseButtonDown(gameObject, mainCamera, out hit);
 
         }
 
@@ -56,14 +51,9 @@ namespace CandyCoded
 
             currentFingerId = 0;
 
-            if (TouchActive)
-            {
-
-                return GetTouchDown(gameObject, mainCamera, out currentFingerId, out hit);
-
-            }
-
-            return GetMouseButtonDown(gameObject, mainCamera, out hit);
+            return TouchActive
+                ? GetTouchDown(gameObject, mainCamera, out currentFingerId, out hit)
+                : GetMouseButtonDown(gameObject, mainCamera, out hit);
 
         }
 
@@ -77,14 +67,7 @@ namespace CandyCoded
 
             currentFingerId = 0;
 
-            if (TouchActive)
-            {
-
-                return GetTouchDown(out currentFingerId);
-
-            }
-
-            return GetMouseButtonDown();
+            return TouchActive ? GetTouchDown(out currentFingerId) : GetMouseButtonDown();
 
         }
 
@@ -95,14 +78,7 @@ namespace CandyCoded
         public static bool GetInputDown()
         {
 
-            if (TouchActive)
-            {
-
-                return GetTouchDown();
-
-            }
-
-            return GetMouseButtonDown();
+            return TouchActive ? GetTouchDown() : GetMouseButtonDown();
 
         }
 
@@ -114,14 +90,7 @@ namespace CandyCoded
         public static Vector3? GetInputPosition(int currentFingerId)
         {
 
-            if (TouchActive)
-            {
-
-                return GetTouchPosition(currentFingerId);
-
-            }
-
-            return GetMousePosition();
+            return TouchActive ? GetTouchPosition(currentFingerId) : GetMousePosition();
 
         }
 
@@ -138,14 +107,9 @@ namespace CandyCoded
             out RaycastHit hit)
         {
 
-            if (TouchActive)
-            {
-
-                return GetTouchUp(gameObject, mainCamera, currentFingerId, out hit);
-
-            }
-
-            return GetMouseButtonUp(gameObject, mainCamera, out hit);
+            return TouchActive
+                ? GetTouchUp(gameObject, mainCamera, currentFingerId, out hit)
+                : GetMouseButtonUp(gameObject, mainCamera, out hit);
 
         }
 
@@ -162,14 +126,9 @@ namespace CandyCoded
             out RaycastHit2D hit)
         {
 
-            if (TouchActive)
-            {
-
-                return GetTouchUp(gameObject, mainCamera, currentFingerId, out hit);
-
-            }
-
-            return GetMouseButtonUp(gameObject, mainCamera, out hit);
+            return TouchActive
+                ? GetTouchUp(gameObject, mainCamera, currentFingerId, out hit)
+                : GetMouseButtonUp(gameObject, mainCamera, out hit);
 
         }
 
@@ -181,14 +140,7 @@ namespace CandyCoded
         public static bool GetInputUp(int currentFingerId)
         {
 
-            if (TouchActive)
-            {
-
-                return GetTouchUp(currentFingerId);
-
-            }
-
-            return GetMouseButtonUp();
+            return TouchActive ? GetTouchUp(currentFingerId) : GetMouseButtonUp();
 
         }
 
@@ -202,14 +154,7 @@ namespace CandyCoded
 
             currentFingerId = 0;
 
-            if (TouchActive)
-            {
-
-                return GetTouchUp(out currentFingerId);
-
-            }
-
-            return GetMouseButtonUp();
+            return TouchActive ? GetTouchUp(out currentFingerId) : GetMouseButtonUp();
 
         }
 
@@ -220,14 +165,7 @@ namespace CandyCoded
         public static bool GetInputUp()
         {
 
-            if (TouchActive)
-            {
-
-                return GetTouchUp();
-
-            }
-
-            return GetMouseButtonUp();
+            return TouchActive ? GetTouchUp() : GetMouseButtonUp();
 
         }
 
