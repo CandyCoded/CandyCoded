@@ -408,17 +408,17 @@ namespace CandyCoded
 
             }
 
-            if (axis.Equals(RotationAxis.All) || axis.Equals(RotationAxis.Vertical))
+            if (!axis.Equals(RotationAxis.All) && !axis.Equals(RotationAxis.Vertical))
             {
-
-                var transformRight =
-                    transform.InverseTransformDirection(cameraTransform.TransformDirection(Vector3.right));
-
-                var verticalRotate = Quaternion.AngleAxis(delta.y * speed * Time.deltaTime, transformRight);
-
-                transform.rotation *= verticalRotate;
-
+                return;
             }
+
+            var transformRight =
+                transform.InverseTransformDirection(cameraTransform.TransformDirection(Vector3.right));
+
+            var verticalRotate = Quaternion.AngleAxis(delta.y * speed * Time.deltaTime, transformRight);
+
+            transform.rotation *= verticalRotate;
 
         }
 
