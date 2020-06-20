@@ -53,17 +53,17 @@ namespace CandyCoded
     public class AudioPoolReference : PoolReference<AudioSource>
     {
 
-        private GameObject _gameObject;
-
-        private int _prevAudioDataArrayLength;
-
-        private Runner _runner;
-
 #pragma warning disable CS0649
         [FormerlySerializedAs("audioDataArray")]
         [SerializeField]
         private AudioData[] _audioDataArray;
 #pragma warning restore CS0649
+
+        private GameObject _gameObject;
+
+        private int _prevAudioDataArrayLength;
+
+        private Runner _runner;
 
         public GameObject gameObject
         {
