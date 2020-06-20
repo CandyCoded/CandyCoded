@@ -13,6 +13,26 @@ namespace CandyCoded
     public class AudioData
     {
 
+        [RangedSlider(-3, 3)]
+        [SerializeField]
+        private RangedFloat _pitch;
+
+        [RangedSlider(0, 1)]
+        [SerializeField]
+        private RangedFloat _volume;
+
+        public RangedFloat volume => _volume;
+
+        public RangedFloat pitch => _pitch;
+
+        public void Reset()
+        {
+
+            _volume = new RangedFloat { min = 1, max = 1 };
+            _pitch = new RangedFloat { min = 1, max = 1 };
+
+        }
+
 #pragma warning disable CS0649
         [SerializeField]
         private string _name;
@@ -25,26 +45,6 @@ namespace CandyCoded
         public AudioClip[] clips => _clips;
 #pragma warning restore CS0649
 
-        [RangedSlider(0, 1)]
-        [SerializeField]
-        private RangedFloat _volume;
-
-        public RangedFloat volume => _volume;
-
-        [RangedSlider(-3, 3)]
-        [SerializeField]
-        private RangedFloat _pitch;
-
-        public RangedFloat pitch => _pitch;
-
-        public void Reset()
-        {
-
-            _volume = new RangedFloat { min = 1, max = 1 };
-            _pitch = new RangedFloat { min = 1, max = 1 };
-
-        }
-
     }
 
     [CreateAssetMenu(fileName = "AudioPoolReference", menuName = "CandyCoded/AudioPoolReference")]
@@ -53,6 +53,15 @@ namespace CandyCoded
     {
 
         private GameObject _gameObject;
+
+        private int _prevAudioDataArrayLength;
+
+        private Runner _runner;
+
+#pragma warning disable CS0649
+        [SerializeField]
+        private AudioData[] audioDataArray;
+#pragma warning restore CS0649
 
         public GameObject gameObject
         {
@@ -74,15 +83,6 @@ namespace CandyCoded
 
             }
         }
-
-        private Runner _runner;
-
-#pragma warning disable CS0649
-        [SerializeField]
-        private AudioData[] audioDataArray;
-#pragma warning restore CS0649
-
-        private int _prevAudioDataArrayLength;
 
         /// <summary>
         ///     Creates a new AudioSource for use in a AudioSource pool.
