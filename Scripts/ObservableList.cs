@@ -12,31 +12,13 @@ namespace CandyCoded
     public class ObservableList<T> : IList<T>
     {
 
+        public delegate void EventHandler();
+
         public delegate void EventHandlerWithItem(T item);
 
         public delegate void EventHandlerWithItems(T[] items);
 
-        public delegate void EventHandler();
-
-        public event EventHandlerWithItem AddEvent;
-
-        public event EventHandler ClearEvent;
-
-        public event EventHandlerWithItem RemoveEvent;
-
         private readonly IList<T> _items;
-
-        /// <summary>
-        /// Gets the number of items contained in the ObservableList.
-        /// </summary>
-        /// <returns>int</returns>
-        public int Count => _items.Count;
-
-        /// <summary>
-        /// Gets a value indicating whether the ObservableList is read-only.
-        /// </summary>
-        /// <returns>bool</returns>
-        public bool IsReadOnly => _items.IsReadOnly;
 
         public ObservableList()
         {
@@ -58,6 +40,18 @@ namespace CandyCoded
             _items = new List<T>(items);
 
         }
+
+        /// <summary>
+        ///     Gets the number of items contained in the ObservableList.
+        /// </summary>
+        /// <returns>int</returns>
+        public int Count => _items.Count;
+
+        /// <summary>
+        ///     Gets a value indicating whether the ObservableList is read-only.
+        /// </summary>
+        /// <returns>bool</returns>
+        public bool IsReadOnly => _items.IsReadOnly;
 
         public T this[int index]
         {
@@ -94,24 +88,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Adds the items of an IEnumerable collection to the end of the ObservableList.
-        /// </summary>
-        /// <param name="items">The collection whose items should be added to the end of the ObservableList.</param>
-        /// <returns>void</returns>
-        public void AddRange(IEnumerable<T> items)
-        {
-
-            foreach (var item in items)
-            {
-
-                Add(item);
-
-            }
-
-        }
-
-        /// <summary>
-        /// Removes all items from the ObservableList.
+        ///     Removes all items from the ObservableList.
         /// </summary>
         /// <returns>void</returns>
         public void Clear()
@@ -149,11 +126,94 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Creates a shallow copy of a range of items in the source ObservableList.
+        ///     Searches for the specified item and returns the zero-based index of the first occurrence within the entire
+        ///     ObservableList.
+        /// </summary>
+        /// <param name="item">The item to locate in the ObservableList.</param>
+        /// <returns>int</returns>
+        public int IndexOf(T item)
+        {
+
+            return _items.IndexOf(item);
+
+        }
+
+        /// <summary>
+        ///     Inserts an item into the ObservableList at the specified index.
+        /// </summary>
+        /// <param name="index">The zero-based index at which item should be inserted.</param>
+        /// <param name="item">The item to insert.</param>
+        /// <returns>void</returns>
+        public void Insert(int index, T item)
+        {
+
+            _items.Insert(index, item);
+
+            AddEvent?.Invoke(item);
+
+        }
+
+        /// <summary>
+        ///     Removes the first occurrence of a specific item from the ObservableList.
+        /// </summary>
+        /// <param name="item">The item to remove from the ObservableList.</param>
+        /// <returns>bool</returns>
+        public bool Remove(T item)
+        {
+
+            var result = _items.Remove(item);
+
+            RemoveEvent?.Invoke(item);
+
+            return result;
+
+        }
+
+        /// <summary>
+        ///     Removes the item at the specified index of the ObservableList.
+        /// </summary>
+        /// <param name="index">The zero-based index of the item to remove.</param>
+        /// <returns>void</returns>
+        public void RemoveAt(int index)
+        {
+
+            var item = _items[index];
+
+            _items.RemoveAt(index);
+
+            RemoveEvent?.Invoke(item);
+
+        }
+
+        public event EventHandlerWithItem AddEvent;
+
+        public event EventHandler ClearEvent;
+
+        public event EventHandlerWithItem RemoveEvent;
+
+        /// <summary>
+        ///     Adds the items of an IEnumerable collection to the end of the ObservableList.
+        /// </summary>
+        /// <param name="items">The collection whose items should be added to the end of the ObservableList.</param>
+        /// <returns>void</returns>
+        public void AddRange(IEnumerable<T> items)
+        {
+
+            foreach (var item in items)
+            {
+
+                Add(item);
+
+            }
+
+        }
+
+        /// <summary>
+        ///     Creates a shallow copy of a range of items in the source ObservableList.
         /// </summary>
         /// <param name="index">The zero-based index at which the range starts.</param>
         /// <param name="count">The number of items in the range.</param>
-        /// <returns>ObservableList<typeparamref name="T"/></returns>
+        /// <returns>ObservableList<typeparamref name="T" /></returns>
         public ObservableList<T> GetRange(int index, int count)
         {
 
@@ -171,34 +231,7 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Searches for the specified item and returns the zero-based index of the first occurrence within the entire ObservableList.
-        /// </summary>
-        /// <param name="item">The item to locate in the ObservableList.</param>
-        /// <returns>int</returns>
-        public int IndexOf(T item)
-        {
-
-            return _items.IndexOf(item);
-
-        }
-
-        /// <summary>
-        /// Inserts an item into the ObservableList at the specified index.
-        /// </summary>
-        /// <param name="index">The zero-based index at which item should be inserted.</param>
-        /// <param name="item">The item to insert.</param>
-        /// <returns>void</returns>
-        public void Insert(int index, T item)
-        {
-
-            _items.Insert(index, item);
-
-            AddEvent?.Invoke(item);
-
-        }
-
-        /// <summary>
-        /// Inserts the items of an IEnumerable collection into the ObservableList at the specified index.
+        ///     Inserts the items of an IEnumerable collection into the ObservableList at the specified index.
         /// </summary>
         /// <returns>void</returns>
         public void InsertRange(int index, IEnumerable<T> items)
@@ -218,9 +251,11 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Removes the last item from an ObservableList and returns that item.
+        ///     Removes the last item from an ObservableList and returns that item.
         /// </summary>
-        /// <returns><typeparamref name="T"/></returns>
+        /// <returns>
+        ///     <typeparamref name="T" />
+        /// </returns>
         public T Pop()
         {
 
@@ -233,45 +268,15 @@ namespace CandyCoded
         }
 
         /// <summary>
-        /// Returns a random item from an ObservableList.
+        ///     Returns a random item from an ObservableList.
         /// </summary>
-        /// <returns><typeparamref name="T"/></returns>
+        /// <returns>
+        ///     <typeparamref name="T" />
+        /// </returns>
         public T Random()
         {
 
             return _items[UnityEngine.Random.Range(0, _items.Count)];
-
-        }
-
-        /// <summary>
-        /// Removes the first occurrence of a specific item from the ObservableList.
-        /// </summary>
-        /// <param name="item">The item to remove from the ObservableList.</param>
-        /// <returns>bool</returns>
-        public bool Remove(T item)
-        {
-
-            var result = _items.Remove(item);
-
-            RemoveEvent?.Invoke(item);
-
-            return result;
-
-        }
-
-        /// <summary>
-        /// Removes the item at the specified index of the ObservableList.
-        /// </summary>
-        /// <param name="index">The zero-based index of the item to remove.</param>
-        /// <returns>void</returns>
-        public void RemoveAt(int index)
-        {
-
-            var item = _items[index];
-
-            _items.RemoveAt(index);
-
-            RemoveEvent?.Invoke(item);
 
         }
 
