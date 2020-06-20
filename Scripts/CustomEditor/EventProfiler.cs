@@ -55,9 +55,9 @@ namespace CandyCoded
 
         private readonly Dictionary<string, Vector2> scrollPositions = new Dictionary<string, Vector2>();
 
-        private bool _isInspectorLocked;
-
         private GameObject _currentActiveGameObject;
+
+        private bool _isInspectorLocked;
 
         private Texture2D _prefabIcon;
 
