@@ -66,7 +66,7 @@ namespace CandyCoded
         ///     Releases an object back into the object pool.
         /// </summary>
         /// <returns>void</returns>
-        public void Release(T item)
+        public virtual void Release(T item)
         {
 
             if (!_activeObjects.Contains(item) || _inactiveObjects.Contains(item))
