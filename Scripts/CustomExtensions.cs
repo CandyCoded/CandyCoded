@@ -107,6 +107,19 @@ namespace CandyCoded
         }
 
         /// <summary>
+        ///     Tests list for the supplied list items.
+        /// </summary>
+        /// <param name="list1">Source list.</param>
+        /// <param name="list2">Test list.</param>
+        /// <returns>bool</returns>
+        public static bool Contains<T>(this IEnumerable<T> list1, IEnumerable<T> list2)
+        {
+
+            return new HashSet<T>(list2).IsSubsetOf(new HashSet<T>(list1));
+
+        }
+
+        /// <summary>
         ///     Edit the value of a keyframe in an AnimationCurve leaving the time and curve untouched.
         /// </summary>
         /// <param name="animationCurve">AnimationCurve object.</param>
