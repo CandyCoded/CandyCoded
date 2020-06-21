@@ -1,6 +1,7 @@
 build:
 	Scripts/build_docs.sh
 	Scripts/build_package.sh
+	Scripts/build_dll.sh
 
 install:
 	Scripts/install_pandoc.sh
