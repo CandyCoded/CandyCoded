@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.1.0] - 2020-06-21
+
+### Features
+
+- Added Contains method to generic List objects. <https://github.com/CandyCoded/CandyCoded/pull/146>
+
+### Bug Fixes
+
+- Renamed IPauseable to IPausable. <https://github.com/CandyCoded/CandyCoded/pull/144>
+- Set active state on release in GameObjectPoolReference. <https://github.com/CandyCoded/CandyCoded/pull/145>
+
 ## [3.0.2] - 2019-10-03
 
 ### Features
