@@ -71,6 +71,47 @@ namespace CandyCoded.Experimental
 
         }
 
+        public void LoadFormValues<T>(T values)
+        {
+
+            var formFields = gameObject.transform.GetComponentsInChildren<FormField>();
+
+            foreach (var fieldInfo in values.GetType().GetFields(BindingFlags.Public | BindingFlags.Instance))
+            {
+
+                foreach (var formField in formFields)
+                {
+
+                    if (fieldInfo.Name.Equals(formField.name))
+                    {
+
+                        formField.value = fieldInfo.GetValue(values);
+
+                    }
+
+                }
+
+            }
+
+            foreach (var propertyInfo in values.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
+            {
+
+                foreach (var formField in formFields)
+                {
+
+                    if (propertyInfo.Name.Equals(formField.name))
+                    {
+
+                        formField.value = propertyInfo.GetValue(values);
+
+                    }
+
+                }
+
+            }
+
+        }
+
         private void Update()
         {
 
