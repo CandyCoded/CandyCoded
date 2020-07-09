@@ -33,19 +33,33 @@ namespace CandyCoded.Experimental
             }
         }
 
-        public string value { get; internal set; }
+        public object value { get; internal set; }
 
-        public void SetValue(string value)
+        public void SetStringValue(string value)
         {
 
             this.value = value;
 
         }
 
-        public void SetValue(int value)
+        public void SetIntValue(int value)
         {
 
-            this.value = value.ToString();
+            this.value = value;
+
+        }
+
+        public void SetFloatValue(float value)
+        {
+
+            this.value = value;
+
+        }
+
+        public void SetBoolValue(bool value)
+        {
+
+            this.value = value;
 
         }
 

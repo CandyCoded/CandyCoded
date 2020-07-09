@@ -22,7 +22,7 @@ namespace CandyCoded.Experimental
 
         }
 
-        public Dictionary<string, string> GetFormValues()
+        public Dictionary<string, object> GetFormValues()
         {
 
             return gameObject.GetComponentsInChildren<FormField>().Where(field => field.name != "")
