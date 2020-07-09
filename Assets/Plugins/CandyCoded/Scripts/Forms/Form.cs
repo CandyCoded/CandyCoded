@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -27,6 +28,22 @@ namespace CandyCoded.Experimental
 
             return gameObject.GetComponentsInChildren<FormField>().Where(field => field.name != "")
                 .ToDictionary(field => field.name, field => field.value);
+
+        }
+
+        public T GetFormValues<T>() where T : class, new()
+        {
+
+            var newObject = new T();
+            var newObjectType = newObject.GetType();
+
+            foreach (var item in GetFormRawValues())
+            {
+                newObjectType.GetField(item.Key)?.SetValue(newObject, item.Value);
+                newObjectType.GetProperty(item.Key)?.SetValue(newObject, item.Value);
+            }
+
+            return newObject;
 
         }
 
