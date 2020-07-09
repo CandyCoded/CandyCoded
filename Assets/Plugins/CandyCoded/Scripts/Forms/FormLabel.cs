@@ -32,7 +32,7 @@ namespace CandyCoded.Experimental
 
         }
 
-        private void Reset()
+        private void OnEnable()
         {
 
             if (!_selectable)
