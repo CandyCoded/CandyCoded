@@ -72,6 +72,38 @@ namespace CandyCoded.Experimental
                 return _value;
 
             }
+            set
+            {
+                if (gameObject.TryGetComponent<InputField>(out var inputField))
+                {
+
+                    inputField.text = (string)value;
+
+                }
+
+                if (gameObject.TryGetComponent<Toggle>(out var toggle))
+                {
+
+                    toggle.isOn = (bool)value;
+
+                }
+
+                if (gameObject.TryGetComponent<Dropdown>(out var dropdown))
+                {
+
+                    dropdown.value = (int)value;
+
+                }
+
+                if (gameObject.TryGetComponent<Slider>(out var slider))
+                {
+
+                    slider.value = (float)value;
+
+                }
+
+                _value = value;
+            }
         }
 
         public void SetStringValue(string value)
