@@ -30,6 +30,30 @@ namespace CandyCoded.Experimental
 
         }
 
+        public void LoadFormRawValues(Dictionary<string, object> values)
+        {
+
+            var formFields = gameObject.transform.GetComponentsInChildren<FormField>();
+
+            foreach (var value in values)
+            {
+
+                foreach (var formField in formFields)
+                {
+
+                    if (value.Key.Equals(formField.name))
+                    {
+
+                        formField.value = value.Value;
+
+                    }
+
+                }
+
+            }
+
+        }
+
         private void Update()
         {
 
