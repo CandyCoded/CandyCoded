@@ -9,12 +9,29 @@ namespace CandyCoded.Experimental
     public class FormField : MonoBehaviour
     {
 
+        private const string FIELD_NAME_PREFIX = "Field_";
+
+        private static int _fieldCount;
+
 #pragma warning disable CS0649
         [SerializeField]
         private string _name;
 #pragma warning restore CS0649
 
-        public new string name => _name;
+        public new string name
+        {
+            get
+            {
+                if (_name == "")
+                {
+
+                    _name = $"{FIELD_NAME_PREFIX}{++_fieldCount}";
+
+                }
+
+                return _name;
+            }
+        }
 
         public string value { get; internal set; }
 
