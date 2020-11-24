@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.2.0] - 2020-11-23
+
+### Features
+
+- Added Vector3 NearlyEqual custom extension <https://github.com/CandyCoded/CandyCoded/pull/153>
+
 ## [3.1.0] - 2020-06-21
 
 ### Features
