@@ -22,7 +22,7 @@ namespace CandyCoded
     public static class CustomExtensions
     {
 
-        private const float EPSILON = 0.01f;
+        private const float EPSILON = 0.001f;
 
         /// <summary>
         ///     Returns a reference to an existing component or a new component if it didn't already exist.
