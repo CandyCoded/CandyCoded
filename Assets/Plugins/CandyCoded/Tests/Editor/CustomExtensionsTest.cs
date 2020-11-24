@@ -271,7 +271,7 @@ namespace CandyCoded.Tests
         {
 
             [Test]
-            public void ComparisonWithoutCustomEpsilon()
+            public void FloatComparisonWithoutCustomEpsilon()
             {
 
                 const float positionX = 0.1001f;
@@ -281,13 +281,34 @@ namespace CandyCoded.Tests
             }
 
             [Test]
-            public void ComparisonWithCustomEpsilon()
+            public void FloatComparisonWithCustomEpsilon()
             {
 
                 const float positionX = 0.1001f;
                 const float customEpsilon = 0.01f;
 
                 Assert.IsTrue(positionX.NearlyEqual(0.1f, customEpsilon));
+
+            }
+
+            [Test]
+            public void Vector3ComparisonWithoutCustomEpsilon()
+            {
+
+                var position = new Vector3(0.1001f, 0, 0);
+
+                Assert.IsTrue(position.NearlyEqual(new Vector3(0.1f, 0, 0)));
+
+            }
+
+            [Test]
+            public void Vector3ComparisonWithCustomEpsilon()
+            {
+
+                var position = new Vector3(0.1001f, 0, 0);
+                const float customEpsilon = 0.01f;
+
+                Assert.IsTrue(position.NearlyEqual(new Vector3(0.1f, 0, 0), customEpsilon));
 
             }
 
