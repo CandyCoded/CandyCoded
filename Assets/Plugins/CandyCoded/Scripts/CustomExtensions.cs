@@ -315,6 +315,33 @@ namespace CandyCoded
         }
 
         /// <summary>
+        ///     Returns true if the difference between vectors is less than the default epsilon.
+        /// </summary>
+        /// <param name="a">The first vector in the comparison.</param>
+        /// <param name="b">The second vector in the comparison.</param>
+        /// <param name="epsilon">The custom epsilon used to compare vectors.</param>
+        /// <returns>bool</returns>
+        public static bool NearlyEqual(this Vector3 a, Vector3 b, float epsilon)
+        {
+
+            return a.x.NearlyEqual(b.x, epsilon) && a.y.NearlyEqual(b.y, epsilon) && a.z.NearlyEqual(b.z, epsilon);
+
+        }
+
+        /// <summary>
+        ///     Returns true if the difference between vectors is less than the default epsilon.
+        /// </summary>
+        /// <param name="a">The first vector in the comparison.</param>
+        /// <param name="b">The second vector in the comparison.</param>
+        /// <returns>bool</returns>
+        public static bool NearlyEqual(this Vector3 a, Vector3 b)
+        {
+
+            return NearlyEqual(a, b, EPSILON);
+
+        }
+
+        /// <summary>
         ///     Returns a list of all possible combinations for a list of items.
         /// </summary>
         /// <param name="list">List<T /> object.</param>
