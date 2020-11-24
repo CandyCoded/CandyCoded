@@ -288,29 +288,29 @@ namespace CandyCoded
         }
 
         /// <summary>
-        ///     Returns true if the difference between num1 and num2 is less than the supplied epsilon.
+        ///     Returns true if the difference between numbers is less than the supplied epsilon.
         /// </summary>
-        /// <param name="num1">The first number in the comparison.</param>
-        /// <param name="num2">The second number in the comparison.</param>
+        /// <param name="a">The first number in the comparison.</param>
+        /// <param name="b">The second number in the comparison.</param>
         /// <param name="epsilon">The custom epsilon used to compare numbers.</param>
         /// <returns>bool</returns>
-        public static bool NearlyEqual(this float num1, float num2, float epsilon)
+        public static bool NearlyEqual(this float a, float b, float epsilon)
         {
 
-            return Mathf.Abs(num1 - num2) < epsilon;
+            return Mathf.Abs(a - b) < epsilon;
 
         }
 
         /// <summary>
-        ///     Returns true if the difference between num1 and num2 is less than the default epsilon.
+        ///     Returns true if the difference between numbers is less than the default epsilon.
         /// </summary>
-        /// <param name="num1">The first number in the comparison.</param>
-        /// <param name="num2">The second number in the comparison.</param>
+        /// <param name="a">The first number in the comparison.</param>
+        /// <param name="b">The second number in the comparison.</param>
         /// <returns>bool</returns>
-        public static bool NearlyEqual(this float num1, float num2)
+        public static bool NearlyEqual(this float a, float b)
         {
 
-            return NearlyEqual(num1, num2, EPSILON);
+            return NearlyEqual(a, b, EPSILON);
 
         }
 
