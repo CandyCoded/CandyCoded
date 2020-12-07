@@ -10,12 +10,6 @@ namespace CandyCoded
     {
 
         /// <summary>
-        ///     Returns true if touch is enabled on the device and there is at least one touch event active.
-        /// </summary>
-        /// <returns>bool</returns>
-        public static bool TouchActive => Input.touchSupported && Input.touchCount > 0;
-
-        /// <summary>
         ///     Returns true if the user has either pressed the primary mouse button or touched the screen over a specific
         ///     GameObject.
         /// </summary>
@@ -30,7 +24,7 @@ namespace CandyCoded
 
             currentFingerId = 0;
 
-            return TouchActive
+            return Input.touchSupported
                 ? GetTouchDown(gameObject, mainCamera, out currentFingerId, out hit)
                 : GetMouseButtonDown(gameObject, mainCamera, out hit);
 
@@ -51,7 +45,7 @@ namespace CandyCoded
 
             currentFingerId = 0;
 
-            return TouchActive
+            return Input.touchSupported
                 ? GetTouchDown(gameObject, mainCamera, out currentFingerId, out hit)
                 : GetMouseButtonDown(gameObject, mainCamera, out hit);
 
@@ -67,7 +61,7 @@ namespace CandyCoded
 
             currentFingerId = 0;
 
-            return TouchActive ? GetTouchDown(out currentFingerId) : GetMouseButtonDown();
+            return Input.touchSupported ? GetTouchDown(out currentFingerId) : GetMouseButtonDown();
 
         }
 
@@ -78,7 +72,7 @@ namespace CandyCoded
         public static bool GetInputDown()
         {
 
-            return TouchActive ? GetTouchDown() : GetMouseButtonDown();
+            return Input.touchSupported ? GetTouchDown() : GetMouseButtonDown();
 
         }
 
@@ -90,7 +84,7 @@ namespace CandyCoded
         public static Vector3? GetInputPosition(int currentFingerId)
         {
 
-            return TouchActive ? GetTouchPosition(currentFingerId) : GetMousePosition();
+            return Input.touchSupported ? GetTouchPosition(currentFingerId) : GetMousePosition();
 
         }
 
@@ -107,7 +101,7 @@ namespace CandyCoded
             out RaycastHit hit)
         {
 
-            return TouchActive
+            return Input.touchSupported
                 ? GetTouchUp(gameObject, mainCamera, currentFingerId, out hit)
                 : GetMouseButtonUp(gameObject, mainCamera, out hit);
 
@@ -126,7 +120,7 @@ namespace CandyCoded
             out RaycastHit2D hit)
         {
 
-            return TouchActive
+            return Input.touchSupported
                 ? GetTouchUp(gameObject, mainCamera, currentFingerId, out hit)
                 : GetMouseButtonUp(gameObject, mainCamera, out hit);
 
@@ -140,7 +134,7 @@ namespace CandyCoded
         public static bool GetInputUp(int currentFingerId)
         {
 
-            return TouchActive ? GetTouchUp(currentFingerId) : GetMouseButtonUp();
+            return Input.touchSupported ? GetTouchUp(currentFingerId) : GetMouseButtonUp();
 
         }
 
@@ -154,7 +148,7 @@ namespace CandyCoded
 
             currentFingerId = 0;
 
-            return TouchActive ? GetTouchUp(out currentFingerId) : GetMouseButtonUp();
+            return Input.touchSupported ? GetTouchUp(out currentFingerId) : GetMouseButtonUp();
 
         }
 
@@ -165,7 +159,7 @@ namespace CandyCoded
         public static bool GetInputUp()
         {
 
-            return TouchActive ? GetTouchUp() : GetMouseButtonUp();
+            return Input.touchSupported ? GetTouchUp() : GetMouseButtonUp();
 
         }
 
@@ -279,7 +273,7 @@ namespace CandyCoded
         public static Touch? GetActiveTouch(int fingerId, params TouchPhase[] touchPhasesFilter)
         {
 
-            if (!TouchActive)
+            if (!Input.touchSupported || Input.touchCount <= 0)
             {
                 return null;
             }
@@ -308,7 +302,7 @@ namespace CandyCoded
         public static Touch? GetActiveTouch(params TouchPhase[] touchPhasesFilter)
         {
 
-            if (!TouchActive)
+            if (!Input.touchSupported || Input.touchCount <= 0)
             {
                 return null;
             }
@@ -337,7 +331,7 @@ namespace CandyCoded
         public static Touch? GetActiveTouch(int fingerId)
         {
 
-            if (!TouchActive)
+            if (!Input.touchSupported || Input.touchCount <= 0)
             {
                 return null;
             }
@@ -374,7 +368,7 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            if (!TouchActive)
+            if (!Input.touchSupported || Input.touchCount <= 0)
             {
                 return false;
             }
@@ -414,7 +408,7 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            if (!TouchActive)
+            if (!Input.touchSupported || Input.touchCount <= 0)
             {
                 return false;
             }
