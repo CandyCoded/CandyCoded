@@ -9,6 +9,8 @@ namespace CandyCoded
     public static class InputManager
     {
 
+        public static int _defaultMouseButtonIndex = 0;
+
         /// <summary>
         ///     Returns true if the user has either pressed the primary mouse button or touched the screen over a specific
         ///     GameObject.
@@ -36,7 +38,7 @@ namespace CandyCoded
                 return false;
             }
 
-            currentFingerId = 0;
+            currentFingerId = _defaultMouseButtonIndex;
 
             return true;
 
@@ -69,7 +71,7 @@ namespace CandyCoded
                 return false;
             }
 
-            currentFingerId = 0;
+            currentFingerId = _defaultMouseButtonIndex;
 
             return true;
 
@@ -97,7 +99,7 @@ namespace CandyCoded
                 return false;
             }
 
-            currentFingerId = 0;
+            currentFingerId = _defaultMouseButtonIndex;
 
             return true;
 
@@ -262,7 +264,7 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            return Input.GetMouseButtonDown(0) &&
+            return Input.GetMouseButtonDown(_defaultMouseButtonIndex) &&
                    RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
 
         }
@@ -279,7 +281,7 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            return Input.GetMouseButtonDown(0) &&
+            return Input.GetMouseButtonDown(_defaultMouseButtonIndex) &&
                    RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
 
         }
@@ -291,7 +293,7 @@ namespace CandyCoded
         public static bool GetMouseButtonDown()
         {
 
-            return Input.GetMouseButtonDown(0);
+            return Input.GetMouseButtonDown(_defaultMouseButtonIndex);
 
         }
 
@@ -307,7 +309,7 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            return Input.GetMouseButtonUp(0) &&
+            return Input.GetMouseButtonUp(_defaultMouseButtonIndex) &&
                    RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
 
         }
@@ -324,7 +326,7 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            return Input.GetMouseButtonUp(0) &&
+            return Input.GetMouseButtonUp(_defaultMouseButtonIndex) &&
                    RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
 
         }
@@ -336,7 +338,7 @@ namespace CandyCoded
         public static bool GetMouseButtonUp()
         {
 
-            return Input.GetMouseButtonUp(0);
+            return Input.GetMouseButtonUp(_defaultMouseButtonIndex);
 
         }
 
