@@ -22,9 +22,23 @@ namespace CandyCoded
             out RaycastHit hit)
         {
 
-            return Input.touchSupported
-                ? GetTouchDown(gameObject, mainCamera, ref currentFingerId, out hit)
-                : GetMouseButtonDown(gameObject, mainCamera, out hit);
+            if (Input.touchSupported)
+            {
+
+                return GetTouchDown(gameObject, mainCamera, ref currentFingerId, out hit);
+
+            }
+
+            var results = GetMouseButtonDown(gameObject, mainCamera, out hit);
+
+            if (!results)
+            {
+                return false;
+            }
+
+            currentFingerId = 0;
+
+            return true;
 
         }
 
@@ -41,9 +55,23 @@ namespace CandyCoded
             out RaycastHit2D hit)
         {
 
-            return Input.touchSupported
-                ? GetTouchDown(gameObject, mainCamera, ref currentFingerId, out hit)
-                : GetMouseButtonDown(gameObject, mainCamera, out hit);
+            if (Input.touchSupported)
+            {
+
+                return GetTouchDown(gameObject, mainCamera, ref currentFingerId, out hit);
+
+            }
+
+            var results = GetMouseButtonDown(gameObject, mainCamera, out hit);
+
+            if (!results)
+            {
+                return false;
+            }
+
+            currentFingerId = 0;
+
+            return true;
 
         }
 
@@ -55,7 +83,23 @@ namespace CandyCoded
         public static bool GetInputDown(ref int? currentFingerId)
         {
 
-            return Input.touchSupported ? GetTouchDown(ref currentFingerId) : GetMouseButtonDown();
+            if (Input.touchSupported)
+            {
+
+                return GetTouchDown(ref currentFingerId);
+
+            }
+
+            var results = GetMouseButtonDown();
+
+            if (!results)
+            {
+                return false;
+            }
+
+            currentFingerId = 0;
+
+            return true;
 
         }
 
@@ -95,9 +139,30 @@ namespace CandyCoded
             out RaycastHit hit)
         {
 
-            return Input.touchSupported
-                ? GetTouchUp(gameObject, mainCamera, ref currentFingerId, out hit)
-                : GetMouseButtonUp(gameObject, mainCamera, out hit);
+            hit = new RaycastHit();
+
+            if (!currentFingerId.HasValue)
+            {
+                return false;
+            }
+
+            if (Input.touchSupported)
+            {
+
+                return GetTouchUp(gameObject, mainCamera, ref currentFingerId, out hit);
+
+            }
+
+            var result = GetMouseButtonUp(gameObject, mainCamera, out hit);
+
+            if (!result)
+            {
+                return false;
+            }
+
+            currentFingerId = null;
+
+            return true;
 
         }
 
@@ -114,21 +179,30 @@ namespace CandyCoded
             out RaycastHit2D hit)
         {
 
-            return Input.touchSupported
-                ? GetTouchUp(gameObject, mainCamera, ref currentFingerId, out hit)
-                : GetMouseButtonUp(gameObject, mainCamera, out hit);
+            hit = new RaycastHit2D();
 
-        }
+            if (!currentFingerId.HasValue)
+            {
+                return false;
+            }
 
-        /// <summary>
-        ///     Returns true if the user has either released the primary mouse button or ended a touch on the screen.
-        /// </summary>
-        /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
-        /// <returns>bool</returns>
-        public static bool GetInputUp(int? currentFingerId)
-        {
+            if (Input.touchSupported)
+            {
 
-            return Input.touchSupported ? GetTouchUp(currentFingerId) : GetMouseButtonUp();
+                return GetTouchUp(gameObject, mainCamera, ref currentFingerId, out hit);
+
+            }
+
+            var result = GetMouseButtonUp(gameObject, mainCamera, out hit);
+
+            if (!result)
+            {
+                return false;
+            }
+
+            currentFingerId = null;
+
+            return true;
 
         }
 
@@ -140,7 +214,28 @@ namespace CandyCoded
         public static bool GetInputUp(ref int? currentFingerId)
         {
 
-            return Input.touchSupported ? GetTouchUp(ref currentFingerId) : GetMouseButtonUp();
+            if (!currentFingerId.HasValue)
+            {
+                return false;
+            }
+
+            if (Input.touchSupported)
+            {
+
+                return GetTouchUp(ref currentFingerId);
+
+            }
+
+            var result = GetMouseButtonUp();
+
+            if (!result)
+            {
+                return false;
+            }
+
+            currentFingerId = null;
+
+            return true;
 
         }
 
