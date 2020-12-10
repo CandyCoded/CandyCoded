@@ -559,6 +559,11 @@ namespace CandyCoded
         public static Vector3? GetTouchPosition(int? currentFingerId)
         {
 
+            if (!currentFingerId.HasValue)
+            {
+                return null;
+            }
+
             var touch = GetActiveTouch(currentFingerId.Value);
 
             return touch?.position;
@@ -578,6 +583,11 @@ namespace CandyCoded
         {
 
             hit = new RaycastHit();
+
+            if (!currentFingerId.HasValue)
+            {
+                return false;
+            }
 
             var touch = GetActiveTouch(currentFingerId.Value, TouchPhase.Ended, TouchPhase.Canceled);
 
@@ -599,6 +609,11 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
+            if (!currentFingerId.HasValue)
+            {
+                return false;
+            }
+
             var touch = GetActiveTouch(currentFingerId.Value, TouchPhase.Ended, TouchPhase.Canceled);
 
             return touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit);
@@ -612,6 +627,11 @@ namespace CandyCoded
         /// <returns>bool</returns>
         public static bool GetTouchUp(int? currentFingerId)
         {
+
+            if (!currentFingerId.HasValue)
+            {
+                return false;
+            }
 
             var touch = GetActiveTouch(currentFingerId.Value, TouchPhase.Ended, TouchPhase.Canceled);
 
