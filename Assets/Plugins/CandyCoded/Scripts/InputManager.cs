@@ -9,11 +9,7 @@ namespace CandyCoded
     public static class InputManager
     {
 
-        /// <summary>
-        ///     Returns true if touch is enabled on the device and there is at least one touch event active.
-        /// </summary>
-        /// <returns>bool</returns>
-        public static bool TouchActive => Input.touchSupported && Input.touchCount > 0;
+        public static int _defaultMouseButtonIndex = 0;
 
         /// <summary>
         ///     Returns true if the user has either pressed the primary mouse button or touched the screen over a specific
@@ -24,15 +20,27 @@ namespace CandyCoded
         /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
-        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId,
+        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, ref int? currentFingerId,
             out RaycastHit hit)
         {
 
-            currentFingerId = 0;
+            if (Input.touchSupported)
+            {
 
-            return TouchActive
-                ? GetTouchDown(gameObject, mainCamera, out currentFingerId, out hit)
-                : GetMouseButtonDown(gameObject, mainCamera, out hit);
+                return GetTouchDown(gameObject, mainCamera, ref currentFingerId, out hit);
+
+            }
+
+            var results = GetMouseButtonDown(gameObject, mainCamera, out hit);
+
+            if (!results)
+            {
+                return false;
+            }
+
+            currentFingerId = _defaultMouseButtonIndex;
+
+            return true;
 
         }
 
@@ -45,15 +53,27 @@ namespace CandyCoded
         /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
-        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId,
+        public static bool GetInputDown(this GameObject gameObject, Camera mainCamera, ref int? currentFingerId,
             out RaycastHit2D hit)
         {
 
-            currentFingerId = 0;
+            if (Input.touchSupported)
+            {
 
-            return TouchActive
-                ? GetTouchDown(gameObject, mainCamera, out currentFingerId, out hit)
-                : GetMouseButtonDown(gameObject, mainCamera, out hit);
+                return GetTouchDown(gameObject, mainCamera, ref currentFingerId, out hit);
+
+            }
+
+            var results = GetMouseButtonDown(gameObject, mainCamera, out hit);
+
+            if (!results)
+            {
+                return false;
+            }
+
+            currentFingerId = _defaultMouseButtonIndex;
+
+            return true;
 
         }
 
@@ -62,12 +82,26 @@ namespace CandyCoded
         /// </summary>
         /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
         /// <returns>bool</returns>
-        public static bool GetInputDown(out int currentFingerId)
+        public static bool GetInputDown(ref int? currentFingerId)
         {
 
-            currentFingerId = 0;
+            if (Input.touchSupported)
+            {
 
-            return TouchActive ? GetTouchDown(out currentFingerId) : GetMouseButtonDown();
+                return GetTouchDown(ref currentFingerId);
+
+            }
+
+            var results = GetMouseButtonDown();
+
+            if (!results)
+            {
+                return false;
+            }
+
+            currentFingerId = _defaultMouseButtonIndex;
+
+            return true;
 
         }
 
@@ -78,7 +112,7 @@ namespace CandyCoded
         public static bool GetInputDown()
         {
 
-            return TouchActive ? GetTouchDown() : GetMouseButtonDown();
+            return Input.touchSupported ? GetTouchDown() : GetMouseButtonDown();
 
         }
 
@@ -87,10 +121,10 @@ namespace CandyCoded
         /// </summary>
         /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
         /// <returns>Vector3</returns>
-        public static Vector3? GetInputPosition(int currentFingerId)
+        public static Vector3? GetInputPosition(int? currentFingerId)
         {
 
-            return TouchActive ? GetTouchPosition(currentFingerId) : GetMousePosition();
+            return Input.touchSupported ? GetTouchPosition(currentFingerId) : GetMousePosition();
 
         }
 
@@ -103,13 +137,34 @@ namespace CandyCoded
         /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
-        public static bool GetInputUp(this GameObject gameObject, Camera mainCamera, int currentFingerId,
+        public static bool GetInputUp(this GameObject gameObject, Camera mainCamera, ref int? currentFingerId,
             out RaycastHit hit)
         {
 
-            return TouchActive
-                ? GetTouchUp(gameObject, mainCamera, currentFingerId, out hit)
-                : GetMouseButtonUp(gameObject, mainCamera, out hit);
+            hit = new RaycastHit();
+
+            if (!currentFingerId.HasValue)
+            {
+                return false;
+            }
+
+            if (Input.touchSupported)
+            {
+
+                return GetTouchUp(gameObject, mainCamera, ref currentFingerId, out hit);
+
+            }
+
+            var result = GetMouseButtonUp(gameObject, mainCamera, out hit);
+
+            if (!result)
+            {
+                return false;
+            }
+
+            currentFingerId = null;
+
+            return true;
 
         }
 
@@ -122,25 +177,34 @@ namespace CandyCoded
         /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
-        public static bool GetInputUp(this GameObject gameObject, Camera mainCamera, int currentFingerId,
+        public static bool GetInputUp(this GameObject gameObject, Camera mainCamera, ref int? currentFingerId,
             out RaycastHit2D hit)
         {
 
-            return TouchActive
-                ? GetTouchUp(gameObject, mainCamera, currentFingerId, out hit)
-                : GetMouseButtonUp(gameObject, mainCamera, out hit);
+            hit = new RaycastHit2D();
 
-        }
+            if (!currentFingerId.HasValue)
+            {
+                return false;
+            }
 
-        /// <summary>
-        ///     Returns true if the user has either released the primary mouse button or ended a touch on the screen.
-        /// </summary>
-        /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
-        /// <returns>bool</returns>
-        public static bool GetInputUp(int currentFingerId)
-        {
+            if (Input.touchSupported)
+            {
 
-            return TouchActive ? GetTouchUp(currentFingerId) : GetMouseButtonUp();
+                return GetTouchUp(gameObject, mainCamera, ref currentFingerId, out hit);
+
+            }
+
+            var result = GetMouseButtonUp(gameObject, mainCamera, out hit);
+
+            if (!result)
+            {
+                return false;
+            }
+
+            currentFingerId = null;
+
+            return true;
 
         }
 
@@ -149,12 +213,31 @@ namespace CandyCoded
         /// </summary>
         /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
         /// <returns>bool</returns>
-        public static bool GetInputUp(out int currentFingerId)
+        public static bool GetInputUp(ref int? currentFingerId)
         {
 
-            currentFingerId = 0;
+            if (!currentFingerId.HasValue)
+            {
+                return false;
+            }
 
-            return TouchActive ? GetTouchUp(out currentFingerId) : GetMouseButtonUp();
+            if (Input.touchSupported)
+            {
+
+                return GetTouchUp(ref currentFingerId);
+
+            }
+
+            var result = GetMouseButtonUp();
+
+            if (!result)
+            {
+                return false;
+            }
+
+            currentFingerId = null;
+
+            return true;
 
         }
 
@@ -165,7 +248,7 @@ namespace CandyCoded
         public static bool GetInputUp()
         {
 
-            return TouchActive ? GetTouchUp() : GetMouseButtonUp();
+            return Input.touchSupported ? GetTouchUp() : GetMouseButtonUp();
 
         }
 
@@ -181,7 +264,7 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            return Input.GetMouseButtonDown(0) &&
+            return Input.GetMouseButtonDown(_defaultMouseButtonIndex) &&
                    RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
 
         }
@@ -198,7 +281,7 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            return Input.GetMouseButtonDown(0) &&
+            return Input.GetMouseButtonDown(_defaultMouseButtonIndex) &&
                    RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
 
         }
@@ -210,7 +293,7 @@ namespace CandyCoded
         public static bool GetMouseButtonDown()
         {
 
-            return Input.GetMouseButtonDown(0);
+            return Input.GetMouseButtonDown(_defaultMouseButtonIndex);
 
         }
 
@@ -226,7 +309,7 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            return Input.GetMouseButtonUp(0) &&
+            return Input.GetMouseButtonUp(_defaultMouseButtonIndex) &&
                    RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
 
         }
@@ -243,7 +326,7 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            return Input.GetMouseButtonUp(0) &&
+            return Input.GetMouseButtonUp(_defaultMouseButtonIndex) &&
                    RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
 
         }
@@ -255,7 +338,7 @@ namespace CandyCoded
         public static bool GetMouseButtonUp()
         {
 
-            return Input.GetMouseButtonUp(0);
+            return Input.GetMouseButtonUp(_defaultMouseButtonIndex);
 
         }
 
@@ -279,7 +362,7 @@ namespace CandyCoded
         public static Touch? GetActiveTouch(int fingerId, params TouchPhase[] touchPhasesFilter)
         {
 
-            if (!TouchActive)
+            if (!Input.touchSupported || Input.touchCount <= 0)
             {
                 return null;
             }
@@ -308,7 +391,7 @@ namespace CandyCoded
         public static Touch? GetActiveTouch(params TouchPhase[] touchPhasesFilter)
         {
 
-            if (!TouchActive)
+            if (!Input.touchSupported || Input.touchCount <= 0)
             {
                 return null;
             }
@@ -337,7 +420,7 @@ namespace CandyCoded
         public static Touch? GetActiveTouch(int fingerId)
         {
 
-            if (!TouchActive)
+            if (!Input.touchSupported || Input.touchCount <= 0)
             {
                 return null;
             }
@@ -366,15 +449,13 @@ namespace CandyCoded
         /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
-        public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId,
+        public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, ref int? currentFingerId,
             out RaycastHit hit)
         {
 
-            currentFingerId = 0;
-
             hit = new RaycastHit();
 
-            if (!TouchActive)
+            if (!Input.touchSupported || Input.touchCount <= 0)
             {
                 return false;
             }
@@ -406,15 +487,13 @@ namespace CandyCoded
         /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
-        public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, out int currentFingerId,
+        public static bool GetTouchDown(this GameObject gameObject, Camera mainCamera, ref int? currentFingerId,
             out RaycastHit2D hit)
         {
 
-            currentFingerId = 0;
-
             hit = new RaycastHit2D();
 
-            if (!TouchActive)
+            if (!Input.touchSupported || Input.touchCount <= 0)
             {
                 return false;
             }
@@ -443,10 +522,8 @@ namespace CandyCoded
         /// </summary>
         /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
         /// <returns>bool</returns>
-        public static bool GetTouchDown(out int currentFingerId)
+        public static bool GetTouchDown(ref int? currentFingerId)
         {
-
-            currentFingerId = 0;
 
             var touch = GetActiveTouch(TouchPhase.Began);
 
@@ -479,10 +556,15 @@ namespace CandyCoded
         /// </summary>
         /// <param name="currentFingerId">The stored unique finger ID of the touch.</param>
         /// <returns>Vector3</returns>
-        public static Vector3? GetTouchPosition(int currentFingerId)
+        public static Vector3? GetTouchPosition(int? currentFingerId)
         {
 
-            var touch = GetActiveTouch(currentFingerId);
+            if (!currentFingerId.HasValue)
+            {
+                return null;
+            }
+
+            var touch = GetActiveTouch(currentFingerId.Value);
 
             return touch?.position;
 
@@ -496,13 +578,18 @@ namespace CandyCoded
         /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
-        public static bool GetTouchUp(this GameObject gameObject, Camera mainCamera, int currentFingerId,
+        public static bool GetTouchUp(this GameObject gameObject, Camera mainCamera, ref int? currentFingerId,
             out RaycastHit hit)
         {
 
             hit = new RaycastHit();
 
-            var touch = GetActiveTouch(currentFingerId, TouchPhase.Ended, TouchPhase.Canceled);
+            if (!currentFingerId.HasValue)
+            {
+                return false;
+            }
+
+            var touch = GetActiveTouch(currentFingerId.Value, TouchPhase.Ended, TouchPhase.Canceled);
 
             return touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit);
 
@@ -516,13 +603,18 @@ namespace CandyCoded
         /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
         /// <param name="hit">The result of the raycast.</param>
         /// <returns>bool</returns>
-        public static bool GetTouchUp(this GameObject gameObject, Camera mainCamera, int currentFingerId,
+        public static bool GetTouchUp(this GameObject gameObject, Camera mainCamera, ref int? currentFingerId,
             out RaycastHit2D hit)
         {
 
             hit = new RaycastHit2D();
 
-            var touch = GetActiveTouch(currentFingerId, TouchPhase.Ended, TouchPhase.Canceled);
+            if (!currentFingerId.HasValue)
+            {
+                return false;
+            }
+
+            var touch = GetActiveTouch(currentFingerId.Value, TouchPhase.Ended, TouchPhase.Canceled);
 
             return touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit);
 
@@ -533,10 +625,15 @@ namespace CandyCoded
         /// </summary>
         /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
         /// <returns>bool</returns>
-        public static bool GetTouchUp(int currentFingerId)
+        public static bool GetTouchUp(int? currentFingerId)
         {
 
-            var touch = GetActiveTouch(currentFingerId, TouchPhase.Ended, TouchPhase.Canceled);
+            if (!currentFingerId.HasValue)
+            {
+                return false;
+            }
+
+            var touch = GetActiveTouch(currentFingerId.Value, TouchPhase.Ended, TouchPhase.Canceled);
 
             return touch.HasValue;
 
@@ -547,10 +644,8 @@ namespace CandyCoded
         /// </summary>
         /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
         /// <returns>bool</returns>
-        public static bool GetTouchUp(out int currentFingerId)
+        public static bool GetTouchUp(ref int? currentFingerId)
         {
-
-            currentFingerId = 0;
 
             var touch = GetActiveTouch(TouchPhase.Ended, TouchPhase.Canceled);
 
