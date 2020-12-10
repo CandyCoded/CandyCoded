@@ -1,11 +1,13 @@
 ### InputManager
 
+> **Note:** `ref currentFingetId` is now a null reference type and should be setup as `int? currentFingerId;`. This change was made to fix an issue in a previous release (3.x) that would cause multiple touch inputs to act as one.
+
 #### GetInputDown
 
 Returns true if the user has either pressed the primary mouse button or touched the screen over a specific GameObject.
 
 ```csharp
-if (InputManager.GetInputDown(gameObject, mainCamera, out currentFingerId, out RaycastHit2D hit))
+if (InputManager.GetInputDown(gameObject, mainCamera, ref currentFingerId, out RaycastHit2D hit))
 {
 
     Debug.Log(gameObject.name);
@@ -16,7 +18,7 @@ if (InputManager.GetInputDown(gameObject, mainCamera, out currentFingerId, out R
 Returns true if the user has either pressed the primary mouse button or touched the screen.
 
 ```csharp
-if (InputManager.GetInputDown(out currentFingerId))
+if (InputManager.GetInputDown(ref currentFingerId))
 {
 
     Debug.Log("Input down");
@@ -37,16 +39,20 @@ if (InputManager.GetInputDown())
 
 Returns the position of either the mouse or a specific touch.
 
+> **Note:** This method will not return a vector if `currentFingerId` has not been populated by a previous call to `Input.GetInputDown`.
+
 ```csharp
-Debug.Log(InputManager.GetInputPosition(fingerId));
+Debug.Log(InputManager.GetInputPosition(currentFingerId));
 ```
 
 #### GetInputUp
 
 Returns true if the user has either released the primary mouse button or ended a touch on the screen over a specific GameObject.
 
+> **Note:** This method will not return true if `currentFingerId` has not been populated by a previous call to `Input.GetInputDown`.
+
 ```csharp
-if (InputManager.GetInputUp(gameObject, mainCamera, currentFingerId, out RaycastHit2D hit))
+if (InputManager.GetInputUp(gameObject, mainCamera, ref currentFingerId, out RaycastHit2D hit))
 {
 
     Debug.Log(gameObject.name);
@@ -57,16 +63,7 @@ if (InputManager.GetInputUp(gameObject, mainCamera, currentFingerId, out Raycast
 Returns true if the user has either released the primary mouse button or ended a touch on the screen.
 
 ```csharp
-if (InputManager.GetInputUp(currentFingerId))
-{
-
-    Debug.Log("Input up");
-
-}
-```
-
-```csharp
-if (InputManager.GetInputUp(out currentFingerId))
+if (InputManager.GetInputUp(ref currentFingerId))
 {
 
     Debug.Log("Input up");
@@ -141,7 +138,7 @@ Debug.Log(InputManager.GetMousePosition());
 
 #### GetActiveTouch
 
-Returns the active touch based on a unique finger ID and a TouchPhase enum filter.
+Returns the active touch based on a unique finger ID and a [TouchPhase](https://docs.unity3d.com/ScriptReference/TouchPhase.html) enum filter.
 
 ```csharp
 var touch = InputManager.GetActiveTouch(fingerId);
@@ -181,7 +178,7 @@ if (touch.HasValue)
 Returns true if the user has touched the screen over a specific GameObject.
 
 ```csharp
-if (InputManager.GetTouchDown(gameObject, mainCamera, out currentFingerId, out RaycastHit2D hit))
+if (InputManager.GetTouchDown(gameObject, mainCamera, ref currentFingerId, out RaycastHit2D hit))
 {
 
     Debug.Log(gameObject.name);
@@ -192,7 +189,7 @@ if (InputManager.GetTouchDown(gameObject, mainCamera, out currentFingerId, out R
 Returns true if the user has touched the screen.
 
 ```csharp
-if (InputManager.GetTouchDown(out currentFingerId))
+if (InputManager.GetTouchDown(ref currentFingerId))
 {
 
     Debug.Log("Touch down");
@@ -213,16 +210,20 @@ if (InputManager.GetTouchDown())
 
 Returns the position of a specific touch.
 
+> **Note:** This method will not return a vector if `currentFingerId` has not been populated by a previous call to `Input.GetTouchDown`.
+
 ```csharp
-Debug.Log(InputManager.GetTouchPosition(fingerId));
+Debug.Log(InputManager.GetTouchPosition(currentFingerId));
 ```
 
 #### GetTouchUp
 
 Returns true if the user has ended a touch on the screen over a specific GameObject.
 
+> **Note:** This method will not return true if `currentFingerId` has not been populated by a previous call to `Input.GetTouchDown`.
+
 ```csharp
-if (InputManager.GetTouchUp(gameObject, mainCamera, currentFingerId, out RaycastHit2D hit))
+if (InputManager.GetTouchUp(gameObject, mainCamera, ref currentFingerId, out RaycastHit2D hit))
 {
 
     Debug.Log(gameObject.name);
@@ -233,16 +234,7 @@ if (InputManager.GetTouchUp(gameObject, mainCamera, currentFingerId, out Raycast
 Returns true if the user has ended a touch on the screen.
 
 ```csharp
-if (InputManager.GetTouchUp(currentFingerId))
-{
-
-    Debug.Log("Touch up");
-
-}
-```
-
-```csharp
-if (InputManager.GetTouchUp(out currentFingerId))
+if (InputManager.GetTouchUp(ref currentFingerId))
 {
 
     Debug.Log("Touch up");
@@ -264,7 +256,16 @@ if (InputManager.GetTouchUp())
 Returns true if a position collides with a GameObject.
 
 ```csharp
-if (InputManager.RaycastToGameObject(gameObject, mainCamera, Vector3.zero, out hit))
+if (InputManager.RaycastToGameObject(gameObject, mainCamera, Vector3.zero, out RaycastHit2D hit))
+{
+
+    Debug.Log(gameObject.name);
+
+}
+```
+
+```csharp
+if (InputManager.RaycastToGameObject(gameObject, mainCamera, Vector3.zero, out RaycastHit hit))
 {
 
     Debug.Log(gameObject.name);
