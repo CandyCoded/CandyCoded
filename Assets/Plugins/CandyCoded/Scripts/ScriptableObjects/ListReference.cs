@@ -29,6 +29,17 @@ namespace CandyCoded
         public int Count => _items.Count;
 
         /// <summary>
+        ///     Clears the list attached to the scriptable object.
+        /// </summary>
+        /// <returns>void</returns>
+        public override void Reset()
+        {
+
+            Clear();
+
+        }
+
+        /// <summary>
         ///     Adds an item to the list attached to the scriptable object.
         /// </summary>
         /// <param name="item">Item to add to the list.</param>
@@ -65,17 +76,6 @@ namespace CandyCoded
         {
 
             return _items.Remove(item);
-
-        }
-
-        /// <summary>
-        ///     Clears the list attached to the scriptable object.
-        /// </summary>
-        /// <returns>void</returns>
-        public override void Reset()
-        {
-
-            Clear();
 
         }
 

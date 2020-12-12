@@ -17,17 +17,17 @@ namespace CandyCoded
 
         public float max;
 
-        public float Random()
-        {
-
-            return UnityEngine.Random.Range(min, max);
-
-        }
-
         public bool Equals(RangedFloat other)
         {
 
             return other.min.Equals(min) && other.max.Equals(max);
+
+        }
+
+        public float Random()
+        {
+
+            return UnityEngine.Random.Range(min, max);
 
         }
 
@@ -40,19 +40,26 @@ namespace CandyCoded
         [SerializeField]
         private AnimationCurve _x;
 
+        [SerializeField]
+        private AnimationCurve _y;
+
         public AnimationCurve x
         {
             get => _x;
             set => _x = value;
         }
 
-        [SerializeField]
-        private AnimationCurve _y;
-
         public AnimationCurve y
         {
             get => _y;
             set => _y = value;
+        }
+
+        public bool Equals(Vector2AnimationCurve other)
+        {
+
+            return other.x.Equals(x) && other.y.Equals(y);
+
         }
 
         /// <summary>
@@ -63,13 +70,6 @@ namespace CandyCoded
         {
 
             return new Vector2AnimationCurve { x = new AnimationCurve(x.keys), y = new AnimationCurve(y.keys) };
-
-        }
-
-        public bool Equals(Vector2AnimationCurve other)
-        {
-
-            return other.x.Equals(x) && other.y.Equals(y);
 
         }
 
@@ -131,14 +131,17 @@ namespace CandyCoded
         [SerializeField]
         private AnimationCurve _x;
 
+        [SerializeField]
+        private AnimationCurve _y;
+
+        [SerializeField]
+        private AnimationCurve _z;
+
         public AnimationCurve x
         {
             get => _x;
             set => _x = value;
         }
-
-        [SerializeField]
-        private AnimationCurve _y;
 
         public AnimationCurve y
         {
@@ -146,13 +149,17 @@ namespace CandyCoded
             set => _y = value;
         }
 
-        [SerializeField]
-        private AnimationCurve _z;
-
         public AnimationCurve z
         {
             get => _z;
             set => _z = value;
+        }
+
+        public bool Equals(Vector3AnimationCurve other)
+        {
+
+            return other.x.Equals(x) && other.y.Equals(y) && other.z.Equals(z);
+
         }
 
         /// <summary>
@@ -166,13 +173,6 @@ namespace CandyCoded
             {
                 x = new AnimationCurve(x.keys), y = new AnimationCurve(y.keys), z = new AnimationCurve(z.keys)
             };
-
-        }
-
-        public bool Equals(Vector3AnimationCurve other)
-        {
-
-            return other.x.Equals(x) && other.y.Equals(y) && other.z.Equals(z);
 
         }
 
@@ -236,14 +236,20 @@ namespace CandyCoded
         [SerializeField]
         private AnimationCurve _x;
 
+        [SerializeField]
+        private AnimationCurve _y;
+
+        [SerializeField]
+        private AnimationCurve _z;
+
+        [SerializeField]
+        private AnimationCurve _w;
+
         public AnimationCurve x
         {
             get => _x;
             set => _x = value;
         }
-
-        [SerializeField]
-        private AnimationCurve _y;
 
         public AnimationCurve y
         {
@@ -251,22 +257,23 @@ namespace CandyCoded
             set => _y = value;
         }
 
-        [SerializeField]
-        private AnimationCurve _z;
-
         public AnimationCurve z
         {
             get => _z;
             set => _z = value;
         }
 
-        [SerializeField]
-        private AnimationCurve _w;
-
         public AnimationCurve w
         {
             get => _w;
             set => _w = value;
+        }
+
+        public bool Equals(Vector4AnimationCurve other)
+        {
+
+            return other.x.Equals(x) && other.y.Equals(y) && other.z.Equals(z) && other.w.Equals(w);
+
         }
 
         /// <summary>
@@ -283,13 +290,6 @@ namespace CandyCoded
                 z = new AnimationCurve(z.keys),
                 w = new AnimationCurve(w.keys)
             };
-
-        }
-
-        public bool Equals(Vector4AnimationCurve other)
-        {
-
-            return other.x.Equals(x) && other.y.Equals(y) && other.z.Equals(z) && other.w.Equals(w);
 
         }
 
