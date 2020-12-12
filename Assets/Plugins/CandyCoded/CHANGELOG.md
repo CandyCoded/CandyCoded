@@ -1,365 +1,291 @@
 # Changelog
 
-## [3.2.0] - 2020-11-23
+## [v4.0.0](https://github.com/CandyCoded/CandyCoded/tree/v4.0.0) - (2020-12-12)
 
-### Features
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v3.2.0...v4.0.0)
 
-- Added Vector3 NearlyEqual custom extension <https://github.com/CandyCoded/CandyCoded/pull/153>
+- Added Chunk list extension. (#155) [#155](https://github.com/CandyCoded/CandyCoded/pull/155)
+- [hotfix] InputManager multiple touch input (#154) [#154](https://github.com/CandyCoded/CandyCoded/pull/154)
 
-## [3.1.0] - 2020-06-21
+## [v3.2.0](https://github.com/CandyCoded/CandyCoded/tree/v3.2.0) - (2020-11-23)
 
-### Features
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v3.1.0...v3.2.0)
 
-- Added Contains method to generic List objects. <https://github.com/CandyCoded/CandyCoded/pull/146>
+- [feat] Vector3 NearlyEqual custom extension (#153) [#153](https://github.com/CandyCoded/CandyCoded/pull/153)
 
-### Bug Fixes
+## [v3.1.0](https://github.com/CandyCoded/CandyCoded/tree/v3.1.0) - (2020-06-21)
 
-- Renamed IPauseable to IPausable. <https://github.com/CandyCoded/CandyCoded/pull/144>
-- Set active state on release in GameObjectPoolReference. <https://github.com/CandyCoded/CandyCoded/pull/145>
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v3.0.2...v3.1.0)
 
-## [3.0.2] - 2019-10-03
+- [feat] Improved build process (#147) [#147](https://github.com/CandyCoded/CandyCoded/pull/147)
+- Added Contains method to generic List objects. (#146) [#146](https://github.com/CandyCoded/CandyCoded/pull/146)
+- Set activate state on release in GameObjectPoolReference. (#145) [#145](https://github.com/CandyCoded/CandyCoded/pull/145)
+- Renamed IPauseable to IPausable. (#144) [#144](https://github.com/CandyCoded/CandyCoded/pull/144)
+- Remove second mention of GameObject (#139) [#139](https://github.com/CandyCoded/CandyCoded/pull/139)
 
-### Features
+## [v3.0.2](https://github.com/CandyCoded/CandyCoded/tree/v3.0.2) - (2019-10-03)
 
-- Added destroy method to GameObjectPoolReference. <https://github.com/CandyCoded/CandyCoded/pull/136>
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v3.0.1...v3.0.2)
 
-### Bug Fixes
+- Removed unused method call. (#138) [#138](https://github.com/CandyCoded/CandyCoded/pull/138)
+- [fix] Fixed issue with releasing all active objects in pool. (#137) [#137](https://github.com/CandyCoded/CandyCoded/pull/137)
+- Performance improvements to PoolReference (#135) [#135](https://github.com/CandyCoded/CandyCoded/pull/135)
+- Added destroy method to GameObjectPoolReference. (#136) [#136](https://github.com/CandyCoded/CandyCoded/pull/136)
+- Use generic exception for catching errors. (#134) [#134](https://github.com/CandyCoded/CandyCoded/pull/134)
+- Removed unused variable. (#133) [#133](https://github.com/CandyCoded/CandyCoded/pull/133)
+- [fix] Fixed issue with Screenshot.Save on mobile (#132) [#132](https://github.com/CandyCoded/CandyCoded/pull/132)
 
-- Fixed issue with releasing all active objects in pool. <https://github.com/CandyCoded/CandyCoded/pull/137>
-- Performance improvements to PoolReference <https://github.com/CandyCoded/CandyCoded/pull/135>
-- Use generic exception for catching errors. <https://github.com/CandyCoded/CandyCoded/pull/134>
-- Fixed issue with Screenshot.Save on mobile <https://github.com/CandyCoded/CandyCoded/pull/132>
+## [v3.0.1](https://github.com/CandyCoded/CandyCoded/tree/v3.0.1) - (2019-09-12)
 
-### Maintenance
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v3.0.0...v3.0.1)
 
-- Removed unused method call. <https://github.com/CandyCoded/CandyCoded/pull/138>
-- Removed unused variable. <https://github.com/CandyCoded/CandyCoded/pull/133>
+- Calculate the up and right axis relative to the camera and the transform. (#127) [#127](https://github.com/CandyCoded/CandyCoded/pull/127)
+- Fixed issue with flipped rotate directions. (#126) [#126](https://github.com/CandyCoded/CandyCoded/pull/126)
+- Changed variable names to match project standards. (#125) [#125](https://github.com/CandyCoded/CandyCoded/pull/125)
 
-## [3.0.1] - 2019-09-12
+## [v3.0.0](https://github.com/CandyCoded/CandyCoded/tree/v3.0.0) - (2019-09-05)
 
-### Bug Fixes
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v2.4.0...v3.0.0)
 
-- Fixed issue with flipped rotate directions. <https://github.com/CandyCoded/CandyCoded/pull/126>
-- Calculate the up and right axis relative to the camera and the transform. <https://github.com/CandyCoded/CandyCoded/pull/127>
+- No merges found
 
-### Maintenance
+## [v2.4.0](https://github.com/CandyCoded/CandyCoded/tree/v2.4.0) - (2019-09-02)
 
-- Changed variable names to match project standards. <https://github.com/CandyCoded/CandyCoded/pull/125>
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v2.3.0...v2.4.0)
 
-## [3.0.0] - 2019-09-05
+- Promote experimental features (#124) [#124](https://github.com/CandyCoded/CandyCoded/pull/124)
+- Added missing teardown to test. (#123) [#123](https://github.com/CandyCoded/CandyCoded/pull/123)
+- Added custom editor extensions for finding and creating assets. (#122) [#122](https://github.com/CandyCoded/CandyCoded/pull/122)
 
-### Maintenance
+## [v2.3.0](https://github.com/CandyCoded/CandyCoded/tree/v2.3.0) - (2019-08-31)
 
-- Setup project for distribution via an NPM registry.
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v2.2.0...v2.3.0)
 
-## [2.4.0] - 2019-09-02
+- [feature] Transform and camera extensions (#121) [#121](https://github.com/CandyCoded/CandyCoded/pull/121)
 
-### Features
+## [v2.2.0](https://github.com/CandyCoded/CandyCoded/tree/v2.2.0) - (2019-08-24)
 
-- Promote experimental features. <https://github.com/CandyCoded/CandyCoded/pull/124>
-- Added missing teardown to test. <https://github.com/CandyCoded/CandyCoded/pull/123>
-- Added custom editor extensions for finding and creating assets. <https://github.com/CandyCoded/CandyCoded/pull/122>
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v2.1.0...v2.2.0)
 
-### Maintenance
+- [hotfix] Prevent including top level assets (#120) [#120](https://github.com/CandyCoded/CandyCoded/pull/120)
+- Added GameObjectReference (#119) [#119](https://github.com/CandyCoded/CandyCoded/pull/119)
+- Code formatting (#118) [#118](https://github.com/CandyCoded/CandyCoded/pull/118)
+- Fix tests 2019.2 (#117) [#117](https://github.com/CandyCoded/CandyCoded/pull/117)
+- Added missing dependencies to package file. (#116) [#116](https://github.com/CandyCoded/CandyCoded/pull/116)
 
-- Updated documentation.
+## [v2.1.0](https://github.com/CandyCoded/CandyCoded/tree/v2.1.0) - (2019-08-07)
 
-## [2.3.0] - 2019-08-31
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v2.0.0...v2.1.0)
 
-### Features
+- Added transparent screenshot method (#115) [#115](https://github.com/CandyCoded/CandyCoded/pull/115)
+- Changed return value for LookAt2D (#114) [#114](https://github.com/CandyCoded/CandyCoded/pull/114)
+- Added IsVisible transform extension (#113) [#113](https://github.com/CandyCoded/CandyCoded/pull/113)
+- Added DeleteData method. (#112) [#112](https://github.com/CandyCoded/CandyCoded/pull/112)
+- Fixed issue with interface access modifiers. (#111) [#111](https://github.com/CandyCoded/CandyCoded/pull/111)
+- Added CandyCoded.Interfaces class. (#110) [#110](https://github.com/CandyCoded/CandyCoded/pull/110)
 
-- Transform and camera extensions. <https://github.com/CandyCoded/CandyCoded/pull/121>
+## [v2.0.0](https://github.com/CandyCoded/CandyCoded/tree/v2.0.0) - (2019-07-05)
 
-### Maintenance
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.1.8...v2.0.0)
 
-- Updated documentation.
-- Renamed LICENSE file.
+- Documentation (#109) [#109](https://github.com/CandyCoded/CandyCoded/pull/109)
+- Removed LoadAssetBundle (#108) [#108](https://github.com/CandyCoded/CandyCoded/pull/108)
+- Removed elvis operator from EventProfiler. (#107) [#107](https://github.com/CandyCoded/CandyCoded/pull/107)
+- Added deploy-force Makefile target. (#106) [#106](https://github.com/CandyCoded/CandyCoded/pull/106)
+- Pool extensions (#103) [#103](https://github.com/CandyCoded/CandyCoded/pull/103)
+- Code cleanup (#105) [#105](https://github.com/CandyCoded/CandyCoded/pull/105)
+- Removed CreateAssetBundles. (#104) [#104](https://github.com/CandyCoded/CandyCoded/pull/104)
+- Fixed issues with reset functionality in AudioPoolReference. (#102) [#102](https://github.com/CandyCoded/CandyCoded/pull/102)
+- Updated makefile target to support force push to UPM branch. (#101) [#101](https://github.com/CandyCoded/CandyCoded/pull/101)
+- AudioPoolReference (#100) [#100](https://github.com/CandyCoded/CandyCoded/pull/100)
 
-## [2.2.0] - 2019-08-24
+## [v1.1.8](https://github.com/CandyCoded/CandyCoded/tree/v1.1.8) - (2019-05-12)
 
-### Features
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.1.7...v1.1.8)
 
-- Added GameObjectReference <https://github.com/CandyCoded/CandyCoded/pull/119>
+- Added RangeSliderDrawer custom editor extension. (#95) [#95](https://github.com/CandyCoded/CandyCoded/pull/95)
+- Formatted test file. (#99) [#99](https://github.com/CandyCoded/CandyCoded/pull/99)
+- Added .editorconfig and formatted all code to match new style (#97) [#97](https://github.com/CandyCoded/CandyCoded/pull/97)
+- Updated Xcode and Ruby version. (#96) [#96](https://github.com/CandyCoded/CandyCoded/pull/96)
 
-### Maintenance
+## [v1.1.7](https://github.com/CandyCoded/CandyCoded/tree/v1.1.7) - (2019-04-09)
 
-- Code formatting <https://github.com/CandyCoded/CandyCoded/pull/118>
-- Fix tests 2019.2 <https://github.com/CandyCoded/CandyCoded/pull/117>
-- Added missing dependencies to package file. <https://github.com/CandyCoded/CandyCoded/pull/116>
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.1.6...v1.1.7)
 
-### Bug Fixes
+- Updated InputManager to support clicking on child colliders. (#94) [#94](https://github.com/CandyCoded/CandyCoded/pull/94)
+- Added NearlyEqual method. (#93) [#93](https://github.com/CandyCoded/CandyCoded/pull/93)
+- Added optional parentTransform to object pool. (#92) [#92](https://github.com/CandyCoded/CandyCoded/pull/92)
+- Switched to using Equals when comparing enums. (#91) [#91](https://github.com/CandyCoded/CandyCoded/pull/91)
+- Added persistentDataPath as a default prefix for relative paths. (#90) [#90](https://github.com/CandyCoded/CandyCoded/pull/90)
 
-- Prevent including top level assets <https://github.com/CandyCoded/CandyCoded/pull/120>
+## [v1.1.6](https://github.com/CandyCoded/CandyCoded/tree/v1.1.6) - (2019-03-10)
 
-## [2.1.0] - 2019-08-07
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.1.5...v1.1.6)
 
-### Features
+- Added InputManager methods that don't require a GameObject. (#89) [#89](https://github.com/CandyCoded/CandyCoded/pull/89)
+- Switched to using Input.touches rather than Input.GetTouch. (#88) [#88](https://github.com/CandyCoded/CandyCoded/pull/88)
+- Added Screenshot class. (#87) [#87](https://github.com/CandyCoded/CandyCoded/pull/87)
+- New experimental feature SaveManager (#81) [#81](https://github.com/CandyCoded/CandyCoded/pull/81)
+- Fixed issue where InputManager.GetTouchDown would only work with one target at time (#86) [#86](https://github.com/CandyCoded/CandyCoded/pull/86)
+- Added new overload for GetActiveTouch that takes only fingerId. (#84) [#84](https://github.com/CandyCoded/CandyCoded/pull/84)
+- Changed InsertRange to take an IEnumerable collection. (#83) [#83](https://github.com/CandyCoded/CandyCoded/pull/83)
+- Added new overload for AddRange that takes IEnumerable collections. (#82) [#82](https://github.com/CandyCoded/CandyCoded/pull/82)
 
-- Added CandyCoded.Interfaces class. <https://github.com/CandyCoded/CandyCoded/pull/110>
-- Added DeleteData method. <https://github.com/CandyCoded/CandyCoded/pull/112>
-- Added IsVisible transform extension <https://github.com/CandyCoded/CandyCoded/pull/113>
-- Added transparent screenshot method <https://github.com/CandyCoded/CandyCoded/pull/115>
+## [v1.1.5](https://github.com/CandyCoded/CandyCoded/tree/v1.1.5) - (2019-02-10)
 
-### Bug Fixes
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.1.4...v1.1.5)
 
-- Fixed issue with interface access modifiers. <https://github.com/CandyCoded/CandyCoded/pull/111>
-- Changed return value for LookAt2D <https://github.com/CandyCoded/CandyCoded/pull/114>
+- InputManager documentation (#80) [#80](https://github.com/CandyCoded/CandyCoded/pull/80)
+- Refactored InputManager GetInputUp Methods (#78) [#78](https://github.com/CandyCoded/CandyCoded/pull/78)
+- Fixed code warnings (#79) [#79](https://github.com/CandyCoded/CandyCoded/pull/79)
+- Replaced reference to mousePosition in touch method. (#77) [#77](https://github.com/CandyCoded/CandyCoded/pull/77)
+- Fixed bug where Shuffle on ObservableList would return null. (#76) [#76](https://github.com/CandyCoded/CandyCoded/pull/76)
+- Shuffle seed parameter (#75) [#75](https://github.com/CandyCoded/CandyCoded/pull/75)
 
-## [2.0.0] - 2019-07-05
+## [v1.1.4](https://github.com/CandyCoded/CandyCoded/tree/v1.1.4) - (2019-02-03)
 
-### Features
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.1.3...v1.1.4)
 
-- Added AudioPoolReference. <https://github.com/CandyCoded/CandyCoded/pull/100>
-- Added Pool extensions. <https://github.com/CandyCoded/CandyCoded/pull/103>
+- Fix for cache directory in Travis CI config. (#74) [#74](https://github.com/CandyCoded/CandyCoded/pull/74)
+- Added pop, shift and unshift list extensions. (#73) [#73](https://github.com/CandyCoded/CandyCoded/pull/73)
+- Sorted methods in code and documentation. (#72) [#72](https://github.com/CandyCoded/CandyCoded/pull/72)
 
-### Bug Fixes
+## [v1.1.3](https://github.com/CandyCoded/CandyCoded/tree/v1.1.3) - (2019-01-26)
 
-- Fixed issues with reset functionality in AudioPoolReference. <https://github.com/CandyCoded/CandyCoded/pull/102>
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.1.2...v1.1.3)
 
-### Maintenance
+- Fixes recommended by the Unity Package Validation Suite (#71) [#71](https://github.com/CandyCoded/CandyCoded/pull/71)
 
-- Removed CreateAssetBundles. <https://github.com/CandyCoded/CandyCoded/pull/104>
-- Code cleanup. <https://github.com/CandyCoded/CandyCoded/pull/105>
-- Removed elvis operator from EventProfiler. <https://github.com/CandyCoded/CandyCoded/pull/107>
-- Removed LoadAssetBundle. <https://github.com/CandyCoded/CandyCoded/pull/108>
-- Updated documentation. <https://github.com/CandyCoded/CandyCoded/pull/109>
+## [v1.1.2](https://github.com/CandyCoded/CandyCoded/tree/v1.1.2) - (2019-01-26)
 
-## [1.1.8] - 2019-05-12
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.1.1...v1.1.2)
 
-### Features
+- Added new methods for working with 2d colliders. (#70) [#70](https://github.com/CandyCoded/CandyCoded/pull/70)
 
-- Added RangedSliderDrawer property attribute. <https://github.com/CandyCoded/CandyCoded/pull/95>
+## [v1.1.1](https://github.com/CandyCoded/CandyCoded/tree/v1.1.1) - (2019-01-23)
 
-### Maintenance
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.1.0...v1.1.1)
 
-- Added .editorconfig and formatted all code to match new style <https://github.com/CandyCoded/CandyCoded/pull/97>
-- Changed List.Shuffle to return an IEnumerable rather than a List.
-- Changed ObservableList.Unshift return an IEnumerable rather than a List.
-- Changed Materials.Materials to an IEnumerable rather than a List.
-- Changed Materials.GetMaterialsInChildren to return an IEnumerable rather than an array.
-- Improvements to Travis CI build/testing.
+- Highlight gameobject on select. (#69) [#69](https://github.com/CandyCoded/CandyCoded/pull/69)
+- Suppress warnings (#68) [#68](https://github.com/CandyCoded/CandyCoded/pull/68)
 
-## [1.1.7] - 2019-04-09
+## [v1.1.0](https://github.com/CandyCoded/CandyCoded/tree/v1.1.0) - (2018-12-20)
 
-### Features
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.0.0-beta.12...v1.1.0)
 
-- Added persistentDataPath as a default prefix for relative paths. <https://github.com/CandyCoded/CandyCoded/pull/90>
-- Switched to using Equals when comparing enums. <https://github.com/CandyCoded/CandyCoded/pull/91>
-- Added optional parentTransform to object pool. <https://github.com/CandyCoded/CandyCoded/pull/92>
-- Added NearlyEqual method. <https://github.com/CandyCoded/CandyCoded/pull/93>
-- Updated InputManager to support clicking on child colliders. <https://github.com/CandyCoded/CandyCoded/pull/94>
+- Updated to .NET 4 (#67) [#67](https://github.com/CandyCoded/CandyCoded/pull/67)
+- Added namespace to files without it. (#66) [#66](https://github.com/CandyCoded/CandyCoded/pull/66)
 
-## [1.1.6] - 2019-03-10
+## [v1.0.0-beta.12](https://github.com/CandyCoded/CandyCoded/tree/v1.0.0-beta.12) - (2018-12-14)
 
-### Bug Fixes
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.0.0-beta.11...v1.0.0-beta.12)
 
-- Fixed issue where InputManager.GetTouchDown would only work with one target at time. <https://github.com/CandyCoded/CandyCoded/pull/86>
+- Add icon to event profiler (#65) [#65](https://github.com/CandyCoded/CandyCoded/pull/65)
+- Repaint GUI when playing and not paused. (#64) [#64](https://github.com/CandyCoded/CandyCoded/pull/64)
+- Fix lock icon (#63) [#63](https://github.com/CandyCoded/CandyCoded/pull/63)
+- Improve event profiler (#62) [#62](https://github.com/CandyCoded/CandyCoded/pull/62)
+- Removed DisplayInInspector editor attribute. (#61) [#61](https://github.com/CandyCoded/CandyCoded/pull/61)
+- Added new EventProfiler. (#60) [#60](https://github.com/CandyCoded/CandyCoded/pull/60)
+- Added Compare method to Transform objects. (#59) [#59](https://github.com/CandyCoded/CandyCoded/pull/59)
+- Added Random method to Array and List. (#58) [#58](https://github.com/CandyCoded/CandyCoded/pull/58)
+- Added Random method to ObservableList. (#57) [#57](https://github.com/CandyCoded/CandyCoded/pull/57)
 
-### Features
+## [v1.0.0-beta.11](https://github.com/CandyCoded/CandyCoded/tree/v1.0.0-beta.11) - (2018-10-22)
 
-- Added new overload for AddRange that takes IEnumerable collections. <https://github.com/CandyCoded/CandyCoded/pull/82>
-- Changed InsertRange to take an IEnumerable collection. <https://github.com/CandyCoded/CandyCoded/pull/83>
-- Added new overload for GetActiveTouch that takes only fingerId. <https://github.com/CandyCoded/CandyCoded/pull/84>
-- New experimental feature SaveManager <https://github.com/CandyCoded/CandyCoded/pull/81>
-- Added Screenshot class. <https://github.com/CandyCoded/CandyCoded/pull/87>
-- Added InputManager methods that don't require a GameObject. <https://github.com/CandyCoded/CandyCoded/pull/89>
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.0.0-beta.10...v1.0.0-beta.11)
 
-### Maintenance
+- Fixed issue with ObservableList RemoveRange method (#56) [#56](https://github.com/CandyCoded/CandyCoded/pull/56)
+- Return item on RemoveEvent. (#54) [#54](https://github.com/CandyCoded/CandyCoded/pull/54)
+- Added RaycastHit to GetInputDown methods. (#53) [#53](https://github.com/CandyCoded/CandyCoded/pull/53)
+- Added Permutations method. (#52) [#52](https://github.com/CandyCoded/CandyCoded/pull/52)
+- InputManager (#48) [#48](https://github.com/CandyCoded/CandyCoded/pull/48)
+- LoadAssetBundle (#40) [#40](https://github.com/CandyCoded/CandyCoded/pull/40)
+- Removed components from CandyCoded. (#51) [#51](https://github.com/CandyCoded/CandyCoded/pull/51)
+- Added option to MoveTo method for animating in Self or World space. (#50) [#50](https://github.com/CandyCoded/CandyCoded/pull/50)
+- Added GetLayerMask extension. (#49) [#49](https://github.com/CandyCoded/CandyCoded/pull/49)
+- Test the routine value before calling StopCoroutine. (#46) [#46](https://github.com/CandyCoded/CandyCoded/pull/46)
+- Wrap Vector3 in Quaternion.Euler method call. (#45) [#45](https://github.com/CandyCoded/CandyCoded/pull/45)
+- Prevent attempt to select color when no color exists. (#44) [#44](https://github.com/CandyCoded/CandyCoded/pull/44)
+- Removed camera components in favor of Cinemachine. (#42) [#42](https://github.com/CandyCoded/CandyCoded/pull/42)
+- Switch to remote Travis CI scripts (#41) [#41](https://github.com/CandyCoded/CandyCoded/pull/41)
+- Travis CI - Update Unity to 2018 (#39) [#39](https://github.com/CandyCoded/CandyCoded/pull/39)
+- Removed all materials, shaders and textures. (#38) [#38](https://github.com/CandyCoded/CandyCoded/pull/38)
 
-- Moved ScriptableObjects folder into Scripts folder.
-- Switched to using Input.touches rather than Input.GetTouch. <https://github.com/CandyCoded/CandyCoded/pull/88>
+## [v1.0.0-beta.10](https://github.com/CandyCoded/CandyCoded/tree/v1.0.0-beta.10) - (2018-08-09)
 
-## [1.1.5] - 2019-02-10
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.0.0-beta.9...v1.0.0-beta.10)
 
-### Bug Fixes
+- Code cleanup (#36) [#36](https://github.com/CandyCoded/CandyCoded/pull/36)
+- Added ToList method to ObservableList. (#34) [#34](https://github.com/CandyCoded/CandyCoded/pull/34)
+- Put event handler call after the list is modified. (#33) [#33](https://github.com/CandyCoded/CandyCoded/pull/33)
+- Added RotateTo that takes quaternion rather than Vector3. (#32) [#32](https://github.com/CandyCoded/CandyCoded/pull/32)
 
-- Fixed bug where Shuffle on ObservableList would return null. <https://github.com/CandyCoded/CandyCoded/pull/76>
-- Replaced reference to mousePosition in touch method. <https://github.com/CandyCoded/CandyCoded/pull/77>
+## [v1.0.0-beta.9](https://github.com/CandyCoded/CandyCoded/tree/v1.0.0-beta.9) - (2018-07-16)
 
-### Features
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.0.0-beta.8...v1.0.0-beta.9)
 
-- Shuffle seed parameter <https://github.com/CandyCoded/CandyCoded/pull/75>
-- Refactored InputManager GetInputUp Methods <https://github.com/CandyCoded/CandyCoded/pull/78>
+- Fixed invalid rotation reference. (#31) [#31](https://github.com/CandyCoded/CandyCoded/pull/31)
 
-### Maintenance
+## [v1.0.0-beta.8](https://github.com/CandyCoded/CandyCoded/tree/v1.0.0-beta.8) - (2018-07-16)
 
-- Fixed code warnings <https://github.com/CandyCoded/CandyCoded/pull/79>
-- InputManager documentation <https://github.com/CandyCoded/CandyCoded/pull/80>
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.0.0-beta.7...v1.0.0-beta.8)
 
-## [1.1.4] - 2019-02-03
+- Fixed issue with animation rotation (#30) [#30](https://github.com/CandyCoded/CandyCoded/pull/30)
+- Create CODE_OF_CONDUCT.md (#29) [#29](https://github.com/CandyCoded/CandyCoded/pull/29)
+- DisplayInInspector IEnumerator support (#28) [#28](https://github.com/CandyCoded/CandyCoded/pull/28)
 
-### Maintenance
+## [v1.0.0-beta.7](https://github.com/CandyCoded/CandyCoded/tree/v1.0.0-beta.7) - (2018-07-12)
 
-- Sorted methods in code and documentation. <https://github.com/CandyCoded/CandyCoded/pull/72>
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.0.0-beta.6...v1.0.0-beta.7)
 
-### Features
+- ObservableList (#27) [#27](https://github.com/CandyCoded/CandyCoded/pull/27)
+- Improved code quality (#26) [#26](https://github.com/CandyCoded/CandyCoded/pull/26)
+- Added GetChildrenByName. (#25) [#25](https://github.com/CandyCoded/CandyCoded/pull/25)
 
-- Added pop, shift and unshift list extensions. <https://github.com/CandyCoded/CandyCoded/pull/73>
+## [v1.0.0-beta.6](https://github.com/CandyCoded/CandyCoded/tree/v1.0.0-beta.6) - (2018-06-24)
 
-## [1.1.3] - 2019-01-26
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.0.0-beta.5...v1.0.0-beta.6)
 
-### Maintenance
+- No merges found
 
-- Fixes recommendations by the Unity Package Validation Suite <https://github.com/CandyCoded/CandyCoded/pull/71>
+## [v1.0.0-beta.5](https://github.com/CandyCoded/CandyCoded/tree/v1.0.0-beta.5) - (2018-06-17)
 
-## [1.1.2] - 2019-01-26
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.0.0-beta.4...v1.0.0-beta.5)
 
-### Features
+- Added Update and Reset events to CustomGenericScriptableObject. [#22](https://github.com/CandyCoded/CandyCoded/pull/22)
+- Code cleanup (#24) [#24](https://github.com/CandyCoded/CandyCoded/pull/24)
+- Added BillboardTowardsCamera component. (#23) [#23](https://github.com/CandyCoded/CandyCoded/pull/23)
 
-- InputManager: Added new methods for working with 2d colliders. <https://github.com/CandyCoded/CandyCoded/pull/70>
+## [v1.0.0-beta.4](https://github.com/CandyCoded/CandyCoded/tree/v1.0.0-beta.4) - (2018-06-08)
 
-## [1.1.1] - 2019-01-23
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.0.0-beta.3...v1.0.0-beta.4)
 
-### Bug Fixes
+- Added Runner OneShot method [#21](https://github.com/CandyCoded/CandyCoded/pull/21)
+- Added relative end position toggle to line Gizmo component. [#20](https://github.com/CandyCoded/CandyCoded/pull/20)
+- Object pool reference [#19](https://github.com/CandyCoded/CandyCoded/pull/19)
+- Fix camera follow 3d position [#18](https://github.com/CandyCoded/CandyCoded/pull/18)
 
-- Suppress warnings <https://github.com/CandyCoded/CandyCoded/pull/68>
+## [v1.0.0-beta.3](https://github.com/CandyCoded/CandyCoded/tree/v1.0.0-beta.3) - (2018-04-15)
 
-### Features
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.0.0-beta.2...v1.0.0-beta.3)
 
-- Highlight gameobject on select. <https://github.com/CandyCoded/CandyCoded/pull/69>
+- Plugin documentation [#17](https://github.com/CandyCoded/CandyCoded/pull/17)
+- Changed variable name to prevent inherited member warning. [#16](https://github.com/CandyCoded/CandyCoded/pull/16)
 
-## [1.1.0] - 2018-12-20
+## [v1.0.0-beta.2](https://github.com/CandyCoded/CandyCoded/tree/v1.0.0-beta.2) - (2018-03-25)
 
-### Features
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.0.0-beta.1...v1.0.0-beta.2)
 
-- Updated to .NET 4 <https://github.com/CandyCoded/CandyCoded/pull/67>
-- Added namespace to files without it. <https://github.com/CandyCoded/CandyCoded/pull/66>
-- Unity Package Manager Support
+- Slice & Splice custom extensions for List [#14](https://github.com/CandyCoded/CandyCoded/pull/14)
+- Changed inspector only properties to private. [#13](https://github.com/CandyCoded/CandyCoded/pull/13)
+- Changed property to public to allow for setting reference via inspector. [#12](https://github.com/CandyCoded/CandyCoded/pull/12)
+- Updated Unity version. [#11](https://github.com/CandyCoded/CandyCoded/pull/11)
+- Added EditKeyframeValue method. [#10](https://github.com/CandyCoded/CandyCoded/pull/10)
+- Added rotate overload method. [#9](https://github.com/CandyCoded/CandyCoded/pull/9)
+- Added Clone method to Vector3AnimationCurve. [#8](https://github.com/CandyCoded/CandyCoded/pull/8)
 
-## v1.0.0-beta.12 (December 14, 2018)
+## [v1.0.0-beta.1](https://github.com/CandyCoded/CandyCoded/tree/v1.0.0-beta.1) - (2018-03-12)
 
-### Features
+- Initial release! 🎉
 
-- Added new EventProfiler. <https://github.com/CandyCoded/CandyCoded/pull/60>
-- Added Compare method to Transform objects. <https://github.com/CandyCoded/CandyCoded/pull/59>
-- Added Random method to Array and List. <https://github.com/CandyCoded/CandyCoded/pull/58>
-- Added Random method to ObservableList. <https://github.com/CandyCoded/CandyCoded/pull/57>
-
-### Maintenance
-
-- Removed DisplayInInspector editor attribute. <https://github.com/CandyCoded/CandyCoded/pull/61>
-- Added missing ToList method to documentation.
-- Code cleanup on test files.
-
-## v1.0.0-beta.11 (October 21, 2018)
-
-### Bug Fixes
-
-- Prevent attempt to select color when no color exists. <https://github.com/neogeek/CandyCoded/pull/44>
-- Fixed issue with ObservableList RemoveRange method <https://github.com/neogeek/CandyCoded/pull/56>
-
-### Features
-
-- Wrap Vector3 in Quaternion.Euler method call. <https://github.com/neogeek/CandyCoded/pull/45>
-- Added GetLayerMask extension. <https://github.com/neogeek/CandyCoded/pull/49>
-- Added LoadAssetBundle <https://github.com/neogeek/CandyCoded/pull/40>
-- Added InputManager <https://github.com/neogeek/CandyCoded/pull/48>
-- Added Permutations method. <https://github.com/neogeek/CandyCoded/pull/52>
-- Added RaycastHit to GetInputDown methods. <https://github.com/neogeek/CandyCoded/pull/53>
-- Return item on RemoveEvent. <https://github.com/neogeek/CandyCoded/pull/54>
-
-### Maintenance
-
-- Removed all materials, shaders and textures. <https://github.com/neogeek/CandyCoded/pull/38>
-- Switch to remote Travis CI scripts <https://github.com/neogeek/CandyCoded/pull/41>
-- Removed camera components in favor of Cinemachine. <https://github.com/neogeek/CandyCoded/pull/42>
-- Test the routine value before calling StopCoroutine. <https://github.com/neogeek/CandyCoded/pull/46>
-
-## v1.0.0-beta.10 (August 9, 2018)
-
-### Bug Fixes
-
-- Put event handler call after the list is modified. <https://github.com/neogeek/CandyCoded/pull/33>
-
-### Features
-
-- Added ToList method to ObservableList. <https://github.com/neogeek/CandyCoded/pull/34>
-- Added RotateTo that takes quaternion rather than Vector3. <https://github.com/neogeek/CandyCoded/pull/32>
-
-### Maintenance
-
-- Improved code quality per recommendations via [Codacy](https://www.codacy.com/) and [Sonar C#](https://github.com/SonarSource/sonar-csharp)
-
-## v1.0.0-beta.9 (July 16, 2018)
-
-### Bug Fixes
-
-- Fixed invalid rotation reference. <https://github.com/neogeek/CandyCoded/pull/31>
-
-## v1.0.0-beta.8 (July 16, 2018)
-
-### Features
-
-- Added DisplayInInspector IEnumerator support <https://github.com/neogeek/CandyCoded/pull/28>
-
-### Bug Fixes
-
-- Fixed issue with animation rotation <https://github.com/neogeek/CandyCoded/pull/30>
-
-## v1.0.0-beta.7 (July 12, 2018)
-
-### Features
-
-- Added Transform.GetChildrenByName method.
-- Added ObservableList object.
-
-### Maintenance
-
-- Improved code quality per recommendations via [Codacy](https://www.codacy.com/) and [Sonar C#](https://github.com/SonarSource/sonar-csharp)
-
-## v1.0.0-beta.6 (June 24, 2018)
-
-### Bug Fixes
-
-- Fixed issue where a field was missing from the inspector in a ScriptableObject.
-
-## v1.0.0-beta.5 (June 17, 2018)
-
-### Features
-
-- Added billboard component <https://github.com/neogeek/CandyCoded/pull/23>
-- Added Update and Reset events to CustomGenericScriptableObject. <https://github.com/neogeek/CandyCoded/pull/22>
-- Added `Version.txt` to documentation folder.
-
-### Maintenance
-
-- Improved code quality per recommendations via [Codacy](https://www.codacy.com/) and [Sonar C#](https://github.com/SonarSource/sonar-csharp)
-
-## v1.0.0-beta.4 (June 8, 2018)
-
-### Features
-
-- Added Runner OneShot method <https://github.com/neogeek/CandyCoded/pull/21>
-- Added relative end position toggle to line Gizmo component <https://github.com/neogeek/CandyCoded/pull/20>
-- Object pool reference <https://github.com/neogeek/CandyCoded/pull/19>
-
-### Bug Fixes
-
-- Fix camera follow 3d position <https://github.com/neogeek/CandyCoded/pull/18>
-
-## v1.0.0-beta.3 (April 15, 2018)
-
-### Features
-
-- Plugin documentation <https://github.com/neogeek/CandyCoded/pull/17>
-
-### Bug Fixes
-
-- Changed variable name to prevent inherited member warning. <https://github.com/neogeek/CandyCoded/pull/16>
-
-## v1.0.0-beta.2 (March 25, 2018)
-
-### Features
-
-- Added Clone method to Vector3AnimationCurve.
-- Added Slice and Splice custom extensions to List objects
-- Added new overload method for Animation.RotateTo that takes quaternions.
-- Added EditKeyframeValue method.
-
-### Bug Fixes
-
-- Fixed bug where bounds were incorrect when not starting at Vector3.zero <https://github.com/neogeek/CandyCoded/commit/3b6e860f43d580d4f6d20289d52a06dfa22fdc7b>
-
-## v1.0.0-beta.1 (March 12, 2018)
-
-- Initial beta release.
+_This changelog was generated with **[generate-local-changelog](https://github.com/neogeek/generate-local-changelog)**_
