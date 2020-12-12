@@ -42,9 +42,9 @@ namespace CandyCoded.Tests
 
                 var list = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-                var chunkedList = list.Chunk(2).ToArray();
+                var chunkedList = list.Chunk(2);
 
-                Assert.AreEqual(5, chunkedList.Length);
+                Assert.AreEqual(5, chunkedList.Count);
                 Assert.AreEqual(2, chunkedList[0].Count);
 
             }
@@ -55,9 +55,9 @@ namespace CandyCoded.Tests
 
                 var list = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
 
-                var chunkedList = list.Chunk(2).ToArray();
+                var chunkedList = list.Chunk(2);
 
-                Assert.AreEqual(6, chunkedList.Length);
+                Assert.AreEqual(6, chunkedList.Count);
                 Assert.AreEqual(2, chunkedList[0].Count);
                 Assert.AreEqual(1, chunkedList[5].Count);
 
@@ -69,9 +69,9 @@ namespace CandyCoded.Tests
 
                 var list = new[] { 1 };
 
-                var chunkedList = list.Chunk(2).ToArray();
+                var chunkedList = list.Chunk(2);
 
-                Assert.AreEqual(1, chunkedList.Length);
+                Assert.AreEqual(1, chunkedList.Count);
                 Assert.AreEqual(1, chunkedList[0].Count);
 
             }
