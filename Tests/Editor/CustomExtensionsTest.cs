@@ -33,6 +33,51 @@ namespace CandyCoded.Tests
 
         }
 
+        public class ChunkList : TestSetup
+        {
+
+            [Test]
+            public void ChunkEvenList()
+            {
+
+                var list = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+                var chunkedList = list.Chunk(2).ToArray();
+
+                Assert.AreEqual(5, chunkedList.Length);
+                Assert.AreEqual(2, chunkedList[0].Count);
+
+            }
+
+            [Test]
+            public void ChunkOddList()
+            {
+
+                var list = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+
+                var chunkedList = list.Chunk(2).ToArray();
+
+                Assert.AreEqual(6, chunkedList.Length);
+                Assert.AreEqual(2, chunkedList[0].Count);
+                Assert.AreEqual(1, chunkedList[5].Count);
+
+            }
+
+            [Test]
+            public void ChunkShortList()
+            {
+
+                var list = new[] { 1 };
+
+                var chunkedList = list.Chunk(2).ToArray();
+
+                Assert.AreEqual(1, chunkedList.Length);
+                Assert.AreEqual(1, chunkedList[0].Count);
+
+            }
+
+        }
+
         public class Compare : TestSetup
         {
 
