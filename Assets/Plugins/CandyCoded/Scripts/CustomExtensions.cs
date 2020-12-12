@@ -48,6 +48,21 @@ namespace CandyCoded
         }
 
         /// <summary>
+        ///     Splits list into a multidimensional list with smaller chunks of the source list.
+        /// </summary>
+        /// <param name="list">Source list.</param>
+        /// <param name="length">Length of chunks.</param>
+        /// <returns>List<List /></returns>
+        public static List<List<T>> Chunk<T>(this IEnumerable<T> list, int length)
+        {
+
+            return list.Select((value, index) => new { index, value })
+                .GroupBy(item => item.index / length)
+                .Select(items => items.Select(item => item.value).ToList()).ToList();
+
+        }
+
+        /// <summary>
         ///     Compares one transform to another using the attached GameObjects.
         /// </summary>
         /// <param name="transform">Transform object.</param>
