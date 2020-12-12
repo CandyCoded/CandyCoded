@@ -10,12 +10,12 @@ namespace CandyCoded
     public abstract class PoolReference<T> : ScriptableObject
     {
 
+        [SerializeField]
+        internal int _minObjects = 10;
+
         internal readonly HashSet<T> _activeObjects = new HashSet<T>();
 
         internal readonly Queue<T> _inactiveObjects = new Queue<T>();
-
-        [SerializeField]
-        internal int _minObjects = 10;
 
         public int minObjects
         {

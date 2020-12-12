@@ -61,14 +61,6 @@ namespace CandyCoded
 
         private Texture2D _prefabIcon;
 
-        [MenuItem("Window/CandyCoded/Event Profiler")]
-        public static void ShowWindow()
-        {
-
-            GetWindow(typeof(EventProfiler), false, "Event Profiler", true);
-
-        }
-
         private void Update()
         {
 
@@ -78,6 +70,14 @@ namespace CandyCoded
                 Repaint();
 
             }
+
+        }
+
+        [MenuItem("Window/CandyCoded/Event Profiler")]
+        public static void ShowWindow()
+        {
+
+            GetWindow(typeof(EventProfiler), false, "Event Profiler", true);
 
         }
 

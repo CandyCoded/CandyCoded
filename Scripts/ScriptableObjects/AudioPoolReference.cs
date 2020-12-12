@@ -86,6 +86,31 @@ namespace CandyCoded
             }
         }
 
+#pragma warning disable S1144
+
+        // Disables "Unused private types or members should be removed" warning as method is part of MonoBehaviour.
+        private void OnValidate()
+        {
+
+            for (var i = _prevAudioDataArrayLength; i < _audioDataArray.Length; i += 1)
+            {
+
+                var audioData = _audioDataArray[i];
+
+                if (audioData.name.Equals(string.Empty) && audioData.clips.Length.Equals(0))
+                {
+
+                    audioData.Reset();
+
+                }
+
+            }
+
+            _prevAudioDataArrayLength = _audioDataArray.Length;
+
+        }
+#pragma warning restore S1144
+
         /// <summary>
         ///     Creates a new AudioSource for use in a AudioSource pool.
         /// </summary>
@@ -181,31 +206,6 @@ namespace CandyCoded
             Release(audioSource);
 
         }
-
-#pragma warning disable S1144
-
-        // Disables "Unused private types or members should be removed" warning as method is part of MonoBehaviour.
-        private void OnValidate()
-        {
-
-            for (var i = _prevAudioDataArrayLength; i < _audioDataArray.Length; i += 1)
-            {
-
-                var audioData = _audioDataArray[i];
-
-                if (audioData.name.Equals(string.Empty) && audioData.clips.Length.Equals(0))
-                {
-
-                    audioData.Reset();
-
-                }
-
-            }
-
-            _prevAudioDataArrayLength = _audioDataArray.Length;
-
-        }
-#pragma warning restore S1144
 
     }
 

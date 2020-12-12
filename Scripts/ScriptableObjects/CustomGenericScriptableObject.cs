@@ -36,10 +36,6 @@ namespace CandyCoded
 
         public T DefaultValue => _defaultValue;
 
-        public event EventHandler UpdateEvent;
-
-        public event EventHandler ResetEvent;
-
         /// <summary>
         ///     Resets the scriptable object value back to its default value.
         /// </summary>
@@ -52,6 +48,10 @@ namespace CandyCoded
             ResetEvent?.Invoke(_value);
 
         }
+
+        public event EventHandler UpdateEvent;
+
+        public event EventHandler ResetEvent;
 
     }
 #pragma warning restore S1694
