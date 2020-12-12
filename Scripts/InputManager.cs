@@ -31,9 +31,9 @@ namespace CandyCoded
 
             }
 
-            var results = GetMouseButtonDown(gameObject, mainCamera, out hit);
+            var result = GetMouseButtonDown(gameObject, mainCamera, out hit);
 
-            if (!results)
+            if (!result)
             {
                 return false;
             }
@@ -64,9 +64,9 @@ namespace CandyCoded
 
             }
 
-            var results = GetMouseButtonDown(gameObject, mainCamera, out hit);
+            var result = GetMouseButtonDown(gameObject, mainCamera, out hit);
 
-            if (!results)
+            if (!result)
             {
                 return false;
             }
@@ -92,9 +92,9 @@ namespace CandyCoded
 
             }
 
-            var results = GetMouseButtonDown();
+            var result = GetMouseButtonDown();
 
-            if (!results)
+            if (!result)
             {
                 return false;
             }
