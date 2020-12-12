@@ -1,5 +1,14 @@
 ### List
 
+#### Chunk
+
+Splits list into a multidimensional list with smaller chunks of the source list.
+
+```csharp
+List<float> list = new List<float>() { 1, 2, 3, 4, 5 };
+Debug.Log(list.Chunk(2)[0].Count);
+```
+
 #### Contains
 
 Tests list for the supplied list items.
