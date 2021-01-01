@@ -359,6 +359,21 @@ namespace CandyCoded.Tests
 
         }
 
+        public class Nicify : TestSetup
+        {
+
+            [Test]
+            public void NicifyStrings()
+            {
+
+                Assert.AreEqual("My Variable", "MyVariable".Nicify());
+                Assert.AreEqual("The Other Variable", "m_TheOtherVariable".Nicify());
+                Assert.AreEqual("Some Constant", "kSomeConstant".Nicify());
+
+            }
+
+        }
+
         public class Permutations : TestSetup
         {
 

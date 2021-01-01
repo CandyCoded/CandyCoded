@@ -139,6 +139,8 @@ CandyCoded is a collection of useful components and extensions for building in U
     - [Unshift](Documentation/2.%20Custom%20Extensions/List.md#unshift)
   - [Quaternion](Documentation/2.%20Custom%20Extensions/Quaternion.md)
     - [SnapRotation](Documentation/2.%20Custom%20Extensions/Quaternion.md#snaprotation)
+  - [String](Documentation/2.%20Custom%20Extensions/String.md)
+    - [Nicify](Documentation/2.%20Custom%20Extensions/String.md#nicify)
   - [Transform](Documentation/2.%20Custom%20Extensions/Transform.md)
     - [GetChildrenByName](Documentation/2.%20Custom%20Extensions/Transform.md#getchildrenbyname)
     - [LookAt2D](Documentation/2.%20Custom%20Extensions/Transform.md#lookat2d)
