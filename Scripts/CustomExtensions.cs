@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using Random = System.Random;
 
@@ -353,6 +354,24 @@ namespace CandyCoded
         {
 
             return NearlyEqual(a, b, EPSILON);
+
+        }
+
+        /// <summary>
+        ///     Returns displayable string for given value. Adds spaces between uppercase letters and
+        ///     removes m_, _ or k from beginning of value.
+        /// </summary>
+        /// <param name="content">String to nicify.</param>
+        /// <returns>string</returns>
+        public static string Nicify(this string content)
+        {
+
+            var updatedContent = content;
+
+            updatedContent = Regex.Replace(updatedContent, "^(m_|k|_)", "");
+            updatedContent = Regex.Replace(updatedContent, "[A-Z]", match => $" {match}");
+
+            return updatedContent.Trim();
 
         }
 
