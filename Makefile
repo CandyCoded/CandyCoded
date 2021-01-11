@@ -11,6 +11,9 @@ test:
 	shellcheck Scripts/*.sh
 	bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/master/bin/test.sh)
 
+docs:
+	docfx docfx_project/docfx.json --build
+
 clean:
 	git clean -xdf
 
