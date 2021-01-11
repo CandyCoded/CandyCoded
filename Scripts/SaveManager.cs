@@ -8,6 +8,9 @@ using UnityEngine;
 namespace CandyCoded
 {
 
+    /// <summary>
+    /// SaveManager
+    /// </summary>
     public static class SaveManager
     {
 

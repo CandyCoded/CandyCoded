@@ -5,6 +5,9 @@ using UnityEngine;
 namespace CandyCoded
 {
 
+    /// <summary>
+    /// Calculation
+    /// </summary>
     public static class Calculation
     {
 

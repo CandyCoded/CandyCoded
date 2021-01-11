@@ -7,6 +7,9 @@ using UnityEngine;
 namespace CandyCoded
 {
 
+    /// <summary>
+    /// PoolReference
+    /// </summary>
     public abstract class PoolReference<T> : ScriptableObject
     {
 

@@ -6,6 +6,9 @@ using UnityEngine;
 namespace CandyCoded
 {
 
+    /// <summary>
+    /// Debugger
+    /// </summary>
     public static class Debugger
     {
 

@@ -7,6 +7,9 @@ using UnityEngine;
 namespace CandyCoded
 {
 
+    /// <summary>
+    /// StringReference
+    /// </summary>
     [CreateAssetMenu(fileName = "StringReference", menuName = "CandyCoded/StringReference")]
     [HelpURL("https://github.com/CandyCoded/CandyCoded/blob/master/Documentation/4.%20ScriptableObject/String.md")]
     public class StringReference : CustomGenericScriptableObject<string>

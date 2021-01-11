@@ -8,6 +8,9 @@ using UnityEngine;
 namespace CandyCoded.Interfaces
 {
 
+    /// <summary>
+    /// InterfaceEvents
+    /// </summary>
     public static class InterfaceEvents
     {
 

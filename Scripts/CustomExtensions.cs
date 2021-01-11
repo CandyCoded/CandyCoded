@@ -20,6 +20,9 @@ namespace CandyCoded
 
     }
 
+    /// <summary>
+    /// CustomExtensions
+    /// </summary>
     public static class CustomExtensions
     {
 

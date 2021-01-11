@@ -7,6 +7,9 @@ using UnityEngine;
 namespace CandyCoded
 {
 
+    /// <summary>
+    /// Runner
+    /// </summary>
     public class Runner : MonoBehaviour
     {
 

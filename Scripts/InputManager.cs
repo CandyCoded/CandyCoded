@@ -6,6 +6,9 @@ using UnityEngine;
 namespace CandyCoded
 {
 
+    /// <summary>
+    /// InputManager
+    /// </summary>
     public static class InputManager
     {
 
