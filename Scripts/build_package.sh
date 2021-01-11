@@ -6,7 +6,7 @@ mv Assets/Plugins/CandyCoded/Tests Assets/Plugins/CandyCoded/Tests~
 
 BUILD_TAG=$(cat Documentation/Version.txt)
 
-LATEST_UNITY_VERSION=$(find /Applications/Unity -name Unity.app | sort -r | head -1)
+LATEST_UNITY_VERSION=$(find-unity)
 
 echo "Building with ${LATEST_UNITY_VERSION}"
 
