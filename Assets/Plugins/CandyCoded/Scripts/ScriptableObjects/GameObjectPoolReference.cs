@@ -7,6 +7,9 @@ using UnityEngine;
 namespace CandyCoded
 {
 
+    /// <summary>
+    /// GameObjectPoolReference
+    /// </summary>
     [CreateAssetMenu(fileName = "GameObjectPoolReference", menuName = "CandyCoded/GameObjectPoolReference")]
     [HelpURL(
         "https://github.com/CandyCoded/CandyCoded/blob/master/Documentation/4.%20ScriptableObject/GameObjectPool.md")]

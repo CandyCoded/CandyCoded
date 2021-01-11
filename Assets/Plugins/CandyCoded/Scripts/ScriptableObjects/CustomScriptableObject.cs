@@ -8,6 +8,9 @@ using UnityEditor;
 namespace CandyCoded
 {
 
+    /// <summary>
+    /// CustomScriptableObject
+    /// </summary>
     public abstract class CustomScriptableObject : ScriptableObject
     {
 

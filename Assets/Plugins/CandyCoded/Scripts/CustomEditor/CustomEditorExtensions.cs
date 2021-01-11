@@ -7,6 +7,9 @@ using UnityEngine;
 namespace CandyCoded
 {
 
+    /// <summary>
+    /// CustomEditorExtensions
+    /// </summary>
     public static class CustomEditorExtensions
     {
 
