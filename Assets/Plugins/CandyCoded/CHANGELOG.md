@@ -1,5 +1,11 @@
 # Changelog
 
+## [v4.1.0](https://github.com/CandyCoded/CandyCoded/tree/v4.1.0) - (2021-01-01)
+
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v4.0.0...v4.1.0)
+
+- Added Nicify string extension. (#156) [#156](https://github.com/CandyCoded/CandyCoded/pull/156)
+
 ## [v4.0.0](https://github.com/CandyCoded/CandyCoded/tree/v4.0.0) - (2020-12-12)
 
 [Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v3.2.0...v4.0.0)
@@ -48,7 +54,6 @@
 [Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v2.4.0...v3.0.0)
 
 - No merges found
-
 ## [v2.4.0](https://github.com/CandyCoded/CandyCoded/tree/v2.4.0) - (2019-09-02)
 
 [Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v2.3.0...v2.4.0)
@@ -128,7 +133,7 @@
 - New experimental feature SaveManager (#81) [#81](https://github.com/CandyCoded/CandyCoded/pull/81)
 - Fixed issue where InputManager.GetTouchDown would only work with one target at time (#86) [#86](https://github.com/CandyCoded/CandyCoded/pull/86)
 - Added new overload for GetActiveTouch that takes only fingerId. (#84) [#84](https://github.com/CandyCoded/CandyCoded/pull/84)
-- Changed InsertRange to take an IEnumerable collection. (#83) [#83](https://github.com/CandyCoded/CandyCoded/pull/83)
+-  Changed InsertRange to take an IEnumerable collection. (#83) [#83](https://github.com/CandyCoded/CandyCoded/pull/83)
 - Added new overload for AddRange that takes IEnumerable collections. (#82) [#82](https://github.com/CandyCoded/CandyCoded/pull/82)
 
 ## [v1.1.5](https://github.com/CandyCoded/CandyCoded/tree/v1.1.5) - (2019-02-10)
@@ -247,7 +252,6 @@
 [Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.0.0-beta.5...v1.0.0-beta.6)
 
 - No merges found
-
 ## [v1.0.0-beta.5](https://github.com/CandyCoded/CandyCoded/tree/v1.0.0-beta.5) - (2018-06-17)
 
 [Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v1.0.0-beta.4...v1.0.0-beta.5)
