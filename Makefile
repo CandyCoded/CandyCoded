@@ -11,6 +11,9 @@ test:
 	shellcheck Scripts/*.sh
 	bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/master/bin/test.sh)
 
+docs:
+	doxygen doxygen.config
+
 clean:
 	git clean -xdf
 
