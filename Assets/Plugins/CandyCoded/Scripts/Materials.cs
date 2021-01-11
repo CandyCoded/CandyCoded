@@ -6,6 +6,9 @@ using UnityEngine;
 namespace CandyCoded
 {
 
+    /// <summary>
+    /// Materials
+    /// </summary>
     public static class Materials
     {
 

@@ -11,6 +11,9 @@ using UnityEditor;
 namespace CandyCoded
 {
 
+    /// <summary>
+    /// Screenshot
+    /// </summary>
     public static class Screenshot
     {
 

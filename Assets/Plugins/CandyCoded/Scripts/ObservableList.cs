@@ -8,6 +8,9 @@ using System.Linq;
 namespace CandyCoded
 {
 
+    /// <summary>
+    /// ObservableList
+    /// </summary>
     [Serializable]
     public class ObservableList<T> : IList<T>
     {

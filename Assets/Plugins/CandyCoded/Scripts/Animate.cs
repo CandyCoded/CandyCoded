@@ -6,6 +6,9 @@ using UnityEngine;
 namespace CandyCoded
 {
 
+    /// <summary>
+    /// Animate
+    /// </summary>
     public static class Animate
     {
 

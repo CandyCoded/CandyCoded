@@ -5,6 +5,9 @@ using UnityEngine;
 namespace CandyCoded
 {
 
+    /// <summary>
+    /// Math
+    /// </summary>
     public static class Math
     {
 

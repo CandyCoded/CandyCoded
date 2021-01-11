@@ -41,6 +41,9 @@ namespace CandyCoded
 
     }
 
+    /// <summary>
+    /// AnimationData
+    /// </summary>
     public class AnimationData : MonoBehaviour
     {
 
