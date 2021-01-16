@@ -1,13 +1,15 @@
 {
   "dependencies": {
     "com.unity.ide.rider": "1.1.4",
-    "com.unity.test-framework": "1.1.19",
+    "com.unity.inputsystem": "1.0.1",
+    "com.unity.test-framework": "1.1.20",
     "com.unity.modules.audio": "1.0.0",
     "com.unity.modules.imageconversion": "1.0.0",
     "com.unity.modules.imgui": "1.0.0",
     "com.unity.modules.jsonserialize": "1.0.0",
     "com.unity.modules.physics": "1.0.0",
     "com.unity.modules.physics2d": "1.0.0",
-    "com.unity.modules.screencapture": "1.0.0"
+    "com.unity.modules.screencapture": "1.0.0",
+    "com.unity.modules.uielements": "1.0.0"
   }
 }
