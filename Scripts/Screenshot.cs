@@ -12,7 +12,7 @@ namespace CandyCoded
 {
 
     /// <summary>
-    /// Screenshot
+    ///     Screenshot
     /// </summary>
     public static class Screenshot
     {

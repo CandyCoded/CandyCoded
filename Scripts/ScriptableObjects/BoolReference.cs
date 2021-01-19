@@ -8,7 +8,7 @@ namespace CandyCoded
 {
 
     /// <summary>
-    /// BoolReference
+    ///     BoolReference
     /// </summary>
     [CreateAssetMenu(fileName = "BoolReference", menuName = "CandyCoded/BoolReference")]
     [HelpURL("https://github.com/CandyCoded/CandyCoded/blob/master/Documentation/4.%20ScriptableObject/Bool.md")]

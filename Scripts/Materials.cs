@@ -7,7 +7,7 @@ namespace CandyCoded
 {
 
     /// <summary>
-    /// Materials
+    ///     Materials
     /// </summary>
     public static class Materials
     {

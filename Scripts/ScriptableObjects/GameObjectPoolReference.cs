@@ -8,7 +8,7 @@ namespace CandyCoded
 {
 
     /// <summary>
-    /// GameObjectPoolReference
+    ///     GameObjectPoolReference
     /// </summary>
     [CreateAssetMenu(fileName = "GameObjectPoolReference", menuName = "CandyCoded/GameObjectPoolReference")]
     [HelpURL(

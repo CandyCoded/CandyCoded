@@ -8,7 +8,7 @@ namespace CandyCoded
 {
 
     /// <summary>
-    /// PoolReference
+    ///     PoolReference
     /// </summary>
     public abstract class PoolReference<T> : ScriptableObject
     {

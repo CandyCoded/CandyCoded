@@ -9,7 +9,7 @@ namespace CandyCoded
 {
 
     /// <summary>
-    /// ObservableList
+    ///     ObservableList
     /// </summary>
     [Serializable]
     public class ObservableList<T> : IList<T>

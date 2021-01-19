@@ -12,7 +12,7 @@ namespace CandyCoded
     // Disables "An abstract class should have both abstract and concrete methods" warning as class must extend CustomScriptableObject.
 
     /// <summary>
-    /// ObservableListReference
+    ///     ObservableListReference
     /// </summary>
     public abstract class ObservableListReference<T> : CustomScriptableObject
     {
