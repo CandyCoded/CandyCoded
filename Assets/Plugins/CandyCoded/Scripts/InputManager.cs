@@ -2,6 +2,13 @@
 
 using System.Linq;
 using UnityEngine;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
+using EnhancedTouchSupport = UnityEngine.InputSystem.EnhancedTouch.EnhancedTouchSupport;
+using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
+using TouchPhase = UnityEngine.InputSystem.TouchPhase;
+#endif
 
 namespace CandyCoded
 {
@@ -12,7 +19,36 @@ namespace CandyCoded
     public static class InputManager
     {
 
-        public static int _defaultMouseButtonIndex = 0;
+        public static int defaultMouseButtonIndex = 0;
+
+#if ENABLE_INPUT_SYSTEM
+        public static bool touchSupported => EnhancedTouchSupport.enabled;
+
+        public static ReadOnlyArray<Touch> touches => Touch.activeTouches;
+
+        public static int touchCount => touches.Count;
+#else
+        public static bool touchSupported => Input.touchSupported;
+
+        public static Touch[] touches => Input.touches;
+
+        public static int touchCount => touches.Length;
+#endif
+
+#if ENABLE_INPUT_SYSTEM
+        [RuntimeInitializeOnLoadMethodAttribute(RuntimeInitializeLoadType.AfterSceneLoad)]
+        private static void Setup()
+        {
+
+            if (Touchscreen.current == null)
+            {
+                return;
+            }
+
+            EnhancedTouchSupport.Enable();
+
+        }
+#endif
 
         /// <summary>
         ///     Returns true if the user has either pressed the primary mouse button or touched the screen over a specific
@@ -27,7 +63,7 @@ namespace CandyCoded
             out RaycastHit hit)
         {
 
-            if (Input.touchSupported)
+            if (touchSupported)
             {
 
                 return GetTouchDown(gameObject, mainCamera, ref currentFingerId, out hit);
@@ -41,7 +77,7 @@ namespace CandyCoded
                 return false;
             }
 
-            currentFingerId = _defaultMouseButtonIndex;
+            currentFingerId = defaultMouseButtonIndex;
 
             return true;
 
@@ -60,7 +96,7 @@ namespace CandyCoded
             out RaycastHit2D hit)
         {
 
-            if (Input.touchSupported)
+            if (touchSupported)
             {
 
                 return GetTouchDown(gameObject, mainCamera, ref currentFingerId, out hit);
@@ -74,7 +110,7 @@ namespace CandyCoded
                 return false;
             }
 
-            currentFingerId = _defaultMouseButtonIndex;
+            currentFingerId = defaultMouseButtonIndex;
 
             return true;
 
@@ -88,7 +124,7 @@ namespace CandyCoded
         public static bool GetInputDown(ref int? currentFingerId)
         {
 
-            if (Input.touchSupported)
+            if (touchSupported)
             {
 
                 return GetTouchDown(ref currentFingerId);
@@ -102,7 +138,7 @@ namespace CandyCoded
                 return false;
             }
 
-            currentFingerId = _defaultMouseButtonIndex;
+            currentFingerId = defaultMouseButtonIndex;
 
             return true;
 
@@ -115,7 +151,7 @@ namespace CandyCoded
         public static bool GetInputDown()
         {
 
-            return Input.touchSupported ? GetTouchDown() : GetMouseButtonDown();
+            return touchSupported ? GetTouchDown() : GetMouseButtonDown();
 
         }
 
@@ -127,7 +163,7 @@ namespace CandyCoded
         public static Vector3? GetInputPosition(int? currentFingerId)
         {
 
-            return Input.touchSupported ? GetTouchPosition(currentFingerId) : GetMousePosition();
+            return touchSupported ? GetTouchPosition(currentFingerId) : GetMousePosition();
 
         }
 
@@ -151,7 +187,7 @@ namespace CandyCoded
                 return false;
             }
 
-            if (Input.touchSupported)
+            if (touchSupported)
             {
 
                 return GetTouchUp(gameObject, mainCamera, ref currentFingerId, out hit);
@@ -191,7 +227,7 @@ namespace CandyCoded
                 return false;
             }
 
-            if (Input.touchSupported)
+            if (touchSupported)
             {
 
                 return GetTouchUp(gameObject, mainCamera, ref currentFingerId, out hit);
@@ -224,7 +260,7 @@ namespace CandyCoded
                 return false;
             }
 
-            if (Input.touchSupported)
+            if (touchSupported)
             {
 
                 return GetTouchUp(ref currentFingerId);
@@ -251,7 +287,7 @@ namespace CandyCoded
         public static bool GetInputUp()
         {
 
-            return Input.touchSupported ? GetTouchUp() : GetMouseButtonUp();
+            return touchSupported ? GetTouchUp() : GetMouseButtonUp();
 
         }
 
@@ -267,8 +303,14 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            return Input.GetMouseButtonDown(_defaultMouseButtonIndex) &&
-                   RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
+            var mousePosition = GetMousePosition();
+
+            if (!mousePosition.HasValue)
+            {
+                return false;
+            }
+
+            return GetMouseButtonDown() && RaycastToGameObject(gameObject, mainCamera, mousePosition.Value, out hit);
 
         }
 
@@ -284,8 +326,14 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            return Input.GetMouseButtonDown(_defaultMouseButtonIndex) &&
-                   RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
+            var mousePosition = GetMousePosition();
+
+            if (!mousePosition.HasValue)
+            {
+                return false;
+            }
+
+            return GetMouseButtonDown() && RaycastToGameObject(gameObject, mainCamera, mousePosition.Value, out hit);
 
         }
 
@@ -296,7 +344,13 @@ namespace CandyCoded
         public static bool GetMouseButtonDown()
         {
 
-            return Input.GetMouseButtonDown(_defaultMouseButtonIndex);
+#if ENABLE_INPUT_SYSTEM
+            return defaultMouseButtonIndex == 0
+                ? Mouse.current.leftButton.wasPressedThisFrame
+                : Mouse.current.rightButton.wasPressedThisFrame;
+#else
+            return Input.GetMouseButtonDown(defaultMouseButtonIndex);
+#endif
 
         }
 
@@ -312,8 +366,14 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            return Input.GetMouseButtonUp(_defaultMouseButtonIndex) &&
-                   RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
+            var mousePosition = GetMousePosition();
+
+            if (!mousePosition.HasValue)
+            {
+                return false;
+            }
+
+            return GetMouseButtonUp() && RaycastToGameObject(gameObject, mainCamera, mousePosition.Value, out hit);
 
         }
 
@@ -329,8 +389,14 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            return Input.GetMouseButtonUp(_defaultMouseButtonIndex) &&
-                   RaycastToGameObject(gameObject, mainCamera, Input.mousePosition, out hit);
+            var mousePosition = GetMousePosition();
+
+            if (!mousePosition.HasValue)
+            {
+                return false;
+            }
+
+            return GetMouseButtonUp() && RaycastToGameObject(gameObject, mainCamera, mousePosition.Value, out hit);
 
         }
 
@@ -341,7 +407,13 @@ namespace CandyCoded
         public static bool GetMouseButtonUp()
         {
 
-            return Input.GetMouseButtonUp(_defaultMouseButtonIndex);
+#if ENABLE_INPUT_SYSTEM
+            return defaultMouseButtonIndex == 0
+                ? Mouse.current.leftButton.wasReleasedThisFrame
+                : Mouse.current.rightButton.wasReleasedThisFrame;
+#else
+            return Input.GetMouseButtonUp(defaultMouseButtonIndex);
+#endif
 
         }
 
@@ -352,7 +424,11 @@ namespace CandyCoded
         public static Vector3? GetMousePosition()
         {
 
+#if ENABLE_INPUT_SYSTEM
+            return Mouse.current.position.ReadValue();
+#else
             return Input.mousePosition;
+#endif
 
         }
 
@@ -365,15 +441,15 @@ namespace CandyCoded
         public static Touch? GetActiveTouch(int fingerId, params TouchPhase[] touchPhasesFilter)
         {
 
-            if (!Input.touchSupported || Input.touchCount <= 0)
+            if (!touchSupported || touchCount <= 0)
             {
                 return null;
             }
 
-            foreach (var touch in Input.touches)
+            foreach (var touch in touches)
             {
 
-                if (touch.fingerId.Equals(fingerId) && touchPhasesFilter.Contains(touch.phase))
+                if (touch.GetTouchId().Equals(fingerId) && touchPhasesFilter.Contains(touch.phase))
                 {
 
                     return touch;
@@ -394,12 +470,12 @@ namespace CandyCoded
         public static Touch? GetActiveTouch(params TouchPhase[] touchPhasesFilter)
         {
 
-            if (!Input.touchSupported || Input.touchCount <= 0)
+            if (!touchSupported || touchCount <= 0)
             {
                 return null;
             }
 
-            foreach (var touch in Input.touches)
+            foreach (var touch in touches)
             {
 
                 if (touchPhasesFilter.Contains(touch.phase))
@@ -423,15 +499,15 @@ namespace CandyCoded
         public static Touch? GetActiveTouch(int fingerId)
         {
 
-            if (!Input.touchSupported || Input.touchCount <= 0)
+            if (!touchSupported || touchCount <= 0)
             {
                 return null;
             }
 
-            foreach (var touch in Input.touches)
+            foreach (var touch in touches)
             {
 
-                if (touch.fingerId.Equals(fingerId))
+                if (touch.GetTouchId().Equals(fingerId))
                 {
 
                     return touch;
@@ -458,21 +534,21 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            if (!Input.touchSupported || Input.touchCount <= 0)
+            if (!touchSupported || touchCount <= 0)
             {
                 return false;
             }
 
-            foreach (var touch in Input.touches)
+            foreach (var touch in touches)
             {
 
                 if (!touch.phase.Equals(TouchPhase.Began) ||
-                    !RaycastToGameObject(gameObject, mainCamera, touch.position, out hit))
+                    !RaycastToGameObject(gameObject, mainCamera, touch.GetTouchPosition(), out hit))
                 {
                     continue;
                 }
 
-                currentFingerId = touch.fingerId;
+                currentFingerId = touch.GetTouchId();
 
                 return true;
 
@@ -496,21 +572,21 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            if (!Input.touchSupported || Input.touchCount <= 0)
+            if (!touchSupported || touchCount <= 0)
             {
                 return false;
             }
 
-            foreach (var touch in Input.touches)
+            foreach (var touch in touches)
             {
 
                 if (!touch.phase.Equals(TouchPhase.Began) ||
-                    !RaycastToGameObject(gameObject, mainCamera, touch.position, out hit))
+                    !RaycastToGameObject(gameObject, mainCamera, touch.GetTouchPosition(), out hit))
                 {
                     continue;
                 }
 
-                currentFingerId = touch.fingerId;
+                currentFingerId = touch.GetTouchId();
 
                 return true;
 
@@ -535,7 +611,7 @@ namespace CandyCoded
                 return false;
             }
 
-            currentFingerId = touch.Value.fingerId;
+            currentFingerId = touch.Value.GetTouchId();
 
             return true;
 
@@ -555,6 +631,22 @@ namespace CandyCoded
         }
 
         /// <summary>
+        ///     Returns a unique ID associated to a specific touch.
+        /// </summary>
+        /// <param name="touch">Reference to a specific touch.</param>
+        /// <returns>int</returns>
+        public static int GetTouchId(this Touch touch)
+        {
+
+#if ENABLE_INPUT_SYSTEM
+            return touch.finger.index;
+#else
+            return touch.fingerId;
+#endif
+
+        }
+
+        /// <summary>
         ///     Returns the position of a specific touch.
         /// </summary>
         /// <param name="currentFingerId">The stored unique finger ID of the touch.</param>
@@ -569,7 +661,23 @@ namespace CandyCoded
 
             var touch = GetActiveTouch(currentFingerId.Value);
 
-            return touch?.position;
+            return touch?.GetTouchPosition();
+
+        }
+
+        /// <summary>
+        ///     Returns the position of a specific touch.
+        /// </summary>
+        /// <param name="touch">Reference to a specific touch.</param>
+        /// <returns>Vector3</returns>
+        public static Vector3 GetTouchPosition(this Touch touch)
+        {
+
+#if ENABLE_INPUT_SYSTEM
+            return touch.screenPosition;
+#else
+            return touch.position;
+#endif
 
         }
 
@@ -594,7 +702,8 @@ namespace CandyCoded
 
             var touch = GetActiveTouch(currentFingerId.Value, TouchPhase.Ended, TouchPhase.Canceled);
 
-            return touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit);
+            return touch.HasValue &&
+                   RaycastToGameObject(gameObject, mainCamera, touch.Value.GetTouchPosition(), out hit);
 
         }
 
@@ -619,7 +728,8 @@ namespace CandyCoded
 
             var touch = GetActiveTouch(currentFingerId.Value, TouchPhase.Ended, TouchPhase.Canceled);
 
-            return touch.HasValue && RaycastToGameObject(gameObject, mainCamera, touch.Value.position, out hit);
+            return touch.HasValue &&
+                   RaycastToGameObject(gameObject, mainCamera, touch.Value.GetTouchPosition(), out hit);
 
         }
 
@@ -657,7 +767,7 @@ namespace CandyCoded
                 return false;
             }
 
-            currentFingerId = touch.Value.fingerId;
+            currentFingerId = touch.Value.GetTouchId();
 
             return true;
 
