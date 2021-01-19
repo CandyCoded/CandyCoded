@@ -8,7 +8,7 @@ namespace CandyCoded
 {
 
     /// <summary>
-    /// CustomEditorExtensions
+    ///     CustomEditorExtensions
     /// </summary>
     public static class CustomEditorExtensions
     {

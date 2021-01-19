@@ -7,7 +7,7 @@ namespace CandyCoded
 {
 
     /// <summary>
-    /// Raycast
+    ///     Raycast
     /// </summary>
     public static class Raycast
     {

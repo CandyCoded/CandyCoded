@@ -8,7 +8,7 @@ namespace CandyCoded
 {
 
     /// <summary>
-    /// StringReference
+    ///     StringReference
     /// </summary>
     [CreateAssetMenu(fileName = "StringReference", menuName = "CandyCoded/StringReference")]
     [HelpURL("https://github.com/CandyCoded/CandyCoded/blob/master/Documentation/4.%20ScriptableObject/String.md")]

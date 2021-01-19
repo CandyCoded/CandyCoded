@@ -6,7 +6,7 @@ namespace CandyCoded
 {
 
     /// <summary>
-    /// Math
+    ///     Math
     /// </summary>
     public static class Math
     {

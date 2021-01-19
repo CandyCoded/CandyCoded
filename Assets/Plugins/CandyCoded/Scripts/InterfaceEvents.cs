@@ -9,7 +9,7 @@ namespace CandyCoded.Interfaces
 {
 
     /// <summary>
-    /// InterfaceEvents
+    ///     InterfaceEvents
     /// </summary>
     public static class InterfaceEvents
     {

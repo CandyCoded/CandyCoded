@@ -14,7 +14,7 @@ namespace CandyCoded
     // Disables "An abstract class should have both abstract and concrete methods" warning as class must extend CustomScriptableObject.
 
     /// <summary>
-    /// ListReference
+    ///     ListReference
     /// </summary>
     [HelpURL("https://github.com/CandyCoded/CandyCoded/blob/master/Documentation/4.%20ScriptableObject/List.md")]
     public abstract class ListReference<T> : CustomScriptableObject

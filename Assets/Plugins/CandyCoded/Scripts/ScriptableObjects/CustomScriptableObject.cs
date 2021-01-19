@@ -9,7 +9,7 @@ namespace CandyCoded
 {
 
     /// <summary>
-    /// CustomScriptableObject
+    ///     CustomScriptableObject
     /// </summary>
     public abstract class CustomScriptableObject : ScriptableObject
     {

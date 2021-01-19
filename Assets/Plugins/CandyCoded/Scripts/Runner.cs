@@ -8,7 +8,7 @@ namespace CandyCoded
 {
 
     /// <summary>
-    /// Runner
+    ///     Runner
     /// </summary>
     public class Runner : MonoBehaviour
     {

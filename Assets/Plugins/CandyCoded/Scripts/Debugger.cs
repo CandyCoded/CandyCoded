@@ -7,7 +7,7 @@ namespace CandyCoded
 {
 
     /// <summary>
-    /// Debugger
+    ///     Debugger
     /// </summary>
     public static class Debugger
     {

@@ -8,7 +8,7 @@ namespace CandyCoded
 {
 
     /// <summary>
-    /// IntReference
+    ///     IntReference
     /// </summary>
     [CreateAssetMenu(fileName = "IntReference", menuName = "CandyCoded/IntReference")]
     [HelpURL("https://github.com/CandyCoded/CandyCoded/blob/master/Documentation/4.%20ScriptableObject/Int.md")]

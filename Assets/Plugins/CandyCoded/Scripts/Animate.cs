@@ -7,7 +7,7 @@ namespace CandyCoded
 {
 
     /// <summary>
-    /// Animate
+    ///     Animate
     /// </summary>
     public static class Animate
     {

@@ -9,7 +9,7 @@ namespace CandyCoded
 {
 
     /// <summary>
-    /// SaveManager
+    ///     SaveManager
     /// </summary>
     public static class SaveManager
     {
