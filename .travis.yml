@@ -3,7 +3,7 @@ language: objective-c
 osx_image: xcode11.2
 branches:
   only:
-    - master
+    - main
 cache:
   timeout: 86400 # 1 day
   directories:
