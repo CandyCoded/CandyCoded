@@ -14,7 +14,7 @@ namespace CandyCoded
 {
 
     /// <summary>
-    /// InputManager
+    ///     InputManager
     /// </summary>
     public static class InputManager
     {
