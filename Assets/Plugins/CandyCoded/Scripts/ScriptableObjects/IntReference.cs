@@ -11,7 +11,7 @@ namespace CandyCoded
     ///     IntReference
     /// </summary>
     [CreateAssetMenu(fileName = "IntReference", menuName = "CandyCoded/IntReference")]
-    [HelpURL("https://github.com/CandyCoded/CandyCoded/blob/master/Documentation/4.%20ScriptableObject/Int.md")]
+    [HelpURL("https://github.com/CandyCoded/CandyCoded/blob/main/Documentation/4.%20ScriptableObject/Int.md")]
     public class IntReference : CustomGenericScriptableObject<int>
     {
 

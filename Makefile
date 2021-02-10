@@ -9,7 +9,7 @@ install:
 test: SHELL:=/bin/bash
 test:
 	shellcheck Scripts/*.sh
-	bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/master/bin/test.sh)
+	bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/main/bin/test.sh)
 
 clean:
 	git clean -xdf
@@ -18,4 +18,4 @@ deploy:
 	git subtree push --prefix Assets/Plugins/CandyCoded origin upm
 
 deploy-force:
-	git push origin `git subtree split --prefix Assets/Plugins/CandyCoded master`:upm --force
+	git push origin `git subtree split --prefix Assets/Plugins/CandyCoded main`:upm --force

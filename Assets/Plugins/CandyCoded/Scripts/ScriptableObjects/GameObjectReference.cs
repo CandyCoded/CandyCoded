@@ -11,7 +11,7 @@ namespace CandyCoded
     ///     GameObjectReference
     /// </summary>
     [CreateAssetMenu(fileName = "GameObjectReference", menuName = "CandyCoded/GameObjectReference")]
-    [HelpURL("https://github.com/CandyCoded/CandyCoded/blob/master/Documentation/4.%20ScriptableObject/GameObject.md")]
+    [HelpURL("https://github.com/CandyCoded/CandyCoded/blob/main/Documentation/4.%20ScriptableObject/GameObject.md")]
     public class GameObjectReference : CustomGenericScriptableObject<GameObject>
     {
 
