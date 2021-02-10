@@ -16,7 +16,7 @@ namespace CandyCoded
     /// <summary>
     ///     ListReference
     /// </summary>
-    [HelpURL("https://github.com/CandyCoded/CandyCoded/blob/master/Documentation/4.%20ScriptableObject/List.md")]
+    [HelpURL("https://github.com/CandyCoded/CandyCoded/blob/main/Documentation/4.%20ScriptableObject/List.md")]
     public abstract class ListReference<T> : CustomScriptableObject
     {
 
