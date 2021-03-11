@@ -1,5 +1,13 @@
 # Changelog
 
+## [v4.3.0](https://github.com/CandyCoded/CandyCoded/tree/v4.3.0) - (2021-03-11)
+
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v4.2.0...v4.3.0)
+
+- Added InteractionEvents component. (#160) [#160](https://github.com/CandyCoded/CandyCoded/pull/160)
+- Replaced master with main throughout the repo. (#161) [#161](https://github.com/CandyCoded/CandyCoded/pull/161)
+- Added com.unity.inputsystem to list of package dependencies. (#159) [#159](https://github.com/CandyCoded/CandyCoded/pull/159)
+
 ## [v4.2.0](https://github.com/CandyCoded/CandyCoded/tree/v4.2.0) - (2021-01-19)
 
 [Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v4.1.0...v4.2.0)
