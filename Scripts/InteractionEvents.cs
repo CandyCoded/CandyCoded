@@ -37,6 +37,7 @@ namespace CandyCoded
     /// <summary>
     ///     InteractionEvents
     /// </summary>
+    [AddComponentMenu("CandyCoded/InteractionEvents")]
     public class InteractionEvents : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler,
         IPointerUpHandler, IPointerClickHandler
     {
