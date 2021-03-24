@@ -22,7 +22,7 @@ namespace CandyCoded
         public static int defaultMouseButtonIndex = 0;
 
 #if ENABLE_INPUT_SYSTEM
-        public static bool touchSupported => EnhancedTouchSupport.enabled;
+        public static bool touchSupported => Touchscreen.current != null;
 
         public static ReadOnlyArray<Touch> touches => Touch.activeTouches;
 
@@ -40,7 +40,7 @@ namespace CandyCoded
         private static void Setup()
         {
 
-            if (Touchscreen.current == null)
+            if (EnhancedTouchSupport.enabled)
             {
                 return;
             }
