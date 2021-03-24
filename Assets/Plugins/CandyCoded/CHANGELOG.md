@@ -1,5 +1,11 @@
 # Changelog
 
+## [v4.3.1](https://github.com/CandyCoded/CandyCoded/tree/v4.3.1) - (2021-03-23)
+
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v4.3.0...v4.3.1)
+
+- Changed how touchSupported is calculated. (#162) [#162](https://github.com/CandyCoded/CandyCoded/pull/162)
+
 ## [v4.3.0](https://github.com/CandyCoded/CandyCoded/tree/v4.3.0) - (2021-03-11)
 
 [Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v4.2.0...v4.3.0)
