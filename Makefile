@@ -10,6 +10,9 @@ test:
 	shellcheck Scripts/*.sh
 	bash <(curl -fsSL https://raw.githubusercontent.com/neogeek/unity-ci-tools/main/bin/test.sh)
 
+changelog:
+	generate-local-changelog -u -i > CHANGELOG.md
+
 clean:
 	git clean -xdf
 
