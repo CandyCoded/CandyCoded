@@ -1,5 +1,11 @@
 # Changelog
 
+## [v4.3.2](https://github.com/CandyCoded/CandyCoded/tree/v4.3.2) - (2021-03-26)
+
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v4.3.1...v4.3.2)
+
+- Added missing Input System dependancy. (#163) [#163](https://github.com/CandyCoded/CandyCoded/pull/163)
+
 ## [v4.3.1](https://github.com/CandyCoded/CandyCoded/tree/v4.3.1) - (2021-03-23)
 
 [Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v4.3.0...v4.3.1)
