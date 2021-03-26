@@ -4,7 +4,7 @@ mkdir -p Build
 
 mv Assets/Plugins/CandyCoded/Tests Assets/Plugins/CandyCoded/Tests~
 
-BUILD_TAG=$(cat Documentation/Version.txt)
+BUILD_TAG=$(git tag | sort -V | tail -n1)
 
 LATEST_UNITY_VERSION=$(find-unity)
 
