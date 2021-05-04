@@ -1,7 +1,9 @@
 // Copyright (c) Scott Doxey. All Rights Reserved. Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
@@ -104,6 +106,40 @@ namespace CandyCoded
             }
 
             var result = GetMouseButtonDown(gameObject, mainCamera, out hit);
+
+            if (!result)
+            {
+                return false;
+            }
+
+            currentFingerId = defaultMouseButtonIndex;
+
+            return true;
+
+        }
+
+        /// <summary>
+        ///     Returns true if the user has either pressed the primary mouse button or touched the screen over a specific
+        ///     GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
+        /// <param name="hits">The results of the raycast.</param>
+        /// <returns>bool</returns>
+        public static bool GetInputDown(this GameObject gameObject, ref int? currentFingerId,
+            ref List<RaycastResult> hits)
+        {
+
+            hits ??= new List<RaycastResult>();
+
+            if (touchSupported)
+            {
+
+                return GetTouchDown(gameObject, ref currentFingerId, ref hits);
+
+            }
+
+            var result = GetMouseButtonDown(gameObject, ref hits);
 
             if (!result)
             {
@@ -248,6 +284,45 @@ namespace CandyCoded
         }
 
         /// <summary>
+        ///     Returns true if the user has either released the primary mouse button or ended a touch on the screen over a
+        ///     specific GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
+        /// <param name="hits">The results of the raycast.</param>
+        /// <returns>bool</returns>
+        public static bool GetInputUp(this GameObject gameObject, ref int? currentFingerId,
+            ref List<RaycastResult> hits)
+        {
+
+            hits ??= new List<RaycastResult>();
+
+            if (!currentFingerId.HasValue)
+            {
+                return false;
+            }
+
+            if (touchSupported)
+            {
+
+                return GetTouchUp(gameObject, ref currentFingerId, ref hits);
+
+            }
+
+            var result = GetMouseButtonUp(gameObject, ref hits);
+
+            if (!result)
+            {
+                return false;
+            }
+
+            currentFingerId = null;
+
+            return true;
+
+        }
+
+        /// <summary>
         ///     Returns true if the user has either released the primary mouse button or ended a touch on the screen.
         /// </summary>
         /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
@@ -338,6 +413,28 @@ namespace CandyCoded
         }
 
         /// <summary>
+        ///     Returns true if the user has pressed the primary mouse button over a specific GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="hits">The results of the raycast.</param>
+        /// <returns>bool</returns>
+        public static bool GetMouseButtonDown(this GameObject gameObject, ref List<RaycastResult> hits)
+        {
+
+            hits ??= new List<RaycastResult>();
+
+            var mousePosition = GetMousePosition();
+
+            if (!mousePosition.HasValue)
+            {
+                return false;
+            }
+
+            return GetMouseButtonDown() && RaycastToGameObject(gameObject, mousePosition.Value, ref hits);
+
+        }
+
+        /// <summary>
         ///     Returns true if the user has pressed the primary mouse button.
         /// </summary>
         /// <returns>bool</returns>
@@ -397,6 +494,28 @@ namespace CandyCoded
             }
 
             return GetMouseButtonUp() && RaycastToGameObject(gameObject, mainCamera, mousePosition.Value, out hit);
+
+        }
+
+        /// <summary>
+        ///     Returns true if the user has released the primary mouse button over a specific GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="hits">The results of the raycast.</param>
+        /// <returns>bool</returns>
+        public static bool GetMouseButtonUp(this GameObject gameObject, ref List<RaycastResult> hits)
+        {
+
+            hits ??= new List<RaycastResult>();
+
+            var mousePosition = GetMousePosition();
+
+            if (!mousePosition.HasValue)
+            {
+                return false;
+            }
+
+            return GetMouseButtonUp() && RaycastToGameObject(gameObject, mousePosition.Value, ref hits);
 
         }
 
@@ -597,6 +716,43 @@ namespace CandyCoded
         }
 
         /// <summary>
+        ///     Returns true if the user has touched the screen over a specific GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
+        /// <param name="hits">The results of the raycast.</param>
+        /// <returns>bool</returns>
+        public static bool GetTouchDown(this GameObject gameObject, ref int? currentFingerId,
+            ref List<RaycastResult> hits)
+        {
+
+            hits ??= new List<RaycastResult>();
+
+            if (!touchSupported || touchCount <= 0)
+            {
+                return false;
+            }
+
+            foreach (var touch in touches)
+            {
+
+                if (!touch.phase.Equals(TouchPhase.Began) ||
+                    !RaycastToGameObject(gameObject, touch.GetTouchPosition(), ref hits))
+                {
+                    continue;
+                }
+
+                currentFingerId = touch.GetTouchId();
+
+                return true;
+
+            }
+
+            return false;
+
+        }
+
+        /// <summary>
         ///     Returns true if the user has touched the screen.
         /// </summary>
         /// <param name="currentFingerId">A variable used to store the unique finger ID of a touch event.</param>
@@ -734,6 +890,31 @@ namespace CandyCoded
         }
 
         /// <summary>
+        ///     Returns true if the user has ended a touch on the screen over a specific GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
+        /// <param name="hits">The results of the raycast.</param>
+        /// <returns>bool</returns>
+        public static bool GetTouchUp(this GameObject gameObject, ref int? currentFingerId,
+            ref List<RaycastResult> hits)
+        {
+
+            hits ??= new List<RaycastResult>();
+
+            if (!currentFingerId.HasValue)
+            {
+                return false;
+            }
+
+            var touch = GetActiveTouch(currentFingerId.Value, TouchPhase.Ended, TouchPhase.Canceled);
+
+            return touch.HasValue &&
+                   RaycastToGameObject(gameObject, touch.Value.GetTouchPosition(), ref hits);
+
+        }
+
+        /// <summary>
         ///     Returns true if the user has ended a touch on the screen.
         /// </summary>
         /// <param name="currentFingerId">The stored unique finger ID of the touch event.</param>
@@ -822,6 +1003,26 @@ namespace CandyCoded
             hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, gameObject.GetLayerMask());
 
             return hit && hit.transform.IsChildOf(gameObject.transform);
+
+        }
+
+        /// <summary>
+        ///     Returns true if a position collides with a GameObject.
+        /// </summary>
+        /// <param name="gameObject">GameObject to test.</param>
+        /// <param name="position">Vector3 used to test raycast.</param>
+        /// <param name="hits">The results of the raycast.</param>
+        /// <returns>bool</returns>
+        public static bool RaycastToGameObject(GameObject gameObject, Vector3 position, ref List<RaycastResult> hits)
+        {
+
+            hits ??= new List<RaycastResult>();
+
+            var pointerEventData = new PointerEventData(EventSystem.current) { position = position };
+
+            EventSystem.current.RaycastAll(pointerEventData, hits);
+
+            return hits.Count > 0 && hits[0].gameObject.transform.IsChildOf(gameObject.transform);
 
         }
 
