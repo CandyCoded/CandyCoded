@@ -661,7 +661,8 @@ namespace CandyCoded
             foreach (var touch in touches)
             {
 
-                if (!touch.phase.Equals(TouchPhase.Began) ||
+                if (currentFingerId.HasValue ||
+                    !touch.phase.Equals(TouchPhase.Began) && !touch.phase.Equals(TouchPhase.Moved) ||
                     !RaycastToGameObject(gameObject, mainCamera, touch.GetTouchPosition(), out hit))
                 {
                     continue;
@@ -699,7 +700,8 @@ namespace CandyCoded
             foreach (var touch in touches)
             {
 
-                if (!touch.phase.Equals(TouchPhase.Began) ||
+                if (currentFingerId.HasValue ||
+                    !touch.phase.Equals(TouchPhase.Began) && !touch.phase.Equals(TouchPhase.Moved) ||
                     !RaycastToGameObject(gameObject, mainCamera, touch.GetTouchPosition(), out hit))
                 {
                     continue;
@@ -736,7 +738,8 @@ namespace CandyCoded
             foreach (var touch in touches)
             {
 
-                if (!touch.phase.Equals(TouchPhase.Began) ||
+                if (currentFingerId.HasValue ||
+                    !touch.phase.Equals(TouchPhase.Began) && !touch.phase.Equals(TouchPhase.Moved) ||
                     !RaycastToGameObject(gameObject, touch.GetTouchPosition(), ref hits))
                 {
                     continue;
