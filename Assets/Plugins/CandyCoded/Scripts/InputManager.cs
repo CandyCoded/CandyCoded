@@ -65,23 +65,16 @@ namespace CandyCoded
             out RaycastHit hit)
         {
 
-            if (touchSupported)
+            var result = touchSupported
+                ? GetTouchDown(gameObject, mainCamera, ref currentFingerId, out hit)
+                : GetMouseButtonDown(gameObject, mainCamera, out hit);
+
+            if (result && !touchSupported)
             {
-
-                return GetTouchDown(gameObject, mainCamera, ref currentFingerId, out hit);
-
+                currentFingerId = defaultMouseButtonIndex;
             }
 
-            var result = GetMouseButtonDown(gameObject, mainCamera, out hit);
-
-            if (!result)
-            {
-                return false;
-            }
-
-            currentFingerId = defaultMouseButtonIndex;
-
-            return true;
+            return result;
 
         }
 
@@ -98,23 +91,16 @@ namespace CandyCoded
             out RaycastHit2D hit)
         {
 
-            if (touchSupported)
+            var result = touchSupported
+                ? GetTouchDown(gameObject, mainCamera, ref currentFingerId, out hit)
+                : GetMouseButtonDown(gameObject, mainCamera, out hit);
+
+            if (result && !touchSupported)
             {
-
-                return GetTouchDown(gameObject, mainCamera, ref currentFingerId, out hit);
-
+                currentFingerId = defaultMouseButtonIndex;
             }
 
-            var result = GetMouseButtonDown(gameObject, mainCamera, out hit);
-
-            if (!result)
-            {
-                return false;
-            }
-
-            currentFingerId = defaultMouseButtonIndex;
-
-            return true;
+            return result;
 
         }
 
@@ -132,23 +118,16 @@ namespace CandyCoded
 
             hits ??= new List<RaycastResult>();
 
-            if (touchSupported)
+            var result = touchSupported
+                ? GetTouchDown(gameObject, ref currentFingerId, ref hits)
+                : GetMouseButtonDown(gameObject, ref hits);
+
+            if (result && !touchSupported)
             {
-
-                return GetTouchDown(gameObject, ref currentFingerId, ref hits);
-
+                currentFingerId = defaultMouseButtonIndex;
             }
 
-            var result = GetMouseButtonDown(gameObject, ref hits);
-
-            if (!result)
-            {
-                return false;
-            }
-
-            currentFingerId = defaultMouseButtonIndex;
-
-            return true;
+            return result;
 
         }
 
@@ -160,23 +139,14 @@ namespace CandyCoded
         public static bool GetInputDown(ref int? currentFingerId)
         {
 
-            if (touchSupported)
+            var result = touchSupported ? GetTouchDown(ref currentFingerId) : GetMouseButtonDown();
+
+            if (result && !touchSupported)
             {
-
-                return GetTouchDown(ref currentFingerId);
-
+                currentFingerId = defaultMouseButtonIndex;
             }
 
-            var result = GetMouseButtonDown();
-
-            if (!result)
-            {
-                return false;
-            }
-
-            currentFingerId = defaultMouseButtonIndex;
-
-            return true;
+            return result;
 
         }
 
@@ -223,23 +193,16 @@ namespace CandyCoded
                 return false;
             }
 
-            if (touchSupported)
+            var result = touchSupported
+                ? GetTouchUp(gameObject, mainCamera, ref currentFingerId, out hit)
+                : GetMouseButtonUp(gameObject, mainCamera, out hit);
+
+            if (result)
             {
-
-                return GetTouchUp(gameObject, mainCamera, ref currentFingerId, out hit);
-
+                currentFingerId = null;
             }
 
-            var result = GetMouseButtonUp(gameObject, mainCamera, out hit);
-
-            if (!result)
-            {
-                return false;
-            }
-
-            currentFingerId = null;
-
-            return true;
+            return result;
 
         }
 
@@ -263,23 +226,16 @@ namespace CandyCoded
                 return false;
             }
 
-            if (touchSupported)
+            var result = touchSupported
+                ? GetTouchUp(gameObject, mainCamera, ref currentFingerId, out hit)
+                : GetMouseButtonUp(gameObject, mainCamera, out hit);
+
+            if (result)
             {
-
-                return GetTouchUp(gameObject, mainCamera, ref currentFingerId, out hit);
-
+                currentFingerId = null;
             }
 
-            var result = GetMouseButtonUp(gameObject, mainCamera, out hit);
-
-            if (!result)
-            {
-                return false;
-            }
-
-            currentFingerId = null;
-
-            return true;
+            return result;
 
         }
 
@@ -302,23 +258,16 @@ namespace CandyCoded
                 return false;
             }
 
-            if (touchSupported)
+            var result = touchSupported
+                ? GetTouchUp(gameObject, ref currentFingerId, ref hits)
+                : GetMouseButtonUp(gameObject, ref hits);
+
+            if (result)
             {
-
-                return GetTouchUp(gameObject, ref currentFingerId, ref hits);
-
+                currentFingerId = null;
             }
 
-            var result = GetMouseButtonUp(gameObject, ref hits);
-
-            if (!result)
-            {
-                return false;
-            }
-
-            currentFingerId = null;
-
-            return true;
+            return result;
 
         }
 
@@ -335,23 +284,14 @@ namespace CandyCoded
                 return false;
             }
 
-            if (touchSupported)
+            var result = touchSupported ? GetTouchUp(ref currentFingerId) : GetMouseButtonUp();
+
+            if (result)
             {
-
-                return GetTouchUp(ref currentFingerId);
-
+                currentFingerId = null;
             }
 
-            var result = GetMouseButtonUp();
-
-            if (!result)
-            {
-                return false;
-            }
-
-            currentFingerId = null;
-
-            return true;
+            return result;
 
         }
 
