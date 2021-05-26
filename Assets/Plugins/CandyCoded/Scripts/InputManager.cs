@@ -21,6 +21,8 @@ namespace CandyCoded
     public static class InputManager
     {
 
+        public static readonly HashSet<int> activeFingerIds = new HashSet<int>();
+
         public static int defaultMouseButtonIndex = 0;
 
 #if ENABLE_INPUT_SYSTEM
@@ -65,23 +67,16 @@ namespace CandyCoded
             out RaycastHit hit)
         {
 
-            if (touchSupported)
+            var result = touchSupported
+                ? GetTouchDown(gameObject, mainCamera, ref currentFingerId, out hit)
+                : GetMouseButtonDown(gameObject, mainCamera, out hit);
+
+            if (result && !touchSupported)
             {
-
-                return GetTouchDown(gameObject, mainCamera, ref currentFingerId, out hit);
-
+                currentFingerId = defaultMouseButtonIndex;
             }
 
-            var result = GetMouseButtonDown(gameObject, mainCamera, out hit);
-
-            if (!result)
-            {
-                return false;
-            }
-
-            currentFingerId = defaultMouseButtonIndex;
-
-            return true;
+            return result;
 
         }
 
@@ -98,23 +93,16 @@ namespace CandyCoded
             out RaycastHit2D hit)
         {
 
-            if (touchSupported)
+            var result = touchSupported
+                ? GetTouchDown(gameObject, mainCamera, ref currentFingerId, out hit)
+                : GetMouseButtonDown(gameObject, mainCamera, out hit);
+
+            if (result && !touchSupported)
             {
-
-                return GetTouchDown(gameObject, mainCamera, ref currentFingerId, out hit);
-
+                currentFingerId = defaultMouseButtonIndex;
             }
 
-            var result = GetMouseButtonDown(gameObject, mainCamera, out hit);
-
-            if (!result)
-            {
-                return false;
-            }
-
-            currentFingerId = defaultMouseButtonIndex;
-
-            return true;
+            return result;
 
         }
 
@@ -132,23 +120,16 @@ namespace CandyCoded
 
             hits ??= new List<RaycastResult>();
 
-            if (touchSupported)
+            var result = touchSupported
+                ? GetTouchDown(gameObject, ref currentFingerId, ref hits)
+                : GetMouseButtonDown(gameObject, ref hits);
+
+            if (result && !touchSupported)
             {
-
-                return GetTouchDown(gameObject, ref currentFingerId, ref hits);
-
+                currentFingerId = defaultMouseButtonIndex;
             }
 
-            var result = GetMouseButtonDown(gameObject, ref hits);
-
-            if (!result)
-            {
-                return false;
-            }
-
-            currentFingerId = defaultMouseButtonIndex;
-
-            return true;
+            return result;
 
         }
 
@@ -160,23 +141,14 @@ namespace CandyCoded
         public static bool GetInputDown(ref int? currentFingerId)
         {
 
-            if (touchSupported)
+            var result = touchSupported ? GetTouchDown(ref currentFingerId) : GetMouseButtonDown();
+
+            if (result && !touchSupported)
             {
-
-                return GetTouchDown(ref currentFingerId);
-
+                currentFingerId = defaultMouseButtonIndex;
             }
 
-            var result = GetMouseButtonDown();
-
-            if (!result)
-            {
-                return false;
-            }
-
-            currentFingerId = defaultMouseButtonIndex;
-
-            return true;
+            return result;
 
         }
 
@@ -223,23 +195,18 @@ namespace CandyCoded
                 return false;
             }
 
-            if (touchSupported)
+            var result = touchSupported
+                ? GetTouchUp(gameObject, mainCamera, ref currentFingerId, out hit)
+                : GetMouseButtonUp(gameObject, mainCamera, out hit);
+
+            if (result && currentFingerId.HasValue)
             {
+                activeFingerIds.Remove(currentFingerId.Value);
 
-                return GetTouchUp(gameObject, mainCamera, ref currentFingerId, out hit);
-
+                currentFingerId = null;
             }
 
-            var result = GetMouseButtonUp(gameObject, mainCamera, out hit);
-
-            if (!result)
-            {
-                return false;
-            }
-
-            currentFingerId = null;
-
-            return true;
+            return result;
 
         }
 
@@ -263,23 +230,18 @@ namespace CandyCoded
                 return false;
             }
 
-            if (touchSupported)
+            var result = touchSupported
+                ? GetTouchUp(gameObject, mainCamera, ref currentFingerId, out hit)
+                : GetMouseButtonUp(gameObject, mainCamera, out hit);
+
+            if (result && currentFingerId.HasValue)
             {
+                activeFingerIds.Remove(currentFingerId.Value);
 
-                return GetTouchUp(gameObject, mainCamera, ref currentFingerId, out hit);
-
+                currentFingerId = null;
             }
 
-            var result = GetMouseButtonUp(gameObject, mainCamera, out hit);
-
-            if (!result)
-            {
-                return false;
-            }
-
-            currentFingerId = null;
-
-            return true;
+            return result;
 
         }
 
@@ -302,23 +264,18 @@ namespace CandyCoded
                 return false;
             }
 
-            if (touchSupported)
+            var result = touchSupported
+                ? GetTouchUp(gameObject, ref currentFingerId, ref hits)
+                : GetMouseButtonUp(gameObject, ref hits);
+
+            if (result && currentFingerId.HasValue)
             {
+                activeFingerIds.Remove(currentFingerId.Value);
 
-                return GetTouchUp(gameObject, ref currentFingerId, ref hits);
-
+                currentFingerId = null;
             }
 
-            var result = GetMouseButtonUp(gameObject, ref hits);
-
-            if (!result)
-            {
-                return false;
-            }
-
-            currentFingerId = null;
-
-            return true;
+            return result;
 
         }
 
@@ -335,23 +292,16 @@ namespace CandyCoded
                 return false;
             }
 
-            if (touchSupported)
+            var result = touchSupported ? GetTouchUp(ref currentFingerId) : GetMouseButtonUp();
+
+            if (result && currentFingerId.HasValue)
             {
+                activeFingerIds.Remove(currentFingerId.Value);
 
-                return GetTouchUp(ref currentFingerId);
-
+                currentFingerId = null;
             }
 
-            var result = GetMouseButtonUp();
-
-            if (!result)
-            {
-                return false;
-            }
-
-            currentFingerId = null;
-
-            return true;
+            return result;
 
         }
 
@@ -661,13 +611,17 @@ namespace CandyCoded
             foreach (var touch in touches)
             {
 
-                if (!touch.phase.Equals(TouchPhase.Began) ||
+                if (currentFingerId.HasValue ||
+                    activeFingerIds.Contains(touch.GetTouchId()) ||
+                    !touch.phase.Equals(TouchPhase.Began) && !touch.phase.Equals(TouchPhase.Moved) ||
                     !RaycastToGameObject(gameObject, mainCamera, touch.GetTouchPosition(), out hit))
                 {
                     continue;
                 }
 
                 currentFingerId = touch.GetTouchId();
+
+                activeFingerIds.Add(currentFingerId.Value);
 
                 return true;
 
@@ -699,13 +653,17 @@ namespace CandyCoded
             foreach (var touch in touches)
             {
 
-                if (!touch.phase.Equals(TouchPhase.Began) ||
+                if (currentFingerId.HasValue ||
+                    activeFingerIds.Contains(touch.GetTouchId()) ||
+                    !touch.phase.Equals(TouchPhase.Began) && !touch.phase.Equals(TouchPhase.Moved) ||
                     !RaycastToGameObject(gameObject, mainCamera, touch.GetTouchPosition(), out hit))
                 {
                     continue;
                 }
 
                 currentFingerId = touch.GetTouchId();
+
+                activeFingerIds.Add(currentFingerId.Value);
 
                 return true;
 
@@ -736,13 +694,17 @@ namespace CandyCoded
             foreach (var touch in touches)
             {
 
-                if (!touch.phase.Equals(TouchPhase.Began) ||
+                if (currentFingerId.HasValue ||
+                    activeFingerIds.Contains(touch.GetTouchId()) ||
+                    !touch.phase.Equals(TouchPhase.Began) && !touch.phase.Equals(TouchPhase.Moved) ||
                     !RaycastToGameObject(gameObject, touch.GetTouchPosition(), ref hits))
                 {
                     continue;
                 }
 
                 currentFingerId = touch.GetTouchId();
+
+                activeFingerIds.Add(currentFingerId.Value);
 
                 return true;
 
@@ -768,6 +730,8 @@ namespace CandyCoded
             }
 
             currentFingerId = touch.Value.GetTouchId();
+
+            activeFingerIds.Add(currentFingerId.Value);
 
             return true;
 
@@ -943,14 +907,7 @@ namespace CandyCoded
 
             var touch = GetActiveTouch(TouchPhase.Ended, TouchPhase.Canceled);
 
-            if (!touch.HasValue)
-            {
-                return false;
-            }
-
-            currentFingerId = touch.Value.GetTouchId();
-
-            return true;
+            return touch.HasValue;
 
         }
 
