@@ -873,10 +873,8 @@ namespace CandyCoded
 
             var touch = GetActiveTouch(currentFingerId.Value, TouchPhase.Ended, TouchPhase.Canceled);
 
-            var result = touch.HasValue &&
-                         RaycastToGameObject(gameObject, touch.Value.GetTouchPosition(), ref hits);
-
-            return result;
+            return touch.HasValue &&
+                   RaycastToGameObject(gameObject, touch.Value.GetTouchPosition(), ref hits);
 
         }
 
