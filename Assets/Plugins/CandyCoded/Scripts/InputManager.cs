@@ -21,7 +21,7 @@ namespace CandyCoded
     public static class InputManager
     {
 
-        public static readonly HashSet<int> currentActiveFingerIds = new HashSet<int>();
+        public static readonly HashSet<int> activeFingerIds = new HashSet<int>();
 
         public static int defaultMouseButtonIndex = 0;
 
@@ -201,7 +201,7 @@ namespace CandyCoded
 
             if (result && currentFingerId.HasValue)
             {
-                currentActiveFingerIds.Remove(currentFingerId.Value);
+                activeFingerIds.Remove(currentFingerId.Value);
 
                 currentFingerId = null;
             }
@@ -236,7 +236,7 @@ namespace CandyCoded
 
             if (result && currentFingerId.HasValue)
             {
-                currentActiveFingerIds.Remove(currentFingerId.Value);
+                activeFingerIds.Remove(currentFingerId.Value);
 
                 currentFingerId = null;
             }
@@ -270,7 +270,7 @@ namespace CandyCoded
 
             if (result && currentFingerId.HasValue)
             {
-                currentActiveFingerIds.Remove(currentFingerId.Value);
+                activeFingerIds.Remove(currentFingerId.Value);
 
                 currentFingerId = null;
             }
@@ -296,7 +296,7 @@ namespace CandyCoded
 
             if (result && currentFingerId.HasValue)
             {
-                currentActiveFingerIds.Remove(currentFingerId.Value);
+                activeFingerIds.Remove(currentFingerId.Value);
 
                 currentFingerId = null;
             }
@@ -612,7 +612,7 @@ namespace CandyCoded
             {
 
                 if (currentFingerId.HasValue ||
-                    currentActiveFingerIds.Contains(touch.GetTouchId()) ||
+                    activeFingerIds.Contains(touch.GetTouchId()) ||
                     !touch.phase.Equals(TouchPhase.Began) && !touch.phase.Equals(TouchPhase.Moved) ||
                     !RaycastToGameObject(gameObject, mainCamera, touch.GetTouchPosition(), out hit))
                 {
@@ -621,7 +621,7 @@ namespace CandyCoded
 
                 currentFingerId = touch.GetTouchId();
 
-                currentActiveFingerIds.Add(currentFingerId.Value);
+                activeFingerIds.Add(currentFingerId.Value);
 
                 return true;
 
@@ -654,7 +654,7 @@ namespace CandyCoded
             {
 
                 if (currentFingerId.HasValue ||
-                    currentActiveFingerIds.Contains(touch.GetTouchId()) ||
+                    activeFingerIds.Contains(touch.GetTouchId()) ||
                     !touch.phase.Equals(TouchPhase.Began) && !touch.phase.Equals(TouchPhase.Moved) ||
                     !RaycastToGameObject(gameObject, mainCamera, touch.GetTouchPosition(), out hit))
                 {
@@ -663,7 +663,7 @@ namespace CandyCoded
 
                 currentFingerId = touch.GetTouchId();
 
-                currentActiveFingerIds.Add(currentFingerId.Value);
+                activeFingerIds.Add(currentFingerId.Value);
 
                 return true;
 
@@ -695,7 +695,7 @@ namespace CandyCoded
             {
 
                 if (currentFingerId.HasValue ||
-                    currentActiveFingerIds.Contains(touch.GetTouchId()) ||
+                    activeFingerIds.Contains(touch.GetTouchId()) ||
                     !touch.phase.Equals(TouchPhase.Began) && !touch.phase.Equals(TouchPhase.Moved) ||
                     !RaycastToGameObject(gameObject, touch.GetTouchPosition(), ref hits))
                 {
@@ -704,7 +704,7 @@ namespace CandyCoded
 
                 currentFingerId = touch.GetTouchId();
 
-                currentActiveFingerIds.Add(currentFingerId.Value);
+                activeFingerIds.Add(currentFingerId.Value);
 
                 return true;
 
@@ -731,7 +731,7 @@ namespace CandyCoded
 
             currentFingerId = touch.Value.GetTouchId();
 
-            currentActiveFingerIds.Add(currentFingerId.Value);
+            activeFingerIds.Add(currentFingerId.Value);
 
             return true;
 
