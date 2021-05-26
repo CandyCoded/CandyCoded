@@ -1,5 +1,6 @@
 engines:
-  duplication:
-    enabled: true
-    exclude_paths:
-      - 'Assets/Plugins/CandyCoded/Tests/Editor/*.cs'
+    duplication:
+        enabled: true
+        exclude_paths:
+            - 'Assets/Plugins/CandyCoded/Tests/Editor/**/*.cs'
+            - 'Documentation/**/*.cs'
