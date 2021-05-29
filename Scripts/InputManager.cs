@@ -75,6 +75,10 @@ namespace CandyCoded
             {
                 currentFingerId = defaultMouseButtonIndex;
             }
+            else if (!result && currentFingerId.HasValue)
+            {
+                activeFingerIds.Remove(currentFingerId.Value);
+            }
 
             return result;
 
@@ -100,6 +104,10 @@ namespace CandyCoded
             if (result && !touchSupported)
             {
                 currentFingerId = defaultMouseButtonIndex;
+            }
+            else if (!result && currentFingerId.HasValue)
+            {
+                activeFingerIds.Remove(currentFingerId.Value);
             }
 
             return result;
@@ -128,6 +136,10 @@ namespace CandyCoded
             {
                 currentFingerId = defaultMouseButtonIndex;
             }
+            else if (!result && currentFingerId.HasValue)
+            {
+                activeFingerIds.Remove(currentFingerId.Value);
+            }
 
             return result;
 
@@ -146,6 +158,10 @@ namespace CandyCoded
             if (result && !touchSupported)
             {
                 currentFingerId = defaultMouseButtonIndex;
+            }
+            else if (!result && currentFingerId.HasValue)
+            {
+                activeFingerIds.Remove(currentFingerId.Value);
             }
 
             return result;
