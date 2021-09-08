@@ -7,7 +7,6 @@
   "description": "CandyCoded is a collection of useful components and extensions for building in Unity. Whether you are building a quick prototype or a production-ready experience, CandyCoded will help you get there.\n\nFeatures\n- ObservableList object\n- Vector2, Vector3 and Vector4 AnimationCurves objects\n- Transform animation methods\n- Raycast reflect method\n- Custom ScriptableObjects with event handlers\n- Event Profiler editor window\n- EnumMask enum attribute\n- InputManager methods\n- SaveManager methods\n- Screenshot methods and editor tools",
   "license": "MIT",
   "dependencies": {
-    "com.unity.inputsystem": "1.0.2",
     "com.unity.modules.audio": "1.0.0",
     "com.unity.modules.physics": "1.0.0",
     "com.unity.modules.physics2d": "1.0.0",
