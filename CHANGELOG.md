@@ -1,5 +1,16 @@
 # Changelog
 
+## [v4.4.0](https://github.com/CandyCoded/CandyCoded/tree/v4.4.0) - (2021-11-13)
+
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v4.3.2...v4.4.0)
+
+- Added missing define tag. (#169) [#169](https://github.com/CandyCoded/CandyCoded/pull/169)
+- Removed input package from dependencies. (#168) [#168](https://github.com/CandyCoded/CandyCoded/pull/168)
+- Remove currentFingerId from activeFingerId if input down is false. (#167) [#167](https://github.com/CandyCoded/CandyCoded/pull/167)
+- Added custom build tool extensions. (#166) [#166](https://github.com/CandyCoded/CandyCoded/pull/166)
+- [hotfix] Multi-touch issues (#165) [#165](https://github.com/CandyCoded/CandyCoded/pull/165)
+- Added input methods for testing collisions on canvas objects. (#164) [#164](https://github.com/CandyCoded/CandyCoded/pull/164)
+
 ## [v4.3.2](https://github.com/CandyCoded/CandyCoded/tree/v4.3.2) - (2021-03-26)
 
 [Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v4.3.1...v4.3.2)
