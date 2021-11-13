@@ -40,7 +40,7 @@ CandyCoded is a collection of useful components and extensions for building in U
 ```json
 {
   "dependencies": {
-    "xyz.candycoded.candycoded": "https://github.com/CandyCoded/CandyCoded.git#v4.3.2",
+    "xyz.candycoded.candycoded": "https://github.com/CandyCoded/CandyCoded.git#v4.4.0",
     ...
   }
 }
@@ -51,7 +51,7 @@ CandyCoded is a collection of useful components and extensions for building in U
 ```json
 {
   "dependencies": {
-    "xyz.candycoded.candycoded": "4.3.2",
+    "xyz.candycoded.candycoded": "4.4.0",
     ...
   },
   "scopedRegistries": [
