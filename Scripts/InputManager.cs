@@ -126,7 +126,10 @@ namespace CandyCoded
             ref List<RaycastResult> hits)
         {
 
-            hits ??= new List<RaycastResult>();
+            if (hits == null)
+            {
+                hits = new List<RaycastResult>();
+            }
 
             var result = touchSupported
                 ? GetTouchDown(gameObject, ref currentFingerId, ref hits)
@@ -273,7 +276,10 @@ namespace CandyCoded
             ref List<RaycastResult> hits)
         {
 
-            hits ??= new List<RaycastResult>();
+            if (hits == null)
+            {
+                hits = new List<RaycastResult>();
+            }
 
             if (!currentFingerId.HasValue)
             {
@@ -387,7 +393,10 @@ namespace CandyCoded
         public static bool GetMouseButtonDown(this GameObject gameObject, ref List<RaycastResult> hits)
         {
 
-            hits ??= new List<RaycastResult>();
+            if (hits == null)
+            {
+                hits = new List<RaycastResult>();
+            }
 
             var mousePosition = GetMousePosition();
 
@@ -472,7 +481,10 @@ namespace CandyCoded
         public static bool GetMouseButtonUp(this GameObject gameObject, ref List<RaycastResult> hits)
         {
 
-            hits ??= new List<RaycastResult>();
+            if (hits == null)
+            {
+                hits = new List<RaycastResult>();
+            }
 
             var mousePosition = GetMousePosition();
 
@@ -700,7 +712,10 @@ namespace CandyCoded
             ref List<RaycastResult> hits)
         {
 
-            hits ??= new List<RaycastResult>();
+            if (hits == null)
+            {
+                hits = new List<RaycastResult>();
+            }
 
             if (!touchSupported || touchCount <= 0)
             {
@@ -880,7 +895,10 @@ namespace CandyCoded
             ref List<RaycastResult> hits)
         {
 
-            hits ??= new List<RaycastResult>();
+            if (hits == null)
+            {
+                hits = new List<RaycastResult>();
+            }
 
             if (!currentFingerId.HasValue)
             {
@@ -989,7 +1007,10 @@ namespace CandyCoded
         public static bool RaycastToGameObject(GameObject gameObject, Vector3 position, ref List<RaycastResult> hits)
         {
 
-            hits ??= new List<RaycastResult>();
+            if (hits == null)
+            {
+                hits = new List<RaycastResult>();
+            }
 
             var pointerEventData = new PointerEventData(EventSystem.current) { position = position };
 
