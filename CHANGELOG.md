@@ -1,5 +1,12 @@
 # Changelog
 
+## [v4.4.1](https://github.com/CandyCoded/CandyCoded/tree/v4.4.1) - (2022-02-11)
+
+[Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v4.4.0...v4.4.1)
+
+- Check for touch support before checking for current finger value. (#171) [#171](https://github.com/CandyCoded/CandyCoded/pull/171)
+- Removed the null coalescing operator from the input manager. (#170) [#170](https://github.com/CandyCoded/CandyCoded/pull/170)
+
 ## [v4.4.0](https://github.com/CandyCoded/CandyCoded/tree/v4.4.0) - (2021-11-13)
 
 [Full Changelog](https://github.com/CandyCoded/CandyCoded/compare/v4.3.2...v4.4.0)
