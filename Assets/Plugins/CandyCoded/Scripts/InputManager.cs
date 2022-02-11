@@ -209,7 +209,7 @@ namespace CandyCoded
 
             hit = new RaycastHit();
 
-            if (!currentFingerId.HasValue)
+            if (touchSupported && !currentFingerId.HasValue)
             {
                 return false;
             }
@@ -244,7 +244,7 @@ namespace CandyCoded
 
             hit = new RaycastHit2D();
 
-            if (!currentFingerId.HasValue)
+            if (touchSupported && !currentFingerId.HasValue)
             {
                 return false;
             }
@@ -281,7 +281,7 @@ namespace CandyCoded
                 hits = new List<RaycastResult>();
             }
 
-            if (!currentFingerId.HasValue)
+            if (touchSupported && !currentFingerId.HasValue)
             {
                 return false;
             }
@@ -309,7 +309,7 @@ namespace CandyCoded
         public static bool GetInputUp(ref int? currentFingerId)
         {
 
-            if (!currentFingerId.HasValue)
+            if (touchSupported && !currentFingerId.HasValue)
             {
                 return false;
             }
