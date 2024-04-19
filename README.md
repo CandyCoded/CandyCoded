@@ -2,11 +2,9 @@
 
 > Custom Unity Components that are delightful
 
-[![Build Status](https://app.bitrise.io/app/740be54739cb5238/status.svg?token=AiypsYbAjJ_ElxaLzl6S3w&branch=main)](https://app.bitrise.io/app/740be54739cb5238)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/690cb7ef3ade44978fcb5b70903ec95c)](https://www.codacy.com/gh/CandyCoded/CandyCoded/dashboard?utm_source=github.com&utm_medium=referral&utm_content=CandyCoded/CandyCoded&utm_campaign=Badge_Grade)
 [![Join the chat at https://discord.gg/nNtFsfd](https://img.shields.io/badge/discord-join%20chat-7289DA.svg)](https://discord.gg/nNtFsfd)
 [![npm](https://img.shields.io/npm/v/xyz.candycoded.candycoded)](https://www.npmjs.com/package/xyz.candycoded.candycoded)
-[![license](https://img.shields.io/npm/l/xyz.candycoded.candycoded)](https://github.com/CandyCoded/CandyCoded/blob/main/LICENSE)
+[![License](https://img.shields.io/npm/l/xyz.candycoded.candycoded)](https://github.com/CandyCoded/CandyCoded/blob/main/LICENSE)
 
 ## Introduction
 
