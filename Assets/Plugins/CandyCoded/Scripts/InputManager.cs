@@ -26,13 +26,13 @@ namespace CandyCoded
         public static int defaultMouseButtonIndex = 0;
 
 #if ENABLE_INPUT_SYSTEM
-        public static bool touchSupported => Touchscreen.current != null;
+        public static bool touchSupported => Touchscreen.current != null && touchCount > 0;
 
         public static ReadOnlyArray<Touch> touches => Touch.activeTouches;
 
         public static int touchCount => touches.Count;
 #else
-        public static bool touchSupported => Input.touchSupported;
+        public static bool touchSupported => Input.touchSupported && Input.touchCount > 0;
 
         public static Touch[] touches => Input.touches;
 
